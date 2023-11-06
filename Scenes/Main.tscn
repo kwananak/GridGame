@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://wn6bh748pp4d"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_107fo"]
+[ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_107fo")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="TitleLabel" type="RichTextLabel" parent="Menu"]
+texture_filter = 1
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 320.0
+offset_bottom = 88.0
+text = "Grid Game"
+fit_content = true
+
+[node name="Level1Button" type="Button" parent="Menu"]
+texture_filter = 1
+offset_left = 224.0
+offset_top = 112.0
+offset_right = 336.0
+offset_bottom = 160.0
+text = "Level 1"
+
+[node name="QuitButton" type="Button" parent="Menu"]
+texture_filter = 1
+offset_left = 224.0
+offset_top = 192.0
+offset_right = 336.0
+offset_bottom = 240.0
+text = "Quit"
+
+[connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
+[connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]

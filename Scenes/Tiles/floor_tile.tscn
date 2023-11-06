@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0dhbkmn8vh3a"]
+
+[ext_resource type="Texture2D" uid="uid://5sexb6oq643y" path="res://Sprites/Gray.png" id="1_k3ldq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
+size = Vector2(32, 32)
+
+[node name="FloorTile" type="Area2D"]
+position = Vector2(-32, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_f7yg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_k3ldq")
