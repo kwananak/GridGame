@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_qw6vk"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_ybf64"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Prefabs/invisible_wall.tscn" id="6_mjoxk"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/floor_tile.tscn" id="7_dj8ov"]
 [ext_resource type="PackedScene" uid="uid://cwm2jar10jael" path="res://Scenes/Tiles/wall_tile.tscn" id="8_sp0i5"]
@@ -10,30 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="9_q8q32"]
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="12_f3luk"]
 
-[sub_resource type="GDScript" id="GDScript_xq5uc"]
-script/source = "extends Button
-
-
-"
-
 [node name="Level1" type="Node2D"]
 
-[node name="LevelManager" type="Node" parent="."]
+[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("end_turn_calls")]
 script = ExtResource("1_qw6vk")
-firewall_speed = 1
 level_number = 1
+end_turn_calls = [NodePath("../Firewall")]
 
-[node name="UI" type="Node" parent="."]
-
-[node name="Button" type="Button" parent="UI"]
-visible = false
-z_index = 3
-offset_left = 192.0
-offset_top = 96.0
-offset_right = 352.0
-offset_bottom = 160.0
-text = "Game Over!!"
-script = SubResource("GDScript_xq5uc")
+[node name="UI" parent="." instance=ExtResource("2_ybf64")]
 
 [node name="Environment" type="Node" parent="."]
 
@@ -349,5 +334,4 @@ strength = 3
 z_index = 1
 position = Vector2(32, 32)
 
-[connection signal="pressed" from="UI/Button" to="LevelManager" method="_on_button_pressed"]
 [connection signal="area_entered" from="Environment/Floor/EndTile" to="LevelManager" method="_on_end_tile_area_entered"]

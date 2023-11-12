@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu0crjnnu6k86"]
+
+[ext_resource type="Script" path="res://Scripts/freeze_tile.gd" id="1_e7uw4"]
+[ext_resource type="Texture2D" uid="uid://ble5vxrg5w8xx" path="res://Sprites/Freeze.png" id="2_i8e73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26bmk"]
+
+[node name="FreezeTile" type="Area2D"]
+script = ExtResource("1_e7uw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_26bmk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.064, 0.064)
+texture = ExtResource("2_i8e73")
+centered = false
