@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dl6jgy6mcvq3n"]
 
-[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_qw6vk"]
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_t3jru"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_ybf64"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Prefabs/invisible_wall.tscn" id="6_mjoxk"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/floor_tile.tscn" id="7_dj8ov"]
@@ -13,8 +13,7 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("end_turn_calls")]
-script = ExtResource("1_qw6vk")
+[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_t3jru")]
 level_number = 1
 end_turn_calls = [NodePath("../Firewall")]
 
@@ -157,156 +156,156 @@ position = Vector2(32, 128)
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("9_q8q32")]
 position = Vector2(512, 128)
 
-[node name="Wall" type="Node" parent="Environment"]
+[node name="Walls" type="Node" parent="Environment"]
 
-[node name="WallTile" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(32, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile33" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile33" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(32, 96)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile34" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile34" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(32, 160)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile35" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile35" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(512, 96)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile36" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile36" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(512, 160)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile2" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile2" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(64, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile3" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile3" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(96, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile4" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile4" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(128, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile5" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile5" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(160, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile6" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile6" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(192, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile7" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile7" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(224, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile8" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile8" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(256, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile9" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile9" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(288, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile10" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile10" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(320, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile11" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile11" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(352, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile12" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile12" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(384, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile13" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile13" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(416, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile14" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile14" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(448, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile15" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile15" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(480, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile16" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile16" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(512, 64)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile17" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile17" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(32, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile18" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile18" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(64, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile19" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile19" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(96, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile20" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile20" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(128, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile21" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile21" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(160, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile22" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile22" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(192, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile23" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile23" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(224, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile24" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile24" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(256, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile25" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile25" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(288, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile26" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile26" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(320, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile27" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile27" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(352, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile28" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile28" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(384, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile29" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile29" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(416, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile30" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile30" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(448, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile31" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile31" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(480, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="WallTile32" parent="Environment/Wall" instance=ExtResource("8_sp0i5")]
+[node name="WallTile32" parent="Environment/Walls" instance=ExtResource("8_sp0i5")]
 position = Vector2(512, 192)
 scale = Vector2(0.996163, 1.01704)
 
-[node name="InvisibleWall" parent="Environment/Wall" instance=ExtResource("6_mjoxk")]
+[node name="InvisibleWall" parent="Environment/Walls" instance=ExtResource("6_mjoxk")]
 position = Vector2(0, 128)
 
-[node name="InvisibleWall2" parent="Environment/Wall" instance=ExtResource("6_mjoxk")]
+[node name="InvisibleWall2" parent="Environment/Walls" instance=ExtResource("6_mjoxk")]
 position = Vector2(544, 128)
 
 [node name="Trials" type="Node" parent="."]

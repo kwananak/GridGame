@@ -2,14 +2,14 @@ extends Area2D
 
 var ray
 var animated_sprite_2d
-@onready var level_manager = $"../LevelManager"
-@onready var start_tile = $"../Environment/Floor/StartTile"
-
 var moving = false
 var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
+
+@onready var level_manager = $"../LevelManager"
+@onready var start_tile = $"../Environment/Floor/StartTile"
 
 func _ready():
 	animated_sprite_2d = get_node("AnimatedSprite2D")
@@ -19,11 +19,6 @@ func _ready():
 
 func _process(_delta):
 	tumble_animation()
-
-# game over animation
-func tumble_animation():
-	if level_manager.game_over and !level_manager.game_won:
-		animated_sprite_2d.play("tumble")
 
 func _unhandled_input(event):
 	if moving:
@@ -35,6 +30,11 @@ func _unhandled_input(event):
 			if inputs[dir] == inputs.right:
 				animated_sprite_2d.flip_h = false
 			collision_check(dir)
+
+# game over animation
+func tumble_animation():
+	if level_manager.game_over and !level_manager.game_won:
+		animated_sprite_2d.play("tumble")
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):
@@ -61,7 +61,7 @@ func collision_check(dir):
 					collision.open_door()
 					move(dir)
 				else:
-					print("missing key(s)")
+					collision.pulsate()
 			_:
 				return
 

@@ -1,12 +1,13 @@
-extends Node
+extends Node2D
 
 var turn = 0: set = end_turn
 var freeze = 0: set = set_freeze
 var keys = []: set = set_keys
 var game_over = false
 var game_won = false
+var astar_grid = AStarGrid2D.new()
 
-# setup level specs from inspector
+# setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var firewall_speed = 1
 @export var firewall_step = 0.5
 @export var level_number = 0
@@ -19,8 +20,21 @@ var game_won = false
 @onready var camera = $"../../Camera2D"
 @onready var ui = $"../UI"
 
+func _ready():
+	initialize_grid()
+
 func _process(_delta):
 	process_camera()
+
+# sets up a* grid for path finding in level
+func initialize_grid():
+	astar_grid.size = Vector2i(get_viewport_rect().size) / tile_size
+	astar_grid.cell_size = Vector2i(tile_size, tile_size)
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
+	astar_grid.update()
+	for wall in $"../Environment/Walls".get_children():
+		astar_grid.set_point_solid(Vector2i(wall.position) / tile_size, true)
 
 # called when keys are acquired or used
 # shows inventory of key in UI, if any

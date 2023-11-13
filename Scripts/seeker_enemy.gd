@@ -1,5 +1,6 @@
 extends Area2D
 
+# set up speed of enemy from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var speed = 1
 
 @onready var level_manager = $"../../../LevelManager"
@@ -8,29 +9,12 @@ extends Area2D
 
 @export var cell_size = Vector2i(32, 32)
 
-var astar_grid = AStarGrid2D.new()
-var grid_size
-
-func _ready():
-	initialize_grid()
-
-func initialize_grid():
-	grid_size = Vector2i(get_viewport_rect().size) / cell_size
-	astar_grid.size = grid_size
-	astar_grid.cell_size = cell_size
-	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
-	astar_grid.update()
-	for wall in $"../../../Environment/Walls".get_children():
-		astar_grid.set_point_solid(Vector2i(wall.position) / cell_size, true)
-
-
-## Handles level manager's end_turn_call by moving towards next player
+## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
 ## Must subscribe to level manager calls
 func turn_call():
 	if level_manager.turn % speed !=0:
 		return
-	var direction = position.direction_to(astar_grid.get_id_path(Vector2i(position / 32), Vector2i(player.position / 32))[1] * 32)
+	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / 32), Vector2i(player.position / 32))[1] * 32)
 	if direction.x > 0:
 		animated_sprite_2d.flip_h = false
 	if direction.x < 0:

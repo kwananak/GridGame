@@ -20,7 +20,7 @@ func call_menu(level_number):
 func call_quit():
 	get_tree().quit()
 
-
+# instantiates test level from main menu
 func _on_test_level_button_pressed():
 	menu.visible = false
 	add_child(load("res://Scenes/test_level.tscn").instantiate())

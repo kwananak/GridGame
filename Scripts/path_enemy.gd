@@ -2,6 +2,7 @@ extends Area2D
 
 var animated_sprite_2d
 
+# add path nodes and set speed from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var path_nodes : Array[Node] = []
 @export var speed = 1
 

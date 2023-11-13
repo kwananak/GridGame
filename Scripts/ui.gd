@@ -1,8 +1,7 @@
 extends Node2D
 
-@onready var lm = $"../LevelManager" 
+@onready var level_manager = $"../LevelManager" 
 
-
-
+# relays quit level button press to level manager
 func _on_button_pressed():
-	lm._on_button_pressed()
+	level_manager._on_button_pressed()

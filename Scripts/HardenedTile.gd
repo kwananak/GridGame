@@ -1,6 +1,8 @@
 extends Area2D
 
+# set up the strength of the tile from the inspector
 @export var strength = 1
+
 @onready var sprite = $Sprite2D
 
 # calls _match_strength when game starts
