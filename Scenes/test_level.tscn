@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="3_imbq2"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_thwdk"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_h5lbe"]
+[ext_resource type="PackedScene" uid="uid://cwm2jar10jael" path="res://Scenes/Tiles/wall_tile.tscn" id="5_pvfc6"]
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="5_y0334"]
+[ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="6_h5bn4"]
 [ext_resource type="PackedScene" uid="uid://cu0crjnnu6k86" path="res://Scenes/Tiles/freeze_tile.tscn" id="7_qgyln"]
 [ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="8_fppc4"]
 [ext_resource type="Script" path="res://Scripts/key_tile.gd" id="9_mxy0c"]
@@ -15,7 +17,7 @@
 [node name="TestLevel" type="Node2D"]
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_g16cn")]
-end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/PathEnemy1/PathEnemy")]
+end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/PathEnemy1/PathEnemy"), NodePath("../Trials/SeekerEnemy1/SeekerEnemy")]
 
 [node name="UI" parent="." instance=ExtResource("2_fufk3")]
 
@@ -29,6 +31,15 @@ position = Vector2(128, 192)
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("3_imbq2")]
 
 [node name="Walls" type="Node" parent="Environment"]
+
+[node name="WallTile" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
+position = Vector2(192, 224)
+
+[node name="WallTile2" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
+position = Vector2(192, 192)
+
+[node name="WallTile3" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
+position = Vector2(192, 256)
 
 [node name="Trials" type="Node" parent="."]
 
@@ -48,6 +59,10 @@ position = Vector2(256, 64)
 position = Vector2(352, 64)
 
 [node name="SeekerEnemy1" type="Node" parent="Trials"]
+
+[node name="SeekerEnemy" parent="Trials/SeekerEnemy1" instance=ExtResource("6_h5bn4")]
+position = Vector2(224, 192)
+speed = 2
 
 [node name="FreezeTile1" type="Node" parent="Trials"]
 
