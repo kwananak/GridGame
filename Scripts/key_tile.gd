@@ -1,5 +1,7 @@
 extends Area2D
 
+var tile_type = "key"
+
 # set up the key type from the inspector
 @export_enum("blue", "red", "yellow") var key_type: String
 

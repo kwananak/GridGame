@@ -1,7 +1,6 @@
 extends Node2D
 
 var turn = 0: set = end_turn
-var freeze = 0: set = set_freeze
 var keys = []: set = set_keys
 var game_over = false
 var game_won = false
@@ -40,29 +39,21 @@ func initialize_grid():
 # shows inventory of key in UI, if any
 func set_keys(value):
 	keys = value
-	if !keys.is_empty():
-		var green_keys = ""
-		if keys.count(Color.GREEN) > 0:
-			green_keys += "Green Keys: " +str(keys.count(Color.GREEN))
-		var red_keys = ""
-		if keys.count(Color.RED) > 0:
-			red_keys += "Red Keys: " +str(keys.count(Color.RED))
-		var keys_ui = ui.get_node("KeysUI")
-		keys_ui.text = green_keys + "\n" + red_keys
-		keys_ui.visible = true
-	else:
+	if keys.is_empty():
 		ui.get_node("KeysUI").visible = false
-
-# called when freeze is picked up
-# shows remaining number of freezed turns, if any
-func set_freeze(value):
-	freeze = value
-	if freeze > 0:
-		var freeze_ui = ui.get_node("FreezeUI")
-		freeze_ui.text = "freeze = " + str(freeze)
-		freeze_ui.visible = true
 	else:
-		ui.get_node("FreezeUI").visible = false
+		var blue_keys = ""
+		if keys.count("blue") > 0:
+			blue_keys += "blue Keys: " +str(keys.count("blue"))
+		var red_keys = ""
+		if keys.count("red") > 0:
+			red_keys += "Red Keys: " +str(keys.count("red"))
+		var yellow_keys = ""
+		if keys.count("yellow") > 0:
+			yellow_keys += "Yellow Keys: " +str(keys.count("yellow"))
+		var keys_ui = ui.get_node("KeysUI")
+		keys_ui.text = blue_keys + "\n" + red_keys + "\n" + yellow_keys
+		keys_ui.visible = true
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
@@ -97,9 +88,6 @@ func call_game_over():
 
 # calls subscribed nodes when player makes a move
 func end_turn(value):
-	if freeze > 0 :
-		freeze -= 1
-		return
 	turn = value
 	for node in end_turn_calls:
 		await node.turn_call()

@@ -15,7 +15,6 @@ func _ready():
 	animated_sprite_2d = get_node("AnimatedSprite2D")
 	ray = get_node("RayCast2D")
 	position = start_tile.position.snapped(Vector2.ONE * level_manager.tile_size)
-	position += Vector2.ONE * level_manager.tile_size/2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
 
@@ -40,22 +39,15 @@ func collision_check(dir):
 		move(dir)
 	else:
 		var collision = ray.get_collider()
-		match collision.name:
-			"HardenedTile":
+		if not "tile_type" in collision:
+			return
+		match collision.tile_type:
+			"hardened":
 				collision.hit_by_player()
 				level_manager.turn += 1
-			"FreezeTile":
-				collision.set_freeze_strength()
-				move(dir)
-			"KeyTile":
+			"key":
 				collision.pick_up_key()
 				move(dir)
-			"DoorTile":
-				if level_manager.keys.count(collision.key_type) >= collision.keys_needed:
-					collision.open_door()
-					move(dir)
-				else:
-					collision.pulsate()
 			_:
 				return
 

@@ -1,5 +1,7 @@
 extends Area2D
 
+var tile_type = "hardened"
+
 # set up the strength of the tile from the inspector
 @export var strength = 1
 

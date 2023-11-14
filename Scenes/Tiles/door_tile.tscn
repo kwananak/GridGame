@@ -1,7 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci85kh4ijtmqe"]
+[gd_scene load_steps=6 format=3 uid="uid://c4u78iqhrfrx5"]
 
-[ext_resource type="Script" path="res://Scripts/door_tile.gd" id="1_gp22y"]
 [ext_resource type="Texture2D" uid="uid://dimmc0j2kb6km" path="res://Sprites/door.png" id="2_0j27y"]
+
+[sub_resource type="GDScript" id="GDScript_5ffa8"]
+script/source = "extends Area2D
+
+# set up key(s) needed to open door from inspector
+@export var keys_needed = 1
+@export var key_type = Color.GREEN
+
+@onready var animation_player = $\"Label/AnimationPlayer\"
+@onready var level_manager = $\"../../../LevelManager\"
+@onready var label = $\"Label\"
+
+func _ready():
+	label.text = str(keys_needed)
+	label.set(\"theme_override_colors/font_color\", key_type)
+
+# called by player with the right key(s)
+# makes the tile available for path finding, removes the key(s) used and removes the door
+func open_door():
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size)
+	for n in keys_needed:
+		level_manager.keys.erase(key_type)
+		level_manager.set_keys(level_manager.keys)
+	queue_free()
+
+# pulsates the key requirements when player tries to open the door without the needed key(s)
+func pulsate():
+	animation_player.play(\"pulse\")
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqeg"]
 
@@ -27,21 +55,21 @@ _data = {
 }
 
 [node name="DoorTile" type="Area2D"]
-script = ExtResource("1_gp22y")
+script = SubResource("GDScript_5ffa8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_jlqeg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.092219, 0.092219)
 texture = ExtResource("2_0j27y")
-centered = false
 
 [node name="Label" type="Label" parent="."]
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 text = "2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
