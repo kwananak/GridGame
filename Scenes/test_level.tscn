@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=8 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
@@ -6,18 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="3_imbq2"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_thwdk"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_h5lbe"]
-[ext_resource type="PackedScene" uid="uid://cwm2jar10jael" path="res://Scenes/Tiles/wall_tile.tscn" id="5_pvfc6"]
-[ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="5_y0334"]
-[ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="6_h5bn4"]
-[ext_resource type="PackedScene" uid="uid://cu0crjnnu6k86" path="res://Scenes/Tiles/freeze_tile.tscn" id="7_qgyln"]
-[ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="8_fppc4"]
-[ext_resource type="Script" path="res://Scripts/key_tile.gd" id="9_mxy0c"]
-[ext_resource type="PackedScene" uid="uid://ci85kh4ijtmqe" path="res://Scenes/Tiles/door_tile.tscn" id="10_v1kqi"]
+[ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="5_wrn51"]
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_g16cn")]
-end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/PathEnemy1/PathEnemy"), NodePath("../Trials/SeekerEnemy1/SeekerEnemy")]
+end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/SeekerEnemy"), NodePath("../Trials/SeekerEnemy2"), NodePath("../Trials/SeekerEnemy3")]
 
 [node name="UI" parent="." instance=ExtResource("2_fufk3")]
 
@@ -32,77 +26,16 @@ position = Vector2(128, 192)
 
 [node name="Walls" type="Node" parent="Environment"]
 
-[node name="WallTile" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
-position = Vector2(192, 224)
-
-[node name="WallTile2" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
-position = Vector2(192, 192)
-
-[node name="WallTile3" parent="Environment/Walls" instance=ExtResource("5_pvfc6")]
-position = Vector2(192, 256)
-
 [node name="Trials" type="Node" parent="."]
 
-[node name="PathEnemy1" type="Node" parent="Trials"]
+[node name="SeekerEnemy" parent="Trials" instance=ExtResource("5_wrn51")]
+position = Vector2(544, 224)
 
-[node name="PathEnemy" parent="Trials/PathEnemy1" node_paths=PackedStringArray("path_nodes") instance=ExtResource("5_y0334")]
-position = Vector2(352, 160)
-path_nodes = [NodePath("../PathNode1"), NodePath("../PathNode2"), NodePath("../PathNode3"), NodePath("../PathNode2")]
+[node name="SeekerEnemy2" parent="Trials" instance=ExtResource("5_wrn51")]
+position = Vector2(384, 256)
 
-[node name="PathNode1" type="Node2D" parent="Trials/PathEnemy1"]
-position = Vector2(256, 160)
-
-[node name="PathNode2" type="Node2D" parent="Trials/PathEnemy1"]
-position = Vector2(256, 64)
-
-[node name="PathNode3" type="Node2D" parent="Trials/PathEnemy1"]
-position = Vector2(352, 64)
-
-[node name="SeekerEnemy1" type="Node" parent="Trials"]
-
-[node name="SeekerEnemy" parent="Trials/SeekerEnemy1" instance=ExtResource("6_h5bn4")]
-position = Vector2(224, 192)
-
-[node name="FreezeTile1" type="Node" parent="Trials"]
-
-[node name="FreezeTile" parent="Trials/FreezeTile1" instance=ExtResource("7_qgyln")]
-position = Vector2(128, 128)
-
-[node name="FreezeTile2" type="Node" parent="Trials"]
-
-[node name="FreezeTile" parent="Trials/FreezeTile2" instance=ExtResource("7_qgyln")]
-position = Vector2(320, 192)
-
-[node name="KeyTile1" type="Node" parent="Trials"]
-
-[node name="KeyTile" parent="Trials/KeyTile1" instance=ExtResource("8_fppc4")]
-position = Vector2(192, 160)
-script = ExtResource("9_mxy0c")
-
-[node name="KeyTile2" type="Node" parent="Trials"]
-
-[node name="KeyTile" parent="Trials/KeyTile2" instance=ExtResource("8_fppc4")]
-position = Vector2(192, 64)
-script = ExtResource("9_mxy0c")
-key_type = Color(1, 0, 0, 1)
-
-[node name="KeyTile3" type="Node" parent="Trials"]
-
-[node name="KeyTile" parent="Trials/KeyTile3" instance=ExtResource("8_fppc4")]
-position = Vector2(384, 96)
-script = ExtResource("9_mxy0c")
-
-[node name="DoorTile1" type="Node" parent="Trials"]
-
-[node name="DoorTile" parent="Trials/DoorTile1" instance=ExtResource("10_v1kqi")]
-position = Vector2(448, 160)
-key_type = Color(1, 0, 0, 1)
-
-[node name="DoorTile2" type="Node" parent="Trials"]
-
-[node name="DoorTile" parent="Trials/DoorTile2" instance=ExtResource("10_v1kqi")]
-position = Vector2(288, 128)
-keys_needed = 2
+[node name="SeekerEnemy3" parent="Trials" instance=ExtResource("5_wrn51")]
+position = Vector2(352, 96)
 
 [node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
 

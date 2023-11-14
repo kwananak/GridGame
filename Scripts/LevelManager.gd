@@ -102,4 +102,4 @@ func end_turn(value):
 		return
 	turn = value
 	for node in end_turn_calls:
-		node.turn_call()
+		await node.turn_call()

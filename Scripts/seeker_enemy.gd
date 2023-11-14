@@ -3,8 +3,8 @@ extends Area2D
 # set up speed of enemy from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var speed = 1
 
-@onready var level_manager = $"../../../LevelManager"
-@onready var player = $"../../../Player"
+@onready var level_manager = $"../../LevelManager"
+@onready var player = $"../../Player"
 @onready var animated_sprite_2d = $"AnimatedSprite2D"
 
 @export var cell_size = Vector2i(32, 32)

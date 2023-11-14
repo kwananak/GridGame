@@ -16,9 +16,8 @@ func _ready():
 	ray = get_node("RayCast2D")
 	position = start_tile.position.snapped(Vector2.ONE * level_manager.tile_size)
 	position += Vector2.ONE * level_manager.tile_size/2
-
-func _process(_delta):
-	tumble_animation()
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
 
 func _unhandled_input(event):
 	if moving:
@@ -30,11 +29,6 @@ func _unhandled_input(event):
 			if inputs[dir] == inputs.right:
 				animated_sprite_2d.flip_h = false
 			collision_check(dir)
-
-# game over animation
-func tumble_animation():
-	if level_manager.game_over and !level_manager.game_won:
-		animated_sprite_2d.play("tumble")
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):
@@ -67,13 +61,13 @@ func collision_check(dir):
 
 # grid based character movement
 func move(dir):
+		moving = true
 		var tween = create_tween()
 		tween.tween_property(self, "position",
 			position + inputs[dir] * level_manager.tile_size,
-				1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
+				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
-		moving = true
 		await tween.finished
-		moving = false
 		animated_sprite_2d.play("idle")
-		level_manager.turn += 1
+		await level_manager.end_turn(level_manager.turn + 1)
+		moving = false

@@ -1,22 +1,20 @@
 extends Area2D
 
-# set up the key type from the inspector (green or red)
-@export var key_type = Color.GREEN
+# set up the key type from the inspector
+@export_enum("blue", "red", "yellow") var key_type: String
 
-@onready var sprite = $Sprite2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var level_manager = $"../../LevelManager"
 
 func _ready():
 	match_key()
 
 # matches sprite to key type
 func match_key():
-	match key_type:
-		Color.GREEN:
-			sprite.texture = load("res://Sprites/GreenKey.png")
-		Color.RED:
-			sprite.texture = load("res://Sprites/RedKey.png")
+	animated_sprite_2d.play(key_type)
+	animated_sprite_2d.frame = randi_range(0, 4)
 
 # adds key to level_manager and removes key tile
 func pick_up_key():
-	$"../../../LevelManager".keys += [key_type]
+	level_manager.keys += [key_type]
 	queue_free()

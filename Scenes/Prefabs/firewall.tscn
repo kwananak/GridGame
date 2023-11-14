@@ -1,12 +1,129 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvjovpe2p6kot"]
+[gd_scene load_steps=20 format=3 uid="uid://cvjovpe2p6kot"]
 
 [ext_resource type="Script" path="res://Scripts/Firewall.gd" id="1_3k4y1"]
-[ext_resource type="Texture2D" uid="uid://7l85e50gkjhi" path="res://Sprites/Close.png" id="2_7ixuk"]
+[ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Environnement_sheet_2.png" id="2_7opgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34e8f"]
 size = Vector2(30, 638)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_206rv"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp7sq"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(80, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke5sm"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1jhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_206rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp7sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke5sm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fq1c"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(32, 208, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5mer"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(80, 208, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttn53"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(128, 208, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhlvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fq1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5mer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttn53")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek6j2"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j24g"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(80, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ftw8"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhikt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek6j2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j24g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ftw8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riyhv"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(32, 304, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i75dx"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(80, 304, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jsf3"]
+atlas = ExtResource("2_7opgb")
+region = Rect2(128, 304, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7vhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riyhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i75dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jsf3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Firewall" type="Area2D"]
+z_index = 2
 position = Vector2(-32, 0)
 collision_layer = 0
 collision_mask = 2
@@ -16,143 +133,133 @@ script = ExtResource("1_3k4y1")
 position = Vector2(16, 320)
 shape = SubResource("RectangleShape2D_34e8f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d1jhd")
+autoplay = "default"
+frame_progress = 0.149946
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 32)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_dhlvc")
+autoplay = "default"
+frame_progress = 0.0904316
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 64)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_xhikt")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 96)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_k7vhs")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 128)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_d1jhd")
+autoplay = "default"
+frame_progress = 0.149946
 centered = false
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 160)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_dhlvc")
+autoplay = "default"
+frame_progress = 0.0904316
 centered = false
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 192)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_xhikt")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 224)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_k7vhs")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 256)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_d1jhd")
+autoplay = "default"
+frame_progress = 0.149946
 centered = false
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 288)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_dhlvc")
+autoplay = "default"
+frame_progress = 0.0904316
 centered = false
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 320)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_xhikt")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D12" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 352)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_k7vhs")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D13" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 384)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_d1jhd")
+autoplay = "default"
+frame_progress = 0.149946
 centered = false
 
-[node name="Sprite2D14" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 416)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_dhlvc")
+autoplay = "default"
+frame_progress = 0.0904316
 centered = false
 
-[node name="Sprite2D15" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 448)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_xhikt")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D16" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 480)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_k7vhs")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D17" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 512)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_d1jhd")
+autoplay = "default"
+frame_progress = 0.149946
 centered = false
 
-[node name="Sprite2D18" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 544)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_dhlvc")
+autoplay = "default"
+frame_progress = 0.0904316
 centered = false
 
-[node name="Sprite2D19" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 576)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_xhikt")
+autoplay = "default"
 centered = false
 
-[node name="Sprite2D20" type="Sprite2D" parent="."]
-z_index = 2
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 608)
-scale = Vector2(2.13333, 2)
-texture = ExtResource("2_7ixuk")
+sprite_frames = SubResource("SpriteFrames_k7vhs")
+autoplay = "default"
 centered = false
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
