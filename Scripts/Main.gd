@@ -24,3 +24,7 @@ func call_quit():
 func _on_test_level_button_pressed():
 	menu.visible = false
 	add_child(load("res://Scenes/test_level.tscn").instantiate())
+
+
+func _on_level_3_button_pressed(extra_arg_0):
+	pass # Replace with function body.

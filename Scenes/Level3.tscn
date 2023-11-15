@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://buhrxtha4x4ha"]
+
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_0oydm"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_gsm3g"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="3_f3vpw"]
+[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/wall_tile.tscn" id="3_oajlt"]
+[ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/corner_wall_tile.tscn" id="4_i81rw"]
+[ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="4_vqewi"]
+[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="5_q6e16"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="6_dgy2p"]
+[ext_resource type="PackedScene" uid="uid://c44e3frff25tn" path="res://Scenes/Tiles/door_tile_open.tscn" id="7_5g4nl"]
+
+[node name="Level3" type="Node2D"]
+
+[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_0oydm")]
+level_number = 3
+end_turn_calls = [NodePath("../Firewall")]
+
+[node name="UI" parent="." instance=ExtResource("2_gsm3g")]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Floor" type="Node" parent="Environment"]
+
+[node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_f3vpw")]
+position = Vector2(128, 224)
+
+[node name="Walls" type="Node" parent="Environment"]
+
+[node name="WallTile" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(128, 64)
+
+[node name="WallTile2" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(160, 64)
+
+[node name="WallTile3" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(192, 64)
+
+[node name="WallTile4" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(224, 64)
+
+[node name="WallTile5" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(256, 64)
+
+[node name="WallTile6" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(288, 96)
+rotation = 1.5708
+
+[node name="CornerWallTile" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
+position = Vector2(96, 64)
+
+[node name="CornerWallTile2" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
+position = Vector2(288, 64)
+rotation = 1.5708
+
+[node name="Trials" type="Node" parent="."]
+
+[node name="KeyTile" parent="Trials" instance=ExtResource("4_vqewi")]
+position = Vector2(192, 160)
+key_type = "red"
+
+[node name="Firewall" parent="." instance=ExtResource("5_q6e16")]
+
+[node name="Player" parent="." instance=ExtResource("6_dgy2p")]
+z_index = 1
+position = Vector2(128, 160)
+
+[node name="DoorTileOpen" parent="." instance=ExtResource("7_5g4nl")]
+position = Vector2(96, 96)
