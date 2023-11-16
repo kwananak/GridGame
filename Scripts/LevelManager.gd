@@ -7,6 +7,8 @@ var astar_grid = AStarGrid2D.new()
 var freeze = 0: set = set_freeze
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
+@export var level_height = 640
+@export var level_length = 1800
 @export var firewall_speed = 1
 @export var firewall_step = 0.5
 @export var level_number = 0
@@ -28,8 +30,8 @@ func _process(_delta):
 
 # sets up a* grid for path finding in level
 func initialize_grid():
-	astar_grid.region = Rect2i(Vector2i(0, 0), Vector2i(get_viewport_rect().size) / tile_size)
-	astar_grid.cell_size = Vector2i(tile_size, tile_size)
+	astar_grid.region = Rect2i(Vector2i(0, 0), Vector2i(level_length, level_height) / tile_size)
+	astar_grid.cell_size = Vector2i.ONE * tile_size
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 	astar_grid.update()
@@ -72,9 +74,9 @@ func set_freeze(value):
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
-	if player.position.x > 288 and player.position.x < 864:
+	if player.position.x > 288 and player.position.x < level_length - 288:
 		camera.position.x = player.position.x
-	if player.position.y > 160 and player.position.y < 480:
+	if player.position.y > 160 and player.position.y < level_height - 160:
 		camera.position.y = player.position.y
 	ui.position = camera.position
 
@@ -89,7 +91,7 @@ func _unhandled_input(event):
 			_on_button_pressed()
 
 # called by end tile when the player reaches it
-func _on_end_tile_area_entered(_area):
+func on_end_tile_entered():
 	game_over = true
 	button.text = "Game Won!!"
 	button.visible = true

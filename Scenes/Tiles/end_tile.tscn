@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1a5i0fukoe5k"]
+[gd_scene load_steps=8 format=3 uid="uid://b1a5i0fukoe5k"]
 
+[ext_resource type="Script" path="res://Scripts/end_tile.gd" id="1_o5kho"]
 [ext_resource type="Texture2D" uid="uid://uydge2yiga82" path="res://Sprites/Environnement_sheet_1.png" id="1_o25r2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
@@ -40,6 +41,7 @@ animations = [{
 [node name="EndTile" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("1_o5kho")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f7yg6")

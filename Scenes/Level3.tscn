@@ -15,9 +15,10 @@
 
 [node name="Level3" type="Node2D"]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_0oydm")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls", "doors") instance=ExtResource("1_0oydm")]
 level_number = 3
 end_turn_calls = [NodePath("../Firewall")]
+doors = [NodePath("../Trials/DoorTile")]
 
 [node name="UI" parent="." instance=ExtResource("2_gsm3g")]
 
@@ -240,11 +241,6 @@ position = Vector2(96, 128)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_ydh24")]
 position = Vector2(832, 96)
-
-[node name="DoorTile" parent="Environment/Floor" instance=ExtResource("5_31x2j")]
-position = Vector2(832, 96)
-keys_needed = 1
-key_type = "pink"
 
 [node name="Walls" type="Node" parent="Environment"]
 
@@ -582,6 +578,11 @@ strength = 1
 
 [node name="HardenedTile4" parent="Trials" instance=ExtResource("9_ty7q2")]
 position = Vector2(640, 256)
+
+[node name="DoorTile" parent="Trials" instance=ExtResource("5_31x2j")]
+position = Vector2(832, 96)
+keys_needed = 1
+key_type = "pink"
 
 [node name="Firewall" parent="." instance=ExtResource("5_q6e16")]
 
