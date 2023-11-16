@@ -4,6 +4,7 @@ var turn = 0: set = end_turn
 var keys = []: set = set_keys
 var game_over = false
 var astar_grid = AStarGrid2D.new()
+var freeze = 0: set = set_freeze
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var firewall_speed = 1
@@ -58,6 +59,17 @@ func set_keys(value):
 		keys_ui.text = blue_keys + "\n" + pink_keys + "\n" + yellow_keys
 		keys_ui.visible = true
 
+# called when freeze is picked up
+# shows remaining number of freezed turns, if any
+func set_freeze(value):
+	freeze = value
+	if freeze > 0:
+		var freeze_ui = ui.get_node("FreezeUI")
+		freeze_ui.text = "freeze = " + str(freeze)
+		freeze_ui.visible = true
+	else:
+		ui.get_node("FreezeUI").visible = false
+
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
 	if player.position.x > 288 and player.position.x < 864:
@@ -90,6 +102,9 @@ func call_game_over():
 
 # calls subscribed nodes when player makes a move
 func end_turn(value):
+	if freeze > 0 :
+		freeze -= 1
+		return
 	turn = value
 	for node in end_turn_calls:
 		await node.turn_call()

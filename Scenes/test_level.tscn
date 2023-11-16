@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="5_wrn51"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_yrvcv"]
 [ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="6_ogyxi"]
+[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="8_u7okd"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -52,6 +53,9 @@ key_type = "yellow"
 
 [node name="SeekerEnemy" parent="Trials" instance=ExtResource("5_wrn51")]
 position = Vector2(320, 256)
+
+[node name="FreezeTile" parent="Trials" instance=ExtResource("8_u7okd")]
+position = Vector2(192, 192)
 
 [node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
 

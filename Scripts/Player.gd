@@ -7,7 +7,8 @@ var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN,
-			"skip_turn": Vector2.ZERO}
+			"skip_turn": Vector2.ZERO,
+			"pause": Vector2.ZERO}
 
 @onready var level_manager = $"../LevelManager"
 @onready var start_tile = $"../Environment/Floor/StartTile"
@@ -59,6 +60,9 @@ func collision_check(dir):
 			"door":
 				if !collision.opened: 
 					collision.open_door()
+				move(dir)
+			"freeze":
+				collision.set_freeze_strength()
 				move(dir)
 			_:
 				return
