@@ -2,6 +2,7 @@ extends Node2D
 
 var turn = 0: set = end_turn
 var keys = []: set = set_keys
+var paused = false
 var game_over = false
 var astar_grid = AStarGrid2D.new()
 var freeze = 0: set = set_freeze
@@ -37,6 +38,15 @@ func initialize_grid():
 	astar_grid.update()
 	for wall in $"../Environment/Walls".get_children():
 		astar_grid.set_point_solid(Vector2i(wall.position) / tile_size, true)
+
+# called by player input func to peuase the game
+func pause_game():
+	paused = !paused
+	if paused:
+		button.text = "Quit"
+		button.visible = true
+	else:
+		button.visible = false
 
 # called when keys are acquired or used
 # shows inventory of key in UI, if any

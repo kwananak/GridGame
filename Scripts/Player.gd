@@ -8,7 +8,7 @@ var inputs = {"left": Vector2.LEFT,
 			"up": Vector2.UP,
 			"down": Vector2.DOWN,
 			"skip_turn": Vector2.ZERO,
-			"pause": Vector2.ZERO}
+			"pause": Vector2.ONE}
 
 @onready var level_manager = $"../LevelManager"
 @onready var start_tile = $"../Environment/Floor/StartTile"
@@ -25,6 +25,11 @@ func _unhandled_input(event):
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
+			if inputs[dir] == inputs.pause:
+				level_manager.pause_game()
+				return
+			if level_manager.paused:
+				return
 			if inputs[dir] == inputs.left:
 				animated_sprite_2d.flip_h = true
 			if inputs[dir] == inputs.right:
