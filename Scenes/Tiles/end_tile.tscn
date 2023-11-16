@@ -1,8 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1a5i0fukoe5k"]
+[gd_scene load_steps=7 format=3 uid="uid://b1a5i0fukoe5k"]
 
-[ext_resource type="Script" path="res://Scripts/end_tile.gd" id="1_6fhgj"]
 [ext_resource type="Texture2D" uid="uid://uydge2yiga82" path="res://Sprites/Environnement_sheet_1.png" id="1_o25r2"]
-[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/Door_sheet_1.png" id="3_hp4qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
 size = Vector2(32, 32)
@@ -39,53 +37,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jq5s"]
-atlas = ExtResource("3_hp4qe")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sxhb"]
-atlas = ExtResource("3_hp4qe")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2gsl"]
-atlas = ExtResource("3_hp4qe")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sgeuo"]
-atlas = ExtResource("3_hp4qe")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_txxto"]
-atlas = ExtResource("3_hp4qe")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ndbyy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1jq5s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6sxhb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2gsl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sgeuo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_txxto")
-}],
-"loop": false,
-"name": &"default",
-"speed": 4.0
-}]
-
 [node name="EndTile" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_6fhgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f7yg6")
@@ -93,9 +47,6 @@ shape = SubResource("RectangleShape2D_f7yg6")
 [node name="WallSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxkm2")
 autoplay = "default"
-frame_progress = 0.762387
-
-[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ndbyy")
+frame_progress = 0.708317
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

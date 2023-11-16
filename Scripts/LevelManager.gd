@@ -3,7 +3,6 @@ extends Node2D
 var turn = 0: set = end_turn
 var keys = []: set = set_keys
 var game_over = false
-var game_won = false
 var astar_grid = AStarGrid2D.new()
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
@@ -13,6 +12,7 @@ var astar_grid = AStarGrid2D.new()
 @export var tile_size = 32
 @export var animation_speed = 6
 @export var end_turn_calls : Array[Node] = []
+@export var doors : Array[Node] = []
 
 @onready var button = $"../UI/Button"
 @onready var player = $"../Player"
@@ -27,7 +27,7 @@ func _process(_delta):
 
 # sets up a* grid for path finding in level
 func initialize_grid():
-	astar_grid.size = Vector2i(get_viewport_rect().size) / tile_size
+	astar_grid.region = Rect2i(Vector2i(0, 0), Vector2i(get_viewport_rect().size) / tile_size)
 	astar_grid.cell_size = Vector2i(tile_size, tile_size)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
@@ -39,20 +39,23 @@ func initialize_grid():
 # shows inventory of key in UI, if any
 func set_keys(value):
 	keys = value
+	if !doors.is_empty():
+		for door in doors:
+			door.update_door()
 	if keys.is_empty():
 		ui.get_node("KeysUI").visible = false
 	else:
 		var blue_keys = ""
 		if keys.count("blue") > 0:
 			blue_keys += "blue Keys: " +str(keys.count("blue"))
-		var red_keys = ""
-		if keys.count("red") > 0:
-			red_keys += "Red Keys: " +str(keys.count("red"))
+		var pink_keys = ""
+		if keys.count("pink") > 0:
+			pink_keys += "Pink Keys: " +str(keys.count("pink"))
 		var yellow_keys = ""
 		if keys.count("yellow") > 0:
 			yellow_keys += "Yellow Keys: " +str(keys.count("yellow"))
 		var keys_ui = ui.get_node("KeysUI")
-		keys_ui.text = blue_keys + "\n" + red_keys + "\n" + yellow_keys
+		keys_ui.text = blue_keys + "\n" + pink_keys + "\n" + yellow_keys
 		keys_ui.visible = true
 
 # tracks camera to player on wider levels and matches UI position to it
@@ -76,7 +79,6 @@ func _unhandled_input(event):
 # called by end tile when the player reaches it
 func _on_end_tile_area_entered(_area):
 	game_over = true
-	game_won = true
 	button.text = "Game Won!!"
 	button.visible = true
 

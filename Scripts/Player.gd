@@ -6,7 +6,8 @@ var moving = false
 var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
 			"up": Vector2.UP,
-			"down": Vector2.DOWN}
+			"down": Vector2.DOWN,
+			"skip_turn": Vector2.ZERO}
 
 @onready var level_manager = $"../LevelManager"
 @onready var start_tile = $"../Environment/Floor/StartTile"
@@ -27,6 +28,11 @@ func _unhandled_input(event):
 				animated_sprite_2d.flip_h = true
 			if inputs[dir] == inputs.right:
 				animated_sprite_2d.flip_h = false
+			if inputs[dir] == inputs.skip_turn:
+				moving = true
+				await level_manager.end_turn(level_manager.turn + 1)
+				moving = false
+				return
 			collision_check(dir)
 
 # checks for collision before moving or taking appropriate action
@@ -43,10 +49,16 @@ func collision_check(dir):
 			return
 		match collision.tile_type:
 			"hardened":
+				moving = true
 				collision.hit_by_player()
-				level_manager.turn += 1
+				await level_manager.end_turn(level_manager.turn + 1)
+				moving = false
 			"key":
 				collision.pick_up_key()
+				move(dir)
+			"door":
+				if !collision.opened: 
+					collision.open_door()
 				move(dir)
 			_:
 				return

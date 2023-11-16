@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=13 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_t3jru"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_ybf64"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="8_xjklg"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="9_jpjx2"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="9_q8q32"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="10_xmgmn"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/wall_tile.tscn" id="11_tiku4"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/corner_wall_tile.tscn" id="12_ebn1o"]
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="12_f3luk"]
@@ -282,22 +283,20 @@ rotation = 4.71239
 
 [node name="Trials" type="Node" parent="."]
 
-[node name="FirstTrial" type="Node" parent="Trials"]
-
-[node name="HardenedTile" parent="Trials/FirstTrial" instance=ExtResource("12_f3luk")]
+[node name="HardenedTile" parent="Trials" instance=ExtResource("12_f3luk")]
 position = Vector2(288, 160)
 strength = 1
 
-[node name="SecondTrial" type="Node" parent="Trials"]
-
-[node name="HardenedTile" parent="Trials/SecondTrial" instance=ExtResource("12_f3luk")]
+[node name="HardenedTile2" parent="Trials" instance=ExtResource("12_f3luk")]
 position = Vector2(288, 128)
 
-[node name="ThirdTrial" type="Node" parent="Trials"]
-
-[node name="HardenedTile" parent="Trials/ThirdTrial" instance=ExtResource("12_f3luk")]
+[node name="HardenedTile3" parent="Trials" instance=ExtResource("12_f3luk")]
 position = Vector2(288, 96)
 strength = 3
+
+[node name="DoorTile" parent="Trials" instance=ExtResource("10_xmgmn")]
+position = Vector2(544, 128)
+key_type = "blue"
 
 [node name="Firewall" parent="." instance=ExtResource("8_vc6nu")]
 position = Vector2(-32, 0)

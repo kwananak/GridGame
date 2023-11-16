@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_thwdk"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_h5lbe"]
 [ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="5_wrn51"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_yrvcv"]
+[ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="6_ogyxi"]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_g16cn")]
-end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/SeekerEnemy"), NodePath("../Trials/SeekerEnemy2"), NodePath("../Trials/SeekerEnemy3")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls", "doors") instance=ExtResource("1_g16cn")]
+end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/SeekerEnemy")]
+doors = [NodePath("../Trials/DoorTile"), NodePath("../Trials/DoorTile2")]
 
 [node name="UI" parent="." instance=ExtResource("2_fufk3")]
 
@@ -23,19 +26,32 @@ end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/SeekerEnemy"), No
 position = Vector2(128, 192)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("3_imbq2")]
+position = Vector2(480, 160)
 
 [node name="Walls" type="Node" parent="Environment"]
 
 [node name="Trials" type="Node" parent="."]
 
+[node name="DoorTile" parent="Trials" instance=ExtResource("5_yrvcv")]
+position = Vector2(256, 96)
+keys_needed = 2
+key_type = "yellow"
+
+[node name="KeyTile" parent="Trials" instance=ExtResource("6_ogyxi")]
+position = Vector2(160, 128)
+key_type = "yellow"
+
+[node name="KeyTile2" parent="Trials" instance=ExtResource("6_ogyxi")]
+position = Vector2(224, 160)
+key_type = "yellow"
+
+[node name="DoorTile2" parent="Trials" instance=ExtResource("5_yrvcv")]
+position = Vector2(288, 192)
+keys_needed = 3
+key_type = "yellow"
+
 [node name="SeekerEnemy" parent="Trials" instance=ExtResource("5_wrn51")]
-position = Vector2(544, 224)
-
-[node name="SeekerEnemy2" parent="Trials" instance=ExtResource("5_wrn51")]
-position = Vector2(384, 256)
-
-[node name="SeekerEnemy3" parent="Trials" instance=ExtResource("5_wrn51")]
-position = Vector2(352, 96)
+position = Vector2(320, 256)
 
 [node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
 

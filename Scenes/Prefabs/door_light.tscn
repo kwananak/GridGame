@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo745rnf5unyf"]
+
+[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/Door_sheet_1.png" id="1_iq017"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4g1g"]
+atlas = ExtResource("1_iq017")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u5ib"]
+atlas = ExtResource("1_iq017")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5tal"]
+atlas = ExtResource("1_iq017")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_litm4"]
+atlas = ExtResource("1_iq017")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn7n4"]
+atlas = ExtResource("1_iq017")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct266"]
+atlas = ExtResource("1_iq017")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtncr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4g1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u5ib")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5tal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_litm4")
+}],
+"loop": true,
+"name": &"pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn7n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct266")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="DoorLight" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vtncr")
+animation = &"blue"

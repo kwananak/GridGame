@@ -23,9 +23,7 @@ func turn_call():
 	tween.tween_property(self, "position",
 		position + direction * 
 			level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	animated_sprite_2d.play("move")
 	await tween.finished
-	animated_sprite_2d.play("idle")
 
 # called when enemy hits player
 func _on_area_entered(_area):

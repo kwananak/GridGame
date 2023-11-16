@@ -3,7 +3,8 @@ extends Area2D
 var tile_type = "key"
 
 # set up the key type from the inspector
-@export_enum("blue", "red", "yellow") var key_type: String
+@export_category("Setup")
+@export_enum("blue", "pink", "yellow") var key_type: String
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var level_manager = $"../../LevelManager"
