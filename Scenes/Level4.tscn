@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://btymka3cevlne"]
+
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_o0n1a"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_w3ish"]
+[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_rg0ha"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="4_cye8u"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="4_yo5bk"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_fwrhp"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_t63h7"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_o0n1a")]
+
+[node name="UI" parent="." instance=ExtResource("2_w3ish")]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Floor" type="Node" parent="Environment"]
+
+[node name="StartTile" parent="Environment/Floor" instance=ExtResource("5_t63h7")]
+position = Vector2(64, 32)
+
+[node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_yo5bk")]
+position = Vector2(256, 32)
+
+[node name="DoorTile" parent="Environment/Floor" instance=ExtResource("5_fwrhp")]
+position = Vector2(256, 32)
+
+[node name="Walls" type="Node" parent="Environment"]
+
+[node name="Trials" type="Node" parent="."]
+
+[node name="Firewall" parent="." instance=ExtResource("3_rg0ha")]
+
+[node name="Player" parent="." instance=ExtResource("4_cye8u")]
+z_index = 1
+position = Vector2(64, 64)
