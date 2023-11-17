@@ -1,21 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_fufk3"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_fufk3"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="3_imbq2"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_thwdk"]
+[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="5_571tj"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_h5lbe"]
-[ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="5_wrn51"]
-[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_yrvcv"]
-[ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="6_ogyxi"]
-[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="8_u7okd"]
+[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/wall_tile.tscn" id="5_hbbqf"]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls", "doors") instance=ExtResource("1_g16cn")]
-end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/SeekerEnemy")]
-doors = [NodePath("../Trials/DoorTile"), NodePath("../Trials/DoorTile2")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls") instance=ExtResource("1_g16cn")]
+end_turn_calls = [NodePath("../Firewall"), NodePath("../Trials/CannonTile")]
 
 [node name="UI" parent="." instance=ExtResource("2_fufk3")]
 
@@ -31,33 +28,18 @@ position = Vector2(480, 160)
 
 [node name="Walls" type="Node" parent="Environment"]
 
+[node name="WallTile" parent="Environment/Walls" instance=ExtResource("5_hbbqf")]
+position = Vector2(512, 256)
+
 [node name="Trials" type="Node" parent="."]
 
-[node name="DoorTile" parent="Trials" instance=ExtResource("5_yrvcv")]
-position = Vector2(256, 96)
-keys_needed = 2
-key_type = "yellow"
-
-[node name="KeyTile" parent="Trials" instance=ExtResource("6_ogyxi")]
-position = Vector2(160, 128)
-key_type = "yellow"
-
-[node name="KeyTile2" parent="Trials" instance=ExtResource("6_ogyxi")]
-position = Vector2(224, 160)
-key_type = "yellow"
-
-[node name="DoorTile2" parent="Trials" instance=ExtResource("5_yrvcv")]
-position = Vector2(288, 192)
-keys_needed = 3
-key_type = "yellow"
-
-[node name="SeekerEnemy" parent="Trials" instance=ExtResource("5_wrn51")]
-position = Vector2(320, 256)
-
-[node name="FreezeTile" parent="Trials" instance=ExtResource("8_u7okd")]
-position = Vector2(192, 192)
+[node name="CannonTile" parent="Trials" instance=ExtResource("5_571tj")]
+position = Vector2(224, 256)
+rotation = 4.71239
+cannon_recharge = 2
 
 [node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
+position = Vector2(-32, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_thwdk")]
 z_index = 1

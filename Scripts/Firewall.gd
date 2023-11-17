@@ -6,10 +6,11 @@ extends Area2D
 func turn_call():
 	if level_manager.turn % level_manager.firewall_speed == 0:
 			var tween = create_tween()
-			tween.tween_property(self,
-				"position",
-				Vector2(level_manager.turn / level_manager.firewall_speed - 1, 0.0) * level_manager.tile_size * level_manager.firewall_step, 
-				1.5/(level_manager.animation_speed * 2)).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(self, "position",
+						Vector2(level_manager.turn / level_manager.firewall_speed - 1, 0.0)
+								* level_manager.tile_size * level_manager.firewall_step, 
+						1.5 / (level_manager.animation_speed * 2)
+						).set_trans(Tween.TRANS_SINE)
 			await tween.finished
 
 # called when firewall hits player

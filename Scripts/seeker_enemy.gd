@@ -14,7 +14,8 @@ extends Area2D
 func turn_call():
 	if level_manager.turn % speed !=0:
 		return
-	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / 32), Vector2i(player.position / 32))[1] * 32)
+	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / 32),
+			Vector2i(player.position / 32))[1] * 32)
 	if direction.x > 0:
 		animated_sprite_2d.flip_h = false
 	if direction.x < 0:

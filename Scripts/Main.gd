@@ -5,7 +5,7 @@ extends Node2D
 # instantiates chosen level from main menu
 func call_level(level_number):
 	menu.visible = false
-	add_child(load("res://Scenes/Level" + str(level_number) + ".tscn").instantiate())
+	add_child(load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate())
 
 # destroys level scene and calls menu after level ends
 func call_menu(level_number):
@@ -24,7 +24,3 @@ func call_quit():
 func _on_test_level_button_pressed():
 	menu.visible = false
 	add_child(load("res://Scenes/test_level.tscn").instantiate())
-
-
-func _on_level_3_button_pressed(extra_arg_0):
-	pass # Replace with function body.

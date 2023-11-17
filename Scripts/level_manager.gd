@@ -15,6 +15,7 @@ var freeze = 0: set = set_freeze
 @export var level_number = 0
 @export var tile_size = 32
 @export var animation_speed = 6
+@export var end_turn_speed = 0.05
 @export var end_turn_calls : Array[Node] = []
 @export var doors : Array[Node] = []
 
@@ -119,4 +120,5 @@ func end_turn(value):
 		return
 	turn = value
 	for node in end_turn_calls:
-		await node.turn_call()
+		await get_tree().create_timer(end_turn_speed).timeout
+		node.turn_call()

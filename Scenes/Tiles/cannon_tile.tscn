@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://0tdclamt18y7"]
+
+[ext_resource type="Script" path="res://Scripts/cannon_tile.gd" id="1_e2om4"]
+[ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Environnement_sheet_2.png" id="1_uj70b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqu2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhkec"]
+atlas = ExtResource("1_uj70b")
+region = Rect2(320, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_buoya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhkec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CannonTile" type="Area2D"]
+script = ExtResource("1_e2om4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xqu2r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_buoya")
+
+[node name="Bullets" type="Node2D" parent="."]

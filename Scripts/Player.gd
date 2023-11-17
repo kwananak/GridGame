@@ -1,5 +1,6 @@
 extends Area2D
 
+var tile_type = "player"
 var ray
 var animated_sprite_2d
 var moving = false
@@ -77,7 +78,7 @@ func move(dir):
 		moving = true
 		var tween = create_tween()
 		tween.tween_property(self, "position",
-			position + inputs[dir] * level_manager.tile_size,
+				position + inputs[dir] * level_manager.tile_size,
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
 		await tween.finished
