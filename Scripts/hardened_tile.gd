@@ -11,13 +11,12 @@ func _ready():
 
 # matches visual to strength
 func match_strength():
-	match strength:
-		0:
-			queue_free()
-		_:
-			$"AnimatedSprite2D".frame = strength - 1
+	if strength <= 0:
+		queue_free()
+	else:
+		$"AnimatedSprite2D".frame = strength - 1
 
 # called when player hits the tile
-func hit_by_player():
-	strength -= 1
+func hit_by_player(hit):
+	strength -= hit
 	match_strength()

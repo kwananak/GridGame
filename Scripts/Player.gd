@@ -13,6 +13,7 @@ var inputs = {"left": Vector2.LEFT,
 
 @onready var level_manager = $"../LevelManager"
 @onready var start_tile = $"../Environment/Floor/StartTile"
+@onready var artefact_holder = $"../../ArtefactHolder"
 
 func _ready():
 	animated_sprite_2d = get_node("AnimatedSprite2D")
@@ -57,19 +58,16 @@ func collision_check(dir):
 		match collision.tile_type:
 			"hardened":
 				moving = true
-				collision.hit_by_player()
+				collision.hit_by_player(artefact_holder.get_strength())
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
-			"key":
-				collision.pick_up_key()
+			"key", "artefact", "freeze":
+				collision.pick_up()
 				move(dir)
 			"door":
 				if collision.unlocked: 
 					collision.open_door()
 					move(dir)
-			"freeze":
-				collision.set_freeze_strength()
-				move(dir)
 			_:
 				return
 

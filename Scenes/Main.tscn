@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=8 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jkbf0"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
+[ext_resource type="Script" path="res://Scripts/artefact_holder.gd" id="3_fd7s2"]
+[ext_resource type="Texture2D" uid="uid://juuvbamrwelu" path="res://Sprites/Character__Artifact_sheet_1.png" id="4_ah4j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so2o3"]
+atlas = ExtResource("4_ah4j8")
+region = Rect2(16, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h78y"]
+atlas = ExtResource("4_ah4j8")
+region = Rect2(16, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cxo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so2o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h78y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkbf0")
@@ -62,8 +86,24 @@ offset_right = 336.0
 offset_bottom = 272.0
 text = "Quit"
 
+[node name="ResetArtefacts" type="Button" parent="Menu"]
+offset_left = 32.0
+offset_top = 192.0
+offset_right = 158.0
+offset_bottom = 223.0
+text = "Reset Artefacts"
+
+[node name="ArtefactHolder" type="Node" parent="."]
+script = ExtResource("3_fd7s2")
+
+[node name="GlovesSprite" type="AnimatedSprite2D" parent="ArtefactHolder"]
+visible = false
+position = Vector2(96, 256)
+sprite_frames = SubResource("SpriteFrames_8cxo0")
+
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
 [connection signal="pressed" from="Menu/Level4Button" to="." method="call_level" binds= [4]]
 [connection signal="pressed" from="Menu/Level3Button" to="." method="call_level" binds= [3]]
 [connection signal="pressed" from="Menu/TestLevelButton" to="." method="_on_test_level_button_pressed"]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
+[connection signal="pressed" from="Menu/ResetArtefacts" to="ArtefactHolder" method="_on_reset_artefacts_pressed"]

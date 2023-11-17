@@ -6,6 +6,6 @@ var tile_type = "freeze"
 @export var strength = 3
 
 # sends freeze strength to level manager and removes freeze tile
-func set_freeze_strength():
+func pick_up():
 	$"../../LevelManager".freeze = strength
 	queue_free()
