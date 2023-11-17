@@ -64,9 +64,9 @@ func collision_check(dir):
 				collision.pick_up_key()
 				move(dir)
 			"door":
-				if !collision.opened: 
+				if collision.unlocked: 
 					collision.open_door()
-				move(dir)
+					move(dir)
 			"freeze":
 				collision.set_freeze_strength()
 				move(dir)

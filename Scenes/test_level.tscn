@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="5_571tj"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="5_h5lbe"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/wall_tile.tscn" id="5_hbbqf"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="7_ji5ge"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -37,6 +38,11 @@ position = Vector2(512, 256)
 position = Vector2(224, 256)
 rotation = 4.71239
 cannon_recharge = 2
+
+[node name="DoorTile" parent="Trials" instance=ExtResource("7_ji5ge")]
+position = Vector2(192, 192)
+keys_needed = 1
+key_type = "yellow"
 
 [node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
 position = Vector2(-32, 0)

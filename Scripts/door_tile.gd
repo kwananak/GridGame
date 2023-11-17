@@ -1,5 +1,6 @@
 extends Area2D
 
+var unlocked = false
 var opened = false
 var tile_type = "door"
 var key_lights = []
@@ -17,6 +18,7 @@ var light_prefab = preload("res://Scenes/Prefabs/door_light.tscn")
 func _ready():
 	if keys_needed == 0:
 		animated_sprite_2d.frame = 1
+		unlocked = true
 		return
 	var light_position = 0
 	for n in keys_needed:
@@ -42,8 +44,10 @@ func update_door():
 			key_lights[n].frame = 0
 	if key_count == keys_needed:
 		animated_sprite_2d.frame = 1
+		unlocked = true
 	else:
 		animated_sprite_2d.frame = 0
+		unlocked = false
 
 # called by player with the right key(s)
 # makes the tile available for path finding, removes the key(s) used and opens the door
