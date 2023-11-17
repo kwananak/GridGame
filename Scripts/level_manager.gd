@@ -16,8 +16,6 @@ var freeze = 0: set = set_freeze
 @export var tile_size = 32
 @export var animation_speed = 6
 @export var end_turn_speed = 0.05
-@export var end_turn_calls : Array[Node] = []
-@export var doors : Array[Node] = []
 
 @onready var button = $"../UI/Button"
 @onready var player = $"../Player"
@@ -37,8 +35,8 @@ func initialize_grid():
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 	astar_grid.update()
-	for wall in $"../Environment/Walls".get_children():
-		astar_grid.set_point_solid(Vector2i(wall.position) / tile_size, true)
+	for n in get_tree().get_nodes_in_group("AStarGridSolid"):
+		astar_grid.set_point_solid(Vector2i(n.position) / tile_size, true)
 
 # called by player input func to peuase the game
 func pause_game():
@@ -53,6 +51,7 @@ func pause_game():
 # shows inventory of key in UI, if any
 func set_keys(value):
 	keys = value
+	var doors = get_tree().get_nodes_in_group("Doors")
 	if !doors.is_empty():
 		for door in doors:
 			door.update_door()
@@ -93,7 +92,7 @@ func process_camera():
 
 # called by the button to quit the level
 func _on_button_pressed():
-	get_node("/root/Main").call_menu(level_number)
+	$/root/Main.call_menu(level_number)
 
 # listens for spacebar to quit the game when game is over
 func _unhandled_input(event):
@@ -119,6 +118,6 @@ func end_turn(value):
 		freeze -= 1
 		return
 	turn = value
-	for node in end_turn_calls:
+	for node in get_tree().get_nodes_in_group("EndTurn"):
 		await get_tree().create_timer(end_turn_speed).timeout
 		node.turn_call()

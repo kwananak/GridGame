@@ -1,21 +1,23 @@
 extends Area2D
 
+var level_manager
+var player
+
 # set up speed of enemy from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var speed = 1
 
-@onready var level_manager = $"../../LevelManager"
-@onready var player = $"../../Player"
 @onready var animated_sprite_2d = $"AnimatedSprite2D"
 
-@export var cell_size = Vector2i(32, 32)
+func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	player = get_tree().get_first_node_in_group("Player")
 
 ## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
-## Must subscribe to level manager calls
 func turn_call():
-	if level_manager.turn % speed !=0:
+	if level_manager.turn % speed != 0:
 		return
-	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / 32),
-			Vector2i(player.position / 32))[1] * 32)
+	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size),
+			Vector2i(player.position / level_manager.tile_size))[1] * level_manager.tile_size)
 	if direction.x > 0:
 		animated_sprite_2d.flip_h = false
 	if direction.x < 0:

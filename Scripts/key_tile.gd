@@ -1,5 +1,6 @@
 extends Area2D
 
+var level_manager
 var tile_type = "key"
 
 # set up the key type from the inspector
@@ -7,9 +8,9 @@ var tile_type = "key"
 @export_enum("blue", "pink", "yellow") var key_type: String
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var level_manager = $"../../LevelManager"
 
 func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
 	match_key()
 
 # matches sprite to key type

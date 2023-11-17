@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_ku743"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_76y4h"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/ui.tscn" id="2_uyx4i"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_uyx4i"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_asrnw"]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -20,6 +20,7 @@
 [node name="Trials" type="Node" parent="."]
 
 [node name="Firewall" parent="." instance=ExtResource("2_76y4h")]
+position = Vector2(-32, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_asrnw")]
 z_index = 1

@@ -1,6 +1,9 @@
 extends Area2D
 
-@onready var level_manager = $"../LevelManager"
+var level_manager
+
+func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
 
 # moves wall right when called by level manager
 func turn_call():

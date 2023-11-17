@@ -10,7 +10,7 @@ func add_artefact(artefact):
 	equipped_artefact = owned_artefacts[0]
 	for n in owned_artefacts:
 		if n == Artefact.GLOVES:
-			get_node("GlovesSprite").visible = true
+			$GlovesSprite.visible = true
 
 func get_strength():
 	if equipped_artefact == Artefact.GLOVES:

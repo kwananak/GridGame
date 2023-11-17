@@ -88,17 +88,19 @@ text = "Quit"
 
 [node name="ResetArtefacts" type="Button" parent="Menu"]
 offset_left = 32.0
-offset_top = 192.0
+offset_top = 224.0
 offset_right = 158.0
-offset_bottom = 223.0
+offset_bottom = 255.0
 text = "Reset Artefacts"
 
-[node name="ArtefactHolder" type="Node" parent="."]
+[node name="ArtefactHolder" type="Node2D" parent="."]
+z_index = 30
 script = ExtResource("3_fd7s2")
 
 [node name="GlovesSprite" type="AnimatedSprite2D" parent="ArtefactHolder"]
 visible = false
-position = Vector2(96, 256)
+position = Vector2(96, 288)
+scale = Vector2(1.17, 1.17)
 sprite_frames = SubResource("SpriteFrames_8cxo0")
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]

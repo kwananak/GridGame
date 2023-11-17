@@ -1,5 +1,6 @@
 extends Area2D
 
+var level_manager
 var unlocked = false
 var opened = false
 var tile_type = "door"
@@ -11,11 +12,11 @@ var light_prefab = preload("res://Scenes/Prefabs/door_light.tscn")
 @export var keys_needed : int
 @export_enum("blue", "pink", "yellow") var key_type : String
 
-@onready var level_manager = $"../../LevelManager"
 @onready var animated_sprite_2d = $"AnimatedSprite2D"
 
 # initial setup for lights with choosen key type
 func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
 	if keys_needed == 0:
 		animated_sprite_2d.frame = 1
 		unlocked = true
@@ -52,8 +53,10 @@ func update_door():
 # called by player with the right key(s)
 # makes the tile available for path finding, removes the key(s) used and opens the door
 func open_door():
+	if opened:
+		return
 	opened = true
-	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size)
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
 	for n in keys_needed:
 		key_lights[n].queue_free()
 		level_manager.keys.erase(key_type)

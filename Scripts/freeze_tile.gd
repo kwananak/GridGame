@@ -7,5 +7,5 @@ var tile_type = "freeze"
 
 # sends freeze strength to level manager and removes freeze tile
 func pick_up():
-	$"../../LevelManager".freeze = strength
+	get_tree().get_first_node_in_group("LevelManager").freeze = strength
 	queue_free()

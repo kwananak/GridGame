@@ -1,14 +1,17 @@
 extends Area2D
 
+var level_manager
+
 # add path nodes and set speed from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var path_nodes : Array[Node] = []
 @export var speed = 1
 
-@onready var level_manager = $"../../../LevelManager"
 @onready var animated_sprite_2d = $"AnimatedSprite2D"
 
+func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
+
 ## Handles level manager's end_turn_call by moving towards next node on path
-## Must subscribe to level manager calls
 func turn_call():
 	if level_manager.turn % speed !=0:
 		return

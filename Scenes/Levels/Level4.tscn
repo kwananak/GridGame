@@ -16,10 +16,8 @@
 
 [node name="Level4" type="Node2D"]
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("end_turn_calls", "doors") instance=ExtResource("1_o0n1a")]
+[node name="LevelManager" parent="." instance=ExtResource("1_o0n1a")]
 level_number = 4
-end_turn_calls = [NodePath("../Firewall")]
-doors = [NodePath("../Trials/DoorTile")]
 
 [node name="UI" parent="." instance=ExtResource("2_w3ish")]
 
@@ -1355,6 +1353,7 @@ position = Vector2(352, 224)
 strength = 4
 
 [node name="Firewall" parent="." instance=ExtResource("3_rg0ha")]
+position = Vector2(-32, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_cye8u")]
 z_index = 1

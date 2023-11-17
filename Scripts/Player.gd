@@ -1,8 +1,6 @@
 extends Area2D
 
-var tile_type = "player"
-var ray
-var animated_sprite_2d
+var level_manager
 var moving = false
 var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
@@ -11,19 +9,18 @@ var inputs = {"left": Vector2.LEFT,
 			"skip_turn": Vector2.ZERO,
 			"pause": Vector2.ONE}
 
-@onready var level_manager = $"../LevelManager"
-@onready var start_tile = $"../Environment/Floor/StartTile"
-@onready var artefact_holder = $"../../ArtefactHolder"
+@onready var artefact_holder = $/root/Main/ArtefactHolder
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var ray = $RayCast2D
 
 func _ready():
-	animated_sprite_2d = get_node("AnimatedSprite2D")
-	ray = get_node("RayCast2D")
-	position = start_tile.position.snapped(Vector2.ONE * level_manager.tile_size)
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
 
 func _unhandled_input(event):
-	if moving:
+	if moving || level_manager.game_over:
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
@@ -45,8 +42,6 @@ func _unhandled_input(event):
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):
-	if level_manager.game_over:
-		return
 	ray.target_position = inputs[dir] * level_manager.tile_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
@@ -56,6 +51,13 @@ func collision_check(dir):
 		if not "tile_type" in collision:
 			return
 		match collision.tile_type:
+			"cannon":
+				if artefact_holder.get_strength() < 2 || collision.is_destroyed:
+					return
+				moving = true
+				collision.hit_by_player()
+				await level_manager.end_turn(level_manager.turn + 1)
+				moving = false
 			"hardened":
 				moving = true
 				collision.hit_by_player(artefact_holder.get_strength())
@@ -81,5 +83,5 @@ func move(dir):
 		animated_sprite_2d.play("move")
 		await tween.finished
 		animated_sprite_2d.play("idle")
-		await level_manager.end_turn(level_manager.turn + 1)
+		level_manager.end_turn(level_manager.turn + 1)
 		moving = false
