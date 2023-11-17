@@ -95,7 +95,7 @@ func process_camera():
 func _on_button_pressed():
 	get_node("/root/Main").call_menu(level_number)
 
-# listens for spacebar to restart the game when game is over
+# listens for spacebar to quit the game when game is over
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SPACE and game_over:
