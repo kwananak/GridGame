@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dijmdlc3scyx1"]
+[gd_scene load_steps=15 format=3 uid="uid://dijmdlc3scyx1"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_o0n1a"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_w3ish"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="9_c2ajx"]
 [ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="10_sufps"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="11_5mkme"]
+[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/artefact_tile.tscn" id="12_4ei1p"]
 
 [node name="Level4" type="Node2D"]
 
@@ -1351,6 +1352,9 @@ key_type = "blue"
 [node name="FreezeTile" parent="Trials" instance=ExtResource("11_5mkme")]
 position = Vector2(352, 224)
 strength = 4
+
+[node name="ArtefactTile" parent="Trials" instance=ExtResource("12_4ei1p")]
+position = Vector2(896, 96)
 
 [node name="Firewall" parent="." instance=ExtResource("3_rg0ha")]
 position = Vector2(-32, 0)
