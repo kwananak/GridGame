@@ -1,41 +1,41 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0dhbkmn8vh3a"]
 
 [ext_resource type="Script" path="res://Scripts/floor_tile.gd" id="1_gkt3h"]
-[ext_resource type="Texture2D" uid="uid://uydge2yiga82" path="res://Sprites/Environnement_sheet_1.png" id="2_1fgl3"]
+[ext_resource type="Texture2D" uid="uid://b5ndllrraq1r3" path="res://Sprites/testing_environnement.png" id="2_e8gai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7svu8"]
-atlas = ExtResource("2_1fgl3")
-region = Rect2(160, 16, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo7gm"]
+atlas = ExtResource("2_e8gai")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxhco"]
-atlas = ExtResource("2_1fgl3")
-region = Rect2(208, 16, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2661"]
+atlas = ExtResource("2_e8gai")
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2clr8"]
-atlas = ExtResource("2_1fgl3")
-region = Rect2(256, 16, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_suh5h"]
+atlas = ExtResource("2_e8gai")
+region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kd4xa"]
-atlas = ExtResource("2_1fgl3")
-region = Rect2(304, 16, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j7d3"]
+atlas = ExtResource("2_e8gai")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2fsjd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7svu8")
+"texture": SubResource("AtlasTexture_yo7gm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gxhco")
+"texture": SubResource("AtlasTexture_w2661")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2clr8")
+"texture": SubResource("AtlasTexture_suh5h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kd4xa")
+"texture": SubResource("AtlasTexture_8j7d3")
 }],
 "loop": true,
 "name": &"default",
@@ -52,4 +52,3 @@ shape = SubResource("RectangleShape2D_f7yg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2fsjd")
-frame = 3

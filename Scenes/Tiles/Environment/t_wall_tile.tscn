@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://crmwdf0vkih3"]
+
+[ext_resource type="Texture2D" uid="uid://b5ndllrraq1r3" path="res://Sprites/testing_environnement.png" id="1_k7bm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fxc8"]
+atlas = ExtResource("1_k7bm4")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnrax"]
+atlas = ExtResource("1_k7bm4")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfyy1"]
+atlas = ExtResource("1_k7bm4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fxc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnrax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfyy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnrax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="TWallTile" type="Area2D" groups=["AStarGridSolid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q1gjo")
+autoplay = "default"
+frame_progress = 0.980621
