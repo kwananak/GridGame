@@ -83,5 +83,5 @@ func move(dir):
 		animated_sprite_2d.play("move")
 		await tween.finished
 		animated_sprite_2d.play("idle")
-		level_manager.end_turn(level_manager.turn + 1)
+		await level_manager.end_turn(level_manager.turn + 1)
 		moving = false

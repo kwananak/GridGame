@@ -16,8 +16,11 @@ func _ready():
 func turn_call():
 	if level_manager.turn % speed != 0:
 		return
-	var direction = position.direction_to(level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size),
-			Vector2i(player.position / level_manager.tile_size))[1] * level_manager.tile_size)
+	var path = level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size),
+			Vector2i(player.position / level_manager.tile_size))
+	if path.is_empty():
+		return
+	var direction = position.direction_to(path[1] * level_manager.tile_size)
 	if direction.x > 0:
 		animated_sprite_2d.flip_h = false
 	if direction.x < 0:
