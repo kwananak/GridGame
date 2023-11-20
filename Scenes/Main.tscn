@@ -54,6 +54,14 @@ offset_right = 336.0
 offset_bottom = 144.0
 text = "Level 1"
 
+[node name="Level5Button" type="Button" parent="Menu"]
+texture_filter = 1
+offset_left = 354.0
+offset_top = 222.0
+offset_right = 466.0
+offset_bottom = 270.0
+text = "Level 5 (canon)"
+
 [node name="Level4Button" type="Button" parent="Menu"]
 texture_filter = 1
 offset_left = 348.0
@@ -88,9 +96,9 @@ text = "Quit"
 
 [node name="ResetArtefacts" type="Button" parent="Menu"]
 offset_left = 32.0
-offset_top = 224.0
+offset_top = 232.0
 offset_right = 158.0
-offset_bottom = 255.0
+offset_bottom = 263.0
 text = "Reset Artefacts"
 
 [node name="ArtefactHolder" type="Node2D" parent="."]
@@ -104,6 +112,7 @@ scale = Vector2(1.17, 1.17)
 sprite_frames = SubResource("SpriteFrames_8cxo0")
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
+[connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]
 [connection signal="pressed" from="Menu/Level4Button" to="." method="call_level" binds= [4]]
 [connection signal="pressed" from="Menu/Level3Button" to="." method="call_level" binds= [3]]
 [connection signal="pressed" from="Menu/TestLevelButton" to="." method="_on_test_level_button_pressed"]
