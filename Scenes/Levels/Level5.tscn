@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="12_u7k75"]
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="13_b2flk"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_yr62f"]
-[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="16_3isy8"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_3isy8"]
 [ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/artefact_tile.tscn" id="17_u7gu2"]
 
 [sub_resource type="Curve2D" id="Curve2D_jiynr"]
@@ -20,6 +20,7 @@
 
 [node name="LevelManager" parent="." instance=ExtResource("1_teg8l")]
 level_number = 5
+end_turn_speed = 0.0
 
 [node name="UI" parent="." instance=ExtResource("2_ffm6o")]
 
@@ -202,17 +203,9 @@ rotation = 1.5708
 position = Vector2(1184, 256)
 rotation = 1.5708
 
-[node name="CornerWallTile3" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
-position = Vector2(256, 96)
-rotation = -3.14159
-
 [node name="CornerWallTile7" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
 position = Vector2(1184, 512)
 rotation = -3.14159
-
-[node name="CornerWallTile4" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
-position = Vector2(352, 96)
-rotation = -1.5708
 
 [node name="CornerWallTile6" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
 position = Vector2(192, 512)
@@ -392,7 +385,7 @@ path_nodes = [NodePath("../Path2D"), NodePath("../Path2D2")]
 [node name="Firewall" parent="." instance=ExtResource("15_yr62f")]
 position = Vector2(-32, 0)
 
-[node name="Player" parent="." instance=ExtResource("16_3isy8")]
+[node name="VirtualPlayer" parent="." instance=ExtResource("16_3isy8")]
 z_index = 1
 position = Vector2(64, 64)
 

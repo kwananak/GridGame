@@ -14,10 +14,15 @@ var inputs = {"left": Vector2.LEFT,
 @onready var ray = $RayCast2D
 
 func _ready():
+	moving = true
+	animated_sprite_2d.play("move")
 	level_manager = get_tree().get_first_node_in_group("LevelManager")
 	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+	animated_sprite_2d.play("idle")
+	moving = false
 
 func _unhandled_input(event):
 	if moving || level_manager.game_over:

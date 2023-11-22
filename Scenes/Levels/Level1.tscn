@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_cdige"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_3kjsv"]
-[ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/floor_tile.tscn" id="3_bla2f"]
-[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/start_tile.tscn" id="4_7o5ey"]
-[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/end_tile.tscn" id="5_548s3"]
-[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Prefabs/invisible_wall.tscn" id="6_swgbb"]
-[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/wall_tile.tscn" id="7_y86xs"]
-[ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/corner_wall_tile.tscn" id="8_vyrbl"]
+[ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="3_bla2f"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="4_7o5ey"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="5_548s3"]
+[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="6_swgbb"]
+[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="7_y86xs"]
+[ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="8_vyrbl"]
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="9_ct02r"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="10_qljex"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="11_flfjp"]
-[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="12_67l1c"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="12_67l1c"]
 
 [node name="Level1" type="Node2D"]
 
@@ -300,6 +300,6 @@ key_type = "blue"
 [node name="Firewall" parent="." instance=ExtResource("11_flfjp")]
 position = Vector2(-32, 0)
 
-[node name="Player" parent="." instance=ExtResource("12_67l1c")]
+[node name="VirtualPlayer" parent="." instance=ExtResource("12_67l1c")]
 z_index = 1
 position = Vector2(32, 32)

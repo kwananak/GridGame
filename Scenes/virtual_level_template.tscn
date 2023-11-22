@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyqcn6alsgheg"]
+
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_d3jio"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_87dym"]
+[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_18qlb"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="4_fw0b7"]
+
+[node name="VirtualLevelTemplate" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_d3jio")]
+
+[node name="UI" parent="." instance=ExtResource("2_87dym")]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Floor" type="Node" parent="Environment"]
+
+[node name="Walls" type="Node" parent="Environment"]
+
+[node name="Trials" type="Node" parent="."]
+
+[node name="Firewall" parent="." instance=ExtResource("3_18qlb")]
+position = Vector2(-32, 0)
+
+[node name="VirtualPlayer" parent="." instance=ExtResource("4_fw0b7")]
+z_index = 1
+position = Vector2(64, 64)

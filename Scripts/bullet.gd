@@ -20,7 +20,7 @@ func move_bullet():
 	animated_sprite_2d.frame = 0
 
 func _on_area_entered(area):
-	if area.name == "Player":
+	if area.name == "VirtualPlayer":
 		level_manager.call_game_over()
 		return
 	if not "tile_type" in area:

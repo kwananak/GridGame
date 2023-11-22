@@ -4,11 +4,15 @@ var tile_type = "cannon"
 var charge = 0
 var is_destroyed = false
 
+@export var intial_charge = 0
 @export var cannon_recharge = 1
 @export var bullet_speed = 1
 
 @onready var bullet_prefab = preload("res://Scenes/Prefabs/bullet.tscn")
 @onready var bullets = $"Bullets"
+
+func _ready():
+	charge = intial_charge
 
 func turn_call():
 	if !is_destroyed:

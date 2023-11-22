@@ -18,7 +18,7 @@ var freeze = 0: set = set_freeze
 @export var end_turn_speed = 0.05
 
 @onready var button = $"../UI/Button"
-@onready var player = $"../Player"
+@onready var player = $"../VirtualPlayer"
 @onready var camera = $"../../Camera2D"
 @onready var ui = $"../UI"
 
