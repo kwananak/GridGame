@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://csnkvbdfitkti"]
+
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_g16cn"]
+[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="2_5c0d4"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_fufk3"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="3_imbq2"]
+[ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/player.tscn" id="3_thwdk"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_h5lbe"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_g16cn")]
+animation_speed = 20
+end_turn_speed = 0.05
+
+[node name="UI" parent="." instance=ExtResource("2_fufk3")]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Floor" type="Node" parent="Environment"]
+
+[node name="StartTile" parent="Environment/Floor" instance=ExtResource("5_h5lbe")]
+position = Vector2(128, 192)
+
+[node name="EndTile" parent="Environment/Floor" instance=ExtResource("3_imbq2")]
+position = Vector2(480, 160)
+
+[node name="Walls" type="Node" parent="Environment"]
+
+[node name="Trials" type="Node" parent="."]
+
+[node name="Firewall" parent="." instance=ExtResource("2_5c0d4")]
+position = Vector2(-32, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_thwdk")]
+z_index = 1
+position = Vector2(64, 64)
