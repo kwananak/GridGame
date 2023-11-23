@@ -1,20 +1,15 @@
 extends Node2D
 
-var turn = 0 : set = end_turn
 var keys = [] : set = set_keys
 var paused = false : set = set_pause
 var game_over = false
 var astar_grid = AStarGrid2D.new()
-var freeze = 0 : set = set_freeze
 var health = 1 : set = set_health
-var terminal_is_opened = false : set = set_terminal_is_opened
 var player
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var level_height = 640
 @export var level_length = 1800
-@export var firewall_speed = 1
-@export var firewall_step = 0.5
 @export var level_number = 0
 @export var tile_size = 32
 @export var animation_speed = 6
@@ -25,13 +20,10 @@ var player
 @onready var ui = $"../UI"
 
 func _ready():
-	player = get_tree().get_first_node_in_group("Player")
 	initialize_grid()
 	set_health(health)
 
 func _process(_delta):
-	if paused:
-		return
 	process_camera()
 
 # sets up a* grid for path finding in level
@@ -46,8 +38,6 @@ func initialize_grid():
 
 # called by player input func to pause the game
 func press_pause():
-	if terminal_is_opened:
-		return
 	paused = !paused
 
 # update paused value and shows or hide pause "menu" accordingly
@@ -59,21 +49,17 @@ func set_pause(value):
 	else:
 		button.visible = false
 
-# sets value of terminal_is_opened bool and syncs the pause value to it
-func set_terminal_is_opened(value):
-	terminal_is_opened = value
-	paused = value
-
 # called when keys are acquired or used
 # shows inventory of key in UI, if any
 func set_keys(value):
 	keys = value
+	var keys_ui = ui.get_node("KeysUI")
 	var doors = get_tree().get_nodes_in_group("Doors")
 	if !doors.is_empty():
 		for door in doors:
 			door.update_door()
 	if keys.is_empty():
-		ui.get_node("KeysUI").visible = false
+		keys_ui.visible = false
 	else:
 		var blue_keys = ""
 		if keys.count("blue") > 0:
@@ -84,20 +70,8 @@ func set_keys(value):
 		var yellow_keys = ""
 		if keys.count("yellow") > 0:
 			yellow_keys += "Yellow Keys: " +str(keys.count("yellow"))
-		var keys_ui = ui.get_node("KeysUI")
 		keys_ui.text = blue_keys + "\n" + pink_keys + "\n" + yellow_keys
 		keys_ui.visible = true
-
-# called when freeze is picked up
-# shows remaining number of freezed turns, if any
-func set_freeze(value):
-	freeze = value
-	if freeze > 0:
-		var freeze_ui = ui.get_node("FreezeUI")
-		freeze_ui.text = "freeze = " + str(freeze)
-		freeze_ui.visible = true
-	else:
-		ui.get_node("FreezeUI").visible = false
 
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0
@@ -112,9 +86,17 @@ func set_health(value):
 		
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
-	if player.position.x > 288 and player.position.x < level_length - 288:
+	if player.position.x < 288:
+		camera.position.x = 288
+	elif player.position.x > level_length - 288:
+		camera.position.x = level_length - 288
+	else:
 		camera.position.x = player.position.x
-	if player.position.y > 160 and player.position.y < level_height - 160:
+	if player.position.y < 160:
+		camera.position.y = 160
+	elif player.position.y > level_height - 160:
+		camera.positon.y = level_height - 160
+	else:
 		camera.position.y = player.position.y
 	ui.position = camera.position
 
@@ -140,12 +122,3 @@ func call_game_over():
 	button.text = "Game Lost!"
 	button.visible = true
 
-# calls subscribed nodes when player makes a move
-func end_turn(value):
-	if freeze > 0 :
-		freeze -= 1
-		return
-	turn = value
-	for node in get_tree().get_nodes_in_group("EndTurn"):
-		await get_tree().create_timer(end_turn_speed).timeout
-		node.turn_call()

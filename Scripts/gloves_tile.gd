@@ -7,5 +7,5 @@ enum Artefact {GLOVES, ARMOR, GOGGLES, BRAIN, BOOTS}
 
 # calls artefact holder to add picked up artefact to the list
 func pick_up():
-	get_node("/root/Main/ArtefactHolder").add_artefact(artefact_type)
+	$/root/Main/ArtefactHolder.add_artefact(artefact_type)
 	queue_free()

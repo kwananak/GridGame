@@ -1,17 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=8 format=3 uid="uid://csnkvbdfitkti"]
 
-[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/level_manager.tscn" id="1_5uf7f"]
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Prefabs/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_oa7xj"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_vjayd"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_30dy3"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_f6bf0"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="8_6xd76"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
-[node name="LevelManager" parent="." instance=ExtResource("1_5uf7f")]
+[node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
 
 [node name="UI" parent="." instance=ExtResource("2_oa7xj")]
 
@@ -37,4 +36,3 @@ position = Vector2(-32, 0)
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("7_bd7xi")]
 position = Vector2(69, 132)
-script = ExtResource("8_6xd76")

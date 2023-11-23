@@ -25,6 +25,7 @@ func call_menu(level_number):
 	else:
 		get_node("Level" + str(level_number)).queue_free()
 	if real_scene != null and $TerminalScene != null:
+		camera_2d.position = $TerminalScene.position + Vector2(288, 160)
 		$TerminalScene.visible = true
 	else:
 		camera_2d.position = Vector2(288, 160)
@@ -37,6 +38,9 @@ func call_quit():
 # instantiates terminal scene and hides + pauses real scene when called
 func call_terminal_scene(from_scene):
 	real_scene = from_scene
-	real_scene.visible = false
+	remove_child(real_scene)
 	add_child(load("res://Scenes/terminal_scene.tscn").instantiate())
 	$TerminalScene.position = camera_2d.position - Vector2(288, 160)
+
+func return_to_real_scene():
+	add_child(real_scene)

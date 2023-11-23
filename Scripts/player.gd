@@ -13,10 +13,6 @@ var inputs = {"left": Vector2.LEFT,
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var ray = $RayCast2D
 
-func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
-	enter_level_animation()
-
 func _unhandled_input(event):
 	if moving || level_manager.game_over:
 		return
@@ -38,7 +34,7 @@ func _unhandled_input(event):
 				return
 			collision_check(dir)
 
-# called when entering a level for a little walk in animation
+# called when entering a level for a little walk-in animation
 func enter_level_animation():
 	moving = true
 	animated_sprite_2d.play("move")

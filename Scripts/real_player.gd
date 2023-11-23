@@ -16,7 +16,7 @@ func move(dir):
 		await level_manager.end_turn(level_manager.turn + 1)
 		moving = false
 
-# called when entering a level for a little walk in animation
+# called when entering a level for a little walk-in animation
 func enter_level_animation():
 	moving = true
 	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)

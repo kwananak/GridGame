@@ -3,7 +3,7 @@ extends Area2D
 var level_manager
 
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 
 # moves wall right when called by level manager
 func turn_call():

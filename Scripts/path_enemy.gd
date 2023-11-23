@@ -6,10 +6,10 @@ var level_manager
 @export var path_nodes : Array[Node] = []
 @export var speed = 1
 
-@onready var animated_sprite_2d = $"AnimatedSprite2D"
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 
 ## Handles level manager's end_turn_call by moving towards next node on path
 func turn_call():

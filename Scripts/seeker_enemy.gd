@@ -6,11 +6,11 @@ var player
 # set up speed of enemy from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var speed = 1
 
-@onready var animated_sprite_2d = $"AnimatedSprite2D"
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
-	player = get_tree().get_first_node_in_group("Player")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	player = get_tree().get_first_node_in_group("VirtualPlayer")
 
 ## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
 func turn_call():

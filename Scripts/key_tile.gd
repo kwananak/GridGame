@@ -10,7 +10,7 @@ var tile_type = "key"
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	match_key()
 
 # matches sprite to key type

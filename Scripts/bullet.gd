@@ -8,7 +8,7 @@ var recalled = false
 
 
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 
 # called by parent cannon every end of turn
 func move_bullet(bullet_speed):
@@ -22,7 +22,7 @@ func move_bullet(bullet_speed):
 
 # checks for collision to either call game over, destroy itself, or continue
 func _on_area_entered(area):
-	if area.is_in_group("Player"):
+	if area.is_in_group("VirtualPlayer"):
 		level_manager.call_game_over()
 		return
 	if not "tile_type" in area:

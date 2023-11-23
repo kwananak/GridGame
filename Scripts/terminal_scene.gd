@@ -4,8 +4,7 @@ extends Node2D
 
 # called by return button to send the player back to the real world
 func _on_return_button_pressed():
-	get_tree().get_first_node_in_group("RealLevelManager").terminal_is_opened = false
-	main.real_scene.visible = true
+	main.return_to_real_scene()
 	queue_free()
 
 # called by map button to send the player to the virtual world

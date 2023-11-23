@@ -14,7 +14,7 @@ func match_strength():
 	if strength <= 0:
 		queue_free()
 	else:
-		$"AnimatedSprite2D".frame = strength - 1
+		$AnimatedSprite2D.frame = strength - 1
 
 # called when player hits the tile
 func hit_by_player(hit):

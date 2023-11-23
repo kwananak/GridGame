@@ -16,7 +16,7 @@ var light_prefab = preload("res://Scenes/Prefabs/door_light.tscn")
 
 # initial setup for lights with choosen key type
 func _ready():
-	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	if level_manager == null:
 		level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	if keys_needed == 0:
