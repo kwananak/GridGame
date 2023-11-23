@@ -1,6 +1,11 @@
 extends Node2D
 
-@onready var level_manager = $"../LevelManager" 
+var level_manager
+
+func _ready():
+	level_manager = get_tree().get_first_node_in_group("LevelManager")
+	if level_manager == null:
+		level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 
 # relays quit level button press to level manager
 func _on_button_pressed():

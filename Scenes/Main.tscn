@@ -48,10 +48,10 @@ fit_content = true
 
 [node name="Level1Button" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 224.0
-offset_top = 96.0
-offset_right = 336.0
-offset_bottom = 144.0
+offset_left = 352.0
+offset_top = 32.0
+offset_right = 464.0
+offset_bottom = 80.0
 text = "Level 1"
 
 [node name="Level5Button" type="Button" parent="Menu"]
@@ -78,13 +78,21 @@ offset_right = 458.0
 offset_bottom = 144.0
 text = "Level 3 (le meilleur level)"
 
-[node name="TestLevelButton" type="Button" parent="Menu"]
+[node name="VirtualTestLevelButton" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 224.0
-offset_top = 160.0
-offset_right = 336.0
-offset_bottom = 208.0
-text = "Test Level"
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 173.0
+offset_bottom = 144.0
+text = "Virtual Test Level"
+
+[node name="RealTestLevelButton" type="Button" parent="Menu"]
+texture_filter = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 155.0
+offset_bottom = 80.0
+text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="Menu"]
 texture_filter = 1
@@ -115,6 +123,7 @@ sprite_frames = SubResource("SpriteFrames_8cxo0")
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]
 [connection signal="pressed" from="Menu/Level4Button" to="." method="call_level" binds= [4]]
 [connection signal="pressed" from="Menu/Level3Button" to="." method="call_level" binds= [3]]
-[connection signal="pressed" from="Menu/TestLevelButton" to="." method="_on_test_level_button_pressed"]
+[connection signal="pressed" from="Menu/VirtualTestLevelButton" to="." method="call_test_level" binds= ["virtual"]]
+[connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_test_level" binds= ["real"]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
 [connection signal="pressed" from="Menu/ResetArtefacts" to="ArtefactHolder" method="_on_reset_artefacts_pressed"]

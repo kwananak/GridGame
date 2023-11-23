@@ -1,4 +1,7 @@
 extends Area2D
 
 func _on_area_entered(_area):
-	get_tree().get_first_node_in_group("LevelManager").on_end_tile_entered()
+	if get_tree().get_first_node_in_group("LevelManager") != null:
+		get_tree().get_first_node_in_group("LevelManager").on_end_tile_entered()
+	else:
+		get_tree().get_first_node_in_group("RealLevelManager").on_end_tile_entered()

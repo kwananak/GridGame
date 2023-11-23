@@ -1,26 +1,42 @@
 extends Node2D
 
-@onready var menu = $"Menu"
+var real_scene
+
+@onready var menu = $Menu
+@onready var camera_2d = $Camera2D
 
 # instantiates chosen level from main menu
 func call_level(level_number):
 	menu.visible = false
 	add_child(load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate())
 
-# destroys level scene and calls menu after level ends
+# instantiates test level from main menu
+func call_test_level(test_name):
+	menu.visible = false
+	add_child(load("res://Scenes/" + test_name + "_test_level.tscn").instantiate())
+
+### needs cleanup ###
+# handles various level quitting scenario, needs cleanup
 func call_menu(level_number):
 	if level_number == 0:
-		remove_child(get_node("TestLevel"))
+		get_node("VirtualTestLevel").queue_free()
+	elif level_number < 0:
+		get_node("RealTestLevel").queue_free()
 	else:
-		remove_child(get_node("Level" + str(level_number)))
-	get_node("Camera2D").position = Vector2(288, 160)
-	menu.visible = true
+		get_node("Level" + str(level_number)).queue_free()
+	if real_scene != null and $TerminalScene != null:
+		$TerminalScene.visible = true
+	else:
+		camera_2d.position = Vector2(288, 160)
+		menu.visible = true
 
 # quits game when quit button is pressed
 func call_quit():
 	get_tree().quit()
 
-# instantiates test level from main menu
-func _on_test_level_button_pressed():
-	menu.visible = false
-	add_child(load("res://Scenes/test_level.tscn").instantiate())
+# instantiates terminal scene and hides + pauses real scene when called
+func call_terminal_scene(from_scene):
+	real_scene = from_scene
+	real_scene.visible = false
+	add_child(load("res://Scenes/terminal_scene.tscn").instantiate())
+	$TerminalScene.position = camera_2d.position - Vector2(288, 160)

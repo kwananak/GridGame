@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuqax5enrm6jo"]
+
+[ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
+
+[node name="TerminalScene" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_kc4pd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Map" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 448.0
+color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="VirtualTestLevelButton" type="Button" parent="Control/Map"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 254.0
+offset_right = 481.0
+offset_bottom = 354.0
+text = "Virtual Test Level"
+
+[node name="Loadout" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 608.0
+color = Color(0.156863, 0.0588235, 0.054902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 480.0
+offset_right = 640.0
+offset_bottom = 608.0
+color = Color(0.101961, 0.0588235, 0.00784314, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 512.0
+offset_right = 128.0
+offset_bottom = 608.0
+text = "return"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Map/VirtualTestLevelButton" to="." method="_on_virtual_test_level_button_pressed"]
+[connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]

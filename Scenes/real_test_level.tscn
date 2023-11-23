@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://csnkvbdfitkti"]
+
+[ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Prefabs/real_level_manager.tscn" id="1_qyfal"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_fufk3"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="3_imbq2"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_208ta"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_h5lbe"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/terminal_tile.tscn" id="6_75bqa"]
+[ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="7_5vdvo"]
+
+[node name="RealTestLevel" type="Node2D"]
+
+[node name="RealLevelManager" parent="." instance=ExtResource("1_qyfal")]
+position = Vector2(69, 132)
+level_number = -1
+animation_speed = 10
+end_turn_speed = 0.01
+
+[node name="UI" parent="." instance=ExtResource("2_fufk3")]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Floor" type="Node2D" parent="Environment"]
+
+[node name="StartTile" parent="Environment/Floor" instance=ExtResource("5_h5lbe")]
+position = Vector2(128, 192)
+
+[node name="EndTile" parent="Environment/Floor" instance=ExtResource("3_imbq2")]
+position = Vector2(480, 160)
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="Trials" type="Node2D" parent="."]
+
+[node name="DoorTile" parent="Trials" instance=ExtResource("5_208ta")]
+position = Vector2(480, 160)
+
+[node name="TerminalTile" parent="." instance=ExtResource("6_75bqa")]
+position = Vector2(192, 160)
+
+[node name="RealPlayer" parent="." instance=ExtResource("7_5vdvo")]
+position = Vector2(69, 132)

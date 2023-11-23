@@ -14,15 +14,8 @@ var inputs = {"left": Vector2.LEFT,
 @onready var ray = $RayCast2D
 
 func _ready():
-	moving = true
-	animated_sprite_2d.play("move")
 	level_manager = get_tree().get_first_node_in_group("LevelManager")
-	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
-	await tween.finished
-	animated_sprite_2d.play("idle")
-	moving = false
+	enter_level_animation()
 
 func _unhandled_input(event):
 	if moving || level_manager.game_over:
@@ -30,7 +23,7 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			if inputs[dir] == inputs.pause:
-				level_manager.pause_game()
+				level_manager.press_pause()
 				return
 			if level_manager.paused:
 				return
@@ -44,6 +37,17 @@ func _unhandled_input(event):
 				moving = false
 				return
 			collision_check(dir)
+
+# called when entering a level for a little walk in animation
+func enter_level_animation():
+	moving = true
+	animated_sprite_2d.play("move")
+	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+	animated_sprite_2d.play("idle")
+	moving = false
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):

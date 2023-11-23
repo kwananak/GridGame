@@ -1,11 +1,14 @@
 extends Node2D
 
-var turn = 0: set = end_turn
-var keys = []: set = set_keys
-var paused = false
+var turn = 0 : set = end_turn
+var keys = [] : set = set_keys
+var paused = false : set = set_pause
 var game_over = false
 var astar_grid = AStarGrid2D.new()
-var freeze = 0: set = set_freeze
+var freeze = 0 : set = set_freeze
+var health = 1 : set = set_health
+var terminal_is_opened = false : set = set_terminal_is_opened
+var player
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var level_height = 640
@@ -18,14 +21,17 @@ var freeze = 0: set = set_freeze
 @export var end_turn_speed = 0.05
 
 @onready var button = $"../UI/Button"
-@onready var player = $"../VirtualPlayer"
 @onready var camera = $"../../Camera2D"
 @onready var ui = $"../UI"
 
 func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 	initialize_grid()
+	set_health(health)
 
 func _process(_delta):
+	if paused:
+		return
 	process_camera()
 
 # sets up a* grid for path finding in level
@@ -38,14 +44,25 @@ func initialize_grid():
 	for n in get_tree().get_nodes_in_group("AStarGridSolid"):
 		astar_grid.set_point_solid(Vector2i(n.position) / tile_size, true)
 
-# called by player input func to peuase the game
-func pause_game():
+# called by player input func to pause the game
+func press_pause():
+	if terminal_is_opened:
+		return
 	paused = !paused
+
+# update paused value and shows or hide pause "menu" accordingly
+func set_pause(value):
+	paused = value
 	if paused:
 		button.text = "Quit"
 		button.visible = true
 	else:
 		button.visible = false
+
+# sets value of terminal_is_opened bool and syncs the pause value to it
+func set_terminal_is_opened(value):
+	terminal_is_opened = value
+	paused = value
 
 # called when keys are acquired or used
 # shows inventory of key in UI, if any
@@ -82,6 +99,17 @@ func set_freeze(value):
 	else:
 		ui.get_node("FreezeUI").visible = false
 
+# called when health is changed
+# updates onscreen health UI and calls game over if at 0
+func set_health(value):
+	health = value
+	if health > 0:
+		var health_ui = ui.get_node("HealthUI")
+		health_ui.text = "health = " + str(health)
+		health_ui.visible = true
+	else:
+		call_game_over()
+		
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
 	if player.position.x > 288 and player.position.x < level_length - 288:

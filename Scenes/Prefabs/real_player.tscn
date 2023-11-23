@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://db5mn4e7dyins"]
 
-[ext_resource type="Script" path="res://Scripts/virtual_player.gd" id="1_667xc"]
+[ext_resource type="Script" path="res://Scripts/real_player.gd" id="1_cbmbe"]
 [ext_resource type="Texture2D" uid="uid://bpy3437n2sb7v" path="res://Sprites/real_character_idle.png" id="3_m3jpo"]
 [ext_resource type="Texture2D" uid="uid://cx516bauljcy5" path="res://Sprites/virtual_character_walk.png" id="4_ewjv0"]
 
@@ -77,9 +77,10 @@ animations = [{
 }]
 
 [node name="RealPlayer" type="Area2D" groups=["Player"]]
+z_index = 3
 scale = Vector2(0.6, 0.6)
 collision_layer = 2
-script = ExtResource("1_667xc")
+script = ExtResource("1_cbmbe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ab277")
@@ -94,4 +95,3 @@ collide_with_areas = true
 sprite_frames = SubResource("SpriteFrames_85hmi")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0758802
