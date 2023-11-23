@@ -1,9 +1,13 @@
 extends Node2D
 
 var real_scene
+var progress_manager
 
 @onready var menu = $Menu
 @onready var camera_2d = $Camera2D
+
+func _ready():
+	$Menu/QuitButton.grab_focus()
 
 # instantiates chosen level from main menu
 func call_level(level_number):
@@ -27,6 +31,7 @@ func call_menu(level_number):
 	if real_scene != null and $TerminalScene != null:
 		camera_2d.position = $TerminalScene.position + Vector2(288, 160)
 		$TerminalScene.visible = true
+		$TerminalScene._ready()
 	else:
 		camera_2d.position = Vector2(288, 160)
 		menu.visible = true

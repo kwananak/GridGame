@@ -1,20 +1,33 @@
 extends "res://Scripts/player.gd"
 
+@export var speed = 2
+
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	enter_level_animation()
 
-### needs major change ###
-# grid-based movements, needs to be changed to free roam
+func _process(_delta):
+	get_input()
+
+# checks for pressed or held direction keys
+func get_input():
+	if level_manager.game_over || level_manager.paused:
+		return
+	var input_direction  = Input.get_vector("left", "right", "up", "down")
+	if input_direction.x < 0:
+		animated_sprite_2d.flip_h = true
+	if input_direction.x > 0:
+		animated_sprite_2d.flip_h = false
+	collision_check(input_direction)
+
+# checks for pause input
+func _input(_event):
+	if _event.is_action_pressed("pause"):
+		level_manager.press_pause()
+
+# free roam movements
 func move(dir):
-		moving = true
-		var tween = create_tween()
-		tween.tween_property(self, "position",
-				position + inputs[dir] * level_manager.tile_size,
-				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-		await tween.finished
-		await level_manager.end_turn(level_manager.turn + 1)
-		moving = false
+	position += dir * speed
 
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
@@ -27,7 +40,7 @@ func enter_level_animation():
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):
-	ray.target_position = inputs[dir] * level_manager.tile_size
+	ray.target_position = dir * 16
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		move(dir)

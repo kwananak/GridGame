@@ -6,7 +6,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("RealPlayer")
 	super._ready()
 
-func end_turn(value):
+func end_turn(_value):
 	pass
 
 # called by player when activating a terminal

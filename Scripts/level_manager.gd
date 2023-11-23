@@ -46,6 +46,7 @@ func set_pause(value):
 	if paused:
 		button.text = "Quit"
 		button.visible = true
+		button.grab_focus()
 	else:
 		button.visible = false
 

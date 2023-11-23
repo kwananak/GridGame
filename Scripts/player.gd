@@ -13,7 +13,7 @@ var inputs = {"left": Vector2.LEFT,
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var ray = $RayCast2D
 
-func _unhandled_input(event):
+func _input(event):
 	if moving || level_manager.game_over:
 		return
 	for dir in inputs.keys():
