@@ -1,6 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuqax5enrm6jo"]
+[gd_scene load_steps=9 format=3 uid="uid://cuqax5enrm6jo"]
 
 [ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
+[ext_resource type="Script" path="res://Scripts/loadout.gd" id="2_i1edc"]
+[ext_resource type="Texture2D" uid="uid://juuvbamrwelu" path="res://Sprites/Character__Artifact_sheet_1.png" id="3_chwe3"]
+[ext_resource type="Texture2D" uid="uid://lqm87vlkdwif" path="res://Sprites/hero_green_coat.png" id="4_ebuvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4aex"]
+atlas = ExtResource("3_chwe3")
+region = Rect2(16, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubpgh"]
+atlas = ExtResource("3_chwe3")
+region = Rect2(16, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pmjb"]
+atlas = ExtResource("4_ebuvs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kd7xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4aex")
+}],
+"loop": true,
+"name": &"Crystal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubpgh")
+}],
+"loop": true,
+"name": &"Power",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pmjb")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}]
 
 [node name="TerminalScene" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -79,7 +121,188 @@ offset_top = 32.0
 offset_right = 1120.0
 offset_bottom = 608.0
 color = Color(0.156863, 0.0588235, 0.054902, 1)
+script = ExtResource("2_i1edc")
 metadata/_edit_use_anchors_ = true
+
+[node name="Brain" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 62.0
+offset_right = 180.0
+offset_bottom = 102.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/Brain"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Brain"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Brain"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Crystal"
+centered = false
+
+[node name="Goggles" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 118.0
+offset_right = 220.0
+offset_bottom = 158.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/Goggles"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"empty"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Goggles"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Goggles"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"empty"
+centered = false
+
+[node name="Armor" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 210.0
+offset_right = 206.0
+offset_bottom = 250.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="LeftHand" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 286.0
+offset_right = 278.0
+offset_bottom = 326.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightHand" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 286.0
+offset_right = 140.0
+offset_bottom = 326.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="Boots" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 378.0
+offset_right = 208.0
+offset_bottom = 418.0
+
+[node name="LeftSelection" type="AnimatedSprite2D" parent="Control/Loadout/Boots"]
+visible = false
+z_index = 1
+position = Vector2(-44, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Boots"]
+z_index = 1
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
+
+[node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Boots"]
+visible = false
+z_index = 1
+position = Vector2(46, 0)
+sprite_frames = SubResource("SpriteFrames_kd7xw")
+animation = &"Power"
+centered = false
 
 [node name="Info" type="ColorRect" parent="Control"]
 layout_mode = 0
@@ -105,4 +328,10 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Control/Map/VirtualLevel3" to="." method="_on_level_pressed" binds= [3]]
 [connection signal="pressed" from="Control/Map/VirtualLevel4" to="." method="_on_level_pressed" binds= [4]]
 [connection signal="pressed" from="Control/Map/VirtualLevel5" to="." method="_on_level_pressed" binds= [5]]
+[connection signal="pressed" from="Control/Loadout/Brain" to="Control/Loadout" method="on_button_pressed" binds= ["Brain"]]
+[connection signal="pressed" from="Control/Loadout/Goggles" to="Control/Loadout" method="on_button_pressed" binds= ["Goggles"]]
+[connection signal="pressed" from="Control/Loadout/Armor" to="Control/Loadout" method="on_button_pressed" binds= ["Armor"]]
+[connection signal="pressed" from="Control/Loadout/LeftHand" to="Control/Loadout" method="on_button_pressed" binds= ["LeftHand"]]
+[connection signal="pressed" from="Control/Loadout/RightHand" to="Control/Loadout" method="on_button_pressed" binds= ["RightHand"]]
+[connection signal="pressed" from="Control/Loadout/Boots" to="Control/Loadout" method="on_button_pressed" binds= ["Boots"]]
 [connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]

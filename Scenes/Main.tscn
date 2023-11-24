@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=9 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jkbf0"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
 [ext_resource type="Script" path="res://Scripts/artefact_holder.gd" id="3_fd7s2"]
 [ext_resource type="Texture2D" uid="uid://juuvbamrwelu" path="res://Sprites/Character__Artifact_sheet_1.png" id="4_ah4j8"]
+[ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_so2o3"]
 atlas = ExtResource("4_ah4j8")
@@ -137,6 +138,8 @@ visible = false
 position = Vector2(96, 288)
 scale = Vector2(1.17, 1.17)
 sprite_frames = SubResource("SpriteFrames_8cxo0")
+
+[node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]
