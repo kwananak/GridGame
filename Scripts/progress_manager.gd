@@ -32,3 +32,9 @@ func get_available_programs(slot):
 			return available_programs
 		_:
 			return owned_programs[slot].duplicate(true)
+
+func reset_programs():
+	for n in owned_programs:
+		owned_programs[n] = []
+	for n in loadout:
+		loadout[n] = "empty"

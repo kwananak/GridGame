@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuqax5enrm6jo"]
+[gd_scene load_steps=10 format=3 uid="uid://cuqax5enrm6jo"]
 
 [ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
 [ext_resource type="Script" path="res://Scripts/loadout.gd" id="2_i1edc"]
 [ext_resource type="Texture2D" uid="uid://juuvbamrwelu" path="res://Sprites/Character__Artifact_sheet_1.png" id="3_chwe3"]
 [ext_resource type="Texture2D" uid="uid://lqm87vlkdwif" path="res://Sprites/hero_green_coat.png" id="4_ebuvs"]
+[ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/Animations/Hands.tres" id="5_juo7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4aex"]
 atlas = ExtResource("3_chwe3")
@@ -24,7 +25,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_a4aex")
 }],
 "loop": true,
-"name": &"Crystal",
+"name": &"DamnedGauntlet",
 "speed": 5.0
 }, {
 "frames": [{
@@ -32,7 +33,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ubpgh")
 }],
 "loop": true,
-"name": &"Power",
+"name": &"DestroyerGlove",
 "speed": 5.0
 }, {
 "frames": [{
@@ -136,14 +137,14 @@ visible = false
 z_index = 1
 position = Vector2(-44, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Brain"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Brain"]
@@ -151,7 +152,7 @@ visible = false
 z_index = 1
 position = Vector2(46, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Crystal"
+animation = &"DamnedGauntlet"
 centered = false
 
 [node name="Goggles" type="Button" parent="Control/Loadout"]
@@ -173,7 +174,7 @@ centered = false
 z_index = 1
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Goggles"]
@@ -196,14 +197,14 @@ visible = false
 z_index = 1
 position = Vector2(-44, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
@@ -211,7 +212,7 @@ visible = false
 z_index = 1
 position = Vector2(46, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="LeftHand" type="Button" parent="Control/Loadout"]
@@ -225,23 +226,23 @@ offset_bottom = 326.0
 visible = false
 z_index = 1
 position = Vector2(-44, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
 visible = false
 z_index = 1
 position = Vector2(46, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightHand" type="Button" parent="Control/Loadout"]
@@ -255,23 +256,23 @@ offset_bottom = 326.0
 visible = false
 z_index = 1
 position = Vector2(-44, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
 visible = false
 z_index = 1
 position = Vector2(46, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+sprite_frames = ExtResource("5_juo7y")
+animation = &"1-0-1Shotgun"
 centered = false
 
 [node name="Boots" type="Button" parent="Control/Loadout"]
@@ -286,14 +287,14 @@ visible = false
 z_index = 1
 position = Vector2(-44, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Boots"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Boots"]
@@ -301,7 +302,7 @@ visible = false
 z_index = 1
 position = Vector2(46, 0)
 sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"Power"
+animation = &"DestroyerGlove"
 centered = false
 
 [node name="Info" type="ColorRect" parent="Control"]

@@ -97,7 +97,7 @@ offset_right = 173.0
 offset_bottom = 144.0
 focus_neighbor_top = NodePath("../RealTestLevelButton")
 focus_neighbor_right = NodePath("../Level3Button")
-focus_neighbor_bottom = NodePath("../ResetArtefacts")
+focus_neighbor_bottom = NodePath("../ResetProgress")
 text = "Virtual Test Level"
 
 [node name="RealTestLevelButton" type="Button" parent="Menu"]
@@ -116,18 +116,18 @@ offset_left = 224.0
 offset_top = 224.0
 offset_right = 336.0
 offset_bottom = 272.0
-focus_neighbor_left = NodePath("../ResetArtefacts")
+focus_neighbor_left = NodePath("../ResetProgress")
 focus_neighbor_right = NodePath("../Level5Button")
 text = "Quit"
 
-[node name="ResetArtefacts" type="Button" parent="Menu"]
+[node name="ResetProgress" type="Button" parent="Menu"]
 offset_left = 32.0
 offset_top = 232.0
 offset_right = 158.0
 offset_bottom = 263.0
 focus_neighbor_top = NodePath("../VirtualTestLevelButton")
 focus_neighbor_right = NodePath("../QuitButton")
-text = "Reset Artefacts"
+text = "Reset Progress"
 
 [node name="ArtefactHolder" type="Node2D" parent="."]
 z_index = 30
@@ -148,4 +148,4 @@ sprite_frames = SubResource("SpriteFrames_8cxo0")
 [connection signal="pressed" from="Menu/VirtualTestLevelButton" to="." method="call_test_level" binds= ["virtual"]]
 [connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_test_level" binds= ["real"]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
-[connection signal="pressed" from="Menu/ResetArtefacts" to="ArtefactHolder" method="_on_reset_artefacts_pressed"]
+[connection signal="pressed" from="Menu/ResetProgress" to="ProgressManager" method="reset_programs"]

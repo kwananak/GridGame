@@ -68,7 +68,7 @@ func collision_check(dir):
 				collision.hit_by_player(artefact_holder.get_strength())
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
-			"key", "artefact", "freeze":
+			"key", "program", "freeze":
 				collision.pick_up()
 				move(dir)
 			"door":
