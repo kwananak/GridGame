@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuqax5enrm6jo"]
+[gd_scene load_steps=11 format=3 uid="uid://cuqax5enrm6jo"]
 
 [ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
 [ext_resource type="Script" path="res://Scripts/loadout.gd" id="2_i1edc"]
 [ext_resource type="Texture2D" uid="uid://juuvbamrwelu" path="res://Sprites/Character__Artifact_sheet_1.png" id="3_chwe3"]
 [ext_resource type="Texture2D" uid="uid://lqm87vlkdwif" path="res://Sprites/hero_green_coat.png" id="4_ebuvs"]
-[ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/Animations/Hands.tres" id="5_juo7y"]
+[ext_resource type="SpriteFrames" uid="uid://cx3mrjx2usxid" path="res://Sprites/Animations/armor.tres" id="5_tdb3t"]
+[ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/Animations/hands.tres" id="6_18ho1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4aex"]
 atlas = ExtResource("3_chwe3")
@@ -196,23 +197,23 @@ offset_bottom = 250.0
 visible = false
 z_index = 1
 position = Vector2(-44, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"DestroyerGlove"
+sprite_frames = ExtResource("5_tdb3t")
+animation = &"empty"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"DestroyerGlove"
+sprite_frames = ExtResource("5_tdb3t")
+animation = &"empty"
 centered = false
 
 [node name="RightSelection" type="AnimatedSprite2D" parent="Control/Loadout/Armor"]
 visible = false
 z_index = 1
 position = Vector2(46, 0)
-sprite_frames = SubResource("SpriteFrames_kd7xw")
-animation = &"DestroyerGlove"
+sprite_frames = ExtResource("5_tdb3t")
+animation = &"empty"
 centered = false
 
 [node name="LeftHand" type="Button" parent="Control/Loadout"]
@@ -226,14 +227,14 @@ offset_bottom = 326.0
 visible = false
 z_index = 1
 position = Vector2(-44, 0)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/LeftHand"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"DestroyerGlove"
 centered = false
 
@@ -241,7 +242,7 @@ centered = false
 visible = false
 z_index = 1
 position = Vector2(46, 0)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"DestroyerGlove"
 centered = false
 
@@ -256,14 +257,14 @@ offset_bottom = 326.0
 visible = false
 z_index = 1
 position = Vector2(-44, 0)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"DestroyerGlove"
 centered = false
 
 [node name="CenterSelection" type="AnimatedSprite2D" parent="Control/Loadout/RightHand"]
 z_index = 1
 scale = Vector2(1.25, 1.25)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"DestroyerGlove"
 centered = false
 
@@ -271,7 +272,7 @@ centered = false
 visible = false
 z_index = 1
 position = Vector2(46, 0)
-sprite_frames = ExtResource("5_juo7y")
+sprite_frames = ExtResource("6_18ho1")
 animation = &"1-0-1Shotgun"
 centered = false
 
