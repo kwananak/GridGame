@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dikffbj6d3ce3"]
+
+[ext_resource type="Script" path="res://Scripts/boots_tile.gd" id="1_ms0wn"]
+[ext_resource type="SpriteFrames" uid="uid://dosgeitodar2i" path="res://Sprites/Animations/boots.tres" id="2_iklrw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
+
+[node name="BootsTile" type="Area2D"]
+script = ExtResource("1_ms0wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ofsl2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_iklrw")
+animation = &"empty"
