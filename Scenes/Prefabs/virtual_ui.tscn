@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3pshlpxrfbim"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_t8u2p"]
+[ext_resource type="SpriteFrames" uid="uid://derpxllmqvc0s" path="res://Sprites/SpriteFrames/goggles.tres" id="2_fryru"]
+[ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/SpriteFrames/hands.tres" id="4_7wb21"]
+[ext_resource type="SpriteFrames" uid="uid://dosgeitodar2i" path="res://Sprites/SpriteFrames/boots.tres" id="5_vf0vb"]
+
+[node name="UI" type="Node2D"]
+z_index = 20
+script = ExtResource("1_t8u2p")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 80.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!!"
+
+[node name="KeysUI" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 256.0
+offset_bottom = 128.0
+
+[node name="FreezeUI" type="Label" parent="."]
+offset_left = -64.0
+offset_top = 96.0
+offset_right = 32.0
+offset_bottom = 128.0
+
+[node name="HealthUI" type="Label" parent="."]
+offset_left = -256.0
+offset_top = 96.0
+offset_right = -160.0
+offset_bottom = 128.0
+
+[node name="ProgramBar" type="Node2D" parent="."]
+
+[node name="Goggles" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(-64, 128)
+sprite_frames = ExtResource("2_fryru")
+animation = &"empty"
+
+[node name="Label" type="Label" parent="ProgramBar/Goggles"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 14.665
+offset_bottom = 10.0
+scale = Vector2(0.42, 0.42)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Armor" type="Node2D" parent="ProgramBar"]
+position = Vector2(-32, 128)
+
+[node name="Label2" type="Label" parent="ProgramBar/Armor"]
+z_index = 1
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 14.665
+offset_bottom = 10.0
+scale = Vector2(0.42, 0.42)
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftHand" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(0, 128)
+sprite_frames = ExtResource("4_7wb21")
+animation = &"1-0-1Shotgun"
+
+[node name="Label3" type="Label" parent="ProgramBar/LeftHand"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 14.665
+offset_bottom = 10.0
+scale = Vector2(0.42, 0.42)
+text = "3
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RightHand" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(32, 128)
+sprite_frames = ExtResource("4_7wb21")
+animation = &"1-0-1Shotgun"
+
+[node name="Label4" type="Label" parent="ProgramBar/RightHand"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 14.665
+offset_bottom = 10.0
+scale = Vector2(0.42, 0.42)
+text = "4
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Boots" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(64, 128)
+sprite_frames = ExtResource("5_vf0vb")
+animation = &"Bitter"
+
+[node name="Label5" type="Label" parent="ProgramBar/Boots"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 14.665
+offset_bottom = 10.0
+scale = Vector2(0.42, 0.42)
+text = "5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -2,6 +2,10 @@ extends "res://Scripts/level_manager.gd"
 
 var turn = 0 : set = end_turn
 var freeze = 0 : set = set_freeze
+var is_immune_to_bullets = false
+var invincible_for_turns = 0
+var lives = 1
+var remaining_actions = 1
 
 @export var firewall_speed = 1
 @export var firewall_step = 0.5

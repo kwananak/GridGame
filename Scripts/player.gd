@@ -9,7 +9,6 @@ var inputs = {"left": Vector2.LEFT,
 			"skip_turn": Vector2.ZERO,
 			"pause": Vector2.ONE}
 
-@onready var artefact_holder = $/root/Main/ArtefactHolder
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var ray = $RayCast2D
 
@@ -57,15 +56,15 @@ func collision_check(dir):
 			return
 		match collision.tile_type:
 			"cannon":
-				if artefact_holder.get_strength() < 2 || collision.is_destroyed:
-					return
+				#if artefact_holder.get_strength() < 2 || collision.is_destroyed:
+				#	return
 				moving = true
 				collision.hit_by_player()
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
 			"hardened":
 				moving = true
-				collision.hit_by_player(artefact_holder.get_strength())
+				collision.hit_by_player(1)
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
 			"key", "program", "freeze":

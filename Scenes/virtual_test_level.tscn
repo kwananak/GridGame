@@ -1,23 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_oa7xj"]
+[ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_vjayd"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_30dy3"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_f6bf0"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="8_012bt"]
-[ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="9_lhl8x"]
-[ext_resource type="PackedScene" uid="uid://qut4oq0xwikw" path="res://Scenes/Tiles/Programs/brain_tile.tscn" id="10_va6c8"]
-[ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="11_es4ak"]
-[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="12_kwv82"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
 
-[node name="UI" parent="." instance=ExtResource("2_oa7xj")]
+[node name="ProgramManager" parent="." instance=ExtResource("2_jhbp3")]
+
+[node name="UI" parent="." instance=ExtResource("3_jefsd")]
 
 [node name="Environment" type="Node" parent="."]
 
@@ -44,48 +43,20 @@ position = Vector2(69, 132)
 
 [node name="ArmorTile" parent="." instance=ExtResource("8_012bt")]
 position = Vector2(192, 192)
-select_program = "Spade"
+select_program = "Heart"
 
 [node name="ArmorTile2" parent="." instance=ExtResource("8_012bt")]
 position = Vector2(192, 160)
 select_program = "Diamond"
 
-[node name="BootsTile" parent="." instance=ExtResource("9_lhl8x")]
+[node name="ArmorTile4" parent="." instance=ExtResource("8_012bt")]
 position = Vector2(224, 160)
-select_program = "Bitter"
+select_program = "Club"
 
-[node name="BootsTile2" parent="." instance=ExtResource("9_lhl8x")]
+[node name="ArmorTile5" parent="." instance=ExtResource("8_012bt")]
 position = Vector2(224, 192)
-select_program = "Salty"
+select_program = "Spade"
 
-[node name="BrainTile" parent="." instance=ExtResource("10_va6c8")]
-position = Vector2(256, 160)
-select_program = "SynthetikThought"
-
-[node name="BrainTile2" parent="." instance=ExtResource("10_va6c8")]
+[node name="ArmorTile3" parent="." instance=ExtResource("8_012bt")]
 position = Vector2(256, 192)
-select_program = "CyberCogniMesh"
-
-[node name="GogglesTile" parent="." instance=ExtResource("11_es4ak")]
-position = Vector2(288, 160)
-select_program = "Amazing"
-
-[node name="GogglesTile2" parent="." instance=ExtResource("11_es4ak")]
-position = Vector2(288, 192)
-select_program = "Ice"
-
-[node name="HandsTile" parent="." instance=ExtResource("12_kwv82")]
-position = Vector2(320, 160)
-select_program = "DestroyerGlove"
-
-[node name="HandsTile2" parent="." instance=ExtResource("12_kwv82")]
-position = Vector2(320, 192)
-select_program = "ChillingLance"
-
-[node name="HandsTile3" parent="." instance=ExtResource("12_kwv82")]
-position = Vector2(352, 160)
-select_program = "1-0-1Shotgun"
-
-[node name="HandsTile4" parent="." instance=ExtResource("12_kwv82")]
-position = Vector2(352, 192)
-select_program = "DamnedGauntlet"
+select_program = "Joker"
