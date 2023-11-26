@@ -78,13 +78,12 @@ func set_keys(value):
 # updates onscreen health UI and calls game over if at 0
 func set_health(value):
 	health = value
-	if health > 0:
-		var health_ui = ui.get_node("HealthUI")
-		health_ui.text = "health = " + str(health)
-		health_ui.visible = true
-	else:
+	var health_ui = ui.get_node("HealthUI")
+	health_ui.text = "health = " + str(health)
+	health_ui.visible = true
+	if health <= 0:
 		call_game_over()
-		
+
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera():
 	if player.position.x < 288:

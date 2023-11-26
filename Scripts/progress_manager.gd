@@ -29,10 +29,7 @@ func select_loadout(slot, program):
 		if program == "empty":
 			pass
 		else:
-			print($OwnedPrograms/Armor.get_children())
-			print(program)
 			var armor = $OwnedPrograms/Armor.find_child(program, false, false)
-			print(armor)
 			$OwnedPrograms/Armor.remove_child(armor)
 			armor_slot.add_child(armor)
 	else:
@@ -45,6 +42,9 @@ func get_available_programs(slot):
 			var progs = $OwnedPrograms/Armor.get_children()
 			for n in progs:
 				available_programs += [n.name]
+			var loaded_armor = $Loadout/Armor.get_children()
+			if !loaded_armor.is_empty():
+				available_programs += [loaded_armor[0].name]
 			return available_programs
 		"LeftHand":
 			var available_programs = owned_programs["Hands"].duplicate(true)

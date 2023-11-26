@@ -3,6 +3,7 @@ extends Node2D
 var progress_manager
 var virtual_level_manager
 var recharge = 0
+var duration = 0
 var usable = false
 
 func _ready():
@@ -15,4 +16,7 @@ func action():
 	pass
 
 func recharging():
+	pass
+
+func end_turn():
 	pass

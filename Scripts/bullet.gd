@@ -3,6 +3,7 @@ extends Area2D
 var level_manager
 var tile_type = "bullet"
 var recalled = false
+var strength = 1
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -23,8 +24,9 @@ func move_bullet(bullet_speed):
 # checks for collision to either call game over, destroy itself, or continue
 func _on_area_entered(area):
 	if area.is_in_group("VirtualPlayer"):
-		level_manager.call_game_over()
-		return
+		if !level_manager.invincible && !level_manager.is_immune_to_bullets:
+			level_manager.health -= strength
+		queue_free()
 	if not "tile_type" in area:
 		queue_free()
 		return

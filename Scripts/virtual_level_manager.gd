@@ -3,15 +3,19 @@ extends "res://Scripts/level_manager.gd"
 var turn = 0 : set = end_turn
 var freeze = 0 : set = set_freeze
 var is_immune_to_bullets = false
-var invincible_for_turns = 0
-var lives = 1
-var remaining_actions = 1
+var invincible = false
+var initial_health = 1
+var lives = 1 : set = set_lives
+var remaining_actions = 1 : set = set_remaining_actions
 
 @export var firewall_speed = 1
 @export var firewall_step = 0.5
 
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	health = initial_health
+	set_lives(lives)
+	set_remaining_actions(remaining_actions)
 	super._ready()
 
 # calls subscribed nodes when player makes a move
@@ -34,3 +38,33 @@ func set_freeze(value):
 		freeze_ui.visible = true
 	else:
 		freeze_ui.visible = false
+
+# called when health is changed
+# updates onscreen health UI and calls game over if at 0
+func set_health(value):
+	health = value
+	var health_ui = ui.get_node("HealthUI")
+	health_ui.text = "health = " + str(health)
+	health_ui.visible = true
+	if health <= 0:
+		lives -= 1
+		reset_health()
+
+func reset_health():
+	health = initial_health
+
+# called when lives is changed
+# updates onscreen lives UI and calls game over if at 0
+func set_lives(value):
+	lives = value
+	var lives_ui = ui.get_node("LivesUI")
+	lives_ui.text = "lives = " + str(lives)
+	lives_ui.visible = true
+	if lives <= 0:
+		call_game_over()
+
+func set_remaining_actions(value):
+	remaining_actions = value
+	var actions_ui = ui.get_node("ActionsUI")
+	actions_ui.text = "Actions = " + str(remaining_actions)
+	actions_ui.visible = true

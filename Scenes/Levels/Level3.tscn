@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://buhrxtha4x4ha"]
+[gd_scene load_steps=14 format=3 uid="uid://buhrxtha4x4ha"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_0oydm"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_gsm3g"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_15c42"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_f3vpw"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="3_lg7ll"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="3_oajlt"]
+[ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_u0ayy"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="4_i81rw"]
 [ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="4_vqewi"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_ydh24"]
@@ -18,7 +19,9 @@
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_0oydm")]
 level_number = 3
 
-[node name="UI" parent="." instance=ExtResource("2_gsm3g")]
+[node name="UI" parent="." instance=ExtResource("2_15c42")]
+
+[node name="ProgramManager" parent="." instance=ExtResource("3_u0ayy")]
 
 [node name="Environment" type="Node" parent="."]
 

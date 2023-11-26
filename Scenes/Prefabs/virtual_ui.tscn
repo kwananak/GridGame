@@ -42,49 +42,74 @@ offset_top = 96.0
 offset_right = -160.0
 offset_bottom = 128.0
 
+[node name="ActionsUI" type="Label" parent="."]
+offset_left = -256.0
+offset_top = 128.0
+offset_right = -160.0
+offset_bottom = 160.0
+
+[node name="LivesUI" type="Label" parent="."]
+offset_left = -256.0
+offset_top = 64.0
+offset_right = -160.0
+offset_bottom = 96.0
+
 [node name="ProgramBar" type="Node2D" parent="."]
+visible = false
 
 [node name="Goggles" type="AnimatedSprite2D" parent="ProgramBar"]
 position = Vector2(-64, 128)
 sprite_frames = ExtResource("2_fryru")
 animation = &"empty"
 
-[node name="Label" type="Label" parent="ProgramBar/Goggles"]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 14.665
-offset_bottom = 10.0
-scale = Vector2(0.42, 0.42)
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Armor" type="Node2D" parent="ProgramBar"]
 position = Vector2(-32, 128)
-
-[node name="Label2" type="Label" parent="ProgramBar/Armor"]
-z_index = 1
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 14.665
-offset_bottom = 10.0
-scale = Vector2(0.42, 0.42)
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="LeftHand" type="AnimatedSprite2D" parent="ProgramBar"]
 position = Vector2(0, 128)
 sprite_frames = ExtResource("4_7wb21")
 animation = &"1-0-1Shotgun"
 
-[node name="Label3" type="Label" parent="ProgramBar/LeftHand"]
+[node name="RightHand" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(32, 128)
+sprite_frames = ExtResource("4_7wb21")
+animation = &"1-0-1Shotgun"
+
+[node name="Boots" type="AnimatedSprite2D" parent="ProgramBar"]
+position = Vector2(64, 128)
+sprite_frames = ExtResource("5_vf0vb")
+animation = &"Bitter"
+
+[node name="Labels" type="Node2D" parent="ProgramBar"]
+z_index = 1
+
+[node name="Label" type="Label" parent="ProgramBar/Labels"]
+offset_left = -80.0
+offset_top = 112.0
+offset_right = -49.335
+offset_bottom = 138.0
+scale = Vector2(0.42, 0.42)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="ProgramBar/Labels"]
+offset_left = -48.0
+offset_top = 112.0
+offset_right = -17.335
+offset_bottom = 138.0
+scale = Vector2(0.42, 0.42)
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="ProgramBar/Labels"]
 offset_left = -16.0
-offset_top = -16.0
+offset_top = 112.0
 offset_right = 14.665
-offset_bottom = 10.0
+offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "3
 "
@@ -92,16 +117,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RightHand" type="AnimatedSprite2D" parent="ProgramBar"]
-position = Vector2(32, 128)
-sprite_frames = ExtResource("4_7wb21")
-animation = &"1-0-1Shotgun"
-
-[node name="Label4" type="Label" parent="ProgramBar/RightHand"]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 14.665
-offset_bottom = 10.0
+[node name="Label4" type="Label" parent="ProgramBar/Labels"]
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 46.665
+offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "4
 "
@@ -109,16 +129,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Boots" type="AnimatedSprite2D" parent="ProgramBar"]
-position = Vector2(64, 128)
-sprite_frames = ExtResource("5_vf0vb")
-animation = &"Bitter"
-
-[node name="Label5" type="Label" parent="ProgramBar/Boots"]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 14.665
-offset_bottom = 10.0
+[node name="Label5" type="Label" parent="ProgramBar/Labels"]
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 78.665
+offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "5
 "

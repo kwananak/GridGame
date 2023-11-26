@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy3vbk7dvklk4"]
+[gd_scene load_steps=16 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_teg8l"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_ffm6o"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_aeluu"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="3_npw3j"]
+[ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_taick"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="4_ktfe7"]
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="5_sbvg8"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="6_xhjbw"]
@@ -12,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="13_b2flk"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_yr62f"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_3isy8"]
-[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/artefact_tile.tscn" id="17_u7gu2"]
+[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="17_u7gu2"]
 
 [sub_resource type="Curve2D" id="Curve2D_jiynr"]
 
@@ -22,7 +23,9 @@
 level_number = 5
 end_turn_speed = 0.0
 
-[node name="UI" parent="." instance=ExtResource("2_ffm6o")]
+[node name="UI" parent="." instance=ExtResource("2_aeluu")]
+
+[node name="ProgramManager" parent="." instance=ExtResource("3_taick")]
 
 [node name="Environment" type="Node" parent="."]
 

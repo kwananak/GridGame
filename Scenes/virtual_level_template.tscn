@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyqcn6alsgheg"]
+[gd_scene load_steps=6 format=3 uid="uid://cyqcn6alsgheg"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_d3jio"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_sudpj"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_18qlb"]
+[ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_p7uh4"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="4_fw0b7"]
 
 [node name="VirtualLevelTemplate" type="Node2D"]
@@ -10,6 +11,8 @@
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_d3jio")]
 
 [node name="UI" parent="." instance=ExtResource("2_sudpj")]
+
+[node name="ProgramManager" parent="." instance=ExtResource("3_p7uh4")]
 
 [node name="Environment" type="Node" parent="."]
 
