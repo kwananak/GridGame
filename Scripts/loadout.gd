@@ -4,6 +4,7 @@ var progress_manager
 var selection_opened = null
 var available_programs
 var empty
+var array_selected
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
@@ -15,7 +16,7 @@ func set_slots():
 	for n in get_children():
 		if n.name == "LeftHand" || n.name == "RightHand":
 			continue
-		progress_manager.get_node("Loadout/" + n.name).position = n.global_position
+		progress_manager.get_node("Loadout/" + n.name).position = n.global_position + Vector2(8, 8)
 
 func _input(event):
 	if selection_opened == null:
@@ -30,10 +31,10 @@ func _input(event):
 func cycle_programs(cycle):
 	if available_programs.size() == 1:
 		return
-	if available_programs.size() == 2 || cycle == "right":
-		available_programs.push_front(available_programs.pop_back())
-	else:
-		available_programs.push_back(available_programs.pop_front())
+	if cycle == "right" && array_selected < available_programs.size() - 1:
+		array_selected += 1
+	elif cycle == "left" && array_selected > 0:
+		array_selected -= 1
 	set_program_sprites()
 
 func on_button_pressed(slot):
@@ -45,9 +46,8 @@ func on_button_pressed(slot):
 		open_program_selection(slot)
 
 func confirm_loadout(slot):
-	var selected_program = available_programs.pop_front()
+	var selected_program = available_programs[array_selected].duplicate(15)
 	selected_program.position = Vector2.ZERO
-	remove_child(selected_program)
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
 		remove_child(n)
@@ -55,20 +55,24 @@ func confirm_loadout(slot):
 			n.queue_free()
 		else:
 			progress_manager.get_node("OwnedPrograms/" + slot).add_child(n)
-	get_node(selection_opened).grab_focus()
 	selection_opened = null
 	available_programs = null
 	set_slots()
 
 func open_program_selection(slot):
+	array_selected = 0
 	selection_opened = slot
 	var new_empty = empty.instantiate()
 	available_programs = [new_empty] + progress_manager.get_available_programs(slot)
 	for n in available_programs:
-		add_child(n)
+		if n is int:
+			array_selected = n + 1
+			available_programs.erase(n) 
+		else:
+			add_child(n)
 	set_program_sprites()
 
 func set_program_sprites():
 	for i in available_programs.size():
-		available_programs[i].position = get_node(selection_opened).position + Vector2(i * 64, 0)
+		available_programs[i].position = get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 20, 20)
 		available_programs[i].show()

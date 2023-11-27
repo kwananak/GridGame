@@ -1,10 +1,10 @@
 extends Node2D
 
 var real_scene
-var progress_manager
 
 @onready var menu = $Menu
 @onready var camera_2d = $Camera2D
+@onready var progress_manager = $ProgressManager
 
 func _ready():
 	$Menu/QuitButton.grab_focus()
@@ -30,6 +30,7 @@ func call_menu(level_number):
 		get_node("Level" + str(level_number)).queue_free()
 	if real_scene != null and $TerminalScene != null:
 		camera_2d.position = $TerminalScene.position + Vector2(288, 160)
+		$TerminalScene/Control/Loadout.set_slots()
 		$TerminalScene.visible = true
 		$TerminalScene._ready()
 	else:
