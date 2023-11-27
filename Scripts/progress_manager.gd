@@ -4,9 +4,6 @@ func add_to_programs(slot, program):
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
-	if get_node("Loadout/" + slot).get_child_count() == 1:
-		if get_node("Loadout/" + slot).get_child(0).name == program.name:
-			return
 	get_node("OwnedPrograms/" + slot).add_child(program)
 
 
@@ -22,13 +19,41 @@ func select_loadout(slot, program):
 		selected_slot.add_child(program)
 
 func get_available_programs(slot):
+	var available_programs =[]
 	match slot:
 		"LeftHand":
-			pass
+			var progs = get_node("OwnedPrograms/Hands").get_children()
+			for n in progs:
+				available_programs += [n]
+			var loaded_slot_2 = get_node("Loadout/RightHand").get_children()
+			if !loaded_slot_2.is_empty():
+				for i in available_programs.size():
+					if available_programs[i].name == loaded_slot_2[0].name:
+						available_programs.remove_at(i)
+						break
+			var loaded_slot = get_node("Loadout/" + slot).get_children()
+			if !loaded_slot.is_empty():
+				for i in available_programs.size():
+					if available_programs[i].name == loaded_slot[0].name:
+						available_programs += [i]
+				loaded_slot[0].queue_free()
 		"RightHand":
-			pass
+			var progs = get_node("OwnedPrograms/Hands").get_children()
+			for n in progs:
+				available_programs += [n]
+			var loaded_slot_2 = get_node("Loadout/LeftHand").get_children()
+			if !loaded_slot_2.is_empty():
+				for i in available_programs.size():
+					if available_programs[i].name == loaded_slot_2[0].name:
+						available_programs.remove_at(i)
+						break
+			var loaded_slot = get_node("Loadout/" + slot).get_children()
+			if !loaded_slot.is_empty():
+				for i in available_programs.size():
+					if available_programs[i].name == loaded_slot[0].name:
+						available_programs += [i]
+				loaded_slot[0].queue_free()
 		_:
-			var available_programs =[]
 			var progs = get_node("OwnedPrograms/" + slot).get_children()
 			for n in progs:
 				available_programs += [n]
@@ -39,12 +64,12 @@ func get_available_programs(slot):
 					if available_programs[i].name == loaded_slot[0].name:
 						available_programs += [i]
 				loaded_slot[0].queue_free()
-			for n in available_programs:
-				if n is int:
-					continue
-				else:
-					n.get_parent().remove_child(n)
-			return available_programs
+	for n in available_programs:
+		if n is int:
+			continue
+		else:
+			n.get_parent().remove_child(n)
+	return available_programs
 
 func reset_programs():
 	for n in $Loadout.get_children():

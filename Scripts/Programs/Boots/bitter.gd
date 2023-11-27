@@ -1,9 +1,9 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
+	info = "Passive : float"
 	super._ready()
 
 func loaded():
-	info = "Passive : float"
 	super.loaded()
 	print(info)

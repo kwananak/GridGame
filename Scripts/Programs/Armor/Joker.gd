@@ -1,6 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
+	info = "Action : Become invincible for 3 turn"
 	super._ready()
 	usable = true
 

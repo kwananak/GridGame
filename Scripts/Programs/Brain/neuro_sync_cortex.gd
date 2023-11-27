@@ -1,7 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
-	info = "Passive : +4 Action"
+	info = "Passive : +4 Actions"
 
 func loaded():
 	super.loaded()

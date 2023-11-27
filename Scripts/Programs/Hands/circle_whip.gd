@@ -1,7 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
-	info = "Action : Jump 4 in front (obstacle block the jump)"
+	info = "Action : Destroy everything around the player"
 	super._ready()
 	usable = true
 

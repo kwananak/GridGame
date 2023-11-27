@@ -14,8 +14,6 @@ func _ready():
 func set_slots():
 	progress_manager.get_node("Loadout").show()
 	for n in get_children():
-		if n.name == "LeftHand" || n.name == "RightHand":
-			continue
 		progress_manager.get_node("Loadout/" + n.name).position = n.global_position + Vector2(8, 8)
 
 func _input(event):
@@ -54,7 +52,11 @@ func confirm_loadout(slot):
 		if n.name == "Empty":
 			n.queue_free()
 		else:
-			progress_manager.get_node("OwnedPrograms/" + slot).add_child(n)
+			match slot:
+				"LeftHand", "RightHand":
+					progress_manager.get_node("OwnedPrograms/Hands").add_child(n)
+				_:
+					progress_manager.get_node("OwnedPrograms/" + slot).add_child(n)
 	selection_opened = null
 	available_programs = null
 	set_slots()

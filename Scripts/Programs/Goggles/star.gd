@@ -1,7 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
-	info = "not implemented active action"
+	info = "Action: ****"
 	super._ready()
 	usable = true
 
