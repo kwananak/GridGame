@@ -13,12 +13,12 @@ var owned_programs = {"Brain" : [],
 		"Boots" : []}
 
 func add_to_programs(slot, program):
-	if slot == "Armor" || slot == "Brain":
+	if slot == "Armor" || slot == "Brain" || slot == "Goggles" || slot == "Boots":
 		for n in get_node("OwnedPrograms/" + slot).get_children():
 			if n.name == program:
 				return
-		if get_node("Loadout/" + slot).get_children().size() > 0:
-			if get_node("Loadout/" + slot).get_children()[0].name == program:
+		if get_node("Loadout/" + slot).get_child_count() == 1:
+			if get_node("Loadout/" + slot).get_child(0).name == program:
 				return
 		get_node("OwnedPrograms/" + slot).add_child(load("res://Scenes/Programs/" + slot + "/" + program + ".tscn").instantiate())
 	else:
@@ -26,10 +26,10 @@ func add_to_programs(slot, program):
 			owned_programs[slot] += [program]
 
 func select_loadout(slot, program):
-	if slot == "Armor" || slot == "Brain":
+	if slot == "Armor" || slot == "Brain" || slot == "Goggles" || slot == "Boots":
 		var selected_slot = get_node("Loadout/" + slot)
-		if selected_slot.get_children().size() > 0:
-			var prog = selected_slot.get_children()[0]
+		if selected_slot.get_child_count() == 1:
+			var prog = selected_slot.get_child(0)
 			selected_slot.remove_child(prog)
 			get_node("OwnedPrograms/" + slot).add_child(prog)
 		if program == "empty":
@@ -43,7 +43,7 @@ func select_loadout(slot, program):
 
 func get_available_programs(slot):
 	match slot:
-		"Armor", "Brain":
+		"Armor", "Brain", "Goggles", "Boots":
 			var available_programs =[]
 			var progs = get_node("OwnedPrograms/" + slot).get_children()
 			for n in progs:
@@ -71,5 +71,5 @@ func reset_programs():
 	for n in loadout:
 		loadout[n] = "empty"
 	for n in $Loadout.get_children():
-		if !n.get_children().is_empty():
-			n.get_children()[0].queue_free()
+		if !n.get_child_count() == 1:
+			n.get_child(0).queue_free()

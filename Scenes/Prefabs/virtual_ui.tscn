@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=3 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_t8u2p"]
-[ext_resource type="SpriteFrames" uid="uid://derpxllmqvc0s" path="res://Sprites/SpriteFrames/goggles.tres" id="2_fryru"]
 [ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/SpriteFrames/hands.tres" id="4_7wb21"]
-[ext_resource type="SpriteFrames" uid="uid://dosgeitodar2i" path="res://Sprites/SpriteFrames/boots.tres" id="5_vf0vb"]
 
 [node name="UI" type="Node2D"]
 z_index = 20
@@ -60,10 +58,8 @@ visible = false
 [node name="Brain" type="Node2D" parent="ProgramBar"]
 position = Vector2(-96, 128)
 
-[node name="Goggles" type="AnimatedSprite2D" parent="ProgramBar"]
+[node name="Goggles" type="Node2D" parent="ProgramBar"]
 position = Vector2(-64, 128)
-sprite_frames = ExtResource("2_fryru")
-animation = &"empty"
 
 [node name="Armor" type="Node2D" parent="ProgramBar"]
 position = Vector2(-32, 128)
@@ -78,10 +74,8 @@ position = Vector2(32, 128)
 sprite_frames = ExtResource("4_7wb21")
 animation = &"1-0-1Shotgun"
 
-[node name="Boots" type="AnimatedSprite2D" parent="ProgramBar"]
+[node name="Boots" type="Node2D" parent="ProgramBar"]
 position = Vector2(64, 128)
-sprite_frames = ExtResource("5_vf0vb")
-animation = &"Bitter"
 
 [node name="Labels" type="Node2D" parent="ProgramBar"]
 z_index = 1

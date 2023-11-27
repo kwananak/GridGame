@@ -10,7 +10,7 @@ func _ready():
 
 func set_slots():
 	for n in get_children():
-		if n.name == "Armor" || n.name == "Brain":
+		if n.name == "Armor" || n.name == "Brain" || n.name == "Goggles" || n.name == "Boots":
 			var loaded_program = progress_manager.get_node("Loadout/" + n.name).get_children()
 			if loaded_program.is_empty():
 				n.get_node("CenterSelection").animation = "empty"

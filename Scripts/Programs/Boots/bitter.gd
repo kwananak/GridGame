@@ -1,8 +1,9 @@
 extends "res://Scripts/Programs/program.gd"
 
 func _ready():
-	info = "Passive : +3 Action"
+	super._ready()
 
 func loaded():
+	info = "Passive : float"
 	super.loaded()
-	virtual_level_manager.remaining_actions += 3
+	print(info)
