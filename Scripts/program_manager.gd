@@ -12,10 +12,10 @@ func _ready():
 	for n in program_bar.get_children():
 		if n.name == "Labels":
 			continue
-		if n.name == "Armor":
-			var armor_slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
-			if !armor_slot.is_empty():
-				var loaded_program = armor_slot[0].duplicate(15)
+		if n.name == "Armor" || n.name == "Brain":
+			var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
+			if !slot.is_empty():
+				var loaded_program = slot[0].duplicate(15)
 				n.add_child(loaded_program)
 				loaded_program.loaded()
 		else:
@@ -24,10 +24,10 @@ func _ready():
 
 func _input(event):
 	for slot in program_bar.get_children():
-		if slot.name == "Labels":
+		if slot.name == "Labels" || slot.name == "Brain":
 			continue
 		if event.is_action_pressed(slot.name):
 			var prog = slot.get_children()
-			if !prog.is_empty() && level_manager.remaining_actions > 0:
+			if !prog.is_empty() && level_manager.remaining_actions > 0 && prog[0].usable:
 				level_manager.remaining_actions -= 1
 				prog[0].action()
