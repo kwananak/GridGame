@@ -3,21 +3,19 @@ extends ColorRect
 var progress_manager
 var selection_opened = null
 var available_programs
+var empty
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	empty = preload("res://Scenes/Programs/Empty.tscn")
 	set_slots()
 
 func set_slots():
+	progress_manager.get_node("Loadout").show()
 	for n in get_children():
-		if n.name == "Armor" || n.name == "Brain" || n.name == "Goggles" || n.name == "Boots":
-			var loaded_program = progress_manager.get_node("Loadout/" + n.name).get_children()
-			if loaded_program.is_empty():
-				n.get_node("CenterSelection").animation = "empty"
-			else:
-				n.get_node("CenterSelection").animation = loaded_program[0].name
-		else:
-			n.get_node("CenterSelection").animation = progress_manager.loadout[n.name]
+		if n.name == "LeftHand" || n.name == "RightHand":
+			continue
+		progress_manager.get_node("Loadout/" + n.name).position = n.global_position
 
 func _input(event):
 	if selection_opened == null:
@@ -32,7 +30,7 @@ func _input(event):
 func cycle_programs(cycle):
 	if available_programs.size() == 1:
 		return
-	if available_programs.size() == 2 || cycle == "left":
+	if available_programs.size() == 2 || cycle == "right":
 		available_programs.push_front(available_programs.pop_back())
 	else:
 		available_programs.push_back(available_programs.pop_front())
@@ -47,9 +45,16 @@ func on_button_pressed(slot):
 		open_program_selection(slot)
 
 func confirm_loadout(slot):
-	progress_manager.select_loadout(slot, available_programs[0])
-	get_node(selection_opened).get_node("LeftSelection").visible = false
-	get_node(selection_opened).get_node("RightSelection").visible = false
+	var selected_program = available_programs.pop_front()
+	selected_program.position = Vector2.ZERO
+	remove_child(selected_program)
+	progress_manager.select_loadout(slot, selected_program)
+	for n in available_programs:
+		remove_child(n)
+		if n.name == "Empty":
+			n.queue_free()
+		else:
+			progress_manager.get_node("OwnedPrograms/" + slot).add_child(n)
 	get_node(selection_opened).grab_focus()
 	selection_opened = null
 	available_programs = null
@@ -57,18 +62,13 @@ func confirm_loadout(slot):
 
 func open_program_selection(slot):
 	selection_opened = slot
-	available_programs = ["empty"] + progress_manager.get_available_programs(slot)
+	var new_empty = empty.instantiate()
+	available_programs = [new_empty] + progress_manager.get_available_programs(slot)
+	for n in available_programs:
+		add_child(n)
 	set_program_sprites()
 
 func set_program_sprites():
-	get_node(selection_opened).get_node("CenterSelection").animation = available_programs[0]
-	if available_programs.size() > 1:
-		get_node(selection_opened).get_node("LeftSelection").animation = available_programs[1]
-		get_node(selection_opened).get_node("LeftSelection").visible = true
-	if available_programs.size() > 2:
-		get_node(selection_opened).get_node("RightSelection").animation = available_programs[2]
-		get_node(selection_opened).get_node("RightSelection").visible = true
-	if available_programs.size() == 2:
-		get_node(selection_opened).get_node("RightSelection").animation = available_programs[1]
-		get_node(selection_opened).get_node("RightSelection").visible = true
-	get_node(selection_opened).grab_focus()
+	for i in available_programs.size():
+		available_programs[i].position = get_node(selection_opened).position + Vector2(i * 64, 0)
+		available_programs[i].show()

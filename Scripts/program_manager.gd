@@ -14,16 +14,15 @@ func _ready():
 func activate_program_bar():
 	for n in program_bar.get_children():
 		match n.name:
-			"Labels":
+			"Labels", "LeftHand", "RightHand":
 				continue
-			"Armor", "Brain", "Goggles", "Boots":
+			_:
 				var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
 				if !slot.is_empty():
 					var loaded_program = slot[0].duplicate(15)
+					loaded_program.position = Vector2.ZERO
 					n.add_child(loaded_program)
 					loaded_program.loaded()
-			_:
-				n.animation = progress_manager.loadout[n.name]
 	program_bar.show()
 
 func _input(event):

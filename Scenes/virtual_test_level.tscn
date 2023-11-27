@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="8_012bt"]
-[ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="9_gyij6"]
-[ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="9_tupea"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -43,30 +41,14 @@ position = Vector2(-32, 0)
 [node name="VirtualPlayer" parent="." instance=ExtResource("7_bd7xi")]
 position = Vector2(69, 132)
 
-[node name="BootsTile" parent="." instance=ExtResource("9_tupea")]
-position = Vector2(160, 192)
-select_program = "Sweet"
-
-[node name="BootsTile2" parent="." instance=ExtResource("9_tupea")]
-position = Vector2(192, 192)
-select_program = "Sour"
-
-[node name="BootsTile3" parent="." instance=ExtResource("9_tupea")]
-position = Vector2(224, 192)
-select_program = "Bitter"
-
-[node name="BootsTile4" parent="." instance=ExtResource("9_tupea")]
-position = Vector2(256, 192)
-select_program = "Umami"
-
-[node name="BootsTile5" parent="." instance=ExtResource("9_tupea")]
-position = Vector2(288, 192)
-select_program = "Salty"
-
-[node name="GogglesTile" parent="." instance=ExtResource("9_gyij6")]
-position = Vector2(128, 160)
-select_program = "Vision"
-
 [node name="ArmorTile" parent="." instance=ExtResource("8_012bt")]
-position = Vector2(128, 224)
+position = Vector2(160, 192)
 select_program = "Heart"
+
+[node name="ArmorTile2" parent="." instance=ExtResource("8_012bt")]
+position = Vector2(192, 192)
+select_program = "Diamond"
+
+[node name="ArmorTile3" parent="." instance=ExtResource("8_012bt")]
+position = Vector2(224, 192)
+select_program = "Joker"

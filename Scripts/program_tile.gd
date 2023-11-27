@@ -11,5 +11,6 @@ func _ready():
 
 # calls progress manager to add picked up program to the list
 func pick_up():
-	$/root/Main/ProgressManager.add_to_programs(program_slot, program_type)
+	remove_child(program)
+	$/root/Main/ProgressManager.add_to_programs(program_slot, program)
 	queue_free()

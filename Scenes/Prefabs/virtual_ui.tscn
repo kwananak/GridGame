@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=2 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_t8u2p"]
-[ext_resource type="SpriteFrames" uid="uid://bv8qio18xa02y" path="res://Sprites/SpriteFrames/hands.tres" id="4_7wb21"]
 
 [node name="UI" type="Node2D"]
 z_index = 20
@@ -64,15 +63,11 @@ position = Vector2(-64, 128)
 [node name="Armor" type="Node2D" parent="ProgramBar"]
 position = Vector2(-32, 128)
 
-[node name="LeftHand" type="AnimatedSprite2D" parent="ProgramBar"]
+[node name="LeftHand" type="Node2D" parent="ProgramBar"]
 position = Vector2(0, 128)
-sprite_frames = ExtResource("4_7wb21")
-animation = &"1-0-1Shotgun"
 
-[node name="RightHand" type="AnimatedSprite2D" parent="ProgramBar"]
+[node name="RightHand" type="Node2D" parent="ProgramBar"]
 position = Vector2(32, 128)
-sprite_frames = ExtResource("4_7wb21")
-animation = &"1-0-1Shotgun"
 
 [node name="Boots" type="Node2D" parent="ProgramBar"]
 position = Vector2(64, 128)
