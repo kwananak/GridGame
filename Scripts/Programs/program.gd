@@ -21,3 +21,6 @@ func recharging():
 
 func end_turn():
 	pass
+
+func cancel_action():
+	pass

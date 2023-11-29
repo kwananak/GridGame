@@ -5,7 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 
 [node name="GogglesTile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_iuqbv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ofsl2")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

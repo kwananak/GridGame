@@ -2,6 +2,9 @@ extends Area2D
 
 var level_manager
 var moving = false
+var floating = false
+var waiting_for_action = null
+var step = 1
 var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
 			"up": Vector2.UP,
@@ -13,7 +16,7 @@ var inputs = {"left": Vector2.LEFT,
 @onready var ray = $RayCast2D
 
 func _input(event):
-	if moving || level_manager.game_over:
+	if moving || level_manager.game_over || waiting_for_action != null:
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
@@ -46,7 +49,7 @@ func enter_level_animation():
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir):
-	ray.target_position = inputs[dir] * level_manager.tile_size
+	ray.target_position = inputs[dir] * (level_manager.tile_size * step)
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		move(dir)
@@ -62,12 +65,14 @@ func collision_check(dir):
 				collision.hit_by_player()
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
+			"hole", "program":
+				move(dir)
 			"hardened":
 				moving = true
 				collision.hit_by_player(1)
 				await level_manager.end_turn(level_manager.turn + 1)
 				moving = false
-			"key", "program", "freeze":
+			"key", "freeze":
 				collision.pick_up()
 				move(dir)
 			"door":
@@ -82,7 +87,7 @@ func move(dir):
 		moving = true
 		var tween = create_tween()
 		tween.tween_property(self, "position",
-				position + inputs[dir] * level_manager.tile_size,
+				position + inputs[dir] * (level_manager.tile_size * step),
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
 		await tween.finished

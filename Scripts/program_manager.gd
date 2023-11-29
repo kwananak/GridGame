@@ -3,10 +3,12 @@ extends Node2D
 var progress_manager
 var level_manager
 var activated = false
+var player
 
 @onready var program_bar = $"../UI/ProgramBar"
 
 func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	activate_program_bar()
@@ -31,7 +33,11 @@ func _input(event):
 			continue
 		if event.is_action_pressed(slot.name):
 			var prog = slot.get_children()
-			if !prog.is_empty() && level_manager.remaining_actions > 0:
+			if prog[0].focus:
+				prog[0].cancel_action()
+				level_manager.remaining_actions += 1
+				return
+			if !prog.is_empty() && level_manager.remaining_actions > 0 && !prog[0].focus:
 				if prog[0].usable:
 					level_manager.remaining_actions -= 1
 					prog[0].action()

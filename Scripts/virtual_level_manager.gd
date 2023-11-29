@@ -7,6 +7,7 @@ var invincible = false
 var initial_health = 1
 var lives = 1 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
+var floating = false
 
 @export var firewall_speed = 1
 @export var firewall_step = 0.5

@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjmgb6nib47p2"]
+[gd_scene load_steps=18 format=3 uid="uid://bjmgb6nib47p2"]
 
 [ext_resource type="Script" path="res://Scripts/virtual_player.gd" id="1_0kghv"]
 [ext_resource type="Texture2D" uid="uid://cbm1ysh6bgecv" path="res://Sprites/virtual_character_idle.png" id="3_mjglx"]
+[ext_resource type="Texture2D" uid="uid://b0xu7md86h614" path="res://Sprites/icon.svg" id="4_8yfg0"]
 [ext_resource type="Texture2D" uid="uid://cx516bauljcy5" path="res://Sprites/virtual_character_walk.png" id="4_72j6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
@@ -90,6 +91,8 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pwul"]
+
 [node name="VirtualPlayer" type="Area2D" groups=["Player", "VirtualPlayer"]]
 z_index = 3
 scale = Vector2(0.6, 0.6)
@@ -110,3 +113,16 @@ sprite_frames = SubResource("SpriteFrames_85hmi")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.764639
+
+[node name="DistanceChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DistanceChecker"]
+shape = SubResource("RectangleShape2D_7pwul")
+
+[node name="PossibleLocation" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("4_8yfg0")
+
+[connection signal="area_entered" from="DistanceChecker" to="." method="_on_distance_checker_area_entered"]

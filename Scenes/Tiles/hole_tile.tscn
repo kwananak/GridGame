@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7hbrhqdgspvi"]
+
+[ext_resource type="Script" path="res://Scripts/hole_tile.gd" id="1_fm888"]
+[ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Environnement_sheet_2.png" id="2_w0g0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78ujo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nnkl"]
+atlas = ExtResource("2_w0g0o")
+region = Rect2(368, 208, 32, 32)
+
+[node name="HoleTile" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_fm888")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78ujo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_2nnkl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
