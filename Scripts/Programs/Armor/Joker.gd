@@ -6,7 +6,7 @@ func _ready():
 	usable = true
 
 func action():
-	virtual_level_manager.invincible = true
+	level_manager.invincible = true
 	usable = false
 	duration = 3
 	$Label.text = str(duration)
@@ -17,5 +17,5 @@ func turn_call():
 	duration -= 1
 	$Label.text = str(duration)
 	if duration <= 0:
-		virtual_level_manager.invincible = false
+		level_manager.invincible = false
 		$Label.hide()

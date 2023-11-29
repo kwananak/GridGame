@@ -6,4 +6,4 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	virtual_level_manager.lives += 1
+	level_manager.lives += 1

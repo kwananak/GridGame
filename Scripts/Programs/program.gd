@@ -1,17 +1,20 @@
 extends Node2D
 
 var progress_manager
-var virtual_level_manager
+var level_manager
+var player
 var recharge = 0
 var duration = 0
 var usable = false
+var focus = false
 var info : String
 
 func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 
 func loaded():
-	virtual_level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 
 func action():
 	pass

@@ -5,4 +5,4 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	virtual_level_manager.remaining_actions += 3
+	level_manager.remaining_actions += 3

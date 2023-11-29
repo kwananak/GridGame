@@ -8,4 +8,3 @@ func _ready():
 func action():
 	print(info)
 	usable = false
-

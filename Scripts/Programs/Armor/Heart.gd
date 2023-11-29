@@ -6,5 +6,5 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	virtual_level_manager.initial_health += 2
-	virtual_level_manager.health += 2
+	level_manager.initial_health += 2
+	level_manager.health += 2

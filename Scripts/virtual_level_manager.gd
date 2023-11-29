@@ -9,7 +9,7 @@ var lives = 1 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
 
-@export var firewall_speed = 1
+@export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5
 
 func _ready():
@@ -69,3 +69,9 @@ func set_remaining_actions(value):
 	var actions_ui = ui.get_node("ActionsUI")
 	actions_ui.text = "Actions = " + str(remaining_actions)
 	actions_ui.visible = true
+
+func set_firewall_speed(value):
+	if value < 0:
+		firewall_speed = 0
+	else:
+		firewall_speed = value

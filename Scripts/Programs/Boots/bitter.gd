@@ -6,4 +6,4 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	virtual_level_manager.floating = true
+	level_manager.floating = true
