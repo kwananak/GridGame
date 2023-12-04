@@ -60,6 +60,7 @@ func confirm_loadout(slot):
 	selection_opened = null
 	available_programs = null
 	set_slots()
+	get_tree().get_first_node_in_group("MouseToolTip").hide()
 
 func open_program_selection(slot):
 	array_selected = 0

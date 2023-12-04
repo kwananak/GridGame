@@ -20,23 +20,29 @@ func _input(event):
 			if level_manager.paused:
 				return
 			if inputs[dir] == inputs.skip_turn:
-				moving = true
-				await level_manager.end_turn(level_manager.turn + 1)
-				moving = false
+				skip_turn()
 				return
 			var dir_node = get_node("PossibleMoves/" + dir)
 			if dir_node.available_action != null:
-				moving = true
-				for n in possible_moves:
-					n.position = Vector2.ZERO
-					n.get_node("Move").hide()
-					n.get_node("Action").hide()
-				dir_node.available_action.hit_by_player(1)
-				await level_manager.end_turn(level_manager.turn + 1)
-				move_check(step)
+				act(dir_node)
 				return
 			if dir_node.possible:
 				move(dir_node.global_position)
+
+# self explanatory
+func skip_turn():
+	moving = true
+	await level_manager.end_turn(level_manager.turn + 1)
+
+# triggers action on selected direction
+func act(dir):
+	moving = true
+	for n in possible_moves:
+		n.position = Vector2.ZERO
+		n.get_node("Move").hide()
+		n.get_node("Action").hide()
+	dir.available_action.hit_by_player(1)
+	await level_manager.end_turn(level_manager.turn + 1)
 
 # grid based character movement to available checked locations
 func move(pos):
@@ -57,7 +63,9 @@ func move(pos):
 	animated_sprite_2d.play("idle")
 	level_manager.end_turn(level_manager.turn + 1)
 
+# check for available location for player movement or action
 func move_check(distance):
+	moving = true
 	if level_manager.game_over:
 		return
 	for n in possible_moves:

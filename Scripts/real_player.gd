@@ -1,17 +1,19 @@
 extends "res://Scripts/player.gd"
 
+var active = false
 @export var speed = 2
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
-	enter_level_animation()
+	await enter_level_animation()
+	active = true
 
 func _process(_delta):
 	get_input()
 
 # checks for pressed or held direction keys
 func get_input():
-	if level_manager.game_over || level_manager.paused:
+	if level_manager.game_over || level_manager.paused || !active:
 		return
 	var input_direction  = Input.get_vector("left", "right", "up", "down")
 	if input_direction.x < 0:

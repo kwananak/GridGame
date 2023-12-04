@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
 [ext_resource type="Script" path="res://Scripts/loadout.gd" id="2_i1edc"]
 
-[node name="TerminalScene" type="Node2D"]
+[node name="TerminalScene" type="Node2D" groups=["TerminalScene"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_kc4pd")
 
@@ -133,6 +133,11 @@ offset_right = 640.0
 offset_bottom = 608.0
 color = Color(0.101961, 0.0588235, 0.00784314, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/Info"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="ReturnButton" type="Button" parent="Control"]
 layout_mode = 0

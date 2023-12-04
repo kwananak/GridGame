@@ -7,7 +7,7 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkbf0")
 
-[node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
+[node name="Camera2D" parent="." groups=["Camera"] instance=ExtResource("2_2bkea")]
 position = Vector2(288, 160)
 anchor_mode = 1
 zoom = Vector2(2, 2.025)
@@ -106,6 +106,19 @@ focus_neighbor_right = NodePath("../QuitButton")
 text = "Reset Progress"
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
+
+[node name="MouseToolTip" type="Control" parent="." groups=["MouseToolTip"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MouseToolTip"]
+z_index = 30
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]

@@ -4,7 +4,7 @@ func add_to_programs(slot, program):
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
-	get_node("OwnedPrograms/" + slot).add_child(program)
+	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 
 
 func select_loadout(slot, program):

@@ -23,4 +23,3 @@ func enter_level_animation():
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	animated_sprite_2d.play("idle")
-	moving = false

@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var progress_manager
 var level_manager
@@ -8,8 +8,10 @@ var duration = 0
 var usable = false
 var focus = false
 var info : String
+var mouse_tip
 
 func _ready():
+	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")
 	player = get_tree().get_first_node_in_group("Player")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 
@@ -27,3 +29,11 @@ func end_turn():
 
 func cancel_action():
 	pass
+
+func _on_mouse_entered():
+	mouse_tip.position = global_position + Vector2(0, 16)
+	mouse_tip.get_node("Label").text = info
+	mouse_tip.show()
+
+func _on_mouse_exited():
+	mouse_tip.hide()

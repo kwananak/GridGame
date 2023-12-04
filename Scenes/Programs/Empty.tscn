@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpocp7ympkgbm"]
+[gd_scene load_steps=5 format=3 uid="uid://cpocp7ympkgbm"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_j186y"]
 [ext_resource type="Script" path="res://Scripts/Programs/empty.gd" id="2_wlmry"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjvq4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpefd"]
 atlas = ExtResource("1_j186y")
 region = Rect2(64, 160, 32, 32)
 
-[node name="Empty" type="Sprite2D"]
-texture = SubResource("AtlasTexture_xjvq4")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tinig"]
+
+[node name="Empty" type="Area2D"]
 script = ExtResource("2_wlmry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dpefd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_tinig")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
