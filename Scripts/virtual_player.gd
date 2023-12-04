@@ -1,32 +1,74 @@
 extends "res://Scripts/player.gd"
 
-var saved_distance 
-var distance_check_pos
-var possible_locations = []
+var step = 1
+var possible_moves
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
-	enter_level_animation()
+	possible_moves = $PossibleMoves.get_children()
+	await enter_level_animation()
+	move_check(step)
 
-func distance_check(distance):
-	distance_check_pos = {Vector2.LEFT : true, Vector2.RIGHT : true, Vector2.UP : true, Vector2.DOWN : true}
-	saved_distance = distance
-	for n in distance_check_pos:
-		$DistanceChecker.position = n * (level_manager.tile_size * saved_distance)
-		await get_tree().create_timer(0.01).timeout
-	for n in distance_check_pos:
-		if distance_check_pos[n]:
-			var possible_location = $PossibleLocation.duplicate(true)
-			add_child(possible_location)
-			possible_location.position = n * (level_manager.tile_size * saved_distance)
-			possible_locations += [possible_location]
-			possible_location.show()
+func _input(event):
+	if moving || level_manager.game_over:
+		return
+	for dir in inputs.keys():
+		if event.is_action_pressed(dir):
+			if inputs[dir] == inputs.pause:
+				level_manager.press_pause()
+				return
+			if level_manager.paused:
+				return
+			if inputs[dir] == inputs.skip_turn:
+				moving = true
+				await level_manager.end_turn(level_manager.turn + 1)
+				moving = false
+				return
+			var dir_node = get_node("PossibleMoves/" + dir)
+			if dir_node.available_action != null:
+				moving = true
+				for n in possible_moves:
+					n.position = Vector2.ZERO
+					n.get_node("Move").hide()
+					n.get_node("Action").hide()
+				dir_node.available_action.hit_by_player(1)
+				await level_manager.end_turn(level_manager.turn + 1)
+				move_check(step)
+				return
+			if dir_node.possible:
+				move(dir_node.global_position)
 
-func _on_distance_checker_area_entered(area):
-	var occupied = (area.position - position) / (level_manager.tile_size * saved_distance)
-	distance_check_pos[occupied] = false
+# grid based character movement to available checked locations
+func move(pos):
+	moving = true
+	if waiting_for_action != null:
+		waiting_for_action.focus = false
+		waiting_for_action = null
+	for n in possible_moves:
+		n.position = Vector2.ZERO
+		n.get_node("Move").hide()
+		n.get_node("Action").hide()
+	var tween = create_tween()
+	tween.tween_property(self, "position",
+			pos,
+			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
+	animated_sprite_2d.play("move")
+	await tween.finished
+	animated_sprite_2d.play("idle")
+	level_manager.end_turn(level_manager.turn + 1)
 
-func remove_distance_checkers():
-	for n in possible_locations:
-		n.queue_free()
-	possible_locations = []
+func move_check(distance):
+	if level_manager.game_over:
+		return
+	for n in possible_moves:
+		n.position = Vector2.ZERO
+		n.get_node("Move").hide()
+		n.get_node("Action").hide()
+	for n in possible_moves:
+		n.position = n.dir * (level_manager.tile_size * distance)
+		await get_tree().create_timer(0.017).timeout
+		if n.possible:
+			n.get_node("Move").show()
+		if n.available_action != null:
+			n.get_node("Action").show()
+	moving = false

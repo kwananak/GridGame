@@ -19,6 +19,6 @@ func match_key():
 	animated_sprite_2d.frame = randi_range(0, 4)
 
 # adds key to level_manager and removes key tile
-func pick_up():
+func pick_up(_area):
 	level_manager.keys += [key_type]
 	queue_free()

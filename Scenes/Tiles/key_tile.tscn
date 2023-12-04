@@ -126,6 +126,8 @@ animations = [{
 }]
 
 [node name="KeyTile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_e28lw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -135,3 +137,5 @@ shape = SubResource("RectangleShape2D_6taxf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g0f0i")
 animation = &"blue"
+
+[connection signal="area_entered" from="." to="." method="pick_up"]

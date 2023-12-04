@@ -28,6 +28,7 @@ func end_turn(value):
 	for node in get_tree().get_nodes_in_group("EndTurn"):
 		await get_tree().create_timer(end_turn_speed).timeout
 		node.turn_call()
+	player.move_check(player.step)
 
 # called when freeze is picked up
 # shows remaining number of freezed turns, if any
