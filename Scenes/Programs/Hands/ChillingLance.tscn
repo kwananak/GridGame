@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv1u63rcqelx2"]
+[gd_scene load_steps=5 format=3 uid="uid://cv1u63rcqelx2"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_du7bq"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/chilling_lance.gd" id="2_kiaiv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_if41i"]
-atlas = ExtResource("1_du7bq")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rq2v8"]
 
-[node name="ChillingLance" type="Sprite2D"]
-texture = SubResource("AtlasTexture_if41i")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk1lr"]
+atlas = ExtResource("1_du7bq")
+region = Rect2(0, 0, 32, 32)
+
+[node name="ChillingLance" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_kiaiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_rq2v8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lk1lr")

@@ -48,6 +48,7 @@ func confirm_loadout(slot):
 	selected_program.position = Vector2.ZERO
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
+		n.monitorable = false
 		remove_child(n)
 		if n.name == "Empty":
 			n.queue_free()
@@ -73,6 +74,7 @@ func open_program_selection(slot):
 			available_programs.erase(n) 
 		else:
 			add_child(n)
+			n.monitorable = true
 	set_program_sprites()
 
 func set_program_sprites():

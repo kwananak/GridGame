@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds4b1bxsjbxkg"]
+[gd_scene load_steps=5 format=3 uid="uid://ds4b1bxsjbxkg"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_mun4j"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/1-0-1_shotgun.gd" id="2_cvfec"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7vjo"]
-atlas = ExtResource("1_mun4j")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3jco"]
 
-[node name="1-0-1Shotgun" type="Sprite2D"]
-texture = SubResource("AtlasTexture_a7vjo")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep3ee"]
+atlas = ExtResource("1_mun4j")
+region = Rect2(32, 0, 32, 32)
+
+[node name="1-0-1Shotgun" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_cvfec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_n3jco")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ep3ee")

@@ -118,39 +118,6 @@ frame_progress = 0.764639
 
 [node name="PossibleMoves" type="Node2D" parent="."]
 
-[node name="up" type="Area2D" parent="PossibleMoves"]
-collision_layer = 0
-script = ExtResource("4_yio5f")
-dir = Vector2(0, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/up"]
-shape = SubResource("RectangleShape2D_ikqut")
-
-[node name="Move" type="Sprite2D" parent="PossibleMoves/up"]
-visible = false
-texture = ExtResource("5_1utcn")
-
-[node name="Action" type="Sprite2D" parent="PossibleMoves/up"]
-visible = false
-texture = ExtResource("6_xsc3d")
-
-[node name="down" type="Area2D" parent="PossibleMoves"]
-collision_layer = 0
-script = ExtResource("4_yio5f")
-dir = Vector2(0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/down"]
-shape = SubResource("RectangleShape2D_ikqut")
-
-[node name="Move" type="Sprite2D" parent="PossibleMoves/down"]
-visible = false
-rotation = 3.14159
-texture = ExtResource("5_1utcn")
-
-[node name="Action" type="Sprite2D" parent="PossibleMoves/down"]
-visible = false
-texture = ExtResource("6_xsc3d")
-
 [node name="left" type="Area2D" parent="PossibleMoves"]
 collision_layer = 0
 script = ExtResource("4_yio5f")
@@ -165,6 +132,22 @@ rotation = 4.71239
 texture = ExtResource("5_1utcn")
 
 [node name="Action" type="Sprite2D" parent="PossibleMoves/left"]
+visible = false
+texture = ExtResource("6_xsc3d")
+
+[node name="up" type="Area2D" parent="PossibleMoves"]
+collision_layer = 0
+script = ExtResource("4_yio5f")
+dir = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/up"]
+shape = SubResource("RectangleShape2D_ikqut")
+
+[node name="Move" type="Sprite2D" parent="PossibleMoves/up"]
+visible = false
+texture = ExtResource("5_1utcn")
+
+[node name="Action" type="Sprite2D" parent="PossibleMoves/up"]
 visible = false
 texture = ExtResource("6_xsc3d")
 
@@ -185,11 +168,28 @@ texture = ExtResource("5_1utcn")
 visible = false
 texture = ExtResource("6_xsc3d")
 
-[connection signal="area_entered" from="PossibleMoves/up" to="PossibleMoves/up" method="_on_area_entered"]
-[connection signal="area_exited" from="PossibleMoves/up" to="PossibleMoves/up" method="_on_area_exited"]
-[connection signal="area_entered" from="PossibleMoves/down" to="PossibleMoves/down" method="_on_area_entered"]
-[connection signal="area_exited" from="PossibleMoves/down" to="PossibleMoves/down" method="_on_area_exited"]
+[node name="down" type="Area2D" parent="PossibleMoves"]
+collision_layer = 0
+script = ExtResource("4_yio5f")
+dir = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/down"]
+shape = SubResource("RectangleShape2D_ikqut")
+
+[node name="Move" type="Sprite2D" parent="PossibleMoves/down"]
+visible = false
+rotation = 3.14159
+texture = ExtResource("5_1utcn")
+
+[node name="Action" type="Sprite2D" parent="PossibleMoves/down"]
+visible = false
+texture = ExtResource("6_xsc3d")
+
 [connection signal="area_entered" from="PossibleMoves/left" to="PossibleMoves/left" method="_on_area_entered"]
 [connection signal="area_exited" from="PossibleMoves/left" to="PossibleMoves/left" method="_on_area_exited"]
+[connection signal="area_entered" from="PossibleMoves/up" to="PossibleMoves/up" method="_on_area_entered"]
+[connection signal="area_exited" from="PossibleMoves/up" to="PossibleMoves/up" method="_on_area_exited"]
 [connection signal="area_entered" from="PossibleMoves/right" to="PossibleMoves/right" method="_on_area_entered"]
 [connection signal="area_exited" from="PossibleMoves/right" to="PossibleMoves/right" method="_on_area_exited"]
+[connection signal="area_entered" from="PossibleMoves/down" to="PossibleMoves/down" method="_on_area_entered"]
+[connection signal="area_exited" from="PossibleMoves/down" to="PossibleMoves/down" method="_on_area_exited"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=6 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jkbf0"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
+[ext_resource type="Script" path="res://Scripts/mouse_tool_tip.gd" id="4_qjhqe"]
 [ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jkbf0")
@@ -107,18 +110,21 @@ text = "Reset Progress"
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
 
-[node name="MouseToolTip" type="Control" parent="." groups=["MouseToolTip"]]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MouseToolTip" type="Area2D" parent="." groups=["MouseToolTip"]]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("4_qjhqe")
 
 [node name="Label" type="Label" parent="MouseToolTip"]
 z_index = 30
-layout_mode = 0
 offset_right = 104.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseToolTip"]
+position = Vector2(0, 32)
+scale = Vector2(0.01, 0.01)
+shape = SubResource("CircleShape2D_jv1wl")
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]
@@ -128,3 +134,5 @@ scale = Vector2(0.5, 0.5)
 [connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_test_level" binds= ["real"]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
 [connection signal="pressed" from="Menu/ResetProgress" to="ProgressManager" method="reset_programs"]
+[connection signal="area_entered" from="MouseToolTip" to="MouseToolTip" method="_on_area_entered"]
+[connection signal="area_exited" from="MouseToolTip" to="MouseToolTip" method="_on_area_exited"]

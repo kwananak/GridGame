@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://j2hnmy0cuulw"]
+[gd_scene load_steps=5 format=3 uid="uid://j2hnmy0cuulw"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_o1d21"]
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/bitter.gd" id="2_k5nc5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tjfx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5otd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjcsq"]
 atlas = ExtResource("1_o1d21")
 region = Rect2(128, 96, 32, 32)
 
-[node name="Bitter" type="Sprite2D"]
-texture = SubResource("AtlasTexture_3tjfx")
+[node name="Bitter" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_k5nc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_w5otd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_yjcsq")

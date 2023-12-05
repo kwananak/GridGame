@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://duhf8i12ftah6"]
+[gd_scene load_steps=5 format=3 uid="uid://duhf8i12ftah6"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_wyjqc"]
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/salty.gd" id="2_d21g5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4fgg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq537"]
 atlas = ExtResource("1_wyjqc")
 region = Rect2(32, 128, 32, 32)
 
-[node name="Salty" type="Sprite2D"]
-texture = SubResource("AtlasTexture_c4fgg")
+[node name="Salty" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_d21g5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ctoj0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_qq537")

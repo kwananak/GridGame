@@ -11,7 +11,7 @@ func _ready():
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
+	program.set_deferred("monitorable", false)
 	remove_child(program)
-	await $/root/Main/ProgressManager.add_to_programs(program_slot, program)
-	get_tree().get_first_node_in_group("MouseToolTip").hide()
+	$/root/Main/ProgressManager.add_to_programs(program_slot, program)
 	queue_free()

@@ -21,3 +21,8 @@ func _on_area_entered(area):
 func _on_area_exited(_area):
 	possible = true
 	available_action = null
+
+func reset():
+	position = Vector2.ZERO
+	$Move.hide()
+	$Action.hide()

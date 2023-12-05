@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7u8l87e3abc5"]
+[gd_scene load_steps=5 format=3 uid="uid://b7u8l87e3abc5"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_6kvgd"]
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/joker.gd" id="2_meenb"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhhiw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gu87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0rqk"]
 atlas = ExtResource("1_6kvgd")
 region = Rect2(0, 64, 32, 32)
 
-[node name="Joker" type="Sprite2D"]
-texture = SubResource("AtlasTexture_qhhiw")
+[node name="Joker" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_meenb")
 
 [node name="Label" type="Label" parent="."]
@@ -18,3 +21,10 @@ offset_right = 5.0
 offset_bottom = 14.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_4gu87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_y0rqk")

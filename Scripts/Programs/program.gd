@@ -29,11 +29,3 @@ func end_turn():
 
 func cancel_action():
 	pass
-
-func _on_mouse_entered():
-	mouse_tip.position = global_position + Vector2(0, 16)
-	mouse_tip.get_node("Label").text = info
-	mouse_tip.show()
-
-func _on_mouse_exited():
-	mouse_tip.hide()

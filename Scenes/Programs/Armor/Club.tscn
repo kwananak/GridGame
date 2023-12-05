@@ -3,23 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_re7bj"]
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/club.gd" id="2_kld6p"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjh83"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6qdn"]
 atlas = ExtResource("1_re7bj")
 region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvi4g"]
 
 [node name="Club" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("2_kld6p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_y6qdn")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_kvi4g")
+shape = SubResource("RectangleShape2D_rjh83")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_y6qdn")

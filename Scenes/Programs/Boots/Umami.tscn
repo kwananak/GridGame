@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp84ntkx7xdv1"]
+[gd_scene load_steps=5 format=3 uid="uid://dp84ntkx7xdv1"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_fkdra"]
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/umami.gd" id="2_houqr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8w36r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odajs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_301hb"]
 atlas = ExtResource("1_fkdra")
 region = Rect2(0, 128, 32, 32)
 
-[node name="Umami" type="Sprite2D"]
-texture = SubResource("AtlasTexture_8w36r")
+[node name="Umami" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_houqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_odajs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_301hb")

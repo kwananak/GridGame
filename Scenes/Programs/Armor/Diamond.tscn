@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://w6dfm2wturk6"]
+[gd_scene load_steps=5 format=3 uid="uid://w6dfm2wturk6"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_2k2l1"]
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/diamond.gd" id="2_mwdss"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eeipa"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otr5h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4jmf"]
 atlas = ExtResource("1_2k2l1")
 region = Rect2(32, 32, 32, 32)
 
-[node name="Diamond" type="Sprite2D"]
-texture = SubResource("AtlasTexture_eeipa")
+[node name="Diamond" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_mwdss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_otr5h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_x4jmf")

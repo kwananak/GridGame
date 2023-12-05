@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlyrwgmg3ve6g"]
+[gd_scene load_steps=5 format=3 uid="uid://dlyrwgmg3ve6g"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_hj583"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/grappling_tool.gd" id="2_8llf7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlaj0"]
-atlas = ExtResource("1_hj583")
-region = Rect2(128, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7u1"]
 
-[node name="GrapplingTool" type="Sprite2D"]
-texture = SubResource("AtlasTexture_rlaj0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3455"]
+atlas = ExtResource("1_hj583")
+region = Rect2(0, 32, 32, 32)
+
+[node name="GrapplingTool" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_8llf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_fa7u1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_d3455")

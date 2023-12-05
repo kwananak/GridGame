@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbd4cc3ikx7kl"]
+[gd_scene load_steps=5 format=3 uid="uid://cbd4cc3ikx7kl"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_cld7a"]
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/heart.gd" id="2_t75cr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onyma"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko8cu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dyn3"]
 atlas = ExtResource("1_cld7a")
 region = Rect2(96, 32, 32, 32)
 
-[node name="Heart" type="Sprite2D"]
-texture = SubResource("AtlasTexture_onyma")
+[node name="Heart" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_t75cr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ko8cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_3dyn3")

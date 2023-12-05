@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ykmhiaw3cqvr"]
+[gd_scene load_steps=5 format=3 uid="uid://ykmhiaw3cqvr"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_2hria"]
 [ext_resource type="Script" path="res://Scripts/Programs/Goggles/amazing.gd" id="1_3vqoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hfg0"]
-atlas = ExtResource("1_2hria")
-region = Rect2(128, 64, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux22f"]
 
-[node name="Amazing" type="Sprite2D"]
-texture = SubResource("AtlasTexture_7hfg0")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdv8p"]
+atlas = ExtResource("1_2hria")
+region = Rect2(96, 64, 32, 32)
+
+[node name="Amazing" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("1_3vqoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ux22f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_kdv8p")

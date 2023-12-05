@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cueh5dc0lig70"]
+[gd_scene load_steps=5 format=3 uid="uid://cueh5dc0lig70"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_4q56q"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/damned_gauntlet.gd" id="2_k3i5j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_io20v"]
-atlas = ExtResource("1_4q56q")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7jhv"]
 
-[node name="DamnedGauntlet" type="Sprite2D"]
-texture = SubResource("AtlasTexture_io20v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0e3s"]
+atlas = ExtResource("1_4q56q")
+region = Rect2(96, 0, 32, 32)
+
+[node name="DamnedGauntlet" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_k3i5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_y7jhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n0e3s")

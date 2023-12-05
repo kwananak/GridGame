@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b20xavb44nvvw"]
+[gd_scene load_steps=5 format=3 uid="uid://b20xavb44nvvw"]
 
 [ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/programs.png" id="1_4xupr"]
 [ext_resource type="Script" path="res://Scripts/Programs/Brain/neuro_sync_cortex.gd" id="2_0xog0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_impyj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4l2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv7uk"]
 atlas = ExtResource("1_4xupr")
 region = Rect2(0, 160, 32, 32)
 
-[node name="NeuroSyncCortex" type="Sprite2D"]
-texture = SubResource("AtlasTexture_impyj")
+[node name="NeuroSyncCortex" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("2_0xog0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_i4l2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_iv7uk")
