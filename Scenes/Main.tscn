@@ -115,16 +115,16 @@ collision_layer = 0
 collision_mask = 256
 script = ExtResource("4_qjhqe")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseToolTip"]
+position = Vector2(0, 32)
+scale = Vector2(0.01, 0.01)
+shape = SubResource("CircleShape2D_jv1wl")
+
 [node name="Label" type="Label" parent="MouseToolTip"]
 z_index = 30
 offset_right = 104.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseToolTip"]
-position = Vector2(0, 32)
-scale = Vector2(0.01, 0.01)
-shape = SubResource("CircleShape2D_jv1wl")
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]

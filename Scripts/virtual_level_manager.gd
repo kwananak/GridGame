@@ -30,7 +30,7 @@ func end_turn(value):
 		node.turn_call()
 	player.move_check(player.step)
 
-# called when freeze is picked up
+# called when freeze is activated
 # shows remaining number of freezed turns, if any
 func set_freeze(value):
 	freeze = value

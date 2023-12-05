@@ -29,3 +29,6 @@ func end_turn():
 
 func cancel_action():
 	pass
+
+func confirm():
+	pass

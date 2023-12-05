@@ -32,6 +32,8 @@ func _input(event):
 		if slot.name == "Labels" || slot.name == "Brain":
 			continue
 		if event.is_action_pressed(slot.name):
+			if slot.get_child_count() == 0:
+				return
 			var prog = slot.get_children()
 			if prog[0].focus:
 				prog[0].cancel_action()

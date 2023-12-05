@@ -2,7 +2,11 @@ extends Area2D
 
 var possible = true
 var available_action = null
+var player
 @export var dir : Vector2
+
+func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 
 # checks for collision and adjusts vars accordingly
 func _on_area_entered(area):
@@ -14,7 +18,8 @@ func _on_area_entered(area):
 			if area.unlocked:
 				return
 		"hardened":
-			available_action = area
+			if !player.teleport:
+				available_action = area
 	possible = false
 
 # resets vars when no longer colliding

@@ -8,12 +8,19 @@ func _ready():
 	usable = true
 
 func cancel_action():
-	player.move_check(player.step)
 	focus = false
 	usable = true
+	player.waiting_for_action = null
+	player.teleport = false
+	player.move_check(player.step)
 
 func action():
-	player.move_check(distance)
-	player.waiting_for_action = self
 	usable = false
 	focus = true
+	player.waiting_for_action = self
+	player.teleport = true
+	player.move_check(distance)
+
+func confirm():
+	player.teleport = false
+	focus = false
