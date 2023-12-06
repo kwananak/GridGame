@@ -7,7 +7,6 @@ var strength = 1
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 

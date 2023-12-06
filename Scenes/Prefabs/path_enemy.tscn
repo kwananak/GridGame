@@ -1,19 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1rxtknyx8nnt"]
+[gd_scene load_steps=7 format=3 uid="uid://c1rxtknyx8nnt"]
 
 [ext_resource type="Script" path="res://Scripts/path_enemy.gd" id="1_4tc8b"]
-[ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Environnement_sheet_2.png" id="2_ves3q"]
+[ext_resource type="Texture2D" uid="uid://dcckw5qijvrq1" path="res://Sprites/seeker_enemy.png" id="2_vlnij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdil"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q074u"]
-atlas = ExtResource("2_ves3q")
-region = Rect2(224, 160, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy42b"]
+atlas = ExtResource("2_vlnij")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5mfu"]
+atlas = ExtResource("2_vlnij")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lahe1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q074u")
+"texture": SubResource("AtlasTexture_dy42b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5mfu")
 }],
 "loop": true,
 "name": &"idle",
@@ -21,7 +28,6 @@ animations = [{
 }]
 
 [node name="PathEnemy" type="Area2D" groups=["EndTurn"]]
-collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_4tc8b")
 

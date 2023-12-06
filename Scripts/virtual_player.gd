@@ -16,7 +16,7 @@ func _unhandled_input(event):
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
-			if inputs[dir] == inputs.pause:
+			if dir == "pause":
 				level_manager.press_pause()
 				return
 			if level_manager.paused:
@@ -44,9 +44,14 @@ func skip_turn():
 # triggers action on selected direction
 func act(dir):
 	moving = true
+	if dir.available_action == waiting_for_action:
+		waiting_for_action.confirm_with_dir(dir)
+	else:
+		if waiting_for_action != null:
+			waiting_for_action.cancel_action() 
+		dir.available_action.hit_by_player(strength)
 	for n in possible_moves:
 		n.reset()
-	dir.available_action.hit_by_player(strength)
 	await level_manager.end_turn(level_manager.turn + 1)
 
 # grid based character movement to available checked locations
@@ -104,4 +109,26 @@ func move_check(distance):
 			n.get_node("Move").show()
 		if n.available_action != null:
 			n.get_node("Action").show()
+	moving = false
+
+func projectile_check(program):
+	moving = true
+	for n in possible_moves:
+		if n.available_action != null:
+			print(n.available_action.name)
+		if n.possible:
+			n.available_action = program
+			n.possible = false
+			n.get_node("Move").hide()
+			n.get_node("Action").show()
+	moving = false
+
+func projectile_uncheck(program):
+	moving = true
+	for n in possible_moves:
+		if n.available_action == program:
+			n.available_action = null
+			n.possible = true
+			n.get_node("Move").show()
+			n.get_node("Action").hide()
 	moving = false

@@ -31,6 +31,6 @@ func fire_bullet():
 	bullets.add_child(new_bullet)
 
 # called by player when hit
-func hit_by_player():
+func hit_by_player(_strength):
 	is_destroyed = true
 	$AnimatedSprite2D.frame = 1
