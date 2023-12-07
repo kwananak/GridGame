@@ -13,5 +13,5 @@ func _ready():
 func pick_up(_area):
 	program.set_deferred("monitorable", false)
 	remove_child(program)
-	$/root/Main/ProgressManager.add_to_programs(program_slot, program)
+	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	queue_free()

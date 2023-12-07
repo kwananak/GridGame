@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
-[ext_resource type="PackedScene" uid="uid://w6dfm2wturk6" path="res://Scenes/Programs/Armor/Diamond.tscn" id="2_x8144"]
-[ext_resource type="PackedScene" uid="uid://caq3tmtnish1u" path="res://Scenes/Programs/Boots/Sour.tscn" id="3_lool5"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 script = ExtResource("1_8smh1")
@@ -17,15 +15,11 @@ z_index = 5
 
 [node name="Armor" type="Node2D" parent="Loadout"]
 
-[node name="Diamond" parent="Loadout/Armor" instance=ExtResource("2_x8144")]
-
 [node name="LeftHand" type="Node2D" parent="Loadout"]
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 
 [node name="Boots" type="Node2D" parent="Loadout"]
-
-[node name="Sour" parent="Loadout/Boots" instance=ExtResource("3_lool5")]
 
 [node name="OwnedPrograms" type="Node2D" parent="."]
 visible = false

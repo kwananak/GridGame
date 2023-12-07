@@ -8,6 +8,7 @@ var initial_health = 1
 var lives = 1 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
+var programs = []
 
 @export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5
@@ -75,3 +76,9 @@ func set_firewall_speed(value):
 		firewall_speed = 0
 	else:
 		firewall_speed = value
+
+func on_end_tile_entered():
+	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	for p in programs:
+		progress_manager.add_to_programs(p[0], p[1])
+	super.on_end_tile_entered()
