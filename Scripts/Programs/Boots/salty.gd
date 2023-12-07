@@ -24,4 +24,5 @@ func confirm_with_dir(dir):
 	bullet.position = dir.global_position
 	bullet.rotation = dir.rotation
 	bullet.direction = dir.position
+	player.waiting_for_action = null
 	player.projectile_uncheck(self)

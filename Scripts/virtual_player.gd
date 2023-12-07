@@ -59,6 +59,7 @@ func move(pos):
 	moving = true
 	for n in possible_moves:
 		n.reset()
+	await get_tree().create_timer(0.017).timeout
 	if teleport:
 		hide()
 		await get_tree().create_timer(0.1).timeout
@@ -90,6 +91,7 @@ func move_check(distance):
 		return
 	for n in possible_moves:
 		n.reset()
+	await get_tree().create_timer(0.017).timeout
 	for n in possible_moves:
 		if teleport:
 			n.position = n.dir * (level_manager.tile_size * distance)
@@ -132,3 +134,39 @@ func projectile_uncheck(program):
 			n.get_node("Move").show()
 			n.get_node("Action").hide()
 	moving = false
+
+func circle_hit():
+	moving = true
+	for n in possible_moves:
+		if n.available_action != null:
+			n.available_action.hit_by_player(3)
+	level_manager.end_turn(level_manager.turn + 1)
+
+func row_check(distance):
+	moving = true
+	for n in possible_moves:
+		n.reset()
+	await get_tree().create_timer(0.017).timeout
+	for n in possible_moves:
+		for i in distance:
+			n.position = n.dir * (level_manager.tile_size * (i + 1))
+			await get_tree().create_timer(0.017).timeout
+			if n.available_action != null:
+				var new_check = n.duplicate(15)
+				new_check.add_to_group(n.name)
+				new_check.get_node("Action").show()
+				$RowChecker.add_child(new_check)
+		n.available_action = waiting_for_action
+	moving = false
+
+func row_hit(dir):
+	for n in $RowChecker.get_children():
+		if n.is_in_group(dir.name):
+			n.available_action.hit_by_player(strength)
+	clean_row_checker()
+	level_manager.end_turn(level_manager.turn + 1)
+
+func clean_row_checker():
+	moving = true
+	for n in $RowChecker.get_children():
+		n.queue_free()

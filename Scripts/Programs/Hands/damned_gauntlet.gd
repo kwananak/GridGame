@@ -6,4 +6,7 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	print(info)
+	for n in get_tree().get_nodes_in_group("Hittable"):
+		if "strength" in n:
+			if n.strength > 1:
+				n.strength -= 1

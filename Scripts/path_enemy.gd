@@ -1,7 +1,7 @@
 extends Area2D
 
 var level_manager
-var destroyed = false
+var is_destroyed = false
 var tile_type = "enemy"
 
 # add path nodes and set speed from inspector. 1 will move every turn, 2 every 2 turn, etc.
@@ -33,14 +33,14 @@ func turn_call():
 
 # called when enemy hits player
 func _on_area_entered(_area):
-	if destroyed:
+	if is_destroyed:
 		return
 	level_manager.call_game_over()
 
 func hit_by_player(_strength):
-	if destroyed:
+	if is_destroyed:
 		return
-	destroyed = true
+	is_destroyed = true
 	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 	animated_sprite_2d.frame = 1
 	remove_from_group("EndTurn")

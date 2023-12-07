@@ -6,5 +6,5 @@ func _ready():
 	usable = true
 
 func action():
-	print(info)
 	usable = false
+	player.circle_hit()
