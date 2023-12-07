@@ -115,6 +115,7 @@ autoplay = "idle"
 frame_progress = 0.764639
 
 [node name="PossibleMoves" type="Node2D" parent="."]
+z_index = 1
 
 [node name="left" type="Area2D" parent="PossibleMoves"]
 rotation = 3.14159
@@ -123,6 +124,7 @@ script = ExtResource("4_yio5f")
 dir = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/left"]
+scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_ikqut")
 
 [node name="Move" type="Sprite2D" parent="PossibleMoves/left"]
@@ -141,6 +143,7 @@ script = ExtResource("4_yio5f")
 dir = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/up"]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_ikqut")
 
 [node name="Move" type="Sprite2D" parent="PossibleMoves/up"]
@@ -158,6 +161,7 @@ script = ExtResource("4_yio5f")
 dir = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/right"]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_ikqut")
 
 [node name="Move" type="Sprite2D" parent="PossibleMoves/right"]
@@ -176,6 +180,7 @@ script = ExtResource("4_yio5f")
 dir = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PossibleMoves/down"]
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_ikqut")
 
 [node name="Move" type="Sprite2D" parent="PossibleMoves/down"]
@@ -186,6 +191,9 @@ texture = ExtResource("5_1utcn")
 [node name="Action" type="Sprite2D" parent="PossibleMoves/down"]
 visible = false
 texture = ExtResource("6_xsc3d")
+
+[node name="RowChecker" type="Node2D" parent="."]
+z_index = 1
 
 [connection signal="area_entered" from="PossibleMoves/left" to="PossibleMoves/left" method="_on_area_entered"]
 [connection signal="area_exited" from="PossibleMoves/left" to="PossibleMoves/left" method="_on_area_exited"]

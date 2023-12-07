@@ -28,6 +28,8 @@ func activate_program_bar():
 	program_bar.show()
 
 func _input(event):
+	if player.moving:
+		return
 	for slot in program_bar.get_children():
 		if slot.name == "Labels" || slot.name == "Brain":
 			continue

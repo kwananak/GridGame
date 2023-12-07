@@ -10,16 +10,17 @@ func _ready():
 
 # checks for collision and adjusts vars accordingly
 func _on_area_entered(area):
-	if not "tile_type" in area:
-		possible = false
-		return
-	match area.tile_type:
-		"door":
-			if area.unlocked:
-				return
-		"hardened":
-			if !player.teleport:
-				available_action = area
+	if "tile_type" in area:
+		match area.tile_type:
+			"door":
+				if area.unlocked:
+					return
+			"hardened":
+				if !player.teleport:
+					available_action = area
+			"cannon", "enemy":
+				if !player.teleport && !area.is_destroyed:
+					available_action = area
 	possible = false
 
 # resets vars when no longer colliding
