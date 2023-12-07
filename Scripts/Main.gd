@@ -48,5 +48,6 @@ func call_terminal_scene(from_scene):
 	add_child(load("res://Scenes/terminal_scene.tscn").instantiate())
 	$TerminalScene.position = camera_2d.position - Vector2(288, 160)
 
+# returns to real scene when closing terminal
 func return_to_real_scene():
 	add_child(real_scene)
