@@ -28,6 +28,7 @@ func _on_area_exited(_area):
 	available_action = null
 
 func reset():
+	available_action = null
 	position = Vector2.ZERO
 	$Move.hide()
 	$Action.hide()
