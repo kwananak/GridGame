@@ -2,18 +2,16 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Shoot 1 bullet in front"
+	active = true
 	super._ready()
-	usable = true
 
 func action():
-	usable = false
 	focus = true
 	player.waiting_for_action = self
 	player.projectile_check(self)
 
 func cancel_action():
 	focus = false
-	usable = true
 	player.waiting_for_action = null
 	player.projectile_uncheck(self)
 

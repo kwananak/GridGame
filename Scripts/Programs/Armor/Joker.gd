@@ -2,12 +2,11 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Become invincible for 3 turn"
+	active = true
 	super._ready()
-	usable = true
 
 func action():
 	level_manager.invincible = true
-	usable = false
 	duration = 3
 	$Label.text = str(duration)
 	$Label.show()

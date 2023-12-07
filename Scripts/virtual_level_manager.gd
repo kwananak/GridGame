@@ -26,8 +26,8 @@ func end_turn(value):
 		return
 	turn = value
 	for node in get_tree().get_nodes_in_group("EndTurn"):
-		#get_tree().create_timer(end_turn_speed).timeout
-		await node.turn_call()
+		await get_tree().create_timer(end_turn_speed).timeout
+		node.turn_call()
 	player.move_check(player.step)
 
 # called when freeze is activated
@@ -67,9 +67,8 @@ func set_lives(value):
 
 func set_remaining_actions(value):
 	remaining_actions = value
-	var actions_ui = ui.get_node("ActionsUI")
-	actions_ui.text = "Actions = " + str(remaining_actions)
-	actions_ui.visible = true
+	var actions_ui = ui.get_node("ProgramBar/Labels/Brain")
+	actions_ui.text = str(remaining_actions)
 
 func set_firewall_speed(value):
 	if value < 0:

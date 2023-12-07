@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=3 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_t8u2p"]
+[ext_resource type="Texture2D" uid="uid://bent0hld5jcyy" path="res://Sprites/underskin_program.png" id="2_6gjgn"]
 
 [node name="UI" type="Node2D"]
-z_index = 20
+z_index = 90
 script = ExtResource("1_t8u2p")
 
 [node name="Button" type="Button" parent="."]
@@ -52,55 +53,85 @@ offset_right = -160.0
 offset_bottom = 96.0
 
 [node name="ProgramBar" type="Node2D" parent="."]
-visible = false
 
 [node name="Brain" type="Node2D" parent="ProgramBar"]
-position = Vector2(-96, 128)
-
-[node name="Goggles" type="Node2D" parent="ProgramBar"]
+z_index = 1
 position = Vector2(-64, 128)
 
-[node name="Armor" type="Node2D" parent="ProgramBar"]
+[node name="Goggles" type="Node2D" parent="ProgramBar"]
+z_index = 1
 position = Vector2(-32, 128)
 
-[node name="LeftHand" type="Node2D" parent="ProgramBar"]
+[node name="Armor" type="Node2D" parent="ProgramBar"]
+z_index = 1
 position = Vector2(0, 128)
 
-[node name="RightHand" type="Node2D" parent="ProgramBar"]
+[node name="LeftHand" type="Node2D" parent="ProgramBar"]
+z_index = 1
 position = Vector2(32, 128)
 
-[node name="Boots" type="Node2D" parent="ProgramBar"]
+[node name="RightHand" type="Node2D" parent="ProgramBar"]
+z_index = 1
 position = Vector2(64, 128)
 
-[node name="Labels" type="Node2D" parent="ProgramBar"]
+[node name="Boots" type="Node2D" parent="ProgramBar"]
 z_index = 1
+position = Vector2(96, 128)
 
-[node name="Label" type="Label" parent="ProgramBar/Labels"]
-offset_left = -80.0
+[node name="Labels" type="Node2D" parent="ProgramBar"]
+
+[node name="Brain" type="Label" parent="ProgramBar/Labels"]
+z_index = 2
+offset_left = -93.97
+offset_top = 115.595
+offset_right = -63.305
+offset_bottom = 141.595
+scale = Vector2(0.845, 0.845)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Goggles" type="Label" parent="ProgramBar/Labels"]
+visible = false
+z_index = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
 offset_top = 112.0
-offset_right = -49.335
+offset_right = -17.335
 offset_bottom = 138.0
+grow_horizontal = 0
 scale = Vector2(0.42, 0.42)
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="ProgramBar/Labels"]
-offset_left = -48.0
+[node name="Armor" type="Label" parent="ProgramBar/Labels"]
+visible = false
+z_index = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
 offset_top = 112.0
-offset_right = -17.335
+offset_right = 14.665
 offset_bottom = 138.0
+grow_horizontal = 0
 scale = Vector2(0.42, 0.42)
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="ProgramBar/Labels"]
-offset_left = -16.0
+[node name="LeftHand" type="Label" parent="ProgramBar/Labels"]
+visible = false
+z_index = 2
+offset_left = 16.0
 offset_top = 112.0
-offset_right = 14.665
+offset_right = 46.665
 offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "3
@@ -109,10 +140,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="ProgramBar/Labels"]
-offset_left = 16.0
+[node name="RightHand" type="Label" parent="ProgramBar/Labels"]
+visible = false
+z_index = 2
+offset_left = 48.0
 offset_top = 112.0
-offset_right = 46.665
+offset_right = 78.665
 offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "4
@@ -121,10 +154,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="ProgramBar/Labels"]
-offset_left = 48.0
+[node name="Boots" type="Label" parent="ProgramBar/Labels"]
+visible = false
+z_index = 2
+offset_left = 80.0
 offset_top = 112.0
-offset_right = 78.665
+offset_right = 110.665
 offset_bottom = 138.0
 scale = Vector2(0.42, 0.42)
 text = "5
@@ -132,5 +167,9 @@ text = "5
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgramBar/Labels"]
+position = Vector2(0, 128)
+texture = ExtResource("2_6gjgn")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

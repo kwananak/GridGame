@@ -22,9 +22,12 @@ func activate_program_bar():
 				var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
 				if !slot.is_empty():
 					var loaded_program = slot[0].duplicate(15)
-					loaded_program.position = Vector2.ZERO
+					await get_tree().create_timer(0.017).timeout
+					loaded_program.position = Vector2(-16, 0)
 					n.add_child(loaded_program)
 					loaded_program.loaded()
+					if loaded_program.active:
+						program_bar.get_node("Labels/" + n.name).show()
 	program_bar.show()
 
 func _input(event):
@@ -42,6 +45,5 @@ func _input(event):
 				level_manager.remaining_actions += 1
 				return
 			if !prog.is_empty() && level_manager.remaining_actions > 0 && !prog[0].focus:
-				if prog[0].usable:
-					level_manager.remaining_actions -= 1
-					prog[0].action()
+				level_manager.remaining_actions -= 1
+				prog[0].action()

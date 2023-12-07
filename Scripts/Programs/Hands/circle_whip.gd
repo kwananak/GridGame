@@ -2,9 +2,8 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Destroy everything around the player"
+	active = true
 	super._ready()
-	usable = true
 
 func action():
-	usable = false
 	player.circle_hit()

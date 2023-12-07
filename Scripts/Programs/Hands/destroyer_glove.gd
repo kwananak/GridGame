@@ -4,18 +4,16 @@ var strength = 1
 
 func _ready():
 	info = "Action : Hit 3 blocks in front of you"
+	active = true
 	super._ready()
-	usable = true
 
 func action():
-	usable = false
 	focus = true
 	player.waiting_for_action = self
 	player.row_check(3)
 
 func cancel_action():
 	focus = false
-	usable = true
 	player.waiting_for_action = null
 	player.clean_row_checker()
 	player.move_check(player.step)

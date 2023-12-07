@@ -3,11 +3,13 @@ extends "res://Scripts/player.gd"
 var strength = 1
 var step = 1
 var possible_moves
+var row_checker
 var teleport = false
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	possible_moves = $PossibleMoves.get_children()
+	row_checker = $RowChecker
 	await enter_level_animation()
 	move_check(step)
 
@@ -155,12 +157,12 @@ func row_check(distance):
 				var new_check = n.duplicate(15)
 				new_check.add_to_group(n.name)
 				new_check.get_node("Action").show()
-				$RowChecker.add_child(new_check)
+				row_checker.add_child(new_check)
 		n.available_action = waiting_for_action
 	moving = false
 
 func row_hit(dir):
-	for n in $RowChecker.get_children():
+	for n in row_checker.get_children():
 		if n.is_in_group(dir.name):
 			n.available_action.hit_by_player(strength)
 	clean_row_checker()
@@ -168,5 +170,5 @@ func row_hit(dir):
 
 func clean_row_checker():
 	moving = true
-	for n in $RowChecker.get_children():
+	for n in row_checker.get_children():
 		n.queue_free()
