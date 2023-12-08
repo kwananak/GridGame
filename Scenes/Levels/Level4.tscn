@@ -24,14 +24,14 @@ level_number = 4
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_dfs2b")]
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="Floor" type="Node" parent="Environment"]
+[node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="StartTile" parent="Environment/Floor" instance=ExtResource("5_t63h7")]
 position = Vector2(224, 288)
 
-[node name="Node" type="Node" parent="Environment/Floor"]
+[node name="Node" type="Node2D" parent="Environment/Floor"]
 
 [node name="FloorTile" parent="Environment/Floor/Node" instance=ExtResource("6_dy3nm")]
 position = Vector2(256, 224)
@@ -585,7 +585,7 @@ position = Vector2(768, 416)
 [node name="FloorTile109" parent="Environment/Floor/Node" instance=ExtResource("6_dy3nm")]
 position = Vector2(864, 384)
 
-[node name="Walls" type="Node" parent="Environment"]
+[node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallTile62" parent="Environment/Walls" instance=ExtResource("7_dl783")]
 position = Vector2(256, 384)
@@ -965,13 +965,13 @@ rotation = 1.5708
 position = Vector2(1024, 224)
 rotation = 1.5708
 
-[node name="Trials" type="Node" parent="."]
+[node name="Trials" type="Node2D" parent="."]
 
 [node name="KeyTile" parent="Trials" instance=ExtResource("10_sufps")]
 position = Vector2(480, 352)
 key_type = "blue"
 
-[node name="Node" type="Node" parent="Trials"]
+[node name="Node" type="Node2D" parent="Trials"]
 
 [node name="HardenedTile" parent="Trials/Node" instance=ExtResource("9_c2ajx")]
 position = Vector2(288, 224)

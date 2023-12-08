@@ -26,9 +26,9 @@ level_number = 1
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_n12hl")]
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="Floor" type="Node" parent="Environment"]
+[node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="FloorTile" parent="Environment/Floor" instance=ExtResource("3_bla2f")]
 position = Vector2(96, 416)
@@ -379,7 +379,7 @@ position = Vector2(64, 448)
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("5_548s3")]
 position = Vector2(1152, 288)
 
-[node name="Walls" type="Node" parent="Environment"]
+[node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="InvisibleWall" parent="Environment/Walls" instance=ExtResource("6_swgbb")]
 position = Vector2(32, 448)
@@ -683,13 +683,13 @@ rotation = 3.14159
 
 [node name="CornerWallTile4" parent="Environment/Walls" instance=ExtResource("8_vyrbl")]
 position = Vector2(64, 512)
-rotation = 4.71239
+rotation = -1.5708
 
 [node name="CornerWallTile9" parent="Environment/Walls" instance=ExtResource("8_vyrbl")]
 position = Vector2(1088, 224)
-rotation = 4.71239
+rotation = -1.5708
 
-[node name="Trials" type="Node" parent="."]
+[node name="Trials" type="Node2D" parent="."]
 
 [node name="HardenedTile" parent="Trials" instance=ExtResource("9_ct02r")]
 position = Vector2(448, 480)
@@ -769,7 +769,6 @@ key_type = "blue"
 position = Vector2(-32, 0)
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("12_67l1c")]
-z_index = 1
 position = Vector2(32, 352)
 
 [node name="BrainTile" parent="." instance=ExtResource("14_jxvwo")]
@@ -777,7 +776,6 @@ position = Vector2(992, 160)
 select_program = "CyberPulseCognitive"
 
 [node name="CannonTile" parent="." instance=ExtResource("15_o3b67")]
-z_index = 1
 position = Vector2(608, 448)
 
 [node name="FreezeTile" parent="." instance=ExtResource("16_oq8lt")]

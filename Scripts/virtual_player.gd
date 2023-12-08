@@ -93,22 +93,21 @@ func move_check(distance):
 		return
 	for n in possible_moves:
 		n.reset()
-	await get_tree().create_timer(0.017).timeout
+	await get_tree().create_timer(0.02).timeout
 	for n in possible_moves:
 		if teleport:
 			n.position = n.dir * (level_manager.tile_size * distance)
-			await get_tree().create_timer(0.017).timeout
 		else:
 			for i in distance:
 				n.position = n.dir * (level_manager.tile_size * (i + 1))
-				await get_tree().create_timer(0.017).timeout
 				if !n.possible:
 					if i > 0:
 						n.position = n.dir * (level_manager.tile_size * i)
-						await get_tree().create_timer(0.017).timeout
 						break
 					elif i == 0:
 						break
+	await get_tree().create_timer(0.02).timeout
+	for n in possible_moves:
 		if n.possible:
 			n.get_node("Move").show()
 		if n.available_action != null:

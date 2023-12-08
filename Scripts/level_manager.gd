@@ -18,8 +18,10 @@ var player
 @onready var button = $"../UI/Button"
 @onready var camera = $"../../Camera2D"
 @onready var ui = $"../UI"
+var tile_map
 
 func _ready():
+	tile_map = get_tree().get_first_node_in_group("TileMap")
 	initialize_grid()
 	set_health(health)
 
@@ -95,7 +97,7 @@ func process_camera():
 	if player.position.y < 160:
 		camera.position.y = 160
 	elif player.position.y > level_height - 160:
-		camera.positon.y = level_height - 160
+		camera.position.y = level_height - 160
 	else:
 		camera.position.y = player.position.y
 	ui.position = camera.position

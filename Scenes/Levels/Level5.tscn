@@ -26,11 +26,11 @@ end_turn_speed = 0.0
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_taick")]
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="Floor" type="Node" parent="Environment"]
+[node name="Floor" type="Node2D" parent="Environment"]
 
-[node name="Walls" type="Node" parent="Environment"]
+[node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallTile" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(224, 512)
@@ -292,7 +292,7 @@ position = Vector2(1120, 512)
 [node name="WallTile73" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1152, 512)
 
-[node name="Trials" type="Node" parent="."]
+[node name="Trials" type="Node2D" parent="."]
 
 [node name="HardenedTile" parent="Trials" instance=ExtResource("5_sbvg8")]
 position = Vector2(352, 320)
@@ -327,7 +327,7 @@ position = Vector2(416, 384)
 [node name="HardenedTile8" parent="Trials" instance=ExtResource("5_sbvg8")]
 position = Vector2(416, 384)
 
-[node name="GameplayElements" type="Node" parent="Trials"]
+[node name="GameplayElements" type="Node2D" parent="Trials"]
 
 [node name="EndTile" parent="Trials/GameplayElements" instance=ExtResource("6_xhjbw")]
 position = Vector2(1184, 384)
