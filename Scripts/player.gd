@@ -7,9 +7,7 @@ var waiting_for_action = null
 var inputs = {"left": Vector2.LEFT,
 			"right": Vector2.RIGHT,
 			"up": Vector2.UP,
-			"down": Vector2.DOWN,
-			"skip_turn": Vector2.ZERO,
-			"pause": Vector2.ONE}
+			"down": Vector2.DOWN}
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var ray = $RayCast2D

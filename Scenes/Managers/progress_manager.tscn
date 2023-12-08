@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=3 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
+[ext_resource type="PackedScene" uid="uid://cv1u63rcqelx2" path="res://Scenes/Programs/Hands/ChillingLance.tscn" id="2_ekxdl"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 script = ExtResource("1_8smh1")
@@ -16,6 +17,9 @@ z_index = 5
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
+
+[node name="ChillingLance" parent="Loadout/LeftHand" instance=ExtResource("2_ekxdl")]
+position = Vector2(60.0291, 192.843)
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 

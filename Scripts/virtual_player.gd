@@ -1,10 +1,12 @@
 extends "res://Scripts/player.gd"
 
+var attack_distance = 1
 var strength = 1
 var step = 1
 var possible_moves
 var row_checker
 var teleport = false
+@onready var cast = $RayCast2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -16,17 +18,17 @@ func _ready():
 func _unhandled_input(event):
 	if moving || level_manager.game_over:
 		return
+	if event.is_action_pressed("pause"):
+		level_manager.press_pause()
+		return
+	if level_manager.paused:
+		return
+	if event.is_action_pressed("skip_turn"):
+		skip_turn()
+		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
-			if dir == "pause":
-				level_manager.press_pause()
-				return
-			if level_manager.paused:
-				return
 			match dir:
-				"skip_turn":
-					skip_turn()
-					return
 				"left":
 					animated_sprite_2d.flip_h = true
 				"right":
@@ -94,6 +96,9 @@ func move_check(distance):
 	for n in possible_moves:
 		n.reset()
 	await get_tree().create_timer(0.02).timeout
+	if attack_distance > step:
+		attack_check()
+		return
 	for n in possible_moves:
 		if teleport:
 			n.position = n.dir * (level_manager.tile_size * distance)
@@ -107,6 +112,23 @@ func move_check(distance):
 					elif i == 0:
 						break
 	await get_tree().create_timer(0.02).timeout
+	for n in possible_moves:
+		if n.possible:
+			n.get_node("Move").show()
+		if n.available_action != null:
+			n.get_node("Action").show()
+	moving = false
+
+func attack_check():
+	for n in possible_moves:
+		for i in attack_distance:
+			n.position = n.dir * (level_manager.tile_size * (i + 1))
+			await get_tree().create_timer(0.017).timeout
+			if !n.available_action == null:
+				break
+			if i == attack_distance - 1:
+				n.position = n.dir * (level_manager.tile_size * step)
+				await get_tree().create_timer(0.017).timeout
 	for n in possible_moves:
 		if n.possible:
 			n.get_node("Move").show()
