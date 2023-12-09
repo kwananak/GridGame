@@ -6,7 +6,6 @@ var step = 1
 var possible_moves
 var row_checker
 var teleport = false
-@onready var cast = $RayCast2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -43,17 +42,25 @@ func _unhandled_input(event):
 # self explanatory
 func skip_turn():
 	moving = true
+	for n in possible_moves:
+		n.reset()
+	await get_tree().create_timer(0.017).timeout
 	await level_manager.end_turn(level_manager.turn + 1)
 
 # triggers action on selected direction
 func act(dir):
 	moving = true
-	if dir.available_action == waiting_for_action:
-		waiting_for_action.confirm_with_dir(dir)
-	else:
-		if waiting_for_action != null:
-			waiting_for_action.cancel_action() 
+	if !waiting_for_action:
 		dir.available_action.hit_by_player(strength)
+	else:
+		match waiting_for_action.name:
+			dir.available_action.name:
+				await waiting_for_action.confirm_with_dir(dir)
+			"GrapplingTool":
+				await waiting_for_action.confirm_with_dir(dir)
+			_:
+				if waiting_for_action != null:
+					await waiting_for_action.cancel_action() 
 	for n in possible_moves:
 		n.reset()
 	await level_manager.end_turn(level_manager.turn + 1)
@@ -188,6 +195,52 @@ func row_hit(dir):
 			n.available_action.hit_by_player(strength)
 	clean_row_checker()
 	level_manager.end_turn(level_manager.turn + 1)
+
+func grapple_check(distance):
+	moving = true
+	for n in possible_moves:
+		n.reset()
+	await get_tree().create_timer(0.017).timeout
+	for n in possible_moves:
+		ray.target_position = n.dir * level_manager.tile_size
+		for i in distance:
+			ray.position = n.dir * level_manager.tile_size * i
+			ray.force_raycast_update()
+			if i == 0:
+				if ray.get_collider():
+					break
+			if ray.get_collider():
+				n.position = n.dir * level_manager.tile_size * (i + 1)
+				await get_tree().create_timer(0.02).timeout
+				if n.available_action == null:
+					n.available_action =  waiting_for_action
+				n.get_node("Action").show()
+				break
+			if i == distance - 1:
+				await n.reset()
+				n.possible = false
+	moving = false
+
+func grapple_hit(dir):
+	if "tile_type" in dir.available_action:
+		dir.available_action.hit_by_player(strength)
+	animated_sprite_2d.play("move")
+	var destination = dir.position / level_manager.tile_size
+	if destination.x == 0:
+		if destination.y > 0:
+			destination.y -= 1
+		elif destination.y < 0:
+			destination.y += 1 
+	elif destination.x > 0:
+		destination.x -= 1
+	elif destination.x < 0:
+		destination.x += 1 
+	var tween = create_tween()
+	tween.tween_property(self, "position",
+			position + (destination * level_manager.tile_size),
+			1.5/(level_manager.animation_speed * 2)).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+	animated_sprite_2d.play("idle")
 
 func clean_row_checker():
 	moving = true

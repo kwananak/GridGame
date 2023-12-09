@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=4 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
-[ext_resource type="PackedScene" uid="uid://cv1u63rcqelx2" path="res://Scenes/Programs/Hands/ChillingLance.tscn" id="2_ekxdl"]
+[ext_resource type="PackedScene" uid="uid://b20xavb44nvvw" path="res://Scenes/Programs/Brain/NeuroSyncCortex.tscn" id="2_0urki"]
+[ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="2_gl51m"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
+position = Vector2(-200, -200)
 script = ExtResource("1_8smh1")
 
 [node name="Loadout" type="Node2D" parent="."]
@@ -12,16 +14,17 @@ z_index = 5
 
 [node name="Brain" type="Node2D" parent="Loadout"]
 
+[node name="NeuroSyncCortex" parent="Loadout/Brain" instance=ExtResource("2_0urki")]
+
 [node name="Goggles" type="Node2D" parent="Loadout"]
 
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
 
-[node name="ChillingLance" parent="Loadout/LeftHand" instance=ExtResource("2_ekxdl")]
-position = Vector2(60.0291, 192.843)
-
 [node name="RightHand" type="Node2D" parent="Loadout"]
+
+[node name="GrapplingTool" parent="Loadout/RightHand" instance=ExtResource("2_gl51m")]
 
 [node name="Boots" type="Node2D" parent="Loadout"]
 

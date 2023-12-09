@@ -6,4 +6,5 @@ func _ready():
 	super._ready()
 
 func action():
-	print(info)
+	for n in get_tree().get_nodes_in_group("Bullet"):
+		n.speed -= 1
