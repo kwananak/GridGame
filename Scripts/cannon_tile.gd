@@ -22,6 +22,8 @@ func turn_call():
 			await fire_bullet()
 		else:
 			charge += 1
+	elif bullets.get_child_count() == 0:
+		remove_from_group("EndTurn")
 	for bullet in bullets.get_children():
 		bullet.move_bullet()
 

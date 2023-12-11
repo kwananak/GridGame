@@ -32,7 +32,9 @@ func turn_call():
 	await tween.finished
 
 # called when enemy hits player
-func _on_area_entered(_area):
+func _on_area_entered(area):
+	if area.name == "Firewall":
+		hit_by_player(3)
 	if is_destroyed:
 		return
 	level_manager.call_game_over()

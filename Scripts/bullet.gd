@@ -13,11 +13,15 @@ func _ready():
 
 # called by parent cannon every end of turn
 func move_bullet():
+	position += Vector2.RIGHT * level_manager.tile_size * speed
+	animate_bullet()
+
+func animate_bullet():
+	animated_sprite_2d.position = Vector2.LEFT * level_manager.tile_size * speed
 	animated_sprite_2d.frame = 1
 	var tween = create_tween()
-	tween.tween_property(self, "position",
-		position + Vector2.RIGHT * 
-			level_manager.tile_size * speed, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(animated_sprite_2d, "position",
+		Vector2.ZERO, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 	animated_sprite_2d.frame = 0
 

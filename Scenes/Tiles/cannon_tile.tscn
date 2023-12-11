@@ -28,6 +28,7 @@ animations = [{
 }]
 
 [node name="CannonTile" type="Area2D" groups=["AStarGridSolid", "Bullet", "EndTurn", "Hittable"]]
+collision_mask = 4
 script = ExtResource("1_e2om4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,3 +39,5 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_buoya")
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="hit_by_player"]

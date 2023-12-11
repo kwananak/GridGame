@@ -36,6 +36,7 @@ animations = [{
 }]
 
 [node name="HardenedTile" type="Area2D" groups=["AStarGridSolid", "Hittable"]]
+collision_mask = 4
 script = ExtResource("1_m37v2")
 strength = 2
 
@@ -44,3 +45,5 @@ shape = SubResource("RectangleShape2D_hmr1f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_orkfq")
+
+[connection signal="area_entered" from="." to="." method="hit_by_player"]

@@ -21,5 +21,8 @@ func match_strength():
 
 # called when player hits the tile
 func hit_by_player(hit):
-	strength -= hit
+	if hit is Object:
+		strength = 0
+	else:
+		strength -= hit
 	match_strength()

@@ -1,5 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
+var grapple_range = 5
+
 func _ready():
 	info = "Action : Grappling of 5"
 	active = true
@@ -8,7 +10,7 @@ func _ready():
 func action():
 	focus = true
 	player.waiting_for_action = self
-	player.grapple_check(5)
+	player.grapple_check(grapple_range)
 
 func cancel_action():
 	focus = false

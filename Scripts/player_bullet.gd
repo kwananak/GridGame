@@ -16,7 +16,6 @@ func turn_call():
 	animated_sprite_2d.frame = 0
 	if position.x < 0 || position.x > get_viewport_rect().size.x || position.y < 0 || position.y > get_viewport_rect().size.y:
 		queue_free()
-		return
 	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 
 func _on_area_entered(area):
