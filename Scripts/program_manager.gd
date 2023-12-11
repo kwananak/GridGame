@@ -40,6 +40,8 @@ func _input(event):
 			if slot.get_child_count() == 0:
 				return
 			var prog = slot.get_children()
+			if !prog[0].usable:
+				return
 			if prog[0].focus:
 				prog[0].cancel_action()
 				level_manager.remaining_actions += 1

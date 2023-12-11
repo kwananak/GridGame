@@ -82,9 +82,12 @@ func move(pos):
 		await get_tree().create_timer(0.1).timeout
 		show()
 	else:
+		var old_pos = position
+		position = pos
+		animated_sprite_2d.position = old_pos - position
 		var tween = create_tween()
-		tween.tween_property(self, "position",
-				pos,
+		tween.tween_property(animated_sprite_2d, "position",
+				Vector2.ZERO,
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
 		await tween.finished

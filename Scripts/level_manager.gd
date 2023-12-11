@@ -14,6 +14,7 @@ var player
 @export var tile_size = 32
 @export var animation_speed = 6
 @export var end_turn_speed = 0.1
+@export var camera_speed = 300
 
 @onready var button = $"../UI/Button"
 @onready var camera = $"../../Camera2D"
@@ -25,8 +26,8 @@ func _ready():
 	initialize_grid()
 	set_health(health)
 
-func _process(_delta):
-	process_camera()
+func _process(delta):
+	process_camera(delta)
 
 # sets up a* grid for path finding in level
 func initialize_grid():
@@ -87,19 +88,19 @@ func set_health(value):
 		call_game_over()
 
 # tracks camera to player on wider levels and matches UI position to it
-func process_camera():
+func process_camera(delta):
 	if player.position.x < 288:
 		camera.position.x = 288
 	elif player.position.x > level_length - 288:
 		camera.position.x = level_length - 288
 	else:
-		camera.position.x = player.position.x
+		camera.position = camera.position.move_toward(Vector2(player.position.x, camera.position.y), delta * camera_speed)
 	if player.position.y < 160:
 		camera.position.y = 160
 	elif player.position.y > level_height - 160:
 		camera.position.y = level_height - 160
 	else:
-		camera.position.y = player.position.y
+		camera.position = camera.position.move_toward(Vector2(camera.position.x, player.position.y), delta * camera_speed)
 	ui.position = camera.position
 
 # called by the button to quit the level

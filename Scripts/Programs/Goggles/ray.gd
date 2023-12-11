@@ -6,4 +6,17 @@ func _ready():
 	super._ready()
 
 func action():
-	print(info)
+	if level_manager.freeze < 1:
+		level_manager.freeze = 5
+		add_to_group("Freeze")
+		$Label.text = str(level_manager.freeze)
+		$Label.show()
+		usable = false
+
+func turn_call():
+	if level_manager.freeze < 1:
+		remove_from_group("Freeze")
+		$Label.hide()
+		usable = true
+		return
+	$Label.text = str(level_manager.freeze)

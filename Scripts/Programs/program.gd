@@ -9,6 +9,7 @@ var focus = false
 var info : String
 var mouse_tip
 var active = false
+var usable = true
 
 func _ready():
 	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")

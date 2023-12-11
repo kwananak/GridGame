@@ -6,6 +6,7 @@ var recalled = false
 var strength = 1
 var speed : set = set_speed
 
+@onready var ray = $RayCast2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
@@ -13,11 +14,20 @@ func _ready():
 
 # called by parent cannon every end of turn
 func move_bullet():
-	position += Vector2.RIGHT * level_manager.tile_size * speed
+	var old_pos = global_position
+	ray.target_position = Vector2.RIGHT * level_manager.tile_size * speed
+	ray.force_raycast_update()
+	var collision = ray.get_collider()
+	if collision:
+		if collision.name == "VirtualPlayer":
+			global_position = collision.global_position
+			animated_sprite_2d.position = old_pos - global_position
+	else:
+		position += Vector2.RIGHT * level_manager.tile_size * speed
+		animated_sprite_2d.position = Vector2.LEFT * level_manager.tile_size * speed
 	animate_bullet()
 
 func animate_bullet():
-	animated_sprite_2d.position = Vector2.LEFT * level_manager.tile_size * speed
 	animated_sprite_2d.frame = 1
 	var tween = create_tween()
 	tween.tween_property(animated_sprite_2d, "position",

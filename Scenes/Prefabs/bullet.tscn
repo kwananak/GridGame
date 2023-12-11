@@ -37,4 +37,8 @@ shape = SubResource("RectangleShape2D_tysij")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dewh")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 2
+collide_with_areas = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

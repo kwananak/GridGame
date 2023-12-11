@@ -1,7 +1,7 @@
 extends "res://Scripts/level_manager.gd"
 
 var turn = 0
-var freeze = 0 : set = set_freeze
+var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
 var initial_health = 1
@@ -24,6 +24,8 @@ func _ready():
 func end_turn():
 	if freeze > 0 :
 		freeze -= 1
+		get_tree().get_first_node_in_group("Freeze").turn_call()
+		player.move_check(player.step)
 		return
 	turn += 1
 	for node in get_tree().get_nodes_in_group("EndTurn"):
@@ -31,17 +33,6 @@ func end_turn():
 		await node.turn_call()
 	await get_tree().create_timer(0.02).timeout
 	player.move_check(player.step)
-
-# called when freeze is activated
-# shows remaining number of freezed turns, if any
-func set_freeze(value):
-	freeze = value
-	var freeze_ui = ui.get_node("FreezeUI")
-	if freeze > 0:
-		freeze_ui.text = "freeze = " + str(freeze)
-		freeze_ui.visible = true
-	else:
-		freeze_ui.visible = false
 
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0
