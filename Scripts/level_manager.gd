@@ -13,7 +13,7 @@ var player
 @export var level_number = 0
 @export var tile_size = 32
 @export var animation_speed = 6
-@export var end_turn_speed = 0.05
+@export var end_turn_speed = 0.1
 
 @onready var button = $"../UI/Button"
 @onready var camera = $"../../Camera2D"

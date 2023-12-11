@@ -13,7 +13,7 @@ func action():
 func cancel_action():
 	focus = false
 	player.waiting_for_action = null
-	player.projectile_uncheck(self)
+	player.move_check(player.step)
 
 func confirm_with_dir(dir):
 	focus = false
@@ -23,4 +23,4 @@ func confirm_with_dir(dir):
 	bullet.rotation = dir.rotation
 	bullet.direction = dir.position
 	player.waiting_for_action = null
-	player.projectile_uncheck(self)
+	player.projectile_launch()

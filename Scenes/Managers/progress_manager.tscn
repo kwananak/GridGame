@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=19 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
 [ext_resource type="PackedScene" uid="uid://b20xavb44nvvw" path="res://Scenes/Programs/Brain/NeuroSyncCortex.tscn" id="2_0urki"]
 [ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="2_gl51m"]
+[ext_resource type="PackedScene" uid="uid://cv1u63rcqelx2" path="res://Scenes/Programs/Hands/ChillingLance.tscn" id="3_57hws"]
+[ext_resource type="PackedScene" uid="uid://bnnfcfud5yakl" path="res://Scenes/Programs/Hands/DestroyerGlove.tscn" id="3_ky1b8"]
+[ext_resource type="PackedScene" uid="uid://tkcgvn2yg4n2" path="res://Scenes/Programs/Armor/Club.tscn" id="3_m7yuf"]
+[ext_resource type="PackedScene" uid="uid://cptpalqmi2mg5" path="res://Scenes/Programs/Boots/Sweet.tscn" id="4_1qs6j"]
+[ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/CircleWhip.tscn" id="4_6mm3n"]
+[ext_resource type="PackedScene" uid="uid://duhf8i12ftah6" path="res://Scenes/Programs/Boots/Salty.tscn" id="4_a3gsk"]
+[ext_resource type="PackedScene" uid="uid://w6dfm2wturk6" path="res://Scenes/Programs/Armor/Diamond.tscn" id="4_gq0ss"]
+[ext_resource type="PackedScene" uid="uid://caq3tmtnish1u" path="res://Scenes/Programs/Boots/Sour.tscn" id="4_sdgvf"]
+[ext_resource type="PackedScene" uid="uid://cbd4cc3ikx7kl" path="res://Scenes/Programs/Armor/Heart.tscn" id="5_8ntyh"]
+[ext_resource type="PackedScene" uid="uid://b7u8l87e3abc5" path="res://Scenes/Programs/Armor/Joker.tscn" id="6_e126o"]
+[ext_resource type="PackedScene" uid="uid://d3vjgirtw6dv0" path="res://Scenes/Programs/Armor/Spade.tscn" id="7_5ynxp"]
+[ext_resource type="PackedScene" uid="uid://ds4b1bxsjbxkg" path="res://Scenes/Programs/Hands/1-0-1Shotgun.tscn" id="8_pc28l"]
+[ext_resource type="PackedScene" uid="uid://cueh5dc0lig70" path="res://Scenes/Programs/Hands/DamnedGauntlet.tscn" id="11_4hgwt"]
+[ext_resource type="PackedScene" uid="uid://j2hnmy0cuulw" path="res://Scenes/Programs/Boots/Bitter.tscn" id="14_6t4nj"]
+[ext_resource type="PackedScene" uid="uid://dp84ntkx7xdv1" path="res://Scenes/Programs/Boots/Umami.tscn" id="18_cqnov"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 position = Vector2(-200, -200)
@@ -24,8 +39,6 @@ z_index = 5
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 
-[node name="GrapplingTool" parent="Loadout/RightHand" instance=ExtResource("2_gl51m")]
-
 [node name="Boots" type="Node2D" parent="Loadout"]
 
 [node name="OwnedPrograms" type="Node2D" parent="."]
@@ -37,6 +50,38 @@ visible = false
 
 [node name="Armor" type="Node2D" parent="OwnedPrograms"]
 
+[node name="Club" parent="OwnedPrograms/Armor" instance=ExtResource("3_m7yuf")]
+
+[node name="Diamond" parent="OwnedPrograms/Armor" instance=ExtResource("4_gq0ss")]
+
+[node name="Heart" parent="OwnedPrograms/Armor" instance=ExtResource("5_8ntyh")]
+
+[node name="Joker" parent="OwnedPrograms/Armor" instance=ExtResource("6_e126o")]
+
+[node name="Spade" parent="OwnedPrograms/Armor" instance=ExtResource("7_5ynxp")]
+
 [node name="Hands" type="Node2D" parent="OwnedPrograms"]
 
+[node name="1-0-1Shotgun" parent="OwnedPrograms/Hands" instance=ExtResource("8_pc28l")]
+
+[node name="ChillingLance" parent="OwnedPrograms/Hands" instance=ExtResource("3_57hws")]
+
+[node name="CircleWhip" parent="OwnedPrograms/Hands" instance=ExtResource("4_6mm3n")]
+
+[node name="DamnedGauntlet" parent="OwnedPrograms/Hands" instance=ExtResource("11_4hgwt")]
+
+[node name="DestroyerGlove" parent="OwnedPrograms/Hands" instance=ExtResource("3_ky1b8")]
+
+[node name="GrapplingTool" parent="OwnedPrograms/Hands" instance=ExtResource("2_gl51m")]
+
 [node name="Boots" type="Node2D" parent="OwnedPrograms"]
+
+[node name="Bitter" parent="OwnedPrograms/Boots" instance=ExtResource("14_6t4nj")]
+
+[node name="Salty" parent="OwnedPrograms/Boots" instance=ExtResource("4_a3gsk")]
+
+[node name="Sour" parent="OwnedPrograms/Boots" instance=ExtResource("4_sdgvf")]
+
+[node name="Sweet" parent="OwnedPrograms/Boots" instance=ExtResource("4_1qs6j")]
+
+[node name="Umami" parent="OwnedPrograms/Boots" instance=ExtResource("18_cqnov")]

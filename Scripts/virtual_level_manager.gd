@@ -1,6 +1,6 @@
 extends "res://Scripts/level_manager.gd"
 
-var turn = 0 : set = end_turn
+var turn = 0
 var freeze = 0 : set = set_freeze
 var is_immune_to_bullets = false
 var invincible = false
@@ -21,14 +21,14 @@ func _ready():
 	super._ready()
 
 # calls subscribed nodes when player makes a move
-func end_turn(value):
+func end_turn():
 	if freeze > 0 :
 		freeze -= 1
 		return
-	turn = value
+	turn += 1
 	for node in get_tree().get_nodes_in_group("EndTurn"):
-		# get_tree().create_timer(end_turn_speed).timeout
-		await node.turn_call()
+		await get_tree().create_timer(end_turn_speed).timeout
+		node.turn_call()
 	player.move_check(player.step)
 
 # called when freeze is activated

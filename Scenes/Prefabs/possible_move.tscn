@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3k6pd56xjakj"]
+
+[ext_resource type="Script" path="res://Scripts/possible_move.gd" id="1_rtxwk"]
+[ext_resource type="Texture2D" uid="uid://bay3iav0ma6jc" path="res://Sprites/action.png" id="1_uak7u"]
+[ext_resource type="Texture2D" uid="uid://dlucrhvd4fgkd" path="res://Sprites/direction.png" id="2_lffwj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p3fjg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uak7u")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lffwj")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="PossibleMove" type="Node2D"]
+script = ExtResource("1_rtxwk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p3fjg")
+animation = &"move"
