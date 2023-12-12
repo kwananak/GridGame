@@ -6,4 +6,4 @@ func _ready():
 
 func loaded():
 	super.loaded()
-	print(info)
+	level_manager.vision = true

@@ -109,7 +109,7 @@ func move_check(distance):
 		return
 	for n in possible_moves:
 		if teleport:
-			ray.target_position = n.dir * level_manager.tile_size
+			ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 			ray.position = n.dir * level_manager.tile_size * (distance - 1)
 			ray.force_raycast_update()
 			if ray.get_collider():
@@ -117,7 +117,7 @@ func move_check(distance):
 			n.position = n.dir * (level_manager.tile_size * distance)
 			n.possible = true
 		else:
-			ray.target_position = n.dir * level_manager.tile_size
+			ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 			for i in distance:
 				ray.position = n.dir * level_manager.tile_size * i
 				ray.force_raycast_update()
@@ -139,7 +139,7 @@ func move_check(distance):
 
 func attack_check():
 	for n in possible_moves:
-		ray.target_position = n.dir * level_manager.tile_size
+		ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 		for i in attack_distance:
 			ray.position = n.dir * level_manager.tile_size * i
 			ray.force_raycast_update()
@@ -161,7 +161,7 @@ func row_check(distance):
 	for n in possible_moves:
 		n.reset()
 	for n in possible_moves:
-		ray.target_position = n.dir * level_manager.tile_size
+		ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 		for i in distance:
 			ray.position = n.dir * level_manager.tile_size * i
 			ray.force_raycast_update()
@@ -218,7 +218,7 @@ func grapple_check(distance):
 	for n in possible_moves:
 		n.reset()
 	for n in possible_moves:
-		ray.target_position = n.dir * level_manager.tile_size
+		ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 		for i in distance:
 			ray.position = n.dir * level_manager.tile_size * i
 			ray.force_raycast_update()

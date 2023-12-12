@@ -38,4 +38,15 @@ shape = SubResource("RectangleShape2D_4s3tw")
 rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_ve75s")
 
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

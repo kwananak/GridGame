@@ -9,6 +9,7 @@ var lives = 1 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
 var programs = []
+var vision = false
 
 @export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5

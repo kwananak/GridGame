@@ -1,21 +1,28 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=27 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
 [ext_resource type="PackedScene" uid="uid://b20xavb44nvvw" path="res://Scenes/Programs/Brain/NeuroSyncCortex.tscn" id="2_0urki"]
 [ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="2_gl51m"]
+[ext_resource type="PackedScene" uid="uid://cfqyhpfuscf6u" path="res://Scenes/Programs/Goggles/Vision.tscn" id="3_4cywn"]
 [ext_resource type="PackedScene" uid="uid://cv1u63rcqelx2" path="res://Scenes/Programs/Hands/ChillingLance.tscn" id="3_57hws"]
+[ext_resource type="PackedScene" uid="uid://sefclqmrolvj" path="res://Scenes/Programs/Brain/CyberCogniMesh.tscn" id="3_jh7de"]
 [ext_resource type="PackedScene" uid="uid://bnnfcfud5yakl" path="res://Scenes/Programs/Hands/DestroyerGlove.tscn" id="3_ky1b8"]
 [ext_resource type="PackedScene" uid="uid://cbfy1hbnioebh" path="res://Scenes/Programs/Goggles/Ray.tscn" id="3_ld7pp"]
 [ext_resource type="PackedScene" uid="uid://tkcgvn2yg4n2" path="res://Scenes/Programs/Armor/Club.tscn" id="3_m7yuf"]
 [ext_resource type="PackedScene" uid="uid://cptpalqmi2mg5" path="res://Scenes/Programs/Boots/Sweet.tscn" id="4_1qs6j"]
+[ext_resource type="PackedScene" uid="uid://bter80fd0rpo4" path="res://Scenes/Programs/Brain/CyberPulseCognitive.tscn" id="4_3h6ic"]
 [ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/CircleWhip.tscn" id="4_6mm3n"]
 [ext_resource type="PackedScene" uid="uid://duhf8i12ftah6" path="res://Scenes/Programs/Boots/Salty.tscn" id="4_a3gsk"]
 [ext_resource type="PackedScene" uid="uid://w6dfm2wturk6" path="res://Scenes/Programs/Armor/Diamond.tscn" id="4_gq0ss"]
 [ext_resource type="PackedScene" uid="uid://caq3tmtnish1u" path="res://Scenes/Programs/Boots/Sour.tscn" id="4_sdgvf"]
 [ext_resource type="PackedScene" uid="uid://cbd4cc3ikx7kl" path="res://Scenes/Programs/Armor/Heart.tscn" id="5_8ntyh"]
+[ext_resource type="PackedScene" uid="uid://livwg3kbkesi" path="res://Scenes/Programs/Brain/SynthetikThought.tscn" id="5_rjael"]
+[ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/Amazing.tscn" id="6_1ehfq"]
 [ext_resource type="PackedScene" uid="uid://b7u8l87e3abc5" path="res://Scenes/Programs/Armor/Joker.tscn" id="6_e126o"]
 [ext_resource type="PackedScene" uid="uid://d3vjgirtw6dv0" path="res://Scenes/Programs/Armor/Spade.tscn" id="7_5ynxp"]
+[ext_resource type="PackedScene" uid="uid://dxukyhei8em7p" path="res://Scenes/Programs/Goggles/Ice.tscn" id="7_uvn6d"]
 [ext_resource type="PackedScene" uid="uid://ds4b1bxsjbxkg" path="res://Scenes/Programs/Hands/1-0-1Shotgun.tscn" id="8_pc28l"]
+[ext_resource type="PackedScene" uid="uid://cxile6jjocwxk" path="res://Scenes/Programs/Goggles/Star.tscn" id="9_2sog3"]
 [ext_resource type="PackedScene" uid="uid://cueh5dc0lig70" path="res://Scenes/Programs/Hands/DamnedGauntlet.tscn" id="11_4hgwt"]
 [ext_resource type="PackedScene" uid="uid://j2hnmy0cuulw" path="res://Scenes/Programs/Boots/Bitter.tscn" id="14_6t4nj"]
 [ext_resource type="PackedScene" uid="uid://dp84ntkx7xdv1" path="res://Scenes/Programs/Boots/Umami.tscn" id="18_cqnov"]
@@ -34,8 +41,6 @@ z_index = 5
 
 [node name="Goggles" type="Node2D" parent="Loadout"]
 
-[node name="Ray" parent="Loadout/Goggles" instance=ExtResource("3_ld7pp")]
-
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
@@ -49,7 +54,25 @@ visible = false
 
 [node name="Brain" type="Node2D" parent="OwnedPrograms"]
 
+[node name="CyberCogniMesh" parent="OwnedPrograms/Brain" instance=ExtResource("3_jh7de")]
+
+[node name="CyberPulseCognitive" parent="OwnedPrograms/Brain" instance=ExtResource("4_3h6ic")]
+
+[node name="NeuroSyncCortex" parent="OwnedPrograms/Brain" instance=ExtResource("2_0urki")]
+
+[node name="SynthetikThought" parent="OwnedPrograms/Brain" instance=ExtResource("5_rjael")]
+
 [node name="Goggles" type="Node2D" parent="OwnedPrograms"]
+
+[node name="Amazing" parent="OwnedPrograms/Goggles" instance=ExtResource("6_1ehfq")]
+
+[node name="Ice" parent="OwnedPrograms/Goggles" instance=ExtResource("7_uvn6d")]
+
+[node name="Ray" parent="OwnedPrograms/Goggles" instance=ExtResource("3_ld7pp")]
+
+[node name="Star" parent="OwnedPrograms/Goggles" instance=ExtResource("9_2sog3")]
+
+[node name="Vision" parent="OwnedPrograms/Goggles" instance=ExtResource("3_4cywn")]
 
 [node name="Armor" type="Node2D" parent="OwnedPrograms"]
 

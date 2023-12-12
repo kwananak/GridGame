@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1rxtknyx8nnt"]
+[gd_scene load_steps=8 format=3 uid="uid://c1rxtknyx8nnt"]
 
 [ext_resource type="Script" path="res://Scripts/path_enemy.gd" id="1_4tc8b"]
 [ext_resource type="Texture2D" uid="uid://dcckw5qijvrq1" path="res://Sprites/seeker_enemy.png" id="2_vlnij"]
+[ext_resource type="Texture2D" uid="uid://b0xu7md86h614" path="res://Sprites/icon.svg" id="3_3mik5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdil"]
 
@@ -38,5 +39,10 @@ shape = SubResource("RectangleShape2D_xhdil")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lahe1")
 animation = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_3mik5")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

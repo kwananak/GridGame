@@ -3,8 +3,9 @@ extends "res://Scripts/bullet.gd"
 var direction
 
 func _ready():
-	speed = 1
 	super._ready()
+	label = $Label
+	speed = 1
 
 func turn_call():
 	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
@@ -12,7 +13,7 @@ func turn_call():
 	var tween = create_tween()
 	tween.tween_property(self, "position",
 		position + direction * speed, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	tween.finished
 	animated_sprite_2d.frame = 0
 	if position.x < 0 || position.x > get_viewport_rect().size.x || position.y < 0 || position.y > get_viewport_rect().size.y:
 		queue_free()

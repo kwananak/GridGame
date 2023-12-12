@@ -8,9 +8,16 @@ var speed : set = set_speed
 
 @onready var ray = $RayCast2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
+var label
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	label = animated_sprite_2d.get_node("Label")
+	if level_manager.vision:
+		label.rotation = -get_parent().get_parent().rotation
+		label.global_position += Vector2(-12, -12)
+		label.text = str(speed)
+		label.show()
 
 # called by parent cannon every end of turn
 func move_bullet():
@@ -55,3 +62,4 @@ func set_speed(value):
 		speed = 1
 	else:
 		speed = value
+	label.text = str(speed)

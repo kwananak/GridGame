@@ -12,13 +12,16 @@ var tile_type = "enemy"
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	await get_tree().create_timer(0.2).timeout
+	if level_manager.vision:
+		$Sprite2D.position = position.direction_to(path_nodes[0].position)
+		$Sprite2D.show()
 
 ## Handles level manager's end_turn_call by moving towards next node on path
 func turn_call():
 	if level_manager.turn % speed !=0:
 		return
-	if position == path_nodes[0].position:
-		path_nodes.push_back(path_nodes.pop_front())
+	$Sprite2D.hide()
 	var direction = position.direction_to(path_nodes[0].position)
 	match direction:
 		Vector2.LEFT:
@@ -30,6 +33,11 @@ func turn_call():
 		position + direction * 
 			level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	await tween.finished
+	if position == path_nodes[0].position:
+		path_nodes.push_back(path_nodes.pop_front())
+	$Sprite2D.position = position.direction_to(path_nodes[0].position) * level_manager.tile_size
+	if level_manager.vision:
+		$Sprite2D.show()
 
 # called when enemy hits player
 func _on_area_entered(area):
@@ -45,4 +53,5 @@ func hit_by_player(_strength):
 	is_destroyed = true
 	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 	animated_sprite_2d.frame = 1
+	$Sprite2D.hide()
 	remove_from_group("EndTurn")
