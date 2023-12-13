@@ -60,7 +60,6 @@ func get_available_programs(slot):
 			var loaded_slot = get_node("Loadout/" + slot).get_children()
 			if !loaded_slot.is_empty():
 				for i in available_programs.size():
-					print(available_programs[i])
 					if available_programs[i].name == loaded_slot[0].name:
 						available_programs += [i]
 				loaded_slot[0].queue_free()
@@ -73,8 +72,9 @@ func get_available_programs(slot):
 
 func reset_programs():
 	for n in $Loadout.get_children():
-		if !n.get_child_count() == 1:
+		if n.get_child_count() == 1:
 			n.get_child(0).queue_free()
 	for n in $OwnedPrograms.get_children():
-		if !n.get_child_count() == 1:
-			n.get_child(0).queue_free()
+		if n.get_child_count() > 0:
+			for o in n.get_children():
+				o.queue_free()

@@ -1,20 +1,25 @@
 extends ColorRect
 
-var progress_manager
 var selection_opened = null
 var available_programs
-var empty
 var array_selected
+
+var progress_manager
+
+@onready var empty = preload("res://Scenes/Programs/Empty.tscn")
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
-	empty = preload("res://Scenes/Programs/Empty.tscn")
+	await get_tree().create_timer(0.02).timeout
 	set_slots()
 
 func set_slots():
 	progress_manager.get_node("Loadout").show()
 	for n in get_children():
-		progress_manager.get_node("Loadout/" + n.name).position = n.global_position + Vector2(8, 8)
+		var v = progress_manager.get_node("Loadout/" + n.name)
+		v.global_position = n.global_position + Vector2(8, 8)
+		if v.get_child_count() > 0:
+			v.get_child(0).monitorable = true
 
 func _input(event):
 	if selection_opened == null:

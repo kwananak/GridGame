@@ -18,4 +18,7 @@ func _on_area_entered(area):
 
 # hides tool tip when not hovering
 func _on_area_exited(_area):
-	hide()
+	if has_overlapping_areas():
+		_on_area_entered(get_overlapping_areas()[0])
+	else:
+		hide()
