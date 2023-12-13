@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://xh6i4kbq12hm"]
+
+[ext_resource type="Script" path="res://Scripts/beam.gd" id="1_8vn8f"]
+[ext_resource type="Texture2D" uid="uid://bvrenwrowpsup" path="res://Sprites/beam.png" id="1_x3jbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djq10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4pkq"]
+atlas = ExtResource("1_x3jbs")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76yi2"]
+atlas = ExtResource("1_x3jbs")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqv8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4pkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76yi2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Beam" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_8vn8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_djq10")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eqv8a")
+autoplay = "default"
+frame_progress = 0.837788
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
