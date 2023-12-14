@@ -2,8 +2,11 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Become invincible for 3 turn"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	level_manager.invincible = true

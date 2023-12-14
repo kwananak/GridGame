@@ -5,9 +5,12 @@ var distance = -5
 
 func _ready():
 	info = "Action : Make the wall go back 5 squares"
-	active = true
 	super._ready()
 	firewall = get_tree().get_first_node_in_group("FireWall")
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	player.moving = true

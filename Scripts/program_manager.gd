@@ -22,10 +22,10 @@ func activate_program_bar():
 				var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
 				if !slot.is_empty():
 					var loaded_program = slot[0].duplicate(15)
-					slot[0].monitorable = false
-					loaded_program.position = Vector2(-16, 0)
 					n.add_child(loaded_program)
 					loaded_program.loaded()
+					slot[0].monitorable = false
+					loaded_program.position = Vector2(-16, 0)
 					if loaded_program.active:
 						program_bar.get_node("Labels/" + n.name).show()
 	program_bar.show()

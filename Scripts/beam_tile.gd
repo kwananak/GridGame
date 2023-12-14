@@ -52,7 +52,6 @@ func fire_beam():
 		$Beam.add_child(beam_section)
 		beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 
-# called by player when hit
 func hit_by_player(_strength):
 	is_destroyed = true
 	$AnimatedSprite2D.animation = "default"

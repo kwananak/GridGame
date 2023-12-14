@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="10_wmh6f"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="10_x1gwf"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -42,8 +43,14 @@ position = Vector2(-32, 0)
 position = Vector2(69, 132)
 
 [node name="WallTile3" parent="." instance=ExtResource("10_wmh6f")]
-position = Vector2(160, 160)
+position = Vector2(256, 192)
 collision_mask = 0
 
 [node name="WallTile" parent="." instance=ExtResource("10_wmh6f")]
 position = Vector2(96, 192)
+
+[node name="HoleTile" parent="." instance=ExtResource("10_x1gwf")]
+position = Vector2(192, 192)
+
+[node name="HoleTile2" parent="." instance=ExtResource("10_x1gwf")]
+position = Vector2(224, 256)

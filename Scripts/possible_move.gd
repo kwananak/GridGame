@@ -25,6 +25,15 @@ func check_collision(collision):
 				if !player.teleport && !collision.is_destroyed:
 					available_action = collision
 					return
+			"hole":
+				if player.waiting_for_action:
+					match player.waiting_for_action.name:
+						"GrapplingTool" , "1-0-1Shotgun", "Salty":
+							possible = true
+							return
+				if !collision.opened || get_tree().get_first_node_in_group("VirtualLevelManager").floating:
+					possible = true
+					return
 	available_action = null
 
 func reset():

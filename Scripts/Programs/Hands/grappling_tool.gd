@@ -4,8 +4,11 @@ var grapple_range = 5
 
 func _ready():
 	info = "Action : Grappling of 5"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	focus = true

@@ -4,8 +4,11 @@ var strength = 1
 
 func _ready():
 	info = "Action : Hit 3 blocks in front of you"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	focus = true

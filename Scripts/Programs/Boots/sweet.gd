@@ -4,8 +4,11 @@ var distance = 4
 
 func _ready():
 	info = "Action : Jump 4 in front (obstacle block the jump)"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func cancel_action():
 	player.waiting_for_action = null

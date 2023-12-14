@@ -229,6 +229,11 @@ func grapple_check(distance):
 			if collision:
 				n.position = n.dir * level_manager.tile_size * (i + 1)
 				await n.check_collision(collision)
+				if n.possible:
+					n.possible = false
+					if i == distance - 1:
+						await n.reset()
+					continue
 				if n.available_action == null:
 					n.available_action = waiting_for_action
 				break

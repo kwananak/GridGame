@@ -2,8 +2,11 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Shoot 1 bullet in front"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	focus = true

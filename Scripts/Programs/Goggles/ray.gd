@@ -2,8 +2,11 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	info = "Action : Freeze all enemies for 5 turns"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func action():
 	if level_manager.freeze < 1:

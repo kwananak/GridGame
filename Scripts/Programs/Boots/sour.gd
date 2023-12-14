@@ -4,8 +4,11 @@ var distance = 2
 
 func _ready():
 	info = "Action : Teleport 2 in front"
-	active = true
 	super._ready()
+
+func loaded():
+	active = true
+	super.loaded()
 
 func cancel_action():
 	focus = false
