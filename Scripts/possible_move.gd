@@ -11,6 +11,7 @@ func _ready():
 
 # checks collision and adjusts vars accordingly
 func check_collision(collision):
+	possible = false
 	if "tile_type" in collision:
 		match collision.tile_type:
 			"door":

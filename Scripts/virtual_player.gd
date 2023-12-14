@@ -123,15 +123,12 @@ func move_check(distance):
 				ray.force_raycast_update()
 				var collision = ray.get_collider()
 				if collision:
-					if waiting_for_action:
-						if waiting_for_action.name == "Sweet":
-							if i > 0:
-								n.position = n.dir * level_manager.tile_size * i
-								n.possible = true
-							break
-					n.position = n.dir * level_manager.tile_size * (i + 1)
 					n.check_collision(collision)
-					break
+					if !n.available_action && !n.possible:
+						if i > 0:
+							n.position = n.dir * level_manager.tile_size * i
+							n.possible = true
+						break
 				if i == distance - 1:
 					n.position = n.dir * level_manager.tile_size * distance
 					n.possible = true
@@ -223,9 +220,6 @@ func grapple_check(distance):
 			ray.position = n.dir * level_manager.tile_size * i
 			ray.force_raycast_update()
 			var collision = ray.get_collider()
-			if i == 0:
-				if collision:
-					break
 			if collision:
 				n.position = n.dir * level_manager.tile_size * (i + 1)
 				await n.check_collision(collision)
@@ -234,6 +228,8 @@ func grapple_check(distance):
 					if i == distance - 1:
 						await n.reset()
 					continue
+				if i == 0:
+					break
 				if n.available_action == null:
 					n.available_action = waiting_for_action
 				break
