@@ -146,9 +146,22 @@ offset_bottom = 418.0
 focus_neighbor_left = NodePath("../RightHand")
 focus_neighbor_top = NodePath("../Armor")
 focus_neighbor_right = NodePath("../LeftHand")
+focus_neighbor_bottom = NodePath("../Rune")
+
+[node name="Rune" type="Button" parent="Control/Loadout"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 448.0
+offset_right = 340.0
+offset_bottom = 488.0
+focus_neighbor_left = NodePath("../RightHand")
+focus_neighbor_top = NodePath("../Armor")
+focus_neighbor_right = NodePath("../LeftHand")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
+text = "Rune"
 
 [node name="Label" type="Label" parent="Control/Loadout"]
+layout_mode = 0
 offset_left = 238.0
 offset_top = 22.0
 offset_right = 278.0
@@ -202,4 +215,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="focus_entered" from="Control/Loadout/Boots" to="Control/Loadout" method="_on_focus_entered" binds= ["Boots"]]
 [connection signal="focus_exited" from="Control/Loadout/Boots" to="Control/Loadout" method="_on_focus_exited"]
 [connection signal="pressed" from="Control/Loadout/Boots" to="Control/Loadout" method="on_button_pressed" binds= ["Boots"]]
+[connection signal="pressed" from="Control/Loadout/Rune" to="Control/Loadout" method="_on_rune_pressed"]
 [connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]

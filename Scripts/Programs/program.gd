@@ -10,6 +10,8 @@ var info : String
 var mouse_tip
 var active = false
 var usable = true
+var runable = true
+var runed = false
 
 func _ready():
 	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")
@@ -18,6 +20,11 @@ func _ready():
 
 func loaded():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+
+func picked_up(slot):
+	set_deferred("monitorable", false)
+	hide()
+	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[slot, self]]
 
 func action():
 	pass

@@ -24,7 +24,7 @@ func activate_program_bar():
 					var loaded_program = slot[0].duplicate(15)
 					n.add_child(loaded_program)
 					loaded_program.loaded()
-					slot[0].monitorable = false
+					loaded_program.monitorable = true
 					loaded_program.position = Vector2(-16, 0)
 					if loaded_program.active:
 						program_bar.get_node("Labels/" + n.name).show()

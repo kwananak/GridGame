@@ -4,31 +4,34 @@ var selection_opened = null
 var available_programs
 var array_selected
 var loaded_slots = 0
-
-@export var max_loads = 1
+var max_loads = 3
 
 var progress_manager
 var info
+var prog_load
 
 @onready var empty = preload("res://Scenes/Programs/Empty.tscn")
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	prog_load = progress_manager.get_node("Loadout")
 	info = get_parent().get_node("Info/Label")
 	await get_tree().create_timer(0.02).timeout
 	set_slots()
 
 func set_slots():
 	loaded_slots = 0
-	progress_manager.get_node("Loadout").show()
+	prog_load.show()
 	for n in get_children():
-		if n.name == "Label":
-			continue
-		var v = progress_manager.get_node("Loadout/" + n.name)
-		v.global_position = n.global_position + Vector2(8, 8)
-		if v.get_child_count() > 0:
-			v.get_child(0).monitorable = true
-			loaded_slots += 1
+		match n.name:
+			"Label", "Rune":
+				continue
+			_:
+				var v = prog_load.get_node(str(n.name))
+				v.global_position = n.global_position + Vector2(8, 8)
+				if v.get_child_count() > 0:
+					v.get_child(0).monitorable = false
+					loaded_slots += 1
 	$Label.text = "available loads: " + str(max_loads - loaded_slots)
 
 func _unhandled_input(event):
@@ -62,6 +65,7 @@ func on_button_pressed(slot):
 func confirm_loadout(slot):
 	var selected_program = available_programs[array_selected].duplicate(15)
 	selected_program.position = Vector2.ZERO
+	selected_program.scale = Vector2(1, 1)
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
 		n.monitorable = false
@@ -79,6 +83,7 @@ func confirm_loadout(slot):
 	set_slots()
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	get_node(slot).grab_focus()
+	_on_focus_entered(slot)
 
 func open_program_selection(slot):
 	get_node(slot).release_focus()
@@ -93,14 +98,25 @@ func open_program_selection(slot):
 			available_programs.erase(n) 
 		else:
 			add_child(n)
-			n.monitorable = true
+			n.monitorable = false
+			n.position = get_node(slot).position + Vector2(16, 16)
+			n.scale = Vector2(1.5, 1.5)
 	set_program_sprites()
 
 func set_program_sprites():
 	for i in available_programs.size():
-		available_programs[i].position = get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 20, 20)
+		if i == array_selected:
+			available_programs[i].z_index = 1
+			available_programs[i].scale = Vector2(2, 2)
+		else:
+			available_programs[i].z_index = 0
+			available_programs[i].scale = Vector2(1.5, 1.5)
+		var tween = create_tween()
+		tween.tween_property(available_programs[i], "position",
+				get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 16, 16),
+				0.3).set_trans(Tween.TRANS_SINE)
 		available_programs[i].show()
-
+	info.text = available_programs[array_selected].name + "\n" + available_programs[array_selected].info
 
 func _on_focus_entered(slot):
 	if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
@@ -110,3 +126,6 @@ func _on_focus_entered(slot):
 
 func _on_focus_exited():
 	info.text = ""
+
+func _on_rune_pressed():
+	print("rune pressed")
