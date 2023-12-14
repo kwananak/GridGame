@@ -1,25 +1,35 @@
-extends ColorRect
+extends Control
 
 var selection_opened = null
 var available_programs
 var array_selected
+var loaded_slots = 0
+
+@export var max_loads = 1
 
 var progress_manager
+var info
 
 @onready var empty = preload("res://Scenes/Programs/Empty.tscn")
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	info = get_parent().get_node("Info/Label")
 	await get_tree().create_timer(0.02).timeout
 	set_slots()
 
 func set_slots():
+	loaded_slots = 0
 	progress_manager.get_node("Loadout").show()
 	for n in get_children():
+		if n.name == "Label":
+			continue
 		var v = progress_manager.get_node("Loadout/" + n.name)
 		v.global_position = n.global_position + Vector2(8, 8)
 		if v.get_child_count() > 0:
 			v.get_child(0).monitorable = true
+			loaded_slots += 1
+	$Label.text = "available loads: " + str(max_loads - loaded_slots)
 
 func _input(event):
 	if selection_opened == null:
@@ -69,6 +79,10 @@ func confirm_loadout(slot):
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 
 func open_program_selection(slot):
+	if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
+		info.text = "max program quantity reach"
+		return
+	info.text = ""
 	array_selected = 0
 	selection_opened = slot
 	var new_empty = empty.instantiate()

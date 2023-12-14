@@ -73,13 +73,12 @@ offset_bottom = 86.0
 focus_neighbor_bottom = NodePath("../VirtualLevel4")
 text = "Level 5"
 
-[node name="Loadout" type="ColorRect" parent="Control"]
-layout_mode = 0
+[node name="Loadout" type="Control" parent="Control"]
+anchors_preset = 0
 offset_left = 672.0
 offset_top = 32.0
 offset_right = 1120.0
 offset_bottom = 608.0
-color = Color(0.156863, 0.0588235, 0.054902, 1)
 script = ExtResource("2_i1edc")
 metadata/_edit_use_anchors_ = true
 
@@ -124,6 +123,12 @@ offset_left = 168.0
 offset_top = 378.0
 offset_right = 208.0
 offset_bottom = 418.0
+
+[node name="Label" type="Label" parent="Control/Loadout"]
+offset_left = 238.0
+offset_top = 22.0
+offset_right = 278.0
+offset_bottom = 45.0
 
 [node name="Info" type="ColorRect" parent="Control" groups=["InfoPanel"]]
 layout_mode = 0

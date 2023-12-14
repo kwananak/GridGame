@@ -197,12 +197,6 @@ func projectile_check(program):
 			n.available_action = program
 	moving = false
 
-func projectile_launch():
-	moving = true
-	for n in possible_moves:
-		n.reset()
-	level_manager.end_turn()
-
 func circle_hit():
 	moving = true
 	for n in possible_moves:
