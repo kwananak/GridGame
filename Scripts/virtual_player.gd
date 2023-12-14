@@ -252,9 +252,13 @@ func grapple_hit(dir):
 		destination.x -= 1
 	elif destination.x < 0:
 		destination.x += 1 
+	var old_pos = position
+	position += destination * level_manager.tile_size
+	animated_sprite_2d.position = old_pos - position
 	var tween = create_tween()
-	tween.tween_property(self, "position",
-			position + (destination * level_manager.tile_size),
-			1.5/(level_manager.animation_speed * 2)).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(animated_sprite_2d, "position",
+			Vector2.ZERO,
+			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
+	animated_sprite_2d.play("move")
 	await tween.finished
 	animated_sprite_2d.play("idle")

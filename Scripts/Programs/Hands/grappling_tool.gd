@@ -22,5 +22,4 @@ func cancel_action():
 
 func confirm_with_dir(dir):
 	focus = false
-	player.grapple_hit(dir)
-	player.waiting_for_action = null
+	await player.grapple_hit(dir)
