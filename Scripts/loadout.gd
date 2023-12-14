@@ -100,3 +100,13 @@ func set_program_sprites():
 	for i in available_programs.size():
 		available_programs[i].position = get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 20, 20)
 		available_programs[i].show()
+
+
+func _on_focus_entered(slot):
+	if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
+		info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).name + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
+	else:
+		info.text = slot + "\n" + "Empty"
+
+func _on_focus_exited():
+	info.text = ""
