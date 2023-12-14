@@ -1,4 +1,4 @@
-extends Control
+extends ColorRect
 
 var selection_opened = null
 var available_programs
@@ -31,15 +31,15 @@ func set_slots():
 			loaded_slots += 1
 	$Label.text = "available loads: " + str(max_loads - loaded_slots)
 
-func _input(event):
+func _unhandled_input(event):
 	if selection_opened == null:
 		return
+	if event.is_action_pressed("select"):
+		on_button_pressed(selection_opened)
 	if event.is_action_pressed("left"):
 		cycle_programs("left")
 	elif event.is_action_pressed("right"):
 		cycle_programs("right")
-	else:
-		get_node(selection_opened).grab_focus()
 
 func cycle_programs(cycle):
 	if available_programs.size() == 1:
@@ -54,8 +54,9 @@ func on_button_pressed(slot):
 	if selection_opened != null:
 		confirm_loadout(slot)
 	else:
-		get_parent().get_parent().hide()
-		get_parent().get_parent().show()
+		if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
+			info.text = "max program quantity reach"
+			return
 		open_program_selection(slot)
 
 func confirm_loadout(slot):
@@ -77,11 +78,10 @@ func confirm_loadout(slot):
 	available_programs = null
 	set_slots()
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
+	get_node(slot).grab_focus()
 
 func open_program_selection(slot):
-	if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
-		info.text = "max program quantity reach"
-		return
+	get_node(slot).release_focus()
 	info.text = ""
 	array_selected = 0
 	selection_opened = slot
