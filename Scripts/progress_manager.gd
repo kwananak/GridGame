@@ -93,10 +93,63 @@ func get_available_programs(slot):
 # erases all program when called by main menu button
 # for debugging pruposes
 func reset_programs():
-	for n in $Loadout.get_children():
-		if n.get_child_count() == 1:
-			n.get_child(0).queue_free()
-	for n in $OwnedPrograms.get_children():
-		if n.get_child_count() > 0:
-			for o in n.get_children():
-				o.queue_free()
+	for n in get_children():
+		for o in n.get_children():
+			if o.get_child_count() > 0:
+				for p in o.get_children():
+					p.queue_free()
+
+func save():
+	var dict = {}
+	for n in get_children():
+		dict[n.name] = {}
+		for o in n.get_children():
+			var slot = get_node(str(n.name) + "/" + str(o.name))
+			if slot.get_child_count() > 0:
+				dict[n.name][o.name] = []
+				for p in slot.get_children():
+					if p.get("runed"):
+						if p.runed:
+							dict[n.name][o.name] += [p.name + "_runed"]
+							continue
+					else:
+						dict[n.name][o.name] += [p.name]
+			else:
+				dict[n.name][o.name] = ["empty"]
+	return dict
+
+func save_game():
+	var save_file = FileAccess.open("res://savegame.txt", FileAccess.WRITE)
+	save_file.store_line(JSON.stringify(save()))
+
+func load_game():
+	await reset_programs()
+	if not FileAccess.file_exists("res://savegame.txt"):
+		return
+	var save_file = FileAccess.open("res://savegame.txt", FileAccess.READ)
+	var json_string = save_file.get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	var data = json.get_data()
+	for n in data.keys():
+		for o in data[n]:
+			if o == "Runes":
+				for i in data[n][o].size():
+					get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+				continue
+			for p in data[n][o]:
+				if p != "empty":
+					if p.ends_with("runed"):
+						var s = p.get_slice("_", 0)
+						var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()
+						get_node(n).get_node(o).add_child(v)
+						v.add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+						v.runed = true
+					else:
+						if o == "LeftHand" || o == "RightHand":
+							get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
+							continue
+						get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())

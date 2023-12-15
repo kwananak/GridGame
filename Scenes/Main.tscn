@@ -28,9 +28,9 @@ fit_content = true
 
 [node name="Level1Button" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 352.0
+offset_left = 422.0
 offset_top = 32.0
-offset_right = 464.0
+offset_right = 534.0
 offset_bottom = 80.0
 focus_neighbor_left = NodePath("../RealTestLevelButton")
 focus_neighbor_bottom = NodePath("../Level3Button")
@@ -38,9 +38,9 @@ text = "Level 1"
 
 [node name="Level5Button" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 354.0
+offset_left = 410.0
 offset_top = 222.0
-offset_right = 466.0
+offset_right = 534.0
 offset_bottom = 270.0
 focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../Level4Button")
@@ -48,9 +48,9 @@ text = "Level 5 (canon)"
 
 [node name="Level4Button" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 348.0
+offset_left = 422.0
 offset_top = 163.0
-offset_right = 460.0
+offset_right = 534.0
 offset_bottom = 211.0
 focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../Level3Button")
@@ -71,42 +71,60 @@ text = "Level 3 (le meilleur level)"
 [node name="VirtualTestLevelButton" type="Button" parent="Menu"]
 texture_filter = 1
 offset_left = 32.0
-offset_top = 96.0
+offset_top = 132.0
 offset_right = 173.0
-offset_bottom = 144.0
+offset_bottom = 180.0
 focus_neighbor_top = NodePath("../RealTestLevelButton")
 focus_neighbor_right = NodePath("../Level3Button")
-focus_neighbor_bottom = NodePath("../ResetProgress")
+focus_neighbor_bottom = NodePath("../NewGame")
 text = "Virtual Test Level"
 
 [node name="RealTestLevelButton" type="Button" parent="Menu"]
 texture_filter = 1
 offset_left = 32.0
-offset_top = 32.0
+offset_top = 67.0
 offset_right = 155.0
-offset_bottom = 80.0
+offset_bottom = 115.0
 focus_neighbor_right = NodePath("../Level1Button")
 focus_neighbor_bottom = NodePath("../VirtualTestLevelButton")
 text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="Menu"]
 texture_filter = 1
-offset_left = 224.0
-offset_top = 224.0
-offset_right = 336.0
-offset_bottom = 272.0
-focus_neighbor_left = NodePath("../ResetProgress")
+offset_left = 221.0
+offset_top = 222.0
+offset_right = 333.0
+offset_bottom = 270.0
+focus_neighbor_left = NodePath("../NewGame")
 focus_neighbor_right = NodePath("../Level5Button")
 text = "Quit"
 
-[node name="ResetProgress" type="Button" parent="Menu"]
-offset_left = 32.0
-offset_top = 232.0
-offset_right = 158.0
-offset_bottom = 263.0
+[node name="NewGame" type="Button" parent="Menu"]
+offset_left = 209.0
+offset_top = 88.0
+offset_right = 335.0
+offset_bottom = 119.0
 focus_neighbor_top = NodePath("../VirtualTestLevelButton")
 focus_neighbor_right = NodePath("../QuitButton")
-text = "Reset Progress"
+text = "New Game"
+
+[node name="SaveGame" type="Button" parent="Menu"]
+offset_left = 209.0
+offset_top = 179.0
+offset_right = 335.0
+offset_bottom = 210.0
+focus_neighbor_top = NodePath("../VirtualTestLevelButton")
+focus_neighbor_right = NodePath("../QuitButton")
+text = "Save Game"
+
+[node name="LoadGame" type="Button" parent="Menu"]
+offset_left = 209.0
+offset_top = 132.0
+offset_right = 335.0
+offset_bottom = 163.0
+focus_neighbor_top = NodePath("../VirtualTestLevelButton")
+focus_neighbor_right = NodePath("../QuitButton")
+text = "Load Game"
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
 position = Vector2(0, 0)
@@ -135,4 +153,6 @@ scale = Vector2(0.5, 0.5)
 [connection signal="pressed" from="Menu/VirtualTestLevelButton" to="." method="call_test_level" binds= ["virtual"]]
 [connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_test_level" binds= ["real"]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
-[connection signal="pressed" from="Menu/ResetProgress" to="ProgressManager" method="reset_programs"]
+[connection signal="pressed" from="Menu/NewGame" to="ProgressManager" method="reset_programs"]
+[connection signal="pressed" from="Menu/SaveGame" to="ProgressManager" method="save_game"]
+[connection signal="pressed" from="Menu/LoadGame" to="ProgressManager" method="load_game"]

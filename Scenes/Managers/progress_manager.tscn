@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=28 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/progress_manager.gd" id="1_8smh1"]
 [ext_resource type="PackedScene" uid="uid://b20xavb44nvvw" path="res://Scenes/Programs/Brain/NeuroSyncCortex.tscn" id="2_0urki"]
+[ext_resource type="PackedScene" uid="uid://grlmfl5lr8gd" path="res://Scenes/Programs/Runes/Rune.tscn" id="2_48ukr"]
 [ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="2_gl51m"]
 [ext_resource type="PackedScene" uid="uid://cfqyhpfuscf6u" path="res://Scenes/Programs/Goggles/Vision.tscn" id="3_4cywn"]
 [ext_resource type="PackedScene" uid="uid://cv1u63rcqelx2" path="res://Scenes/Programs/Hands/ChillingLance.tscn" id="3_57hws"]
@@ -48,6 +49,10 @@ z_index = 5
 [node name="Boots" type="Node2D" parent="Loadout"]
 
 [node name="Runes" type="Node2D" parent="Loadout"]
+
+[node name="Rune" parent="Loadout/Runes" instance=ExtResource("2_48ukr")]
+
+[node name="Rune2" parent="Loadout/Runes" instance=ExtResource("2_48ukr")]
 
 [node name="OwnedPrograms" type="Node2D" parent="."]
 visible = false
