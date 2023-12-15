@@ -1,43 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd0glhsrlf1wm"]
+[gd_scene load_steps=8 format=3 uid="uid://cd0glhsrlf1wm"]
 
-[ext_resource type="Texture2D" uid="uid://b5ndllrraq1r3" path="res://Sprites/testing_environnement.png" id="1_pfs40"]
+[ext_resource type="Texture2D" uid="uid://cy2s6csxgbo68" path="res://Sprites/virtual_environnement.png" id="1_dtphp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w2fio"]
-atlas = ExtResource("1_pfs40")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_em6fo"]
+atlas = ExtResource("1_dtphp")
+region = Rect2(256, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4eh0"]
-atlas = ExtResource("1_pfs40")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ketbu"]
+atlas = ExtResource("1_dtphp")
+region = Rect2(256, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vydj4"]
-atlas = ExtResource("1_pfs40")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d10hh"]
+atlas = ExtResource("1_dtphp")
+region = Rect2(256, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqg63"]
+atlas = ExtResource("1_dtphp")
+region = Rect2(256, 320, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w2fio")
+"texture": SubResource("AtlasTexture_em6fo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4eh0")
+"texture": SubResource("AtlasTexture_ketbu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vydj4")
+"texture": SubResource("AtlasTexture_d10hh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p4eh0")
+"texture": SubResource("AtlasTexture_jqg63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d10hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ketbu")
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 2.0
 }]
 
 [node name="WallTile" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)

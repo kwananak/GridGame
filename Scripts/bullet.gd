@@ -52,7 +52,7 @@ func _on_area_entered(area):
 		queue_free()
 		return
 	match area.tile_type:
-		"cannon", "bullet":
+		"bullet":
 			return
 		_:
 			queue_free()
