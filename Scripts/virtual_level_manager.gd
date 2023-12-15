@@ -10,6 +10,7 @@ var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
 var programs = []
 var vision = false
+var dialogue = false
 
 @export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5
@@ -20,6 +21,19 @@ func _ready():
 	set_lives(lives)
 	set_remaining_actions(remaining_actions)
 	super._ready()
+
+# update paused value and shows or hide pause "menu" accordingly
+func set_pause(value):
+	if dialogue:
+		paused = true
+		return
+	paused = value
+	if paused:
+		button.text = "Quit"
+		button.visible = true
+		button.grab_focus()
+	else:
+		button.visible = false
 
 # calls subscribed nodes when player makes a move
 func end_turn():
@@ -72,6 +86,6 @@ func set_firewall_speed(value):
 
 func on_end_tile_entered():
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
-	for p in programs:
-		progress_manager.add_to_programs(p[0], p[1])
+	for a in programs:
+		progress_manager.add_to_programs(a[0], a[1])
 	super.on_end_tile_entered()

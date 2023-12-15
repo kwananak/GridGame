@@ -134,6 +134,7 @@ func move_check(distance):
 					n.possible = true
 	moving = false
 
+# checks for attacks when attack distance is further than move distance
 func attack_check():
 	for n in possible_moves:
 		ray.target_position = n.dir * (level_manager.tile_size * 1.5)
@@ -153,6 +154,7 @@ func attack_check():
 				n.possible = true
 	moving = false
 
+# check for row attacks
 func row_check(distance):
 	moving = true
 	for n in possible_moves:
@@ -175,6 +177,7 @@ func row_check(distance):
 					n.hide()
 	moving = false
 
+# executes the row attack
 func row_hit(dir):
 	for n in row_checker.get_children():
 		if n.is_in_group(dir.name):
@@ -182,11 +185,13 @@ func row_hit(dir):
 	clean_row_checker()
 	level_manager.end_turn()
 
+# removes all point from row checker
 func clean_row_checker():
 	moving = true
 	for n in row_checker.get_children():
 		n.queue_free()
 
+# checks for available directions for projectile
 func projectile_check(program):
 	move_check(step)
 	for n in possible_moves:
@@ -197,6 +202,7 @@ func projectile_check(program):
 			n.available_action = program
 	moving = false
 
+# hits a tile away in all direction
 func circle_hit():
 	moving = true
 	for n in possible_moves:
@@ -204,6 +210,7 @@ func circle_hit():
 			n.available_action.hit_by_player(3)
 	level_manager.end_turn()
 
+# check for grapple points availablity
 func grapple_check(distance):
 	moving = true
 	for n in possible_moves:
@@ -232,6 +239,7 @@ func grapple_check(distance):
 				n.possible = false
 	moving = false
 
+# executes grapple towards chosen direction
 func grapple_hit(dir):
 	if "tile_type" in dir.available_action:
 		dir.available_action.hit_by_player(strength)

@@ -1,5 +1,6 @@
 extends Node2D
 
+# called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program):
 	if program.name == "Rune":
 		get_node("Loadout/Runes").call_deferred("add_child", program)
@@ -9,6 +10,7 @@ func add_to_programs(slot, program):
 			return
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 
+# adds selected program from terminal to loadout
 func select_loadout(slot, program):
 	var selected_slot = get_node("Loadout/" + slot)
 	if selected_slot.get_child_count() == 1:
@@ -20,6 +22,7 @@ func select_loadout(slot, program):
 	else:
 		selected_slot.add_child(program)
 
+# called by terminal to get available programs for selected slot
 func get_available_programs(slot):
 	var available_programs =[]
 	match slot:
@@ -87,6 +90,8 @@ func get_available_programs(slot):
 			n.get_parent().remove_child(n)
 	return available_programs
 
+# erases all program when called by main menu button
+# for debugging pruposes
 func reset_programs():
 	for n in $Loadout.get_children():
 		if n.get_child_count() == 1:
