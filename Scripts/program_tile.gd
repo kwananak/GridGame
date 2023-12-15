@@ -11,6 +11,8 @@ func _ready():
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
-	await program.picked_up(program_slot)
+	program.set_deferred("monitorable", false)
+	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
+	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	remove_child(program)
 	queue_free()

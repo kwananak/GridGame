@@ -5,6 +5,7 @@ var available_programs
 var array_selected
 var loaded_slots = 0
 var max_loads = 3
+var rune_mode = null
 
 var progress_manager
 var info
@@ -24,8 +25,13 @@ func set_slots():
 	prog_load.show()
 	for n in get_children():
 		match n.name:
-			"Label", "Rune":
+			"Label":
 				continue
+			"Runes":
+				var v = prog_load.get_node(str(n.name))
+				v.global_position = n.global_position + Vector2(8, 8)
+				if v.get_child_count() > 0:
+					v.get_child(0).monitorable = false
 			_:
 				var v = prog_load.get_node(str(n.name))
 				v.global_position = n.global_position + Vector2(8, 8)
@@ -54,13 +60,31 @@ func cycle_programs(cycle):
 	set_program_sprites()
 
 func on_button_pressed(slot):
-	if selection_opened != null:
-		confirm_loadout(slot)
-	else:
-		if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
-			info.text = "max program quantity reach"
+	if rune_mode:
+		if prog_load.get_node(slot).get_child_count() > 0:
+			var v = prog_load.get_node(slot).get_child(0)
+			if !v.runed:
+				prog_load.get_node("Runes").remove_child(rune_mode)
+				v.add_child(rune_mode)
+				v.runed = true
+				rune_mode.position = Vector2(12, 12)
+				rune_mode.name = "Rune"
+				rune_mode = null
+				return
+			else:
+				info.text = "already runed"
+				return
+		else:
+			info.text = "nothing to runed"
 			return
-		open_program_selection(slot)
+	if selection_opened:
+		if selection_opened == slot:
+			confirm_loadout(slot)
+		return
+	if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
+		info.text = "max program quantity reach"
+		return
+	open_program_selection(slot)
 
 func confirm_loadout(slot):
 	var selected_program = available_programs[array_selected].duplicate(15)
@@ -128,4 +152,14 @@ func _on_focus_exited():
 	info.text = ""
 
 func _on_rune_pressed():
-	print("rune pressed")
+	if selection_opened:
+		return
+	if rune_mode:
+		rune_mode.position = Vector2.ZERO
+		rune_mode = null
+		return
+	if prog_load.get_node("Runes").get_child_count() > 0:
+		rune_mode = prog_load.get_node("Runes").get_child(0)
+		rune_mode.position = Vector2(30, -100)
+	else:
+		info.text = "no runes"

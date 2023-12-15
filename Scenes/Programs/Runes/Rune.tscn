@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://grlmfl5lr8gd"]
+
+[ext_resource type="Script" path="res://Scripts/Programs/rune.gd" id="1_dnyg6"]
+[ext_resource type="Texture2D" uid="uid://b0xu7md86h614" path="res://Sprites/icon.svg" id="2_2uqgr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmj8x"]
+
+[node name="Rune" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_dnyg6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wmj8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("2_2uqgr")

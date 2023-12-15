@@ -1,11 +1,13 @@
 extends Node2D
 
 func add_to_programs(slot, program):
+	if program.name == "Rune":
+		get_node("Loadout/Runes").call_deferred("add_child", program)
+		return
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
-
 
 func select_loadout(slot, program):
 	var selected_slot = get_node("Loadout/" + slot)
@@ -36,6 +38,11 @@ func get_available_programs(slot):
 				for i in available_programs.size():
 					if available_programs[i].name == loaded_slot[0].name:
 						available_programs += [i]
+				if loaded_slot[0].runed:
+					var rune = loaded_slot[0].get_node("Rune")
+					loaded_slot[0].remove_child(rune)
+					$Loadout/Runes.add_child(rune)
+					rune.position = Vector2.ZERO
 				loaded_slot[0].queue_free()
 		"RightHand":
 			var progs = get_node("OwnedPrograms/Hands").get_children()
@@ -52,6 +59,11 @@ func get_available_programs(slot):
 				for i in available_programs.size():
 					if available_programs[i].name == loaded_slot[0].name:
 						available_programs += [i]
+				if loaded_slot[0].runed:
+					var rune = loaded_slot[0].get_node("Rune")
+					loaded_slot[0].remove_child(rune)
+					$Loadout/Runes.add_child(rune)
+					rune.position = Vector2.ZERO
 				loaded_slot[0].queue_free()
 		_:
 			var progs = get_node("OwnedPrograms/" + slot).get_children()
@@ -62,6 +74,11 @@ func get_available_programs(slot):
 				for i in available_programs.size():
 					if available_programs[i].name == loaded_slot[0].name:
 						available_programs += [i]
+				if loaded_slot[0].runed:
+					var rune = loaded_slot[0].get_node("Rune")
+					loaded_slot[0].remove_child(rune)
+					$Loadout/Runes.add_child(rune)
+					rune.position = Vector2.ZERO
 				loaded_slot[0].queue_free()
 	for n in available_programs:
 		if n is int:

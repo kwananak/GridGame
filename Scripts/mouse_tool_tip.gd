@@ -9,16 +9,10 @@ func _ready():
 # updates position to mouse position on each frame
 func _process(_delta):
 	position = (get_viewport().get_mouse_position() / 2) + (camera.position - (get_viewport_rect().size / 4)) - Vector2(0, 32)
-
-# gets info from program when hovering
-func _on_area_entered(area):
-	if area.get("info"):
-		$Label.text = area.name + "\n" + area.info
-		show()
-
-# hides tool tip when not hovering
-func _on_area_exited(_area):
 	if has_overlapping_areas():
-		_on_area_entered(get_overlapping_areas()[0])
+		var area = get_overlapping_areas()[0]
+		if area.get("info"):
+			$Label.text = area.name + "\n" + area.info
+			show()
 	else:
 		hide()

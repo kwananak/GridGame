@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dah415iq2hdna"]
+
+[ext_resource type="Script" path="res://Scripts/rune_tile.gd" id="1_5mr15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
+
+[node name="RuneTile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5mr15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ofsl2")
+
+[connection signal="area_entered" from="." to="." method="pick_up"]

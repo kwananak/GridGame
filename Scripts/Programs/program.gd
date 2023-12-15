@@ -10,7 +10,6 @@ var info : String
 var mouse_tip
 var active = false
 var usable = true
-var runable = true
 var runed = false
 
 func _ready():
