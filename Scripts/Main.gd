@@ -12,7 +12,12 @@ func _ready():
 # instantiates chosen level from main menu
 func call_level(level_number):
 	menu.visible = false
-	add_child(load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate())
+	if level_number == 0:
+		add_child(load("res://Scenes/virtual_test_level.tscn").instantiate())
+	elif level_number < 0:
+		add_child(load("res://Scenes/real_test_level.tscn").instantiate())
+	else:
+		add_child(load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate())
 
 # instantiates test level from main menu
 func call_test_level(test_name):

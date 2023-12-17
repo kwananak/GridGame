@@ -29,14 +29,11 @@ func set_slots():
 				continue
 			"Runes":
 				var v = prog_load.get_node(str(n.name))
-				v.global_position = n.global_position + Vector2(8, 8)
-				if v.get_child_count() > 0:
-					v.get_child(0).monitorable = false
+				v.global_position = n.global_position + Vector2(16, 16)
 			_:
 				var v = prog_load.get_node(str(n.name))
-				v.global_position = n.global_position + Vector2(8, 8)
+				v.global_position = n.global_position + Vector2(16, 16)
 				if v.get_child_count() > 0:
-					v.get_child(0).monitorable = false
 					loaded_slots += 1
 	$Label.text = "available loads: " + str(max_loads - loaded_slots)
 
@@ -92,7 +89,6 @@ func confirm_loadout(slot):
 	selected_program.scale = Vector2(1, 1)
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
-		n.monitorable = false
 		remove_child(n)
 		if n.name == "Empty":
 			n.queue_free()
@@ -122,27 +118,42 @@ func open_program_selection(slot):
 			available_programs.erase(n) 
 		else:
 			add_child(n)
-			n.monitorable = false
-			n.position = get_node(slot).position + Vector2(16, 16)
+			n.position = get_node(slot).position + Vector2(32, 32)
 			n.scale = Vector2(1.5, 1.5)
 	set_program_sprites()
 
 func set_program_sprites():
 	for i in available_programs.size():
 		if i == array_selected:
-			available_programs[i].z_index = 1
-			available_programs[i].scale = Vector2(2, 2)
+			available_programs[i].z_index = 2
+			var tween = create_tween()
+			tween.tween_property(available_programs[i], "scale",
+				Vector2(2, 2),
+				0.3).set_trans(Tween.TRANS_SINE)
 		else:
-			available_programs[i].z_index = 0
-			available_programs[i].scale = Vector2(1.5, 1.5)
+			available_programs[i].z_index = 1
+			var tween = create_tween()
+			tween.tween_property(available_programs[i], "scale",
+				Vector2(1.5, 1.5),
+				0.3).set_trans(Tween.TRANS_SINE)
 		var tween = create_tween()
 		tween.tween_property(available_programs[i], "position",
-				get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 16, 16),
+				get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 32, 32),
 				0.3).set_trans(Tween.TRANS_SINE)
 		available_programs[i].show()
 	info.text = available_programs[array_selected].name + "\n" + available_programs[array_selected].info
 
 func _on_focus_entered(slot):
+	if slot == "Runes":
+		var rune_count = progress_manager.get_node("Loadout/" + slot).get_child_count()
+		match rune_count:
+			0:
+				info.text = "no rune"
+			1:
+				info.text = "1 rune"
+			_:
+				info.text = str(rune_count) + " runes"
+		return
 	if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
 		info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).name + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
 	else:

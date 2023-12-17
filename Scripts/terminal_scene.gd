@@ -1,10 +1,12 @@
 extends Node2D
 
 @onready var main = $/root/Main
+@onready var go = $Control/GoButton
 var loadout
+var loaded_level = null
 
 func _ready():
-	$Control/ReturnButton.grab_focus()
+	go.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 
 func _input(event):
@@ -19,13 +21,28 @@ func _on_return_button_pressed():
 	main.return_to_real_scene()
 	queue_free()
 
-# called by map button to send the player to the virtual world
-func _on_virtual_test_level_button_pressed():
+func _on_level_pressed(level_number):
+	loaded_level = level_number
+	go.text = "Level " + str(level_number)
+
+func _on_go_button_pressed():
+	if loaded_level == null:
+		return
 	loadout.hide()
-	main.call_test_level("virtual")
+	$/root/Main.call_level(loaded_level)
 	visible = false
 
-func _on_level_pressed(level_number):
-	loadout.hide()
-	$/root/Main.call_level(level_number)
-	visible = false
+func _on_visibility_changed():
+	if visible:
+		for n in get_tree().get_first_node_in_group("ProgressManager").get_children():
+			for o in n.get_children():
+				for p in o.get_children():
+					p.monitorable = false
+		loaded_level = null
+		if go:
+			go.text = "choose\nlevel"
+	else:
+		for n in get_tree().get_first_node_in_group("ProgressManager").get_children():
+			for o in n.get_children():
+				for p in o.get_children():
+					p.monitorable = true
