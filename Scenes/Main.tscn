@@ -15,7 +15,9 @@ position = Vector2(288, 160)
 anchor_mode = 1
 zoom = Vector2(2, 2.025)
 
-[node name="Menu" type="Node2D" parent="."]
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="TitleLabel" type="RichTextLabel" parent="Menu"]
 texture_filter = 1
@@ -32,8 +34,6 @@ offset_left = 422.0
 offset_top = 32.0
 offset_right = 534.0
 offset_bottom = 80.0
-focus_neighbor_left = NodePath("../RealTestLevelButton")
-focus_neighbor_bottom = NodePath("../Level3Button")
 text = "Level 1"
 
 [node name="Level5Button" type="Button" parent="Menu"]
@@ -42,8 +42,6 @@ offset_left = 410.0
 offset_top = 222.0
 offset_right = 534.0
 offset_bottom = 270.0
-focus_neighbor_left = NodePath("../QuitButton")
-focus_neighbor_top = NodePath("../Level4Button")
 text = "Level 5 (canon)"
 
 [node name="Level4Button" type="Button" parent="Menu"]
@@ -52,9 +50,6 @@ offset_left = 422.0
 offset_top = 163.0
 offset_right = 534.0
 offset_bottom = 211.0
-focus_neighbor_left = NodePath("../QuitButton")
-focus_neighbor_top = NodePath("../Level3Button")
-focus_neighbor_bottom = NodePath("../Level5Button")
 text = "Level 4"
 
 [node name="Level3Button" type="Button" parent="Menu"]
@@ -63,9 +58,6 @@ offset_left = 346.0
 offset_top = 96.0
 offset_right = 458.0
 offset_bottom = 144.0
-focus_neighbor_left = NodePath("../VirtualTestLevelButton")
-focus_neighbor_top = NodePath("../Level1Button")
-focus_neighbor_bottom = NodePath("../Level4Button")
 text = "Level 3 (le meilleur level)"
 
 [node name="VirtualTestLevelButton" type="Button" parent="Menu"]
@@ -74,9 +66,6 @@ offset_left = 32.0
 offset_top = 132.0
 offset_right = 173.0
 offset_bottom = 180.0
-focus_neighbor_top = NodePath("../RealTestLevelButton")
-focus_neighbor_right = NodePath("../Level3Button")
-focus_neighbor_bottom = NodePath("../NewGame")
 text = "Virtual Test Level"
 
 [node name="RealTestLevelButton" type="Button" parent="Menu"]
@@ -85,8 +74,6 @@ offset_left = 32.0
 offset_top = 67.0
 offset_right = 155.0
 offset_bottom = 115.0
-focus_neighbor_right = NodePath("../Level1Button")
-focus_neighbor_bottom = NodePath("../VirtualTestLevelButton")
 text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="Menu"]
@@ -95,8 +82,6 @@ offset_left = 221.0
 offset_top = 222.0
 offset_right = 333.0
 offset_bottom = 270.0
-focus_neighbor_left = NodePath("../NewGame")
-focus_neighbor_right = NodePath("../Level5Button")
 text = "Quit"
 
 [node name="NewGame" type="Button" parent="Menu"]
@@ -104,8 +89,6 @@ offset_left = 209.0
 offset_top = 88.0
 offset_right = 335.0
 offset_bottom = 119.0
-focus_neighbor_top = NodePath("../VirtualTestLevelButton")
-focus_neighbor_right = NodePath("../QuitButton")
 text = "New Game"
 
 [node name="SaveGame" type="Button" parent="Menu"]
@@ -113,8 +96,6 @@ offset_left = 209.0
 offset_top = 179.0
 offset_right = 335.0
 offset_bottom = 210.0
-focus_neighbor_top = NodePath("../VirtualTestLevelButton")
-focus_neighbor_right = NodePath("../QuitButton")
 text = "Save Game"
 
 [node name="LoadGame" type="Button" parent="Menu"]
@@ -122,8 +103,6 @@ offset_left = 209.0
 offset_top = 132.0
 offset_right = 335.0
 offset_bottom = 163.0
-focus_neighbor_top = NodePath("../VirtualTestLevelButton")
-focus_neighbor_right = NodePath("../QuitButton")
 text = "Load Game"
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
