@@ -32,28 +32,11 @@ fit_content = true
 [node name="Level1Button" type="Button" parent="Menu"]
 texture_filter = 1
 layout_mode = 0
-<<<<<<< Updated upstream
 offset_left = 422.0
 offset_top = 32.0
 offset_right = 534.0
 offset_bottom = 80.0
 text = "Level 1"
-=======
-offset_left = 438.0
-offset_top = 14.0
-offset_right = 567.0
-offset_bottom = 45.0
-text = "Level 1 - inwork"
-
-[node name="Level2Button" type="Button" parent="Menu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 441.0
-offset_top = 53.0
-offset_right = 570.0
-offset_bottom = 84.0
-text = "Level 2 - inwork"
->>>>>>> Stashed changes
 
 [node name="Level5Button" type="Button" parent="Menu"]
 texture_filter = 1
@@ -80,7 +63,7 @@ offset_left = 346.0
 offset_top = 96.0
 offset_right = 458.0
 offset_bottom = 144.0
-text = "Level 3"
+text = "Level 3 (le meilleur level)"
 
 [node name="VirtualTestLevelButton" type="Button" parent="Menu"]
 texture_filter = 1
@@ -154,8 +137,6 @@ offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="Menu/Level1Button" to="." method="call_level" binds= [1]]
-[connection signal="pressed" from="Menu/Level2Button" to="." method="call_level" binds= [2]]
-[connection signal="pressed" from="Menu/Level5Button" to="." method="_on_level_5_button_pressed"]
 [connection signal="pressed" from="Menu/Level5Button" to="." method="call_level" binds= [5]]
 [connection signal="pressed" from="Menu/Level4Button" to="." method="call_level" binds= [4]]
 [connection signal="pressed" from="Menu/Level3Button" to="." method="call_level" binds= [3]]
