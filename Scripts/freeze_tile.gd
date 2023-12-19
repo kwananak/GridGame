@@ -6,6 +6,6 @@ var tile_type = "freeze"
 @export var strength = 3
 
 # sends freeze strength to level manager and removes freeze tile
-func pick_up():
+func pick_up(_area):
 	get_tree().get_first_node_in_group("VirtualLevelManager").freeze = strength
 	queue_free()

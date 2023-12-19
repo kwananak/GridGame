@@ -39,7 +39,14 @@ func set_pause(value):
 func end_turn():
 	if freeze > 0 :
 		freeze -= 1
-		get_tree().get_first_node_in_group("Freeze").turn_call()
+		var freezer = get_tree().get_first_node_in_group("Freeze")
+		if freezer:
+			freezer.turn_call()
+		else:
+			if freeze == 0:
+				ui.get_node("FreezeUI").text = ""
+			else:
+				ui.get_node("FreezeUI").text = "freeze: " + str(freeze)
 		player.move_check(player.step)
 		return
 	turn += 1

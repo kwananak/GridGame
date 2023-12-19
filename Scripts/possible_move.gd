@@ -14,6 +14,9 @@ func check_collision(collision):
 	possible = false
 	if "tile_type" in collision:
 		match collision.tile_type:
+			"freeze":
+					possible = true
+					return
 			"door":
 				if collision.unlocked:
 					possible = true
