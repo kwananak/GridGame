@@ -56,3 +56,11 @@ func call_terminal_scene(from_scene):
 # returns to real scene when closing terminal
 func return_to_real_scene():
 	add_child(real_scene)
+
+
+func _on_level_2_button_pressed(extra_arg_0):
+	pass # Replace with function body.
+
+
+func _on_level_5_button_pressed():
+	pass # Replace with function body.
