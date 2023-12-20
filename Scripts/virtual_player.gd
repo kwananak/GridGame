@@ -53,7 +53,7 @@ func act(dir):
 	for n in possible_moves:
 		n.hide()
 	if !waiting_for_action:
-		dir.available_action.hit_by_player(strength)
+		await dir.available_action.hit_by_player(strength)
 	else:
 		match waiting_for_action.name:
 			dir.available_action.name, "GrapplingTool":
@@ -128,6 +128,9 @@ func move_check(distance):
 						if i > 0:
 							n.position = n.dir * level_manager.tile_size * i
 							n.possible = true
+						break
+					if n.available_action:
+						n.position = n.dir * level_manager.tile_size * (i + 1)
 						break
 				if i == distance - 1:
 					n.position = n.dir * level_manager.tile_size * distance
