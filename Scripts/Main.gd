@@ -56,3 +56,4 @@ func call_terminal_scene(from_scene):
 # returns to real scene when closing terminal
 func return_to_real_scene():
 	add_child(real_scene)
+
