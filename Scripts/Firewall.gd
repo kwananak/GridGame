@@ -1,14 +1,16 @@
 extends Area2D
 
-var level_manager
 var adjustment = 0
 var skip_turn = false
 var distance_to_player
 
+var level_manager
 var camera
 var label
 var player
+
 @onready var sprite = $AnimatedSprites
+@onready var section_prefab = preload("res://Scenes/Prefabs/firewall_section.tscn")
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -16,11 +18,21 @@ func _ready():
 	label = get_tree().get_first_node_in_group("FirewallLabel")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	await get_tree().create_timer(0.02).timeout
+	create_wall()
+	$CollisionShape2D.shape.extents = Vector2(30, level_manager.level_height)
 	turn_call()
 
 func _process(delta):
 	if level_manager.vision:
 		update_vision(delta)
+
+func create_wall():
+	var wall_length = (level_manager.level_height - (level_manager.level_height % level_manager.tile_size)) / level_manager.tile_size 
+	for i in wall_length:
+		var section = section_prefab.instantiate()
+		$AnimatedSprites.add_child(section)
+		section.position = Vector2(16, (i +1) * level_manager.tile_size)
+		section.animation = str(i % 4)
 
 func update_vision(delta):
 	label.show()

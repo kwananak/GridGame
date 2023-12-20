@@ -2,7 +2,7 @@ extends Area2D
 
 var tile_type = "hardened"
 var level_manager
-var strength
+var strength = 3
 
 @onready var label = $Label
 @onready var sprite = $AnimatedSprite2D
