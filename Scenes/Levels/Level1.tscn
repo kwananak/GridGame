@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=19 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_cdige"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_e0c5x"]
@@ -9,14 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="6_swgbb"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="7_y86xs"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="8_vyrbl"]
-[ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="9_ct02r"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="10_qljex"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="11_flfjp"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="12_67l1c"]
-[ext_resource type="PackedScene" uid="uid://qut4oq0xwikw" path="res://Scenes/Tiles/Programs/brain_tile.tscn" id="14_jxvwo"]
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="15_o3b67"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="16_oq8lt"]
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="17_f5skj"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="18_vrx5i"]
+[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="19_cp8cg"]
+[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="20_15wva"]
 
 [node name="Level1" type="Node2D"]
 
@@ -737,63 +738,6 @@ position = Vector2(704, 512)
 
 [node name="Trials" type="Node2D" parent="."]
 
-[node name="HardenedTile" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(448, 480)
-
-[node name="HardenedTile10" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(480, 448)
-
-[node name="HardenedTile18" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(672, 320)
-
-[node name="HardenedTile15" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(1088, 256)
-
-[node name="HardenedTile16" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(1024, 320)
-
-[node name="HardenedTile11" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(416, 416)
-
-[node name="HardenedTile12" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(544, 416)
-
-[node name="HardenedTile13" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(544, 448)
-
-[node name="HardenedTile17" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(640, 288)
-
-[node name="HardenedTile14" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(544, 480)
-
-[node name="HardenedTile2" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(672, 448)
-
-[node name="HardenedTile8" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(608, 384)
-
-[node name="HardenedTile9" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(768, 320)
-
-[node name="HardenedTile21" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(736, 288)
-
-[node name="HardenedTile22" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(800, 288)
-
-[node name="HardenedTile23" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(864, 256)
-
-[node name="HardenedTile24" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(864, 288)
-
-[node name="HardenedTile25" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(864, 320)
-
-[node name="HardenedTile19" parent="Trials" instance=ExtResource("9_ct02r")]
-position = Vector2(768, 256)
-
 [node name="DoorTile" parent="Trials" instance=ExtResource("10_qljex")]
 position = Vector2(1152, 288)
 key_type = "blue"
@@ -804,13 +748,69 @@ position = Vector2(-32, 0)
 [node name="VirtualPlayer" parent="." instance=ExtResource("12_67l1c")]
 position = Vector2(32, 352)
 
-[node name="BrainTile" parent="." instance=ExtResource("14_jxvwo")]
-position = Vector2(992, 160)
-select_program = "CyberPulseCognitive"
-
 [node name="CannonTile" parent="." instance=ExtResource("15_o3b67")]
-position = Vector2(608, 448)
+position = Vector2(768, 480)
 
 [node name="FreezeTile" parent="." instance=ExtResource("16_oq8lt")]
 z_index = 1
-position = Vector2(608, 480)
+position = Vector2(672, 448)
+
+[node name="SphereByteBarrierTile" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(352, 480)
+
+[node name="SphereByteBarrierTile3" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(480, 480)
+
+[node name="SphereByteBarrierTile4" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(608, 288)
+
+[node name="SphereByteBarrierTile5" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(704, 256)
+
+[node name="SphereByteBarrierTile6" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(928, 320)
+
+[node name="SphereByteBarrierTile7" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(960, 224)
+
+[node name="SphereByteBarrierTile8" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(1088, 320)
+
+[node name="SphereByteBarrierTile11" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(1024, 288)
+
+[node name="SphereByteBarrierTile9" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(1056, 256)
+
+[node name="SphereByteBarrierTile10" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(1056, 256)
+
+[node name="SphereByteBarrierTile2" parent="." instance=ExtResource("18_vrx5i")]
+position = Vector2(288, 416)
+
+[node name="PyramidByteBarrierTile" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(480, 448)
+
+[node name="PyramidByteBarrierTile3" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(672, 352)
+
+[node name="PyramidByteBarrierTile7" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(832, 288)
+
+[node name="PyramidByteBarrierTile8" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(800, 256)
+
+[node name="PyramidByteBarrierTile5" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(800, 320)
+
+[node name="PyramidByteBarrierTile6" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(768, 288)
+
+[node name="PyramidByteBarrierTile4" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(640, 320)
+
+[node name="PyramidByteBarrierTile2" parent="." instance=ExtResource("19_cp8cg")]
+position = Vector2(480, 416)
+
+[node name="CubeByteBarrierTile" parent="." instance=ExtResource("20_15wva")]
+position = Vector2(576, 544)

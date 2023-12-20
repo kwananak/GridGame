@@ -1,14 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyqcn6alsgheg"]
+[gd_scene load_steps=24 format=3 uid="uid://cyqcn6alsgheg"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_d3jio"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_sudpj"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_18qlb"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_p7uh4"]
+[ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cvyik"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="4_fw0b7"]
+[ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="5_s1go8"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="6_75w1p"]
+[ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="7_7u0kj"]
+[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="8_csh0f"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="9_g5m1t"]
+[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="10_66hfs"]
+[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="11_4jb0u"]
+[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/Tiles/beam_tile.tscn" id="12_ldxsx"]
+[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="13_dl81k"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="14_2bohm"]
+[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="15_xs3mt"]
+[ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="16_tis1j"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="17_6b1ol"]
+[ext_resource type="PackedScene" uid="uid://cikyqgvo7hc8p" path="res://Scenes/Tiles/key_tile.tscn" id="18_0bb0d"]
+[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="19_wce05"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="20_g6kii"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/terminal_tile.tscn" id="21_y5eyb"]
 
 [node name="VirtualLevelTemplate" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_d3jio")]
+level_height = 2000
+level_length = 4000
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_p7uh4")]
 
@@ -18,13 +38,109 @@
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
+[node name="FloorTile" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(416, 544)
+
+[node name="FloorTile5" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(320, 512)
+
+[node name="FloorTile2" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(416, 512)
+
+[node name="FloorTile3" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(416, 512)
+
+[node name="FloorTile6" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(352, 480)
+
+[node name="FloorTile7" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(320, 480)
+
+[node name="FloorTile4" parent="Environment/Floor" instance=ExtResource("4_cvyik")]
+position = Vector2(352, 512)
+
 [node name="Walls" type="Node2D" parent="Environment"]
 
+[node name="CornerWallTile" parent="Environment/Walls" instance=ExtResource("5_s1go8")]
+position = Vector2(384, 480)
+
+[node name="CornerWallTile5" parent="Environment/Walls" instance=ExtResource("5_s1go8")]
+position = Vector2(448, 448)
+
+[node name="CornerWallTile3" parent="Environment/Walls" instance=ExtResource("5_s1go8")]
+position = Vector2(448, 480)
+rotation = 1.5708
+
+[node name="EndTile" parent="Environment/Walls" instance=ExtResource("6_75w1p")]
+position = Vector2(448, 512)
+
+[node name="EndTile2" parent="Environment/Walls" instance=ExtResource("6_75w1p")]
+position = Vector2(384, 512)
+rotation = 3.14159
+
+[node name="CornerWallTile2" parent="Environment/Walls" instance=ExtResource("7_7u0kj")]
+position = Vector2(384, 544)
+
+[node name="CornerWallTile4" parent="Environment/Walls" instance=ExtResource("7_7u0kj")]
+position = Vector2(448, 544)
+rotation = 1.5708
+
+[node name="InvisibleWall" parent="Environment/Walls" instance=ExtResource("8_csh0f")]
+position = Vector2(224, 352)
+
+[node name="StartTile" parent="Environment/Walls" instance=ExtResource("9_g5m1t")]
+position = Vector2(384, 384)
+
+[node name="WallTile" parent="Environment/Walls" instance=ExtResource("10_66hfs")]
+position = Vector2(352, 544)
+
+[node name="WallTile4" parent="Environment/Walls" instance=ExtResource("10_66hfs")]
+position = Vector2(320, 544)
+
+[node name="WallTile3" parent="Environment/Walls" instance=ExtResource("10_66hfs")]
+position = Vector2(480, 544)
+
+[node name="WallTile2" parent="Environment/Walls" instance=ExtResource("10_66hfs")]
+position = Vector2(416, 480)
+
 [node name="Trials" type="Node2D" parent="."]
+
+[node name="CannonTile" parent="Trials" instance=ExtResource("11_4jb0u")]
+position = Vector2(128, 352)
+
+[node name="BeamTile" parent="Trials" instance=ExtResource("12_ldxsx")]
+position = Vector2(96, 352)
+
+[node name="CubeByteBarrierTile" parent="Trials" instance=ExtResource("13_dl81k")]
+position = Vector2(96, 384)
+
+[node name="DoorTile" parent="Trials" instance=ExtResource("14_2bohm")]
+position = Vector2(128, 384)
+
+[node name="FreezeTile" parent="Trials" instance=ExtResource("15_xs3mt")]
+position = Vector2(96, 416)
+
+[node name="HardenedTile" parent="Trials" instance=ExtResource("16_tis1j")]
+position = Vector2(128, 416)
+
+[node name="HoleTile" parent="Trials" instance=ExtResource("17_6b1ol")]
+position = Vector2(96, 448)
+
+[node name="KeyTile" parent="Trials" instance=ExtResource("18_0bb0d")]
+position = Vector2(128, 448)
+
+[node name="PyramidByteBarrierTile" parent="Trials" instance=ExtResource("19_wce05")]
+position = Vector2(96, 480)
+
+[node name="SphereByteBarrierTile" parent="Trials" instance=ExtResource("20_g6kii")]
+position = Vector2(128, 480)
+
+[node name="TerminalTile" parent="Trials" instance=ExtResource("21_y5eyb")]
+position = Vector2(160, 448)
 
 [node name="Firewall" parent="." instance=ExtResource("3_18qlb")]
 position = Vector2(-32, 0)
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("4_fw0b7")]
 z_index = 1
-position = Vector2(64, 64)
+position = Vector2(32, 352)
