@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvb3fjvlo0y4d"]
+[gd_scene load_steps=19 format=3 uid="uid://bvb3fjvlo0y4d"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_a36y5"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_l7xav"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="15_4t7pq"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="16_bapvo"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="17_gvwp0"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="18_8q7t7"]
 
 [node name="Level2" type="Node2D"]
 
@@ -374,7 +375,7 @@ position = Vector2(736, 128)
 position = Vector2(768, 128)
 
 [node name="FloorTile275" parent="Environment/Floor" instance=ExtResource("4_jo5m7")]
-position = Vector2(736, 160)
+position = Vector2(608, 160)
 
 [node name="FloorTile276" parent="Environment/Floor" instance=ExtResource("4_jo5m7")]
 position = Vector2(768, 160)
@@ -748,6 +749,18 @@ position = Vector2(608, 448)
 [node name="FreezeTile3" parent="Environment/Floor" instance=ExtResource("5_bolx1")]
 position = Vector2(672, 96)
 
+[node name="FreezeTile4" parent="Environment/Floor" instance=ExtResource("5_bolx1")]
+position = Vector2(1056, 32)
+
+[node name="FreezeTile6" parent="Environment/Floor" instance=ExtResource("5_bolx1")]
+position = Vector2(960, 128)
+
+[node name="FreezeTile5" parent="Environment/Floor" instance=ExtResource("5_bolx1")]
+position = Vector2(1024, 160)
+
+[node name="FreezeTile7" parent="Environment/Floor" instance=ExtResource("5_bolx1")]
+position = Vector2(1024, 32)
+
 [node name="StartTile" parent="Environment/Floor" instance=ExtResource("5_5eebu")]
 position = Vector2(64, 320)
 
@@ -810,7 +823,7 @@ position = Vector2(480, 96)
 position = Vector2(640, 96)
 
 [node name="FloorTile323" parent="Environment/Walls" instance=ExtResource("4_jo5m7")]
-position = Vector2(672, 96)
+position = Vector2(736, 160)
 
 [node name="FloorTile324" parent="Environment/Walls" instance=ExtResource("4_jo5m7")]
 position = Vector2(704, 96)
@@ -1331,6 +1344,24 @@ position = Vector2(576, 448)
 [node name="PyramidByteBarrierTile30" parent="." instance=ExtResource("15_4t7pq")]
 position = Vector2(576, 448)
 
+[node name="PyramidByteBarrierTile38" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(864, 288)
+
+[node name="PyramidByteBarrierTile42" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(832, 352)
+
+[node name="PyramidByteBarrierTile43" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(832, 352)
+
+[node name="PyramidByteBarrierTile39" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(736, 320)
+
+[node name="PyramidByteBarrierTile40" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(736, 320)
+
+[node name="PyramidByteBarrierTile41" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(800, 288)
+
 [node name="PyramidByteBarrierTile31" parent="." instance=ExtResource("15_4t7pq")]
 position = Vector2(576, 480)
 
@@ -1351,6 +1382,21 @@ position = Vector2(608, 160)
 
 [node name="PyramidByteBarrierTile20" parent="." instance=ExtResource("15_4t7pq")]
 position = Vector2(640, 160)
+
+[node name="PyramidByteBarrierTile33" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(992, 160)
+
+[node name="PyramidByteBarrierTile34" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(992, 192)
+
+[node name="PyramidByteBarrierTile37" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(992, 224)
+
+[node name="PyramidByteBarrierTile35" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(992, 96)
+
+[node name="PyramidByteBarrierTile36" parent="." instance=ExtResource("15_4t7pq")]
+position = Vector2(992, 128)
 
 [node name="PyramidByteBarrierTile21" parent="." instance=ExtResource("15_4t7pq")]
 position = Vector2(576, 192)
@@ -1397,6 +1443,18 @@ position = Vector2(544, 608)
 [node name="SphereByteBarrierTile23" parent="." instance=ExtResource("16_bapvo")]
 position = Vector2(576, 352)
 
+[node name="SphereByteBarrierTile31" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(576, 384)
+
+[node name="SphereByteBarrierTile32" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(640, 384)
+
+[node name="SphereByteBarrierTile33" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(672, 416)
+
+[node name="SphereByteBarrierTile34" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(640, 448)
+
 [node name="SphereByteBarrierTile6" parent="." instance=ExtResource("16_bapvo")]
 position = Vector2(576, 608)
 
@@ -1431,10 +1489,22 @@ position = Vector2(672, 192)
 position = Vector2(672, 224)
 
 [node name="SphereByteBarrierTile15" parent="." instance=ExtResource("16_bapvo")]
-position = Vector2(672, 32)
+position = Vector2(928, 128)
 
 [node name="SphereByteBarrierTile16" parent="." instance=ExtResource("16_bapvo")]
 position = Vector2(704, 96)
+
+[node name="SphereByteBarrierTile27" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(928, 96)
+
+[node name="SphereByteBarrierTile28" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(928, 192)
+
+[node name="SphereByteBarrierTile29" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(928, 160)
+
+[node name="SphereByteBarrierTile30" parent="." instance=ExtResource("16_bapvo")]
+position = Vector2(928, 224)
 
 [node name="SphereByteBarrierTile12" parent="." instance=ExtResource("16_bapvo")]
 position = Vector2(608, 128)
@@ -1474,6 +1544,24 @@ position = Vector2(512, 128)
 
 [node name="CubeByteBarrierTile10" parent="." instance=ExtResource("17_gvwp0")]
 position = Vector2(512, 96)
+
+[node name="CubeByteBarrierTile42" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 96)
+
+[node name="CubeByteBarrierTile43" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 128)
+
+[node name="CubeByteBarrierTile44" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 160)
+
+[node name="CubeByteBarrierTile45" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 192)
+
+[node name="CubeByteBarrierTile46" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 192)
+
+[node name="CubeByteBarrierTile47" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(1056, 224)
 
 [node name="CubeByteBarrierTile2" parent="." instance=ExtResource("17_gvwp0")]
 position = Vector2(480, 192)
@@ -1548,7 +1636,46 @@ position = Vector2(576, 320)
 position = Vector2(608, 320)
 
 [node name="CubeByteBarrierTile23" parent="." instance=ExtResource("17_gvwp0")]
-position = Vector2(576, 384)
+position = Vector2(640, 320)
+
+[node name="CubeByteBarrierTile48" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(640, 352)
+
+[node name="CubeByteBarrierTile51" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 320)
+
+[node name="CubeByteBarrierTile52" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 384)
+
+[node name="CubeByteBarrierTile55" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 416)
+
+[node name="CubeByteBarrierTile56" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 448)
+
+[node name="CubeByteBarrierTile57" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(672, 448)
+
+[node name="CubeByteBarrierTile58" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(672, 480)
+
+[node name="CubeByteBarrierTile59" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 480)
+
+[node name="CubeByteBarrierTile60" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(640, 480)
+
+[node name="CubeByteBarrierTile49" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(672, 352)
+
+[node name="CubeByteBarrierTile50" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(672, 320)
+
+[node name="CubeByteBarrierTile53" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(672, 384)
+
+[node name="CubeByteBarrierTile54" parent="." instance=ExtResource("17_gvwp0")]
+position = Vector2(704, 352)
 
 [node name="CubeByteBarrierTile24" parent="." instance=ExtResource("17_gvwp0")]
 position = Vector2(544, 384)
@@ -1579,3 +1706,6 @@ position = Vector2(480, 512)
 
 [node name="CubeByteBarrierTile22" parent="." instance=ExtResource("17_gvwp0")]
 position = Vector2(480, 480)
+
+[node name="HoleTile" parent="." instance=ExtResource("18_8q7t7")]
+position = Vector2(832, 160)
