@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://buhrxtha4x4ha"]
+[gd_scene load_steps=20 format=3 uid="uid://buhrxtha4x4ha"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_0oydm"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_15c42"]
@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="5_q6e16"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="6_dgy2p"]
 [ext_resource type="PackedScene" uid="uid://dqwkeaeqm4sj6" path="res://Scenes/Tiles/hardened_tile.tscn" id="9_ty7q2"]
+[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="14_g0w73"]
+[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="15_pcivx"]
+[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="16_vtva8"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="17_45r8q"]
+[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="18_4r2ea"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="19_gq5jj"]
 
 [node name="Level3" type="Node2D"]
 
@@ -419,6 +425,14 @@ rotation = 1.5708
 position = Vector2(544, 736)
 rotation = 1.5708
 
+[node name="WallTile92" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(544, 768)
+rotation = 1.5708
+
+[node name="WallTile93" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(544, 832)
+rotation = 1.5708
+
 [node name="WallTile39" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
 position = Vector2(768, 416)
 rotation = 1.5708
@@ -570,29 +584,68 @@ position = Vector2(704, 736)
 [node name="FloorTile102" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
 position = Vector2(704, 704)
 
-[node name="WallTile80" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+[node name="FloorTile103" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(672, 832)
+
+[node name="FloorTile104" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
 position = Vector2(672, 768)
 
-[node name="WallTile81" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(704, 768)
+[node name="FloorTile105" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(736, 832)
 
-[node name="WallTile84" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(608, 768)
+[node name="FloorTile106" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(736, 768)
 
-[node name="WallTile86" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(576, 768)
+[node name="FloorTile107" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(768, 832)
 
-[node name="WallTile85" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(640, 768)
-
-[node name="WallTile89" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+[node name="FloorTile108" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
 position = Vector2(768, 768)
 
-[node name="WallTile91" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(800, 768)
+[node name="FloorTile109" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(704, 832)
+
+[node name="FloorTile110" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(704, 768)
+
+[node name="FloorTile111" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(576, 832)
+
+[node name="FloorTile112" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(576, 768)
+
+[node name="FloorTile113" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(640, 832)
+
+[node name="FloorTile114" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(640, 768)
+
+[node name="FloorTile115" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(608, 832)
+
+[node name="FloorTile116" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(608, 768)
+
+[node name="WallTile80" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(672, 864)
+
+[node name="WallTile81" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(704, 864)
+
+[node name="WallTile84" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(608, 864)
+
+[node name="WallTile86" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(576, 864)
+
+[node name="WallTile85" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(640, 864)
+
+[node name="WallTile89" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(768, 864)
 
 [node name="WallTile90" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
-position = Vector2(736, 768)
+position = Vector2(736, 864)
 
 [node name="WallTile82" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
 position = Vector2(672, 672)
@@ -688,7 +741,7 @@ position = Vector2(512, 320)
 rotation = -1.5708
 
 [node name="CornerWallTile23" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
-position = Vector2(544, 768)
+position = Vector2(544, 864)
 rotation = -1.5708
 
 [node name="CornerWallTile21" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
@@ -709,6 +762,10 @@ rotation = 3.14159
 
 [node name="CornerWallTile14" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
 position = Vector2(768, 576)
+rotation = 3.14159
+
+[node name="CornerWallTile25" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
+position = Vector2(800, 864)
 rotation = 3.14159
 
 [node name="CornerWallTile22" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
@@ -737,6 +794,40 @@ rotation = 1.5708
 
 [node name="EndTile3" parent="Environment/Walls" instance=ExtResource("4_ydh24")]
 position = Vector2(800, 704)
+
+[node name="EndTile4" parent="Environment/Walls" instance=ExtResource("4_ydh24")]
+position = Vector2(800, 768)
+
+[node name="EndTile5" parent="Environment/Walls" instance=ExtResource("4_ydh24")]
+position = Vector2(800, 832)
+
+[node name="WallTile94" parent="Environment/Walls" instance=ExtResource("3_oajlt")]
+position = Vector2(544, 800)
+rotation = 1.5708
+
+[node name="FloorTile117" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(672, 800)
+
+[node name="FloorTile118" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(736, 800)
+
+[node name="FloorTile119" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(768, 800)
+
+[node name="FloorTile120" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(704, 800)
+
+[node name="FloorTile121" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(576, 800)
+
+[node name="FloorTile122" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(640, 800)
+
+[node name="FloorTile123" parent="Environment/Walls" instance=ExtResource("3_lg7ll")]
+position = Vector2(608, 800)
+
+[node name="EndTile6" parent="Environment/Walls" instance=ExtResource("4_ydh24")]
+position = Vector2(800, 800)
 
 [node name="CornerWallTile24" parent="Environment/Walls" instance=ExtResource("4_i81rw")]
 position = Vector2(800, 672)
@@ -783,3 +874,103 @@ position = Vector2(32, -32)
 [node name="VirtualPlayer" parent="." instance=ExtResource("6_dgy2p")]
 z_index = 1
 position = Vector2(64, 32)
+
+[node name="FreezeTile" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(192, 224)
+
+[node name="FreezeTile2" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(480, 224)
+
+[node name="FreezeTile4" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(352, 256)
+
+[node name="FreezeTile3" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(640, 384)
+
+[node name="FreezeTile5" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(576, 576)
+
+[node name="FreezeTile8" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(608, 832)
+
+[node name="FreezeTile6" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(608, 576)
+
+[node name="FreezeTile7" parent="." instance=ExtResource("14_g0w73")]
+position = Vector2(608, 576)
+
+[node name="CubeByteBarrierTile" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(320, 160)
+
+[node name="CubeByteBarrierTile2" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(640, 704)
+
+[node name="CubeByteBarrierTile6" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(608, 640)
+
+[node name="CubeByteBarrierTile7" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(576, 704)
+
+[node name="CubeByteBarrierTile8" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(608, 768)
+
+[node name="CubeByteBarrierTile9" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(576, 832)
+
+[node name="CubeByteBarrierTile3" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(640, 736)
+
+[node name="CubeByteBarrierTile4" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(640, 768)
+
+[node name="CubeByteBarrierTile5" parent="." instance=ExtResource("15_pcivx")]
+position = Vector2(640, 832)
+
+[node name="PyramidByteBarrierTile" parent="." instance=ExtResource("16_vtva8")]
+position = Vector2(384, 160)
+
+[node name="PyramidByteBarrierTile2" parent="." instance=ExtResource("16_vtva8")]
+position = Vector2(672, 704)
+
+[node name="PyramidByteBarrierTile3" parent="." instance=ExtResource("16_vtva8")]
+position = Vector2(672, 736)
+
+[node name="PyramidByteBarrierTile4" parent="." instance=ExtResource("16_vtva8")]
+position = Vector2(672, 768)
+
+[node name="PyramidByteBarrierTile5" parent="." instance=ExtResource("16_vtva8")]
+position = Vector2(672, 832)
+
+[node name="SphereByteBarrierTile" parent="." instance=ExtResource("17_45r8q")]
+position = Vector2(320, 256)
+
+[node name="SphereByteBarrierTile2" parent="." instance=ExtResource("17_45r8q")]
+position = Vector2(480, 160)
+rotation = -3.11192
+
+[node name="SphereByteBarrierTile3" parent="." instance=ExtResource("17_45r8q")]
+position = Vector2(672, 416)
+rotation = -3.11192
+
+[node name="SphereByteBarrierTile4" parent="." instance=ExtResource("17_45r8q")]
+position = Vector2(640, 512)
+rotation = -3.11192
+
+[node name="SphereByteBarrierTile5" parent="." instance=ExtResource("17_45r8q")]
+position = Vector2(640, 800)
+rotation = -3.11192
+
+[node name="CannonTile" parent="." instance=ExtResource("18_4r2ea")]
+position = Vector2(640, 352)
+rotation = -3.14159
+cannon_recharge = 3
+speed = 2
+
+[node name="CannonTile2" parent="." instance=ExtResource("18_4r2ea")]
+position = Vector2(672, 544)
+rotation = -1.5708
+cannon_recharge = 3
+speed = 2
+
+[node name="HoleTile" parent="." instance=ExtResource("19_gq5jj")]
+position = Vector2(736, 800)
