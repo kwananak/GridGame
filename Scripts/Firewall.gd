@@ -3,6 +3,7 @@ extends Area2D
 var adjustment = 0
 var skip_turn = false
 var distance_to_player
+var freeze = 0
 
 var level_manager
 var camera
@@ -20,6 +21,7 @@ func _ready():
 	await get_tree().create_timer(0.02).timeout
 	create_wall()
 	$CollisionShape2D.shape.extents = Vector2(30, level_manager.level_height)
+	$CollisionShape2D.position = Vector2(0, level_manager.level_height / 2)
 	turn_call()
 
 func _process(delta):
@@ -44,6 +46,11 @@ func update_vision(delta):
 
 # moves wall right when called by level manager
 func turn_call():
+	if freeze > 0:
+		freeze -= 1
+		adjustment -= 1
+		distance_to_player = (((player.position.x - position.x) / level_manager.tile_size) / level_manager.firewall_step) - 1
+		return
 	if skip_turn:
 		skip_turn = false
 		distance_to_player = (((player.position.x - position.x) / level_manager.tile_size) / level_manager.firewall_step) - 1

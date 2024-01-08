@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqafjth10skg2"]
+[gd_scene load_steps=4 format=3 uid="uid://duxljcc6n73yo"]
 
-[ext_resource type="Texture2D" uid="uid://bq2apq767oade" path="res://Sprites/FreezePickUp.png" id="1_mmawv"]
-[ext_resource type="Script" path="res://Scripts/freeze_tile.gd" id="1_qu77j"]
+[ext_resource type="Script" path="res://Scripts/ItemChips/booster.gd" id="1_byxlm"]
+[ext_resource type="Texture2D" uid="uid://bq2apq767oade" path="res://Sprites/FreezePickUp.png" id="2_6x1gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
 
-[node name="FreezeTile" type="Area2D"]
+[node name="Booster" type="Area2D"]
 z_index = 30
+collision_layer = 257
 collision_mask = 6
-script = ExtResource("1_qu77j")
+script = ExtResource("1_byxlm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -17,6 +18,6 @@ shape = SubResource("RectangleShape2D_sn47n")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 20
 scale = Vector2(0.065, 0.065)
-texture = ExtResource("1_mmawv")
+texture = ExtResource("2_6x1gd")
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

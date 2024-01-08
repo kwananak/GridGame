@@ -11,6 +11,7 @@ var floating = false
 var programs = []
 var vision = false
 var dialogue = false
+var shield = 0
 
 @export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5
@@ -59,6 +60,9 @@ func end_turn():
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0
 func set_health(value):
+	if value < health && shield > 0:
+		shield -= 1
+		return
 	health = value
 	var health_ui = ui.get_node("HealthUI")
 	health_ui.text = "health = " + str(health)

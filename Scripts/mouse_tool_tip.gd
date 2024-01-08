@@ -10,6 +10,8 @@ func _ready():
 func _process(_delta):
 	position = (get_viewport().get_mouse_position() / 2) + (camera.position - (get_viewport_rect().size / 4)) - Vector2(0, 32)
 	if has_overlapping_areas():
+		if get_overlapping_areas().is_empty():
+			return
 		var area = get_overlapping_areas()[0]
 		if area.get("info"):
 			$Label.text = area.name + "\n" + area.info
