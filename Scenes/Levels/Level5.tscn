@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="7_jnoar"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="11_4m82q"]
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="12_u7k75"]
-[ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="13_b2flk"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="14_inh0e"]
+[ext_resource type="Script" path="res://Scripts/path_enemy.gd" id="15_2g00v"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="15_3urde"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_yr62f"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_3isy8"]
@@ -23,6 +23,8 @@
 [node name="Level5" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_teg8l")]
+level_height = 3000
+level_length = 5000
 level_number = 5
 end_turn_speed = 0.0
 
@@ -1333,6 +1335,291 @@ position = Vector2(1856, 288)
 [node name="FloorTile284" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
 position = Vector2(1888, 288)
 
+[node name="FloorTile463" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 416)
+
+[node name="FloorTile464" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 416)
+
+[node name="FloorTile465" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 416)
+
+[node name="FloorTile466" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 448)
+
+[node name="FloorTile467" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 448)
+
+[node name="FloorTile468" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 448)
+
+[node name="FloorTile469" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 480)
+
+[node name="FloorTile470" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 480)
+
+[node name="FloorTile471" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 480)
+
+[node name="FloorTile472" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 320)
+
+[node name="FloorTile473" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 320)
+
+[node name="FloorTile474" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 320)
+
+[node name="FloorTile475" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 352)
+
+[node name="FloorTile476" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 352)
+
+[node name="FloorTile477" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 352)
+
+[node name="FloorTile478" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 384)
+
+[node name="FloorTile479" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 384)
+
+[node name="FloorTile480" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 384)
+
+[node name="FloorTile481" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 224)
+
+[node name="FloorTile482" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 224)
+
+[node name="FloorTile483" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 224)
+
+[node name="FloorTile484" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 256)
+
+[node name="FloorTile485" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 256)
+
+[node name="FloorTile486" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 256)
+
+[node name="FloorTile487" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1344, 288)
+
+[node name="FloorTile488" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1376, 288)
+
+[node name="FloorTile489" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1408, 288)
+
+[node name="FloorTile490" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 416)
+
+[node name="FloorTile491" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 416)
+
+[node name="FloorTile492" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 448)
+
+[node name="FloorTile493" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 448)
+
+[node name="FloorTile494" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 448)
+
+[node name="FloorTile495" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 480)
+
+[node name="FloorTile496" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 480)
+
+[node name="FloorTile497" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 480)
+
+[node name="FloorTile498" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 416)
+
+[node name="FloorTile499" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 448)
+
+[node name="FloorTile500" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 480)
+
+[node name="FloorTile501" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 320)
+
+[node name="FloorTile502" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 320)
+
+[node name="FloorTile503" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 320)
+
+[node name="FloorTile504" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 352)
+
+[node name="FloorTile505" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 352)
+
+[node name="FloorTile506" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 384)
+
+[node name="FloorTile507" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 416)
+
+[node name="FloorTile508" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 384)
+
+[node name="FloorTile509" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 384)
+
+[node name="FloorTile510" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 320)
+
+[node name="FloorTile511" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 352)
+
+[node name="FloorTile512" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 352)
+
+[node name="FloorTile513" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 384)
+
+[node name="FloorTile514" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 224)
+
+[node name="FloorTile515" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 224)
+
+[node name="FloorTile516" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 256)
+
+[node name="FloorTile517" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 256)
+
+[node name="FloorTile518" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 256)
+
+[node name="FloorTile519" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1440, 288)
+
+[node name="FloorTile520" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1472, 288)
+
+[node name="FloorTile521" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 288)
+
+[node name="FloorTile522" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 224)
+
+[node name="FloorTile523" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1504, 224)
+
+[node name="FloorTile524" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 256)
+
+[node name="FloorTile525" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1536, 288)
+
+[node name="FloorTile434" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(800, 320)
+
+[node name="FloorTile435" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(832, 320)
+
+[node name="FloorTile436" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(800, 352)
+
+[node name="FloorTile437" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(800, 384)
+
+[node name="FloorTile438" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(832, 384)
+
+[node name="FloorTile439" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(864, 320)
+
+[node name="FloorTile440" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(896, 320)
+
+[node name="FloorTile441" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(928, 320)
+
+[node name="FloorTile442" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(864, 352)
+
+[node name="FloorTile443" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(832, 352)
+
+[node name="FloorTile444" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(896, 352)
+
+[node name="FloorTile445" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(928, 352)
+
+[node name="FloorTile446" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(864, 384)
+
+[node name="FloorTile447" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(896, 384)
+
+[node name="FloorTile448" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(928, 384)
+
+[node name="FloorTile449" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(800, 288)
+
+[node name="FloorTile450" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(832, 288)
+
+[node name="FloorTile451" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(864, 288)
+
+[node name="FloorTile452" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(896, 288)
+
+[node name="FloorTile453" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(928, 288)
+
+[node name="FloorTile454" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(960, 320)
+
+[node name="FloorTile455" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(992, 320)
+
+[node name="FloorTile456" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1024, 320)
+
+[node name="FloorTile457" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(960, 352)
+
+[node name="FloorTile458" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(992, 352)
+
+[node name="FloorTile459" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(960, 384)
+
+[node name="FloorTile460" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(992, 384)
+
+[node name="FloorTile461" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1024, 384)
+
+[node name="FloorTile462" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1024, 352)
+
+[node name="FloorTile526" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(960, 288)
+
+[node name="FloorTile527" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(992, 288)
+
+[node name="FloorTile528" parent="Environment/Floor" instance=ExtResource("4_hsc7j")]
+position = Vector2(1024, 288)
+
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallTile" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
@@ -1579,10 +1866,6 @@ position = Vector2(96, 256)
 [node name="CornerWallTile6" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
 position = Vector2(192, 128)
 
-[node name="CornerWallTile8" parent="Environment/Walls" instance=ExtResource("4_ktfe7")]
-position = Vector2(1024, 704)
-rotation = 1.5708
-
 [node name="WallTile49" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(288, 576)
 
@@ -1760,852 +2043,531 @@ position = Vector2(736, 128)
 [node name="WallTile91" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(768, 128)
 
-[node name="Trials" type="Node2D" parent="."]
-
-[node name="GameplayElements" type="Node2D" parent="Trials"]
-
-[node name="EndTile" parent="Trials/GameplayElements" instance=ExtResource("6_xhjbw")]
-position = Vector2(1920, 384)
-
-[node name="DoorTile" parent="Trials/GameplayElements" instance=ExtResource("7_jnoar")]
-position = Vector2(1920, 384)
-
-[node name="StartTile" parent="Trials/GameplayElements" instance=ExtResource("11_4m82q")]
-position = Vector2(96, 416)
-
-[node name="CannonTile" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(320, 544)
-rotation = -1.5708
-cannon_recharge = 3
-
-[node name="CannonTile2" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(288, 288)
-rotation = 1.5708
-cannon_recharge = 3
-
-[node name="CannonTile10" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(256, 288)
-rotation = 1.5708
-cannon_recharge = 3
-
-[node name="CannonTile6" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(864, 608)
-rotation = 1.5708
-cannon_recharge = 3
-
-[node name="CannonTile3" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(640, 480)
-rotation = -3.14159
-cannon_recharge = 4
-
-[node name="CannonTile4" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(352, 544)
-rotation = -1.5708
-cannon_recharge = 3
-
-[node name="CannonTile7" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(1440, 672)
-rotation = -1.5708
-cannon_recharge = 3
-
-[node name="Path2D" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(1184, 288)
-curve = SubResource("Curve2D_jiynr")
-
-[node name="Path2D2" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(1183.82, 351.558)
-curve = SubResource("Curve2D_jiynr")
-
-[node name="FloorTile463" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 416)
-
-[node name="FloorTile464" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 416)
-
-[node name="FloorTile465" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 416)
-
-[node name="FloorTile466" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 448)
-
-[node name="FloorTile467" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 448)
-
-[node name="FloorTile468" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 448)
-
-[node name="FloorTile469" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 480)
-
-[node name="FloorTile470" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 480)
-
-[node name="FloorTile471" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 480)
-
-[node name="FloorTile472" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 320)
-
-[node name="FloorTile473" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 320)
-
-[node name="FloorTile474" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 320)
-
-[node name="FloorTile475" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 352)
-
-[node name="FloorTile476" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 352)
-
-[node name="FloorTile477" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 352)
-
-[node name="FloorTile478" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 384)
-
-[node name="FloorTile479" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 384)
-
-[node name="FloorTile480" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 384)
-
-[node name="FloorTile481" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 224)
-
-[node name="FloorTile482" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 224)
-
-[node name="FloorTile483" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 224)
-
-[node name="FloorTile484" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 256)
-
-[node name="FloorTile485" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 256)
-
-[node name="FloorTile486" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 256)
-
-[node name="FloorTile487" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1344, 288)
-
-[node name="FloorTile488" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1376, 288)
-
-[node name="FloorTile489" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1408, 288)
-
-[node name="FloorTile490" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 416)
-
-[node name="FloorTile491" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 416)
-
-[node name="FloorTile492" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 448)
-
-[node name="FloorTile493" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 448)
-
-[node name="FloorTile494" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 448)
-
-[node name="FloorTile495" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 480)
-
-[node name="FloorTile496" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 480)
-
-[node name="FloorTile497" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 480)
-
-[node name="FloorTile498" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 416)
-
-[node name="FloorTile499" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 448)
-
-[node name="FloorTile500" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 480)
-
-[node name="FloorTile501" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 320)
-
-[node name="FloorTile502" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 320)
-
-[node name="FloorTile503" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 320)
-
-[node name="FloorTile504" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 352)
-
-[node name="FloorTile505" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 352)
-
-[node name="FloorTile506" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 384)
-
-[node name="FloorTile507" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 416)
-
-[node name="FloorTile508" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 384)
-
-[node name="FloorTile509" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 384)
-
-[node name="FloorTile510" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 320)
-
-[node name="FloorTile511" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 352)
-
-[node name="FloorTile512" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 352)
-
-[node name="FloorTile513" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 384)
-
-[node name="FloorTile514" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 224)
-
-[node name="FloorTile515" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 224)
-
-[node name="FloorTile516" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 256)
-
-[node name="FloorTile517" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 256)
-
-[node name="FloorTile518" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 256)
-
-[node name="FloorTile519" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1440, 288)
-
-[node name="FloorTile520" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1472, 288)
-
-[node name="FloorTile521" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 288)
-
-[node name="FloorTile522" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 224)
-
-[node name="FloorTile523" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1504, 224)
-
-[node name="FloorTile524" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 256)
-
-[node name="FloorTile525" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1536, 288)
-
-[node name="WallTile128" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile128" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1344, 192)
 
-[node name="WallTile129" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile129" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1376, 192)
 
-[node name="WallTile130" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile130" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1408, 192)
 
-[node name="WallTile131" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile131" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1440, 192)
 
-[node name="WallTile132" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile132" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1472, 192)
 
-[node name="WallTile133" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile133" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1504, 192)
 
-[node name="WallTile134" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile134" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1536, 192)
 
-[node name="WallTile135" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile135" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1344, 512)
 
-[node name="WallTile136" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile136" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1376, 512)
 
-[node name="WallTile137" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile137" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1408, 512)
 
-[node name="WallTile138" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile138" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1440, 512)
 
-[node name="WallTile139" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile139" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1472, 512)
 
-[node name="WallTile140" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile140" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1504, 512)
 
-[node name="WallTile141" parent="Trials/GameplayElements" instance=ExtResource("3_npw3j")]
+[node name="WallTile141" parent="Environment/Walls" instance=ExtResource("3_npw3j")]
 position = Vector2(1536, 512)
 
-[node name="Path2D5" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(1408, 288)
-curve = SubResource("Curve2D_jiynr")
+[node name="GameplayElements" type="Node2D" parent="."]
 
-[node name="Path2D6" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(1407.82, 351.558)
-curve = SubResource("Curve2D_jiynr")
+[node name="EndTile" parent="GameplayElements" instance=ExtResource("6_xhjbw")]
+position = Vector2(1920, 384)
 
-[node name="FloorTile431" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(800, 320)
+[node name="DoorTile" parent="GameplayElements" instance=ExtResource("7_jnoar")]
+position = Vector2(1920, 384)
 
-[node name="FloorTile432" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(832, 320)
+[node name="StartTile" parent="GameplayElements" instance=ExtResource("11_4m82q")]
+position = Vector2(96, 416)
 
-[node name="FloorTile433" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(800, 352)
+[node name="BytesBarrier" type="Node" parent="GameplayElements"]
 
-[node name="FloorTile434" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(288, 544)
+
+[node name="CubeByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(288, 512)
+
+[node name="CubeByteBarrierTile9" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(224, 288)
+
+[node name="CubeByteBarrierTile10" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(224, 256)
+
+[node name="CubeByteBarrierTile13" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(224, 224)
+
+[node name="CubeByteBarrierTile11" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(256, 256)
+
+[node name="CubeByteBarrierTile14" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(256, 224)
+
+[node name="CubeByteBarrierTile12" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(288, 256)
+
+[node name="CubeByteBarrierTile15" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(288, 224)
+
+[node name="CubeByteBarrierTile16" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(224, 192)
+
+[node name="CubeByteBarrierTile19" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(320, 288)
+
+[node name="CubeByteBarrierTile20" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(320, 256)
+
+[node name="CubeByteBarrierTile21" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(320, 224)
+
+[node name="CubeByteBarrierTile22" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(320, 192)
+
+[node name="CubeByteBarrierTile23" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(352, 288)
+
+[node name="CubeByteBarrierTile24" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(352, 256)
+
+[node name="CubeByteBarrierTile25" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(352, 224)
+
+[node name="CubeByteBarrierTile55" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 480)
+
+[node name="CubeByteBarrierTile56" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 480)
+
+[node name="CubeByteBarrierTile96" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 512)
+
+[node name="CubeByteBarrierTile97" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 512)
+
+[node name="CubeByteBarrierTile98" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 544)
+
+[node name="CubeByteBarrierTile99" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 544)
+
+[node name="CubeByteBarrierTile57" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 320)
+
+[node name="CubeByteBarrierTile26" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(352, 192)
+
+[node name="CubeByteBarrierTile17" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(256, 192)
+
+[node name="CubeByteBarrierTile18" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(288, 192)
+
+[node name="CubeByteBarrierTile27" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(480, 256)
+
+[node name="CubeByteBarrierTile28" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(480, 224)
+
+[node name="CubeByteBarrierTile29" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(512, 256)
+
+[node name="CubeByteBarrierTile30" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(512, 224)
+
+[node name="CubeByteBarrierTile31" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(544, 288)
+
+[node name="CubeByteBarrierTile32" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(544, 256)
+
+[node name="CubeByteBarrierTile33" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(544, 224)
+
+[node name="CubeByteBarrierTile34" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(544, 192)
+
+[node name="CubeByteBarrierTile35" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(576, 288)
+
+[node name="CubeByteBarrierTile36" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(576, 256)
+
+[node name="CubeByteBarrierTile37" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(576, 224)
+
+[node name="CubeByteBarrierTile38" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(576, 192)
+
+[node name="CubeByteBarrierTile39" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(480, 192)
+
+[node name="CubeByteBarrierTile58" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 224)
+
+[node name="CubeByteBarrierTile59" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 224)
+
+[node name="CubeByteBarrierTile60" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 224)
+
+[node name="CubeByteBarrierTile61" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 192)
+
+[node name="CubeByteBarrierTile62" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 192)
+
+[node name="CubeByteBarrierTile64" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 288)
+
+[node name="CubeByteBarrierTile65" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 288)
+
+[node name="CubeByteBarrierTile66" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 288)
+
+[node name="CubeByteBarrierTile67" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(448, 256)
+
+[node name="CubeByteBarrierTile68" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 256)
+
+[node name="CubeByteBarrierTile69" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(416, 256)
+
+[node name="CubeByteBarrierTile49" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(608, 256)
+
+[node name="CubeByteBarrierTile50" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(608, 224)
+
+[node name="CubeByteBarrierTile51" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(640, 256)
+
+[node name="CubeByteBarrierTile52" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(640, 224)
+
+[node name="CubeByteBarrierTile54" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(640, 192)
+
+[node name="CubeByteBarrierTile70" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 192)
+
+[node name="CubeByteBarrierTile95" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 160)
+
+[node name="CubeByteBarrierTile71" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 256)
+
+[node name="CubeByteBarrierTile75" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 256)
+
+[node name="CubeByteBarrierTile76" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 288)
+
+[node name="CubeByteBarrierTile77" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 320)
+
+[node name="CubeByteBarrierTile73" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 288)
+
+[node name="CubeByteBarrierTile74" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 288)
+
+[node name="CubeByteBarrierTile72" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 288)
+
+[node name="CubeByteBarrierTile78" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 320)
+
+[node name="CubeByteBarrierTile79" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 352)
+
+[node name="CubeByteBarrierTile91" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 544)
+
+[node name="CubeByteBarrierTile90" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 544)
+
+[node name="CubeByteBarrierTile89" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 544)
+
+[node name="CubeByteBarrierTile88" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 512)
+
+[node name="CubeByteBarrierTile87" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 512)
+
+[node name="CubeByteBarrierTile86" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 512)
+
+[node name="CubeByteBarrierTile85" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(672, 480)
+
+[node name="CubeByteBarrierTile84" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 480)
+
+[node name="CubeByteBarrierTile83" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 480)
+
+[node name="CubeByteBarrierTile92" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 544)
+
+[node name="CubeByteBarrierTile93" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 512)
+
+[node name="CubeByteBarrierTile94" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 480)
+
+[node name="CubeByteBarrierTile82" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 448)
+
+[node name="CubeByteBarrierTile80" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(736, 416)
+
+[node name="CubeByteBarrierTile100" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 448)
+
+[node name="CubeByteBarrierTile101" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(768, 416)
+
+[node name="CubeByteBarrierTile102" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(800, 384)
 
-[node name="FloorTile435" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(832, 384)
+[node name="CubeByteBarrierTile103" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(800, 352)
 
-[node name="FloorTile436" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(864, 320)
-
-[node name="FloorTile437" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(896, 320)
-
-[node name="FloorTile438" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(928, 320)
-
-[node name="FloorTile439" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile106" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(864, 352)
 
-[node name="FloorTile440" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(832, 352)
+[node name="CubeByteBarrierTile109" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(928, 320)
 
-[node name="FloorTile441" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(896, 352)
-
-[node name="FloorTile442" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(928, 352)
-
-[node name="FloorTile443" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(864, 384)
-
-[node name="FloorTile444" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(896, 384)
-
-[node name="FloorTile445" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile108" parent="GameplayElements/BytesBarrier" node_paths=PackedStringArray("path_nodes") instance=ExtResource("14_inh0e")]
 position = Vector2(928, 384)
+script = ExtResource("15_2g00v")
+path_nodes = []
+speed = 1
 
-[node name="FloorTile446" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(800, 288)
-
-[node name="FloorTile447" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(832, 288)
-
-[node name="FloorTile448" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile105" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(864, 288)
 
-[node name="FloorTile449" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(896, 288)
-
-[node name="FloorTile450" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(928, 288)
-
-[node name="FloorTile451" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(960, 320)
-
-[node name="FloorTile452" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(992, 320)
-
-[node name="FloorTile453" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1024, 320)
-
-[node name="FloorTile454" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(960, 352)
-
-[node name="FloorTile455" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile111" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(992, 352)
 
-[node name="FloorTile456" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(960, 384)
-
-[node name="FloorTile457" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(992, 384)
-
-[node name="FloorTile458" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1024, 384)
-
-[node name="FloorTile459" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1024, 352)
-
-[node name="FloorTile460" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(960, 288)
-
-[node name="FloorTile461" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
+[node name="CubeByteBarrierTile112" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(992, 288)
 
-[node name="FloorTile462" parent="Trials/GameplayElements" instance=ExtResource("4_hsc7j")]
-position = Vector2(1024, 288)
+[node name="CubeByteBarrierTile81" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(704, 448)
 
-[node name="Path2D3" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(928, 288)
-curve = SubResource("Curve2D_jiynr")
+[node name="CubeByteBarrierTile3" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(256, 512)
 
-[node name="Path2D4" type="Path2D" parent="Trials/GameplayElements"]
-position = Vector2(927.816, 351.558)
-curve = SubResource("Curve2D_jiynr")
+[node name="CubeByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(256, 544)
 
-[node name="CannonTile8" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CubeByteBarrierTile5" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(480, 544)
+
+[node name="CubeByteBarrierTile6" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(480, 512)
+
+[node name="CubeByteBarrierTile7" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 512)
+
+[node name="CubeByteBarrierTile8" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(384, 544)
+
+[node name="CubeByteBarrierTile41" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(512, 544)
+
+[node name="CubeByteBarrierTile42" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(512, 512)
+
+[node name="CubeByteBarrierTile45" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(640, 544)
+
+[node name="CubeByteBarrierTile46" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(640, 512)
+
+[node name="CubeByteBarrierTile47" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(608, 512)
+
+[node name="CubeByteBarrierTile48" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
+position = Vector2(608, 544)
+
+[node name="PyramidByteBarrierTile" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(256, 160)
+
+[node name="PyramidByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(288, 160)
+
+[node name="PyramidByteBarrierTile3" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(352, 160)
+
+[node name="PyramidByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(928, 352)
+
+[node name="PyramidByteBarrierTile6" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(992, 320)
+
+[node name="PyramidByteBarrierTile5" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_3urde")]
+position = Vector2(864, 320)
+
+[node name="SphereByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_045g2")]
+position = Vector2(416, 416)
+
+[node name="SphereByteBarrierTile5" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_045g2")]
+position = Vector2(448, 448)
+
+[node name="SphereByteBarrierTile3" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_045g2")]
+position = Vector2(448, 384)
+
+[node name="SphereByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_045g2")]
+position = Vector2(416, 352)
+
+[node name="Cannons" type="Node" parent="GameplayElements"]
+
+[node name="CannonTile8" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(672, 448)
 rotation = -3.14159
 cannon_recharge = 4
 
-[node name="CannonTile13" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile13" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(704, 352)
 rotation = -3.14159
 cannon_recharge = 4
 
-[node name="CannonTile11" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile11" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(704, 416)
 rotation = -3.14159
 cannon_recharge = 4
 
-[node name="CannonTile12" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile12" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(672, 320)
 rotation = -3.14159
 cannon_recharge = 4
 
-[node name="CannonTile14" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile14" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(736, 160)
 rotation = -3.14159
 cannon_recharge = 11
 
-[node name="CannonTile16" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile16" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(768, 192)
 rotation = -3.14159
 cannon_recharge = 4
 
-[node name="CannonTile15" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
+[node name="CannonTile15" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(672, 224)
 cannon_recharge = 4
 
-[node name="CannonTile9" parent="Trials/GameplayElements" instance=ExtResource("12_u7k75")]
-position = Vector2(1568, 672)
+[node name="CannonTile" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
+position = Vector2(320, 544)
 rotation = -1.5708
 cannon_recharge = 3
 
-[node name="PathEnemy" parent="Trials/GameplayElements" node_paths=PackedStringArray("path_nodes") instance=ExtResource("13_b2flk")]
-position = Vector2(1152, 352)
-path_nodes = [NodePath("../Path2D"), NodePath("../Path2D2")]
+[node name="CannonTile2" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
+position = Vector2(288, 288)
+rotation = 1.5708
+cannon_recharge = 3
 
-[node name="Firewall" parent="." instance=ExtResource("15_yr62f")]
-position = Vector2(-32, 0)
+[node name="CannonTile10" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
+position = Vector2(256, 288)
+rotation = 1.5708
+cannon_recharge = 3
 
-[node name="VirtualPlayer" parent="." instance=ExtResource("16_3isy8")]
-position = Vector2(64, 64)
+[node name="CannonTile3" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
+position = Vector2(640, 480)
+rotation = -3.14159
+cannon_recharge = 4
 
-[node name="CubeByteBarrierTile" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(288, 544)
+[node name="CannonTile4" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
+position = Vector2(352, 544)
+rotation = -1.5708
+cannon_recharge = 3
 
-[node name="CubeByteBarrierTile2" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(288, 512)
-
-[node name="CubeByteBarrierTile9" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(224, 288)
-
-[node name="CubeByteBarrierTile10" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(224, 256)
-
-[node name="CubeByteBarrierTile13" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(224, 224)
-
-[node name="CubeByteBarrierTile11" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(256, 256)
-
-[node name="CubeByteBarrierTile14" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(256, 224)
-
-[node name="CubeByteBarrierTile12" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(288, 256)
-
-[node name="CubeByteBarrierTile15" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(288, 224)
-
-[node name="CubeByteBarrierTile16" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(224, 192)
-
-[node name="CubeByteBarrierTile19" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(320, 288)
-
-[node name="CubeByteBarrierTile20" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(320, 256)
-
-[node name="CubeByteBarrierTile21" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(320, 224)
-
-[node name="CubeByteBarrierTile22" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(320, 192)
-
-[node name="CubeByteBarrierTile23" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(352, 288)
-
-[node name="CubeByteBarrierTile24" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(352, 256)
-
-[node name="CubeByteBarrierTile25" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(352, 224)
-
-[node name="CubeByteBarrierTile55" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 480)
-
-[node name="CubeByteBarrierTile56" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 480)
-
-[node name="CubeByteBarrierTile96" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 512)
-
-[node name="CubeByteBarrierTile97" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 512)
-
-[node name="CubeByteBarrierTile98" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 544)
-
-[node name="CubeByteBarrierTile99" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 544)
-
-[node name="CubeByteBarrierTile57" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 320)
-
-[node name="CubeByteBarrierTile26" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(352, 192)
-
-[node name="CubeByteBarrierTile17" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(256, 192)
-
-[node name="CubeByteBarrierTile18" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(288, 192)
-
-[node name="CannonTile5" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile5" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(512, 288)
 rotation = 1.5708
 cannon_recharge = 3
 
-[node name="CannonTile11" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile17" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(480, 288)
 rotation = 1.5708
 cannon_recharge = 3
 
-[node name="CubeByteBarrierTile27" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(480, 256)
-
-[node name="CubeByteBarrierTile28" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(480, 224)
-
-[node name="CubeByteBarrierTile29" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(512, 256)
-
-[node name="CubeByteBarrierTile30" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(512, 224)
-
-[node name="CubeByteBarrierTile31" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(544, 288)
-
-[node name="CubeByteBarrierTile32" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(544, 256)
-
-[node name="CubeByteBarrierTile33" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(544, 224)
-
-[node name="CubeByteBarrierTile34" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(544, 192)
-
-[node name="CubeByteBarrierTile35" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(576, 288)
-
-[node name="CubeByteBarrierTile36" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(576, 256)
-
-[node name="CubeByteBarrierTile37" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(576, 224)
-
-[node name="CubeByteBarrierTile38" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(576, 192)
-
-[node name="CubeByteBarrierTile39" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(480, 192)
-
-[node name="CubeByteBarrierTile40" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(544, 96)
-
-[node name="CubeByteBarrierTile58" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 224)
-
-[node name="CubeByteBarrierTile59" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 224)
-
-[node name="CubeByteBarrierTile60" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 224)
-
-[node name="CubeByteBarrierTile61" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 192)
-
-[node name="CubeByteBarrierTile62" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 192)
-
-[node name="CubeByteBarrierTile63" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 96)
-
-[node name="CubeByteBarrierTile64" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 288)
-
-[node name="CubeByteBarrierTile65" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 288)
-
-[node name="CubeByteBarrierTile66" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 288)
-
-[node name="CubeByteBarrierTile67" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(448, 256)
-
-[node name="CubeByteBarrierTile68" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 256)
-
-[node name="CubeByteBarrierTile69" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 256)
-
-[node name="CannonTile8" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile9" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(640, 288)
 rotation = 1.5708
 cannon_recharge = 3
 
-[node name="CannonTile12" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile18" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(608, 288)
 rotation = 1.5708
 cannon_recharge = 3
 
-[node name="CubeByteBarrierTile49" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(608, 256)
-
-[node name="CubeByteBarrierTile50" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(608, 224)
-
-[node name="CubeByteBarrierTile51" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 256)
-
-[node name="CubeByteBarrierTile52" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 224)
-
-[node name="CubeByteBarrierTile53" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 96)
-
-[node name="CubeByteBarrierTile54" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 192)
-
-[node name="CubeByteBarrierTile70" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 192)
-
-[node name="CubeByteBarrierTile95" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 160)
-
-[node name="CubeByteBarrierTile71" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 256)
-
-[node name="CubeByteBarrierTile75" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 256)
-
-[node name="CubeByteBarrierTile76" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 288)
-
-[node name="CubeByteBarrierTile77" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 320)
-
-[node name="CubeByteBarrierTile73" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 288)
-
-[node name="CubeByteBarrierTile74" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 288)
-
-[node name="CubeByteBarrierTile72" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 288)
-
-[node name="CubeByteBarrierTile78" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 320)
-
-[node name="CubeByteBarrierTile79" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 352)
-
-[node name="CubeByteBarrierTile91" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 544)
-
-[node name="CubeByteBarrierTile90" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 544)
-
-[node name="CubeByteBarrierTile89" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 544)
-
-[node name="CubeByteBarrierTile88" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 512)
-
-[node name="CubeByteBarrierTile87" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 512)
-
-[node name="CubeByteBarrierTile86" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 512)
-
-[node name="CubeByteBarrierTile85" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(672, 480)
-
-[node name="CubeByteBarrierTile84" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 480)
-
-[node name="CubeByteBarrierTile83" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 480)
-
-[node name="CubeByteBarrierTile92" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 544)
-
-[node name="CubeByteBarrierTile93" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 512)
-
-[node name="CubeByteBarrierTile94" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 480)
-
-[node name="CubeByteBarrierTile82" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 448)
-
-[node name="CubeByteBarrierTile80" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(736, 416)
-
-[node name="CubeByteBarrierTile100" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 448)
-
-[node name="CubeByteBarrierTile101" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(768, 416)
-
-[node name="CubeByteBarrierTile102" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(800, 384)
-
-[node name="CubeByteBarrierTile103" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(800, 352)
-
-[node name="CubeByteBarrierTile104" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(896, 448)
-
-[node name="CubeByteBarrierTile106" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(864, 352)
-
-[node name="CubeByteBarrierTile107" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(896, 480)
-
-[node name="CubeByteBarrierTile109" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(928, 320)
-
-[node name="CubeByteBarrierTile108" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(928, 384)
-
-[node name="CubeByteBarrierTile105" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(864, 288)
-
-[node name="CubeByteBarrierTile110" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(960, 192)
-
-[node name="CubeByteBarrierTile111" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(992, 352)
-
-[node name="CubeByteBarrierTile112" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(992, 288)
-
-[node name="CubeByteBarrierTile81" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(704, 448)
-
-[node name="CubeByteBarrierTile3" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(256, 512)
-
-[node name="CubeByteBarrierTile4" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(256, 544)
-
-[node name="CubeByteBarrierTile5" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(480, 544)
-
-[node name="CubeByteBarrierTile6" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(480, 512)
-
-[node name="CubeByteBarrierTile7" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 512)
-
-[node name="CubeByteBarrierTile8" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(384, 544)
-
-[node name="CannonTile6" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile6" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(544, 544)
 rotation = -1.5708
 cannon_recharge = 3
 
-[node name="CannonTile7" parent="." instance=ExtResource("12_u7k75")]
+[node name="CannonTile7" parent="GameplayElements/Cannons" instance=ExtResource("12_u7k75")]
 position = Vector2(576, 544)
 rotation = -1.5708
 cannon_recharge = 3
 
-[node name="CubeByteBarrierTile41" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(512, 544)
+[node name="Enemies" type="Node" parent="GameplayElements"]
 
-[node name="CubeByteBarrierTile42" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(512, 512)
+[node name="Path2D" type="Path2D" parent="GameplayElements/Enemies"]
+position = Vector2(1184, 288)
+curve = SubResource("Curve2D_jiynr")
 
-[node name="CubeByteBarrierTile43" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 640)
+[node name="Path2D2" type="Path2D" parent="GameplayElements/Enemies"]
+position = Vector2(1183.82, 351.558)
+curve = SubResource("Curve2D_jiynr")
 
-[node name="CubeByteBarrierTile44" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(416, 672)
+[node name="Path2D5" type="Path2D" parent="GameplayElements/Enemies"]
+position = Vector2(1408, 288)
+curve = SubResource("Curve2D_jiynr")
 
-[node name="CubeByteBarrierTile45" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 544)
+[node name="Path2D6" type="Path2D" parent="GameplayElements/Enemies"]
+position = Vector2(1407.82, 351.558)
+curve = SubResource("Curve2D_jiynr")
 
-[node name="CubeByteBarrierTile46" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(640, 512)
+[node name="PathForRobot1" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1376, 320)
 
-[node name="CubeByteBarrierTile47" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(608, 512)
+[node name="PathForRobot2" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1376, 480)
 
-[node name="CubeByteBarrierTile48" parent="." instance=ExtResource("14_inh0e")]
-position = Vector2(608, 544)
+[node name="PathForRobot3" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1568, 384)
 
-[node name="PyramidByteBarrierTile" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(256, 160)
+[node name="Items" type="Node" parent="GameplayElements"]
 
-[node name="PyramidByteBarrierTile2" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(288, 160)
-
-[node name="PyramidByteBarrierTile3" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(352, 160)
-
-[node name="PyramidByteBarrierTile4" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(928, 352)
-
-[node name="PyramidByteBarrierTile6" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(992, 320)
-
-[node name="PyramidByteBarrierTile5" parent="." instance=ExtResource("15_3urde")]
-position = Vector2(864, 320)
-
-[node name="SphereByteBarrierTile" parent="." instance=ExtResource("16_045g2")]
-position = Vector2(64, 640)
-
-[node name="SphereByteBarrierTile2" parent="." instance=ExtResource("16_045g2")]
-position = Vector2(416, 416)
-
-[node name="SphereByteBarrierTile5" parent="." instance=ExtResource("16_045g2")]
-position = Vector2(448, 448)
-
-[node name="SphereByteBarrierTile3" parent="." instance=ExtResource("16_045g2")]
-position = Vector2(448, 384)
-
-[node name="SphereByteBarrierTile4" parent="." instance=ExtResource("16_045g2")]
-position = Vector2(416, 352)
-
-[node name="FreezeTile" parent="." instance=ExtResource("17_fgn1s")]
+[node name="FreezeTile" parent="GameplayElements/Items" instance=ExtResource("17_fgn1s")]
 position = Vector2(320, 160)
+
+[node name="Firewall" parent="." instance=ExtResource("15_yr62f")]
+position = Vector2(64, 96)
+
+[node name="VirtualPlayer" parent="." instance=ExtResource("16_3isy8")]
+position = Vector2(64, 64)
