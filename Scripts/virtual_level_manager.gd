@@ -11,7 +11,7 @@ var floating = false
 var programs = []
 var vision = false
 var dialogue = false
-var shield = 0
+var shield = 0 : set = set_shield
 
 @export var firewall_speed = 1 : set = set_firewall_speed
 @export var firewall_step = 0.5
@@ -56,6 +56,13 @@ func end_turn():
 		await node.turn_call()
 	await get_tree().create_timer(0.02).timeout
 	player.move_check(player.step)
+
+func set_shield(value):
+	if shield == 0 && value > 0:
+		player.activate_shield()
+	if shield > 0 && value <= 0:
+		player.deactivate_shield()
+	shield = value
 
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0

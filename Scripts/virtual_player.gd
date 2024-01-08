@@ -267,3 +267,14 @@ func grapple_hit(dir):
 	animated_sprite_2d.play("move")
 	await tween.finished
 	animated_sprite_2d.play("idle")
+
+func activate_shield():
+	var shield = load("res://Scenes/Prefabs/shield.tscn").instantiate()
+	animated_sprite_2d.add_child(shield)
+	var tween = create_tween()
+	tween.tween_property(shield, "scale",
+			Vector2.ONE,
+			0.5).set_trans(Tween.TRANS_SINE)
+
+func deactivate_shield():
+	animated_sprite_2d.get_child(0).queue_free()
