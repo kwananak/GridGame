@@ -1,9 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://cukryi2rivgxd"]
+[gd_scene load_steps=9 format=3 uid="uid://cukryi2rivgxd"]
 
 [ext_resource type="Script" path="res://Scripts/ItemChips/life.gd" id="1_6p5eu"]
-[ext_resource type="Texture2D" uid="uid://bq2apq767oade" path="res://Sprites/FreezePickUp.png" id="2_dqf18"]
+[ext_resource type="Texture2D" uid="uid://cp2o6pma0cnne" path="res://Sprites/item_chips.png" id="2_u1gtd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id8us"]
+atlas = ExtResource("2_u1gtd")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j2dt"]
+atlas = ExtResource("2_u1gtd")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji76p"]
+atlas = ExtResource("2_u1gtd")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48423"]
+atlas = ExtResource("2_u1gtd")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrh43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id8us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji76p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48423")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Life" type="Area2D"]
 z_index = 30
@@ -15,9 +51,9 @@ script = ExtResource("1_6p5eu")
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_sn47n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 20
-scale = Vector2(0.065, 0.065)
-texture = ExtResource("2_dqf18")
+sprite_frames = SubResource("SpriteFrames_wrh43")
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

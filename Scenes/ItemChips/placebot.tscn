@@ -1,9 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjen3mye5rd47"]
+[gd_scene load_steps=6 format=3 uid="uid://bjen3mye5rd47"]
 
 [ext_resource type="Script" path="res://Scripts/ItemChips/placebot.gd" id="1_ghd1t"]
-[ext_resource type="Texture2D" uid="uid://bq2apq767oade" path="res://Sprites/FreezePickUp.png" id="2_fdtdg"]
+[ext_resource type="Texture2D" uid="uid://cp2o6pma0cnne" path="res://Sprites/item_chips.png" id="2_uabrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqdgi"]
+atlas = ExtResource("2_uabrg")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1uhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqdgi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Placebot" type="Area2D"]
 z_index = 30
@@ -15,9 +30,8 @@ script = ExtResource("1_ghd1t")
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_sn47n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 20
-scale = Vector2(0.065, 0.065)
-texture = ExtResource("2_fdtdg")
+sprite_frames = SubResource("SpriteFrames_g1uhk")
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

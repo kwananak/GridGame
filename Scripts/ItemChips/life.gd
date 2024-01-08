@@ -4,6 +4,7 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 @export var strength = 1
 
 func _ready():
+	super._ready()
 	info = "Give +" + str(strength) + " life"
 
 # adds strength to lives and removes item

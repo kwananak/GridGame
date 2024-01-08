@@ -4,6 +4,7 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 @export var strength = 3
 
 func _ready():
+	super._ready()
 	info = "Freeze the wall for " + str(strength) + " turns"
 
 # sends freeze strength to firewall and removes item
