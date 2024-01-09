@@ -5,7 +5,7 @@ var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
 var initial_health = 1
-var lives = 1 : set = set_lives
+var lives = 0 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
 var programs = []
@@ -19,7 +19,7 @@ var shield = 0 : set = set_shield
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
-	set_lives(lives)
+	set_lives(lives + 1)
 	set_remaining_actions(remaining_actions)
 	super._ready()
 
@@ -70,13 +70,25 @@ func set_health(value):
 	if value < health && shield > 0:
 		shield -= 1
 		return
+	if value > health:
+		var health_diff = value - health
+		for i in health_diff:
+			var heart = ui.get_node("HealthUI/Heart" + str(health + i))
+			heart.show()
+			heart.animation = "new"
+			heart.play()
+			await heart.animation_finished
+			heart.animation = "default"
+			heart.play()
+	if value < health:
+		var health_diff = health - value
+		for i in health_diff:
+			var heart = ui.get_node("HealthUI/Heart" + str(health - 1 - i))
+			heart.hide()
+			await get_tree().create_timer(0.3).timeout
 	health = value
-	var health_ui = ui.get_node("HealthUI")
-	health_ui.text = "health = " + str(health)
-	health_ui.visible = true
 	if health <= 0:
 		lives -= 1
-		reset_health()
 
 func reset_health():
 	health = initial_health
@@ -84,10 +96,24 @@ func reset_health():
 # called when lives is changed
 # updates onscreen lives UI and calls game over if at 0
 func set_lives(value):
+	if value > lives:
+		var lives_diff = value - lives
+		for i in lives_diff:
+			var life = ui.get_node("LivesUI/Life" + str(lives + i))
+			life.show()
+			life.animation = "new"
+			life.play()
+			await life.animation_finished
+			life.animation = "default"
+			life.play()
+	if value < lives:
+		var lives_diff = lives - value
+		for i in lives_diff:
+			var life = ui.get_node("LivesUI/Life" + str(lives - 1 - i))
+			life.hide()
+		if value > 0:
+			reset_health()
 	lives = value
-	var lives_ui = ui.get_node("LivesUI")
-	lives_ui.text = "lives = " + str(lives)
-	lives_ui.visible = true
 	if lives <= 0:
 		call_game_over()
 

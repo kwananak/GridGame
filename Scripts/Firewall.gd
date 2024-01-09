@@ -33,7 +33,7 @@ func create_wall():
 	for i in wall_length:
 		var section = section_prefab.instantiate()
 		$AnimatedSprites.add_child(section)
-		section.position = Vector2(16, (i +1) * level_manager.tile_size)
+		section.position = Vector2(16, i * level_manager.tile_size)
 		section.animation = str(i % 4)
 
 func update_vision(delta):

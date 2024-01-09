@@ -25,7 +25,7 @@ func activate_program_bar():
 					n.add_child(loaded_program)
 					loaded_program.loaded()
 					loaded_program.monitorable = true
-					loaded_program.position = Vector2(-16, 0)
+					loaded_program.position = Vector2(-16, 8)
 					if loaded_program.active:
 						program_bar.get_node("Labels/" + n.name).show()
 	program_bar.show()

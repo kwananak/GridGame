@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsofmf0ufr5fn"]
+
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="1_l70wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g342s"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1wym"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50rp5"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03wmm"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kykvi"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq064"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6rue"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imvgt"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adpiq"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmxs4"]
+atlas = ExtResource("1_l70wf")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0el3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g342s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1wym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50rp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03wmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kykvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq064")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6rue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imvgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adpiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmxs4")
+}],
+"loop": false,
+"name": &"new",
+"speed": 4.0
+}]
+
+[node name="Heart" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_k0el3")
+animation = &"new"

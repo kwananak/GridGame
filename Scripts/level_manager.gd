@@ -4,7 +4,7 @@ var keys = [] : set = set_keys
 var paused = false : set = set_pause
 var game_over = false
 var astar_grid = AStarGrid2D.new()
-var health = 1 : set = set_health
+var health = 0 : set = set_health
 var player
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
@@ -24,7 +24,6 @@ var tile_map
 func _ready():
 	tile_map = get_tree().get_first_node_in_group("TileMap")
 	initialize_grid()
-	set_health(health)
 
 func _process(delta):
 	process_camera(delta)
