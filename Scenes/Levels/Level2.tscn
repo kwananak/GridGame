@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_w1ain"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_jo5m7"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_5eebu"]
-[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="5_bolx1"]
+[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="5_bolx1"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="6_1wksa"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="7_bxpdl"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="8_l14fp"]
@@ -1265,17 +1265,11 @@ position = Vector2(608, 448)
 [node name="FreezeTile3" parent="GameplayElements/Items" instance=ExtResource("5_bolx1")]
 position = Vector2(672, 96)
 
-[node name="FreezeTile4" parent="GameplayElements/Items" instance=ExtResource("5_bolx1")]
-position = Vector2(1056, 32)
-
 [node name="FreezeTile6" parent="GameplayElements/Items" instance=ExtResource("5_bolx1")]
 position = Vector2(960, 128)
 
 [node name="FreezeTile5" parent="GameplayElements/Items" instance=ExtResource("5_bolx1")]
 position = Vector2(1024, 160)
-
-[node name="FreezeTile7" parent="GameplayElements/Items" instance=ExtResource("5_bolx1")]
-position = Vector2(1024, 32)
 
 [node name="BytesBarrier" type="Node" parent="GameplayElements"]
 
@@ -1300,23 +1294,8 @@ position = Vector2(288, 320)
 [node name="PyramidByteBarrierTile6" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
 position = Vector2(320, 288)
 
-[node name="PyramidByteBarrierTile7" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
-position = Vector2(640, 640)
-
-[node name="PyramidByteBarrierTile8" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
-position = Vector2(640, 608)
-
 [node name="PyramidByteBarrierTile32" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
 position = Vector2(512, 448)
-
-[node name="PyramidByteBarrierTile9" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
-position = Vector2(672, 608)
-
-[node name="PyramidByteBarrierTile10" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
-position = Vector2(672, 608)
-
-[node name="PyramidByteBarrierTile11" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
-position = Vector2(672, 640)
 
 [node name="PyramidByteBarrierTile27" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_4t7pq")]
 position = Vector2(544, 480)
@@ -1420,12 +1399,6 @@ position = Vector2(256, 320)
 [node name="SphereByteBarrierTile3" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(288, 288)
 
-[node name="SphereByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
-position = Vector2(544, 640)
-
-[node name="SphereByteBarrierTile5" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
-position = Vector2(544, 608)
-
 [node name="SphereByteBarrierTile23" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(576, 352)
 
@@ -1441,9 +1414,6 @@ position = Vector2(672, 416)
 [node name="SphereByteBarrierTile34" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(640, 448)
 
-[node name="SphereByteBarrierTile6" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
-position = Vector2(576, 608)
-
 [node name="SphereByteBarrierTile24" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(480, 352)
 
@@ -1452,9 +1422,6 @@ position = Vector2(512, 352)
 
 [node name="SphereByteBarrierTile25" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(544, 352)
-
-[node name="SphereByteBarrierTile7" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
-position = Vector2(576, 640)
 
 [node name="SphereByteBarrierTile21" parent="GameplayElements/BytesBarrier" instance=ExtResource("16_bapvo")]
 position = Vector2(704, 192)
@@ -1561,9 +1528,6 @@ position = Vector2(480, 128)
 [node name="CubeByteBarrierTile5" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
 position = Vector2(480, 96)
 
-[node name="CubeByteBarrierTile11" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
-position = Vector2(480, 640)
-
 [node name="CubeByteBarrierTile12" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
 position = Vector2(544, 416)
 
@@ -1578,15 +1542,6 @@ position = Vector2(480, 320)
 
 [node name="CubeByteBarrierTile34" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
 position = Vector2(512, 320)
-
-[node name="CubeByteBarrierTile13" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
-position = Vector2(448, 640)
-
-[node name="CubeByteBarrierTile14" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
-position = Vector2(448, 608)
-
-[node name="CubeByteBarrierTile26" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
-position = Vector2(480, 608)
 
 [node name="CubeByteBarrierTile36" parent="GameplayElements/BytesBarrier" instance=ExtResource("17_gvwp0")]
 position = Vector2(576, 416)

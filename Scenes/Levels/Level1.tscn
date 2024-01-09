@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=17 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_cdige"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_e0c5x"]
@@ -12,12 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="10_qljex"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="11_flfjp"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="12_67l1c"]
-[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="15_o3b67"]
-[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/Tiles/freeze_tile.tscn" id="16_oq8lt"]
+[ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="16_oq8lt"]
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="17_f5skj"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="18_vrx5i"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="19_cp8cg"]
-[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="20_15wva"]
 
 [node name="Level1" type="Node2D"]
 
@@ -793,13 +791,7 @@ position = Vector2(640, 320)
 [node name="PyramidByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("19_cp8cg")]
 position = Vector2(480, 416)
 
-[node name="CubeByteBarrierTile" parent="GameplayElements/BytesBarrier" instance=ExtResource("20_15wva")]
-position = Vector2(576, 544)
-
 [node name="BeamCannon" type="Node" parent="GameplayElements"]
-
-[node name="CannonTile" parent="GameplayElements/BeamCannon" instance=ExtResource("15_o3b67")]
-position = Vector2(768, 480)
 
 [node name="StartTile" parent="GameplayElements" instance=ExtResource("4_7o5ey")]
 position = Vector2(64, 448)
