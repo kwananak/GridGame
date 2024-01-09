@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=7 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_t8u2p"]
 [ext_resource type="Texture2D" uid="uid://bent0hld5jcyy" path="res://Sprites/underskin_program.png" id="2_6gjgn"]
 [ext_resource type="PackedScene" uid="uid://bsofmf0ufr5fn" path="res://Scenes/UI/heart.tscn" id="2_pxw4q"]
 [ext_resource type="PackedScene" uid="uid://bwi6wucgbbhe3" path="res://Scenes/UI/life.tscn" id="3_rhewn"]
+[ext_resource type="PackedScene" uid="uid://bsuq8gp62a2vk" path="res://Scenes/UI/warning_ui.tscn" id="5_l7mnn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0svv"]
+font_size = 12
 
 [node name="UI" type="Node2D"]
 z_index = 90
@@ -97,6 +101,7 @@ offset_left = 128.0
 offset_top = 120.0
 offset_right = 256.0
 offset_bottom = 152.0
+label_settings = SubResource("LabelSettings_i0svv")
 
 [node name="FirewallLabel" type="Label" parent="." groups=["FirewallLabel"]]
 offset_left = -268.0
@@ -225,5 +230,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D" type="Sprite2D" parent="ProgramBar/Labels"]
 position = Vector2(0, 128)
 texture = ExtResource("2_6gjgn")
+
+[node name="WarningUI" parent="." instance=ExtResource("5_l7mnn")]
+position = Vector2(-248, 134)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

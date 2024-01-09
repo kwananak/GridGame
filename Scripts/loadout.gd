@@ -89,6 +89,7 @@ func confirm_loadout(slot):
 	selected_program.scale = Vector2(1, 1)
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
+		n.monitorable = false
 		remove_child(n)
 		if n.name == "Empty":
 			n.queue_free()
@@ -96,8 +97,10 @@ func confirm_loadout(slot):
 			match slot:
 				"LeftHand", "RightHand":
 					progress_manager.get_node("OwnedPrograms/Hands").add_child(n)
+					n.position = Vector2.ZERO
 				_:
 					progress_manager.get_node("OwnedPrograms/" + slot).add_child(n)
+					n.position = Vector2.ZERO
 	selection_opened = null
 	available_programs = null
 	set_slots()

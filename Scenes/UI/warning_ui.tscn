@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsuq8gp62a2vk"]
+
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="1_7dxks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_640rp"]
+atlas = ExtResource("1_7dxks")
+region = Rect2(6, 160, 68, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj2ug"]
+atlas = ExtResource("1_7dxks")
+region = Rect2(6, 192, 68, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuo34"]
+atlas = ExtResource("1_7dxks")
+region = Rect2(6, 128, 68, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ut0tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_640rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj2ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuo34")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WarningUI" type="AnimatedSprite2D" groups=["WarningUI"]]
+sprite_frames = SubResource("SpriteFrames_ut0tg")

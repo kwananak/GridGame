@@ -75,11 +75,7 @@ func set_health(value):
 		for i in health_diff:
 			var heart = ui.get_node("HealthUI/Heart" + str(health + i))
 			heart.show()
-			heart.animation = "new"
-			heart.play()
-			await heart.animation_finished
-			heart.animation = "default"
-			heart.play()
+			heart_spawn_anim(heart)
 	if value < health:
 		var health_diff = health - value
 		for i in health_diff:
@@ -89,6 +85,13 @@ func set_health(value):
 	health = value
 	if health <= 0:
 		lives -= 1
+
+func heart_spawn_anim(heart):
+	heart.animation = "new"
+	heart.play()
+	await heart.animation_finished
+	heart.animation = "default"
+	heart.play()
 
 func reset_health():
 	health = initial_health
@@ -101,11 +104,7 @@ func set_lives(value):
 		for i in lives_diff:
 			var life = ui.get_node("LivesUI/Life" + str(lives + i))
 			life.show()
-			life.animation = "new"
-			life.play()
-			await life.animation_finished
-			life.animation = "default"
-			life.play()
+			life_spawn_anim(life)
 	if value < lives:
 		var lives_diff = lives - value
 		for i in lives_diff:
@@ -116,6 +115,14 @@ func set_lives(value):
 	lives = value
 	if lives <= 0:
 		call_game_over()
+
+func life_spawn_anim(life):
+	life.animation = "new"
+	life.play()
+	await life.animation_finished
+	life.animation = "default"
+	life.play()
+	
 
 func set_remaining_actions(value):
 	remaining_actions = value

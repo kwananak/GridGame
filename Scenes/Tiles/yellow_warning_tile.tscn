@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d06by5uschqic"]
+
+[ext_resource type="Script" path="res://Scripts/warning_tile.gd" id="1_gq6uk"]
+[ext_resource type="Texture2D" uid="uid://scsgcb84sa7o" path="res://Sprites/warning.png" id="2_vvk3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1b8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eeaa"]
+atlas = ExtResource("2_vvk3o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2ubb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eeaa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="YellowWarningTile" type="Area2D" groups=["YellowWarning"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gq6uk")
+strength = "Yellow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j1b8o")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t2ubb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
