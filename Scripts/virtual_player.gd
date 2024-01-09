@@ -1,6 +1,14 @@
 extends "res://Scripts/player.gd"
 
 enum Actions {MOVE, HIT, NONE}
+var all_dir = [Vector2(0, 1),
+	Vector2(-1, 1),
+	Vector2(-1, 0),
+	Vector2(-1, -1),
+	Vector2(0, -1),
+	Vector2(1, -1),
+	Vector2(1, 0),
+	Vector2(1, 1)]
 
 var attack_distance = 1
 var strength = 1
@@ -208,9 +216,13 @@ func projectile_check(program):
 # hits a tile away in all direction
 func circle_hit():
 	moving = true
-	for n in possible_moves:
-		if n.available_action != null:
-			n.available_action.hit_by_player(3)
+	for dir in all_dir:
+		ray.target_position = dir * (level_manager.tile_size * 1.5)
+		ray.force_raycast_update()
+		var collision = ray.get_collider()
+		if collision:
+			if collision.has_method("hit_by_player"):
+				collision.hit_by_player(strength)
 	level_manager.end_turn()
 
 # check for grapple points availablity
