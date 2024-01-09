@@ -9,6 +9,7 @@ var level_manager
 var camera
 var label
 var player
+var initial_step
 
 @onready var sprite = $AnimatedSprites
 @onready var section_prefab = preload("res://Scenes/Prefabs/firewall_section.tscn")
@@ -20,8 +21,9 @@ func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	await get_tree().create_timer(0.02).timeout
 	create_wall()
-	$CollisionShape2D.shape.extents = Vector2(30, level_manager.level_height)
-	$CollisionShape2D.position = Vector2(0, level_manager.level_height / 2)
+	$CollisionShape2D.shape.size = Vector2(30, level_manager.level_height * level_manager.tile_size)
+	$CollisionShape2D.position = Vector2(16, 16 + (level_manager.level_height * level_manager.tile_size / 2))
+	initial_step = level_manager.firewall_step
 	turn_call()
 
 func _process(delta):
@@ -29,8 +31,7 @@ func _process(delta):
 		update_vision(delta)
 
 func create_wall():
-	var wall_length = (level_manager.level_height - (level_manager.level_height % level_manager.tile_size)) / level_manager.tile_size 
-	for i in wall_length:
+	for i in level_manager.level_height:
 		var section = section_prefab.instantiate()
 		$AnimatedSprites.add_child(section)
 		section.position = Vector2(16, i * level_manager.tile_size)
@@ -81,7 +82,7 @@ func move_wall(distance):
 	var tween = create_tween()
 	tween.tween_property(self, "position",
 				Vector2(level_manager.turn / level_manager.firewall_speed - 1 + adjustment, 0.0)
-						* level_manager.tile_size * 0.5, 
+						* level_manager.tile_size * initial_step, 
 				1.5 / (level_manager.animation_speed * 2)
 				).set_trans(Tween.TRANS_SINE)
 	await tween.finished

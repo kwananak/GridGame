@@ -6,10 +6,12 @@ var game_over = false
 var astar_grid = AStarGrid2D.new()
 var health = 0 : set = set_health
 var player
+var player_sprite
+var view_margin
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
-@export var level_height = 640
-@export var level_length = 1800
+@export var level_height = 32
+@export var level_length = 128
 @export var level_number = 0
 @export var tile_size = 32
 @export var animation_speed = 6
@@ -24,13 +26,15 @@ var tile_map
 func _ready():
 	tile_map = get_tree().get_first_node_in_group("TileMap")
 	initialize_grid()
+	view_margin = get_viewport_rect().size / 4
+	player_sprite = player.get_node("AnimatedSprite2D")
 
 func _process(delta):
 	process_camera(delta)
 
 # sets up a* grid for path finding in level
 func initialize_grid():
-	astar_grid.region = Rect2i(Vector2i(0, 0), Vector2i(level_length, level_height) / tile_size)
+	astar_grid.region = Rect2i(Vector2i(0, 0), Vector2i(level_length, level_height))
 	astar_grid.cell_size = Vector2i.ONE * tile_size
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
@@ -88,18 +92,18 @@ func set_health(value):
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera(delta):
-	if player.position.x < 288:
-		camera.position.x = 288
-	elif player.position.x > level_length - 288:
-		camera.position.x = level_length - 288
+	if player_sprite.global_position.x < view_margin.x:
+		camera.position.x = view_margin.x
+	elif player_sprite.global_position.x > level_length * tile_size - view_margin.x:
+		camera.position.x = level_length * tile_size - view_margin.x
 	else:
-		camera.position = camera.position.move_toward(Vector2(player.position.x, camera.position.y), delta * camera_speed)
-	if player.position.y < 160:
-		camera.position.y = 160
-	elif player.position.y > level_height - 160:
-		camera.position.y = level_height - 160
+		camera.position = camera.position.move_toward(Vector2(player_sprite.global_position.x, camera.position.y), delta * camera_speed)
+	if player_sprite.global_position.y < view_margin.y:
+		camera.position.y = view_margin.y
+	elif player_sprite.global_position.y > level_height * tile_size - view_margin.y:
+		camera.position.y = level_height * tile_size - view_margin.y
 	else:
-		camera.position = camera.position.move_toward(Vector2(camera.position.x, player.position.y), delta * camera_speed)
+		camera.position = camera.position.move_toward(Vector2(camera.position.x, player_sprite.global_position.y), delta * camera_speed)
 	ui.position = camera.position
 
 # called by the button to quit the level

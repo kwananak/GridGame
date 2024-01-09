@@ -34,12 +34,12 @@ func call_menu(level_number):
 	else:
 		get_node("Level" + str(level_number)).queue_free()
 	if real_scene != null and $TerminalScene != null:
-		camera_2d.position = $TerminalScene.position + Vector2(288, 160)
+		camera_2d.position = $TerminalScene.position + get_viewport_rect().size / 4
 		$TerminalScene/Control/Loadout.set_slots()
 		$TerminalScene.visible = true
 		$TerminalScene._ready()
 	else:
-		camera_2d.position = Vector2(288, 160)
+		camera_2d.position = get_viewport_rect().size / 4
 		menu.visible = true
 
 # quits game when quit button is pressed
@@ -51,7 +51,7 @@ func call_terminal_scene(from_scene):
 	real_scene = from_scene
 	remove_child(real_scene)
 	add_child(load("res://Scenes/terminal_scene.tscn").instantiate())
-	$TerminalScene.position = camera_2d.position - Vector2(288, 160)
+	$TerminalScene.position = camera_2d.position - get_viewport_rect().size / 4
 
 # returns to real scene when closing terminal
 func return_to_real_scene():
