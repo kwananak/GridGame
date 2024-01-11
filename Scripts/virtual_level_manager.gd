@@ -5,13 +5,12 @@ var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
 var initial_health = 1
-var lives = 0 : set = set_lives
 var remaining_actions = 1 : set = set_remaining_actions
 var floating = false
 var programs = []
 var vision = false
 var dialogue = false
-var shield = 0 : set = set_shield
+var shields = 0 : set = set_shield
 var firewall
 
 @export var green_firewall_step = 0
@@ -22,7 +21,6 @@ func _ready():
 	firewall = get_tree().get_first_node_in_group("FireWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
-	set_lives(lives + 1)
 	set_remaining_actions(remaining_actions)
 	super._ready()
 
@@ -62,17 +60,28 @@ func end_turn():
 	player.move_check(player.step)
 
 func set_shield(value):
-	if shield == 0 && value > 0:
+	if value > shields:
+		var shields_diff = value - shields
+		for i in shields_diff:
+			var shield = ui.get_node("ShieldsUI/Shield" + str(shields + i))
+			shield.show()
+			shield_spawn_anim(shield)
+	if value < shields:
+		var shields_diff = shields - value
+		for i in shields_diff:
+			var shield = ui.get_node("ShieldsUI/Shield" + str(shields - 1 - i))
+			shield.hide()
+	if shields == 0 && value > 0:
 		player.activate_shield()
-	if shield > 0 && value <= 0:
+	if shields > 0 && value <= 0:
 		player.deactivate_shield()
-	shield = value
+	shields = value
 
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0
 func set_health(value):
-	if value < health && shield > 0:
-		shield -= 1
+	if value < health && shields > 0:
+		shields -= 1
 		return
 	if value > health:
 		var health_diff = value - health
@@ -88,7 +97,7 @@ func set_health(value):
 			await get_tree().create_timer(0.3).timeout
 	health = value
 	if health <= 0:
-		lives -= 1
+		call_game_over()
 
 func heart_spawn_anim(heart):
 	heart.animation = "new"
@@ -100,32 +109,12 @@ func heart_spawn_anim(heart):
 func reset_health():
 	health = initial_health
 
-# called when lives is changed
-# updates onscreen lives UI and calls game over if at 0
-func set_lives(value):
-	if value > lives:
-		var lives_diff = value - lives
-		for i in lives_diff:
-			var life = ui.get_node("LivesUI/Life" + str(lives + i))
-			life.show()
-			life_spawn_anim(life)
-	if value < lives:
-		var lives_diff = lives - value
-		for i in lives_diff:
-			var life = ui.get_node("LivesUI/Life" + str(lives - 1 - i))
-			life.hide()
-		if value > 0:
-			reset_health()
-	lives = value
-	if lives <= 0:
-		call_game_over()
-
-func life_spawn_anim(life):
-	life.animation = "new"
-	life.play()
-	await life.animation_finished
-	life.animation = "default"
-	life.play()
+func shield_spawn_anim(shield):
+	shield.animation = "new"
+	shield.play()
+	await shield.animation_finished
+	shield.animation = "default"
+	shield.play()
 
 func set_remaining_actions(value):
 	remaining_actions = value

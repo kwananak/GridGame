@@ -10,5 +10,5 @@ func _ready():
 # adds strength to shields and removes item
 func pick_up(area):
 	if area.name != "Firewall":
-		get_tree().get_first_node_in_group("VirtualLevelManager").shield += strength
+		get_tree().get_first_node_in_group("VirtualLevelManager").shields += strength
 	queue_free()
