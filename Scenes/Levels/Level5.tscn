@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cy3vbk7dvklk4"]
+[gd_scene load_steps=18 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_teg8l"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_aeluu"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="11_4m82q"]
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="12_u7k75"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="14_inh0e"]
-[ext_resource type="Script" path="res://Scripts/path_enemy.gd" id="15_2g00v"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="15_3urde"]
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="15_nh71f"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_yr62f"]
@@ -2357,11 +2356,8 @@ position = Vector2(864, 352)
 [node name="CubeByteBarrierTile109" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(928, 320)
 
-[node name="CubeByteBarrierTile108" parent="GameplayElements/BytesBarrier" node_paths=PackedStringArray("path_nodes") instance=ExtResource("14_inh0e")]
+[node name="CubeByteBarrierTile108" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(928, 384)
-script = ExtResource("15_2g00v")
-path_nodes = []
-speed = 1
 
 [node name="CubeByteBarrierTile105" parent="GameplayElements/BytesBarrier" instance=ExtResource("14_inh0e")]
 position = Vector2(864, 288)
