@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dijmdlc3scyx1"]
+[gd_scene load_steps=18 format=3 uid="uid://dijmdlc3scyx1"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_o0n1a"]
-[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_ruxb1"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_ruxb1"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_dfs2b"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_rg0ha"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="4_cye8u"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="13_76im8"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/Tiles/beam_tile.tscn" id="15_l3cq4"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="16_01vph"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="17_kepn7"]
 
 [node name="Level4" type="Node2D"]
 
@@ -2038,17 +2039,8 @@ position = Vector2(800, 736)
 [node name="SphereByteBarrierTile63" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
 position = Vector2(1152, 736)
 
-[node name="SphereByteBarrierTile28" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
-position = Vector2(416, 800)
-
-[node name="SphereByteBarrierTile29" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
-position = Vector2(480, 832)
-
 [node name="SphereByteBarrierTile30" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
 position = Vector2(800, 608)
-
-[node name="SphereByteBarrierTile31" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
-position = Vector2(416, 832)
 
 [node name="SphereByteBarrierTile17" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_v1yfy")]
 position = Vector2(704, 576)
@@ -2485,9 +2477,6 @@ position = Vector2(928, 640)
 [node name="CubeByteBarrierTile123" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
 position = Vector2(960, 640)
 
-[node name="CubeByteBarrierTile124" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(608, 832)
-
 [node name="CubeByteBarrierTile125" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
 position = Vector2(928, 608)
 
@@ -2496,33 +2485,6 @@ position = Vector2(960, 608)
 
 [node name="CubeByteBarrierTile127" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
 position = Vector2(992, 608)
-
-[node name="CubeByteBarrierTile76" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(800, 1024)
-
-[node name="CubeByteBarrierTile77" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(832, 1024)
-
-[node name="CubeByteBarrierTile78" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(864, 1024)
-
-[node name="CubeByteBarrierTile79" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(800, 992)
-
-[node name="CubeByteBarrierTile80" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(832, 992)
-
-[node name="CubeByteBarrierTile81" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(864, 992)
-
-[node name="CubeByteBarrierTile82" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(800, 960)
-
-[node name="CubeByteBarrierTile83" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(832, 960)
-
-[node name="CubeByteBarrierTile84" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
-position = Vector2(864, 960)
 
 [node name="CubeByteBarrierTile85" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_76im8")]
 position = Vector2(768, 864)
@@ -2928,3 +2890,9 @@ position = Vector2(32, 128)
 [node name="VirtualPlayer" parent="." instance=ExtResource("4_cye8u")]
 z_index = 1
 position = Vector2(416, 96)
+
+[node name="Booster" parent="." instance=ExtResource("17_kepn7")]
+position = Vector2(608, 512)
+
+[node name="Booster2" parent="." instance=ExtResource("17_kepn7")]
+position = Vector2(640, 416)

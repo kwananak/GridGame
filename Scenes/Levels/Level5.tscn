@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_teg8l"]
-[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_aeluu"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_aeluu"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="3_npw3j"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_taick"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_hsc7j"]
@@ -13,18 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="14_inh0e"]
 [ext_resource type="Script" path="res://Scripts/path_enemy.gd" id="15_2g00v"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/Tiles/pyramid_byte_barrier_tile.tscn" id="15_3urde"]
+[ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="15_nh71f"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_yr62f"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_3isy8"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="16_045g2"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="17_fgn1s"]
 
-[sub_resource type="Curve2D" id="Curve2D_jiynr"]
-
 [node name="Level5" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_teg8l")]
-level_height = 3000
-level_length = 5000
+level_length = 64
 level_number = 5
 end_turn_speed = 0.0
 
@@ -2536,30 +2534,27 @@ cannon_recharge = 3
 
 [node name="Enemies" type="Node" parent="GameplayElements"]
 
-[node name="Path2D" type="Path2D" parent="GameplayElements/Enemies"]
-position = Vector2(1184, 288)
-curve = SubResource("Curve2D_jiynr")
+[node name="PathForRobot1-1" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1120, 256)
 
-[node name="Path2D2" type="Path2D" parent="GameplayElements/Enemies"]
-position = Vector2(1183.82, 351.558)
-curve = SubResource("Curve2D_jiynr")
+[node name="PathForRobot1-2" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1120, 448)
 
-[node name="Path2D5" type="Path2D" parent="GameplayElements/Enemies"]
-position = Vector2(1408, 288)
-curve = SubResource("Curve2D_jiynr")
+[node name="PathForRobot1-3" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1216, 448)
 
-[node name="Path2D6" type="Path2D" parent="GameplayElements/Enemies"]
-position = Vector2(1407.82, 351.558)
-curve = SubResource("Curve2D_jiynr")
+[node name="PathForRobot1-4" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1216, 384)
 
-[node name="PathForRobot1" type="Node2D" parent="GameplayElements/Enemies"]
-position = Vector2(1376, 320)
+[node name="PathForRobot1-5" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1312, 384)
 
-[node name="PathForRobot2" type="Node2D" parent="GameplayElements/Enemies"]
-position = Vector2(1376, 480)
+[node name="PathForRobot1-6" type="Node2D" parent="GameplayElements/Enemies"]
+position = Vector2(1312, 256)
 
-[node name="PathForRobot3" type="Node2D" parent="GameplayElements/Enemies"]
-position = Vector2(1568, 384)
+[node name="PathEnemy" parent="GameplayElements/Enemies" node_paths=PackedStringArray("path_nodes") instance=ExtResource("15_nh71f")]
+position = Vector2(1120, 224)
+path_nodes = [NodePath("../PathForRobot1-1"), NodePath("../PathForRobot1-2"), NodePath("../PathForRobot1-3"), NodePath("../PathForRobot1-4"), NodePath("../PathForRobot1-5"), NodePath("../PathForRobot1-6")]
 
 [node name="Items" type="Node" parent="GameplayElements"]
 

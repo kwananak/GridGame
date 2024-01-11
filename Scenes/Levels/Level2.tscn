@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvb3fjvlo0y4d"]
+[gd_scene load_steps=22 format=3 uid="uid://bvb3fjvlo0y4d"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_a36y5"]
-[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/Prefabs/virtual_ui.tscn" id="2_l7xav"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_l7xav"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_w1ain"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_jo5m7"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_5eebu"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/Tiles/sphere_byte_barrier_tile.tscn" id="16_bapvo"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/Tiles/cube_byte_barrier_tile.tscn" id="17_gvwp0"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/Tiles/hole_tile.tscn" id="18_8q7t7"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/yellow_warning_tile.tscn" id="19_8ufb7"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/red_warning_tile.tscn" id="20_7f1dg"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="21_o4txn"]
 
 [node name="Level2" type="Node2D"]
 
@@ -1670,3 +1673,21 @@ position = Vector2(-32, 0)
 [node name="VirtualPlayer" parent="." instance=ExtResource("13_gh4tx")]
 z_index = 1
 position = Vector2(32, 224)
+
+[node name="YellowWarningTile" parent="." instance=ExtResource("19_8ufb7")]
+position = Vector2(384, 320)
+
+[node name="YellowWarningTile2" parent="." instance=ExtResource("19_8ufb7")]
+position = Vector2(384, 352)
+
+[node name="YellowWarningTile3" parent="." instance=ExtResource("19_8ufb7")]
+position = Vector2(384, 352)
+
+[node name="RedWarningTile" parent="." instance=ExtResource("20_7f1dg")]
+position = Vector2(416, 320)
+
+[node name="RedWarningTile2" parent="." instance=ExtResource("20_7f1dg")]
+position = Vector2(416, 352)
+
+[node name="Booster" parent="." instance=ExtResource("21_o4txn")]
+position = Vector2(160, 288)
