@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7hbrhqdgspvi"]
+
+[ext_resource type="Script" path="res://Scripts/hole_tile.gd" id="1_fm888"]
+[ext_resource type="Texture2D" uid="uid://dtpp63e10ajpe" path="res://Sprites/Enemies/hole.png" id="2_a6ol1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78ujo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sjr5"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvpp7"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mbb2"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt8vw"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmcct"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ai0g"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0goq1"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tlfr"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iddyq"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_664nt"]
+atlas = ExtResource("2_a6ol1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n4tiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sjr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvpp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mbb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt8vw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmcct")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ai0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0goq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tlfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iddyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_664nt")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="HoleTile" type="Area2D" groups=["AStarGridSolid", "EndTurn"]]
+z_index = 30
+collision_mask = 6
+script = ExtResource("1_fm888")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78ujo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n4tiu")
+animation = &"open"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="area_entered" from="." to="." method="hit_by_wall"]

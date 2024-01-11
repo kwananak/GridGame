@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://firosl348slf"]
+
+[ext_resource type="Texture2D" uid="uid://x8ggkamyj53p" path="res://Sprites/Environment_Virtual/terminal.png" id="1_114v1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8tyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5y1a"]
+atlas = ExtResource("1_114v1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehp3h"]
+atlas = ExtResource("1_114v1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6jga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5y1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehp3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="TerminalTile" type="Area2D" groups=["Terminal"]]
+z_index = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_y8tyt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v6jga")
+autoplay = "default"
+frame_progress = 0.400488
