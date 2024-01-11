@@ -67,6 +67,10 @@ func set_shield(value):
 			shield.show()
 			shield_spawn_anim(shield)
 	if value < shields:
+		var diamond_armor = get_tree().get_first_node_in_group("DiamondArmor")
+		if diamond_armor:
+			if diamond_armor.used < diamond_armor.strength:
+				diamond_armor.used += 1
 		var shields_diff = shields - value
 		for i in shields_diff:
 			var shield = ui.get_node("ShieldsUI/Shield" + str(shields - 1 - i))
