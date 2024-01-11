@@ -12,11 +12,14 @@ var programs = []
 var vision = false
 var dialogue = false
 var shield = 0 : set = set_shield
+var firewall
 
-@export var firewall_speed = 1 : set = set_firewall_speed
-@export var firewall_step = 0.5
+@export var green_firewall_step = 0
+@export var yellow_firewall_step = 1
+@export var red_firewall_step = 2
 
 func _ready():
+	firewall = get_tree().get_first_node_in_group("FireWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
 	set_lives(lives + 1)
@@ -51,6 +54,7 @@ func end_turn():
 		player.move_check(player.step)
 		return
 	turn += 1
+	await firewall.turn_call()
 	for node in get_tree().get_nodes_in_group("EndTurn"):
 		# get_tree().create_timer(end_turn_speed).timeout
 		await node.turn_call()
@@ -122,18 +126,11 @@ func life_spawn_anim(life):
 	await life.animation_finished
 	life.animation = "default"
 	life.play()
-	
 
 func set_remaining_actions(value):
 	remaining_actions = value
 	var actions_ui = ui.get_node("ProgramBar/Labels/Brain")
 	actions_ui.text = str(remaining_actions)
-
-func set_firewall_speed(value):
-	if value < 0:
-		firewall_speed = 0
-	else:
-		firewall_speed = value
 
 func on_end_tile_entered():
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
