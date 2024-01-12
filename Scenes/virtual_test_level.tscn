@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="9_g1ev3"]
 [ext_resource type="PackedScene" uid="uid://dkmqh5131jq3l" path="res://Scenes/ItemChips/shield.tscn" id="10_351im"]
+[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="11_g3ew1"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -50,6 +51,7 @@ position = Vector2(128, 192)
 [node name="Shield" parent="." instance=ExtResource("10_351im")]
 position = Vector2(192, 160)
 
-[node name="CannonTile2" parent="." instance=ExtResource("9_g1ev3")]
-position = Vector2(224, 288)
+[node name="BeamTile" parent="." instance=ExtResource("11_g3ew1")]
+position = Vector2(224, 256)
 rotation = 4.71239
+distance = 2
