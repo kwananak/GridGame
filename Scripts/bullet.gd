@@ -47,15 +47,7 @@ func _on_area_entered(area):
 	if area.is_in_group("VirtualPlayer"):
 		if !level_manager.invincible && !level_manager.is_immune_to_bullets:
 			level_manager.health -= strength
-		queue_free()
-	if not "tile_type" in area:
-		queue_free()
-		return
-	match area.tile_type:
-		"bullet":
-			return
-		_:
-			queue_free()
+	queue_free()
 
 func set_speed(value):
 	if value < 1:

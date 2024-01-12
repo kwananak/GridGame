@@ -30,7 +30,7 @@ func _on_area_entered(area):
 		"cannon", "hardened", "enemy":
 			area.hit_by_player(1)
 			queue_free()
-		"bullet", "hole":
+		"hole":
 			return
 		_:
 			queue_free()

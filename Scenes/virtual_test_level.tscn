@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_vjayd"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_30dy3"]
-[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_f6bf0"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/Environment/door_tile.tscn" id="5_f6bf0"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/Tiles/cannon_tile.tscn" id="9_g1ev3"]
+[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="9_g1ev3"]
 [ext_resource type="PackedScene" uid="uid://dkmqh5131jq3l" path="res://Scenes/ItemChips/shield.tscn" id="10_351im"]
 
 [node name="VirtualTestLevel" type="Node2D"]
@@ -49,3 +49,7 @@ position = Vector2(128, 192)
 
 [node name="Shield" parent="." instance=ExtResource("10_351im")]
 position = Vector2(192, 160)
+
+[node name="CannonTile2" parent="." instance=ExtResource("9_g1ev3")]
+position = Vector2(224, 288)
+rotation = 4.71239
