@@ -13,6 +13,7 @@ var level_manager
 
 @onready var beam_prefab = preload("res://Scenes/Prefabs/beam.tscn")
 @onready var label = $Label
+@onready var ray = $RayCast2D
 
 func _ready():
 	charge = intial_charge
@@ -47,10 +48,23 @@ func turn_call():
 
 # instantiates new beam as a child
 func fire_beam():
-	for i in distance:
-		var beam_section = beam_prefab.instantiate()
-		$Beam.add_child(beam_section)
-		beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
+	if distance == 0:
+		var i = 0
+		while true:
+			ray.position = Vector2(i * level_manager.tile_size, 0)
+			ray.force_raycast_update()
+			if ray.get_collider() || i > 64:
+				break
+			else:
+				var beam_section = beam_prefab.instantiate()
+				$Beam.add_child(beam_section)
+				beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
+				i += 1
+	else:
+		for i in distance:
+			var beam_section = beam_prefab.instantiate()
+			$Beam.add_child(beam_section)
+			beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 
 func hit_by_player(_strength):
 	is_destroyed = true

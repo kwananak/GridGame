@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="9_g1ev3"]
 [ext_resource type="PackedScene" uid="uid://dkmqh5131jq3l" path="res://Scenes/ItemChips/shield.tscn" id="10_351im"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="11_g3ew1"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/sphere_byte_barrier_tile.tscn" id="12_a1llx"]
+[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="13_f27it"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -54,4 +56,10 @@ position = Vector2(192, 160)
 [node name="BeamTile" parent="." instance=ExtResource("11_g3ew1")]
 position = Vector2(224, 256)
 rotation = 4.71239
-distance = 2
+distance = 0
+
+[node name="SphereByteBarrierTile" parent="." instance=ExtResource("12_a1llx")]
+position = Vector2(224, 128)
+
+[node name="WallTile" parent="." instance=ExtResource("13_f27it")]
+position = Vector2(224, 64)
