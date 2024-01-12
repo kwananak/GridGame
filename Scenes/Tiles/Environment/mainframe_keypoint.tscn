@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bogf2aswbrbu3"]
+
+[ext_resource type="Script" path="res://Scripts/mainframe_keypoint.gd" id="1_joicp"]
+[ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/Environment_Virtual/Mainframe_visuel.png" id="2_oi5fx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5brr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tts45"]
+atlas = ExtResource("2_oi5fx")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2icyo"]
+atlas = ExtResource("2_oi5fx")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yk3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tts45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2icyo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainframeKeypoint" type="Area2D" groups=["MainframeKeypoint"]]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_joicp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l5brr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4yk3e")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

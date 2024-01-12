@@ -14,6 +14,10 @@ func check_collision(collision):
 	possible = false
 	if "tile_type" in collision:
 		match collision.tile_type:
+			"mainframe":
+				if collision.vulnerable:
+					available_action = collision
+					return
 			"chip":
 					possible = true
 					return

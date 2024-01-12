@@ -1,18 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_vjayd"]
-[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_30dy3"]
-[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/Environment/door_tile.tscn" id="5_f6bf0"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="9_g1ev3"]
-[ext_resource type="PackedScene" uid="uid://dkmqh5131jq3l" path="res://Scenes/ItemChips/shield.tscn" id="10_351im"]
-[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="11_g3ew1"]
-[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/sphere_byte_barrier_tile.tscn" id="12_a1llx"]
-[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="13_f27it"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/mainframe1.tscn" id="7_s407l"]
+[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/mainframe_keypoint.tscn" id="15_deb6u"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -32,34 +27,17 @@ position = Vector2(-224, -160)
 [node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_vjayd")]
 position = Vector2(128, 160)
 
-[node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_30dy3")]
-position = Vector2(480, 160)
-
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="Trials" type="Node2D" parent="."]
-
-[node name="DoorTile" parent="Trials" instance=ExtResource("5_f6bf0")]
-position = Vector2(480, 160)
 
 [node name="Firewall" parent="." instance=ExtResource("6_7kf8h")]
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("7_bd7xi")]
 position = Vector2(69, 132)
 
-[node name="CannonTile" parent="." instance=ExtResource("9_g1ev3")]
-position = Vector2(128, 192)
+[node name="Mainframe1" parent="." instance=ExtResource("7_s407l")]
+position = Vector2(320, 160)
 
-[node name="Shield" parent="." instance=ExtResource("10_351im")]
-position = Vector2(192, 160)
-
-[node name="BeamTile" parent="." instance=ExtResource("11_g3ew1")]
-position = Vector2(224, 256)
-rotation = 4.71239
-distance = 0
-
-[node name="SphereByteBarrierTile" parent="." instance=ExtResource("12_a1llx")]
-position = Vector2(224, 128)
-
-[node name="WallTile" parent="." instance=ExtResource("13_f27it")]
-position = Vector2(224, 64)
+[node name="MainframeKeypoint" parent="." instance=ExtResource("15_deb6u")]
+position = Vector2(288, 160)

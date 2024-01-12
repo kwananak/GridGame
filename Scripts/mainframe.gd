@@ -1,0 +1,52 @@
+extends Area2D
+
+var tile_type = "mainframe"
+var level_manager
+
+@export var locked = true : set = set_lock
+@export var vulnerable = false : set = set_vulnerability
+@export var strength = 3
+
+@onready var anim = $AnimatedSprite2D
+
+func _ready():
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	if vulnerable and !locked:
+		anim.animation = "vulnerable"
+	else:
+		anim.animation = "invulnerable"
+
+func _process(_delta):
+	if level_manager.vision:
+		$Label.text = str(strength)
+
+func hit_by_player(hit):
+	if vulnerable:
+		var frame = anim.frame
+		anim.animation = "hit"
+		anim.frame = frame
+		await get_tree().create_timer(0.2).timeout
+		frame = anim.frame
+		anim.animation = "vulnerable"
+		anim.frame = frame
+		strength -= hit
+		if strength <= 0:
+			anim.animation = "destruction"
+			await anim.animation_finished
+			get_tree().get_first_node_in_group("VirtualLevelManager").on_end_tile_entered()
+
+func set_vulnerability(value):
+	if !locked:
+		vulnerable = true
+		return
+	vulnerable = value
+	var frame = anim.frame
+	if value:
+		anim.animation = "vulnerable"
+	else:
+		anim.animation = "invulnerable"
+	anim.frame = frame
+
+func set_lock(value):
+	vulnerable = true
+	locked = value
