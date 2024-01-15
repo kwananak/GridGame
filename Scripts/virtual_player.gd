@@ -290,3 +290,11 @@ func activate_shield():
 
 func deactivate_shield():
 	animated_sprite_2d.get_child(0).queue_free()
+
+func get_hit():
+	var temp_move = moving
+	moving = true
+	animated_sprite_2d.animation = "get_hit"
+	await get_tree().create_timer(0.2).timeout
+	animated_sprite_2d.animation = "idle"
+	moving = temp_move

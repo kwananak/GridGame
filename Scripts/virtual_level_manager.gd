@@ -96,9 +96,9 @@ func set_health(value):
 	if value < health:
 		var health_diff = health - value
 		for i in health_diff:
+			await player.get_hit()
 			var heart = ui.get_node("HealthUI/Heart" + str(health - 1 - i))
 			heart.hide()
-			await get_tree().create_timer(0.3).timeout
 	health = value
 	if health <= 0:
 		call_game_over()

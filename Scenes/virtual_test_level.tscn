@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
-[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_vjayd"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/mainframe1.tscn" id="7_s407l"]
+[ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="8_w1dum"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/mainframe_keypoint.tscn" id="15_deb6u"]
 
 [node name="VirtualTestLevel" type="Node2D"]
@@ -24,9 +25,6 @@ position = Vector2(-224, -160)
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
-[node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_vjayd")]
-position = Vector2(128, 160)
-
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="Trials" type="Node2D" parent="."]
@@ -41,3 +39,9 @@ position = Vector2(320, 160)
 
 [node name="MainframeKeypoint" parent="." instance=ExtResource("15_deb6u")]
 position = Vector2(288, 160)
+
+[node name="CannonTile" parent="." instance=ExtResource("8_w1dum")]
+position = Vector2(128, 192)
+
+[node name="VirtualStartTile" parent="." instance=ExtResource("9_7havv")]
+position = Vector2(128, 160)
