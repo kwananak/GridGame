@@ -76,6 +76,7 @@ func act(dir):
 					await waiting_for_action.cancel_action() 
 	for n in possible_moves:
 		n.reset()
+	await get_tree().create_timer(0.1).timeout
 	await level_manager.end_turn()
 
 # grid based character movement to available checked locations
@@ -148,7 +149,6 @@ func move_check(distance):
 				if i == distance - 1:
 					n.position = n.dir * level_manager.tile_size * distance
 					n.possible = true
-	await get_tree().create_timer(0.08).timeout
 	moving = false
 
 # checks for attacks when attack distance is further than move distance
