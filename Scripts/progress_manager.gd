@@ -16,7 +16,7 @@ func add_to_programs(slot, program):
 func add_to_levels(level):
 	if level in levels:
 		return
-	levels += [level]
+	levels += [str(level)]
 
 # adds selected program from terminal to loadout
 func select_loadout(slot, program):
@@ -106,6 +106,7 @@ func reset_programs():
 			if o.get_child_count() > 0:
 				for p in o.get_children():
 					p.queue_free()
+	levels = []
 
 func save():
 	var dict = {}

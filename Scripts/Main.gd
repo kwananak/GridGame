@@ -33,7 +33,7 @@ func call_menu(level_number):
 		get_node("RealTestLevel").queue_free()
 	else:
 		get_node("Level" + str(level_number)).queue_free()
-	if real_scene != null and $TerminalScene != null:
+	if real_scene and $TerminalScene:
 		camera_2d.position = $TerminalScene.position + get_viewport_rect().size / 4
 		$TerminalScene/Control/Loadout.set_slots()
 		$TerminalScene.visible = true

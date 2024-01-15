@@ -34,7 +34,13 @@ func _on_go_button_pressed():
 
 func _on_visibility_changed():
 	if visible:
-		for n in get_tree().get_first_node_in_group("ProgressManager").get_children():
+		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
+		print(prog_man.levels)
+		for n in $Control/Map.get_children():
+			var num = n.text.split(" ")[1]
+			if num in prog_man.levels:
+				n.disabled = false
+		for n in prog_man.get_children():
 			for o in n.get_children():
 				for p in o.get_children():
 					p.monitorable = false
