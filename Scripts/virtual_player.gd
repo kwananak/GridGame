@@ -24,7 +24,7 @@ func _ready():
 	await enter_level_animation()
 	move_check(step)
 
-func _process(_delta):
+func _physics_process(_delta):
 	get_input()
 
 # checks for pressed or held direction keys
@@ -33,6 +33,7 @@ func get_input():
 		return
 	for dir in inputs.keys():
 		if Input.is_action_pressed(dir):
+			moving = true
 			match dir:
 				"left":
 					animated_sprite_2d.flip_h = true
@@ -43,6 +44,8 @@ func get_input():
 				act(dir_node)
 			elif dir_node.possible:
 				move(dir_node.global_position)
+			else:
+				moving = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
@@ -145,6 +148,7 @@ func move_check(distance):
 				if i == distance - 1:
 					n.position = n.dir * level_manager.tile_size * distance
 					n.possible = true
+	await get_tree().create_timer(0.08).timeout
 	moving = false
 
 # checks for attacks when attack distance is further than move distance
