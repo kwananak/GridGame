@@ -24,19 +24,15 @@ func _ready():
 	await enter_level_animation()
 	move_check(step)
 
-func _unhandled_input(event):
-	if moving || level_manager.game_over:
-		return
-	if event.is_action_pressed("pause"):
-		level_manager.press_pause()
-		return
-	if level_manager.paused:
-		return
-	if event.is_action_pressed("skip_turn"):
-		skip_turn()
+func _process(_delta):
+	get_input()
+
+# checks for pressed or held direction keys
+func get_input():
+	if level_manager.game_over || level_manager.paused || moving:
 		return
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if Input.is_action_pressed(dir):
 			match dir:
 				"left":
 					animated_sprite_2d.flip_h = true
@@ -47,6 +43,12 @@ func _unhandled_input(event):
 				act(dir_node)
 			elif dir_node.possible:
 				move(dir_node.global_position)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		level_manager.press_pause()
+	if event.is_action_pressed("skip_turn"):
+		skip_turn()
 
 # self explanatory
 func skip_turn():
