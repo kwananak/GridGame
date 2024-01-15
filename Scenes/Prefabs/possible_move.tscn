@@ -1,22 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3k6pd56xjakj"]
+[gd_scene load_steps=10 format=3 uid="uid://d3k6pd56xjakj"]
 
 [ext_resource type="Script" path="res://Scripts/possible_move.gd" id="1_rtxwk"]
-[ext_resource type="Texture2D" uid="uid://bay3iav0ma6jc" path="res://Sprites/Character/action.png" id="1_uak7u"]
-[ext_resource type="Texture2D" uid="uid://dlucrhvd4fgkd" path="res://Sprites/direction.png" id="2_lffwj"]
+[ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="2_y1uxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7e5v"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwx1y"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md31w"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge7sc"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcrnj"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldldh"]
+atlas = ExtResource("2_y1uxi")
+region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p3fjg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uak7u")
+"texture": SubResource("AtlasTexture_f7e5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwx1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md31w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge7sc")
 }],
 "loop": true,
 "name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kcrnj")
+}, {
 "duration": 1.0,
-"texture": ExtResource("2_lffwj")
+"texture": SubResource("AtlasTexture_ldldh")
 }],
 "loop": true,
 "name": &"move",
@@ -27,5 +62,8 @@ animations = [{
 script = ExtResource("1_rtxwk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_p3fjg")
 animation = &"move"
+autoplay = "move"
+frame_progress = 0.480941

@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dedtxcgq4whkl"]
+[gd_scene load_steps=5 format=3 uid="uid://dedtxcgq4whkl"]
 
-[ext_resource type="Texture2D" uid="uid://dv0u0eskma2hd" path="res://Sprites/Character/shield.png" id="1_dxexi"]
+[ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="1_sbf7n"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sudy4"]
 
-[node name="Shield" type="Sprite2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_amjwh"]
+atlas = ExtResource("1_sbf7n")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abbhj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amjwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Shield" type="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0.596078)
 material = SubResource("CanvasItemMaterial_sudy4")
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_dxexi")
+sprite_frames = SubResource("SpriteFrames_abbhj")

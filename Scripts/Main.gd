@@ -26,6 +26,7 @@ func call_test_level(test_name):
 
 ### needs cleanup ###
 # handles various level quitting scenario, needs cleanup
+# has error on terminalscene check, still works but shows error in console
 func call_menu(level_number):
 	if level_number == 0:
 		get_node("VirtualTestLevel").queue_free()
