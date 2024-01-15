@@ -125,8 +125,9 @@ func set_remaining_actions(value):
 	var actions_ui = ui.get_node("ProgramBar/Labels/Brain")
 	actions_ui.text = str(remaining_actions)
 
-func on_end_tile_entered():
+func on_success(level):
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	progress_manager.add_to_levels(level)
 	for a in programs:
 		progress_manager.add_to_programs(a[0], a[1])
 	super.on_end_tile_entered()
