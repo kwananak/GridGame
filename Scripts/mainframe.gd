@@ -3,14 +3,19 @@ extends Area2D
 var tile_type = "mainframe"
 var level_manager
 
-@export var locked = true : set = set_lock
-@export var vulnerable = false : set = set_vulnerability
+var vulnerable = false : set = set_vulnerability
+var locked = true : set = set_lock
+
+@export var is_locked = true
+@export var is_vulnerable= false
 @export var strength = 3
 
 @onready var anim = $AnimatedSprite2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	locked = is_locked
+	vulnerable = is_vulnerable
 	if vulnerable and !locked:
 		anim.animation = "vulnerable"
 	else:

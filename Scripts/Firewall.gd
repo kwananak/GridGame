@@ -29,11 +29,14 @@ func _process(delta):
 		update_vision(delta)
 
 func create_wall_sprite():
-	for i in level_manager.level_height:
+	var height = level_manager.level_height
+	if height < get_viewport_rect().size.y / level_manager.tile_size:
+		height = get_viewport_rect().size.y / level_manager.tile_size
+	for i in height:
 		var section = section_prefab.instantiate()
 		sprite.add_child(section)
 		section.position = Vector2(16, i * level_manager.tile_size)
-		section.animation = str(i % 4)
+		section.animation = str(int(i) % 4)
 
 func set_collision_shape():
 	$CollisionShape2D.shape.size = Vector2(30, level_manager.level_height * level_manager.tile_size)
