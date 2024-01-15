@@ -298,3 +298,9 @@ func get_hit():
 	await get_tree().create_timer(0.2).timeout
 	animated_sprite_2d.animation = "idle"
 	moving = temp_move
+
+func enter_level_animation():
+	moving = true
+	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.animation = "idle"
