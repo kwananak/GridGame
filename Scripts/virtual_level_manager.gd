@@ -130,3 +130,7 @@ func on_end_tile_entered():
 	for a in programs:
 		progress_manager.add_to_programs(a[0], a[1])
 	super.on_end_tile_entered()
+
+func call_game_over():
+	player.animated_sprite_2d.animation = "death"
+	super.call_game_over()

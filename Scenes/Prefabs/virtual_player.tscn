@@ -50,6 +50,11 @@ region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_85hmi"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3tj8b")
@@ -107,9 +112,9 @@ collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.764639
+frame_progress = 1.0
 
 [node name="PossibleMoves" type="Node2D" parent="."]
 z_index = 50
