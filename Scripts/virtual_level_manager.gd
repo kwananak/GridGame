@@ -97,7 +97,7 @@ func set_health(value):
 		var health_diff = health - value
 		for i in health_diff:
 			await player.get_hit()
-			var heart = ui.get_node("HealthUI/Heart" + str(health - 1 - i))
+			var heart = ui.get_node("HealthUI/Heart" + str(health - i))
 			heart.hide()
 	health = value
 	if health <= 0:

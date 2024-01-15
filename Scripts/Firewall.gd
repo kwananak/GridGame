@@ -61,7 +61,7 @@ func turn_call():
 		skip_turn = false
 		vision_check()
 		return
-	await move_wall(step)
+	move_wall(step)
 	vision_check()
 
 # called when firewall hits player
@@ -75,7 +75,6 @@ func move_wall(distance):
 				Vector2(position.x + distance * level_manager.tile_size, 0),
 				1.5 / level_manager.animation_speed
 				).set_trans(Tween.TRANS_SINE)
-	await tween.finished
 
 func vision_check():
 	if step == 0:
