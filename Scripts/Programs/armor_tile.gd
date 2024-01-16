@@ -1,4 +1,4 @@
-extends "res://Scripts/program_tile.gd"
+extends "res://Scripts/Programs/program_tile.gd"
 
 @export_enum("Heart", "Diamond", "Club", "Spade", "Joker") var select_program : String
 

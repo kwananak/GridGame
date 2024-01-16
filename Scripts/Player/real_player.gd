@@ -1,4 +1,4 @@
-extends "res://Scripts/player.gd"
+extends "res://Scripts/Player/player.gd"
 
 var active = false
 @export var speed = 100

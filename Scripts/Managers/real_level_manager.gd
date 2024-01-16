@@ -1,4 +1,4 @@
-extends "res://Scripts/level_manager.gd"
+extends "res://Scripts/Managers/level_manager.gd"
 
 var turn = 0
 

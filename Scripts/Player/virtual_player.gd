@@ -1,4 +1,4 @@
-extends "res://Scripts/player.gd"
+extends "res://Scripts/Player/player.gd"
 
 enum Actions {MOVE, HIT, NONE}
 var all_dir = [Vector2(0, 1),

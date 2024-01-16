@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://wn6bh748pp4d"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_jkbf0"]
+[ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
-[ext_resource type="Script" path="res://Scripts/mouse_tool_tip.gd" id="4_qjhqe"]
+[ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
 [ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_jkbf0")
+script = ExtResource("1_mdavh")
 
 [node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
 position = Vector2(288, 160)
@@ -186,7 +186,7 @@ position = Vector2(0, 0)
 z_index = 99
 collision_layer = 0
 collision_mask = 256
-script = ExtResource("4_qjhqe")
+script = ExtResource("4_mirc5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseToolTip"]
 position = Vector2(0, 32)

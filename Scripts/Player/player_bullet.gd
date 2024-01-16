@@ -1,4 +1,4 @@
-extends "res://Scripts/bullet.gd"
+extends "res://Scripts/Enemies/bullet.gd"
 
 var direction
 
