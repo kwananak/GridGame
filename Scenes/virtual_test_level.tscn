@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -9,12 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="8_wd5ix"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
-[ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="10_dr3uh"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
-green_firewall_step = 1
 level_height = 16
 level_length = 32
 
@@ -46,12 +44,8 @@ unlocks = 1
 [node name="AccessPointKeyPoint" parent="." instance=ExtResource("8_wd5ix")]
 position = Vector2(256, 160)
 
-[node name="AccessPointKey" parent="." instance=ExtResource("9_ivrcl")]
-position = Vector2(160, 128)
-
 [node name="AccessPointKeyPoint2" parent="." instance=ExtResource("8_wd5ix")]
 position = Vector2(288, 192)
 
-[node name="ArmorTile" parent="." instance=ExtResource("10_dr3uh")]
-position = Vector2(192, 128)
-select_program = "Spade"
+[node name="AccessPointKey" parent="." instance=ExtResource("9_ivrcl")]
+position = Vector2(160, 128)

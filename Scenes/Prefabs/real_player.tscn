@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://db5mn4e7dyins"]
+[gd_scene load_steps=9 format=3 uid="uid://db5mn4e7dyins"]
 
 [ext_resource type="Script" path="res://Scripts/real_player.gd" id="1_cbmbe"]
 [ext_resource type="Texture2D" uid="uid://bpy3437n2sb7v" path="res://Sprites/Character/real_character_idle.png" id="3_m3jpo"]
-[ext_resource type="Texture2D" uid="uid://cx516bauljcy5" path="res://Sprites/virtual_character_walk.png" id="4_ewjv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
@@ -23,22 +22,6 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("3_m3jpo")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uucmi"]
-atlas = ExtResource("4_ewjv0")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_putt6"]
-atlas = ExtResource("4_ewjv0")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pqko"]
-atlas = ExtResource("4_ewjv0")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h250l"]
-atlas = ExtResource("4_ewjv0")
-region = Rect2(32, 32, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_85hmi"]
 animations = [{
 "frames": [{
@@ -56,23 +39,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uucmi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_putt6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pqko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h250l")
-}],
-"loop": true,
-"name": &"move",
 "speed": 8.0
 }]
 

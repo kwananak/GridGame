@@ -310,3 +310,4 @@ func enter_level_animation():
 	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
 	await animated_sprite_2d.animation_finished
 	animated_sprite_2d.animation = "idle"
+	animated_sprite_2d.play()
