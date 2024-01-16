@@ -1,6 +1,6 @@
 extends Area2D
 
-var tile_type = "mainframe"
+var tile_type = "access_point"
 var level_manager
 
 var vulnerable = false : set = set_vulnerability

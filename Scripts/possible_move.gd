@@ -14,7 +14,7 @@ func check_collision(collision):
 	possible = false
 	if "tile_type" in collision:
 		match collision.tile_type:
-			"mainframe":
+			"access_point":
 				if collision.vulnerable:
 					available_action = collision
 					return

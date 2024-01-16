@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/mainframe1.tscn" id="7_s407l"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="7_s407l"]
+[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="8_wd5ix"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
-[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/mainframe_key.tscn" id="9_ivrcl"]
-[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/mainframe_keypoint.tscn" id="15_deb6u"]
+[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -34,15 +34,17 @@ position = Vector2(-224, -160)
 [node name="VirtualPlayer" parent="." instance=ExtResource("7_bd7xi")]
 position = Vector2(69, 132)
 
-[node name="Mainframe1" parent="." instance=ExtResource("7_s407l")]
-position = Vector2(320, 160)
-unlocks = 1
-
-[node name="MainframeKeypoint" parent="." instance=ExtResource("15_deb6u")]
-position = Vector2(288, 160)
-
 [node name="VirtualStartTile" parent="." instance=ExtResource("9_7havv")]
 position = Vector2(128, 160)
 
-[node name="MainframeKey" parent="." instance=ExtResource("9_ivrcl")]
+[node name="AccessPoint1" parent="." instance=ExtResource("7_s407l")]
+position = Vector2(288, 160)
+
+[node name="AccessPointKeyPoint" parent="." instance=ExtResource("8_wd5ix")]
+position = Vector2(256, 160)
+
+[node name="AccessPointKey" parent="." instance=ExtResource("9_ivrcl")]
 position = Vector2(160, 128)
+
+[node name="AccessPointKeyPoint2" parent="." instance=ExtResource("8_wd5ix")]
+position = Vector2(288, 192)
