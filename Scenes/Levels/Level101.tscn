@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="7_qboy4"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/sphere_byte_barrier_tile.tscn" id="9_l44yp"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/pyramid_byte_barrier_tile.tscn" id="10_3vwdb"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_16rn8"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/mainframe1.tscn" id="15_nk7a5"]
-[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/mainframe_keypoint.tscn" id="16_0eopj"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="15_nk7a5"]
+[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="16_0eopj"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_1qfb2"]
 
 [node name="Level101" type="Node2D"]
@@ -759,19 +759,20 @@ position = Vector2(992, 192)
 [node name="PyramidByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_3vwdb")]
 position = Vector2(672, 288)
 
-[node name="Mainframe1" parent="GameplayElements" instance=ExtResource("15_nk7a5")]
+[node name="AccessPoint1" parent="GameplayElements" instance=ExtResource("15_nk7a5")]
 position = Vector2(992, 320)
+unlocks = 102
 
-[node name="MainframeKeypoint" parent="GameplayElements" instance=ExtResource("16_0eopj")]
+[node name="AccessPointKeyPoint" parent="GameplayElements" instance=ExtResource("16_0eopj")]
 position = Vector2(960, 320)
 
-[node name="MainframeKeypoint2" parent="GameplayElements" instance=ExtResource("16_0eopj")]
+[node name="AccessPointKeyPoint2" parent="GameplayElements" instance=ExtResource("16_0eopj")]
 position = Vector2(992, 288)
 
-[node name="MainframeKeypoint3" parent="GameplayElements" instance=ExtResource("16_0eopj")]
+[node name="AccessPointKeyPoint3" parent="GameplayElements" instance=ExtResource("16_0eopj")]
 position = Vector2(1024, 320)
 
-[node name="MainframeKeypoint4" parent="GameplayElements" instance=ExtResource("16_0eopj")]
+[node name="AccessPointKeyPoint4" parent="GameplayElements" instance=ExtResource("16_0eopj")]
 position = Vector2(992, 352)
 
 [node name="Firewall" parent="." instance=ExtResource("15_16rn8")]

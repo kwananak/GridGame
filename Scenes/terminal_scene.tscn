@@ -74,23 +74,22 @@ offset_bottom = 448.0
 color = Color(0.0745098, 0.0745098, 0.0745098, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="VirtualTestLevelButton" type="Button" parent="Control/Map"]
+[node name="Level101" type="Button" parent="Control/Map"]
 layout_mode = 0
 offset_left = 394.0
 offset_top = 308.0
 offset_right = 479.0
 offset_bottom = 378.0
-text = "Virtual 
-Test Level"
+text = "Level 101"
 
-[node name="VirtualLevel1" type="Button" parent="Control/Map"]
+[node name="Level102" type="Button" parent="Control/Map"]
 layout_mode = 0
 offset_left = 330.0
 offset_top = 222.0
 offset_right = 404.0
 offset_bottom = 286.0
 disabled = true
-text = "Level 1"
+text = "Level 102"
 
 [node name="VirtualLevel3" type="Button" parent="Control/Map"]
 layout_mode = 0
@@ -241,7 +240,7 @@ offset_left = 32.0
 offset_top = 512.0
 offset_right = 128.0
 offset_bottom = 608.0
-focus_neighbor_top = NodePath("../Map/VirtualTestLevelButton")
+focus_neighbor_top = NodePath("../Map/Level101")
 focus_neighbor_right = NodePath("../Loadout/Boots")
 text = "choose
 level"
@@ -254,8 +253,8 @@ scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_16x1d")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Control/Map/VirtualTestLevelButton" to="." method="_on_level_pressed" binds= [0]]
-[connection signal="pressed" from="Control/Map/VirtualLevel1" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="pressed" from="Control/Map/Level101" to="." method="_on_level_pressed" binds= [101]]
+[connection signal="pressed" from="Control/Map/Level102" to="." method="_on_level_pressed" binds= [102]]
 [connection signal="pressed" from="Control/Map/VirtualLevel3" to="." method="_on_level_pressed" binds= [3]]
 [connection signal="pressed" from="Control/Map/VirtualLevel4" to="." method="_on_level_pressed" binds= [4]]
 [connection signal="pressed" from="Control/Map/VirtualLevel5" to="." method="_on_level_pressed" binds= [5]]
