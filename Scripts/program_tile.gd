@@ -8,6 +8,7 @@ var program
 func _ready():
 	program = load("res://Scenes/Programs/" + program_slot + "/" + program_type +  ".tscn").instantiate()
 	add_child(program)
+	program.monitorable = true
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):

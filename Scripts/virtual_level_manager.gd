@@ -39,6 +39,8 @@ func set_pause(value):
 
 # calls subscribed nodes when player makes a move
 func end_turn():
+	if game_over:
+		return
 	if freeze > 0 :
 		freeze -= 1
 		var freezer = get_tree().get_first_node_in_group("Freeze")
