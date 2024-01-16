@@ -11,6 +11,7 @@ func _ready():
 
 # instantiates chosen level from main menu
 func call_level(level_number):
+	$AudioStreamPlayer.stop()
 	menu.visible = false
 	if level_number == 0:
 		add_child(load("res://Scenes/virtual_test_level.tscn").instantiate())
@@ -21,6 +22,7 @@ func call_level(level_number):
 
 # instantiates test level from main menu
 func call_test_level(test_name):
+	$AudioStreamPlayer.stop()
 	menu.visible = false
 	add_child(load("res://Scenes/" + test_name + "_test_level.tscn").instantiate())
 
@@ -28,6 +30,7 @@ func call_test_level(test_name):
 # handles various level quitting scenario, needs cleanup
 # has error on terminalscene check, still works but shows error in console
 func call_menu(level_number):
+	$AudioStreamPlayer.play()
 	if level_number == 0:
 		get_node("VirtualTestLevel").queue_free()
 	elif level_number < 0:

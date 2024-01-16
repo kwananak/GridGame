@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="8_wd5ix"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_1.tscn" id="10_b2rqp"]
+[ext_resource type="AudioStream" uid="uid://bv6grifm65vp5" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="11_f4qlo"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -49,3 +51,11 @@ position = Vector2(288, 192)
 
 [node name="AccessPointKey" parent="." instance=ExtResource("9_ivrcl")]
 position = Vector2(160, 128)
+
+[node name="ByteBarrier1" parent="." instance=ExtResource("10_b2rqp")]
+position = Vector2(192, 192)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f4qlo")
+volume_db = -20.0
+autoplay = true

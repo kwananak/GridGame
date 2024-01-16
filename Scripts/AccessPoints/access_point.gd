@@ -28,6 +28,7 @@ func _process(_delta):
 
 func hit_by_player(hit):
 	if vulnerable:
+		$hit.play()
 		var frame = anim.frame
 		anim.animation = "hit"
 		anim.frame = frame
@@ -37,6 +38,7 @@ func hit_by_player(hit):
 		anim.frame = frame
 		strength -= hit
 		if strength <= 0:
+			$destroy.play()
 			anim.animation = "destruction"
 			await anim.animation_finished
 			get_tree().get_first_node_in_group("VirtualLevelManager").on_success(unlocks)

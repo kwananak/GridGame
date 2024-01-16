@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=7 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
+[ext_resource type="AudioStream" uid="uid://dygwt0ctdkwgl" path="res://Sounds/Broken Circuit.wav" id="5_q3jo6"]
 [ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
@@ -198,6 +199,11 @@ z_index = 30
 offset_right = 104.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q3jo6")
+volume_db = -10.805
+autoplay = true
 
 [connection signal="pressed" from="Menu/Level102Button" to="." method="call_level" binds= [102]]
 [connection signal="pressed" from="Menu/Level101Button" to="." method="call_level" binds= [101]]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://buhx8hv7me51"]
+[gd_scene load_steps=35 format=3 uid="uid://buhx8hv7me51"]
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point.gd" id="1_ec2s4"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/Environment_Virtual/Mainframe_visuel.png" id="2_ydhtu"]
+[ext_resource type="AudioStream" uid="uid://bj7qnancb66sq" path="res://Sounds/Laser Rifle Shot Single A.wav" id="3_hidml"]
+[ext_resource type="AudioStream" uid="uid://dpsdu04kfk8fp" path="res://Sounds/Rocket Explosion A.wav" id="4_q1cix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ww"]
 
@@ -240,3 +242,11 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 18.0
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hidml")
+volume_db = -20.0
+
+[node name="destroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q1cix")
+volume_db = -20.0
