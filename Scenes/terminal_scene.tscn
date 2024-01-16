@@ -2,52 +2,52 @@
 
 [ext_resource type="Script" path="res://Scripts/terminal_scene.gd" id="1_kc4pd"]
 [ext_resource type="Script" path="res://Scripts/loadout.gd" id="2_i1edc"]
-[ext_resource type="Texture2D" uid="uid://cbm1ysh6bgecv" path="res://Sprites/Character/virtual_character_idle.png" id="3_28gt8"]
+[ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_o4qty"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6c4l"]
-atlas = ExtResource("3_28gt8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
+atlas = ExtResource("3_o4qty")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_akpvy"]
-atlas = ExtResource("3_28gt8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnqek"]
+atlas = ExtResource("3_o4qty")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xjhc5"]
-atlas = ExtResource("3_28gt8")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jcoj"]
+atlas = ExtResource("3_o4qty")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhy8r"]
-atlas = ExtResource("3_28gt8")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar82w"]
+atlas = ExtResource("3_o4qty")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mw20t"]
-atlas = ExtResource("3_28gt8")
-region = Rect2(0, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3k22"]
+atlas = ExtResource("3_o4qty")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l2rn2"]
-atlas = ExtResource("3_28gt8")
-region = Rect2(32, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ckb8"]
+atlas = ExtResource("3_o4qty")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_16x1d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m6c4l")
+"texture": SubResource("AtlasTexture_5hdxf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_akpvy")
+"texture": SubResource("AtlasTexture_hnqek")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xjhc5")
+"texture": SubResource("AtlasTexture_8jcoj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lhy8r")
+"texture": SubResource("AtlasTexture_ar82w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mw20t")
+"texture": SubResource("AtlasTexture_m3k22")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l2rn2")
+"texture": SubResource("AtlasTexture_0ckb8")
 }],
 "loop": true,
 "name": &"default",
@@ -251,6 +251,7 @@ modulate = Color(1, 1, 1, 0.788235)
 position = Vector2(858, 282)
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_16x1d")
+autoplay = "default"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Control/Map/Level101" to="." method="_on_level_pressed" binds= [101]]
