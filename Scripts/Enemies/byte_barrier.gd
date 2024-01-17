@@ -12,6 +12,7 @@ var strength = 3 : set = match_strength
 # calls _match_strength when game starts
 func _ready():
 	strength = byte_type
+	$Audio.pitch_scale -= float(byte_type) / 10
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	if get_tree().get_first_node_in_group("VirtualLevelManager").vision:
 		label.rotation = -rotation
@@ -23,10 +24,7 @@ func _ready():
 func match_strength(value):
 	if value <= 0:
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
-		var explo = load("res://Scenes/Prefabs/byte_explosion.tscn").instantiate()
-		get_parent().add_child(explo)
-		explo.animation = str(byte_type)
-		explo.position = position
+		await spawn_explosion()
 		queue_free()
 	else:
 		strength = value
@@ -35,9 +33,15 @@ func match_strength(value):
 		sprite.frame = saved_frame
 		label.text = str(strength)
 
+func spawn_explosion():
+		var explo = load("res://Scenes/Prefabs/byte_explosion.tscn").instantiate()
+		get_parent().add_child(explo)
+		explo.start_explosion(byte_type, position)
+
 # called when player hits the tile
 func hit_by_player(hit):
 	sprite.frame = 1
+	$Audio.play()
 	await get_tree().create_timer(0.1).timeout
 	sprite.frame = 0
 	if hit is Object:

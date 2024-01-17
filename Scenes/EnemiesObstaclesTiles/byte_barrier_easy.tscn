@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://beg86mkpry5t6"]
+[gd_scene load_steps=8 format=3 uid="uid://beg86mkpry5t6"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/byte_barrier.gd" id="1_isx30"]
 [ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_mo6ql"]
+[ext_resource type="AudioStream" uid="uid://cu2qjhbuxsy5p" path="res://Sounds/Motion Straight Servo.wav" id="3_sxajk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmr1f"]
 size = Vector2(32, 32)
@@ -53,5 +54,9 @@ offset_right = 32.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sxajk")
+volume_db = -20.0
 
 [connection signal="area_entered" from="." to="." method="hit_by_player"]
