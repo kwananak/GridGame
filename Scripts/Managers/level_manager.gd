@@ -92,18 +92,21 @@ func set_health(value):
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera(delta):
+	var target = camera.position
 	if player_sprite.global_position.x < view_margin.x:
-		camera.position.x = view_margin.x
+		target.x = view_margin.x
 	elif player_sprite.global_position.x > level_length * tile_size - view_margin.x:
-		camera.position.x = level_length * tile_size - view_margin.x
+		target.x = level_length * tile_size - view_margin.x
 	else:
-		camera.position = camera.position.move_toward(Vector2(player_sprite.global_position.x, camera.position.y), delta * camera_speed)
+		target.x = player_sprite.global_position.x
 	if player_sprite.global_position.y < view_margin.y:
-		camera.position.y = view_margin.y
+		target.y = view_margin.y
 	elif player_sprite.global_position.y > level_height * tile_size - view_margin.y:
-		camera.position.y = level_height * tile_size - view_margin.y
+		target.y = level_height * tile_size - view_margin.y
 	else:
-		camera.position = camera.position.move_toward(Vector2(camera.position.x, player_sprite.global_position.y), delta * camera_speed)
+		target.y = player_sprite.global_position.y
+	var tween = create_tween()
+	tween.tween_property(camera, "position", target, delta / camera_speed)
 	ui.position = camera.position
 
 # called by the button to quit the level
