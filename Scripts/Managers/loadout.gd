@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 var selection_opened = null
 var available_programs
