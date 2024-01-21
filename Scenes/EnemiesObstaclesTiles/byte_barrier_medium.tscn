@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Enemies/byte_barrier.gd" id="1_4dlh1"]
 [ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_0npcg"]
-[ext_resource type="AudioStream" uid="uid://cu2qjhbuxsy5p" path="res://Sounds/Motion Straight Servo.wav" id="3_w5xng"]
+[ext_resource type="AudioStream" uid="uid://cq7i8yfcfij0k" path="res://Sounds/barrier_hit.mp3" id="3_oc7h8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmr1f"]
 size = Vector2(32, 32)
@@ -75,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_w5xng")
-volume_db = -20.0
+stream = ExtResource("3_oc7h8")
+pitch_scale = 0.9
 
 [connection signal="area_entered" from="." to="." method="hit_by_player"]
