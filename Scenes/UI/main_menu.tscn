@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bddkrpi3bd0he"]
+
+[ext_resource type="Script" path="res://Scenes/UI/main_menu.gd" id="1_6f0ig"]
+[ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
+
+[sub_resource type="Gradient" id="Gradient_ru6tb"]
+colors = PackedColorArray(2.10572e-08, 0.0519143, 0.131455, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_684c6"]
+gradient = SubResource("Gradient_ru6tb")
+fill_from = Vector2(0.034188, 0.940171)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6f0ig")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_684c6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(712, 192)
+texture = ExtResource("1_sdes2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 360
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Load Game"
+
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

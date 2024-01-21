@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=10 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
+[ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="5_6upos"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Broken Circuit.wav" id="5_q3jo6"]
 [ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
+[ext_resource type="PackedScene" uid="uid://fjmps8nq3w8k" path="res://Scenes/UI/window_mode_button.tscn" id="6_a7415"]
+[ext_resource type="PackedScene" uid="uid://dssm38uoyiv3d" path="res://Scenes/UI/resolution_mode_button.tscn" id="7_fg0yk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
 
@@ -12,23 +15,13 @@
 script = ExtResource("1_mdavh")
 
 [node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
-position = Vector2(288, 160)
+position = Vector2(360, 200)
 anchor_mode = 1
 zoom = Vector2(2, 2.025)
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="TitleLabel" type="RichTextLabel" parent="Menu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 16.0
-offset_top = 11.0
-offset_right = 104.0
-offset_bottom = 34.0
-text = "DoomWall"
-fit_content = true
 
 [node name="Level102Button" type="Button" parent="Menu"]
 texture_filter = 1
@@ -141,19 +134,19 @@ text = "Virtual Test Level"
 [node name="RealTestLevelButton" type="Button" parent="Menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 19.0
-offset_top = 215.0
-offset_right = 142.0
-offset_bottom = 263.0
+offset_left = 18.0
+offset_top = 208.0
+offset_right = 141.0
+offset_bottom = 256.0
 text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="Menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 22.0
-offset_top = 155.0
-offset_right = 134.0
-offset_bottom = 203.0
+offset_left = 290.0
+offset_top = 329.0
+offset_right = 402.0
+offset_bottom = 377.0
 text = "Quit"
 
 [node name="NewGame" type="Button" parent="Menu"]
@@ -179,6 +172,27 @@ offset_top = 83.0
 offset_right = 139.0
 offset_bottom = 114.0
 text = "Load Game"
+
+[node name="ResolutionModeButton" parent="Menu" instance=ExtResource("7_fg0yk")]
+layout_mode = 1
+offset_left = 408.0
+offset_top = 11.0
+offset_right = 408.0
+offset_bottom = 11.0
+scale = Vector2(0.5, 0.5)
+
+[node name="WindowModeButton" parent="Menu" instance=ExtResource("6_a7415")]
+layout_mode = 1
+offset_left = 408.0
+offset_top = 56.0
+offset_right = 408.0
+offset_bottom = 56.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu"]
+position = Vector2(360, 222)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_6upos")
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
 position = Vector2(0, 0)
