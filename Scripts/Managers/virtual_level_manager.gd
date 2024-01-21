@@ -135,5 +135,5 @@ func on_success(level):
 	super.on_end_tile_entered()
 
 func call_game_over():
-	player.animated_sprite_2d.animation = "death"
+	player.death_animation()
 	super.call_game_over()
