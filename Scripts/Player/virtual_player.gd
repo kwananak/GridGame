@@ -1,14 +1,15 @@
 extends "res://Scripts/Player/player.gd"
 
 enum Actions {MOVE, HIT, NONE}
-var all_dir = [Vector2(0, 1),
+const all_dir = [Vector2(0, 1),
 	Vector2(-1, 1),
 	Vector2(-1, 0),
 	Vector2(-1, -1),
 	Vector2(0, -1),
 	Vector2(1, -1),
 	Vector2(1, 0),
-	Vector2(1, 1)]
+	Vector2(1, 1)
+]
 
 var attack_distance = 1
 var strength = 1
@@ -220,15 +221,23 @@ func projectile_check(program):
 	moving = false
 
 # hits a tile away in all direction
-func circle_hit():
+func circle_hit(whip_strength):
 	moving = true
+	animated_sprite_2d.animation = "circle_whip"
+	await animated_sprite_2d.animation_finished
+	var tween = create_tween()
+	tween.tween_property(animated_sprite_2d, "rotation_degrees", 360, 0.8)
 	for dir in all_dir:
 		ray.target_position = dir * (level_manager.tile_size * 1.5)
 		ray.force_raycast_update()
 		var collision = ray.get_collider()
 		if collision:
 			if collision.has_method("hit_by_player"):
-				collision.hit_by_player(strength)
+				collision.hit_by_player(whip_strength)
+	await tween.finished
+	animated_sprite_2d.rotation_degrees = 0
+	animated_sprite_2d.animation = "idle"
+	animated_sprite_2d.play()
 	level_manager.end_turn()
 
 # check for grapple points availablity

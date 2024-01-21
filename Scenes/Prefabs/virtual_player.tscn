@@ -1,11 +1,44 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjmgb6nib47p2"]
+[gd_scene load_steps=41 format=3 uid="uid://bjmgb6nib47p2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/virtual_player.gd" id="1_0kghv"]
+[ext_resource type="Texture2D" uid="uid://dbn3u3skuotun" path="res://Sprites/Programs/circle_whip.png" id="2_e1p3t"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="2_e75jn"]
 [ext_resource type="PackedScene" uid="uid://d3k6pd56xjakj" path="res://Scenes/Prefabs/possible_move.tscn" id="4_gobr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
+
+[sub_resource type="Animation" id="Animation_pnpiu"]
+resource_name = "circle_whip"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mfrn8"]
+_data = {
+"circle_whip": SubResource("Animation_pnpiu")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c14m"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn6iv"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovg1c"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywcp6"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4crru"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04wbu"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d87dt"]
 atlas = ExtResource("2_e75jn")
@@ -113,6 +146,29 @@ region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_85hmi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c14m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn6iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovg1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywcp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4crru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04wbu")
+}],
+"loop": false,
+"name": &"circle_whip",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d87dt")
@@ -230,10 +286,13 @@ visible = false
 collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mfrn8")
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"move"
+animation = &"circle_whip"
 autoplay = "spawn"
 
 [node name="PossibleMoves" type="Node2D" parent="."]
