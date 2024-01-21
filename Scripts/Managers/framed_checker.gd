@@ -8,4 +8,10 @@ func _ready():
 func check(pos):
 	if pos.x < camera.position.x - get_viewport_rect().size.x / 4:
 		return false
+	if pos.x > camera.position.x + get_viewport_rect().size.x / 4:
+		return false
+	if pos.y < camera.position.y - get_viewport_rect().size.y / 4:
+		return false
+	if pos.y > camera.position.y + get_viewport_rect().size.y / 4:
+		return false
 	return true
