@@ -34,19 +34,22 @@ func match_strength(value):
 		label.text = str(strength)
 
 func spawn_explosion():
+	if !get_tree().get_first_node_in_group("FramedChecker").check(position):
+		return
 	var explo = load("res://Scenes/Prefabs/byte_explosion.tscn").instantiate()
 	get_parent().add_child(explo)
 	explo.start_explosion(byte_type, position)
 
 # called when player hits the tile
 func hit_by_player(hit):
-	sprite.frame = 1
-	$Audio.play()
-	for i in randi_range(3, 5):
-		sprite.position = Vector2(randi_range(-3, 3), randi_range(-3, 3))
-		await get_tree().create_timer(0.05).timeout
-	sprite.position = Vector2.ZERO
-	sprite.frame = 0
+	if get_tree().get_first_node_in_group("FramedChecker").check(position):
+		sprite.frame = 1
+		$Audio.play()
+		for i in randi_range(3, 5):
+			sprite.position = Vector2(randi_range(-3, 3), randi_range(-3, 3))
+			await get_tree().create_timer(0.05).timeout
+		sprite.position = Vector2.ZERO
+		sprite.frame = 0
 	if hit is Object:
 		strength = 0
 	else:
