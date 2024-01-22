@@ -55,7 +55,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
 	if event.is_action_pressed("skip_turn"):
-		skip_turn()
+		if level_manager.dialogue:
+			level_manager.dialogue.close()
+		else:
+			skip_turn()
 
 # self explanatory
 func skip_turn():

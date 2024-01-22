@@ -31,6 +31,7 @@ func _ready():
 
 func _process(delta):
 	process_camera(delta)
+	ui.position = camera.position
 
 # sets up a* grid for path finding in level
 func initialize_grid():
@@ -107,7 +108,6 @@ func process_camera(delta):
 		target.y = player_sprite.global_position.y
 	var tween = create_tween()
 	tween.tween_property(camera, "position", target, delta / camera_speed)
-	ui.position = camera.position
 
 # called by the button to quit the level
 func _on_button_pressed():

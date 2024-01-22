@@ -24,6 +24,12 @@ func _ready():
 	set_remaining_actions(remaining_actions)
 	super._ready()
 
+func _process(delta):
+	if dialogue:
+		ui.position = camera.position
+		return
+	super._process(delta)
+
 # update paused value and shows or hide pause "menu" accordingly
 func set_pause(value):
 	if dialogue:

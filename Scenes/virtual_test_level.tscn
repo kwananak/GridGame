@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -11,8 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="10_b2rqp"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="11_f4qlo"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="12_6y6uk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3rb2"]
+size = Vector2(20, 70)
 
 [node name="VirtualTestLevel" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f4qlo")
+volume_db = -20.0
+autoplay = true
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
 level_height = 16
@@ -21,6 +30,7 @@ level_length = 32
 [node name="ProgramManager" parent="." instance=ExtResource("2_jhbp3")]
 
 [node name="UI" parent="." instance=ExtResource("3_jefsd")]
+visible = false
 position = Vector2(-224, -160)
 
 [node name="Environment" type="Node2D" parent="."]
@@ -53,9 +63,13 @@ position = Vector2(288, 192)
 position = Vector2(160, 128)
 
 [node name="ByteBarrier1" parent="." instance=ExtResource("10_b2rqp")]
-position = Vector2(128, 288)
+position = Vector2(384, 192)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_f4qlo")
-volume_db = -20.0
-autoplay = true
+[node name="DialogueArea" parent="." node_paths=PackedStringArray("related_node") instance=ExtResource("12_6y6uk")]
+position = Vector2(181, 206)
+text = Array[String](["vrwe rwbtwbt  bte bt  btrebtrbrwwg vre vjhreb vrbhjbrhbvre", "a blaga blaga bou"])
+related_node = NodePath("../ByteBarrier1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_n3rb2")

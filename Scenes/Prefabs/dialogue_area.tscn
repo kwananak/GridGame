@@ -1,25 +1,115 @@
-[gd_scene load_steps=2 format=3 uid="uid://civwfn34e75v4"]
+[gd_scene load_steps=11 format=3 uid="uid://civwfn34e75v4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_area.gd" id="1_2n5ki"]
+[ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="2_q1vr2"]
+[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="3_12lq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88q1m"]
+atlas = ExtResource("3_12lq0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vpuj"]
+atlas = ExtResource("3_12lq0")
+region = Rect2(225, 1, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66t0y"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_88q1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vpuj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ecw"]
+atlas = ExtResource("3_12lq0")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8at2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ecw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_s02hu"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2.3, 2.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17hsa"]
+_data = {
+"new_animation": SubResource("Animation_s02hu")
+}
 
 [node name="DialogueArea" type="Area2D"]
+z_index = 90
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_2n5ki")
 
-[node name="Label" type="Label" parent="."]
+[node name="Bubble" parent="." instance=ExtResource("2_q1vr2")]
 visible = false
-z_index = 90
-offset_right = 40.0
-offset_bottom = 23.0
+scale = Vector2(4, 4)
 
-[node name="Button" type="Button" parent="Label"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 38.0
-offset_right = 113.0
-offset_bottom = 70.0
-text = "confirm"
+[node name="Label" type="Label" parent="Bubble"]
+visible = false
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 367.0
+offset_bottom = 104.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Bubble"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 75.0
+offset_top = 23.0
+offset_right = 144.0
+offset_bottom = 59.0
+scale = Vector2(0.25, 0.25)
+
+[node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
+visible = false
+position = Vector2(87.25, 28.25)
+scale = Vector2(0.765625, 0.757813)
+sprite_frames = SubResource("SpriteFrames_66t0y")
+autoplay = "default"
+frame_progress = 0.852589
+
+[node name="Highlight" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2.7375, 2.7375)
+sprite_frames = SubResource("SpriteFrames_c8at2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Highlight"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_17hsa")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="pressed" from="Label/Button" to="." method="close"]
+[connection signal="pressed" from="Bubble/Button" to="." method="close"]

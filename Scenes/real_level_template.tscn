@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cp5fsxnepmx42"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_dlasn"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_dural"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_dural"]
 [ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="3_10tuo"]
 
 [node name="RealLevelTemplate" type="Node2D"]
@@ -9,6 +9,7 @@
 [node name="RealLevelManager" parent="." instance=ExtResource("1_dlasn")]
 
 [node name="UI" parent="." instance=ExtResource("2_dural")]
+visible = false
 
 [node name="Environment" type="Node2D" parent="."]
 
