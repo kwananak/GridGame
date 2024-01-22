@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvvka80yjmxki"]
+
+[ext_resource type="Texture2D" uid="uid://bo1ng3xxytxlb" path="res://Sprites/Programs/Arms/grappling_tool_sheet.png" id="1_jm3vw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3s74"]
+atlas = ExtResource("1_jm3vw")
+region = Rect2(44, 12, 4, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ku1wh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3s74")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GrappleSection" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ku1wh")
