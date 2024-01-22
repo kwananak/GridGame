@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=19 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kk2b3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_v47gn"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_322l3"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
 [ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="17_hddu5"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="18_btckl"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="18_h36xc"]
 
 [node name="Level102" type="Node2D"]
@@ -1268,3 +1269,8 @@ position = Vector2(768, 288)
 position = Vector2(96, 224)
 
 [node name="BeamCannon" type="Node" parent="GameplayElements"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_btckl")
+volume_db = -20.0
+autoplay = true

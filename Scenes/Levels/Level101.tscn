@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dals4o015v3vb"]
+[gd_scene load_steps=16 format=3 uid="uid://dals4o015v3vb"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_vu8qg"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_uibyq"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="7_qboy4"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="9_l44yp"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_3vwdb"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
 [ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_16rn8"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="15_461i6"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="15_nk7a5"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="16_0eopj"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_1qfb2"]
@@ -787,3 +788,8 @@ position = Vector2(160, 320)
 [node name="WallTile" parent="." instance=ExtResource("5_g10ts")]
 position = Vector2(128, 320)
 rotation = 4.71239
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_461i6")
+volume_db = -20.0
+autoplay = true
