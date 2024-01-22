@@ -3,10 +3,10 @@ extends Control
 @onready var option_button = $HBoxContainer/OptionButton as OptionButton
 
 const WINDOW_MODE_ARRAY : Array[String] = [
-	"Window Mode",
+	"Window",
 	"Borderless Window",
-	"Full-Screen",
-	"Borderless Full-Screen"
+	"Fullscreen",
+	"Borderless Fullscreen"
 ]
 
 func _ready():
@@ -28,6 +28,6 @@ func on_window_mode_selected(index : int):
 		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
-		4:
+		3:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)

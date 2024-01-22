@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bddkrpi3bd0he"]
+[gd_scene load_steps=7 format=3 uid="uid://com1wps1gaayy"]
 
-[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_6f0ig"]
+[ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
+[ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Broken Circuit.wav" id="2_2adp0"]
+[ext_resource type="PackedScene" uid="uid://b7hdi461mrkxn" path="res://Scenes/Menus/options_menu.tscn" id="4_rgu0w"]
 
-[sub_resource type="Gradient" id="Gradient_ru6tb"]
+[sub_resource type="Gradient" id="Gradient_julvj"]
 colors = PackedColorArray(2.10572e-08, 0.0519143, 0.131455, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_684c6"]
-gradient = SubResource("Gradient_ru6tb")
+gradient = SubResource("Gradient_julvj")
 fill_from = Vector2(0.034188, 0.940171)
 
 [node name="MainMenu" type="Control"]
@@ -17,7 +19,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6f0ig")
+script = ExtResource("1_jh7c5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2adp0")
+volume_db = -10.805
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -27,10 +33,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_684c6")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(712, 192)
-texture = ExtResource("1_sdes2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -43,6 +45,10 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 360
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(712, 192)
+texture = ExtResource("1_sdes2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -77,6 +83,10 @@ custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("4_rgu0w")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_button_down"]

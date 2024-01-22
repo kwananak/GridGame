@@ -274,6 +274,7 @@ func grapple_check(distance):
 	moving = false
 
 # executes grapple towards chosen direction
+# deals with player animation and hitting destination (if hittable)
 func grapple_hit(dir):
 	var grapple = []
 	var tip = grapple_tip.instantiate()
