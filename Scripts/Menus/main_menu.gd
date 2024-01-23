@@ -1,4 +1,3 @@
-class_name MainMenu
 extends Control
 
 @onready var options_menu = $OptionsMenu
