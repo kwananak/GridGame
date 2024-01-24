@@ -15,10 +15,7 @@ func set_action_name():
 	label.text = action_name
 
 func set_text_for_key():
-	var action_event = InputMap.action_get_events(name)[0]
-	var action_keycode = OS.get_keycode_string(action_event.physical_keycode)
-	button.text = action_keycode
-
+	button.text = OS.get_keycode_string(InputMap.action_get_events(name)[0].physical_keycode)
 
 func _on_button_down():
 	if !toggled:
