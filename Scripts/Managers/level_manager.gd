@@ -93,21 +93,7 @@ func set_health(value):
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera(delta):
-	var target = camera.position
-	if player_sprite.global_position.x < view_margin.x:
-		target.x = view_margin.x
-	elif player_sprite.global_position.x > level_length * tile_size - view_margin.x:
-		target.x = level_length * tile_size - view_margin.x
-	else:
-		target.x = player_sprite.global_position.x
-	if player_sprite.global_position.y < view_margin.y:
-		target.y = view_margin.y
-	elif player_sprite.global_position.y > level_height * tile_size - view_margin.y:
-		target.y = level_height * tile_size - view_margin.y
-	else:
-		target.y = player_sprite.global_position.y
-	var tween = create_tween()
-	tween.tween_property(camera, "position", target, delta / camera_speed)
+	create_tween().tween_property(camera, "position", out_of_bounds_check(player_sprite.global_position), delta / camera_speed)
 
 # called by the button to quit the level
 func _on_button_pressed():
@@ -130,4 +116,15 @@ func call_game_over():
 	game_over = true
 	button.text = "Game Lost!"
 	button.visible = true
+
+func out_of_bounds_check(target):
+	if target.x < view_margin.x:
+		target.x = view_margin.x
+	elif target.x > level_length * tile_size - view_margin.x:
+		target.x = level_length * tile_size - view_margin.x
+	if target.y < view_margin.y:
+		target.y = view_margin.y
+	elif target.y > level_height * tile_size - view_margin.y:
+		target.y = level_height * tile_size - view_margin.y
+	return target
 

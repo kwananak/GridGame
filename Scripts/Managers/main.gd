@@ -45,6 +45,7 @@ func call_menu(level_number):
 	else:
 		camera_2d.position = get_viewport_rect().size / 4
 		menu.visible = true
+		$Menu/QuitButton.grab_focus()
 
 # quits game when quit button is pressed
 func call_quit():

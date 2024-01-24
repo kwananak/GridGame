@@ -32,7 +32,7 @@ func _on_area_entered(_area):
 		camera_spot = camera.position
 		highlight.global_position = related_node.global_position
 		highlight.show()
-		await create_tween().tween_property(camera, "position", related_node.global_position, 0.5).finished
+		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(related_node.global_position), 0.5).finished
 	spawn_bubble()
 
 func close():
