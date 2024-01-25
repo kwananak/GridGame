@@ -37,7 +37,7 @@ func call_menu(level_number):
 		get_node("RealTestLevel").queue_free()
 	else:
 		get_node("Level" + str(level_number)).queue_free()
-	if real_scene and $TerminalScene:
+	if real_scene and get_tree().get_first_node_in_group("TerminalScene"):
 		camera_2d.position = $TerminalScene.position + get_viewport_rect().size / 4
 		$TerminalScene/Control/Loadout.set_slots()
 		$TerminalScene.visible = true
@@ -64,3 +64,7 @@ func return_to_real_scene():
 	for n in get_tree().get_nodes_in_group("TerminalDoors"):
 		n.update_door()
 
+# resets game status and starts Level 1
+func new_game_button():
+	await progress_manager.reset_programs()
+	call_level(1)

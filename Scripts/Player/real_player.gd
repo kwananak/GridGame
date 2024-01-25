@@ -51,8 +51,9 @@ func collision_check(dir, delta):
 		if collision.is_in_group("Terminal"):
 			level_manager.call_terminal()
 			return
-		match collision.tile_type:
-			"door":
-				if collision.unlocked: 
-					collision.open_door()
-					move(dir, delta)
+		if collision.get("tile_type") :
+			match collision.tile_type:
+				"door":
+					if collision.unlocked: 
+						collision.open_door()
+						move(dir, delta)

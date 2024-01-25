@@ -210,7 +210,6 @@ scale = Vector2(0.01, 0.01)
 shape = SubResource("CircleShape2D_jv1wl")
 
 [node name="Label" type="Label" parent="MouseToolTip"]
-z_index = 30
 offset_right = 104.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
@@ -236,6 +235,6 @@ autoplay = true
 [connection signal="pressed" from="Menu/VirtualTestLevelButton" to="." method="call_test_level" binds= ["virtual"]]
 [connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_test_level" binds= ["real"]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
-[connection signal="pressed" from="Menu/NewGame" to="ProgressManager" method="reset_programs"]
+[connection signal="pressed" from="Menu/NewGame" to="." method="new_game_button"]
 [connection signal="pressed" from="Menu/SaveGame" to="ProgressManager" method="save_game"]
 [connection signal="pressed" from="Menu/LoadGame" to="ProgressManager" method="load_game"]
