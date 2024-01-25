@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=16 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -12,8 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="10_b2rqp"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="11_f4qlo"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="12_6y6uk"]
-[ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="13_15aor"]
-[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="14_orvur"]
+[ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="13_iwi8e"]
 [ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="15_jtquy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3rb2"]
@@ -78,14 +77,10 @@ highlight_color = "yellow"
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_n3rb2")
 
-[node name="ArmorTile" parent="." instance=ExtResource("13_15aor")]
-position = Vector2(256, 64)
-select_program = "Diamond"
-
-[node name="HandsTile" parent="." instance=ExtResource("14_orvur")]
-position = Vector2(320, 128)
-select_program = "GrapplingTool"
+[node name="BootsTile" parent="." instance=ExtResource("13_iwi8e")]
+position = Vector2(224, 96)
+select_program = "Sweet"
 
 [node name="GogglesTile" parent="." instance=ExtResource("15_jtquy")]
-position = Vector2(216, 208)
-select_program = "Vision"
+position = Vector2(224, 224)
+select_program = "Ice"
