@@ -16,7 +16,6 @@ func _ready():
 	info_label.text = program_slot.to_upper() + "\n\n" + program.info
 	program.position = Vector2(-13.5, -9.5)
 	program.scale = Vector2(1.25, 1.25)
-	program.monitorable = true
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
@@ -29,8 +28,10 @@ func pick_up(_area):
 
 func _on_mouse_entered():
 	animation_player.pause()
+	z_index = 97
 	create_tween().tween_property(self, "scale", Vector2(5, 5), 0.2)
 
 func _on_mouse_exited():
 	animation_player.play()
+	z_index = 30
 	create_tween().tween_property(self, "scale", Vector2(1, 1), 0.2)

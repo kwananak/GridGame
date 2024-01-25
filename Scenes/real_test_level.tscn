@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=9 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_qyfal"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/Prefabs/ui.tscn" id="2_fufk3"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_fufk3"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="3_imbq2"]
-[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/door_tile.tscn" id="5_208ta"]
+[ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/Environment/door_tile.tscn" id="5_208ta"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_h5lbe"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/terminal_tile.tscn" id="6_75bqa"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="6_75bqa"]
 [ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="7_5vdvo"]
+[ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="8_egm48"]
 
 [node name="RealTestLevel" type="Node2D"]
 
@@ -40,3 +41,6 @@ position = Vector2(192, 160)
 
 [node name="RealPlayer" parent="." instance=ExtResource("7_5vdvo")]
 position = Vector2(69, 132)
+
+[node name="TerminalDoorTile" parent="." instance=ExtResource("8_egm48")]
+position = Vector2(447, 193)

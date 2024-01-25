@@ -46,8 +46,3 @@ func _on_visibility_changed():
 		loaded_level = null
 		if go:
 			go.text = "choose\nlevel"
-	else:
-		for n in get_tree().get_first_node_in_group("ProgressManager").get_children():
-			for o in n.get_children():
-				for p in o.get_children():
-					p.monitorable = true
