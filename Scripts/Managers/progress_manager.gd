@@ -1,6 +1,7 @@
 extends Node2D
 
 var levels = []
+var doors = []
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program):
@@ -14,9 +15,14 @@ func add_to_programs(slot, program):
 
 # called by level manager at end of level to add unlocked level
 func add_to_levels(level):
-	if level in levels:
-		return
-	levels += [str(level)]
+	if level > 100:
+		if level in levels:
+			return
+		levels += [str(level)]
+	else:
+		if level in doors:
+			return
+		doors += [str(level)]
 
 # adds selected program from terminal to loadout
 func select_loadout(slot, program):
@@ -107,6 +113,7 @@ func reset_programs():
 				for p in o.get_children():
 					p.queue_free()
 	levels = []
+	doors = []
 
 func save():
 	var dict = {}
@@ -126,6 +133,7 @@ func save():
 			else:
 				dict[n.name][o.name] = ["empty"]
 	dict["levels"] = levels
+	dict["doors"] = doors
 	return dict
 
 func save_game():
@@ -147,6 +155,9 @@ func load_game():
 	for n in data.keys():
 		if n == "levels":
 			levels = data[n]
+			continue
+		if n == "doors":
+			doors = data[n]
 			continue
 		for o in data[n]:
 			if o == "Runes":

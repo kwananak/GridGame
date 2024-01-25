@@ -61,4 +61,6 @@ func call_terminal_scene(from_scene):
 # returns to real scene when closing terminal
 func return_to_real_scene():
 	add_child(real_scene)
+	for n in get_tree().get_nodes_in_group("TerminalDoors"):
+		n.update_door()
 
