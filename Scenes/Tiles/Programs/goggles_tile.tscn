@@ -1,9 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk7dr8vjilu3d"]
+[gd_scene load_steps=8 format=3 uid="uid://bk7dr8vjilu3d"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/goggles_tile.gd" id="1_iuqbv"]
-[ext_resource type="PackedScene" uid="uid://dq5hpofe355qc" path="res://Scenes/Tiles/Programs/program_visual.tscn" id="2_oog27"]
+[ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_gpdrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqp4n"]
+atlas = ExtResource("2_gpdrg")
+region = Rect2(270, 0, 90, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wr7mf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqp4n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_wp524"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1.1487, 1.1487),
+"update": 0,
+"values": [Vector2(0, -0.5), Vector2(0, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rs7t"]
+_data = {
+"new_animation": SubResource("Animation_wp524")
+}
 
 [node name="GogglesTile" type="Area2D"]
 z_index = 30
@@ -14,7 +50,35 @@ script = ExtResource("1_iuqbv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ofsl2")
 
-[node name="ProgramVisual" parent="." instance=ExtResource("2_oog27")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.461242)
+scale = Vector2(0.22, 0.22)
+sprite_frames = SubResource("SpriteFrames_wr7mf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_1rs7t")
+}
+
+[node name="NameLabel" type="Label" parent="AnimatedSprite2D"]
+offset_left = -36.0
+offset_top = 20.0
+offset_right = 326.0
+offset_bottom = 112.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="AnimatedSprite2D"]
+offset_left = 10.0
+offset_top = -30.0
+offset_right = 170.0
+offset_bottom = 197.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
 
 [connection signal="area_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
