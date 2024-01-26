@@ -11,4 +11,6 @@ func end_turn(_value):
 
 # called by player when activating a terminal
 func call_terminal():
-	$/root/Main.call_terminal_scene(get_parent())
+	$/root/Main.call_terminal_scene()
+
+

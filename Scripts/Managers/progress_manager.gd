@@ -2,6 +2,7 @@ extends Node2D
 
 var levels = []
 var doors = []
+var player_spot
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program):
