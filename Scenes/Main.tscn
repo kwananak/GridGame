@@ -69,7 +69,7 @@ offset_right = 340.0
 offset_bottom = 160.0
 text = "Level 205"
 
-[node name="Level7Button" type="Button" parent="Menu"]
+[node name="Level2Button" type="Button" parent="Menu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 551.0
@@ -77,6 +77,15 @@ offset_top = 222.0
 offset_right = 613.0
 offset_bottom = 253.0
 text = "Level 7"
+
+[node name="Level7Button" type="Button" parent="Menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 552.0
+offset_top = 187.0
+offset_right = 614.0
+offset_bottom = 218.0
+text = "Level 2"
 
 [node name="Level8Button" type="Button" parent="Menu"]
 texture_filter = 1
@@ -226,7 +235,8 @@ autoplay = true
 [connection signal="pressed" from="Menu/Level201Button" to="." method="call_level" binds= [201]]
 [connection signal="pressed" from="Menu/Level204Button" to="." method="call_level" binds= [204]]
 [connection signal="pressed" from="Menu/Level205Button" to="." method="call_level" binds= [205]]
-[connection signal="pressed" from="Menu/Level7Button" to="." method="call_level" binds= [7]]
+[connection signal="pressed" from="Menu/Level2Button" to="." method="call_level"]
+[connection signal="pressed" from="Menu/Level7Button" to="." method="call_level" binds= [2]]
 [connection signal="pressed" from="Menu/Level8Button" to="." method="call_level" binds= [8]]
 [connection signal="pressed" from="Menu/Level9Button" to="." method="call_level" binds= [9]]
 [connection signal="pressed" from="Menu/Level10Button" to="." method="call_level" binds= [10]]

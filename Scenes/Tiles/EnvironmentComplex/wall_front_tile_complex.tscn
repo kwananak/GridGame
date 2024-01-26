@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c33d3v2o3k3hy"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_5orm8"]
+[ext_resource type="Texture2D" uid="uid://cgx38dxlbjp4k" path="res://Sprites/EnvironmentReal/front_and_corner.png" id="2_c6ss2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfmqs"]
+atlas = ExtResource("2_c6ss2")
+region = Rect2(168, 0, 168, 101)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfmqs")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="WallBackTileComplex" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
+script = ExtResource("1_5orm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_q1gjo")
+frame_progress = 1.0

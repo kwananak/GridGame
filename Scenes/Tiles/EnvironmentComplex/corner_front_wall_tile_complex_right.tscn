@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bej1ggybilev8"]
+[gd_scene load_steps=5 format=3 uid="uid://cyiqeevclf4ir"]
 
-[ext_resource type="Texture2D" uid="uid://c5rmnmgif1wgf" path="res://Sprites/EnvironmentReal/vert_and_corner.png" id="1_j07us"]
+[ext_resource type="Texture2D" uid="uid://cgx38dxlbjp4k" path="res://Sprites/EnvironmentReal/front_and_corner.png" id="1_43kx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m12rg"]
-atlas = ExtResource("1_j07us")
-region = Rect2(0, 0, 73, 97)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ijf4"]
+atlas = ExtResource("1_43kx4")
+region = Rect2(0, 0, 168, 101)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m12rg")
+"texture": SubResource("AtlasTexture_0ijf4")
 }],
 "loop": true,
 "name": &"default",
@@ -27,8 +27,8 @@ z_index = 20
 shape = SubResource("RectangleShape2D_pb7ci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4, -7.45058e-09)
-scale = Vector2(0.334, 0.334)
+position = Vector2(-6, -6)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_q1gjo")
 autoplay = "default"
 frame_progress = 0.597071
