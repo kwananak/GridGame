@@ -59,19 +59,19 @@ layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[node name="LoadGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ContinueGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Load Game"
 
-[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -89,6 +89,6 @@ visible = false
 layout_mode = 1
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_on_load_game_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

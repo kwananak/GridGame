@@ -8,10 +8,15 @@ var virtual_scene
 @onready var camera_2d = $Camera2D
 @onready var progress_manager = $ProgressManager
 @onready var continue_button = $Menu/ContinueGame
+@onready var new_game_button = $Menu/NewGame
 
 func _ready():
 	await progress_manager.load_game()
-	$Menu/QuitButton.grab_focus()
+	if progress_manager.save_point:
+		continue_button.grab_focus()
+	else:
+		continue_button.disabled = true
+		new_game_button.grab_focus()
 
 # instantiates chosen level
 func call_level(level_number):
@@ -50,10 +55,12 @@ func call_menu(level_number):
 		terminal_scene._ready()
 	else:
 		camera_2d.position = get_viewport_rect().size / 4
+		menu.visible = true
 		if real_scene:
 			continue_button.disabled = false
-		menu.visible = true
-		$Menu/QuitButton.grab_focus()
+			continue_button.grab_focus()
+		else:
+			new_game_button. grab_focus()
 
 # quits game when quit button is pressed
 func call_quit():
@@ -76,7 +83,7 @@ func return_to_real_scene():
 		n.update_door()
 
 # resets game status and starts Level 1
-func new_game_button():
+func new_game():
 	await progress_manager.reset_programs()
 	call_level(1)
 
@@ -96,6 +103,3 @@ func continue_game():
 	$AudioStreamPlayer.stop()
 	menu.visible = false
 	add_child(real_scene)
-
-func disable_continue():
-	continue_button.disabled = true
