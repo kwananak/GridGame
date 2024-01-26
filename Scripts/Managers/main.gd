@@ -39,10 +39,10 @@ func call_menu(level_number):
 	else:
 		get_node("Level" + str(level_number)).queue_free()
 	if real_scene and terminal_scene != null:
-		camera_2d.position = $TerminalScene.position + get_viewport_rect().size / 4
-		$TerminalScene/Control/Loadout.set_slots()
-		$TerminalScene.visible = true
-		$TerminalScene._ready()
+		camera_2d.position = terminal_scene.position + get_viewport_rect().size / 4
+		terminal_scene.get_node("Control/Loadout").set_slots()
+		terminal_scene.visible = true
+		terminal_scene._ready()
 	else:
 		camera_2d.position = get_viewport_rect().size / 4
 		menu.visible = true
@@ -53,11 +53,12 @@ func call_quit():
 	get_tree().quit()
 
 # instantiates terminal scene and hides + pauses real scene when called
-func call_terminal_scene():
+func call_terminal_scene(terminal_name):
 	remove_child(real_scene)
-	terminal_scene = load("res://Scenes/terminal_scene.tscn").instantiate()
+	print(terminal_name)
+	terminal_scene = load("res://Scenes/Levels/" + terminal_name + ".tscn").instantiate()
 	add_child(terminal_scene)
-	$TerminalScene.position = camera_2d.position - get_viewport_rect().size / 4
+	terminal_scene.position = camera_2d.position - get_viewport_rect().size / 4
 
 # returns to real scene when closing terminal
 func return_to_real_scene():
@@ -69,3 +70,8 @@ func return_to_real_scene():
 func new_game_button():
 	await progress_manager.reset_programs()
 	call_level(1)
+
+func switch_level(level_number):
+	remove_child(real_scene)
+	real_scene.queue_free()
+	call_level(level_number)

@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_y6187"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_ssime"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_ey8wb"]
-[ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentReal/floor_tile_real.tscn" id="5_fiana"]
-[ext_resource type="PackedScene" uid="uid://bhn51npk5t3pe" path="res://Scenes/Tiles/EnvironmentReal/wall_horizontal_tile_real.tscn" id="6_ai3pg"]
-[ext_resource type="PackedScene" uid="uid://jxey8sp2ire7" path="res://Scenes/Tiles/EnvironmentReal/wall_vertical_tile_real.tscn" id="7_ci6bd"]
-[ext_resource type="PackedScene" uid="uid://cekbk2j4t5i37" path="res://Scenes/Tiles/EnvironmentReal/corner_wall_tile_real.tscn" id="8_28ctj"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/EnvironmentReal/terminal_tile.tscn" id="9_5o5vp"]
+[ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile_real.tscn" id="5_fiana"]
+[ext_resource type="PackedScene" uid="uid://bhn51npk5t3pe" path="res://Scenes/Tiles/EnvironmentDump/wall_horizontal_tile_real.tscn" id="6_ai3pg"]
+[ext_resource type="PackedScene" uid="uid://jxey8sp2ire7" path="res://Scenes/Tiles/EnvironmentDump/wall_vertical_tile_real.tscn" id="7_ci6bd"]
+[ext_resource type="PackedScene" uid="uid://cekbk2j4t5i37" path="res://Scenes/Tiles/EnvironmentDump/corner_wall_tile_real.tscn" id="8_28ctj"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="9_5o5vp"]
 [ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="10_r0mu2"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="11_r8naw"]
 
@@ -34,6 +34,7 @@ position = Vector2(192, 224)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_ey8wb")]
 position = Vector2(546, 224)
+door_number = 2
 
 [node name="FloorTileReal" parent="Environment/Floor" instance=ExtResource("5_fiana")]
 position = Vector2(192, 160)
@@ -334,7 +335,7 @@ rotation = 1.5708
 
 [node name="Trials" type="Node2D" parent="."]
 
-[node name="TerminalTile" parent="." instance=ExtResource("9_5o5vp")]
+[node name="Terminal1" parent="." instance=ExtResource("9_5o5vp")]
 position = Vector2(416, 192)
 
 [node name="RealPlayer" parent="." instance=ExtResource("10_r0mu2")]
@@ -342,4 +343,4 @@ position = Vector2(64, 64)
 
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_r8naw")]
 position = Vector2(544, 224)
-door_number = 1
+door_number = 2

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhn51npk5t3pe"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_vy1gp"]
+[ext_resource type="Texture2D" uid="uid://bjjls33wvoamg" path="res://Sprites/EnvironmentReal/dump.png" id="2_ksm0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg30u"]
+atlas = ExtResource("2_ksm0k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmxm1"]
+atlas = ExtResource("2_ksm0k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgv3n"]
+atlas = ExtResource("2_ksm0k")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmxm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgv3n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="WallHorizontalTileReal" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
+script = ExtResource("1_vy1gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q1gjo")
+frame_progress = 1.0

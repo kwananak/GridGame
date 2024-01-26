@@ -49,7 +49,7 @@ func collision_check(dir, delta):
 	else:
 		var collision = ray.get_collider()
 		if collision.is_in_group("Terminal"):
-			level_manager.call_terminal()
+			level_manager.call_terminal(collision.name)
 			return
 		if collision.get("tile_type") :
 			match collision.tile_type:

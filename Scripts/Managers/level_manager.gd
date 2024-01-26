@@ -8,6 +8,7 @@ var health = 0 : set = set_health
 var player
 var player_sprite
 var view_margin
+var real_done
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var level_height = 32
@@ -97,7 +98,10 @@ func process_camera(delta):
 
 # called by the button to quit the level
 func _on_button_pressed():
-	$/root/Main.call_menu(level_number)
+	if real_done:
+		$/root/Main.switch_level(real_done)
+	else:
+		$/root/Main.call_menu(level_number)
 
 # listens for spacebar to quit the game when game is over
 func _unhandled_input(event):

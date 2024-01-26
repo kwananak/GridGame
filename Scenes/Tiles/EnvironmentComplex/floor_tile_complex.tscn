@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://fe32asyv0spt"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/floor_tile.gd" id="1_6eapr"]
+[ext_resource type="Texture2D" uid="uid://d0xll5wn8doah" path="res://Sprites/EnvironmentReal/complex_floor.png" id="2_uql6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ill"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqkqi"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y03c"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m1mm"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy8cb"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nlfh"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkjh7"]
+atlas = ExtResource("2_uql6i")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2fsjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ill")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqkqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y03c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m1mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy8cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nlfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y03c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y03c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkjh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="FloorTileComplex" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_6eapr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f7yg6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.167, 0.167)
+sprite_frames = SubResource("SpriteFrames_2fsjd")
