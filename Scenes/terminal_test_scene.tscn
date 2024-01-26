@@ -1,32 +1,32 @@
 [gd_scene load_steps=12 format=3 uid="uid://7g8x0r5canbr"]
 
-[ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_5nty7"]
-[ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="2_3wc3n"]
-[ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_o4qty"]
-[ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="4_bivj3"]
+[ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
+[ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_upwke"]
+[ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_7tqwa"]
+[ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hnqek"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jcoj"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar82w"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3k22"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ckb8"]
-atlas = ExtResource("3_o4qty")
+atlas = ExtResource("3_7tqwa")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_16x1d"]
@@ -55,8 +55,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TerminalScene" type="Node2D" groups=["TerminalScene"]]
-script = ExtResource("1_5nty7")
+[node name="Terminal0" type="Node2D" groups=["TerminalScene"]]
+script = ExtResource("1_20cn2")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -68,7 +68,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
-texture = ExtResource("4_bivj3")
+texture = ExtResource("2_upwke")
 
 [node name="Map" type="Control" parent="Control"]
 layout_mode = 1
@@ -82,22 +82,22 @@ offset_right = 412.0
 offset_bottom = 212.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Level101" type="Button" parent="Control/Map"]
+[node name="Level100" type="Button" parent="Control/Map"]
 layout_mode = 0
 offset_left = 205.0
 offset_top = 114.0
 offset_right = 285.0
 offset_bottom = 145.0
-text = "Level 101"
+text = "Level 100"
 
-[node name="Level102" type="Button" parent="Control/Map"]
+[node name="Level200" type="Button" parent="Control/Map"]
 layout_mode = 0
 offset_left = 131.0
 offset_top = 61.0
 offset_right = 211.0
 offset_bottom = 92.0
 disabled = true
-text = "Level 102"
+text = "Level 200"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)
@@ -115,7 +115,7 @@ offset_left = 672.0
 offset_top = 32.0
 offset_right = 862.0
 offset_bottom = 302.0
-script = ExtResource("2_3wc3n")
+script = ExtResource("4_sklph")
 metadata/_edit_use_anchors_ = true
 
 [node name="Brain" type="Button" parent="Control/Loadout"]
@@ -230,15 +230,31 @@ offset_left = 32.0
 offset_top = 512.0
 offset_right = 95.0
 offset_bottom = 572.0
-focus_neighbor_top = NodePath("../Map/Level101")
+focus_neighbor_top = NodePath("../Map/Level100")
 focus_neighbor_right = NodePath("../Loadout/Boots")
 text = "choose
 level"
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="Control"]
+offset_left = 53.0
+offset_top = 170.0
+offset_right = 125.0
+offset_bottom = 216.0
+color = Color(0.505882, 0.490196, 0.556863, 1)
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 54.0
+offset_top = 174.0
+offset_right = 404.0
+offset_bottom = 369.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Control/Map/Level101" to="." method="_on_level_pressed" binds= [101]]
-[connection signal="pressed" from="Control/Map/Level102" to="." method="_on_level_pressed" binds= [102]]
+[connection signal="pressed" from="Control/Map/Level100" to="." method="_on_level_pressed" binds= [100]]
+[connection signal="pressed" from="Control/Map/Level200" to="." method="_on_level_pressed" binds= [200]]
 [connection signal="focus_entered" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_entered" binds= ["Brain"]]
 [connection signal="focus_exited" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_exited"]
 [connection signal="pressed" from="Control/Loadout/Brain" to="Control/Loadout" method="on_button_pressed" binds= ["Brain"]]

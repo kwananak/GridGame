@@ -2,12 +2,16 @@ extends Node2D
 
 @onready var main = $/root/Main
 @onready var go = $Control/GoButton
+
 var loadout
 var loaded_level = null
+var terminal_number
 
 func _ready():
 	go.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
+	terminal_number = name.substr(name.length() - 1)
+	_on_visibility_changed()
 
 func _input(event):
 	if visible == false:
@@ -46,3 +50,12 @@ func _on_visibility_changed():
 		loaded_level = null
 		if go:
 			go.text = "choose\nlevel"
+		if terminal_number != null:
+			$Control/Label.text = "Terminal" + str(terminal_number) +"\n"
+			for i in prog_man.doors:
+				if int(i) == int(terminal_number) + 1:
+					$Control/Label.text += "unlocked"
+					$Control/ColorRect.color = "#2d991a"
+					return
+			$Control/ColorRect.color = "#cc0000"
+			$Control/Label.text += "locked"

@@ -56,7 +56,10 @@ func call_quit():
 func call_terminal_scene(terminal_name):
 	remove_child(real_scene)
 	print(terminal_name)
-	terminal_scene = load("res://Scenes/Levels/" + terminal_name + ".tscn").instantiate()
+	if terminal_name == "TerminalTestScene":
+		terminal_scene = load("res://Scenes/terminal_test_scene.tscn").instantiate()
+	else:
+		terminal_scene = load("res://Scenes/Levels/" + terminal_name + ".tscn").instantiate()
 	add_child(terminal_scene)
 	terminal_scene.position = camera_2d.position - get_viewport_rect().size / 4
 
