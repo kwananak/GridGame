@@ -52,7 +52,7 @@ func press_pause():
 func set_pause(value):
 	paused = value
 	if paused:
-		button.text = "Quit"
+		button.text = "Menu"
 		button.visible = true
 		button.grab_focus()
 	else:
@@ -112,7 +112,7 @@ func _unhandled_input(event):
 # called by end tile when the player reaches it
 func on_end_tile_entered():
 	game_over = true
-	button.text = "Game Won!!"
+	button.text = "Level Won!!"
 	button.visible = true
 
 # called by game ending entities when colliding with player

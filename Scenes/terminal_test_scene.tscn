@@ -237,6 +237,7 @@ level"
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 170.0
 offset_right = 125.0
@@ -244,6 +245,7 @@ offset_bottom = 216.0
 color = Color(0.505882, 0.490196, 0.556863, 1)
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 174.0
 offset_right = 404.0
@@ -275,6 +277,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Control/Loadout/Boots" to="Control/Loadout" method="on_button_pressed" binds= ["Boots"]]
 [connection signal="focus_entered" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_focus_entered" binds= ["Runes"]]
 [connection signal="focus_exited" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_focus_exited"]
-[connection signal="pressed" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_rune_pressed" binds= ["Runes"]]
+[connection signal="pressed" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_rune_pressed"]
 [connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Control/GoButton" to="." method="_on_go_button_pressed"]

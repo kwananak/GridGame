@@ -167,21 +167,13 @@ offset_right = 137.0
 offset_bottom = 77.0
 text = "New Game"
 
-[node name="SaveGame" type="Button" parent="Menu"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 119.0
-offset_right = 143.0
-offset_bottom = 150.0
-text = "Save Game"
-
-[node name="LoadGame" type="Button" parent="Menu"]
+[node name="ContinueGame" type="Button" parent="Menu"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 83.0
 offset_right = 139.0
 offset_bottom = 114.0
-text = "Load Game"
+text = "Continue Game"
 
 [node name="ResolutionModeButton" parent="Menu" instance=ExtResource("7_fg0yk")]
 layout_mode = 1
@@ -246,5 +238,4 @@ autoplay = true
 [connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_level" binds= [0]]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
 [connection signal="pressed" from="Menu/NewGame" to="." method="new_game_button"]
-[connection signal="pressed" from="Menu/SaveGame" to="ProgressManager" method="save_game"]
-[connection signal="pressed" from="Menu/LoadGame" to="ProgressManager" method="load_game"]
+[connection signal="pressed" from="Menu/ContinueGame" to="." method="continue_game"]

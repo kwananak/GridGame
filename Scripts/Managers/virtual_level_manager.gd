@@ -135,7 +135,7 @@ func set_remaining_actions(value):
 
 func on_success(level):
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
-	progress_manager.add_to_levels(level)
+	$/root/Main.add_to_levels(level)
 	for a in programs:
 		progress_manager.add_to_programs(a[0], a[1])
 	super.on_end_tile_entered()

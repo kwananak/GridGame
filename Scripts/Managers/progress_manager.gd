@@ -2,7 +2,7 @@ extends Node2D
 
 var levels = []
 var doors = []
-var player_spot
+var save_point
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program):
@@ -14,16 +14,16 @@ func add_to_programs(slot, program):
 			return
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 
-# called by level manager at end of level to add unlocked level
-func add_to_levels(level):
-	if level > 100:
-		if level in levels:
-			return
-		levels += [str(level)]
+# called by level manager through main at end of level to add unlocked level and create automatic save_point
+func add_to_levels(level_unlocked, real_level):
+	save_point = real_level
+	if level_unlocked > 100:
+		if level_unlocked not in levels:
+			levels += [str(level_unlocked)]
 	else:
-		if level in doors:
-			return
-		doors += [str(level)]
+		if level_unlocked not in doors:
+			doors += [str(level_unlocked)]
+	save_game()
 
 # adds selected program from terminal to loadout
 func select_loadout(slot, program):
@@ -105,8 +105,7 @@ func get_available_programs(slot):
 			n.get_parent().remove_child(n)
 	return available_programs
 
-# erases all program when called by main menu button
-# for debugging pruposes
+# erases game state
 func reset_programs():
 	for n in get_children():
 		for o in n.get_children():
@@ -115,6 +114,7 @@ func reset_programs():
 					p.queue_free()
 	levels = []
 	doors = []
+	save_point = null
 
 func save():
 	var dict = {}
@@ -135,15 +135,16 @@ func save():
 				dict[n.name][o.name] = ["empty"]
 	dict["levels"] = levels
 	dict["doors"] = doors
+	dict["save_point"] = save_point
 	return dict
 
 func save_game():
-	var save_file = FileAccess.open("res://savegame.txt", FileAccess.WRITE)
-	save_file.store_line(JSON.stringify(save()))
+	FileAccess.open("res://savegame.txt", FileAccess.WRITE).store_line(JSON.stringify(save()))
 
 func load_game():
 	await reset_programs()
 	if not FileAccess.file_exists("res://savegame.txt"):
+		$/root/Main.disable_continue()
 		return
 	var save_file = FileAccess.open("res://savegame.txt", FileAccess.READ)
 	var json_string = save_file.get_line()
@@ -154,27 +155,34 @@ func load_game():
 		return
 	var data = json.get_data()
 	for n in data.keys():
-		if n == "levels":
-			levels = data[n]
-			continue
-		if n == "doors":
-			doors = data[n]
-			continue
-		for o in data[n]:
-			if o == "Runes":
-				for i in data[n][o].size():
-					get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+		match n:
+			"levels":
+				levels = data[n]
 				continue
-			for p in data[n][o]:
-				if p != "empty":
-					if p.ends_with("runed"):
-						var s = p.get_slice("_", 0)
-						var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()
-						get_node(n).get_node(o).add_child(v)
-						v.add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
-						v.runed = true
-					else:
-						if o == "LeftHand" || o == "RightHand":
-							get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
+			"doors":
+				doors = data[n]
+				continue
+			"save_point":
+				save_point = data[n]
+				continue
+			_: 
+				for o in data[n]:
+					if o == "Runes":
+						if data[n][o] == ["empty"]:
 							continue
-						get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())
+						for i in data[n][o].size():
+							get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+					else:
+						for p in data[n][o]:
+							if p != "empty":
+								if p.ends_with("runed"):
+									var s = p.get_slice("_", 0)
+									var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()
+									get_node(n).get_node(o).add_child(v)
+									v.add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+									v.runed = true
+								else:
+									if o == "LeftHand" || o == "RightHand":
+										get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
+										continue
+									get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())
