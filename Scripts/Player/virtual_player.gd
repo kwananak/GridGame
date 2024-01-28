@@ -58,7 +58,8 @@ func _unhandled_input(event):
 		if level_manager.dialogue:
 			level_manager.dialogue.close()
 		else:
-			skip_turn()
+			if !moving:
+				skip_turn()
 
 # self explanatory
 func skip_turn():
