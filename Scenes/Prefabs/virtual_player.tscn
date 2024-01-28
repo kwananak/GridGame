@@ -1,10 +1,11 @@
-[gd_scene load_steps=57 format=3 uid="uid://bjmgb6nib47p2"]
+[gd_scene load_steps=58 format=3 uid="uid://bjmgb6nib47p2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/virtual_player.gd" id="1_0kghv"]
 [ext_resource type="Texture2D" uid="uid://dbn3u3skuotun" path="res://Sprites/Programs/circle_whip.png" id="2_e1p3t"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="2_e75jn"]
 [ext_resource type="PackedScene" uid="uid://d3k6pd56xjakj" path="res://Scenes/Prefabs/possible_move.tscn" id="4_gobr5"]
 [ext_resource type="Texture2D" uid="uid://bo1ng3xxytxlb" path="res://Sprites/Programs/Arms/grappling_tool_sheet.png" id="4_ilmo0"]
+[ext_resource type="AudioStream" uid="uid://dfm1pbbrsn18s" path="res://Sounds/Mid Footsteps 009.wav" id="6_27qtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
@@ -439,3 +440,7 @@ dir = Vector2(0, 1)
 
 [node name="RowChecker" type="Node2D" parent="."]
 z_index = 80
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_27qtg")
+volume_db = -25.0

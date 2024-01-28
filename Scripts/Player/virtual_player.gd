@@ -96,8 +96,7 @@ func move(pos):
 	if teleport:
 		hide()
 		await get_tree().create_timer(0.1).timeout
-		var tween = create_tween()
-		tween.tween_property(self, "position",
+		var tween = create_tween().tween_property(self, "position",
 				pos,
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
@@ -108,13 +107,14 @@ func move(pos):
 		var old_pos = position
 		position = pos
 		animated_sprite_2d.position = old_pos - position
-		var tween = create_tween()
-		tween.tween_property(animated_sprite_2d, "position",
+		var tween = create_tween().tween_property(animated_sprite_2d, "position",
 				Vector2.ZERO,
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 		animated_sprite_2d.play("move")
+		$Footsteps.play()
 		await tween.finished
 		animated_sprite_2d.play("idle")
+		$Footsteps.stop()
 	if waiting_for_action != null:
 		waiting_for_action.confirm()
 		waiting_for_action = null
@@ -343,11 +343,8 @@ func grapple_hit(dir):
 	if "tile_type" in dir.available_action:
 		dir.available_action.hit_by_player(strength)
 	await get_tree().create_timer(0.1).timeout
-	var old_pos = position
-	position += destination * level_manager.tile_size
-	animated_sprite_2d.position = old_pos - position
-	var tween = create_tween().tween_property(animated_sprite_2d, "position",
-			Vector2.ZERO,
+	var tween = create_tween().tween_property(self, "position",
+			position + destination * level_manager.tile_size,
 			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	remove_grapple(grapple + [tip])
 	await tween.finished
