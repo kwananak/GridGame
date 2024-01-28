@@ -11,12 +11,12 @@ var virtual_scene
 @onready var new_game_button = $Menu/NewGame
 
 func _ready():
-	await progress_manager.load_game()
-	if progress_manager.save_point:
-		continue_button.grab_focus()
-	else:
-		continue_button.disabled = true
-		new_game_button.grab_focus()
+	# await progress_manager.load_game()
+	#if progress_manager.save_point:
+		#continue_button.grab_focus()
+	#else:
+		#continue_button.disabled = true
+	new_game_button.grab_focus()
 
 # instantiates chosen level
 func call_level(level_number):
@@ -99,6 +99,7 @@ func add_to_levels(level):
 
 func continue_game():
 	if !real_scene:
+		await progress_manager.load_game()
 		real_scene = load("res://Scenes/Levels/" + progress_manager.save_point + ".tscn").instantiate()
 	$AudioStreamPlayer.stop()
 	menu.visible = false
