@@ -38,7 +38,6 @@ func call_level(level_number):
 ### needs cleanup ###
 # handles various level quitting scenario, needs cleanup
 func call_menu(level_number):
-	$AudioStreamPlayer.play()
 	if level_number == 100:
 		get_node("VirtualTestLevel").queue_free()
 	elif level_number == 0:
@@ -47,7 +46,6 @@ func call_menu(level_number):
 		remove_child(real_scene)
 	else:
 		get_node("Level" + str(level_number)).queue_free()
-	
 	if real_scene and terminal_scene != null:
 		camera_2d.position = terminal_scene.position + get_viewport_rect().size / 4
 		terminal_scene.get_node("Control/Loadout").set_slots()
@@ -56,6 +54,7 @@ func call_menu(level_number):
 	else:
 		camera_2d.position = get_viewport_rect().size / 4
 		menu.visible = true
+		$AudioStreamPlayer.play()
 		if real_scene:
 			continue_button.disabled = false
 			continue_button.grab_focus()

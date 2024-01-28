@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=18 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cyiqeevclf4ir" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex_right.tscn" id="13_mvi4t"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
+[ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Fire Loop.wav" id="17_na0sr"]
 
 [node name="Level2" type="Node2D"]
 
@@ -314,3 +315,8 @@ position = Vector2(64, 64)
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_mads1")]
 position = Vector2(544, 224)
 door_number = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_na0sr")
+volume_db = -20.0
+autoplay = true

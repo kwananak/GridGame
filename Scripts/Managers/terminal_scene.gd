@@ -51,6 +51,7 @@ func _on_visibility_changed():
 		if go:
 			go.text = "choose\nlevel"
 		if terminal_number != null:
+			$AudioStreamPlayer.play()
 			$Control/Label.text = "Terminal" + str(terminal_number) +"\n"
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
@@ -59,3 +60,5 @@ func _on_visibility_changed():
 					return
 			$Control/ColorRect.color = "#cc0000"
 			$Control/Label.text += "locked"
+	else:
+		$AudioStreamPlayer.stop()

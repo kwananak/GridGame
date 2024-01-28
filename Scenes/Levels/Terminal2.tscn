@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=13 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_6ttwu"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_dhixq"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_5ta46"]
+[ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Sci-Fi Hum Loop.wav" id="5_b1tni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
 atlas = ExtResource("3_dhixq")
@@ -280,6 +281,11 @@ offset_bottom = 369.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b1tni")
+volume_db = -20.0
+pitch_scale = 0.85
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Control/Map/Level201" to="." method="_on_level_pressed" binds= [201]]
