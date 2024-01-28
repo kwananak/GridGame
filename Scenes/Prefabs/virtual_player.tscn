@@ -285,7 +285,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"grapple_down",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -305,7 +305,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"grapple_side",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -325,7 +325,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"grapple_up",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -413,12 +413,10 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"move"
+animation = &"grapple_down"
 autoplay = "spawn"
-frame_progress = 0.0320834
 
 [node name="PossibleMoves" type="Node2D" parent="."]
-z_index = 50
 
 [node name="left" parent="PossibleMoves" instance=ExtResource("4_gobr5")]
 visible = false

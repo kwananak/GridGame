@@ -29,9 +29,9 @@ func pick_up(_area):
 func _on_mouse_entered():
 	animation_player.pause()
 	z_index = 97
-	create_tween().tween_property(self, "scale", Vector2(5, 5), 0.2)
+	create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(2, 2), 0.2)
 
 func _on_mouse_exited():
 	animation_player.play()
 	z_index = 30
-	create_tween().tween_property(self, "scale", Vector2(1, 1), 0.2)
+	create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(0.22, 0.22), 0.2)

@@ -283,79 +283,69 @@ func grapple_hit(dir):
 	var tip = grapple_tip.instantiate()
 	var destination = dir.position / level_manager.tile_size
 	if destination.y > 0:
+		tip.global_position = Vector2(global_position.x - 0.5, global_position.y + 16)
+		tip.rotation_degrees = 90
 		animated_sprite_2d.animation = "grapple_down"
 		await animated_sprite_2d.animation_finished
 		get_parent().add_child(tip)
-		tip.global_position = Vector2(global_position.x - 0.5, global_position.y + 16)
-		tip.rotation_degrees = 90
 		for i in (destination.y - 1) * 8:
-			await get_tree().create_timer(0.01).timeout
+			await get_tree().create_timer(0.005).timeout
 			tip.position.y += 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.rotation_degrees = 90
 			section.position = Vector2(position.x - 0.5, position.y + 16 + 4 * i)
-		if "tile_type" in dir.available_action:
-			dir.available_action.hit_by_player(strength)
-		await get_tree().create_timer(0.1).timeout
 		destination.y -= 1
 	elif destination.y < 0:
+		tip.global_position = Vector2(global_position.x - 0.5, global_position.y - 16)
+		tip.rotation_degrees = 270
 		animated_sprite_2d.animation = "grapple_up"
 		await animated_sprite_2d.animation_finished
 		get_parent().add_child(tip)
-		tip.global_position = Vector2(global_position.x - 0.5, global_position.y - 16)
-		tip.rotation_degrees = 270
 		for i in (-destination.y - 1) * 8:
-			await get_tree().create_timer(0.01).timeout
+			await get_tree().create_timer(0.005).timeout
 			tip.position.y -= 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.rotation_degrees = 90
 			section.position = Vector2(position.x - 0.5, position.y - 16 - 4 * i)
-		if "tile_type" in dir.available_action:
-			dir.available_action.hit_by_player(strength)
-		await get_tree().create_timer(0.1).timeout
 		destination.y += 1 
 	elif destination.x > 0:
+		tip.global_position = Vector2(global_position.x + 16, global_position.y - 2.5)
 		animated_sprite_2d.animation = "grapple_side"
 		await animated_sprite_2d.animation_finished
 		get_parent().add_child(tip)
-		tip.global_position = Vector2(global_position.x + 16, global_position.y - 2.5)
 		for i in (destination.x - 1) * 8:
-			await get_tree().create_timer(0.01).timeout
+			await get_tree().create_timer(0.005).timeout
 			tip.position.x += 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.position = Vector2(position.x + 16 + 4 * i, position.y - 2.5)
-		if "tile_type" in dir.available_action:
-			dir.available_action.hit_by_player(strength)
-		await get_tree().create_timer(0.1).timeout
 		destination.x -= 1
 	elif destination.x < 0:
+		tip.global_position = Vector2(global_position.x - 16, global_position.y - 2.5)
+		tip.rotation_degrees = 180
 		animated_sprite_2d.animation = "grapple_side"
 		await animated_sprite_2d.animation_finished
 		get_parent().add_child(tip)
-		tip.global_position = Vector2(global_position.x - 16, global_position.y - 2.5)
-		tip.rotation_degrees = 180
 		for i in (-destination.x - 1) * 8:
-			await get_tree().create_timer(0.01).timeout
+			await get_tree().create_timer(0.005).timeout
 			tip.position.x -= 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.position = Vector2(position.x - 16 - 4 * i, position.y - 2.5)
-		if "tile_type" in dir.available_action:
-			dir.available_action.hit_by_player(strength)
-		await get_tree().create_timer(0.1).timeout
-		destination.x += 1 
+		destination.x += 1
+	if "tile_type" in dir.available_action:
+		dir.available_action.hit_by_player(strength)
+	await get_tree().create_timer(0.1).timeout
 	var old_pos = position
 	position += destination * level_manager.tile_size
 	animated_sprite_2d.position = old_pos - position
-	var tween = create_tween()
-	tween.tween_property(animated_sprite_2d, "position",
+	var tween = create_tween().tween_property(animated_sprite_2d, "position",
 			Vector2.ZERO,
 			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	remove_grapple(grapple + [tip])
