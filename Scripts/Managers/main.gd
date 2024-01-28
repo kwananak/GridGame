@@ -95,6 +95,8 @@ func switch_level(level_number):
 	progress_manager.save_game()
 
 func add_to_levels(level):
+	if real_scene == null:
+		return
 	progress_manager.add_to_levels(level, real_scene.name)
 
 func continue_game():
