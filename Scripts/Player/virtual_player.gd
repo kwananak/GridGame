@@ -52,6 +52,8 @@ func get_input():
 				moving = false
 
 func _unhandled_input(event):
+	if level_manager.game_over:
+		return 
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
 	if event.is_action_pressed("skip_turn"):

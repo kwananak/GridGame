@@ -5,12 +5,14 @@ var level_manager
 var player
 var recharge = 0
 var duration = 0
-var focus = false
+var focus = false : set = set_focus
 var info : String
 var mouse_tip
 var active = false
 var usable = true
 var runed = false
+var mouse_on = false
+var focus_rect = preload("res://Scenes/Programs/focus.tscn")
 
 func _ready():
 	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")
@@ -39,3 +41,16 @@ func cancel_action():
 
 func confirm():
 	pass
+
+func _on_mouse_entered():
+	mouse_on = true
+
+func _on_mouse_exited():
+	mouse_on = false
+
+func set_focus(value):
+	focus = value
+	if focus:
+		add_child(focus_rect.instantiate())
+	else:
+		remove_child($Focus)
