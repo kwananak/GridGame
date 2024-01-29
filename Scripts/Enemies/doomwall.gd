@@ -10,33 +10,40 @@ var adjustment = 0
 var skip_turn = false
 var step
 var distance_to_player
+var section_number = 0
 
+@onready var section_prefab = preload("res://Scenes/Prefabs/doomwall_section.tscn")
 @onready var sprite = $AnimatedSprites
-@onready var section_prefab = preload("res://Scenes/Prefabs/firewall_section.tscn")
+@onready var audio = $AudioStreamPlayer2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	camera = get_tree().get_first_node_in_group("Camera")
 	label = get_tree().get_first_node_in_group("FirewallLabel")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
-	create_wall_sprite()
 	set_collision_shape()
-	step = level_manager.green_firewall_step
+	step = level_manager.green_doomwall_step
 	vision_check()
 
 func _process(delta):
 	if level_manager.vision:
 		update_vision(delta)
+	if position.x + section_number * level_manager.tile_size > camera.position.x - get_viewport_rect().size.x / 4 - 16:
+		create_wall_sprite()
 
 func create_wall_sprite():
 	var height = level_manager.level_height
 	if height < get_viewport_rect().size.y / level_manager.tile_size:
 		height = get_viewport_rect().size.y / level_manager.tile_size
-	for i in height:
+	for h in height:
 		var section = section_prefab.instantiate()
 		sprite.add_child(section)
-		section.position = Vector2(16, i * level_manager.tile_size)
-		section.animation = str(int(i) % 4)
+		section.position = Vector2(16 - section_number * level_manager.tile_size, h * level_manager.tile_size)
+		section.animation = str((int(h) + section_number) % 4)
+		section.modulate.a = 1 - 0.1 * section_number
+		if section.modulate.a < 0.2:
+			section.modulate.a = 0.2
+	section_number += 1
 
 func set_collision_shape():
 	$CollisionShape2D.shape.size = Vector2(30, level_manager.level_height * level_manager.tile_size)
@@ -70,6 +77,9 @@ func _on_area_entered(_area):
 
 # called to change wall position out of turn call
 func move_wall(distance):
+	if distance == 0:
+		return
+	audio.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position",
 				Vector2(position.x + distance * level_manager.tile_size, 0),
@@ -82,3 +92,6 @@ func vision_check():
 	else:
 		var distance = (((player.position.x - position.x) - (int(player.position.x - position.x) % level_manager.tile_size)) / level_manager.tile_size)
 		distance_to_player = snapped(distance, step) / step - 1
+
+func fade_out():
+	create_tween().tween_property($AudioStreamPlayer2D, "volume_db", -100, 2)

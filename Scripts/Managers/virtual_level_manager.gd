@@ -11,14 +11,14 @@ var programs = []
 var vision = false
 var dialogue = false
 var shields = 0 : set = set_shield
-var firewall
+var doomwall
 
-@export var green_firewall_step = 0
-@export var yellow_firewall_step = 1
-@export var red_firewall_step = 2
+@export var green_doomwall_step = 0.0
+@export var yellow_doomwall_step = 1.0
+@export var red_doomwall_step = 2.0
 
 func _ready():
-	firewall = get_tree().get_first_node_in_group("FireWall")
+	doomwall = get_tree().get_first_node_in_group("DoomWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
 	set_remaining_actions(remaining_actions)
@@ -60,7 +60,7 @@ func end_turn():
 		player.move_check(player.step)
 		return
 	turn += 1
-	await firewall.turn_call()
+	await doomwall.turn_call()
 	for node in get_tree().get_nodes_in_group("EndTurn"):
 		# get_tree().create_timer(end_turn_speed).timeout
 		await node.turn_call()
@@ -134,6 +134,7 @@ func set_remaining_actions(value):
 	actions_ui.text = str(remaining_actions)
 
 func on_success(level):
+	doomwall.fade_out()
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	$/root/Main.add_to_levels(level)
 	for a in programs:
