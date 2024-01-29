@@ -94,4 +94,4 @@ func vision_check():
 		distance_to_player = snapped(distance, step) / step - 1
 
 func fade_out():
-	create_tween().tween_property($AudioStreamPlayer2D, "volume_db", -100, 2)
+	create_tween().tween_property($AudioStreamPlayer2D, "volume_db", -80, 1)

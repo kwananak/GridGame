@@ -142,5 +142,7 @@ func on_success(level):
 	super.on_end_tile_entered()
 
 func call_game_over():
+	var audio = get_parent().get_node("AudioStreamPlayer")
+	create_tween().tween_property(audio, "volume_db", -80, 1)
 	player.death_animation()
 	super.call_game_over()
