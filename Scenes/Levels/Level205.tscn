@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="10_2x34x"]
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="11_i3qum"]
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="12_2dfai"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="13_jrmin"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="14_4dn2e"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="14_ad46g"]
 
 [sub_resource type="Curve2D" id="Curve2D_jiynr"]
 
@@ -1140,8 +1140,7 @@ cannon_recharge = 3
 position = Vector2(640, 224)
 path_nodes = [NodePath("../Path2D"), NodePath("../Path2D2")]
 
-[node name="Firewall" parent="." instance=ExtResource("13_jrmin")]
-position = Vector2(-32, 0)
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("14_4dn2e")]
 position = Vector2(64, 64)
+
+[node name="Doomwall" parent="." instance=ExtResource("14_ad46g")]

@@ -9,6 +9,6 @@ func _ready():
 
 # sends freeze strength to firewall and removes item
 func pick_up(area):
-	if area.name != "Firewall":
-		get_tree().get_first_node_in_group("FireWall").freeze = strength
+	if area.name != "Doomwall":
+		get_tree().get_first_node_in_group("DoomWall").freeze = strength
 	queue_free()

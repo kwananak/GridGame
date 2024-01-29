@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="12_gco27"]
 [ext_resource type="PackedScene" uid="uid://c4u78iqhrfrx5" path="res://Scenes/Tiles/Environment/door_tile.tscn" id="13_lxc2a"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="14_2tdu0"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="15_3ii63"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_1mtve"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_8vssl"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="17_vxqgh"]
 
 [node name="Level203" type="Node2D"]
@@ -25,6 +25,7 @@ level_height = 128
 level_number = 203
 
 [node name="UI" parent="." instance=ExtResource("2_uruis")]
+visible = false
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_avub7")]
 
@@ -2883,9 +2884,6 @@ key_type = "blue"
 [node name="HoleTile" parent="GameplayElements" instance=ExtResource("14_2tdu0")]
 position = Vector2(1344, 800)
 
-[node name="Firewall" parent="." instance=ExtResource("15_3ii63")]
-position = Vector2(32, 128)
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("16_1mtve")]
 z_index = 1
 position = Vector2(416, 96)
@@ -2895,3 +2893,5 @@ position = Vector2(608, 512)
 
 [node name="Booster2" parent="." instance=ExtResource("17_vxqgh")]
 position = Vector2(640, 416)
+
+[node name="Doomwall" parent="." instance=ExtResource("17_8vssl")]

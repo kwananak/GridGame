@@ -28,7 +28,7 @@ func _ready():
 func _process(delta):
 	if level_manager.vision:
 		update_vision(delta)
-	if position.x + section_number * level_manager.tile_size > camera.position.x - get_viewport_rect().size.x / 4 - 16:
+	if position.x + section_number * level_manager.tile_size > camera.position.x - get_viewport_rect().size.x / 4 - 32:
 		create_wall_sprite()
 
 func create_wall_sprite():

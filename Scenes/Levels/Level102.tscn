@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_nntdi"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="11_mtm66"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="14_ok7lc"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/doomwall.tscn" id="15_ogkpg"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="15_ogkpg"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="15_x8k8i"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_322l3"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
@@ -1137,11 +1137,11 @@ position = Vector2(1088, 288)
 [node name="CornerWallTile6" parent="Environment/Walls/CornerWalls" instance=ExtResource("7_3kcmw")]
 position = Vector2(1088, 448)
 
-[node name="GameplayElements" type="Node" parent="."]
+[node name="GameplayElements" type="Node2D" parent="."]
 
-[node name="Items" type="Node" parent="GameplayElements"]
+[node name="Items" type="Node2D" parent="GameplayElements"]
 
-[node name="BytesBarrier" type="Node" parent="GameplayElements"]
+[node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="ByteBarrier3" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_h36xc")]
 position = Vector2(320, 192)
@@ -1233,9 +1233,9 @@ position = Vector2(1184, 256)
 [node name="PyramidByteBarrierTile6" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_nntdi")]
 position = Vector2(1152, 224)
 
-[node name="gameplay_tiles" type="Node" parent="GameplayElements"]
+[node name="gameplay_tiles" type="Node2D" parent="GameplayElements"]
 
-[node name="Firewall" parent="GameplayElements/gameplay_tiles" instance=ExtResource("15_ogkpg")]
+[node name="Doomwall" parent="GameplayElements/gameplay_tiles" instance=ExtResource("15_ogkpg")]
 position = Vector2(-32, 224)
 
 [node name="VirtualPlayer" parent="GameplayElements/gameplay_tiles" instance=ExtResource("16_322l3")]

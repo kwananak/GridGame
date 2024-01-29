@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="9_l44yp"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_3vwdb"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/doomwall.tscn" id="15_16rn8"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="15_16rn8"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Horror Vol2 Aliens Cut 60.wav" id="15_461i6"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="15_nk7a5"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="16_0eopj"]
@@ -19,11 +19,12 @@
 [node name="Level101" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_vu8qg")]
-level_height = 24
-level_length = 48
+level_height = 18
+level_length = 42
 level_number = 101
 
 [node name="UI" parent="." instance=ExtResource("2_uibyq")]
+visible = false
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_h648b")]
 
@@ -704,6 +705,10 @@ rotation = -1.5708
 position = Vector2(800, 192)
 rotation = -1.5708
 
+[node name="WallTile51" parent="Environment/Walls" instance=ExtResource("5_g10ts")]
+position = Vector2(128, 320)
+rotation = -1.5708
+
 [node name="CornerWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="CornerWallTile" parent="Environment/Walls/CornerWalls" instance=ExtResource("6_gwap0")]
@@ -760,6 +765,9 @@ position = Vector2(992, 192)
 [node name="PyramidByteBarrierTile2" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_3vwdb")]
 position = Vector2(672, 288)
 
+[node name="VirtualStartTile" parent="GameplayElements" instance=ExtResource("14_0rjlg")]
+position = Vector2(160, 320)
+
 [node name="AccessPoint1" parent="GameplayElements" instance=ExtResource("15_nk7a5")]
 position = Vector2(992, 320)
 unlocks = 102
@@ -776,18 +784,11 @@ position = Vector2(1024, 320)
 [node name="AccessPointKeyPoint4" parent="GameplayElements" instance=ExtResource("16_0eopj")]
 position = Vector2(992, 352)
 
-[node name="Firewall" parent="." instance=ExtResource("15_16rn8")]
+[node name="Doomwall" parent="." instance=ExtResource("15_16rn8")]
 position = Vector2(-32, 0)
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("16_1qfb2")]
 position = Vector2(96, 224)
-
-[node name="VirtualStartTile" parent="." instance=ExtResource("14_0rjlg")]
-position = Vector2(160, 320)
-
-[node name="WallTile" parent="." instance=ExtResource("5_g10ts")]
-position = Vector2(128, 320)
-rotation = 4.71239
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_461i6")

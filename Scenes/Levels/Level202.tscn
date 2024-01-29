@@ -14,19 +14,20 @@
 [ext_resource type="PackedScene" uid="uid://0tdclamt18y7" path="res://Scenes/EnemiesObstaclesTiles/cannon_tile.tscn" id="12_kh3ui"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="13_yxuf5"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="15_hs23i"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="17_b4m6g"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_bwxxr"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_bwxxr"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="18_1umox"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="18_gt83m"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="18_ohdbw"]
 
 [node name="Level202" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_2dx1l")]
-level_height = 200
-level_length = 200
+level_height = 50
+level_length = 100
 level_number = 202
 
 [node name="UI" parent="." instance=ExtResource("2_kynm3")]
+visible = false
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_h3vxv")]
 
@@ -953,9 +954,6 @@ position = Vector2(1024, 832)
 [node name="EndTile6" parent="GameplayElements" instance=ExtResource("15_hs23i")]
 position = Vector2(1024, 800)
 
-[node name="Firewall" parent="." instance=ExtResource("17_b4m6g")]
-position = Vector2(-32, -32)
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("18_1umox")]
 z_index = 1
 position = Vector2(64, 32)
@@ -977,3 +975,5 @@ position = Vector2(448, 288)
 
 [node name="YellowWarningTile5" parent="." instance=ExtResource("18_ohdbw")]
 position = Vector2(448, 320)
+
+[node name="Doomwall" parent="." instance=ExtResource("18_gt83m")]

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_d3jio"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_sudpj"]
-[ext_resource type="PackedScene" uid="uid://cvjovpe2p6kot" path="res://Scenes/Prefabs/firewall.tscn" id="3_18qlb"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_p7uh4"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cvyik"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="4_fw0b7"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="19_wce05"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="20_g6kii"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="21_y5eyb"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="23_565yj"]
 
 [node name="VirtualLevelTemplate" type="Node2D"]
 
@@ -138,9 +138,8 @@ position = Vector2(128, 480)
 [node name="TerminalTile" parent="Trials" instance=ExtResource("21_y5eyb")]
 position = Vector2(160, 448)
 
-[node name="Firewall" parent="." instance=ExtResource("3_18qlb")]
-position = Vector2(-32, 0)
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("4_fw0b7")]
 z_index = 1
 position = Vector2(32, 352)
+
+[node name="Doomwall" parent="." instance=ExtResource("23_565yj")]
