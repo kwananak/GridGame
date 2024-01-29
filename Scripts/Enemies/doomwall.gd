@@ -28,18 +28,18 @@ func _ready():
 func _process(delta):
 	if level_manager.vision:
 		update_vision(delta)
-	if position.x + section_number * level_manager.tile_size > camera.position.x - get_viewport_rect().size.x / 4 - 32:
+	if position.x - section_number * level_manager.tile_size > camera.position.x - get_viewport_rect().size.x / 4 - 32:
 		create_wall_sprite()
 
 func create_wall_sprite():
 	var height = level_manager.level_height
 	if height < get_viewport_rect().size.y / level_manager.tile_size:
 		height = get_viewport_rect().size.y / level_manager.tile_size
-	for h in height:
+	for h in height / 8:
 		var section = section_prefab.instantiate()
 		sprite.add_child(section)
-		section.position = Vector2(16 - section_number * level_manager.tile_size, h * level_manager.tile_size)
-		section.animation = str((int(h) + section_number) % 4)
+		section.position = Vector2(16 - section_number * level_manager.tile_size, h * level_manager.tile_size * 8)
+		section.frame = section_number % 3
 		section.modulate.a = 1 - 0.1 * section_number
 		if section.modulate.a < 0.2:
 			section.modulate.a = 0.2
