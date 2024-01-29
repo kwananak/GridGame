@@ -85,6 +85,7 @@ func on_button_pressed(slot):
 
 func confirm_loadout(slot):
 	var selected_program = available_programs[array_selected].duplicate(15)
+	selected_program.z_index = 0
 	selected_program.position = Vector2.ZERO
 	selected_program.scale = Vector2(1, 1)
 	progress_manager.select_loadout(slot, selected_program)
