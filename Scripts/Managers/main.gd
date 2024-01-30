@@ -3,21 +3,37 @@ extends Node2D
 var real_scene
 var terminal_scene
 var virtual_scene
+var menu
+var menu_audio
+var continue_button
+var new_game_button
 
-@onready var menu = $Menu
-@onready var camera_2d = $Camera2D
+@onready var camera = $Camera2D
 @onready var progress_manager = $ProgressManager
-@onready var continue_button = $Menu/ContinueGame
-@onready var new_game_button = $Menu/NewGame
-@onready var menu_audio = $MenuAudio
 
 func _ready():
-	# await progress_manager.load_game()
-	#if progress_manager.save_point:
-		#continue_button.grab_focus()
-	#else:
-		#continue_button.disabled = true
-	new_game_button.grab_focus()
+	set_menu()
+
+# looks for visible menu (main or debug) and adds needed references
+func set_menu():
+	if $DebugMenu.visible:
+		$MainMenu.visible = false
+		menu = $DebugMenu
+		continue_button = $DebugMenu/ContinueGame
+		new_game_button = $DebugMenu/NewGame
+		new_game_button.grab_focus()
+	else:
+		menu = $MainMenu
+		continue_button = menu.continue_game
+		new_game_button = menu.new_game
+		await progress_manager.load_game()
+		if progress_manager.save_point:
+			continue_button.grab_focus()
+		else:
+			continue_button.disabled = true
+			new_game_button.grab_focus()
+	menu_audio = menu.get_node("MenuAudio")
+	menu_audio.play()
 
 # instantiates chosen level
 func call_level(level_number):
@@ -52,12 +68,12 @@ func call_menu(level_number):
 		get_node("Level" + str(level_number)).queue_free()
 	if real_scene and terminal_scene != null:
 		$RealAudio.play()
-		camera_2d.position = terminal_scene.position + get_viewport_rect().size / 4
+		camera.position = terminal_scene.position + get_viewport_rect().size / 4
 		terminal_scene.get_node("Control/Loadout").set_slots()
 		terminal_scene.visible = true
 		terminal_scene._ready()
 	else:
-		camera_2d.position = get_viewport_rect().size / 4
+		camera.position = get_viewport_rect().size / 4
 		menu.visible = true
 		menu_audio.play()
 		if real_scene:
@@ -79,7 +95,7 @@ func call_terminal_scene(terminal_name):
 	else:
 		terminal_scene = load("res://Scenes/Levels/" + terminal_name + ".tscn").instantiate()
 	add_child(terminal_scene)
-	terminal_scene.position = camera_2d.position - get_viewport_rect().size / 4
+	terminal_scene.position = camera.position - get_viewport_rect().size / 4
 
 # returns to real scene when closing terminal
 func return_to_real_scene():
@@ -93,6 +109,7 @@ func new_game():
 	await progress_manager.reset_programs()
 	call_level(1)
 
+# switches between real levels scenes
 func switch_level(level_number):
 	remove_child(real_scene)
 	real_scene.queue_free()
@@ -100,11 +117,13 @@ func switch_level(level_number):
 	progress_manager.save_point = real_scene.name
 	progress_manager.save_game()
 
+# passthrough function from level manager to progress manager adding active real scene to save point
 func add_to_levels(level):
 	if real_scene == null:
 		return
 	progress_manager.add_to_levels(level, real_scene.name)
 
+# returns player to game, either to loaded scene or to save point if no scene is loaded
 func continue_game():
 	if !real_scene:
 		await progress_manager.load_game()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=12 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
+[ext_resource type="PackedScene" uid="uid://com1wps1gaayy" path="res://Scenes/Menus/main_menu.tscn" id="3_tujkf"]
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="5_6upos"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Broken Circuit.wav" id="5_q3jo6"]
@@ -15,16 +16,26 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mdavh")
 
-[node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
-position = Vector2(360, 200)
-anchor_mode = 1
-zoom = Vector2(2, 2.025)
+[node name="MainMenu" parent="." instance=ExtResource("3_tujkf")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 1439.0
+offset_bottom = 807.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
-[node name="Menu" type="Control" parent="."]
+[node name="DebugMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Level102Button" type="Button" parent="Menu"]
+[node name="Level102Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 159.0
@@ -33,7 +44,7 @@ offset_right = 239.0
 offset_bottom = 65.0
 text = "Level 102"
 
-[node name="Level101Button" type="Button" parent="Menu"]
+[node name="Level101Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 159.0
@@ -42,7 +53,7 @@ offset_right = 239.0
 offset_bottom = 42.0
 text = "Level 101"
 
-[node name="Level201Button" type="Button" parent="Menu"]
+[node name="Level201Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 260.0
@@ -51,7 +62,7 @@ offset_right = 322.0
 offset_bottom = 38.0
 text = "Level 201"
 
-[node name="Level204Button" type="Button" parent="Menu"]
+[node name="Level204Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 260.0
@@ -60,7 +71,7 @@ offset_right = 340.0
 offset_bottom = 130.0
 text = "Level 204"
 
-[node name="Level205Button" type="Button" parent="Menu"]
+[node name="Level205Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 260.0
@@ -69,7 +80,7 @@ offset_right = 340.0
 offset_bottom = 160.0
 text = "Level 205"
 
-[node name="Level2Button" type="Button" parent="Menu"]
+[node name="Level2Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 551.0
@@ -78,7 +89,7 @@ offset_right = 613.0
 offset_bottom = 253.0
 text = "Level 7"
 
-[node name="Level7Button" type="Button" parent="Menu"]
+[node name="Level7Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 552.0
@@ -87,7 +98,7 @@ offset_right = 614.0
 offset_bottom = 218.0
 text = "Level 2"
 
-[node name="Level8Button" type="Button" parent="Menu"]
+[node name="Level8Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 552.0
@@ -96,7 +107,7 @@ offset_right = 614.0
 offset_bottom = 286.0
 text = "Level 8"
 
-[node name="Level9Button" type="Button" parent="Menu"]
+[node name="Level9Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 551.0
@@ -105,7 +116,7 @@ offset_right = 613.0
 offset_bottom = 318.0
 text = "Level 9"
 
-[node name="Level10Button" type="Button" parent="Menu"]
+[node name="Level10Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 551.0
@@ -114,7 +125,7 @@ offset_right = 622.0
 offset_bottom = 347.0
 text = "Level 10"
 
-[node name="Level203Button" type="Button" parent="Menu"]
+[node name="Level203Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 259.0
@@ -123,7 +134,7 @@ offset_right = 339.0
 offset_bottom = 101.0
 text = "Level 203"
 
-[node name="Level202Button" type="Button" parent="Menu"]
+[node name="Level202Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 258.0
@@ -132,7 +143,7 @@ offset_right = 321.0
 offset_bottom = 69.0
 text = "Level 202"
 
-[node name="VirtualTestLevelButton" type="Button" parent="Menu"]
+[node name="VirtualTestLevelButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 18.0
@@ -141,7 +152,7 @@ offset_right = 159.0
 offset_bottom = 314.0
 text = "Virtual Test Level"
 
-[node name="RealTestLevelButton" type="Button" parent="Menu"]
+[node name="RealTestLevelButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 18.0
@@ -150,7 +161,7 @@ offset_right = 141.0
 offset_bottom = 256.0
 text = "Real Test Level"
 
-[node name="QuitButton" type="Button" parent="Menu"]
+[node name="QuitButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 290.0
@@ -159,7 +170,7 @@ offset_right = 402.0
 offset_bottom = 377.0
 text = "Quit"
 
-[node name="NewGame" type="Button" parent="Menu"]
+[node name="NewGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 46.0
@@ -167,7 +178,7 @@ offset_right = 137.0
 offset_bottom = 77.0
 text = "New Game"
 
-[node name="ContinueGame" type="Button" parent="Menu"]
+[node name="ContinueGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 83.0
@@ -175,7 +186,7 @@ offset_right = 139.0
 offset_bottom = 114.0
 text = "Continue Game"
 
-[node name="ResolutionModeButton" parent="Menu" instance=ExtResource("7_fg0yk")]
+[node name="ResolutionModeButton" parent="DebugMenu" instance=ExtResource("7_fg0yk")]
 layout_mode = 1
 offset_left = 408.0
 offset_top = 11.0
@@ -183,7 +194,7 @@ offset_right = 408.0
 offset_bottom = 11.0
 scale = Vector2(0.5, 0.5)
 
-[node name="WindowModeButton" parent="Menu" instance=ExtResource("6_a7415")]
+[node name="WindowModeButton" parent="DebugMenu" instance=ExtResource("6_a7415")]
 layout_mode = 1
 offset_left = 408.0
 offset_top = 56.0
@@ -191,13 +202,19 @@ offset_right = 408.0
 offset_bottom = 56.0
 scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Menu"]
+[node name="Sprite2D" type="Sprite2D" parent="DebugMenu"]
 position = Vector2(360, 222)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_6upos")
 
-[node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
-position = Vector2(0, 0)
+[node name="MenuAudio" type="AudioStreamPlayer" parent="DebugMenu"]
+stream = ExtResource("5_q3jo6")
+volume_db = -10.805
+
+[node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
+position = Vector2(360, 200)
+anchor_mode = 1
+zoom = Vector2(2, 2.025)
 
 [node name="MouseToolTip" type="Area2D" parent="." groups=["MouseToolTip"]]
 z_index = 99
@@ -215,27 +232,25 @@ offset_right = 104.0
 offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 
-[node name="MenuAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_q3jo6")
-volume_db = -10.805
-autoplay = true
+[node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
+position = Vector2(0, 0)
 
 [node name="FramedChecker" parent="." instance=ExtResource("9_yo8bd")]
 
-[connection signal="pressed" from="Menu/Level102Button" to="." method="call_level" binds= [102]]
-[connection signal="pressed" from="Menu/Level101Button" to="." method="call_level" binds= [101]]
-[connection signal="pressed" from="Menu/Level201Button" to="." method="call_level" binds= [201]]
-[connection signal="pressed" from="Menu/Level204Button" to="." method="call_level" binds= [204]]
-[connection signal="pressed" from="Menu/Level205Button" to="." method="call_level" binds= [205]]
-[connection signal="pressed" from="Menu/Level2Button" to="." method="call_level"]
-[connection signal="pressed" from="Menu/Level7Button" to="." method="call_level" binds= [2]]
-[connection signal="pressed" from="Menu/Level8Button" to="." method="call_level" binds= [8]]
-[connection signal="pressed" from="Menu/Level9Button" to="." method="call_level" binds= [9]]
-[connection signal="pressed" from="Menu/Level10Button" to="." method="call_level" binds= [10]]
-[connection signal="pressed" from="Menu/Level203Button" to="." method="call_level" binds= [203]]
-[connection signal="pressed" from="Menu/Level202Button" to="." method="call_level" binds= [202]]
-[connection signal="pressed" from="Menu/VirtualTestLevelButton" to="." method="call_level" binds= [100]]
-[connection signal="pressed" from="Menu/RealTestLevelButton" to="." method="call_level" binds= [0]]
-[connection signal="pressed" from="Menu/QuitButton" to="." method="call_quit"]
-[connection signal="pressed" from="Menu/NewGame" to="." method="new_game"]
-[connection signal="pressed" from="Menu/ContinueGame" to="." method="continue_game"]
+[connection signal="pressed" from="DebugMenu/Level102Button" to="." method="call_level" binds= [102]]
+[connection signal="pressed" from="DebugMenu/Level101Button" to="." method="call_level" binds= [101]]
+[connection signal="pressed" from="DebugMenu/Level201Button" to="." method="call_level" binds= [201]]
+[connection signal="pressed" from="DebugMenu/Level204Button" to="." method="call_level" binds= [204]]
+[connection signal="pressed" from="DebugMenu/Level205Button" to="." method="call_level" binds= [205]]
+[connection signal="pressed" from="DebugMenu/Level2Button" to="." method="call_level"]
+[connection signal="pressed" from="DebugMenu/Level7Button" to="." method="call_level" binds= [2]]
+[connection signal="pressed" from="DebugMenu/Level8Button" to="." method="call_level" binds= [8]]
+[connection signal="pressed" from="DebugMenu/Level9Button" to="." method="call_level" binds= [9]]
+[connection signal="pressed" from="DebugMenu/Level10Button" to="." method="call_level" binds= [10]]
+[connection signal="pressed" from="DebugMenu/Level203Button" to="." method="call_level" binds= [203]]
+[connection signal="pressed" from="DebugMenu/Level202Button" to="." method="call_level" binds= [202]]
+[connection signal="pressed" from="DebugMenu/VirtualTestLevelButton" to="." method="call_level" binds= [100]]
+[connection signal="pressed" from="DebugMenu/RealTestLevelButton" to="." method="call_level" binds= [0]]
+[connection signal="pressed" from="DebugMenu/QuitButton" to="." method="call_quit"]
+[connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
+[connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]

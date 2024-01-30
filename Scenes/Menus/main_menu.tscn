@@ -13,19 +13,16 @@ gradient = SubResource("Gradient_julvj")
 fill_from = Vector2(0.034188, 0.940171)
 
 [node name="MainMenu" type="Control"]
+custom_minimum_size = Vector2(1440, 810)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1440.0
+offset_bottom = 810.0
 script = ExtResource("1_jh7c5")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2adp0")
-volume_db = -10.805
-
 [node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1440, 810)
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,43 +39,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 360
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(712, 192)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 74
+alignment = 1
+
+[node name="Sprite2D" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_sdes2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[node name="ContinueGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
+[node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Load Game"
+text = "Continue Game"
 
-[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Options
 "
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -88,7 +91,11 @@ text = "Quit"
 visible = false
 layout_mode = 1
 
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_on_load_game_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[node name="MenuAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2adp0")
+volume_db = -10.805
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_continue_game_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
