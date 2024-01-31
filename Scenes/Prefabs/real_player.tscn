@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://db5mn4e7dyins"]
+[gd_scene load_steps=15 format=3 uid="uid://db5mn4e7dyins"]
 
 [ext_resource type="Script" path="res://Scripts/Player/real_player.gd" id="1_cbmbe"]
 [ext_resource type="Texture2D" uid="uid://bpy3437n2sb7v" path="res://Sprites/Character/real_character_idle.png" id="3_m3jpo"]
+[ext_resource type="Texture2D" uid="uid://fr2nf4qwo5mk" path="res://Sprites/Character/real_character_move.png" id="3_wupqg"]
+[ext_resource type="AudioStream" uid="uid://dmkntbjj7opfe" path="res://Sounds/real_footsteps.wav" id="4_26wwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
@@ -22,6 +24,22 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("3_m3jpo")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_53alr"]
+atlas = ExtResource("3_wupqg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyf3l"]
+atlas = ExtResource("3_wupqg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odlkm"]
+atlas = ExtResource("3_wupqg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ch8y"]
+atlas = ExtResource("3_wupqg")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_85hmi"]
 animations = [{
 "frames": [{
@@ -40,6 +58,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53alr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odlkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ch8y")
+}],
+"loop": true,
+"name": &"move",
+"speed": 12.0
 }]
 
 [node name="RealPlayer" type="Area2D" groups=["Player", "RealPlayer"]]
@@ -61,3 +96,8 @@ collide_with_areas = true
 sprite_frames = SubResource("SpriteFrames_85hmi")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_26wwy")
+volume_db = -10.0
+pitch_scale = 0.86

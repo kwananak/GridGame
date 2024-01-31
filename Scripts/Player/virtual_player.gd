@@ -17,6 +17,7 @@ var step = 1
 var possible_moves
 var row_checker
 var teleport = false
+var saved_frame = 0
 
 @onready var grapple_tip = preload("res://Scenes/Prefabs/grapple_tip.tscn")
 @onready var grapple_section = preload("res://Scenes/Prefabs/grapple_section.tscn")
@@ -112,9 +113,11 @@ func move(pos):
 		var tween = create_tween().tween_property(animated_sprite_2d, "position",
 				Vector2.ZERO,
 				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-		animated_sprite_2d.play("move")
 		$Footsteps.play()
+		animated_sprite_2d.play("move")
+		animated_sprite_2d.frame = saved_frame
 		await tween.finished
+		saved_frame = animated_sprite_2d.frame
 		animated_sprite_2d.play("idle")
 		$Footsteps.stop()
 	if waiting_for_action != null:

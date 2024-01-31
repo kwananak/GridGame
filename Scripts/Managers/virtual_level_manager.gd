@@ -134,6 +134,8 @@ func set_remaining_actions(value):
 	actions_ui.text = str(remaining_actions)
 
 func on_success(level):
+	var audio = get_parent().get_node("AudioStreamPlayer")
+	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
 	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	$/root/Main.add_to_levels(level)

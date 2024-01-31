@@ -4,7 +4,7 @@ var selection_opened = null
 var available_programs
 var array_selected
 var loaded_slots = 0
-var max_loads = 3
+var max_loads = 0
 var rune_mode = null
 
 var progress_manager
@@ -35,7 +35,7 @@ func set_slots():
 				v.global_position = n.global_position + Vector2(16, 16)
 				if v.get_child_count() > 0:
 					loaded_slots += 1
-	$Label.text = "available loads: " + str(max_loads - loaded_slots)
+	$Label.text = "available: " + str(max_loads - loaded_slots)
 
 func _unhandled_input(event):
 	if selection_opened == null:
