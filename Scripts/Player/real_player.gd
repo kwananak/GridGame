@@ -16,14 +16,16 @@ func get_input(delta):
 	if level_manager.game_over || level_manager.paused || !active:
 		return
 	var input_direction  = Input.get_vector("left", "right", "up", "down")
-	if input_direction == Vector2.ZERO:
-		animated_sprite_2d.animation = "idle"
-		
-	else:
-		if animated_sprite_2d.animation != "move":
-			animated_sprite_2d.animation = "move"
+	if input_direction != Vector2.ZERO:
+		animated_sprite_2d.animation = "move"
+		if !animated_sprite_2d.is_playing():
+				animated_sprite_2d.play()
 		if !$Footsteps.is_playing():
 			$Footsteps.play()
+	else:
+		animated_sprite_2d.animation = "idle";
+		if !animated_sprite_2d.is_playing():
+				animated_sprite_2d.play()
 	if input_direction.x < 0:
 		animated_sprite_2d.flip_h = true
 	if input_direction.x > 0:
@@ -37,8 +39,6 @@ func _input(_event):
 
 # free roam movements
 func move(dir, delta):
-	if animated_sprite_2d.animation != "move":
-		animated_sprite_2d.animation = "move" 
 	position += dir * speed * delta
 
 # called when entering a level for a little walk-in animation

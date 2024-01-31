@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/real_player.gd" id="1_cbmbe"]
 [ext_resource type="Texture2D" uid="uid://bpy3437n2sb7v" path="res://Sprites/Character/real_character_idle.png" id="3_m3jpo"]
-[ext_resource type="Texture2D" uid="uid://fr2nf4qwo5mk" path="res://Sprites/Character/real_character_move.png" id="3_wupqg"]
-[ext_resource type="AudioStream" uid="uid://dmkntbjj7opfe" path="res://Sounds/real_footsteps.wav" id="4_26wwy"]
+[ext_resource type="Texture2D" uid="uid://cnl8do8k5n1a5" path="res://Sprites/Character/real_character_move.png" id="3_wupqg"]
+[ext_resource type="AudioStream" uid="uid://dmkntbjj7opfe" path="res://Sounds/Player/real_footsteps.wav" id="4_26wwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
@@ -24,19 +24,19 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("3_m3jpo")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53alr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_374qm"]
 atlas = ExtResource("3_wupqg")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uyf3l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_flriu"]
 atlas = ExtResource("3_wupqg")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_odlkm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpjyo"]
 atlas = ExtResource("3_wupqg")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ch8y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip7ur"]
 atlas = ExtResource("3_wupqg")
 region = Rect2(32, 32, 32, 32)
 
@@ -61,18 +61,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53alr")
+"texture": SubResource("AtlasTexture_374qm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uyf3l")
+"texture": SubResource("AtlasTexture_flriu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_odlkm")
+"texture": SubResource("AtlasTexture_lpjyo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ch8y")
+"texture": SubResource("AtlasTexture_ip7ur")
 }],
-"loop": true,
+"loop": false,
 "name": &"move",
 "speed": 12.0
 }]
@@ -94,7 +94,7 @@ collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
