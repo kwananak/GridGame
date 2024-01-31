@@ -15,6 +15,7 @@ var prog_load
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	max_loads = progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
 	prog_load = progress_manager.get_node("Loadout")
 	info = get_parent().get_node("Info/Label")
 	await get_tree().create_timer(0.02).timeout

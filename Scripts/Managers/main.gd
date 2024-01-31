@@ -60,6 +60,7 @@ func call_menu(level_number):
 	if level_number == 100:
 		get_node("VirtualTestLevel").queue_free()
 	elif level_number == 0:
+		$RealAudio.stop()
 		get_node("RealTestLevel").queue_free()
 	elif level_number < 100:
 		remove_child(real_scene)

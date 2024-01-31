@@ -3,6 +3,7 @@ extends Node2D
 var levels = []
 var doors = []
 var save_point
+@onready var amplifiers = $OwnedPrograms/Amplifiers
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program):
@@ -23,6 +24,12 @@ func add_to_levels(level_unlocked, real_level):
 	else:
 		if level_unlocked not in doors:
 			doors += [str(level_unlocked)]
+	save_game()
+
+func add_amplifier(amp):
+	amplifiers.call_deferred("add_child", amp)
+	save_point = $/root/Main.real_scene.name
+	await get_tree().create_timer(0.05).timeout
 	save_game()
 
 # adds selected program from terminal to loadout
@@ -167,22 +174,28 @@ func load_game():
 				continue
 			_: 
 				for o in data[n]:
-					if o == "Runes":
-						if data[n][o] == ["empty"]:
-							continue
-						for i in data[n][o].size():
-							get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
-					else:
-						for p in data[n][o]:
-							if p != "empty":
-								if p.ends_with("runed"):
-									var s = p.get_slice("_", 0)
-									var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()
-									get_node(n).get_node(o).add_child(v)
-									v.add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
-									v.runed = true
-								else:
-									if o == "LeftHand" || o == "RightHand":
-										get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
-										continue
-									get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())
+					match o:
+						"Runes":
+							if data[n][o] == ["empty"]:
+								continue
+							for i in data[n][o].size():
+								get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+						"Amplifiers":
+							if data[n][o] == ["empty"]:
+								continue
+							for p in data[n][o]:
+								get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Amplifiers/" + p + ".tscn").instantiate())
+						_:
+							for p in data[n][o]:
+								if p != "empty":
+									if p.ends_with("runed"):
+										var s = p.get_slice("_", 0)
+										var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()
+										get_node(n).get_node(o).add_child(v)
+										v.add_child(load("res://Scenes/Programs/Runes/Rune.tscn").instantiate())
+										v.runed = true
+									else:
+										if o == "LeftHand" || o == "RightHand":
+											get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
+											continue
+										get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())
