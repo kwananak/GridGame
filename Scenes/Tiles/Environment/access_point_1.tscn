@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point.gd" id="1_ec2s4"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="2_nom5u"]
-[ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/Laser Rifle Shot Single A.wav" id="3_hidml"]
-[ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/Rocket Explosion A.wav" id="4_q1cix"]
+[ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="3_hidml"]
+[ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="4_q1cix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ww"]
 
@@ -227,6 +227,7 @@ animations = [{
 }]
 
 [node name="AccessPoint1" type="Area2D" groups=["AccessPoint"]]
+z_index = 30
 script = ExtResource("1_ec2s4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
