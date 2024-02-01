@@ -32,7 +32,7 @@ func activate_program_bar():
 	program_bar.show()
 
 func _input(event):
-	if player.moving || level_manager.game_over:
+	if player.moving || level_manager.game_over || level_manager.paused:
 		return
 	for slot in program_bar.get_children():
 		if slot.name == "Labels" || slot.name == "Brain" || slot.get_child_count() == 0:

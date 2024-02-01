@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://civwfn34e75v4"]
+[gd_scene load_steps=12 format=3 uid="uid://civwfn34e75v4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_area.gd" id="1_2n5ki"]
 [ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="2_q1vr2"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="3_12lq0"]
+[ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="3_gkqrr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88q1m"]
 atlas = ExtResource("3_12lq0")
@@ -76,11 +77,12 @@ scale = Vector2(4, 4)
 [node name="Label" type="RichTextLabel" parent="Bubble"]
 visible = false
 offset_left = 3.0
-offset_top = 3.0
-offset_right = 733.0
-offset_bottom = 205.0
-scale = Vector2(0.125, 0.125)
-theme_override_font_sizes/normal_font_size = 40
+offset_top = 4.0
+offset_right = 1818.0
+offset_bottom = 464.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/normal_font = ExtResource("3_gkqrr")
+theme_override_font_sizes/normal_font_size = 120
 
 [node name="Button" type="Button" parent="Bubble"]
 visible = false
