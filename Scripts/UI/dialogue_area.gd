@@ -87,7 +87,7 @@ func remove_bubble():
 	bubble.hide()
 	if related_node:
 		highlight.hide()
-		await create_tween().tween_property(camera, "position", camera_spot, 0.4).finished
+		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(player.position), 0.4).finished
 	level_manager.dialogue = false
 	level_manager.paused = false
 	player.get_node("PossibleMoves").show()
