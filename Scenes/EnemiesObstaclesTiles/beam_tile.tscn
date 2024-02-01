@@ -40,17 +40,21 @@ animations = [{
 }]
 
 [node name="BeamTile" type="Area2D" groups=["AStarGridSolid", "EndTurn", "Hittable"]]
+z_index = 30
 collision_mask = 4
 script = ExtResource("1_py5i8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xqu2r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
-sprite_frames = SubResource("SpriteFrames_buoya")
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(32, 0)
+collide_with_areas = true
 
 [node name="Beam" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_buoya")
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -65,9 +69,5 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "1  2"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(32, 0)
-collide_with_areas = true
 
 [connection signal="area_entered" from="." to="." method="hit_by_player"]

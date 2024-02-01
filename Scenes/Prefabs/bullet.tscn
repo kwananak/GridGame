@@ -28,12 +28,17 @@ animations = [{
 }]
 
 [node name="Bullet" type="Area2D" groups=["Bullet"]]
+z_index = 30
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_4ny12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tysij")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 2
+collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dewh")
@@ -50,9 +55,5 @@ offset_top = -16.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 2
-collide_with_areas = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
