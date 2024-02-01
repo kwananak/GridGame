@@ -77,6 +77,7 @@ func act(dir):
 	for n in possible_moves:
 		n.hide()
 	if !waiting_for_action:
+		play_hit()
 		await dir.available_action.hit_by_player(strength)
 	else:
 		match waiting_for_action.name:
@@ -90,6 +91,12 @@ func act(dir):
 	waiting_for_action = null
 	await get_tree().create_timer(0.1).timeout
 	await level_manager.end_turn()
+
+func play_hit():
+	animated_sprite_2d.animation = "hit"
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.animation = "idle"
+	animated_sprite_2d.play()
 
 # grid based character movement to available checked locations
 func move(pos):
@@ -236,6 +243,8 @@ func projectile_check(program):
 # hits a tile away in all direction
 func circle_hit(whip_strength):
 	moving = true
+	for n in possible_moves:
+		n.hide()
 	animated_sprite_2d.animation = "circle_whip"
 	await animated_sprite_2d.animation_finished
 	var tween = create_tween()
@@ -285,6 +294,9 @@ func grapple_check(distance):
 # executes grapple towards chosen direction
 # deals with player animation and hitting destination (if hittable)
 func grapple_hit(dir):
+	moving = true
+	for n in possible_moves:
+		n.hide()
 	var grapple = []
 	var tip = grapple_tip.instantiate()
 	var destination = dir.position / level_manager.tile_size
@@ -374,8 +386,9 @@ func get_hit():
 	var temp_move = moving
 	moving = true
 	animated_sprite_2d.animation = "get_hit"
-	await get_tree().create_timer(0.2).timeout
+	await animated_sprite_2d.animation_finished
 	animated_sprite_2d.animation = "idle"
+	animated_sprite_2d.play()
 	moving = temp_move
 
 func enter_level_animation():
