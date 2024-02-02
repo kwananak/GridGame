@@ -11,6 +11,7 @@ var view_margin
 var real_done
 
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
+@export var level_name : String
 @export var level_height = 32
 @export var level_length = 128
 @export var level_number = 0
@@ -101,6 +102,8 @@ func _on_button_pressed():
 	if real_done:
 		$/root/Main.switch_level(real_done)
 	else:
+		if camera.get_child_count() > 0:
+			camera.remove_child(camera.get_child(0))
 		$/root/Main.call_menu(level_number)
 
 # listens for spacebar to quit the game when game is over

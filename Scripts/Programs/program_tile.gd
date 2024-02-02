@@ -10,6 +10,10 @@ var program
 @onready var animation_player = $AnimatedSprite2D/AnimationPlayer
 
 func _ready():
+	for n in get_tree().get_first_node_in_group("ProgressManager").get_node("OwnedPrograms/" + program_slot).get_children():
+		if n.name == program_type:
+			queue_free()
+			return
 	program = load("res://Scenes/Programs/" + program_slot + "/" + program_type +  ".tscn").instantiate()
 	$AnimatedSprite2D.add_child(program)
 	name_label.text = program_type.to_upper()

@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="15_ogkpg"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="15_x8k8i"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_322l3"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
 [ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="17_hddu5"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="18_btckl"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="18_h36xc"]
@@ -40,9 +40,11 @@ size = Vector2(20, 106)
 [node name="Level102" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_kk2b3")]
+skip_dialogues = true
 yellow_doomwall_step = 0.75
+level_name = "Level 102"
 level_height = 20
-level_length = 60
+level_length = 64
 level_number = 102
 
 [node name="UI" parent="." instance=ExtResource("2_v47gn")]

@@ -1,6 +1,8 @@
 extends "res://Scripts/Managers/level_manager.gd"
 
 var turn = 0
+var time_elapsed = 0.0
+var barriers_down = 0
 var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
@@ -13,9 +15,12 @@ var dialogue = false
 var shields = 0 : set = set_shield
 var doomwall
 
+@export var skip_dialogues = false
 @export var green_doomwall_step = 0.0
 @export var yellow_doomwall_step = 1.0
 @export var red_doomwall_step = 2.0
+
+@onready var summary_prefab = preload("res://Scenes/UI/level_summary.tscn")
 
 func _ready():
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
@@ -25,6 +30,7 @@ func _ready():
 	super._ready()
 
 func _process(delta):
+	time_elapsed += delta
 	if dialogue:
 		ui.position = camera.position
 		return
@@ -134,17 +140,28 @@ func set_remaining_actions(value):
 	actions_ui.text = str(remaining_actions)
 
 func on_success(level):
+	game_over = true
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
-	var progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	$/root/Main.add_to_levels(level)
 	for a in programs:
-		progress_manager.add_to_programs(a[0], a[1])
-	super.on_end_tile_entered()
+		get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1])
+	display_summary()
 
 func call_game_over():
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	create_tween().tween_property(audio, "volume_db", -80, 1)
 	player.death_animation()
 	super.call_game_over()
+
+func display_summary():
+	var summary = summary_prefab.instantiate()
+	var body = "Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) + "\nBarriers: " + str(barriers_down)
+	for a in programs:
+		body += "\n" + a[0] + " Aquired: " + a[1].name
+	summary.get_node("Title").text = level_name
+	summary.get_node("Body").text = body
+	camera.add_child(summary)
+	ui.hide()
+	ui.get_node("ProgramBar").queue_free()

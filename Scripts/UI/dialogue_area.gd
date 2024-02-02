@@ -25,6 +25,9 @@ func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 
 func _on_area_entered(_area):
+	if level_manager.skip_dialogues:
+		queue_free()
+		return
 	player.get_node("PossibleMoves").hide()
 	level_manager.dialogue = self
 	level_manager.paused = true

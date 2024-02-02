@@ -23,6 +23,7 @@ func _ready():
 # matches visual to strength and creates explosion on destruction
 func match_strength(value):
 	if value <= 0:
+		level_manager.barriers_down += 1
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
 		await spawn_explosion()
 		queue_free()
