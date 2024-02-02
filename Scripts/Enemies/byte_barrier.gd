@@ -14,7 +14,7 @@ func _ready():
 	strength = byte_type
 	$Audio.pitch_scale -= float(byte_type) / 5
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
-	if get_tree().get_first_node_in_group("VirtualLevelManager").vision:
+	if level_manager.vision:
 		label.rotation = -rotation
 		label.global_position += Vector2(-16, -16)
 		label.text = str(strength)

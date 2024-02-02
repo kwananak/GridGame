@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=13 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -7,17 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="7_s407l"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="8_wd5ix"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="10_b2rqp"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="11_f4qlo"]
-[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="12_6y6uk"]
-[ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="13_15aor"]
-[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="14_orvur"]
-[ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="15_jtquy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3rb2"]
-size = Vector2(10, 131)
+[ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="12_6j7m5"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -69,26 +63,5 @@ position = Vector2(160, 128)
 [node name="ByteBarrier1" parent="." instance=ExtResource("10_b2rqp")]
 position = Vector2(256, 224)
 
-[node name="DialogueArea" parent="." node_paths=PackedStringArray("related_node") instance=ExtResource("12_6y6uk")]
-position = Vector2(192, 224)
-scale = Vector2(1.91821, 0.957447)
-text = Array[String](["hello $my$ friend", "a blaga blaga bou"])
-related_node = NodePath("../ByteBarrier1")
-highlight_color = "yellow"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
-position = Vector2(6, -15.5)
-scale = Vector2(1.01133, 1)
-shape = SubResource("RectangleShape2D_n3rb2")
-
-[node name="ArmorTile" parent="." instance=ExtResource("13_15aor")]
-position = Vector2(256, 64)
-select_program = "Diamond"
-
-[node name="HandsTile" parent="." instance=ExtResource("14_orvur")]
-position = Vector2(320, 128)
-select_program = "GrapplingTool"
-
-[node name="GogglesTile" parent="." instance=ExtResource("15_jtquy")]
+[node name="MobileBarrier" parent="." instance=ExtResource("12_6j7m5")]
 position = Vector2(224, 224)
-select_program = "Vision"

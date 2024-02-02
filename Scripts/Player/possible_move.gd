@@ -42,6 +42,11 @@ func check_collision(collision):
 				if !collision.opened || get_tree().get_first_node_in_group("VirtualLevelManager").floating:
 					possible = true
 					return
+			"mobile":
+				if !collision.moved:
+					if collision.check_move(player.global_position):
+						possible = true
+						return
 	available_action = null
 
 func reset():

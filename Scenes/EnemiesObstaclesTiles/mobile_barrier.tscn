@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cirbl62x83gv0"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/mobile_barrier.gd" id="1_qidld"]
+[ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_4qa7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8qlw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd1w8"]
+atlas = ExtResource("2_4qa7m")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqquc"]
+atlas = ExtResource("2_4qa7m")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvqsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd1w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqquc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MobileBarrier" type="Area2D"]
+collision_mask = 7
+script = ExtResource("1_qidld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k8qlw")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uvqsq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
