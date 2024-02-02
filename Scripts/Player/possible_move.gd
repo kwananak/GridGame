@@ -1,8 +1,9 @@
-extends Node2D
+extends Area2D
 
 var possible = false : set = set_possible
 var available_action = null : set = set_available_action
 var player
+var moused = false
 
 @export var dir : Vector2
 
@@ -68,3 +69,9 @@ func set_available_action(value):
 		return
 	$AnimatedSprite2D.animation = "hit"
 	show()
+
+func _on_mouse_entered():
+	moused = true
+
+func _on_mouse_exited():
+	moused = false

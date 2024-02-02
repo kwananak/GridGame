@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3k6pd56xjakj"]
+[gd_scene load_steps=11 format=3 uid="uid://d3k6pd56xjakj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/possible_move.gd" id="1_rtxwk"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="2_y1uxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv3a2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7e5v"]
 atlas = ExtResource("2_y1uxi")
@@ -58,11 +60,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PossibleMove" type="Node2D"]
+[node name="PossibleMove" type="Area2D"]
+collision_layer = 256
+collision_mask = 256
 script = ExtResource("1_rtxwk")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.55, 1.55)
+shape = SubResource("RectangleShape2D_fv3a2")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 4.71239
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_p3fjg")
 animation = &"hit"
 autoplay = "move"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
