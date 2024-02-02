@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=27 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kk2b3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_v47gn"]
@@ -35,10 +35,11 @@ size = Vector2(85, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gbwt"]
 size = Vector2(20, 106)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_komys"]
+
 [node name="Level102" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_kk2b3")]
-skip_dialogues = true
 yellow_doomwall_step = 0.75
 level_name = "Level 102"
 level_height = 20
@@ -1504,6 +1505,7 @@ autoplay = true
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pl57v")]
 text = Array[String](["The red $Byte Barrier$ seem harder to break up.."])
 related_node = NodePath("../../GameplayElements/BytesBarrier/DialogueByteBarrier8")
+text_speed = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
 position = Vector2(352, 224)
@@ -1512,6 +1514,7 @@ shape = SubResource("RectangleShape2D_cinpk")
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pl57v")]
 text = Array[String](["What is this $orange lazer field$?", "Must not be good..."])
 related_node = NodePath("../../GameplayElements/gameplay_tiles/DialogueYellowWarningTile2")
+text_speed = 30
 highlight_color = "orange"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
@@ -1523,16 +1526,28 @@ position = Vector2(864, 256)
 shape = SubResource("RectangleShape2D_q66jl")
 
 [node name="DialogueArea4" parent="Dialogue" instance=ExtResource("19_pl57v")]
+text = Array[String](["I think something is coming?", "My meter in the botom left tell me something is wrong.", "I think they know I'm here.", "Better be faster.."])
+text_speed = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea4"]
 position = Vector2(1248, 320)
 shape = SubResource("RectangleShape2D_7605l")
 
 [node name="DialogueArea5" parent="Dialogue" instance=ExtResource("19_pl57v")]
+text = Array[String](["Oh! This look good.", "It's a $ goggles program$.", "Those will help me get stronger in the virtual world."])
+text_speed = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea5"]
 position = Vector2(1504, 224)
 shape = SubResource("RectangleShape2D_4gbwt")
+
+[node name="DialogueArea" parent="Dialogue" instance=ExtResource("19_pl57v")]
+text = Array[String](["Ok got it.", "Time to leave!"])
+text_speed = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(1600, 96)
+shape = SubResource("RectangleShape2D_komys")
 
 [node name="RedWarningTile" parent="." instance=ExtResource("20_vo3p2")]
 position = Vector2(1824, 192)
