@@ -17,7 +17,7 @@ func _ready():
 func activate_program_bar():
 	for n in program_bar.get_children():
 		match n.name:
-			"Labels":
+			"Labels", "Sprite2D":
 				continue
 			_:
 				var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
