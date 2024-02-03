@@ -20,8 +20,8 @@ func check_collision(collision):
 					available_action = collision
 					return
 			"chip":
-					possible = true
-					return
+				possible = true
+				return
 			"door":
 				if collision.unlocked:
 					possible = true

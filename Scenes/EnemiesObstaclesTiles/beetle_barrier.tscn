@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8dillckgahw2"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/beetle_barrier.gd" id="1_st86p"]
+[ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_1qlt0"]
+[ext_resource type="AudioStream" uid="uid://cq7i8yfcfij0k" path="res://Sounds/FX/barrier_hit.mp3" id="3_88ohs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmr1f"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ocp"]
+atlas = ExtResource("2_1qlt0")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sx2h"]
+atlas = ExtResource("2_1qlt0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugvmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3ocp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sx2h")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="BeetleBarrier" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 30
+collision_mask = 20
+script = ExtResource("1_st86p")
+byte_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_hmr1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ugvmj")
+animation = &"1"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_88ohs")
+pitch_scale = 0.9
+
+[connection signal="area_entered" from="." to="." method="hit_by_player"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=15 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="11_f4qlo"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="12_6j7m5"]
 [ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="13_cbgds"]
+[ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="14_e3i2p"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -71,3 +72,6 @@ position = Vector2(224, 224)
 [node name="BootsTile" parent="." instance=ExtResource("13_cbgds")]
 position = Vector2(192, 160)
 select_program = "Bitter"
+
+[node name="BeetleBarrier" parent="." instance=ExtResource("14_e3i2p")]
+position = Vector2(128, 256)

@@ -51,7 +51,7 @@ func hit_by_player(hit):
 			await get_tree().create_timer(0.05).timeout
 		sprite.position = Vector2.ZERO
 		sprite.frame = 0
-	if hit is Object:
-		strength = 0
-	else:
+	if hit is int:
 		strength -= hit
+	else:
+		strength = 0
