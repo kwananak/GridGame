@@ -75,10 +75,10 @@ func _unhandled_input(event):
 							animated_sprite_2d.flip_h = true
 						"right":
 							animated_sprite_2d.flip_h = false
-					if n.available_action != null:
-						act(n)
-					elif n.possible:
+					if n.possible:
 						move(n.global_position)
+					elif n.available_action != null:
+						act(n)
 					else:
 						moving = false
 
@@ -251,7 +251,11 @@ func clean_row_checker():
 func projectile_check(program):
 	move_check(step)
 	for n in possible_moves:
-		if n.available_action != null:
+		if n.shootable:
+			if n.available_action == null:
+				n.position += n.dir * level_manager.tile_size
+			n.available_action = program
+		elif n.available_action != null:
 			n.available_action = null
 		if n.possible:
 			n.possible = false
@@ -376,7 +380,8 @@ func grapple_hit(dir):
 			section.position = Vector2(position.x - 16 - 4 * i, position.y - 2.5)
 		destination.x += 1
 	if "tile_type" in dir.available_action:
-		dir.available_action.hit_by_player(strength)
+		if dir.available_action.tile_type != "mobile":
+			dir.available_action.hit_by_player(strength)
 	await get_tree().create_timer(0.1).timeout
 	var tween = create_tween().tween_property(self, "position",
 			position + destination * level_manager.tile_size,

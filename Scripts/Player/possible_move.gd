@@ -4,6 +4,7 @@ var possible = false : set = set_possible
 var available_action = null : set = set_available_action
 var player
 var moused = false
+var shootable = false
 
 @export var dir : Vector2
 
@@ -28,6 +29,7 @@ func check_collision(collision):
 					return
 			"hardened":
 				if !player.teleport:
+					shootable = true
 					available_action = collision
 					return
 			"cannon", "enemy":
@@ -44,16 +46,24 @@ func check_collision(collision):
 					possible = true
 					return
 			"mobile":
+				if player.waiting_for_action:
+					if player.waiting_for_action.name == "GrapplingTool":
+						available_action = collision
+						return
 				if !collision.moved:
 					if collision.check_move(player.global_position):
 						possible = true
 						return
+			"beetle":
+				shootable = true
+				return
 	available_action = null
 
 func reset():
 	hide()
 	available_action = null
 	possible = false
+	shootable = false
 	position = Vector2.ZERO
 
 func set_possible(value):
