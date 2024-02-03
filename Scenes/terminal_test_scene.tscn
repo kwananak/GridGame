@@ -1,10 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=16 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_upwke"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_7tqwa"]
+[ext_resource type="Texture2D" uid="uid://dqgkuwwxvmecq" path="res://Sprites/UI/terminal_1_nodes.png" id="3_akgj6"]
+[ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_230c3"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
-[ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Sci-Fi Hum Loop.wav" id="5_2rv1v"]
+[ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkmlo"]
+atlas = ExtResource("3_akgj6")
+region = Rect2(20, 0, 16, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
 atlas = ExtResource("3_7tqwa")
@@ -83,20 +89,31 @@ offset_right = 412.0
 offset_bottom = 212.0
 metadata/_edit_use_anchors_ = true
 
+[node name="MapSprite" type="Sprite2D" parent="Control/Map"]
+position = Vector2(250, 97)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_rkmlo")
+
+[node name="MapNode" parent="Control/Map/MapSprite" instance=ExtResource("4_230c3")]
+offset_left = -8.0
+offset_top = -94.3333
+offset_right = -8.0
+offset_bottom = -94.3333
+
 [node name="Level100" type="Button" parent="Control/Map"]
 layout_mode = 0
-offset_left = 205.0
-offset_top = 114.0
-offset_right = 285.0
-offset_bottom = 145.0
+offset_left = 288.0
+offset_top = 146.0
+offset_right = 368.0
+offset_bottom = 177.0
 text = "Level 100"
 
 [node name="Level200" type="Button" parent="Control/Map"]
 layout_mode = 0
-offset_left = 131.0
-offset_top = 61.0
-offset_right = 211.0
-offset_bottom = 92.0
+offset_left = 134.0
+offset_top = 18.0
+offset_right = 214.0
+offset_bottom = 49.0
 disabled = true
 text = "Level 200"
 

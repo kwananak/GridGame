@@ -40,6 +40,8 @@ func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
+			if n.name == "MapSprite":
+				continue
 			var num = n.text.split(" ")[1]
 			if num in prog_man.levels:
 				n.disabled = false
