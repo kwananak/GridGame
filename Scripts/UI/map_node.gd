@@ -18,24 +18,32 @@ func _input(event):
 		return
 	if has_focus():
 		if event.is_action_pressed("ui_accept"):
+			print("selected_space")
 			selected = !selected
-	if event is InputEventMouseButton:
-		if event.is_pressed() && event.button_index == 1 && moused:
-			selected = !selected
+			return
+		if event is InputEventMouseButton:
+			if event.is_pressed() && event.button_index == 1 && moused:
+				print("selected_mouse")
+				selected = !selected
 
 func set_selected(value):
 	selected = value
 	$SelectedSprite.visible = value
 	if value:
 		for n in get_tree().get_nodes_in_group("MapNodes"):
-			if n == self:
-				continue
-			n.selected = false
+			if n != self:
+				n.selected = false
 		get_tree().get_first_node_in_group("TerminalScene")._on_level_pressed(node_level)
+	else:
+		get_tree().get_first_node_in_group("TerminalScene")._on_level_pressed(null)
 
 func set_available(value):
 	available = value
 	$AvailableSprite.visible = value
+	for n in get_children():
+		match n.name:
+			"LinkSprite", "AvailableSprite":
+				n.visible = value
 	if available:
 		focus_mode = Control.FOCUS_ALL
 	else:

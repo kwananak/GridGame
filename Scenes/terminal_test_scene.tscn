@@ -1,12 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=21 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
-[ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_upwke"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_bbwhi"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_7tqwa"]
 [ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="3_akgj6"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_230c3"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
+[ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_33d10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ue3d"]
+atlas = ExtResource("2_bbwhi")
+region = Rect2(0, 1199.22, 960, 513)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8wbx"]
+atlas = ExtResource("2_bbwhi")
+region = Rect2(64, 1774, 540, 240)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n1evk"]
 load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
@@ -82,7 +91,14 @@ metadata/_edit_use_anchors_ = true
 [node name="TerminalSprite" type="Sprite2D" parent="Control"]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
-texture = ExtResource("2_upwke")
+texture = SubResource("AtlasTexture_5ue3d")
+
+[node name="MapBackground" type="Sprite2D" parent="Control"]
+position = Vector2(256, 152)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_k8wbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/MapBackground"]
 
 [node name="Map" type="Sprite2D" parent="Control"]
 position = Vector2(304, 152)
@@ -97,6 +113,11 @@ offset_bottom = -93.6667
 node_level = 200
 node_color = "yellow"
 
+[node name="LinkSprite" type="Sprite2D" parent="Control/Map/Level200"]
+visible = false
+position = Vector2(0, 42.6667)
+texture = SubResource("AtlasTexture_gfvx1")
+
 [node name="Level100" parent="Control/Map" instance=ExtResource("4_230c3")]
 offset_left = -8.0
 offset_top = -8.33334
@@ -105,12 +126,6 @@ offset_bottom = -8.33334
 available = true
 node_level = 100
 node_color = "pink"
-
-[node name="Links" type="Node2D" parent="Control/Map"]
-
-[node name="Level200" type="Sprite2D" parent="Control/Map/Links"]
-visible = false
-texture = SubResource("AtlasTexture_gfvx1")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)
@@ -199,10 +214,10 @@ offset_bottom = 267.0
 [node name="Info" type="ColorRect" parent="Control" groups=["InfoPanel"]]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0503472
-anchor_top = -0.33125
-anchor_right = 0.0538196
-anchor_bottom = -0.33125
+anchor_left = 0.0815972
+anchor_top = -0.329688
+anchor_right = 0.0850697
+anchor_bottom = -0.329688
 offset_left = 192.0
 offset_top = 480.0
 offset_right = 393.0
@@ -221,31 +236,15 @@ autowrap_mode = 2
 [node name="ReturnButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0217014
-anchor_top = -0.379688
-anchor_right = 0.0217014
-anchor_bottom = -0.379688
+anchor_left = 0.145833
+anchor_top = -0.371875
+anchor_right = 0.145833
+anchor_bottom = -0.371875
 offset_left = 32.0
 offset_top = 512.0
 offset_right = 93.0
 offset_bottom = 572.0
 text = "Return"
-metadata/_edit_use_anchors_ = true
-
-[node name="GoButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.100694
-anchor_top = -0.379687
-anchor_right = 0.100694
-anchor_bottom = -0.379687
-offset_left = 32.0
-offset_top = 512.0
-offset_right = 95.0
-offset_bottom = 572.0
-focus_neighbor_right = NodePath("../Loadout/Boots")
-text = "choose
-level"
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
@@ -265,6 +264,19 @@ offset_bottom = 369.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
+
+[node name="NexusButton" parent="Control" instance=ExtResource("7_33d10")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.0
+offset_top = -16.0
+offset_right = -456.0
+offset_bottom = -16.0
+scale = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2rv1v")
@@ -295,4 +307,3 @@ autoplay = true
 [connection signal="focus_exited" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_focus_exited"]
 [connection signal="pressed" from="Control/Loadout/Runes" to="Control/Loadout" method="_on_rune_pressed"]
 [connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="pressed" from="Control/GoButton" to="." method="_on_go_button_pressed"]

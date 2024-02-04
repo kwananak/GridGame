@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://due07vhhx1egd"]
+
+[ext_resource type="Texture2D" uid="uid://bv278q1grjx5k" path="res://Sprites/UI/nexus_button.png" id="1_5cqip"]
+[ext_resource type="Script" path="res://Scripts/UI/nexus_button.gd" id="1_6qxmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt4rf"]
+atlas = ExtResource("1_5cqip")
+region = Rect2(260, 0, 170, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve6mq"]
+atlas = ExtResource("1_5cqip")
+region = Rect2(130, 0, 130, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sahn0"]
+atlas = ExtResource("1_5cqip")
+region = Rect2(0, 0, 130, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00v26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve6mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sahn0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64kns"]
+atlas = ExtResource("1_5cqip")
+region = Rect2(430, 0, 172, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2cih"]
+size = Vector2(170, 72)
+
+[node name="NexusButton" type="Control" groups=["NexusButton"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qxmw")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_jt4rf")
+
+[node name="Available" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_00v26")
+
+[node name="Selected" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_64kns")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m2cih")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

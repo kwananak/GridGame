@@ -1,14 +1,13 @@
 extends Node2D
 
 @onready var main = $/root/Main
-@onready var go = $Control/GoButton
 
 var loadout
 var loaded_level = null
 var terminal_number
 
 func _ready():
-	go.grab_focus()
+	$Control/ReturnButton.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
 	_on_visibility_changed()
@@ -27,7 +26,11 @@ func _on_return_button_pressed():
 
 func _on_level_pressed(level_number):
 	loaded_level = level_number
-	go.text = "Level " + str(level_number)
+	print(level_number)
+	if level_number:
+		$Control/NexusButton.available = true
+	else:
+		$Control/NexusButton.available = false
 
 func _on_go_button_pressed():
 	if loaded_level == null:
@@ -40,20 +43,15 @@ func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
-			if n.name == "Links":
-				continue
-			n.selected = false
-			var num = str(n.node_level)
-			if num in prog_man.levels:
+			if n.selected:
+				n.selected = false
+			if str(n.node_level) in prog_man.levels:
 				n.available = true
-				$Control/Map/Links.get_node("Level" + num).visible = true
 		for n in prog_man.get_children():
 			for o in n.get_children():
 				for p in o.get_children():
 					p.monitorable = false
 		loaded_level = null
-		if go:
-			go.text = "choose\nlevel"
 		if terminal_number != null:
 			$AudioStreamPlayer.play()
 			$Control/Label.text = "Terminal" + str(terminal_number) +"\n"
