@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=13 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_clwr3"]
 [ext_resource type="PackedScene" uid="uid://com1wps1gaayy" path="res://Scenes/Menus/main_menu.tscn" id="3_tujkf"]
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="5_6upos"]
@@ -31,7 +32,6 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
 [node name="DebugMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 
@@ -182,8 +182,11 @@ text = "New Game"
 layout_mode = 0
 offset_left = 13.0
 offset_top = 83.0
-offset_right = 139.0
-offset_bottom = 114.0
+offset_right = 633.0
+offset_bottom = 303.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_clwr3")
+theme_override_font_sizes/font_size = 64
 text = "Continue Game"
 
 [node name="ResolutionModeButton" parent="DebugMenu" instance=ExtResource("7_fg0yk")]
