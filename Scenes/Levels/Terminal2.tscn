@@ -1,10 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=18 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_6ttwu"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_dhixq"]
+[ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_ew1yl"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_5ta46"]
-[ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Sci-Fi Hum Loop.wav" id="5_b1tni"]
+[ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="4_vb3s2"]
+[ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx5gj"]
+load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xg8u"]
+atlas = SubResource("CompressedTexture2D_rx5gj")
+region = Rect2(20, 0, 16, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_konhr"]
+atlas = ExtResource("4_vb3s2")
+region = Rect2(16, 0, 2, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
 atlas = ExtResource("3_dhixq")
@@ -66,68 +79,40 @@ offset_right = 1152.0
 offset_bottom = 640.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="TerminalSprite" type="Sprite2D" parent="Control"]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = ExtResource("2_6ttwu")
 
-[node name="Map" type="Control" parent="Control"]
-layout_mode = 1
-anchor_left = 0.0173611
-anchor_top = 0.0375
-anchor_right = 0.0390625
-anchor_bottom = 0.0375
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 412.0
-offset_bottom = 212.0
-metadata/_edit_use_anchors_ = true
+[node name="Map" type="Sprite2D" parent="Control"]
+position = Vector2(304, 152)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_8xg8u")
 
-[node name="Level201" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 252.0
-offset_top = 160.0
-offset_right = 332.0
-offset_bottom = 191.0
-text = "Level 201"
+[node name="Level202" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+offset_left = -8.0
+offset_top = -93.6667
+offset_right = -8.0
+offset_bottom = -93.6667
+node_level = 202
+node_color = "yellow"
 
-[node name="Level202" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 156.0
-offset_top = 128.0
-offset_right = 253.0
-offset_bottom = 166.0
-disabled = true
-text = "Level 202"
+[node name="Level201" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+offset_left = -8.0
+offset_top = -8.33334
+offset_right = -8.0
+offset_bottom = -8.33334
+available = true
+node_level = 201
+node_color = "pink"
 
-[node name="Level203" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 252.0
-offset_top = 96.0
-offset_right = 349.0
-offset_bottom = 136.0
-disabled = true
-text = "Level 203"
+[node name="Links" type="Node2D" parent="Control/Map"]
 
-[node name="Level204" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 148.0
-offset_top = 64.0
-offset_right = 245.0
-offset_bottom = 104.0
-disabled = true
-text = "Level 204"
+[node name="Level202" type="Sprite2D" parent="Control/Map/Links"]
+visible = false
+texture = SubResource("AtlasTexture_konhr")
 
-[node name="Level205" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 220.0
-offset_top = 16.0
-offset_right = 317.0
-offset_bottom = 56.0
-disabled = true
-text = "Level 205"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)
 position = Vector2(567, 198)
 scale = Vector2(8, 8)
@@ -258,7 +243,6 @@ offset_left = 32.0
 offset_top = 512.0
 offset_right = 95.0
 offset_bottom = 572.0
-focus_neighbor_top = NodePath("../Map/Level201")
 focus_neighbor_right = NodePath("../Loadout/Boots")
 text = "choose
 level"
@@ -288,11 +272,6 @@ volume_db = -25.0
 pitch_scale = 0.85
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Control/Map/Level201" to="." method="_on_level_pressed" binds= [201]]
-[connection signal="pressed" from="Control/Map/Level202" to="." method="_on_level_pressed" binds= [202]]
-[connection signal="pressed" from="Control/Map/Level203" to="." method="_on_level_pressed" binds= [203]]
-[connection signal="pressed" from="Control/Map/Level204" to="." method="_on_level_pressed" binds= [204]]
-[connection signal="pressed" from="Control/Map/Level205" to="." method="_on_level_pressed" binds= [205]]
 [connection signal="focus_entered" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_entered" binds= ["Brain"]]
 [connection signal="focus_exited" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_exited"]
 [connection signal="pressed" from="Control/Loadout/Brain" to="Control/Loadout" method="on_button_pressed" binds= ["Brain"]]

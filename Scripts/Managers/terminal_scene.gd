@@ -42,8 +42,7 @@ func _on_visibility_changed():
 		for n in $Control/Map.get_children():
 			if n.name == "Links":
 				continue
-			if "selected" in n:
-				n.selected = false
+			n.selected = false
 			var num = str(n.node_level)
 			if num in prog_man.levels:
 				n.available = true
