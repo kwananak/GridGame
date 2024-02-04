@@ -1,19 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4kg7gs6hkbvq"]
+[gd_scene load_steps=10 format=3 uid="uid://d4kg7gs6hkbvq"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/warning_tile.gd" id="1_etkcc"]
 [ext_resource type="Texture2D" uid="uid://scsgcb84sa7o" path="res://Sprites/Enemies/warning.png" id="2_p3oro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1b8o"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dkvgl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm4mw"]
 atlas = ExtResource("2_p3oro")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_magu8"]
+atlas = ExtResource("2_p3oro")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd1er"]
+atlas = ExtResource("2_p3oro")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ep2"]
+atlas = ExtResource("2_p3oro")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecxp8"]
+atlas = ExtResource("2_p3oro")
+region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oy487"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dkvgl")
+"texture": SubResource("AtlasTexture_qm4mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_magu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd1er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ep2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecxp8")
 }],
 "loop": true,
 "name": &"default",
@@ -30,7 +58,8 @@ type = "Red"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j1b8o")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oy487")
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

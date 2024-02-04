@@ -2,6 +2,9 @@ extends Area2D
 
 @export_enum("Yellow", "Red") var type : String
 
+func _ready():
+	$Sprite.frame = int(position.x / 32) % 5 + int(position.y / 32) % 5
+
 func _on_area_entered(area):
 	match type:
 		"Yellow":
