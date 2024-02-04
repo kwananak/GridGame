@@ -380,20 +380,45 @@ func grapple_hit(dir):
 			section.position = Vector2(position.x - 16 - 4 * i, position.y - 2.5)
 		destination.x += 1
 	if "tile_type" in dir.available_action:
-		if dir.available_action.tile_type != "mobile":
+		if dir.available_action.tile_type == "mobile":
+			if !dir.available_action.moved:
+				grapple_mobile(destination, dir.available_action, grapple, tip)
+				if destination.x > 0:
+					destination.x -= destination.x / destination.x
+				if destination.y > 0:
+					destination.y -= destination.y / destination.y
+		else:
 			dir.available_action.hit_by_player(strength)
-	await get_tree().create_timer(0.1).timeout
 	var tween = create_tween().tween_property(self, "position",
 			position + destination * level_manager.tile_size,
 			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	remove_grapple(grapple + [tip])
+	remove_grapple(grapple, tip, destination)
 	await tween.finished
 	animated_sprite_2d.play("idle")
 
-func remove_grapple(grapple):
-	for i in grapple:
+func grapple_mobile(destination, barrier, grapple, tip):
+	var des = destination
+	if des.x > 0:
+		des.x = des.x / des.x
+	if des.y > 0:
+		des.y = des.y / des.y
+	barrier._on_area_entered(-des * level_manager.tile_size)
+	for n in 8:
+		await get_tree().create_timer(0.01).timeout
+		var section = grapple.pop_back()
+		if tip != null:
+			tip.position = section.position
+		if section != null:
+			section.queue_free()
+
+func remove_grapple(grapple, tip, destination):
+	while !grapple.is_empty():
 		await get_tree().create_timer(0.005).timeout
-		i.queue_free()
+		if destination != Vector2.ZERO:
+			var section = grapple.pop_front()
+			if section != null:
+				section.queue_free()
+	tip.queue_free()
 
 func activate_shield():
 	var shield = load("res://Scenes/Prefabs/shield.tscn").instantiate()
