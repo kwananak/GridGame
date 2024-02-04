@@ -51,9 +51,11 @@ func set_available(value):
 
 func _on_focus_entered():
 	$FocusSprite.visible = true
+	get_tree().get_first_node_in_group("LevelNameLabel").text = "Level " + str(node_level)
 
 func _on_focus_exited():
 	$FocusSprite.visible = false
+	get_tree().get_first_node_in_group("LevelNameLabel").text = ""
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE:

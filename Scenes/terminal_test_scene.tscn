@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=23 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_bbwhi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_230c3"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
+[ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="5_7pdae"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_33d10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ue3d"]
@@ -16,6 +17,10 @@ region = Rect2(0, 1199.22, 960, 513)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8wbx"]
 atlas = ExtResource("2_bbwhi")
 region = Rect2(64, 1774, 540, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74m8f"]
+atlas = ExtResource("2_bbwhi")
+region = Rect2(16, 848, 541, 240)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n1evk"]
 load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
@@ -98,7 +103,8 @@ position = Vector2(256, 152)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_k8wbx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/MapBackground"]
+[node name="Frame" type="Sprite2D" parent="Control/MapBackground"]
+texture = SubResource("AtlasTexture_74m8f")
 
 [node name="Map" type="Sprite2D" parent="Control"]
 position = Vector2(304, 152)
@@ -126,6 +132,39 @@ offset_bottom = -8.33334
 available = true
 node_level = 100
 node_color = "pink"
+
+[node name="Infos" type="Control" parent="Control/Map"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -167.0
+offset_top = -51.0
+offset_right = -68.0
+offset_bottom = 56.0
+
+[node name="TerminalName" type="Label" parent="Control/Map/Infos"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 468.0
+offset_bottom = 80.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("5_7pdae")
+theme_override_font_sizes/font_size = 72
+text = "real name
+"
+
+[node name="LevelName" type="Label" parent="Control/Map/Infos" groups=["LevelNameLabel"]]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 16.0
+offset_right = 468.0
+offset_bottom = 143.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("5_7pdae")
+theme_override_font_sizes/font_size = 64
+text = "
+"
+autowrap_mode = 3
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)
@@ -247,20 +286,20 @@ offset_bottom = 572.0
 text = "Return"
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="DoorLabel" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 170.0
-offset_right = 125.0
-offset_bottom = 216.0
+offset_left = 50.0
+offset_top = 194.0
+offset_right = 122.0
+offset_bottom = 240.0
 color = Color(0.505882, 0.490196, 0.556863, 1)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control/DoorLabel"]
 layout_mode = 0
-offset_left = 54.0
-offset_top = 174.0
-offset_right = 404.0
-offset_bottom = 369.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 351.0
+offset_bottom = 199.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1

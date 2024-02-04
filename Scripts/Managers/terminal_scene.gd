@@ -5,11 +5,13 @@ extends Node2D
 var loadout
 var loaded_level = null
 var terminal_number
+@onready var terminal_name = $Control/Map/Infos/TerminalName
 
 func _ready():
 	$Control/ReturnButton.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
+	terminal_name.text = $/root/Main.real_scene.get_node("RealLevelManager").level_name
 	_on_visibility_changed()
 
 func _input(event):
@@ -43,6 +45,8 @@ func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
+			if n.name == "Infos":
+				continue
 			if n.selected:
 				n.selected = false
 			if str(n.node_level) in prog_man.levels:
@@ -54,13 +58,13 @@ func _on_visibility_changed():
 		loaded_level = null
 		if terminal_number != null:
 			$AudioStreamPlayer.play()
-			$Control/Label.text = "Terminal" + str(terminal_number) +"\n"
+			$Control/DoorLabel/Label.text = "Terminal" + str(terminal_number) +"\n"
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
-					$Control/Label.text += "unlocked"
-					$Control/ColorRect.color = "#2d991a"
+					$Control/DoorLabel/Label.text += "unlocked"
+					$Control/DoorLabel.color = "#2d991a"
 					return
-			$Control/ColorRect.color = "#cc0000"
-			$Control/Label.text += "locked"
+			$Control/DoorLabel.color = "#cc0000"
+			$Control/DoorLabel/Label.text += "locked"
 	else:
 		$AudioStreamPlayer.stop()

@@ -24,9 +24,11 @@ func set_available(value):
 
 func _on_focus_entered():
 	$Selected.visible = true
+	get_tree().get_first_node_in_group("LevelNameLabel").text = "Level " + str(get_tree().get_first_node_in_group("TerminalScene").loaded_level)
 
 func _on_focus_exited():
 	$Selected.visible = false
+	get_tree().get_first_node_in_group("LevelNameLabel").text = ""
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE:
