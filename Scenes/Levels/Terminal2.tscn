@@ -1,14 +1,30 @@
-[gd_scene load_steps=20 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=24 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
-[ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_6ttwu"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_dhixq"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_ew1yl"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_5ta46"]
-[ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="4_vb3s2"]
+[ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_yq20t"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
 [ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="5_f2fpl"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_1j7k8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apdsw"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(0, 1199.22, 960, 513)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7012p"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(64, 1774, 540, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqor7"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(0, 2141, 41, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca6sk"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(16, 848, 541, 240)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx5gj"]
 load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
@@ -17,9 +33,9 @@ load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136
 atlas = SubResource("CompressedTexture2D_rx5gj")
 region = Rect2(20, 0, 16, 102)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_konhr"]
-atlas = ExtResource("4_vb3s2")
-region = Rect2(16, 0, 2, 70)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p4m0"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(119, 176, 2, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
 atlas = ExtResource("3_dhixq")
@@ -84,7 +100,21 @@ metadata/_edit_use_anchors_ = true
 [node name="TerminalSprite" type="Sprite2D" parent="Control"]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
-texture = ExtResource("2_6ttwu")
+texture = SubResource("AtlasTexture_apdsw")
+
+[node name="MapBackground" type="Sprite2D" parent="Control"]
+position = Vector2(256, 152)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_7012p")
+
+[node name="Title" type="Sprite2D" parent="Control/MapBackground"]
+position = Vector2(-237.5, -105)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_eqor7")
+
+[node name="Frame" type="Sprite2D" parent="Control/MapBackground" groups=["MapFrame"]]
+visible = false
+texture = SubResource("AtlasTexture_ca6sk")
 
 [node name="Map" type="Sprite2D" parent="Control"]
 position = Vector2(304, 152)
@@ -99,10 +129,9 @@ offset_bottom = -93.6667
 node_level = 202
 node_color = "yellow"
 
-[node name="LinkSprite" type="Sprite2D" parent="Control/Map/Level202"]
-visible = false
+[node name="LinkSprite" parent="Control/Map/Level202" instance=ExtResource("4_yq20t")]
 position = Vector2(0, 42.6667)
-texture = SubResource("AtlasTexture_konhr")
+texture = SubResource("AtlasTexture_6p4m0")
 
 [node name="Level201" parent="Control/Map" instance=ExtResource("3_ew1yl")]
 offset_left = -8.0

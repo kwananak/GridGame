@@ -18,12 +18,10 @@ func _input(event):
 		return
 	if has_focus():
 		if event.is_action_pressed("ui_accept"):
-			print("selected_space")
 			selected = !selected
 			return
 		if event is InputEventMouseButton:
 			if event.is_pressed() && event.button_index == 1 && moused:
-				print("selected_mouse")
 				selected = !selected
 
 func set_selected(value):
@@ -42,7 +40,9 @@ func set_available(value):
 	$AvailableSprite.visible = value
 	for n in get_children():
 		match n.name:
-			"LinkSprite", "AvailableSprite":
+			"LinkSprite":
+				n.get_node("AnimationPlayer").play("new_animation")
+			"AvailableSprite":
 				n.visible = value
 	if available:
 		focus_mode = Control.FOCUS_ALL
@@ -52,10 +52,14 @@ func set_available(value):
 func _on_focus_entered():
 	$FocusSprite.visible = true
 	get_tree().get_first_node_in_group("LevelNameLabel").text = "Level " + str(node_level)
+	get_tree().get_first_node_in_group("MapFrame").visible = true
 
 func _on_focus_exited():
+	if get_tree().get_first_node_in_group("LevelNameLabel") == null:
+		return
 	$FocusSprite.visible = false
 	get_tree().get_first_node_in_group("LevelNameLabel").text = ""
+	get_tree().get_first_node_in_group("MapFrame").visible = false
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE:

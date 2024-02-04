@@ -28,7 +28,6 @@ func _on_return_button_pressed():
 
 func _on_level_pressed(level_number):
 	loaded_level = level_number
-	print(level_number)
 	if level_number:
 		$Control/NexusButton.available = true
 	else:
