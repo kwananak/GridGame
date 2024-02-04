@@ -1,18 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=18 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_upwke"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_7tqwa"]
+[ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="3_akgj6"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_230c3"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx5gj"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n1evk"]
 load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkmlo"]
-atlas = SubResource("CompressedTexture2D_rx5gj")
+atlas = SubResource("CompressedTexture2D_n1evk")
 region = Rect2(20, 0, 16, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfvx1"]
+atlas = ExtResource("3_akgj6")
+region = Rect2(16, 0, 2, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
 atlas = ExtResource("3_7tqwa")
@@ -100,6 +105,12 @@ offset_bottom = -8.33334
 available = true
 node_level = 100
 node_color = "pink"
+
+[node name="Links" type="Node2D" parent="Control/Map"]
+
+[node name="Level200" type="Sprite2D" parent="Control/Map/Links"]
+visible = false
+texture = SubResource("AtlasTexture_gfvx1")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)

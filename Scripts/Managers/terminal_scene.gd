@@ -40,10 +40,14 @@ func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
-			n.selected = false
+			if n.name == "Links":
+				continue
+			if "selected" in n:
+				n.selected = false
 			var num = str(n.node_level)
 			if num in prog_man.levels:
 				n.available = true
+				$Control/Map/Links.get_node("Level" + num).visible = true
 		for n in prog_man.get_children():
 			for o in n.get_children():
 				for p in o.get_children():
