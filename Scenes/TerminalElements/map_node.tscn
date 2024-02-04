@@ -1,32 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://c02ntgyr1bb1j"]
+[gd_scene load_steps=12 format=3 uid="uid://c02ntgyr1bb1j"]
 
-[ext_resource type="Texture2D" uid="uid://dqgkuwwxvmecq" path="res://Sprites/UI/terminal_1_nodes.png" id="1_mhuy2"]
+[ext_resource type="Script" path="res://Scripts/UI/map_node.gd" id="1_blot7"]
+[ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="1_mhuy2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_trmsx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r240h"]
 atlas = ExtResource("1_mhuy2")
-region = Rect2(0, 16, 16, 16)
+region = Rect2(0, 12, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2hg8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7mog"]
 atlas = ExtResource("1_mhuy2")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gj6tc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdkxt"]
 atlas = ExtResource("1_mhuy2")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(0, 24, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58sum"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_trmsx")
+"texture": SubResource("AtlasTexture_r240h")
 }],
-"loop": true,
+"loop": false,
 "name": &"green",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i2hg8")
+"texture": SubResource("AtlasTexture_h7mog")
 }],
 "loop": false,
 "name": &"pink",
@@ -34,12 +35,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gj6tc")
+"texture": SubResource("AtlasTexture_kdkxt")
 }],
-"loop": true,
+"loop": false,
 "name": &"yellow",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxv13"]
+atlas = ExtResource("1_mhuy2")
+region = Rect2(0, 36, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqd81"]
 atlas = ExtResource("1_mhuy2")
@@ -67,7 +72,9 @@ _data = {
 "pulse": SubResource("Animation_i33h4")
 }
 
-[node name="MapNode" type="Control"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_os3c6"]
+
+[node name="MapNode" type="Control" groups=["MapNodes"]]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,17 +87,33 @@ offset_right = -720.0
 offset_bottom = -405.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_blot7")
 
-[node name="LitSprite" type="AnimatedSprite2D" parent="."]
+[node name="SelectedSprite" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_58sum")
-animation = &"green"
+animation = &"yellow"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AvailableSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_oxv13")
+
+[node name="FocusSprite" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("AtlasTexture_aqd81")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FocusSprite"]
 autoplay = "pulse"
 libraries = {
 "": SubResource("AnimationLibrary_4gf2r")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_os3c6")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

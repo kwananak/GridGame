@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/Computer_1.png" id="2_upwke"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="3_7tqwa"]
-[ext_resource type="Texture2D" uid="uid://dqgkuwwxvmecq" path="res://Sprites/UI/terminal_1_nodes.png" id="3_akgj6"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_230c3"]
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="4_sklph"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx5gj"]
+load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkmlo"]
-atlas = ExtResource("3_akgj6")
+atlas = SubResource("CompressedTexture2D_rx5gj")
 region = Rect2(20, 0, 16, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hdxf"]
@@ -72,52 +74,34 @@ offset_right = 1152.0
 offset_bottom = 640.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="TerminalSprite" type="Sprite2D" parent="Control"]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = ExtResource("2_upwke")
 
-[node name="Map" type="Control" parent="Control"]
-layout_mode = 1
-anchor_left = 0.0173611
-anchor_top = 0.0375
-anchor_right = 0.0390625
-anchor_bottom = 0.0375
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 412.0
-offset_bottom = 212.0
-metadata/_edit_use_anchors_ = true
-
-[node name="MapSprite" type="Sprite2D" parent="Control/Map"]
-position = Vector2(250, 97)
+[node name="Map" type="Sprite2D" parent="Control"]
+position = Vector2(304, 152)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_rkmlo")
 
-[node name="MapNode" parent="Control/Map/MapSprite" instance=ExtResource("4_230c3")]
+[node name="Level200" parent="Control/Map" instance=ExtResource("4_230c3")]
 offset_left = -8.0
-offset_top = -94.3333
+offset_top = -93.6667
 offset_right = -8.0
-offset_bottom = -94.3333
+offset_bottom = -93.6667
+node_level = 200
+node_color = "yellow"
 
-[node name="Level100" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 146.0
-offset_right = 368.0
-offset_bottom = 177.0
-text = "Level 100"
+[node name="Level100" parent="Control/Map" instance=ExtResource("4_230c3")]
+offset_left = -8.0
+offset_top = -8.33334
+offset_right = -8.0
+offset_bottom = -8.33334
+available = true
+node_level = 100
+node_color = "pink"
 
-[node name="Level200" type="Button" parent="Control/Map"]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 18.0
-offset_right = 214.0
-offset_bottom = 49.0
-disabled = true
-text = "Level 200"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Control"]
 modulate = Color(1, 1, 1, 0.788235)
 position = Vector2(567, 198)
 scale = Vector2(8, 8)
@@ -248,7 +232,6 @@ offset_left = 32.0
 offset_top = 512.0
 offset_right = 95.0
 offset_bottom = 572.0
-focus_neighbor_top = NodePath("../Map/Level100")
 focus_neighbor_right = NodePath("../Loadout/Boots")
 text = "choose
 level"
@@ -279,8 +262,6 @@ pitch_scale = 0.9
 autoplay = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Control/Map/Level100" to="." method="_on_level_pressed" binds= [100]]
-[connection signal="pressed" from="Control/Map/Level200" to="." method="_on_level_pressed" binds= [200]]
 [connection signal="focus_entered" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_entered" binds= ["Brain"]]
 [connection signal="focus_exited" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_exited"]
 [connection signal="pressed" from="Control/Loadout/Brain" to="Control/Loadout" method="on_button_pressed" binds= ["Brain"]]
