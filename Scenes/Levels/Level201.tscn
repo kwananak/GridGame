@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bvb3fjvlo0y4d"]
+[gd_scene load_steps=26 format=3 uid="uid://bvb3fjvlo0y4d"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_lmb7n"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_vf57g"]
@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="9_gxcjg"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_e845d"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="11_l1f53"]
+[ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="16_51dii"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="18_j1o16"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="19_hv68t"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="20_rrlk5"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="20_yp7x1"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="21_0wsfn"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="21_5f2hd"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="21_t2dp6"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="22_35cvy"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_v414e"]
@@ -30,6 +31,8 @@ size = Vector2(20, 106)
 [node name="Level201" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_lmb7n")]
+yellow_doomwall_step = 0.75
+red_doomwall_step = 1.5
 level_height = 40
 level_length = 100
 level_number = 201
@@ -3453,113 +3456,113 @@ position = Vector2(1504, 640)
 
 [node name="BeatleBarrrier" type="Node2D" parent="GameplayElements"]
 
-[node name="Placebot" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2240, 224)
-
-[node name="Placebot2" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2144, 288)
-
-[node name="Placebot13" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1280, 576)
-
-[node name="Placebot20" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1056, 544)
-
-[node name="Placebot28" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1056, 576)
-
-[node name="Placebot21" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1120, 544)
-
-[node name="Placebot27" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1024, 544)
-
-[node name="Placebot22" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1120, 480)
-
-[node name="Placebot23" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1120, 448)
-
-[node name="Placebot24" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1120, 416)
-
-[node name="Placebot25" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1120, 384)
-
-[node name="Placebot26" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1184, 512)
-
-[node name="Placebot14" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1312, 608)
-
-[node name="Placebot15" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1344, 640)
-
-[node name="Placebot16" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1344, 736)
-
-[node name="Placebot19" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1376, 704)
-
-[node name="Placebot17" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1408, 672)
-
-[node name="Placebot29" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2016, 448)
-
-[node name="Placebot32" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1984, 448)
-
-[node name="Placebot33" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1952, 448)
-
-[node name="Placebot34" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1920, 448)
-
-[node name="Placebot35" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1888, 448)
-
-[node name="Placebot30" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1824, 448)
-
-[node name="Placebot31" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1792, 448)
-
-[node name="Placebot18" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(1312, 768)
-
-[node name="Placebot4" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2144, 320)
-
-[node name="Placebot5" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2144, 352)
-
-[node name="Placebot3" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2208, 288)
-
-[node name="Placebot12" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2240, 288)
-
-[node name="Placebot10" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2240, 256)
-
-[node name="Placebot6" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2208, 352)
-
-[node name="Placebot11" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2240, 352)
-
-[node name="Placebot7" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2208, 384)
-
-[node name="Placebot8" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
-position = Vector2(2208, 416)
-
 [node name="Placebot36" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
 position = Vector2(2592, 576)
 
-[node name="Placebot9" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("23_nxx2s")]
+[node name="BeetleBarrier" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1120, 384)
+
+[node name="BeetleBarrier2" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1120, 416)
+
+[node name="BeetleBarrier3" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1120, 448)
+
+[node name="BeetleBarrier4" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1120, 480)
+
+[node name="BeetleBarrier5" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1056, 544)
+
+[node name="BeetleBarrier6" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1024, 544)
+
+[node name="BeetleBarrier7" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1056, 576)
+
+[node name="BeetleBarrier8" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1120, 544)
+
+[node name="BeetleBarrier9" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1184, 512)
+
+[node name="BeetleBarrier10" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1280, 576)
+
+[node name="BeetleBarrier11" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1312, 608)
+
+[node name="BeetleBarrier12" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1344, 640)
+
+[node name="BeetleBarrier13" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1408, 672)
+
+[node name="BeetleBarrier17" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1792, 448)
+
+[node name="BeetleBarrier18" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1824, 448)
+
+[node name="BeetleBarrier19" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1888, 448)
+
+[node name="BeetleBarrier20" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1920, 448)
+
+[node name="BeetleBarrier21" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1952, 448)
+
+[node name="BeetleBarrier22" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1984, 448)
+
+[node name="BeetleBarrier23" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2016, 448)
+
+[node name="BeetleBarrier24" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
 position = Vector2(2176, 416)
+
+[node name="BeetleBarrier25" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2208, 416)
+
+[node name="BeetleBarrier26" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2208, 384)
+
+[node name="BeetleBarrier27" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2208, 352)
+
+[node name="BeetleBarrier29" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2144, 352)
+
+[node name="BeetleBarrier30" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2144, 320)
+
+[node name="BeetleBarrier31" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2144, 288)
+
+[node name="BeetleBarrier32" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2240, 288)
+
+[node name="BeetleBarrier35" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2208, 288)
+
+[node name="BeetleBarrier33" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2240, 256)
+
+[node name="BeetleBarrier34" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2240, 224)
+
+[node name="BeetleBarrier28" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(2240, 352)
+
+[node name="BeetleBarrier14" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1376, 704)
+
+[node name="BeetleBarrier15" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1344, 736)
+
+[node name="BeetleBarrier16" parent="GameplayElements/BeatleBarrrier" instance=ExtResource("16_51dii")]
+position = Vector2(1312, 768)
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("18_j1o16")]
 position = Vector2(480, 192)
