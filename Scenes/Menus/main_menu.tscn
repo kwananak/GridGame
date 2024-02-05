@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://com1wps1gaayy"]
+[gd_scene load_steps=12 format=3 uid="uid://com1wps1gaayy"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
@@ -12,6 +12,14 @@ colors = PackedColorArray(2.10572e-08, 0.0519143, 0.131455, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_684c6"]
 gradient = SubResource("Gradient_julvj")
 fill_from = Vector2(0.034188, 0.940171)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvslw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryt1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icbuj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iq7f"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1440, 810)
@@ -66,24 +74,33 @@ alignment = 1
 [node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mvslw")
 text = "New Game"
 flat = true
 
 [node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ryt1d")
 text = "Continue Game"
 flat = true
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_icbuj")
 text = "Options
 "
 flat = true
@@ -91,8 +108,11 @@ flat = true
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5iq7f")
 text = "Quit"
 flat = true
 
