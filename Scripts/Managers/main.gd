@@ -119,10 +119,10 @@ func switch_level(level_number):
 	progress_manager.save_game()
 
 # passthrough function from level manager to progress manager adding active real scene to save point
-func add_to_levels(level):
+func add_to_levels(level, level_completed):
 	if real_scene == null:
 		return
-	progress_manager.add_to_levels(level, real_scene.name)
+	progress_manager.add_to_levels(level, real_scene.name, level_completed)
 
 # returns player to game, either to loaded scene or to save point if no scene is loaded
 func continue_game():

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://com1wps1gaayy"]
+[gd_scene load_steps=8 format=3 uid="uid://com1wps1gaayy"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Backgrounds/menu.wav" id="2_2adp0"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wfqlx"]
 [ext_resource type="PackedScene" uid="uid://b7hdi461mrkxn" path="res://Scenes/Menus/options_menu.tscn" id="4_rgu0w"]
 
 [sub_resource type="Gradient" id="Gradient_julvj"]
@@ -65,27 +66,35 @@ alignment = 1
 [node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
 text = "New Game"
+flat = true
 
 [node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
 text = "Continue Game"
+flat = true
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
 text = "Options
 "
+flat = true
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+flat = true
 
 [node name="OptionsMenu" parent="." instance=ExtResource("4_rgu0w")]
 visible = false

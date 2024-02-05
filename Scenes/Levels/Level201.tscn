@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvb3fjvlo0y4d"]
+[gd_scene load_steps=25 format=3 uid="uid://bvb3fjvlo0y4d"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_lmb7n"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_vf57g"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="21_t2dp6"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="22_35cvy"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_v414e"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="23_dn768"]
 [ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="23_nxx2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xopb"]
@@ -3604,3 +3605,8 @@ position = Vector2(2368, 256)
 
 [node name="RedWarningTile7" parent="." instance=ExtResource("22_35cvy")]
 position = Vector2(2368, 224)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_dn768")
+volume_db = -20.0
+autoplay = true

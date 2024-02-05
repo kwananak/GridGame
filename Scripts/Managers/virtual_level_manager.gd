@@ -27,6 +27,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
 	set_remaining_actions(remaining_actions)
+	if str(level_number) in get_tree().get_first_node_in_group("ProgressManager").completed_levels:
+		skip_dialogues = true
 	super._ready()
 
 func _process(delta):
@@ -144,7 +146,7 @@ func on_success(level):
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
-	$/root/Main.add_to_levels(level)
+	$/root/Main.add_to_levels(level, level_number)
 	for a in programs:
 		get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1])
 	display_summary()

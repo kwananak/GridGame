@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://drnstm68temhg"]
+[gd_scene load_steps=3 format=3 uid="uid://drnstm68temhg"]
+
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="1_r3u34"]
+[ext_resource type="Theme" uid="uid://dky82kklo3rrl" path="res://Sprites/Fonts/theme.tres" id="2_qr1ws"]
 
 [node name="OptionsDisplayButton" type="Control"]
 layout_mode = 3
@@ -17,6 +20,7 @@ theme_override_constants/separation = 64
 [node name="Label" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_r3u34")
 theme_override_font_sizes/font_size = 32
 text = "BASE_LABEL"
 vertical_alignment = 1
@@ -24,3 +28,5 @@ vertical_alignment = 1
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
+theme = ExtResource("2_qr1ws")
+allow_reselect = true

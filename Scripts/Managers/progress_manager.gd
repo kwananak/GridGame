@@ -1,6 +1,7 @@
 extends Node2D
 
-var levels = []
+var completed_levels = []
+var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
 @onready var amplifiers = $OwnedPrograms/Amplifiers
@@ -16,14 +17,16 @@ func add_to_programs(slot, program):
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
-func add_to_levels(level_unlocked, real_level):
+func add_to_levels(level_unlocked, real_level, level_completed):
 	save_point = real_level
 	if level_unlocked > 100:
-		if level_unlocked not in levels:
-			levels += [str(level_unlocked)]
+		if level_unlocked not in unlocked_levels:
+			unlocked_levels += [str(level_unlocked)]
 	else:
 		if level_unlocked not in doors:
 			doors += [str(level_unlocked)]
+	if level_completed not in completed_levels:
+		completed_levels += [str(level_completed)]
 	save_game()
 
 func add_amplifier(amp):
@@ -119,7 +122,8 @@ func reset_programs():
 			if o.get_child_count() > 0:
 				for p in o.get_children():
 					p.queue_free()
-	levels = []
+	completed_levels = []
+	unlocked_levels = ["101", "201"]
 	doors = []
 	save_point = null
 
@@ -140,7 +144,8 @@ func save():
 						dict[n.name][o.name] += [p.name]
 			else:
 				dict[n.name][o.name] = ["empty"]
-	dict["levels"] = levels
+	dict["completed_levels"] = completed_levels
+	dict["unlocked_levels"] = unlocked_levels
 	dict["doors"] = doors
 	dict["save_point"] = save_point
 	return dict
@@ -163,8 +168,11 @@ func load_game():
 	var data = json.get_data()
 	for n in data.keys():
 		match n:
-			"levels":
-				levels = data[n]
+			"completed_levels":
+				completed_levels = data[n]
+				continue
+			"unlocked_levels":
+				unlocked_levels = data[n]
 				continue
 			"doors":
 				doors = data[n]

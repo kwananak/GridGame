@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7hdi461mrkxn"]
+[gd_scene load_steps=4 format=3 uid="uid://b7hdi461mrkxn"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/options_menu.gd" id="1_k8cna"]
 [ext_resource type="PackedScene" uid="uid://ie01ocgq525g" path="res://Scenes/Menus/settings_tab_container.tscn" id="2_f52f3"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_jjdh1"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -29,6 +30,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jjdh1")
 theme_override_font_sizes/font_size = 64
 text = "Options"
 horizontal_alignment = 1
@@ -42,6 +44,8 @@ custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_jjdh1")
+theme_override_font_sizes/font_size = 49
 text = "Exit"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]

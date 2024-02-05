@@ -7,6 +7,7 @@ extends Control
 
 var selected = false : set = set_selected
 var moused = false
+var completed = false
 
 func _ready():
 	$SelectedSprite.animation = node_color
@@ -37,13 +38,17 @@ func set_selected(value):
 
 func set_available(value):
 	available = value
-	$AvailableSprite.visible = value
 	for n in get_children():
 		match n.name:
 			"LinkSprite":
-				n.get_node("AnimationPlayer").play("new_animation")
-			"AvailableSprite":
-				n.visible = value
+				if !completed:
+					n.get_node("AnimationPlayer").play("new_animation")
+				else:
+					n.visible = true
+			"CompletedSprite":
+				if completed:
+					print(node_level)
+					n.visible = true
 	if available:
 		focus_mode = Control.FOCUS_ALL
 	else:
