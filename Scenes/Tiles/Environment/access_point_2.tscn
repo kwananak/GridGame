@@ -1,7 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5owey4h2s8ek"]
+[gd_scene load_steps=26 format=3 uid="uid://c5owey4h2s8ek"]
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point.gd" id="1_rwpm1"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="2_w5i02"]
+[ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="3_7bptt"]
+[ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="4_jyk1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ww"]
 
@@ -206,3 +208,11 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 18.0
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7bptt")
+bus = &"FX"
+
+[node name="destroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jyk1a")
+bus = &"FX"

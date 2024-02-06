@@ -109,7 +109,6 @@ texture = SubResource("AtlasTexture_k8wbx")
 
 [node name="Title" type="Sprite2D" parent="Control/MapBackground"]
 position = Vector2(-237.5, -105)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_gbata")
 
 [node name="Frame" type="Sprite2D" parent="Control/MapBackground" groups=["MapFrame"]]
@@ -327,9 +326,9 @@ scale = Vector2(0.8, 0.8)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2rv1v")
-volume_db = -25.0
 pitch_scale = 0.9
 autoplay = true
+bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="focus_entered" from="Control/Loadout/Brain" to="Control/Loadout" method="_on_focus_entered" binds= ["Brain"]]

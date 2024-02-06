@@ -90,7 +90,7 @@ func call_quit():
 # instantiates terminal scene and hides + pauses real scene when called
 func call_terminal_scene(terminal_name):
 	remove_child(real_scene)
-	$RealAudio.volume_db = -25
+	$RealAudio.volume_db = -10
 	if terminal_name == "TerminalTestScene":
 		terminal_scene = load("res://Scenes/terminal_test_scene.tscn").instantiate()
 	else:
@@ -101,7 +101,7 @@ func call_terminal_scene(terminal_name):
 # returns to real scene when closing terminal
 func return_to_real_scene():
 	add_child(real_scene)
-	$RealAudio.volume_db = -20
+	$RealAudio.volume_db = 0
 	for n in get_tree().get_nodes_in_group("TerminalDoors"):
 		n.update_door()
 
