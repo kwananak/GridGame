@@ -15,5 +15,17 @@ func loaded():
 func action():
 	player.moving = true
 	doomwall.skip_turn = true
-	player.skip_turn()
+	var anim = player.get_node("AnimatedSprite2D")
+	var flip_save = anim.flip_h
+	anim.flip_h = true
+	anim.animation = "amazing"
+	while true:
+		await anim.frame_changed
+		if anim.frame == 3:
+			break
 	doomwall.move_wall(distance)
+	await anim.animation_finished
+	anim.animation = "idle"
+	anim.flip_h = flip_save
+	anim.play()
+	player.skip_turn()

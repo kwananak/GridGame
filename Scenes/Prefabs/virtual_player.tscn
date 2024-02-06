@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://bjmgb6nib47p2"]
+[gd_scene load_steps=73 format=3 uid="uid://bjmgb6nib47p2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/virtual_player.gd" id="1_0kghv"]
 [ext_resource type="Texture2D" uid="uid://dbn3u3skuotun" path="res://Sprites/Programs/Arms/circle_whip.png" id="2_e1p3t"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/character_sheet.png" id="2_e75jn"]
+[ext_resource type="Texture2D" uid="uid://ckb0uom3ceest" path="res://Sprites/Programs/Goggles/Anim_goggles_sheet.png" id="2_oe3wr"]
 [ext_resource type="PackedScene" uid="uid://d3k6pd56xjakj" path="res://Scenes/Prefabs/possible_move.tscn" id="4_gobr5"]
 [ext_resource type="Texture2D" uid="uid://bo1ng3xxytxlb" path="res://Sprites/Programs/Arms/grappling_tool_sheet.png" id="4_ilmo0"]
 [ext_resource type="Texture2D" uid="uid://b8nu48bbph4j4" path="res://Sprites/Character/virtual_hit.png" id="5_n5a7o"]
@@ -18,6 +19,34 @@ resource_name = "circle_whip"
 _data = {
 "circle_whip": SubResource("Animation_pnpiu")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7tm5"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmdke"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q8vk"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2j1h"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl5ld"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owfq7"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_670fj"]
+atlas = ExtResource("2_oe3wr")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c14m"]
 atlas = ExtResource("2_e1p3t")
@@ -233,6 +262,32 @@ region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_85hmi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7tm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmdke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q8vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2j1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl5ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owfq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_670fj")
+}],
+"loop": false,
+"name": &"amazing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1c14m")
@@ -468,7 +523,7 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"idle"
+animation = &"amazing"
 autoplay = "spawn"
 
 [node name="PossibleMoves" type="Node2D" parent="."]
