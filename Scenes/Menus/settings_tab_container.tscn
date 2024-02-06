@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ie01ocgq525g"]
+[gd_scene load_steps=7 format=3 uid="uid://ie01ocgq525g"]
 
+[ext_resource type="Script" path="res://Scripts/Menus/settings_tab_container.gd" id="1_dwcq7"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="1_l5s2e"]
 [ext_resource type="PackedScene" uid="uid://fjmps8nq3w8k" path="res://Scenes/Menus/window_mode_button.tscn" id="1_uu8vv"]
 [ext_resource type="PackedScene" uid="uid://dssm38uoyiv3d" path="res://Scenes/Menus/resolution_mode_button.tscn" id="2_kj8qi"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dwcq7")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -26,11 +28,11 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_l5s2e")
+theme_override_font_sizes/font_size = 24
 tab_alignment = 1
 
-[node name="Audio" type="TabBar" parent="TabContainer"]
+[node name="Audio" type="Control" parent="TabContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_l5s2e")
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio"]
 layout_mode = 1
@@ -40,7 +42,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
@@ -49,12 +51,6 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 64
 alignment = 1
-
-[node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_l5s2e")
-text = "Audio Options"
-horizontal_alignment = 1
 
 [node name="Master" parent="TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("2_ynskb")]
 layout_mode = 2
@@ -65,7 +61,7 @@ layout_mode = 2
 [node name="FX" parent="TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("2_ynskb")]
 layout_mode = 2
 
-[node name="Video" type="TabBar" parent="TabContainer"]
+[node name="Video" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
 
@@ -77,19 +73,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Video/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/separation = 64
-
-[node name="Label" type="Label" parent="TabContainer/Video/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_l5s2e")
-text = "Video Options"
-horizontal_alignment = 1
 
 [node name="WindowModeButton" parent="TabContainer/Video/MarginContainer/VBoxContainer" instance=ExtResource("1_uu8vv")]
 layout_mode = 2
@@ -97,7 +89,7 @@ layout_mode = 2
 [node name="ResolutionModeButton" parent="TabContainer/Video/MarginContainer/VBoxContainer" instance=ExtResource("2_kj8qi")]
 layout_mode = 2
 
-[node name="Controls" type="TabBar" parent="TabContainer"]
+[node name="Controls" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
 
@@ -109,50 +101,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/separation = 72
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="left" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="left" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Left"
 
-[node name="right" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="right" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Right"
 
-[node name="up" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="up" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Up"
 
-[node name="down" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="down" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Down"
 
-[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Skip Turn"
 
-[node name="pause" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="pause" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Pause"
 
-[node name="select" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="select" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Select"
 
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 11.0
+offset_right = 619.0
+offset_bottom = 91.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_l5s2e")
+theme_override_font_sizes/font_size = 44
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 10.0
+offset_right = 956.0
+offset_bottom = 90.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_l5s2e")
+theme_override_font_sizes/font_size = 44
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

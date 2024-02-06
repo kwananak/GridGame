@@ -47,7 +47,6 @@ func set_available(value):
 					n.visible = true
 			"CompletedSprite":
 				if completed:
-					print(node_level)
 					n.visible = true
 	if available:
 		focus_mode = Control.FOCUS_ALL
