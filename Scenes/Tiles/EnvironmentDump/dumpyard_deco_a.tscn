@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw3ubq3w85o0j"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/dumpyard_deco_a.gd" id="1_77xfj"]
+[ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="2_kcn5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dlrg"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(0, 8, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtam"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(32, 8, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6yma"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(64, 8, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdsq"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(96, 8, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wjcg"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(128, 8, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n07q"]
+atlas = ExtResource("2_kcn5u")
+region = Rect2(160, 8, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbeh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dlrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvtam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6yma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wjcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n07q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wjcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n07q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dlrg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="DumpyardDecoA" type="Area2D"]
+script = ExtResource("1_77xfj")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.5, 3)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(5.66667, -12, 2.33333, -10.6667, -3, -10, -7, -7.33333, -9.66667, -2, -9.66667, 2.66667, -9.66667, 6.66667, -11, 9.33333, -10.3333, 10.6667, -7, 12, 7, 12, 11, 8.66667, 11.6667, 1.33333, 11, -8.66667, 9, -12)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wbeh2")
+frame_progress = 0.606582

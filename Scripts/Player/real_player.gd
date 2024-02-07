@@ -2,14 +2,21 @@ extends "res://Scripts/Player/player.gd"
 
 var active = false
 @export var speed = 100
+@onready var debug_raycast = $DebugRaycast
+@onready var debug_raycast_2 = $DebugRaycast2
+@onready var ray_2 = $RayCast2D2
+var rays
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	await enter_level_animation()
 	active = true
+	rays = [ray, ray_2]
 
 func _process(delta):
 	get_input(delta)
+	debug_raycast.position = ray.target_position
+	debug_raycast_2.position = ray_2.target_position
 
 # checks for pressed or held direction keys
 func get_input(delta):
@@ -52,18 +59,29 @@ func enter_level_animation():
 
 # checks for collision before moving or taking appropriate action
 func collision_check(dir, delta):
-	ray.target_position = dir * 16
-	ray.force_raycast_update()
-	if !ray.is_colliding():
-		move(dir, delta)
-	else:
-		var collision = ray.get_collider()
-		if collision.is_in_group("Terminal"):
-			level_manager.call_terminal(collision.name)
+	for i in rays.size():
+		if i == 0:
+			if dir.x == 0:
+				rays[i].position = Vector2(-4, 2)
+			else:
+				rays[i].position = Vector2(0, 4)
+		else:
+			if dir.x == 0:
+				rays[i].position = Vector2(4, 2)
+			else:
+				rays[i].position = Vector2(0, 12)
+		rays[i].target_position = rays[i].position + dir * 10
+		rays[i].force_raycast_update()
+		if ray.is_colliding():
+			var collision = ray.get_collider()
+			if collision.is_in_group("Terminal"):
+				level_manager.call_terminal(collision.name)
+				return
+			if collision.get("tile_type") :
+				match collision.tile_type:
+					"door":
+						if collision.unlocked: 
+							collision.open_door()
+							move(dir, delta)
 			return
-		if collision.get("tile_type") :
-			match collision.tile_type:
-				"door":
-					if collision.unlocked: 
-						collision.open_door()
-						move(dir, delta)
+	move(dir, delta)

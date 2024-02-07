@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_qyfal"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_fufk3"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://y4m14rk7x318" path="res://Sounds/Backgrounds/dumpyard.wav" id="8_3uets"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="8_egm48"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="9_gq025"]
+[ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="10_00ai2"]
 
 [node name="RealTestLevel" type="Node2D"]
 
@@ -53,3 +54,6 @@ bus = &"Music"
 [node name="AmplifierTile" parent="." instance=ExtResource("9_gq025")]
 position = Vector2(256, 192)
 select_amplifier = "NeuroEnhanceAmplifier1"
+
+[node name="DumpyardDecoA" parent="." instance=ExtResource("10_00ai2")]
+position = Vector2(192, 256)
