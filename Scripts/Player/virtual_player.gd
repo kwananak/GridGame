@@ -52,7 +52,7 @@ func get_input():
 			else:
 				moving = false
 
-func _unhandled_input(event):
+func _input(event):
 	if level_manager.game_over:
 		return 
 	if event.is_action_pressed("pause"):

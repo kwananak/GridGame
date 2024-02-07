@@ -4,10 +4,10 @@ extends Control
 var writing = false
 var data
 var written = 0
-@onready var label = $Label
+@onready var label = $Sprite2D/Label
 
 func _ready():
-	$Button.grab_focus()
+	$Sprite2D/Button.grab_focus()
 	if not FileAccess.file_exists("res://cutscenes.txt"):
 		$/root/Main.disable_continue()
 		return
