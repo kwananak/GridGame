@@ -75,7 +75,7 @@ func on_button_pressed(slot):
 				info.text = "already runed"
 				return
 		else:
-			info.text = "nothing to runed"
+			info.text = "nothing to rune"
 			return
 	if selection_opened:
 		if selection_opened == slot:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8tpvtaqmdco"]
+[gd_scene load_steps=23 format=3 uid="uid://c8tpvtaqmdco"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_m3qxo"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_4ghj7"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="5_ktjds"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_t4r27"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_l7vs7"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="9_mslom"]
+[ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="10_li6ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2y5h"]
 atlas = ExtResource("5_ktjds")
@@ -51,6 +53,10 @@ region = Rect2(64, 2141, 209, 19)
 [sub_resource type="AtlasTexture" id="AtlasTexture_14ex5"]
 atlas = ExtResource("5_ktjds")
 region = Rect2(352, 470, 257, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryhuj"]
+atlas = ExtResource("5_ktjds")
+region = Rect2(290, 2024, 314, 105)
 
 [node name="Terminal1" type="Node2D" groups=["TerminalScene"]]
 script = ExtResource("1_m3qxo")
@@ -159,42 +165,6 @@ texture = SubResource("AtlasTexture_14ex5")
 [node name="Loadout" parent="Control" instance=ExtResource("6_t4r27")]
 layout_mode = 1
 
-[node name="Info" type="ColorRect" parent="Control" groups=["InfoPanel"]]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0503472
-anchor_top = -0.33125
-anchor_right = 0.0538196
-anchor_bottom = -0.33125
-offset_left = 192.0
-offset_top = 480.0
-offset_right = 393.0
-offset_bottom = 540.0
-color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Control/Info"]
-layout_mode = 0
-offset_right = 1025.0
-offset_bottom = 310.0
-scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 48
-autowrap_mode = 2
-
-[node name="ReturnButton" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.15191
-anchor_top = -0.375
-anchor_right = 0.15191
-anchor_bottom = -0.375
-offset_left = 32.0
-offset_top = 512.0
-offset_right = 93.0
-offset_bottom = 572.0
-text = "Return"
-metadata/_edit_use_anchors_ = true
-
 [node name="NexusButton" parent="Control" instance=ExtResource("7_l7vs7")]
 layout_mode = 1
 anchors_preset = 8
@@ -202,10 +172,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -456.0
-offset_top = -16.0
-offset_right = -456.0
-offset_bottom = -16.0
+offset_left = -466.0
+offset_top = -37.0
+offset_right = -466.0
+offset_bottom = -37.0
 scale = Vector2(0.8, 0.8)
 
 [node name="DoorLabel" type="ColorRect" parent="Control"]
@@ -226,10 +196,32 @@ scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 
+[node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
+position = Vector2(331, 300)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_ryhuj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/Info"]
+offset_left = -142.0
+offset_top = -40.0
+offset_right = 1277.0
+offset_bottom = 347.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_mslom")
+theme_override_font_sizes/font_size = 64
+autowrap_mode = 3
+
+[node name="ReturnButton" parent="Control" instance=ExtResource("10_li6ja")]
+layout_mode = 1
+offset_left = 122.0
+offset_top = 330.0
+offset_right = 122.0
+offset_bottom = 330.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2viqu")
 pitch_scale = 0.85
 bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]

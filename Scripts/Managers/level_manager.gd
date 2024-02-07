@@ -112,6 +112,7 @@ func on_end_tile_entered():
 	game_over = true
 	button.text = "Level Won!!"
 	button.visible = true
+	button.grab_focus()
 
 # called by game ending entities when colliding with player
 func call_game_over():

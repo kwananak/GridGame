@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqv5qgjt5buty"]
+
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_busng"]
+[ext_resource type="Script" path="res://Scripts/UI/return_button.gd" id="1_e8uuu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uyiy"]
+atlas = ExtResource("1_busng")
+region = Rect2(64, 2095, 133, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbrpr"]
+atlas = ExtResource("1_busng")
+region = Rect2(288, 2141, 113, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1guo"]
+atlas = ExtResource("1_busng")
+region = Rect2(16, 1116, 135, 36)
+
+[node name="ReturnButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+focus_mode = 2
+script = ExtResource("1_e8uuu")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_1uyiy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lbrpr")
+
+[node name="Focus" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_o1guo")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
