@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=24 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -54,6 +54,10 @@ region = Rect2(64, 2141, 209, 19)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rblou"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(352, 470, 257, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8he0"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(256, 400, 203, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i875o"]
 atlas = ExtResource("2_o3ila")
@@ -187,20 +191,19 @@ texture = SubResource("AtlasTexture_rjulk")
 visible = false
 texture = SubResource("AtlasTexture_rblou")
 
+[node name="InfoBox" type="Sprite2D" parent="Control/ProgramsBackground"]
+position = Vector2(17.5, 155)
+texture = SubResource("AtlasTexture_y8he0")
+
 [node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
 layout_mode = 1
 
 [node name="NexusButton" parent="Control" instance=ExtResource("7_1j7k8")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -40.0
-offset_right = -464.0
-offset_bottom = -40.0
+offset_left = -448.0
+offset_top = -32.0
+offset_right = -448.0
+offset_bottom = -32.0
 scale = Vector2(0.8, 0.8)
 
 [node name="DoorLabel" type="ColorRect" parent="Control"]
@@ -239,10 +242,10 @@ autowrap_mode = 3
 
 [node name="ReturnButton" parent="Control" instance=ExtResource("9_bd5av")]
 layout_mode = 1
-offset_left = 122.0
-offset_top = 330.0
-offset_right = 122.0
-offset_bottom = 330.0
+offset_left = -433.0
+offset_top = 14.0
+offset_right = -433.0
+offset_bottom = 14.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b1tni")
