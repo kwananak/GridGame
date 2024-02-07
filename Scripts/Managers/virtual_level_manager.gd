@@ -45,6 +45,7 @@ func set_pause(value):
 		paused = true
 		return
 	paused = value
+	pause_trigger.emit(paused)
 	if paused:
 		button.text = "Quit"
 		button.visible = true

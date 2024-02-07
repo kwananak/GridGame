@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://wxfalowkmqp1"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/background_colors.gd" id="1_ucxsk"]
+[ext_resource type="Script" path="res://Scripts/Environment/virtual_level_background.gd" id="1_3c6ej"]
 
 [sub_resource type="Animation" id="Animation_71lt1"]
 resource_name = "pulse"
@@ -45,14 +45,14 @@ _data = {
 "new_animation": SubResource("Animation_87t86")
 }
 
-[node name="BackgroundColors" type="Control" groups=["BackgroundColors"]]
+[node name="VirtualLevelBackgroundColors" type="Control" groups=["BackgroundColors"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ucxsk")
+script = ExtResource("1_3c6ej")
 
 [node name="Basic" type="ColorRect" parent="."]
 layout_mode = 1
@@ -94,3 +94,6 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_uneb0")
 }
+
+[connection signal="visibility_changed" from="Careful" to="." method="_on_careful_visibility_changed"]
+[connection signal="visibility_changed" from="Danger" to="." method="_on_danger_visibility_changed"]

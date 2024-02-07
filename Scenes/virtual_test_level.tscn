@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=18 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
-[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/background_colors.tscn" id="1_w8gh5"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="6_7kf8h"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="13_cbgds"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="14_e3i2p"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="15_phdav"]
+[ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="17_f2dpq"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -92,3 +93,9 @@ position = Vector2(160, 256)
 
 [node name="YellowWarningTile2" parent="." instance=ExtResource("15_phdav")]
 position = Vector2(192, 256)
+
+[node name="RedWarningTile" parent="." instance=ExtResource("17_f2dpq")]
+position = Vector2(288, 256)
+
+[node name="RedWarningTile2" parent="." instance=ExtResource("17_f2dpq")]
+position = Vector2(288, 288)

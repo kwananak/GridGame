@@ -10,6 +10,8 @@ var player_sprite
 var view_margin
 var real_done
 
+signal pause_trigger
+
 # setup level specs from inspector. Firewall speed: 1 will move every turn, 2 every 2 turn, etc.
 @export var level_name : String
 @export var level_height = 32
