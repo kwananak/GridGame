@@ -36,6 +36,7 @@ size = Vector2(85, 20)
 size = Vector2(20, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_komys"]
+size = Vector2(20, 74)
 
 [node name="Level102" type="Node2D"]
 
@@ -1495,7 +1496,18 @@ position = Vector2(992, 288)
 [node name="VirtualStartTile" parent="GameplayElements/gameplay_tiles" instance=ExtResource("16_hbdkt")]
 position = Vector2(96, 224)
 
-[node name="BeamCannon" type="Node" parent="GameplayElements"]
+[node name="BeamCannon" type="Node2D" parent="GameplayElements"]
+
+[node name="WarningTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="RedWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("20_vo3p2")]
+position = Vector2(1824, 192)
+
+[node name="RedWarningTile2" parent="GameplayElements/WarningTiles" instance=ExtResource("20_vo3p2")]
+position = Vector2(1824, 224)
+
+[node name="RedWarningTile3" parent="GameplayElements/WarningTiles" instance=ExtResource("20_vo3p2")]
+position = Vector2(1824, 256)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_btckl")
@@ -1505,7 +1517,7 @@ bus = &"Music"
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pl57v")]
-text = Array[String](["The red $Byte Barrier$ seem harder to break up.."])
+text = Array[String](["The red $Byte Barrier$ are harder to disable but it won’t be a problem for me."])
 related_node = NodePath("../../GameplayElements/BytesBarrier/DialogueByteBarrier8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
@@ -1513,7 +1525,7 @@ position = Vector2(288, 224)
 shape = SubResource("RectangleShape2D_cinpk")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pl57v")]
-text = Array[String](["What is this $orange lazer field$?", "Must not be good..."])
+text = Array[String](["What is this $orange laser field$?", "Must not be good..."])
 related_node = NodePath("../../GameplayElements/gameplay_tiles/DialogueYellowWarningTile2")
 highlight_color = "orange"
 
@@ -1526,31 +1538,24 @@ position = Vector2(864, 256)
 shape = SubResource("RectangleShape2D_q66jl")
 
 [node name="DialogueArea4" parent="Dialogue" instance=ExtResource("19_pl57v")]
-text = Array[String](["I think something is coming?", "My meter in the botom left tell me something is wrong.", "I think they know I'm here.", "Better be faster.."])
+text = Array[String](["I think something is coming?", "My $meter$ in the botom left is  telling me something is wrong.", "I think they know I'm here.", "Let's reach the $Acces point$ faster.."])
+highlight_color = "orange"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea4"]
 position = Vector2(1248, 320)
 shape = SubResource("RectangleShape2D_7605l")
 
 [node name="DialogueArea5" parent="Dialogue" instance=ExtResource("19_pl57v")]
-text = Array[String](["Oh! This look good.", "It's a $ goggles program$.", "Those will help me get stronger in the virtual world."])
+text = Array[String](["Oh! This look good.", "It's a $ goggles program$.", "I will be able to $equip it between mission$ and give me $new abilities$.."])
+highlight_color = "purple"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea5"]
 position = Vector2(1504, 224)
 shape = SubResource("RectangleShape2D_4gbwt")
 
 [node name="DialogueArea" parent="Dialogue" instance=ExtResource("19_pl57v")]
-text = Array[String](["Ok got it.", "Time to leave!"])
+text = Array[String](["My $meter$ is now in the $red$.", "The $FireWall$ is getting faster! Time to leave for the next zone and fast!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(1600, 96)
-shape = SubResource("RectangleShape2D_komys")
-
-[node name="RedWarningTile" parent="." instance=ExtResource("20_vo3p2")]
-position = Vector2(1824, 192)
-
-[node name="RedWarningTile2" parent="." instance=ExtResource("20_vo3p2")]
 position = Vector2(1824, 224)
-
-[node name="RedWarningTile3" parent="." instance=ExtResource("20_vo3p2")]
-position = Vector2(1824, 256)
+shape = SubResource("RectangleShape2D_komys")
