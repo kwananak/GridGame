@@ -58,11 +58,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
 	if event.is_action_pressed("skip_turn"):
-		if level_manager.dialogue:
-			level_manager.dialogue.close()
-		else:
-			if !moving && !level_manager.paused:
-				skip_turn()
+		if !moving && !level_manager.paused:
+			skip_turn()
 	if level_manager.paused:
 		return
 	if event is InputEventMouseButton:

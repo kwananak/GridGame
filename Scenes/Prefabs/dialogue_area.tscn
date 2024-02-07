@@ -1,26 +1,28 @@
-[gd_scene load_steps=12 format=3 uid="uid://civwfn34e75v4"]
+[gd_scene load_steps=13 format=3 uid="uid://civwfn34e75v4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_area.gd" id="1_2n5ki"]
 [ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="2_q1vr2"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_8p7xp"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="3_12lq0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_88q1m"]
-atlas = ExtResource("3_12lq0")
-region = Rect2(192, 0, 32, 32)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq3fy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vpuj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_belam"]
 atlas = ExtResource("3_12lq0")
-region = Rect2(225, 1, 32, 32)
+region = Rect2(112, 134, 24, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ohvj"]
+atlas = ExtResource("3_12lq0")
+region = Rect2(145, 135, 24, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_66t0y"]
 animations = [{
 "frames": [{
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_88q1m")
+"texture": SubResource("AtlasTexture_belam")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7vpuj")
+"texture": SubResource("AtlasTexture_4ohvj")
 }],
 "loop": true,
 "name": &"default",
@@ -94,6 +96,8 @@ offset_top = 23.0
 offset_right = 144.0
 offset_bottom = 59.0
 scale = Vector2(0.25, 0.25)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oq3fy")
+flat = true
 
 [node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
 visible = false

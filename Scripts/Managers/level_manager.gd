@@ -33,7 +33,8 @@ func _ready():
 
 func _process(delta):
 	process_camera(delta)
-	ui.position = camera.position
+	if ui != null:
+		ui.position = camera.position
 
 # sets up a* grid for path finding in level
 func initialize_grid():
@@ -52,7 +53,7 @@ func press_pause():
 # update paused value and shows or hide pause "menu" accordingly
 func set_pause(value):
 	paused = value
-	if paused:
+	if paused && !game_over:
 		button.text = "Menu"
 		button.visible = true
 		button.grab_focus()
@@ -105,12 +106,6 @@ func _on_button_pressed():
 		if camera.get_child_count() > 0:
 			camera.remove_child(camera.get_child(0))
 		$/root/Main.call_menu(level_number)
-
-# listens for spacebar to quit the game when game is over
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_SPACE and game_over:
-			_on_button_pressed()
 
 # called by end tile when the player reaches it
 func on_end_tile_entered():

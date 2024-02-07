@@ -62,6 +62,7 @@ func spawn_bubble():
 	label.show()
 	button_sprite.show()
 	button.show()
+	button.grab_focus()
 	animating = false
 
 func write_bubble(sentence):
