@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvb3fjvlo0y4d"]
+[gd_scene load_steps=27 format=3 uid="uid://bvb3fjvlo0y4d"]
 
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/background_colors.tscn" id="1_ibsbd"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_lmb7n"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_vf57g"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_bhw37"]
@@ -29,6 +30,15 @@
 size = Vector2(20, 106)
 
 [node name="Level201" type="Node2D"]
+
+[node name="BackgroundColors" parent="." instance=ExtResource("1_ibsbd")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 3200.0
+offset_bottom = 1144.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_lmb7n")]
 yellow_doomwall_step = 0.75

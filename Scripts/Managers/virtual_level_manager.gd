@@ -101,6 +101,8 @@ func set_shield(value):
 # called when health is changed
 # updates onscreen health UI and calls game over if at 0
 func set_health(value):
+	if game_over:
+		return
 	if value < health && shields > 0:
 		shields -= 1
 		return
@@ -145,6 +147,8 @@ func set_remaining_actions(value):
 func on_success(level):
 	game_over = true
 	var audio = get_parent().get_node("AudioStreamPlayer")
+	get_tree().get_first_node_in_group("BackgroundColors").get_node("Careful").visible = false
+	get_tree().get_first_node_in_group("BackgroundColors").get_node("Danger").visible = false
 	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
 	$/root/Main.add_to_levels(level, level_number)

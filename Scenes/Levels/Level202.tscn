@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://buhrxtha4x4ha"]
+[gd_scene load_steps=24 format=3 uid="uid://buhrxtha4x4ha"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_2dx1l"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/background_colors.tscn" id="1_rgy7o"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_kynm3"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_h3vxv"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cpwqs"]
@@ -24,6 +25,15 @@
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_03oyb"]
 
 [node name="Level202" type="Node2D"]
+
+[node name="BackgroundColors" parent="." instance=ExtResource("1_rgy7o")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1792.0
+offset_bottom = 1024.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_2dx1l")]
 yellow_doomwall_step = 0.75
@@ -1605,10 +1615,6 @@ position = Vector2(320, 320)
 
 [node name="CornerWallTile18" parent="Environment/Walls/CornerWalls" instance=ExtResource("6_oxlx1")]
 position = Vector2(128, 384)
-rotation = -1.5708
-
-[node name="CornerWallTile3" parent="Environment/Walls/CornerWalls" instance=ExtResource("7_5dfts")]
-position = Vector2(2655.99, -2272)
 rotation = -1.5708
 
 [node name="CornerWallTile10" parent="Environment/Walls/CornerWalls" instance=ExtResource("7_5dfts")]
