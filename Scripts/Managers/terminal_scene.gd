@@ -1,17 +1,17 @@
 extends Node2D
 
-@onready var main = $/root/Main
-
 var loadout
 var loaded_level = null
 var terminal_number
+
 @onready var terminal_name = $Control/Map/Infos/TerminalName
+@onready var main = $/root/Main
 
 func _ready():
 	$Control/ReturnButton.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
-	terminal_name.text = $/root/Main.real_scene.get_node("RealLevelManager").level_name
+	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
 	_on_visibility_changed()
 
 func _input(event):
@@ -37,7 +37,7 @@ func _on_go_button_pressed():
 	if loaded_level == null:
 		return
 	loadout.hide()
-	$/root/Main.call_level(loaded_level)
+	main.call_level(loaded_level)
 	visible = false
 
 func _on_visibility_changed():

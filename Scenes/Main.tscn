@@ -189,6 +189,14 @@ theme_override_fonts/font = ExtResource("3_clwr3")
 theme_override_font_sizes/font_size = 64
 text = "Continue Game"
 
+[node name="Cutscene" type="Button" parent="DebugMenu"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 342.0
+offset_right = 218.0
+offset_bottom = 376.0
+text = "Cutscene"
+
 [node name="ResolutionModeButton" parent="DebugMenu" instance=ExtResource("7_fg0yk")]
 layout_mode = 1
 offset_left = 408.0
@@ -257,3 +265,4 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/QuitButton" to="." method="call_quit"]
 [connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
 [connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]
+[connection signal="button_down" from="DebugMenu/Cutscene" to="." method="call_cutscene" binds= [1]]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://di21m8cdsfnx0"]
+
+[ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="1_s844k"]
+[ext_resource type="Texture2D" uid="uid://ihevl84eqit8" path="res://Sprites/Cutscenes/background_1_1.png" id="2_06y1e"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_6qvn0"]
+[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_kebir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5x4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ldo"]
+atlas = ExtResource("4_kebir")
+region = Rect2(112, 150, 50, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lmb2"]
+atlas = ExtResource("4_kebir")
+region = Rect2(177, 151, 49, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nsku8"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v7ldo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lmb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s844k")
+cutscene_number = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.828)
+texture = ExtResource("2_06y1e")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -333.0
+offset_top = 128.0
+offset_right = 2972.0
+offset_bottom = 403.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_6qvn0")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 238.0
+offset_top = 178.0
+offset_right = 338.0
+offset_bottom = 198.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e5x4f")
+flat = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Button"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nsku8")
+autoplay = "default"
+centered = false
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

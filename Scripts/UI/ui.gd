@@ -13,7 +13,7 @@ func _ready():
 				$InfoUI.text = "DumpCore\n"
 			"Level2":
 				$InfoUI.text = "Humanity Diagnostic Mainframe\n"
-	$InfoUI.text += get_parent().name
+	$InfoUI.text += $/root/Main.get_level_name(level_manager.level_number)
 
 # relays quit level button press to level manager
 func _on_button_pressed():

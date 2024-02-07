@@ -55,7 +55,7 @@ func set_available(value):
 
 func _on_focus_entered():
 	$FocusSprite.visible = true
-	get_tree().get_first_node_in_group("LevelNameLabel").text = "Level " + str(node_level)
+	get_tree().get_first_node_in_group("LevelNameLabel").text = $/root/Main.get_level_name(node_level)
 	get_tree().get_first_node_in_group("MapFrame").visible = true
 
 func _on_focus_exited():

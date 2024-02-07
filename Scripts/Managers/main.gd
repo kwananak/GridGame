@@ -114,7 +114,7 @@ func return_to_real_scene():
 # resets game status and starts Level 1
 func new_game():
 	await progress_manager.reset_programs()
-	call_level(1)
+	call_cutscene(1)
 
 # switches between real levels scenes
 func switch_level(level_number):
@@ -140,3 +140,17 @@ func continue_game():
 		$RealAudio.play()
 	menu.visible = false
 	add_child(real_scene)
+
+
+func call_cutscene(cutscene_number):
+	menu.visible = false
+	camera.add_child(load("res://Scenes/Cutscenes/Cutscene" + str(cutscene_number) + ".tscn").instantiate())
+
+func get_level_name(level_number):
+	var json_string = FileAccess.open("res://level_names.txt", FileAccess.READ).get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	return json.get_data()[str(level_number)]
