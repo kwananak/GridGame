@@ -21,8 +21,11 @@ func action():
 	anim.animation = "amazing"
 	while true:
 		await anim.frame_changed
-		if anim.frame == 3:
-			break
+		match anim.frame:
+			2:
+				$Audio.play()
+			3:
+				break
 	doomwall.move_wall(distance)
 	await anim.animation_finished
 	anim.animation = "idle"

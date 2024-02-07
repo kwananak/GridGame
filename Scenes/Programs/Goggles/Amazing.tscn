@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ykmhiaw3cqvr"]
+[gd_scene load_steps=8 format=3 uid="uid://ykmhiaw3cqvr"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="1_2hria"]
 [ext_resource type="Script" path="res://Scripts/Programs/Goggles/amazing.gd" id="1_3vqoq"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_sh4f3"]
+[ext_resource type="AudioStream" uid="uid://b72yrvnf8cfj7" path="res://Sounds/FX/amazing_goggles.wav" id="3_3sk5f"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_lesuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux22f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdv8p"]
-atlas = ExtResource("1_2hria")
-region = Rect2(96, 64, 32, 32)
+atlas = ExtResource("2_sh4f3")
+region = Rect2(4, 356, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwthn"]
+atlas = ExtResource("2_sh4f3")
+region = Rect2(10, 362, 42, 35)
 
 [node name="Amazing" type="Area2D"]
 collision_layer = 256
@@ -20,7 +26,30 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_ux22f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.571, 0.571)
 texture = SubResource("AtlasTexture_kdv8p")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 66.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_lesuh")
+theme_override_font_sizes/font_size = 32
+text = "Amazing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadedSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_fwthn")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3sk5f")
+volume_db = 10.0
+bus = &"FX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

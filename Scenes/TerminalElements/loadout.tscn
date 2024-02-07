@@ -1,0 +1,106 @@
+[gd_scene load_steps=3 format=3 uid="uid://dik7767w56mld"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="1_cro6k"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_jj2mc"]
+
+[node name="Loadout" type="Control"]
+layout_mode = 3
+anchor_left = -0.172743
+anchor_top = 0.0421875
+anchor_right = -0.172743
+anchor_bottom = 0.0421875
+offset_left = 672.0
+offset_top = 32.0
+offset_right = 862.0
+offset_bottom = 302.0
+script = ExtResource("1_cro6k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Brain" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 173.0
+offset_right = 78.9999
+offset_bottom = 237.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Goggles" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 29.0
+offset_right = 78.9999
+offset_bottom = 93.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Armor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 65.0
+offset_right = 78.9999
+offset_bottom = 129.0
+scale = Vector2(0.5, 0.5)
+
+[node name="LeftHand" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 101.0
+offset_right = 78.9999
+offset_bottom = 165.0
+scale = Vector2(0.5, 0.5)
+
+[node name="RightHand" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 137.0
+offset_right = 78.9999
+offset_bottom = 201.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Boots" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.9999
+offset_top = 209.0
+offset_right = 78.9999
+offset_bottom = 273.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Runes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 165.0
+offset_right = 215.0
+offset_bottom = 229.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 245.0
+offset_right = 775.0
+offset_bottom = 365.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_jj2mc")
+theme_override_font_sizes/font_size = 64
+vertical_alignment = 1
+
+[connection signal="focus_entered" from="Brain" to="." method="_on_focus_entered" binds= ["Brain"]]
+[connection signal="focus_exited" from="Brain" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Brain" to="." method="on_button_pressed" binds= ["Brain"]]
+[connection signal="focus_entered" from="Goggles" to="." method="_on_focus_entered" binds= ["Goggles"]]
+[connection signal="focus_exited" from="Goggles" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Goggles" to="." method="on_button_pressed" binds= ["Goggles"]]
+[connection signal="focus_entered" from="Armor" to="." method="_on_focus_entered" binds= ["Armor"]]
+[connection signal="focus_exited" from="Armor" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Armor" to="." method="on_button_pressed" binds= ["Armor"]]
+[connection signal="focus_entered" from="LeftHand" to="." method="_on_focus_entered" binds= ["LeftHand"]]
+[connection signal="focus_exited" from="LeftHand" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="LeftHand" to="." method="on_button_pressed" binds= ["LeftHand"]]
+[connection signal="focus_entered" from="RightHand" to="." method="_on_focus_entered" binds= ["RightHand"]]
+[connection signal="focus_exited" from="RightHand" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="RightHand" to="." method="on_button_pressed" binds= ["RightHand"]]
+[connection signal="focus_entered" from="Boots" to="." method="_on_focus_entered" binds= ["Boots"]]
+[connection signal="focus_exited" from="Boots" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Boots" to="." method="on_button_pressed" binds= ["Boots"]]
+[connection signal="focus_entered" from="Runes" to="." method="_on_focus_entered" binds= ["Runes"]]
+[connection signal="focus_exited" from="Runes" to="." method="_on_focus_exited"]
+[connection signal="pressed" from="Runes" to="." method="_on_rune_pressed" binds= ["Runes"]]

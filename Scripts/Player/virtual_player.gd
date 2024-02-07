@@ -263,12 +263,13 @@ func projectile_check(program):
 	moving = false
 
 # hits a tile away in all direction
-func circle_hit(whip_strength):
+func circle_hit(whip):
 	moving = true
 	for n in possible_moves:
 		n.hide()
 	animated_sprite_2d.animation = "circle_whip"
 	await animated_sprite_2d.animation_finished
+	whip.get_node("Audio").play()
 	var tween = create_tween()
 	tween.tween_property(animated_sprite_2d, "rotation_degrees", 360, 0.8)
 	for dir in all_dir:
@@ -276,8 +277,10 @@ func circle_hit(whip_strength):
 		ray.force_raycast_update()
 		var collision = ray.get_collider()
 		if collision:
-			if collision.has_method("hit_by_player"):
-				collision.hit_by_player(whip_strength)
+			if collision.is_in_group("AccessPoint"):
+				collision.hit_by_player(whip)
+			elif collision.has_method("hit_by_player"):
+				collision.hit_by_player(whip.strength)
 	await tween.finished
 	animated_sprite_2d.rotation_degrees = 0
 	animated_sprite_2d.animation = "idle"

@@ -10,10 +10,12 @@ var rune_mode = null
 var progress_manager
 var info
 var prog_load
+var programs_frame
 
 @onready var empty = preload("res://Scenes/Programs/Empty.tscn")
 
 func _ready():
+	programs_frame = get_tree().get_first_node_in_group("ProgramsFrame")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	max_loads = progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
 	prog_load = progress_manager.get_node("Loadout")
@@ -149,6 +151,7 @@ func set_program_sprites():
 	info.text = available_programs[array_selected].name + "\n" + available_programs[array_selected].info
 
 func _on_focus_entered(slot):
+	programs_frame.visible = true
 	if slot == "Runes":
 		var rune_count = progress_manager.get_node("Loadout/" + slot).get_child_count()
 		match rune_count:
@@ -165,6 +168,7 @@ func _on_focus_entered(slot):
 		info.text = slot + "\n" + "Empty"
 
 func _on_focus_exited():
+	programs_frame.visible = false
 	info.text = ""
 
 func _on_rune_pressed():

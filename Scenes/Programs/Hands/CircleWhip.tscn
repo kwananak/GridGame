@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b71bjivqvxg8c"]
+[gd_scene load_steps=8 format=3 uid="uid://b71bjivqvxg8c"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="2_6ho0w"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/circle_whip.gd" id="2_axfky"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_bv0q6"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_ak2sn"]
+[ext_resource type="AudioStream" uid="uid://2tjbdy1btvxt" path="res://Sounds/FX/circle_whip.wav" id="3_w4623"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ccg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4shs"]
+atlas = ExtResource("2_bv0q6")
+region = Rect2(68, 484, 56, 56)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_md1vt"]
-atlas = ExtResource("2_6ho0w")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("2_bv0q6")
+region = Rect2(74, 490, 42, 35)
 
 [node name="CircleWhip" type="Area2D"]
 collision_layer = 256
@@ -20,7 +26,29 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_u8ccg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.571, 0.571)
+texture = SubResource("AtlasTexture_y4shs")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 66.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_ak2sn")
+theme_override_font_sizes/font_size = 32
+text = "Circle Whip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadedSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_md1vt")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w4623")
+pitch_scale = 0.8
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

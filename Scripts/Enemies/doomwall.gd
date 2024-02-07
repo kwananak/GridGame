@@ -79,6 +79,10 @@ func _on_area_entered(_area):
 func move_wall(distance):
 	if distance == 0:
 		return
+	if distance < 0:
+		audio.pitch_scale = 0.9
+	else:
+		audio.pitch_scale = 1
 	audio.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position",

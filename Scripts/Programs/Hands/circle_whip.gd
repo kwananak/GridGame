@@ -11,4 +11,4 @@ func loaded():
 	super.loaded()
 
 func action():
-	player.circle_hit(strength)
+	player.circle_hit(self)

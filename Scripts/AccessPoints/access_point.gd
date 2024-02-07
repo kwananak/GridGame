@@ -32,11 +32,16 @@ func hit_by_player(hit):
 		var frame = anim.frame
 		anim.animation = "hit"
 		anim.frame = frame
-		await get_tree().create_timer(0.2).timeout
+		for i in randi_range(4, 6):
+			anim.position = Vector2(randi_range(-3, 3), randi_range(-3, 3))
+			await get_tree().create_timer(0.05).timeout
 		frame = anim.frame
 		anim.animation = "vulnerable"
 		anim.frame = frame
-		strength -= hit
+		if hit is int:
+			strength -= hit
+		else:
+			strength -= 1
 		if strength <= 0:
 			$destroy.play()
 			anim.animation = "destruction"

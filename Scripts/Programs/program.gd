@@ -21,6 +21,8 @@ func _ready():
 
 func loaded():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	$Sprite2D.hide()
+	$LoadedSprite.show()
 
 func picked_up(slot):
 	set_deferred("monitorable", false)

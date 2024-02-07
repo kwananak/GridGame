@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://livwg3kbkesi"]
+[gd_scene load_steps=7 format=3 uid="uid://livwg3kbkesi"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="1_gtx7f"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_oud6o"]
 [ext_resource type="Script" path="res://Scripts/Programs/Brain/synthetik_thought.gd" id="2_t777j"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_8sdud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1b2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_521k0"]
-atlas = ExtResource("1_gtx7f")
-region = Rect2(32, 160, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dgjj"]
+atlas = ExtResource("2_oud6o")
+region = Rect2(4, 549, 56, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uark"]
+atlas = ExtResource("2_oud6o")
+region = Rect2(10, 554, 42, 35)
 
 [node name="SynthetikThought" type="Area2D"]
-position = Vector2(16, 16)
 collision_layer = 256
 collision_mask = 0
 monitorable = false
@@ -21,4 +25,22 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_vn1b2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_521k0")
+scale = Vector2(0.571, 0.571)
+texture = SubResource("AtlasTexture_2dgjj")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 66.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_8sdud")
+theme_override_font_sizes/font_size = 32
+text = "Action Pants!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadedSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_0uark")

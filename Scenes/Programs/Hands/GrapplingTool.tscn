@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlyrwgmg3ve6g"]
+[gd_scene load_steps=7 format=3 uid="uid://dlyrwgmg3ve6g"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="1_hj583"]
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/grappling_tool.gd" id="2_8llf7"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_si3jg"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_1a3h4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7u1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3455"]
-atlas = ExtResource("1_hj583")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("2_si3jg")
+region = Rect2(4, 484, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq3u0"]
+atlas = ExtResource("2_si3jg")
+region = Rect2(10, 490, 42, 35)
 
 [node name="GrapplingTool" type="Area2D"]
 collision_layer = 256
@@ -20,7 +25,26 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_fa7u1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.571, 0.571)
 texture = SubResource("AtlasTexture_d3455")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 66.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_1a3h4")
+theme_override_font_sizes/font_size = 32
+text = "Grappling Tool"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadedSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1.37091e-06, 0.500001)
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_jq3u0")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
