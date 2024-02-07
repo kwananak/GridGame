@@ -21,6 +21,7 @@ var doomwall
 @export var red_doomwall_step = 2.0
 
 @onready var summary_prefab = preload("res://Scenes/UI/level_summary.tscn")
+@onready var fail_prefab = preload("res://Scenes/UI/level_fail.tscn")
 
 func _ready():
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
@@ -152,10 +153,11 @@ func on_success(level):
 	display_summary()
 
 func call_game_over():
+	game_over = true
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	create_tween().tween_property(audio, "volume_db", -80, 1)
 	player.death_animation()
-	super.call_game_over()
+	display_fail()
 
 func display_summary():
 	var summary = summary_prefab.instantiate()
@@ -167,3 +169,7 @@ func display_summary():
 	camera.add_child(summary)
 	ui.hide()
 	ui.get_node("ProgramBar").queue_free()
+
+func display_fail():
+	camera.add_child(fail_prefab.instantiate())
+	ui.hide()

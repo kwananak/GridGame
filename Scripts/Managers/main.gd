@@ -54,6 +54,12 @@ func call_level(level_number):
 		virtual_scene = level
 	add_child(level)
 
+func retry_level():
+	var loaded_virtual_number = virtual_scene.get_node("VirtualLevelManager").level_number
+	virtual_scene.queue_free()
+	await get_tree().create_timer(0.05).timeout
+	call_level(loaded_virtual_number)
+
 ### needs cleanup ###
 # handles various level quitting scenario, needs cleanup
 func call_menu(level_number):
