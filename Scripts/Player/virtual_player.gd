@@ -317,6 +317,8 @@ func grapple_check(distance):
 # deals with player animation and hitting destination (if hittable)
 func grapple_hit(dir):
 	moving = true
+	var grapple_sound = waiting_for_action.get_node("Grapple")
+	var hook_sound = waiting_for_action.get_node("Hook")
 	for n in possible_moves:
 		n.hide()
 	var grapple = []
@@ -327,6 +329,7 @@ func grapple_hit(dir):
 		tip.rotation_degrees = 90
 		animated_sprite_2d.animation = "grapple_down"
 		await animated_sprite_2d.animation_finished
+		grapple_sound.play()
 		get_parent().add_child(tip)
 		for i in (destination.y - 1) * 8:
 			await get_tree().create_timer(0.005).timeout
@@ -336,12 +339,14 @@ func grapple_hit(dir):
 			get_parent().add_child(section)
 			section.rotation_degrees = 90
 			section.position = Vector2(position.x - 0.5, position.y + 16 + 4 * i)
+			grapple_sound.pitch_scale += 0.02
 		destination.y -= 1
 	elif destination.y < 0:
 		tip.global_position = Vector2(global_position.x - 0.5, global_position.y - 16)
 		tip.rotation_degrees = 270
 		animated_sprite_2d.animation = "grapple_up"
 		await animated_sprite_2d.animation_finished
+		grapple_sound.play()
 		get_parent().add_child(tip)
 		for i in (-destination.y - 1) * 8:
 			await get_tree().create_timer(0.005).timeout
@@ -351,11 +356,13 @@ func grapple_hit(dir):
 			get_parent().add_child(section)
 			section.rotation_degrees = 90
 			section.position = Vector2(position.x - 0.5, position.y - 16 - 4 * i)
+			grapple_sound.pitch_scale += 0.02
 		destination.y += 1 
 	elif destination.x > 0:
 		tip.global_position = Vector2(global_position.x + 16, global_position.y - 2.5)
 		animated_sprite_2d.animation = "grapple_side"
 		await animated_sprite_2d.animation_finished
+		grapple_sound.play()
 		get_parent().add_child(tip)
 		for i in (destination.x - 1) * 8:
 			await get_tree().create_timer(0.005).timeout
@@ -364,12 +371,14 @@ func grapple_hit(dir):
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.position = Vector2(position.x + 16 + 4 * i, position.y - 2.5)
+			grapple_sound.pitch_scale += 0.02
 		destination.x -= 1
 	elif destination.x < 0:
 		tip.global_position = Vector2(global_position.x - 16, global_position.y - 2.5)
 		tip.rotation_degrees = 180
 		animated_sprite_2d.animation = "grapple_side"
 		await animated_sprite_2d.animation_finished
+		grapple_sound.play()
 		get_parent().add_child(tip)
 		for i in (-destination.x - 1) * 8:
 			await get_tree().create_timer(0.005).timeout
@@ -378,7 +387,11 @@ func grapple_hit(dir):
 			grapple.append(section)
 			get_parent().add_child(section)
 			section.position = Vector2(position.x - 16 - 4 * i, position.y - 2.5)
+			grapple_sound.pitch_scale += 0.02
 		destination.x += 1
+	grapple_sound.stop()
+	hook_sound.play()
+	await get_tree().create_timer(0.1).timeout
 	if "tile_type" in dir.available_action:
 		if dir.available_action.tile_type == "mobile":
 			if !dir.available_action.moved:
@@ -392,7 +405,7 @@ func grapple_hit(dir):
 	var tween = create_tween().tween_property(self, "position",
 			position + destination * level_manager.tile_size,
 			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	remove_grapple(grapple, tip, destination)
+	remove_grapple(grapple, tip, destination, grapple_sound)
 	await tween.finished
 	animated_sprite_2d.play("idle")
 
@@ -411,13 +424,16 @@ func grapple_mobile(destination, barrier, grapple, tip):
 		if section != null:
 			section.queue_free()
 
-func remove_grapple(grapple, tip, destination):
+func remove_grapple(grapple, tip, destination, grapple_sound):
+	grapple_sound.play()
 	while !grapple.is_empty():
 		await get_tree().create_timer(0.005).timeout
 		if destination != Vector2.ZERO:
 			var section = grapple.pop_front()
 			if section != null:
 				section.queue_free()
+		grapple_sound.pitch_scale -= 0.01
+	grapple_sound.stop()
 	tip.queue_free()
 
 func activate_shield():
