@@ -172,9 +172,8 @@ func display_summary():
 	summary.get_node("Title").text = level_name
 	summary.get_node("Body").text = body
 	camera.add_child(summary)
-	ui.hide()
-	ui.get_node("ProgramBar").queue_free()
+	ui.queue_free()
 
 func display_fail():
 	camera.add_child(fail_prefab.instantiate())
-	ui.hide()
+	ui.queue_free()
