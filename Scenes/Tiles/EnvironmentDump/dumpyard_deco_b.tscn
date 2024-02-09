@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxkd6yu4ron2r"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/dumpyard_deco_a.gd" id="1_w3l48"]
+[ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="2_2jvc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy0d0"]
+atlas = ExtResource("2_2jvc6")
+region = Rect2(0, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71yfc"]
+atlas = ExtResource("2_2jvc6")
+region = Rect2(32, 48, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dero1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71yfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71yfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy0d0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="DumpyardDecoB" type="Area2D"]
+script = ExtResource("1_w3l48")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, -7.15256e-07)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(-7.33333, 8.66667, -9.33333, -9.33333, -1.33333, -10.6667, 2.66667, -8, 6.66667, -2.66667, 9.33333, 8.66667, 5.33333, 10, -4.66667, 10.6667)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dero1")
+frame = 4
+frame_progress = 1.0
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
