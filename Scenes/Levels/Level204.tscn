@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy3vbk7dvklk4"]
+[gd_scene load_steps=21 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kdqco"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_xkyrv"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="13_sfa0b"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="14_r2pfd"]
 [ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="15_d74jt"]
-[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="16_msi0n"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="17_hwmsc"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="17_mljuk"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_t6lp3"]
@@ -1864,9 +1863,6 @@ position = Vector2(1792, 224)
 [node name="Placebot" parent="." instance=ExtResource("15_d74jt")]
 position = Vector2(1216, 544)
 
-[node name="AccessPointKeyPoint" parent="." instance=ExtResource("16_msi0n")]
-position = Vector2(1216, 480)
-
 [node name="AccessPointKey" parent="." instance=ExtResource("17_hwmsc")]
 position = Vector2(352, 288)
 
@@ -1876,14 +1872,20 @@ position = Vector2(448, 288)
 [node name="ByteBarrierEasy2" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(640, 320)
 
+[node name="ByteBarrierEasy3" parent="." instance=ExtResource("12_adb4i")]
+position = Vector2(1408, 192)
+
 [node name="ByteBarrierHard" parent="." instance=ExtResource("10_7mjym")]
 position = Vector2(448, 320)
 
 [node name="ByteBarrierHard2" parent="." instance=ExtResource("10_7mjym")]
 position = Vector2(448, 320)
 
+[node name="ByteBarrierHard3" parent="." instance=ExtResource("10_7mjym")]
+position = Vector2(1120, 512)
+
 [node name="ByteBarrierMedium" parent="." instance=ExtResource("11_2kxjm")]
-position = Vector2(256, 544)
+position = Vector2(1120, 224)
 
 [node name="BeetleBarrier5" parent="." instance=ExtResource("12_svoqd")]
 position = Vector2(320, 512)
