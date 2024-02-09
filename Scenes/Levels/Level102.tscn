@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="15_x8k8i"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_322l3"]
 [ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
-[ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="17_hddu5"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="18_btckl"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="18_h36xc"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="19_pl57v"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="20_vo3p2"]
+[ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/Amazing.tscn" id="21_di3f6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cinpk"]
 size = Vector2(20, 101)
@@ -1478,9 +1478,6 @@ position = Vector2(-32, 224)
 [node name="VirtualPlayer" parent="GameplayElements/gameplay_tiles" instance=ExtResource("16_322l3")]
 position = Vector2(96, 96)
 
-[node name="Placebot" parent="GameplayElements/gameplay_tiles" instance=ExtResource("17_hddu5")]
-position = Vector2(1600, 96)
-
 [node name="AccessPoint1" parent="GameplayElements/gameplay_tiles" instance=ExtResource("14_ok7lc")]
 position = Vector2(1952, 224)
 unlocks = 2
@@ -1569,3 +1566,7 @@ text = Array[String](["My $meter$ is now in the $red$.", "The $FireWall$ is gett
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(1824, 224)
 shape = SubResource("RectangleShape2D_komys")
+
+[node name="Amazing" parent="." instance=ExtResource("21_di3f6")]
+z_index = 11
+position = Vector2(1600, 96)

@@ -3052,11 +3052,8 @@ position = Vector2(2048, 800)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
-[node name="Malfunction" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
-position = Vector2(2112, 384)
-
 [node name="Malfunction5" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
-position = Vector2(2336, 384)
+position = Vector2(2432, 352)
 
 [node name="Malfunction6" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
 position = Vector2(2528, 480)
@@ -3067,11 +3064,8 @@ position = Vector2(2784, 256)
 [node name="Malfunction8" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
 position = Vector2(2656, 416)
 
-[node name="Malfunction4" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
+[node name="DialogueMalfunction4" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
 position = Vector2(1984, 352)
-
-[node name="Malfunction10" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
-position = Vector2(2848, 384)
 
 [node name="Malfunction2" parent="GameplayElements/Items" instance=ExtResource("8_rtvrl")]
 position = Vector2(2144, 224)
@@ -3520,14 +3514,15 @@ position = Vector2(896, 381.5)
 shape = SubResource("RectangleShape2D_fykoa")
 
 [node name="DialogueArea3" parent="Dialogue" instance=ExtResource("22_v414e")]
-text = Array[String](["I'm gonna try to activate the $FireWall$ at the futher away possible."])
+text = Array[String](["I'm gonna try to activate the $FireWall$ the futher away possible."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
 position = Vector2(1344, 669.5)
 shape = SubResource("RectangleShape2D_h1rdq")
 
-[node name="DialogueArea4" parent="Dialogue" instance=ExtResource("22_v414e")]
+[node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_v414e")]
 text = Array[String](["I almost forgot about chips. Those are good! ", "They are call the $Malfunction chip$ because they slow down the processor.", "When i grab them, $the FireWall freeze for 4 actions.$", "I Better grab them when we are chase by the FireWall."])
+related_node = NodePath("../../GameplayElements/Items/DialogueMalfunction4")
 highlight_color = "green"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea4"]
