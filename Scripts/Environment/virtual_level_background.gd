@@ -15,6 +15,7 @@ func _ready():
 	upper_range = 1.0
 	if level_manager != null:
 		level_manager.pause_trigger.connect(set_pause)
+		level_manager.game_over_trigger.connect(set_pause)
 		upper_range = 0.3
 	loaded_prefab = basic_particle_prefab
 	spawn_particles()

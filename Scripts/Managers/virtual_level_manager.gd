@@ -147,6 +147,7 @@ func set_remaining_actions(value):
 
 func on_success(level):
 	game_over = true
+	game_over_trigger.emit(true)
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	get_tree().get_first_node_in_group("BackgroundColors").get_node("Careful").visible = false
 	get_tree().get_first_node_in_group("BackgroundColors").get_node("Danger").visible = false
@@ -159,6 +160,7 @@ func on_success(level):
 
 func call_game_over():
 	game_over = true
+	game_over_trigger.emit(true)
 	var audio = get_parent().get_node("AudioStreamPlayer")
 	create_tween().tween_property(audio, "volume_db", -80, 1)
 	player.death_animation()
