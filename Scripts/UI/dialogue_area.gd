@@ -53,7 +53,7 @@ func close():
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(300, 300)
 	bubble.show()
-	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-300, 20), 0.7).finished
+	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-300, 12), 0.7).finished
 	bubble.get_node("Tail").hide()
 	bubble.play()
 	await bubble.animation_finished
@@ -91,9 +91,7 @@ func remove_bubble():
 	bubble.play_backwards()
 	await bubble.animation_finished
 	bubble.hide()
-	if related_node:
-		highlight.hide()
-		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(player.position), 0.4).finished
+	await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(player.position), 0.4).finished
 	level_manager.dialogue = false
 	player.get_node("PossibleMoves").show()
 	queue_free()

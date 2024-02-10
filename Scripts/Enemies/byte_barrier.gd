@@ -3,6 +3,7 @@ extends Area2D
 var tile_type = "hardened"
 var level_manager
 var strength = 3 : set = match_strength
+var destroyed_by_wall = false
 
 @export var byte_type : int
 
@@ -23,7 +24,8 @@ func _ready():
 # matches visual to strength and creates explosion on destruction
 func match_strength(value):
 	if value <= 0:
-		level_manager.barriers_down += 1
+		if !destroyed_by_wall:
+			level_manager.barriers_down += 1
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
 		await spawn_explosion()
 		queue_free()
@@ -54,4 +56,5 @@ func hit_by_player(hit):
 	if hit is int:
 		strength -= hit
 	else:
+		destroyed_by_wall = true
 		strength = 0
