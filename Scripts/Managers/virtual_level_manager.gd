@@ -48,6 +48,8 @@ func set_pause(value):
 	else:
 		pause_menu.queue_free()
 		pause_menu = null
+		if dialogue:
+			dialogue.button.grab_focus()
 	paused = value
 	pause_trigger.emit(paused)
 
