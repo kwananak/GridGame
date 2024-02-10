@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cy0ww"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="5_tc2he"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="6_qkksv"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_7mjym"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="10_56w5e"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_2kxjm"]
@@ -15,14 +15,23 @@
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="12_svoqd"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="13_sfa0b"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="14_r2pfd"]
-[ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="15_d74jt"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="17_hwmsc"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="17_mljuk"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_t6lp3"]
+[ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="21_ip5y7"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="21_qtm7m"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="21_rf86o"]
 
 [node name="Level204" type="Node2D"]
+
+[node name="BackgroundColors" parent="." instance=ExtResource("21_rf86o")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 2688.0
+offset_bottom = 1336.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_kdqco")]
 level_length = 64
@@ -38,23 +47,8 @@ visible = false
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
-[node name="FloorTile" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(640, 512)
-
 [node name="FloorTile212" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(544, 224)
-
-[node name="FloorTile2" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(672, 512)
-
-[node name="FloorTile3" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(704, 512)
-
-[node name="FloorTile4" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(736, 512)
-
-[node name="FloorTile5" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(640, 544)
 
 [node name="FloorTile210" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(608, 256)
@@ -64,15 +58,6 @@ position = Vector2(608, 288)
 
 [node name="FloorTile386" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(608, 320)
-
-[node name="FloorTile6" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(672, 544)
-
-[node name="FloorTile7" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(704, 544)
-
-[node name="FloorTile8" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(736, 544)
 
 [node name="FloorTile233" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(352, 224)
@@ -85,18 +70,6 @@ position = Vector2(416, 224)
 
 [node name="FloorTile236" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(448, 224)
-
-[node name="FloorTile9" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(640, 576)
-
-[node name="FloorTile10" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(672, 576)
-
-[node name="FloorTile11" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(704, 576)
-
-[node name="FloorTile12" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(736, 576)
 
 [node name="FloorTile201" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(640, 320)
@@ -124,9 +97,6 @@ position = Vector2(672, 384)
 
 [node name="FloorTile209" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(704, 384)
-
-[node name="FloorTile13" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(640, 608)
 
 [node name="FloorTile238" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(320, 224)
@@ -158,15 +128,6 @@ position = Vector2(320, 320)
 [node name="FloorTile242" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(320, 352)
 
-[node name="FloorTile14" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(672, 608)
-
-[node name="FloorTile15" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(704, 608)
-
-[node name="FloorTile16" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(736, 608)
-
 [node name="FloorTile275" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1248, 416)
 
@@ -194,20 +155,8 @@ position = Vector2(1280, 480)
 [node name="FloorTile283" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1312, 480)
 
-[node name="FloorTile284" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1248, 512)
-
-[node name="FloorTile285" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1280, 512)
-
 [node name="FloorTile286" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1312, 512)
-
-[node name="FloorTile287" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1248, 576)
-
-[node name="FloorTile288" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1280, 576)
 
 [node name="FloorTile289" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1312, 576)
@@ -248,15 +197,6 @@ position = Vector2(1152, 576)
 [node name="FloorTile245" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1184, 576)
 
-[node name="FloorTile246" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1216, 576)
-
-[node name="FloorTile299" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1248, 544)
-
-[node name="FloorTile300" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1280, 544)
-
 [node name="FloorTile301" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1312, 544)
 
@@ -295,9 +235,6 @@ position = Vector2(1152, 544)
 
 [node name="FloorTile304" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1184, 544)
-
-[node name="FloorTile305" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1216, 544)
 
 [node name="FloorTile247" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1120, 608)
@@ -469,9 +406,6 @@ position = Vector2(1152, 512)
 
 [node name="FloorTile273" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(1184, 512)
-
-[node name="FloorTile274" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
-position = Vector2(1216, 512)
 
 [node name="FloorTile213" parent="Environment/Floor" instance=ExtResource("4_cy0ww")]
 position = Vector2(352, 256)
@@ -1672,10 +1606,6 @@ rotation = -1.5708
 position = Vector2(1536, 192)
 rotation = -1.5708
 
-[node name="WallTile133" parent="." instance=ExtResource("5_tc2he")]
-position = Vector2(1504, 96)
-rotation = -1.5708
-
 [node name="WallTile134" parent="." instance=ExtResource("5_tc2he")]
 position = Vector2(1536, 320)
 rotation = -1.5708
@@ -1799,6 +1729,7 @@ position = Vector2(1248, 256)
 
 [node name="BeamTile" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1120, 448)
+distance = 0
 
 [node name="BeamTile2" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1024, 384)
@@ -1807,26 +1738,34 @@ rotation = -1.5708
 [node name="BeamTile4" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(992, 320)
 rotation = -1.5708
+distance = 0
 
 [node name="BeamTile7" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(736, 384)
 rotation = -1.5708
+distance = 0
 
 [node name="BeamTile3" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(928, 192)
 rotation = 1.5708
+distance = 0
 
 [node name="BeamTile5" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(896, 192)
 rotation = 1.5708
+intial_charge = 1
+distance = 0
 
 [node name="BeamTile6" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(864, 192)
 rotation = 1.5708
+intial_charge = 2
+distance = 0
 
 [node name="BeamTile8" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(544, 224)
 rotation = 1.5708
+distance = 0
 
 [node name="CornerWallTile2" parent="." instance=ExtResource("11_y63og")]
 position = Vector2(1088, 160)
@@ -1861,9 +1800,6 @@ position = Vector2(1664, 320)
 [node name="AccessPoint1" parent="." instance=ExtResource("14_r2pfd")]
 position = Vector2(1792, 224)
 
-[node name="Placebot" parent="." instance=ExtResource("15_d74jt")]
-position = Vector2(1216, 544)
-
 [node name="AccessPointKey" parent="." instance=ExtResource("17_hwmsc")]
 position = Vector2(352, 288)
 
@@ -1875,6 +1811,15 @@ position = Vector2(640, 320)
 
 [node name="ByteBarrierEasy3" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(1408, 192)
+
+[node name="ByteBarrierEasy4" parent="." instance=ExtResource("12_adb4i")]
+position = Vector2(1504, 320)
+
+[node name="ByteBarrierEasy5" parent="." instance=ExtResource("12_adb4i")]
+position = Vector2(1440, 384)
+
+[node name="ByteBarrierEasy6" parent="." instance=ExtResource("12_adb4i")]
+position = Vector2(1088, 192)
 
 [node name="ByteBarrierHard" parent="." instance=ExtResource("10_7mjym")]
 position = Vector2(448, 320)
@@ -1889,7 +1834,7 @@ position = Vector2(1120, 512)
 position = Vector2(1120, 224)
 
 [node name="BeetleBarrier5" parent="." instance=ExtResource("12_svoqd")]
-position = Vector2(320, 512)
+position = Vector2(544, 768)
 
 [node name="MobileBarrier2" parent="." instance=ExtResource("13_sfa0b")]
 position = Vector2(704, 288)
@@ -1918,11 +1863,6 @@ position = Vector2(320, 256)
 [node name="YellowWarningTile8" parent="." instance=ExtResource("21_qtm7m")]
 position = Vector2(352, 256)
 
-[node name="BackgroundColors" parent="." instance=ExtResource("21_rf86o")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 2688.0
-offset_bottom = 1336.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="ArmorTile" parent="." instance=ExtResource("21_ip5y7")]
+position = Vector2(1248, 544)
+select_program = "Diamond"

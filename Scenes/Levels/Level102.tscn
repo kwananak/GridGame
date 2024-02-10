@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="13_6o3pg"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="15_ogkpg"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_322l3"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_hbdkt"]
 [ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="18_abhuk"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="18_btckl"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="18_h36xc"]
@@ -2509,32 +2509,36 @@ bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="DialogueArea" parent="Dialogue" instance=ExtResource("19_qhsu2")]
-text = Array[String](["Those are special type of $BYTES BARRIER$.", "They are call $MOBILE BARRIER$ because they can move but only $1 space$."])
-highlight_color = null
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_qhsu2")]
+text = Array[String](["Those are special type of $Bytes barrier$.", "They are call $Mobile barrier$ because they can move but only $1 space$."])
+related_node = NodePath("../../GameplayElements/BytesBarrier/DialogueMobileBarrier4")
+highlight_color = "yellow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(352, 448)
 shape = SubResource("RectangleShape2D_751n1")
 
-[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("19_qhsu2")]
-text = Array[String](["Those are the BEATLE BARRIER, they just don't move at all."])
-highlight_color = null
+[node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_qhsu2")]
+text = Array[String](["Those are the $Beetle barrier$, they just don't move at all."])
+related_node = NodePath("../../GameplayElements/BytesBarrier/DialogueBeetleBarrier3")
+highlight_color = "yellow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
 position = Vector2(736, 448)
 shape = SubResource("RectangleShape2D_0kcdg")
 
-[node name="DialogueArea4" parent="Dialogue" instance=ExtResource("19_qhsu2")]
+[node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_qhsu2")]
 text = Array[String](["The red $BYTE BARRIER$ are harder to disable but it won’t be a problem for me."])
-highlight_color = null
+related_node = NodePath("../../GameplayElements/BytesBarrier/DialogueByteBarrierHard21")
+highlight_color = "yellow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea4"]
 position = Vector2(1120, 224)
 shape = SubResource("RectangleShape2D_dvpye")
 
-[node name="DialogueArea3" parent="Dialogue" instance=ExtResource("19_qhsu2")]
+[node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_qhsu2")]
 text = Array[String](["Oh! This look good.", "It's a $ GOGGLES PROGRAM$.", "I will be able to $equip it between mission$ and give me $new abilities$.."])
+related_node = NodePath("../../GameplayElements/GameplayTiles/GogglesTile")
 highlight_color = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]

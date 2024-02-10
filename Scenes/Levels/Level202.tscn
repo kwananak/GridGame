@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://buhrxtha4x4ha"]
+[gd_scene load_steps=26 format=3 uid="uid://buhrxtha4x4ha"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_2dx1l"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_rgy7o"]
@@ -15,17 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="12_o7frc"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="15_rwgnv"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="17_08gk1"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_bwxxr"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_bwxxr"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="18_1umox"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="18_gt83m"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="18_lh4r2"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="18_ohdbw"]
-[ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="20_ck72k"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="21_6n7we"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_03oyb"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="24_abjye"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdq8i"]
+[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="24_e2tkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyu7c"]
 size = Vector2(20, 138)
@@ -74,44 +72,17 @@ position = Vector2(288, 224)
 [node name="FloorTile5" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(256, 224)
 
-[node name="FloorTile6" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(160, 256)
-
-[node name="FloorTile7" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(192, 256)
-
-[node name="FloorTile8" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(224, 256)
-
 [node name="FloorTile9" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(288, 256)
 
 [node name="FloorTile10" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(256, 256)
 
-[node name="FloorTile11" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(160, 288)
-
-[node name="FloorTile12" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(192, 288)
-
-[node name="FloorTile13" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(224, 288)
-
 [node name="FloorTile14" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(288, 288)
 
 [node name="FloorTile15" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(256, 288)
-
-[node name="FloorTile16" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(160, 320)
-
-[node name="FloorTile17" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(192, 320)
-
-[node name="FloorTile18" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
-position = Vector2(224, 320)
 
 [node name="FloorTile19" parent="Environment/Floor" instance=ExtResource("4_cpwqs")]
 position = Vector2(288, 320)
@@ -1726,7 +1697,7 @@ position = Vector2(960, 480)
 position = Vector2(672, 608)
 
 [node name="Malfunction4" parent="GameplayElements/Items" instance=ExtResource("10_v4iuk")]
-position = Vector2(224, 288)
+position = Vector2(256, 288)
 
 [node name="BeamCannon" type="Node2D" parent="GameplayElements"]
 
@@ -1765,24 +1736,12 @@ position = Vector2(1472, 736)
 
 [node name="Doomwall" parent="." instance=ExtResource("18_gt83m")]
 
-[node name="Placebot" parent="." instance=ExtResource("20_ck72k")]
-position = Vector2(192, 288)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_03oyb")
 autoplay = true
 bus = &"Music"
 
-[node name="Dialogue" type="Area2D" parent="."]
-
-[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("24_abjye")]
-text = Array[String](["Those $Booster Chip$ give you 1 more action to use on your programs like the Amazing Goggles you found..", "The $pants's program$ give you already $one action$ at the start of the hacking session."])
-related_node = NodePath("../../GameplayElements/Items/DialogueBooster2")
-highlight_color = "green"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(1312, 544)
-shape = SubResource("RectangleShape2D_xdq8i")
+[node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("24_abjye")]
 text = Array[String](["Where are the connection on the floor next to the $acces point$?", "Maybe there something else to activate it..."])
@@ -1792,3 +1751,7 @@ highlight_color = "green"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
 position = Vector2(1376, 731)
 shape = SubResource("RectangleShape2D_hyu7c")
+
+[node name="HandsTile" parent="." instance=ExtResource("24_e2tkg")]
+position = Vector2(192, 288)
+select_program = "CircleWhip"

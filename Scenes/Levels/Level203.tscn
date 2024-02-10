@@ -15,16 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="13_3ojhn"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="14_k1eaj"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_1mtve"]
-[ext_resource type="PackedScene" uid="uid://bjen3mye5rd47" path="res://Scenes/ItemChips/placebot.tscn" id="16_axw4v"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_8vssl"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="17_hxbrm"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="18_toeas"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="19_6pflq"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="19_6pflq"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="20_auxac"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="21_23162"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="22_tt6np"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="23_wtmdy"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="25_oecwr"]
+[ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="25_oj20c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjogw"]
 size = Vector2(74, 20)
@@ -1012,15 +1012,6 @@ position = Vector2(1856, 1024)
 [node name="FloorTile428" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1792, 1152)
 
-[node name="FloorTile429" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1824, 1120)
-
-[node name="FloorTile430" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1856, 1120)
-
-[node name="FloorTile431" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1888, 1120)
-
 [node name="FloorTile432" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1920, 1152)
 
@@ -1039,15 +1030,6 @@ position = Vector2(1856, 1056)
 [node name="FloorTile437" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1792, 1184)
 
-[node name="FloorTile438" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1824, 1152)
-
-[node name="FloorTile439" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1856, 1152)
-
-[node name="FloorTile440" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1888, 1152)
-
 [node name="FloorTile441" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1920, 1184)
 
@@ -1065,15 +1047,6 @@ position = Vector2(1728, 928)
 
 [node name="FloorTile445" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1760, 928)
-
-[node name="FloorTile446" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1824, 1184)
-
-[node name="FloorTile447" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1856, 1184)
-
-[node name="FloorTile448" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
-position = Vector2(1888, 1184)
 
 [node name="FloorTile449" parent="Environment/Floor" instance=ExtResource("4_4klqq")]
 position = Vector2(1888, 1088)
@@ -2214,9 +2187,6 @@ position = Vector2(64, 32)
 [node name="Doomwall" parent="." instance=ExtResource("17_8vssl")]
 position = Vector2(-1088, 0)
 
-[node name="Placebot" parent="." instance=ExtResource("16_axw4v")]
-position = Vector2(1856, 1152)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_23162")
 autoplay = true
@@ -2238,3 +2208,7 @@ text = Array[String](["The famous $Laser Beam turet$. It's oviusly dangerous.", 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
 position = Vector2(336, 224)
 shape = SubResource("RectangleShape2D_htqk1")
+
+[node name="HandsTile" parent="." instance=ExtResource("25_oj20c")]
+position = Vector2(1856, 1152)
+select_program = "GrapplingTool"
