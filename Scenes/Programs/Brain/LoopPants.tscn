@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://livwg3kbkesi"]
 
-[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_oud6o"]
-[ext_resource type="Script" path="res://Scripts/Programs/Brain/synthetik_thought.gd" id="2_t777j"]
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_8sdud"]
+[ext_resource type="Script" path="res://Scripts/Programs/Brain/synthetik_thought.gd" id="1_171hh"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_oixvl"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_axirf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vn1b2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dgjj"]
-atlas = ExtResource("2_oud6o")
+atlas = ExtResource("2_oixvl")
 region = Rect2(4, 549, 56, 55)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0uark"]
-atlas = ExtResource("2_oud6o")
+atlas = ExtResource("2_oixvl")
 region = Rect2(10, 554, 42, 35)
 
-[node name="SynthetikThought" type="Area2D"]
+[node name="LoopPants" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("2_t777j")
+script = ExtResource("1_171hh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -34,7 +34,7 @@ offset_top = 16.0
 offset_right = 207.0
 offset_bottom = 66.0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_8sdud")
+theme_override_fonts/font = ExtResource("3_axirf")
 theme_override_font_sizes/font_size = 32
 text = "Loop Pants"
 horizontal_alignment = 1

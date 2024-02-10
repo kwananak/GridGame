@@ -293,15 +293,16 @@ func grapple_check(distance):
 			ray.force_raycast_update()
 			var collision = ray.get_collider()
 			if collision:
-				if i == 0:
-					break
 				n.position = n.dir * level_manager.tile_size * (i + 1)
 				await n.check_collision(collision)
 				if n.possible:
-					n.possible = false
 					if i == distance - 1:
+						n.possible = false
 						await n.reset()
 					continue
+				if i == 0:
+					n.available_action = null
+					break
 				if n.available_action == null:
 					n.available_action = waiting_for_action
 				break

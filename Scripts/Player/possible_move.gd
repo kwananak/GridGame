@@ -40,6 +40,7 @@ func check_collision(collision):
 				if player.waiting_for_action:
 					match player.waiting_for_action.name:
 						"GrapplingTool" , "1-0-1Shotgun", "Salty":
+							print("grapple_Check hole")
 							possible = true
 							return
 				if !collision.opened || get_tree().get_first_node_in_group("VirtualLevelManager").floating:

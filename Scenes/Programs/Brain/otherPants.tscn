@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://b20xavb44nvvw"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="1_4xupr"]
-[ext_resource type="Script" path="res://Scripts/Programs/Brain/neuro_sync_cortex.gd" id="2_0xog0"]
+[ext_resource type="Script" path="res://Scripts/Programs/Brain/neuro_sync_cortex.gd" id="1_q808d"]
+[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="2_10rtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4l2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iv7uk"]
-atlas = ExtResource("1_4xupr")
+atlas = ExtResource("2_10rtb")
 region = Rect2(0, 160, 32, 32)
 
-[node name="NeuroSyncCortex" type="Area2D"]
+[node name="otherPants" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("2_0xog0")
+script = ExtResource("1_q808d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)

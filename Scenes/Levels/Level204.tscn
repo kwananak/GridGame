@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy3vbk7dvklk4"]
+[gd_scene load_steps=24 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kdqco"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_xkyrv"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cy0ww"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="5_tc2he"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="6_qkksv"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_7mjym"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="10_56w5e"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_2kxjm"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="21_ip5y7"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="21_qtm7m"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="21_rf86o"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_ki7cg"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="23_w4ddr"]
 
 [node name="Level204" type="Node2D"]
 
@@ -28,8 +30,10 @@
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 2688.0
-offset_bottom = 1336.0
+offset_left = -88.0
+offset_top = -56.0
+offset_right = 2600.0
+offset_bottom = 1280.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -1866,3 +1870,98 @@ position = Vector2(352, 256)
 [node name="ArmorTile" parent="." instance=ExtResource("21_ip5y7")]
 position = Vector2(1248, 544)
 select_program = "Diamond"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ki7cg")
+autoplay = true
+bus = &"Music"
+
+[node name="HoleTile" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1536, 224)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile10" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile11" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 288)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile12" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 320)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile13" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(544, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile14" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(544, 288)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile15" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(544, 320)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile16" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(512, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile17" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(512, 288)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile18" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(512, 320)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile2" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1536, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile3" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1536, 288)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile4" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1568, 224)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile5" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1568, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile6" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1568, 288)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile7" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1600, 224)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile8" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1600, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile9" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(1600, 288)
+cannon_recharge = 0
+duration = 200

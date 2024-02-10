@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=19 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
+[ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
 
 [node name="Level2" type="Node2D"]
 
@@ -319,3 +320,7 @@ door_number = 1
 stream = ExtResource("17_na0sr")
 autoplay = true
 bus = &"Music"
+
+[node name="AmplifierTile" parent="." instance=ExtResource("18_ipnln")]
+position = Vector2(416, 160)
+select_amplifier = "NeuroEnhanceAmplifier1"
