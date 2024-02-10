@@ -24,7 +24,6 @@ func _input(event):
 func _on_return_button_pressed():
 	loadout.hide()
 	main.return_to_real_scene()
-	queue_free()
 
 func _on_level_pressed(level_number):
 	loaded_level = level_number
@@ -49,6 +48,7 @@ func _on_visibility_changed():
 			if n.selected:
 				n.selected = false
 			if str(n.node_level) in prog_man.completed_levels:
+				print(n.node_level)
 				n.completed = true
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true

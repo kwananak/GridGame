@@ -7,7 +7,7 @@ var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
 var initial_health = 1
-var remaining_actions = 1 : set = set_remaining_actions
+var remaining_actions = 0 : set = set_remaining_actions
 var floating = false
 var programs = []
 var vision = false
@@ -150,7 +150,7 @@ func set_remaining_actions(value):
 	var actions_ui = ui.get_node("ProgramBar/Labels/Brain")
 	actions_ui.text = str(remaining_actions)
 
-func on_success(level):
+func on_success(level_unlocked):
 	game_over = true
 	game_over_trigger.emit(true)
 	var audio = get_parent().get_node("AudioStreamPlayer")
@@ -158,7 +158,7 @@ func on_success(level):
 	get_tree().get_first_node_in_group("BackgroundColors").get_node("Danger").visible = false
 	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
-	$/root/Main.add_to_levels(level, level_number)
+	$/root/Main.add_to_levels(level_unlocked, level_number)
 	for a in programs:
 		get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1])
 	display_summary()

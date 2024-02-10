@@ -128,6 +128,8 @@ func call_terminal_scene(terminal_name):
 
 # returns to real scene when closing terminal
 func return_to_real_scene():
+	terminal_scene.queue_free()
+	terminal_scene = null
 	add_child(real_scene)
 	$RealAudio.volume_db = 0
 	for n in get_tree().get_nodes_in_group("TerminalDoors"):
@@ -150,10 +152,10 @@ func switch_level(level_number):
 	progress_manager.save_game()
 
 # passthrough function from level manager to progress manager adding active real scene to save point
-func add_to_levels(level, level_completed):
+func add_to_levels(level_unlocked, level_completed):
 	if real_scene == null:
 		return
-	progress_manager.add_to_levels(level, real_scene.name, level_completed)
+	progress_manager.add_to_levels(level_unlocked, real_scene.name, level_completed)
 
 # returns player to game, either to loaded scene or to save point if no scene is loaded
 func continue_game():
