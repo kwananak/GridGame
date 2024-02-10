@@ -27,16 +27,17 @@ region = Rect2(0, 2141, 41, 19)
 atlas = ExtResource("5_ktjds")
 region = Rect2(16, 848, 541, 240)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lx3tw"]
-load_path = "res://.godot/imported/terminal_1_nodes.png-45a5f5a3efd246261cfa9136ab29b44f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k504x"]
-atlas = SubResource("CompressedTexture2D_lx3tw")
-region = Rect2(20, 0, 16, 102)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hlok"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_idye3"]
 atlas = ExtResource("5_ktjds")
-region = Rect2(119, 176, 2, 70)
+region = Rect2(16, 272, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpwyd"]
+atlas = ExtResource("5_ktjds")
+region = Rect2(16, 324, 35, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8e4d"]
+atlas = ExtResource("5_ktjds")
+region = Rect2(64, 320, 32, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_080dp"]
 atlas = ExtResource("5_ktjds")
@@ -93,31 +94,39 @@ texture = SubResource("AtlasTexture_ffpcy")
 [node name="Map" type="Sprite2D" parent="Control"]
 position = Vector2(304, 152)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("AtlasTexture_k504x")
-
-[node name="Level102" parent="Control/Map" instance=ExtResource("3_4ghj7")]
-offset_left = -8.0
-offset_top = -93.6667
-offset_right = -8.0
-offset_bottom = -93.6667
-focus_neighbor_left = NodePath("../../NexusButton")
-node_level = 102
-node_color = "yellow"
-
-[node name="LinkSprite" parent="Control/Map/Level102" instance=ExtResource("4_x6tjo")]
-position = Vector2(0, 42.6667)
-texture = SubResource("AtlasTexture_6hlok")
+texture = SubResource("AtlasTexture_idye3")
 
 [node name="Level101" parent="Control/Map" instance=ExtResource("3_4ghj7")]
-offset_left = -8.0
-offset_top = -8.33334
-offset_right = -8.0
-offset_bottom = -8.33334
-focus_neighbor_left = NodePath("../../NexusButton")
-focus_neighbor_top = NodePath("../Level102")
-focus_neighbor_bottom = NodePath("../../ReturnButton")
+offset_left = -104.0
+offset_top = -8.0
+offset_right = -104.0
+offset_bottom = -8.0
 node_level = 101
-node_color = "pink"
+node_color = "blue"
+
+[node name="Level102" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+offset_left = -56.0
+offset_top = -24.0
+offset_right = -56.0
+offset_bottom = -24.0
+node_level = 102
+node_color = "blue"
+
+[node name="LinkSprite" parent="Control/Map/Level102" instance=ExtResource("4_x6tjo")]
+position = Vector2(-25.3333, 4.66667)
+texture = SubResource("AtlasTexture_cpwyd")
+
+[node name="Level103" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = -8.0
+offset_bottom = -8.0
+node_level = 103
+node_color = "blue"
+
+[node name="LinkSprite" parent="Control/Map/Level103" instance=ExtResource("4_x6tjo")]
+position = Vector2(-24, -8)
+texture = SubResource("AtlasTexture_o8e4d")
 
 [node name="Infos" type="Control" parent="Control/Map"]
 layout_mode = 3

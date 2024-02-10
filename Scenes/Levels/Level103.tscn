@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkdh67e8cl465"]
+[gd_scene load_steps=20 format=3 uid="uid://dywwh3g80puee"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_n7s3j"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_ncf8r"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="13_mjkxb"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="13_texlx"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="14_xyae1"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_h7jhc"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_h7jhc"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="18_m5inh"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="19_08fjb"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="19_ette0"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="20_q02tp"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="22_x038b"]
@@ -20,8 +22,22 @@
 
 [node name="Level103" type="Node2D"]
 
+[node name="BackgroundColors" parent="." instance=ExtResource("18_m5inh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = -60.0
+offset_right = 2188.0
+offset_bottom = 810.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_08fjb")
+autoplay = true
+bus = &"Music"
+
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_n7s3j")]
-level_length = 64
 
 [node name="ProgramManager" parent="." instance=ExtResource("2_ncf8r")]
 
@@ -1384,7 +1400,6 @@ position = Vector2(992, 288)
 [node name="BaseStuffs" type="Node2D" parent="GameplayElements"]
 
 [node name="VirtualPlayer" parent="GameplayElements/BaseStuffs" instance=ExtResource("22_x038b")]
-z_index = 1
 position = Vector2(32, 96)
 
 [node name="Doomwall" parent="GameplayElements/BaseStuffs" instance=ExtResource("23_kp8f0")]

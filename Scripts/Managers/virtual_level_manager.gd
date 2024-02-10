@@ -178,7 +178,8 @@ func display_summary():
 		body += "\n" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = level_name
 	summary.get_node("Body").text = body
-	camera.add_child(summary)
+	summary.position = camera.position
+	add_child(summary)
 	ui.queue_free()
 
 func display_fail():
