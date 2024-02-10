@@ -71,7 +71,7 @@ func write_bubble(sentence):
 	for i in text[sentence]:
 		if i == "$":
 			if !bolded:
-				label.append_text("[color=" + highlight_color + "]")
+	 			label.append_text("[color=" + highlight_color + "]")
 				bolded = true
 			else:
 				label.append_text("[color=white]")
