@@ -12,7 +12,9 @@ var program
 func _ready():
 	for n in get_tree().get_first_node_in_group("ProgressManager").get_node("OwnedPrograms/" + program_slot).get_children():
 		if n.name == program_type:
-			queue_free()
+			set_deferred("monitorable", false)
+			set_deferred("monitoring", false)
+			$AnimatedSprite2D.hide()
 			return
 	program = load("res://Scenes/Programs/" + program_slot + "/" + program_type +  ".tscn").instantiate()
 	$AnimatedSprite2D.add_child(program)
