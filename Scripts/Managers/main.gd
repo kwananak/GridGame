@@ -53,7 +53,8 @@ func call_level(level_number):
 			$RealAudio.stop()
 		virtual_scene = level
 	if terminal_scene:
-		remove_child(terminal_scene)
+		if terminal_scene.is_inside_tree():
+			remove_child(terminal_scene)
 	add_child(level)
 
 func retry_level():

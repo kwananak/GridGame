@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bkdh67e8cl465"]
+[gd_scene load_steps=27 format=3 uid="uid://bkdh67e8cl465"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_8t4i8"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_n7s3j"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="20_c1aoj"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="20_iopkg"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="20_q02tp"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_4jcn6"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="22_x038b"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="23_kp8f0"]
 
@@ -1547,3 +1548,8 @@ shape = SubResource("RectangleShape2D_glnpq")
 [node name="VirtualPlayer" parent="." instance=ExtResource("22_x038b")]
 z_index = 20
 position = Vector2(32, 96)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_4jcn6")
+autoplay = true
+bus = &"Music"
