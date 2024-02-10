@@ -20,6 +20,7 @@ var pause_menu
 @export var green_doomwall_step = 0.0
 @export var yellow_doomwall_step = 1.0
 @export var red_doomwall_step = 2.0
+@export var attack_particles = false
 
 @onready var summary_prefab = preload("res://Scenes/UI/level_summary.tscn")
 @onready var fail_prefab = preload("res://Scenes/UI/level_fail.tscn")
