@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c8tpvtaqmdco"]
+[gd_scene load_steps=31 format=3 uid="uid://c8tpvtaqmdco"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_m3qxo"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_4ghj7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_t4r27"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_l7vs7"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="9_mslom"]
+[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="9_yykok"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="10_li6ja"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2y5h"]
@@ -33,7 +34,7 @@ region = Rect2(16, 272, 112, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpwyd"]
 atlas = ExtResource("5_ktjds")
-region = Rect2(16, 324, 35, 12)
+region = Rect2(16, 324, 37, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8e4d"]
 atlas = ExtResource("5_ktjds")
@@ -58,6 +59,61 @@ region = Rect2(352, 470, 257, 346)
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpdtn"]
 atlas = ExtResource("5_ktjds")
 region = Rect2(256, 400, 203, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
+atlas = ExtResource("9_yykok")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbi37"]
+atlas = ExtResource("9_yykok")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0v6"]
+atlas = ExtResource("9_yykok")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbirs"]
+atlas = ExtResource("9_yykok")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shc6q"]
+atlas = ExtResource("9_yykok")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhx4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbirs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shc6q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryhuj"]
 atlas = ExtResource("5_ktjds")
@@ -113,7 +169,7 @@ node_level = 102
 node_color = "blue"
 
 [node name="LinkSprite" parent="Control/Map/Level102" instance=ExtResource("4_x6tjo")]
-position = Vector2(-25.3333, 4.66667)
+position = Vector2(-24.6667, 6)
 texture = SubResource("AtlasTexture_cpwyd")
 
 [node name="Level103" parent="Control/Map" instance=ExtResource("3_4ghj7")]
@@ -194,23 +250,34 @@ offset_right = -448.0
 offset_bottom = -32.0
 scale = Vector2(0.8, 0.8)
 
-[node name="DoorLabel" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 194.0
+[node name="DoorLabel" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 175.0
 offset_right = 122.0
 offset_bottom = 240.0
-color = Color(0.505882, 0.490196, 0.556863, 1)
 
 [node name="Label" type="Label" parent="Control/DoorLabel"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 351.0
-offset_bottom = 199.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -29.0
+offset_right = 316.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_mslom")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
+position = Vector2(37, 19)
+sprite_frames = SubResource("SpriteFrames_rhx4x")
 
 [node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
 position = Vector2(331, 300)

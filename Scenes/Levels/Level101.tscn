@@ -47,6 +47,7 @@ size = Vector2(160, 20)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_top = -64.0
 offset_right = 1440.0
 offset_bottom = 810.0
 grow_horizontal = 1
@@ -890,7 +891,7 @@ bus = &"Music"
 
 [node name="DialogueArea" parent="Dialogue" instance=ExtResource("16_y4opd")]
 position = Vector2(32, 0)
-text = Array[String](["Alright, I'm inside the terminal. Is it Dos2062?", "I can use $w$, $a$, $s$, $d$ or $the mouse$ on the arrow next to our digital for me to move around.", "I need to find and destroy the $ACCES POINT$ to open the door.", "Ok, let's hack those robotic degenatate..."])
+text = Array[String](["Alright, I'm inside the terminal. Is it Dos2062?", "I can use $w$, $a$, $s$, $d$ or $the mouse$ on the arrow next to our digital selves to move around.", "I need to find and destroy the $ACCES POINT$ to open the door.", "Ok, let's hack those robotic degenerates..."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(160, 384)
@@ -900,7 +901,7 @@ shape = SubResource("RectangleShape2D_6sfm2")
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
 position = Vector2(199.31, 357.335)
-text = Array[String](["Those weird squared shape must be $Bytes barriers$. ", "Il need to destroy the one blocking my path if i want to advance."])
+text = Array[String](["Those weird square shapes must be $Bytes barriers$. ", "I'll need to destroy the one blocking my path if i want to advance."])
 related_node = NodePath("../../GameplayElements/BytesBarrier/spotSphereByteBarrierTile2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
@@ -908,7 +909,7 @@ position = Vector2(216.69, 26.6653)
 shape = SubResource("RectangleShape2D_hm3fv")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
-text = Array[String](["Hummm...", " If i remember well, this is an $Acces Point$. When it's $red$, it's invulnerable to anything.", "  Oh!", "What is that on the floor next to it?"])
+text = Array[String](["Hmmm...", " If i remember well, this is an $Acces Point$. When it's $red$, it's invulnerable to anything.", "  Oh!", "What's that on the floor next to it?"])
 related_node = NodePath("../../GameplayElements/AccessPoint1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
@@ -924,7 +925,7 @@ position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_rr3d6")
 
 [node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
-text = Array[String](["Ok! It's change the $Acces point$ to $green$."])
+text = Array[String](["Ok! It changed the $Acces point$ to $green$."])
 related_node = NodePath("../../GameplayElements/AccessPoint1")
 highlight_color = "green"
 
