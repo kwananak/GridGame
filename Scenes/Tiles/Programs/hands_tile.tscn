@@ -1,7 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://yym8dru78wa3"]
+[gd_scene load_steps=10 format=3 uid="uid://yym8dru78wa3"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/hands_tile.gd" id="1_v3iwk"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_1pru6"]
+[ext_resource type="Texture2D" uid="uid://cy2s6csxgbo68" path="res://Sprites/EnvironmentVirtual/virtual_environnement.png" id="2_6d5wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1jja"]
+atlas = ExtResource("2_6d5wt")
+region = Rect2(0, 384, 96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 
@@ -46,6 +51,10 @@ z_index = 30
 collision_layer = 256
 collision_mask = 2
 script = ExtResource("1_v3iwk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("AtlasTexture_l1jja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ofsl2")

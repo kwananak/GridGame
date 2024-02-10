@@ -28,14 +28,20 @@ func pick_up(_area):
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$AnimatedSprite2D.remove_child(program)
-	queue_free()
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	$AnimatedSprite2D.hide()
 
 func _on_mouse_entered():
+	if !monitoring:
+		return
 	animation_player.pause()
-	z_index = 97
+	$AnimatedSprite2D.z_index = 67
 	create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(2, 2), 0.2)
 
 func _on_mouse_exited():
+	if !monitoring:
+		return
 	animation_player.play()
-	z_index = 30
+	$AnimatedSprite2D.z_index = 0
 	create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(0.22, 0.22), 0.2)
