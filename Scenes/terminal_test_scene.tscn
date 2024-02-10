@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=30 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_bbwhi"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_6rmuo"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_33d10"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="8_46quv"]
+[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="10_cklvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ue3d"]
 atlas = ExtResource("2_bbwhi")
@@ -60,6 +61,49 @@ region = Rect2(256, 400, 203, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ockt"]
 atlas = ExtResource("2_bbwhi")
 region = Rect2(290, 2024, 314, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
+atlas = ExtResource("10_cklvg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbi37"]
+atlas = ExtResource("10_cklvg")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0v6"]
+atlas = ExtResource("10_cklvg")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbirs"]
+atlas = ExtResource("10_cklvg")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shc6q"]
+atlas = ExtResource("10_cklvg")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3de4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbirs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shc6q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Terminal0" type="Node2D" groups=["TerminalScene"]]
 script = ExtResource("1_20cn2")
@@ -191,25 +235,6 @@ theme_override_fonts/font = ExtResource("5_3g0o7")
 theme_override_font_sizes/font_size = 64
 autowrap_mode = 3
 
-[node name="DoorLabel" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 194.0
-offset_right = 122.0
-offset_bottom = 240.0
-color = Color(0.505882, 0.490196, 0.556863, 1)
-
-[node name="Label" type="Label" parent="Control/DoorLabel"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 351.0
-offset_bottom = 199.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("5_3g0o7")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-
 [node name="NexusButton" parent="Control" instance=ExtResource("7_33d10")]
 layout_mode = 1
 offset_left = -444.0
@@ -230,5 +255,35 @@ stream = ExtResource("5_2rv1v")
 pitch_scale = 0.9
 autoplay = true
 bus = &"FX"
+
+[node name="DoorLabel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 175.0
+offset_right = 122.0
+offset_bottom = 240.0
+
+[node name="Label" type="Label" parent="DoorLabel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -29.0
+offset_right = 316.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("5_3g0o7")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+
+[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
+position = Vector2(37, 19)
+sprite_frames = SubResource("SpriteFrames_3de4l")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

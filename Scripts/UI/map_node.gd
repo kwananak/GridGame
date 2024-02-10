@@ -3,7 +3,7 @@ extends Control
 @export var available = false : set = set_available
 
 @export var node_level : int
-@export_enum("pink", "green", "yellow") var node_color : String
+@export_enum("pink", "blue", "purple") var node_color : String
 
 var selected = false : set = set_selected
 var moused = false

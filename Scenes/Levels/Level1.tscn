@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=14 format=3 uid="uid://dje6l66lot2b8"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
+[ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_y6187"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_ssime"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_ey8wb"]
@@ -14,6 +15,34 @@
 [ext_resource type="AudioStream" uid="uid://y4m14rk7x318" path="res://Sounds/Backgrounds/dumpyard.wav" id="12_qkb76"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="DumpBack" type="Sprite2D" parent="Background"]
+position = Vector2(232, 57.5)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack2" type="Sprite2D" parent="Background"]
+position = Vector2(584, 57.5)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack3" type="Sprite2D" parent="Background"]
+position = Vector2(230.5, 251)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack4" type="Sprite2D" parent="Background"]
+position = Vector2(582.5, 251)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack5" type="Sprite2D" parent="Background"]
+z_index = 21
+position = Vector2(246.5, 425.5)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack6" type="Sprite2D" parent="Background"]
+z_index = 21
+position = Vector2(598.5, 425.5)
+texture = ExtResource("1_ykg1m")
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
 position = Vector2(64, 64)
@@ -122,7 +151,7 @@ position = Vector2(352, 192)
 position = Vector2(352, 224)
 
 [node name="FloorTileReal29" parent="Environment/Floor" instance=ExtResource("5_fiana")]
-position = Vector2(352, 256)
+position = Vector2(360, 320)
 
 [node name="FloorTileReal30" parent="Environment/Floor" instance=ExtResource("5_fiana")]
 position = Vector2(352, 288)
@@ -138,6 +167,9 @@ position = Vector2(384, 224)
 
 [node name="FloorTileReal34" parent="Environment/Floor" instance=ExtResource("5_fiana")]
 position = Vector2(384, 256)
+
+[node name="FloorTileReal61" parent="Environment/Floor" instance=ExtResource("5_fiana")]
+position = Vector2(352, 256)
 
 [node name="FloorTileReal35" parent="Environment/Floor" instance=ExtResource("5_fiana")]
 position = Vector2(384, 288)
