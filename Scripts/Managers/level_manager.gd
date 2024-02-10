@@ -113,7 +113,7 @@ func _on_button_pressed():
 # called by end tile when the player reaches it
 func on_end_tile_entered():
 	game_over = true
-	button.text = "Level Won!!"
+	button.text = "Enter Complex"
 	button.visible = true
 	button.grab_focus()
 
