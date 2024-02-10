@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/Environment/inner_corner_wall_tile.tscn" id="7_qboy4"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="9_l44yp"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_3vwdb"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="14_0rjlg"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="15_16rn8"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="15_461i6"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="15_nk7a5"]
@@ -826,7 +826,7 @@ bus = &"Music"
 
 [node name="DialogueArea" parent="Dialogue" instance=ExtResource("16_y4opd")]
 position = Vector2(32, 0)
-text = Array[String](["Alright, I'm inside the terminal. Is it Dos2062?", "I can use $w$, $a$, $s$, $d$ or $the mouse$ on the arrow next to our digital for me to move around.", "I need to find and destroy the $ACCES POINT$ to open the door.", "Ok, let's hack those robotic degenatate..."])
+text = Array[String](["Alright, I'm inside the terminal. Is it Dos2062?", "I can use $w$, $a$, $s$, $d$ or $the mouse$ on the arrow next to our digital self to move around.", "I need to find and destroy the $ACCES POINT$ to open the door.", "Ok, let's hack those robotic degenerates..."])
 highlight_color = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
@@ -837,7 +837,7 @@ shape = SubResource("RectangleShape2D_6sfm2")
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
 position = Vector2(199.31, 357.335)
-text = Array[String](["Those weird squared shape must be $Bytes barriers$. ", "Il need to destroy the one blocking my path if i want to advance."])
+text = Array[String](["Those weird square shapes must be $Bytes barriers$. ", "I'll need to destroy the one blocking my path if I want to advance."])
 related_node = NodePath("../../GameplayElements/BytesBarrier/spotSphereByteBarrierTile2")
 highlight_color = null
 
@@ -846,7 +846,7 @@ position = Vector2(216.69, 26.6653)
 shape = SubResource("RectangleShape2D_hm3fv")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
-text = Array[String](["Hummm...", " If i remember well, this is an $Acces Point$. When it's $red$, it's invulnerable to anything.", "  Oh!", "What is that on the floor next to it?"])
+text = Array[String](["Hmmm...", "If I remember well, this is an $Acces Point$. When it's $red$, it's invulnerable to anything.", "  Oh!", "What's that on the floor next to it?"])
 related_node = NodePath("../../GameplayElements/AccessPoint1")
 highlight_color = null
 
@@ -863,7 +863,7 @@ position = Vector2(976, 480)
 shape = SubResource("RectangleShape2D_rr3d6")
 
 [node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("16_y4opd")]
-text = Array[String](["Ok! It's change the $Acces point$ to $green$.", "By destroying the $Acces Point$, I will be able to $hack a new node in the terminal$."])
+text = Array[String](["Ok! It changed the $Acces point$ to $green$.", "By destroying the $Acces Point$, I will be able to $hack a new node in the terminal$."])
 related_node = NodePath("../../GameplayElements/AccessPoint1")
 highlight_color = "green"
 

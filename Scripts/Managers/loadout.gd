@@ -4,7 +4,7 @@ var selection_opened = null
 var available_programs
 var array_selected
 var loaded_slots = 0
-var max_loads = 0
+var max_loads = 1
 var rune_mode = null
 
 var progress_manager

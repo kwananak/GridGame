@@ -52,6 +52,8 @@ func call_level(level_number):
 		if has_node("RealAudio"):
 			$RealAudio.stop()
 		virtual_scene = level
+	if terminal_scene:
+		remove_child(terminal_scene)
 	add_child(level)
 
 func retry_level():
@@ -100,6 +102,7 @@ func back_to_terminal():
 	if !terminal_scene:
 		call_menu(virtual_scene.get_node("VirtualLevelManager").level_number)
 		return
+	add_child(terminal_scene)
 	virtual_scene.queue_free()
 	$RealAudio.play()
 	camera.position = terminal_scene.position + get_viewport_rect().size / 4
