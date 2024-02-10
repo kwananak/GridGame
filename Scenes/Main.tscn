@@ -44,6 +44,15 @@ offset_right = 240.0
 offset_bottom = 71.0
 text = "Level 102"
 
+[node name="Level103Button" type="Button" parent="DebugMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 161.0
+offset_top = 75.0
+offset_right = 241.0
+offset_bottom = 106.0
+text = "Level 103"
+
 [node name="Level101Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
@@ -249,6 +258,7 @@ position = Vector2(0, 0)
 [node name="FramedChecker" parent="." instance=ExtResource("9_yo8bd")]
 
 [connection signal="pressed" from="DebugMenu/Level102Button" to="." method="call_level" binds= [102]]
+[connection signal="pressed" from="DebugMenu/Level103Button" to="." method="call_level" binds= [103]]
 [connection signal="pressed" from="DebugMenu/Level101Button" to="." method="call_level" binds= [101]]
 [connection signal="pressed" from="DebugMenu/Level201Button" to="." method="call_level" binds= [201]]
 [connection signal="pressed" from="DebugMenu/Level204Button" to="." method="call_level" binds= [204]]
