@@ -2674,17 +2674,18 @@ position = Vector2(1472, 576)
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_v414e")]
+[node name="DialogueArea" parent="Dialogue" instance=ExtResource("22_v414e")]
 position = Vector2(64, 0)
 text = Array[String](["This is a special type of  $Byte barrier$ call $Mobile Barrier$."])
-related_node = NodePath("")
+highlight_color = null
 
-[node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_v414e")]
+[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("22_v414e")]
 text = Array[String](["The $Beatle Barrier$, an hard byte that just won't move at all."])
-related_node = NodePath("")
+highlight_color = null
 
 [node name="DialogueArea3" parent="Dialogue" instance=ExtResource("22_v414e")]
 text = Array[String](["I'm gonna try to activate the $FireWall$ the futher away possible."])
+highlight_color = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
 position = Vector2(1344, 669.5)
