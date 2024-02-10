@@ -1,6 +1,7 @@
 extends Control
 
 @export var cutscene_number : int
+@export var text_speed = 20
 var writing = false
 var data
 var written = 0
@@ -41,5 +42,5 @@ func write_text():
 	for n in data[written]:
 		label.text += n
 		if writing:
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(1.0 / text_speed).timeout
 	writing = false

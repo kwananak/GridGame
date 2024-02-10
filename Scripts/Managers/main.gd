@@ -63,16 +63,15 @@ func retry_level():
 ### needs cleanup ###
 # handles various level quitting scenario, needs cleanup
 func call_menu(level_number):
-	if level_number == 100:
-		get_node("VirtualTestLevel").queue_free()
-	elif level_number == 0:
+	if level_number == 0:
 		$RealAudio.stop()
 		get_node("RealTestLevel").queue_free()
 	elif level_number < 100:
 		remove_child(real_scene)
 		$RealAudio.stop()
 	else:
-		get_node("Level" + str(level_number)).queue_free()
+		virtual_scene.queue_free()
+		virtual_scene = null
 	if real_scene and terminal_scene != null:
 		$RealAudio.play()
 		camera.position = terminal_scene.position + get_viewport_rect().size / 4
@@ -88,6 +87,25 @@ func call_menu(level_number):
 			continue_button.grab_focus()
 		else:
 			new_game_button. grab_focus()
+
+func menu_from_virtual():
+	remove_child(virtual_scene)
+	camera.position = get_viewport_rect().size / 4
+	menu.visible = true
+	menu_audio.play()
+	continue_button.disabled = false
+	continue_button.grab_focus()
+
+func back_to_terminal():
+	if !terminal_scene:
+		call_menu(virtual_scene.get_node("VirtualLevelManager").level_number)
+		return
+	virtual_scene.queue_free()
+	$RealAudio.play()
+	camera.position = terminal_scene.position + get_viewport_rect().size / 4
+	terminal_scene.get_node("Control/Loadout").set_slots()
+	terminal_scene.visible = true
+	terminal_scene._ready()
 
 # quits game when quit button is pressed
 func call_quit():
@@ -114,6 +132,9 @@ func return_to_real_scene():
 # resets game status and starts Level 1
 func new_game():
 	await progress_manager.reset_programs()
+	real_scene = null
+	terminal_scene = null
+	virtual_scene = null
 	call_cutscene(1)
 
 # switches between real levels scenes
@@ -132,6 +153,11 @@ func add_to_levels(level, level_completed):
 
 # returns player to game, either to loaded scene or to save point if no scene is loaded
 func continue_game():
+	if virtual_scene:
+		menu_audio.stop()
+		menu.visible = false
+		add_child(virtual_scene)
+		return
 	if !real_scene:
 		await progress_manager.load_game()
 		real_scene = load("res://Scenes/Levels/" + progress_manager.save_point + ".tscn").instantiate()

@@ -4,6 +4,7 @@ var paused = false
 var loaded_prefab
 var level_manager
 var upper_range
+var spawning = true
 
 @onready var active_node = $Careful
 @onready var basic_particle_prefab = preload("res://Scenes/Tiles/basic_particle.tscn")
@@ -18,10 +19,14 @@ func _ready():
 		level_manager.game_over_trigger.connect(set_pause)
 		upper_range = 0.3
 	loaded_prefab = basic_particle_prefab
+	spawning = false
 	spawn_particles()
 
 func spawn_particles():
+	spawning = true
 	while true:
+		if !is_inside_tree():
+			break
 		await get_tree().create_timer(randf_range(0.1, upper_range)).timeout
 		if !paused:
 			add_child(loaded_prefab.instantiate())
@@ -35,3 +40,7 @@ func _on_danger_visibility_changed():
 
 func set_pause(value):
 	paused = value
+
+func _on_tree_entered():
+	if !spawning:
+		spawn_particles()

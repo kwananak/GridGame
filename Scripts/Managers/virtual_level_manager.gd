@@ -14,6 +14,7 @@ var vision = false
 var dialogue = false
 var shields = 0 : set = set_shield
 var doomwall
+var pause_menu
 
 @export var skip_dialogues = false
 @export var green_doomwall_step = 0.0
@@ -22,6 +23,7 @@ var doomwall
 
 @onready var summary_prefab = preload("res://Scenes/UI/level_summary.tscn")
 @onready var fail_prefab = preload("res://Scenes/UI/level_fail.tscn")
+@onready var pause_prefab = preload("res://Scenes/UI/virtual_pause.tscn")
 
 func _ready():
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
@@ -41,17 +43,18 @@ func _process(delta):
 
 # update paused value and shows or hide pause "menu" accordingly
 func set_pause(value):
-	if dialogue:
-		paused = true
-		return
+	if value:
+		spawn_pause_menu()
+	else:
+		pause_menu.queue_free()
+		pause_menu = null
 	paused = value
 	pause_trigger.emit(paused)
-	if paused:
-		button.text = "Quit"
-		button.visible = true
-		button.grab_focus()
-	else:
-		button.visible = false
+
+func spawn_pause_menu():
+	pause_menu = pause_prefab.instantiate()
+	pause_menu.position = camera.position + Vector2(0, -16)
+	get_parent().add_child(pause_menu)
 
 # calls subscribed nodes when player makes a move
 func end_turn():
@@ -177,5 +180,19 @@ func display_summary():
 	ui.queue_free()
 
 func display_fail():
-	camera.add_child(fail_prefab.instantiate())
+	if pause_menu:
+		return
+	pause_menu = fail_prefab.instantiate()
+	pause_menu.position = camera.position
 	ui.queue_free()
+	add_child(pause_menu)
+
+func back_to_terminal():
+	$/root/Main.back_to_terminal()
+
+func call_menu():
+	$/root/Main.menu_from_virtual()
+
+func _on_tree_entered():
+	if camera:
+		camera.position = out_of_bounds_check(player.position)

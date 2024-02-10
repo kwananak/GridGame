@@ -30,7 +30,6 @@ func _on_area_entered(_area):
 		return
 	player.get_node("PossibleMoves").hide()
 	level_manager.dialogue = self
-	level_manager.paused = true
 	if related_node:
 		camera_spot = camera.position
 		highlight.global_position = related_node.global_position
@@ -80,7 +79,8 @@ func write_bubble(sentence):
 			continue
 		label.append_text(i)
 		if writing:
-			await get_tree().create_timer(1.0 / text_speed).timeout
+			if is_inside_tree():
+				await get_tree().create_timer(1.0 / text_speed).timeout
 	writing = false
 
 func remove_bubble():
@@ -93,6 +93,5 @@ func remove_bubble():
 		highlight.hide()
 		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(player.position), 0.4).finished
 	level_manager.dialogue = false
-	level_manager.paused = false
 	player.get_node("PossibleMoves").show()
 	queue_free()

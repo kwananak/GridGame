@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=14 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://fjmps8nq3w8k" path="res://Scenes/Menus/window_mode_button.tscn" id="6_a7415"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Backgrounds/menu.wav" id="6_i0vs7"]
 [ext_resource type="PackedScene" uid="uid://dssm38uoyiv3d" path="res://Scenes/Menus/resolution_mode_button.tscn" id="7_fg0yk"]
+[ext_resource type="PackedScene" uid="uid://ckrjxmggvq5cs" path="res://Scenes/Menus/slider_display_button.tscn" id="8_7q35u"]
 [ext_resource type="PackedScene" uid="uid://cselemljabpr2" path="res://Scenes/Managers/framed_checker.tscn" id="9_yo8bd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
@@ -32,6 +33,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
 [node name="DebugMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 
@@ -221,6 +223,14 @@ texture = ExtResource("5_6upos")
 [node name="MenuAudio" type="AudioStreamPlayer" parent="DebugMenu"]
 stream = ExtResource("6_i0vs7")
 bus = &"Music"
+
+[node name="Master" parent="DebugMenu" instance=ExtResource("8_7q35u")]
+layout_mode = 1
+offset_left = 410.0
+offset_top = 95.0
+offset_right = 410.0
+offset_bottom = 95.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
 position = Vector2(360, 200)

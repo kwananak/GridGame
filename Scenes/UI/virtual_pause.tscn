@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://ihtw8tbnruxh"]
+[gd_scene load_steps=5 format=3 uid="uid://cjn8og8flb1wq"]
 
-[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_jpvkb"]
-[ext_resource type="Script" path="res://Scripts/UI/level_fail.gd" id="2_i18nq"]
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_rchsa"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_p4kjr"]
+[ext_resource type="Script" path="res://Scripts/UI/level_fail.gd" id="2_kj481"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_do3a8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c8b1"]
-atlas = ExtResource("1_jpvkb")
+atlas = ExtResource("1_p4kjr")
 region = Rect2(290, 2024, 314, 105)
 
-[node name="LevelFail" type="Sprite2D"]
+[node name="VirtualPause" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.882353)
 z_index = 95
+position = Vector2(0, -16)
 rotation = 4.71239
 texture = SubResource("AtlasTexture_7c8b1")
-script = ExtResource("2_i18nq")
+script = ExtResource("2_kj481")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -36,53 +37,75 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_rchsa")
+theme_override_fonts/font = ExtResource("3_do3a8")
 theme_override_font_sizes/font_size = 140
-text = "Level failed"
+text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Retry" type="Button" parent="Control"]
-offset_left = 8.99997
+[node name="Resume" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 32.9999
 offset_top = -36.0
-offset_right = 398.0
+offset_right = 422.0
 offset_bottom = 145.0
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
+focus_neighbor_top = NodePath("../Terminal")
+focus_neighbor_bottom = NodePath("../Retry")
+theme_override_fonts/font = ExtResource("3_do3a8")
+theme_override_font_sizes/font_size = 64
+text = "Resume "
+flat = true
+
+[node name="Retry" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -9.00003
+offset_top = -36.0
+offset_right = 380.0
+offset_bottom = 145.0
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+focus_neighbor_top = NodePath("../Resume")
 focus_neighbor_bottom = NodePath("../Menu")
-theme_override_fonts/font = ExtResource("3_rchsa")
+theme_override_fonts/font = ExtResource("3_do3a8")
 theme_override_font_sizes/font_size = 64
 text = "Retry"
 flat = true
 
 [node name="Menu" type="Button" parent="Control"]
-offset_left = -30.0
+layout_mode = 0
+offset_left = -49.0
 offset_top = -36.0
-offset_right = 358.0
+offset_right = 339.0
 offset_bottom = 145.0
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 focus_neighbor_top = NodePath("../Retry")
 focus_neighbor_bottom = NodePath("../Terminal")
-theme_override_fonts/font = ExtResource("3_rchsa")
+theme_override_fonts/font = ExtResource("3_do3a8")
 theme_override_font_sizes/font_size = 64
 text = "Menu"
 flat = true
 
 [node name="Terminal" type="Button" parent="Control"]
-offset_left = -70.0
+layout_mode = 0
+offset_left = -92.0
 offset_top = -35.9999
-offset_right = 318.0
+offset_right = 296.0
 offset_bottom = 145.0
 rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 focus_neighbor_top = NodePath("../Menu")
-theme_override_fonts/font = ExtResource("3_rchsa")
+focus_neighbor_bottom = NodePath("../Resume")
+theme_override_fonts/font = ExtResource("3_do3a8")
 theme_override_font_sizes/font_size = 64
 text = "Terminal"
 flat = true
 
+[connection signal="button_down" from="Control/Resume" to="." method="_on_resume_button_down"]
+[connection signal="mouse_entered" from="Control/Resume" to="." method="_on_mouse_entered" binds= ["Resume"]]
 [connection signal="button_down" from="Control/Retry" to="." method="_on_retry_button_down"]
 [connection signal="mouse_entered" from="Control/Retry" to="." method="_on_mouse_entered" binds= ["Retry"]]
 [connection signal="button_down" from="Control/Menu" to="." method="_on_menu_button_down"]

@@ -31,7 +31,7 @@ func _physics_process(_delta):
 
 # checks for pressed or held direction keys
 func get_input():
-	if level_manager.game_over || level_manager.paused || moving:
+	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue:
 		return
 	for dir in inputs.keys():
 		var dir_node = get_node("PossibleMoves/" + dir)
@@ -51,14 +51,14 @@ func get_input():
 
 func _input(event):
 	if level_manager.game_over:
-		return 
+		return
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
-	if event.is_action_pressed("skip_turn"):
-		if !moving && !level_manager.paused:
-			skip_turn()
-	if level_manager.paused:
+	if level_manager.dialogue || level_manager.paused:
 		return
+	if event.is_action_pressed("skip_turn"):
+		if !moving:
+			skip_turn()
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			for n in $PossibleMoves.get_children():
