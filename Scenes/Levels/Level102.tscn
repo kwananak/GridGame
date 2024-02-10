@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dl6jgy6mcvq3n"]
+[gd_scene load_steps=29 format=3 uid="uid://dl6jgy6mcvq3n"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_c5151"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kk2b3"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="19_pl57v"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="20_vo3p2"]
 [ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/Amazing.tscn" id="21_di3f6"]
+[ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="22_43iie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cinpk"]
 size = Vector2(20, 101)
@@ -1569,4 +1570,8 @@ shape = SubResource("RectangleShape2D_komys")
 
 [node name="Amazing" parent="." instance=ExtResource("21_di3f6")]
 z_index = 11
+position = Vector2(1440, 96)
+
+[node name="GogglesTile" parent="." instance=ExtResource("22_43iie")]
 position = Vector2(1600, 96)
+select_program = "Amazing"
