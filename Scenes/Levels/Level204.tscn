@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cy3vbk7dvklk4"]
+[gd_scene load_steps=25 format=3 uid="uid://cy3vbk7dvklk4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_kdqco"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_xkyrv"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="21_rf86o"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_ki7cg"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="23_w4ddr"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="24_buq8i"]
 
 [node name="Level204" type="Node2D"]
 
@@ -1729,15 +1730,22 @@ position = Vector2(1088, 672)
 rotation = -1.5708
 
 [node name="VirtualStartTile" parent="." instance=ExtResource("9_diec2")]
-position = Vector2(1248, 256)
+position = Vector2(704, 256)
 
 [node name="BeamTile" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1120, 448)
 distance = 0
 
+[node name="BeamTile9" parent="." instance=ExtResource("10_56w5e")]
+position = Vector2(1344, 448)
+rotation = -3.14159
+intial_charge = 1
+distance = 0
+
 [node name="BeamTile2" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1024, 384)
 rotation = -1.5708
+distance = 0
 
 [node name="BeamTile4" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(992, 320)
@@ -1763,7 +1771,7 @@ distance = 0
 [node name="BeamTile6" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(864, 192)
 rotation = 1.5708
-intial_charge = 2
+intial_charge = 1
 distance = 0
 
 [node name="BeamTile8" parent="." instance=ExtResource("10_56w5e")]
@@ -1813,6 +1821,9 @@ position = Vector2(448, 288)
 [node name="ByteBarrierEasy2" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(640, 320)
 
+[node name="ByteBarrierEasy7" parent="." instance=ExtResource("12_adb4i")]
+position = Vector2(640, 288)
+
 [node name="ByteBarrierEasy3" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(1408, 192)
 
@@ -1829,16 +1840,19 @@ position = Vector2(1088, 192)
 position = Vector2(448, 320)
 
 [node name="ByteBarrierHard2" parent="." instance=ExtResource("10_7mjym")]
-position = Vector2(448, 320)
+position = Vector2(288, 352)
 
 [node name="ByteBarrierHard3" parent="." instance=ExtResource("10_7mjym")]
 position = Vector2(1120, 512)
+
+[node name="ByteBarrierHard4" parent="." instance=ExtResource("10_7mjym")]
+position = Vector2(1120, 416)
 
 [node name="ByteBarrierMedium" parent="." instance=ExtResource("11_2kxjm")]
 position = Vector2(1120, 224)
 
 [node name="BeetleBarrier5" parent="." instance=ExtResource("12_svoqd")]
-position = Vector2(544, 768)
+position = Vector2(544, 544)
 
 [node name="MobileBarrier2" parent="." instance=ExtResource("13_sfa0b")]
 position = Vector2(704, 288)
@@ -1882,47 +1896,47 @@ cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile10" parent="." instance=ExtResource("23_w4ddr")]
-position = Vector2(576, 256)
-cannon_recharge = 0
-duration = 200
-
-[node name="HoleTile11" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 288)
 cannon_recharge = 0
 duration = 200
 
-[node name="HoleTile12" parent="." instance=ExtResource("23_w4ddr")]
+[node name="HoleTile11" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 320)
 cannon_recharge = 0
 duration = 200
 
+[node name="HoleTile12" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 352)
+cannon_recharge = 0
+duration = 200
+
 [node name="HoleTile13" parent="." instance=ExtResource("23_w4ddr")]
-position = Vector2(544, 256)
-cannon_recharge = 0
-duration = 200
-
-[node name="HoleTile14" parent="." instance=ExtResource("23_w4ddr")]
-position = Vector2(544, 288)
-cannon_recharge = 0
-duration = 200
-
-[node name="HoleTile15" parent="." instance=ExtResource("23_w4ddr")]
-position = Vector2(544, 320)
-cannon_recharge = 0
-duration = 200
-
-[node name="HoleTile16" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 256)
 cannon_recharge = 0
 duration = 200
 
-[node name="HoleTile17" parent="." instance=ExtResource("23_w4ddr")]
+[node name="HoleTile14" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 384)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile15" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(576, 256)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile16" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 288)
 cannon_recharge = 0
 duration = 200
 
-[node name="HoleTile18" parent="." instance=ExtResource("23_w4ddr")]
+[node name="HoleTile17" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 320)
+cannon_recharge = 0
+duration = 200
+
+[node name="HoleTile18" parent="." instance=ExtResource("23_w4ddr")]
+position = Vector2(512, 352)
 cannon_recharge = 0
 duration = 200
 
@@ -1965,3 +1979,6 @@ duration = 200
 position = Vector2(1600, 288)
 cannon_recharge = 0
 duration = 200
+
+[node name="Booster" parent="." instance=ExtResource("24_buq8i")]
+position = Vector2(448, 224)
