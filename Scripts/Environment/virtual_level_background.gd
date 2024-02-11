@@ -4,18 +4,17 @@ var paused = false
 var loaded_prefab
 var loaded_attack_prefab
 var level_manager
-var upper_range
+var upper_range = 1.0
 var spawning = true
 
 @onready var active_node = $Careful
 @onready var basic_particle_prefab = preload("res://Scenes/Tiles/basic_particle.tscn")
 @onready var careful_particle_prefab = preload("res://Scenes/Tiles/careful_particle.tscn")
 @onready var danger_particle_prefab = preload("res://Scenes/Tiles/danger_particle.tscn")
-@onready var careful_attack_particle_prefab = preload("res://Scenes/Tiles/careful_particle.tscn")
+@onready var attack_careful_particle_prefab = preload("res://Scenes/Tiles/attack_careful_particle.tscn")
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
-	upper_range = 1.0
 	if level_manager != null:
 		level_manager.pause_trigger.connect(set_pause)
 		level_manager.game_over_trigger.connect(set_pause)
@@ -37,12 +36,14 @@ func spawn_atttack_particles():
 	while true:
 		if !is_inside_tree():
 			break
-		await get_tree().create_timer(randf_range(0.1, upper_range)).timeout
+		await get_tree().create_timer(randf_range(1.0, 3.0)).timeout
 		if !paused:
 			add_child(loaded_attack_prefab.instantiate())
 
 func _on_careful_visibility_changed():
 	loaded_prefab = careful_particle_prefab
+	loaded_attack_prefab = attack_careful_particle_prefab
+	spawn_atttack_particles()
 
 func _on_danger_visibility_changed():
 	loaded_prefab = danger_particle_prefab
