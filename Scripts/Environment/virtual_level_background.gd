@@ -43,7 +43,7 @@ func spawn_atttack_particles():
 func _on_careful_visibility_changed():
 	loaded_prefab = careful_particle_prefab
 	loaded_attack_prefab = attack_careful_particle_prefab
-	spawn_atttack_particles()
+	#spawn_atttack_particles()
 
 func _on_danger_visibility_changed():
 	loaded_prefab = danger_particle_prefab
