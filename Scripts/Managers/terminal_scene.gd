@@ -8,11 +8,12 @@ var terminal_number
 @onready var main = $/root/Main
 
 func _ready():
-	$Control/ReturnButton.grab_focus()
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
 	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
 	_on_visibility_changed()
+	await get_tree().create_timer(0.5).timeout
+	$Control/ReturnButton.grab_focus()
 
 func _input(event):
 	if visible == false:
@@ -58,7 +59,6 @@ func _on_visibility_changed():
 		loaded_level = null
 		if terminal_number != null:
 			$AudioStreamPlayer.play()
-			print(terminal_number)
 			$Control/DoorLabel/Label.text = "Terminal" + str(terminal_number) +"\n"
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:

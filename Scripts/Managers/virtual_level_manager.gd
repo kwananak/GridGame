@@ -148,7 +148,7 @@ func shield_spawn_anim(shield):
 
 func set_remaining_actions(value):
 	remaining_actions = value
-	var actions_ui = ui.get_node("ProgramBar/Labels/Brain")
+	var actions_ui = ui.get_node("ProgramBar/Labels/Legs")
 	actions_ui.text = str(remaining_actions)
 
 func on_success(level_unlocked):
@@ -200,3 +200,6 @@ func call_menu():
 func _on_tree_entered():
 	if camera:
 		camera.position = out_of_bounds_check(player.position)
+		await get_tree().create_timer(0.1).timeout
+		if paused:
+			pause_menu.get_node("Control/Resume").grab_focus()

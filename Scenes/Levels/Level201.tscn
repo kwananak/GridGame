@@ -18,12 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="20_yp7x1"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="21_0wsfn"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="21_5f2hd"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="21_t2dp6"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="22_35cvy"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_v414e"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="23_dn768"]
-[ext_resource type="PackedScene" uid="uid://qut4oq0xwikw" path="res://Scenes/Tiles/Programs/brain_tile.tscn" id="25_1lce0"]
+[ext_resource type="PackedScene" uid="uid://qut4oq0xwikw" path="res://Scenes/Tiles/Programs/legs_tile.tscn" id="25_1lce0"]
 [ext_resource type="PackedScene" uid="uid://bjmgb6nib47p2" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_j2otq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1rdq"]
@@ -36,7 +36,7 @@ size = Vector2(20, 5)
 
 [node name="Level201" type="Node2D"]
 
-[node name="BackgroundColors" parent="." instance=ExtResource("1_ibsbd")]
+[node name="VirtualLevelBackground" parent="." instance=ExtResource("1_ibsbd")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -2697,9 +2697,9 @@ stream = ExtResource("23_dn768")
 autoplay = true
 bus = &"Music"
 
-[node name="BrainTile" parent="." instance=ExtResource("25_1lce0")]
+[node name="LegsTile" parent="." instance=ExtResource("25_1lce0")]
 position = Vector2(1920, 416)
-select_program = "SynthetikThought"
+select_program = "LoopPants"
 
 [node name="VirtualStartTile" parent="." instance=ExtResource("21_oc3fy")]
 position = Vector2(416, 544)

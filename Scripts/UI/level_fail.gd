@@ -5,7 +5,10 @@ var level_manager
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
-	$Control/Retry.grab_focus()
+	if name == "LevelFail":
+		$Control/Retry.grab_focus()
+	else:
+		$Control/Resume.grab_focus()
 
 func _on_retry_button_down():
 	$/root/Main.retry_level()

@@ -4,5 +4,5 @@ extends "res://Scripts/Programs/program_tile.gd"
 
 func _ready():
 	program_type = select_program
-	program_slot = "Brain"
+	program_slot = "Legs"
 	super._ready()
