@@ -174,11 +174,11 @@ func call_game_over():
 
 func display_summary():
 	var summary = summary_prefab.instantiate()
-	var body = "Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) + "\nBarriers: " + str(barriers_down)
+	var body = "[center]Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) + "\nBarriers: " + str(barriers_down)
 	for a in programs:
-		body += "\n" + a[0] + " Aquired: " + a[1].name
+		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = level_name
-	summary.get_node("Body").text = body
+	summary.get_node("Body").append_text(body)
 	summary.position = camera.position
 	add_child(summary)
 	ui.queue_free()
