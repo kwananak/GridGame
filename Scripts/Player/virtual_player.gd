@@ -325,7 +325,7 @@ func get_hit():
 	var temp_move = moving
 	moving = true
 	animated_sprite_2d.animation = "get_hit"
-	await animated_sprite_2d.animation_finished
+	await get_tree().create_timer(0.2).timeout
 	animated_sprite_2d.animation = "idle"
 	animated_sprite_2d.play()
 	moving = temp_move
