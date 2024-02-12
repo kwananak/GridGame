@@ -36,7 +36,9 @@ func turn_call():
 				opened = true
 			if has_overlapping_areas():
 				if !level_manager.floating:
-					level_manager.call_game_over()
+					for n in get_overlapping_areas():
+						if n.is_in_group("VirtualPlayer"):
+							level_manager.call_game_over()
 			if opened_for == duration:
 				sprite.animation = "close"
 				sprite.play()

@@ -72,7 +72,8 @@ func turn_call():
 	vision_check()
 
 # called when firewall hits player
-func _on_area_entered(_area):
+func _on_area_entered(area):
+	print(area)
 	level_manager.call_game_over()
 
 # called to change wall position out of turn call
