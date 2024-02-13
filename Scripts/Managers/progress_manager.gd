@@ -4,10 +4,10 @@ var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
-var levels ={101 : {102 : false},
-			102 : {103 : false, "prog" : false},
-			103 : {2 : false, "prog" : false},
-			201 : {202 : false, "prog" : false},
+var levels ={"101" : {"102" : false},
+			"102" : {"103" : false, "prog" : false},
+			"103" : {"2" : false},
+			"201" : {"202" : false, "prog" : false},
 			202 : {203 : false, "prog" : false},
 			203 : {204 : false, "prog" : false},
 			204 : {205 : false, "prog" : false},
@@ -15,7 +15,7 @@ var levels ={101 : {102 : false},
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
 # called by level manager at end of level to add picked up programs
-func add_to_programs(slot, program):
+func add_to_programs(slot, program, level):
 	if program.name == "Rune":
 		get_node("Loadout/Runes").call_deferred("add_child", program)
 		return
@@ -23,11 +23,12 @@ func add_to_programs(slot, program):
 		if n.name == program.name:
 			return
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
+	levels[str(level)]["prog"] = true
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
 func add_to_levels(level_unlocked, real_level, level_completed):
 	save_point = real_level
-	levels[level_completed][level_unlocked] = true
+	levels[str(level_completed)][str(level_unlocked)] = true
 	if level_unlocked > 100:
 		if level_unlocked not in unlocked_levels:
 			unlocked_levels += [str(level_unlocked)]
@@ -153,6 +154,7 @@ func save():
 						dict[n.name][o.name] += [p.name]
 			else:
 				dict[n.name][o.name] = ["empty"]
+	dict["levels"] = levels
 	dict["completed_levels"] = completed_levels
 	dict["unlocked_levels"] = unlocked_levels
 	dict["doors"] = doors
@@ -182,6 +184,9 @@ func load_game():
 				continue
 			"unlocked_levels":
 				unlocked_levels = data[n]
+				continue
+			"levels":
+				levels = data[n]
 				continue
 			"doors":
 				doors = data[n]

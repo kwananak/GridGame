@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://88iupaxjnpvm"]
+
+[ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="1_2bmur"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_en653"]
+
+[node name="MapInfos" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -167.0
+offset_top = -51.0
+offset_right = -68.0
+offset_bottom = 56.0
+
+[node name="TerminalName" type="Label" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = 468.0
+offset_bottom = 80.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("1_2bmur")
+theme_override_font_sizes/font_size = 72
+text = "real name
+"
+
+[node name="LevelName" type="Label" parent="." groups=["LevelNameLabel"]]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 16.0
+offset_right = 468.0
+offset_bottom = 91.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("1_2bmur")
+theme_override_font_sizes/font_size = 64
+text = "
+"
+autowrap_mode = 3
+
+[node name="AccessPoints" type="RichTextLabel" parent="." groups=["AccessPointLabel"]]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 32.0
+offset_right = 468.0
+offset_bottom = 99.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/normal_font = ExtResource("2_en653")
+theme_override_font_sizes/normal_font_size = 52
+
+[node name="Program" type="RichTextLabel" parent="." groups=["ProgramLabel"]]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 44.0
+offset_right = 468.0
+offset_bottom = 155.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/normal_font = ExtResource("2_en653")
+theme_override_font_sizes/normal_font_size = 52

@@ -159,9 +159,9 @@ func on_success(level_unlocked):
 	get_tree().get_first_node_in_group("BackgroundColors").get_node("Danger").visible = false
 	create_tween().tween_property(audio, "volume_db", -25, 1)
 	doomwall.fade_out()
-	$/root/Main.add_to_levels(level_unlocked, level_number)
 	for a in programs:
-		get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1])
+		await get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1], level_number)
+	$/root/Main.add_to_levels(level_unlocked, level_number)
 	display_summary()
 
 func call_game_over():

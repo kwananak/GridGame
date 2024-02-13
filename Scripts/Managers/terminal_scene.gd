@@ -4,7 +4,7 @@ var loadout
 var loaded_level = null
 var terminal_number
 
-@onready var terminal_name = $Control/Map/Infos/TerminalName
+@onready var terminal_name = $Control/Map/MapInfos/TerminalName
 @onready var main = $/root/Main
 
 func _ready():
@@ -44,7 +44,7 @@ func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
-			if n.name == "Infos":
+			if n.name == "MapInfos":
 				continue
 			if n.selected:
 				n.selected = false

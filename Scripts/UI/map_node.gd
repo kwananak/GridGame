@@ -91,16 +91,18 @@ func _on_mouse_exited():
 func set_labels():
 	name_label.text = main.get_level_name(node_level)
 	var access_unlocked = [0,0]
-	for k in progress_manager.levels[node_level]:
-		if k is int:
-			access_unlocked[1] += 1
-			if progress_manager.levels[node_level][k]:
-				access_unlocked[0] += 1
-		if k is String:
-			if progress_manager.levels[node_level][k]:
+	for k in progress_manager.levels[str(node_level)]:
+		print(k)
+		print(progress_manager.levels[str(node_level)][k])
+		if k == "prog":
+			if progress_manager.levels[str(node_level)][k]:
 				program_label.append_text("[color=green]Program Found")
 			else:
 				program_label.append_text("[color=red]Program Not Found")
+		else:
+			access_unlocked[1] += 1
+			if progress_manager.levels[str(node_level)][k]:
+				access_unlocked[0] += 1
 	if access_unlocked[0] == access_unlocked[1]:
 		access_point_label.append_text("[color=green]")
 	else:
