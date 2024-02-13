@@ -4,6 +4,14 @@ var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
+var levels ={101 : {102 : false},
+			102 : {103 : false, "prog" : false},
+			103 : {2 : false, "prog" : false},
+			201 : {202 : false, "prog" : false},
+			202 : {203 : false, "prog" : false},
+			203 : {204 : false, "prog" : false},
+			204 : {205 : false, "prog" : false},
+			205 : {206 : false, "prog" : false}}
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
 # called by level manager at end of level to add picked up programs
@@ -19,6 +27,7 @@ func add_to_programs(slot, program):
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
 func add_to_levels(level_unlocked, real_level, level_completed):
 	save_point = real_level
+	levels[level_completed][level_unlocked] = true
 	if level_unlocked > 100:
 		if level_unlocked not in unlocked_levels:
 			unlocked_levels += [str(level_unlocked)]

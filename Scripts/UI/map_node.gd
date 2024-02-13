@@ -1,15 +1,28 @@
 extends Control
 
-@export var available = false : set = set_available
+@onready var main = $/root/Main
 
+@export var available = false : set = set_available
 @export var node_level : int
 @export_enum("pink", "blue", "purple") var node_color : String
 
 var selected = false : set = set_selected
 var moused = false
 var completed = false
+var progress_manager
+var map_frame
+var name_label
+var terminal_scene
+var access_point_label
+var program_label
 
 func _ready():
+	progress_manager =  get_tree().get_first_node_in_group("ProgressManager")
+	terminal_scene = get_tree().get_first_node_in_group("TerminalScene")
+	map_frame = get_tree().get_first_node_in_group("MapFrame")
+	name_label = get_tree().get_first_node_in_group("LevelNameLabel")
+	access_point_label = get_tree().get_first_node_in_group("AccessPointLabel")
+	program_label = get_tree().get_first_node_in_group("ProgramLabel")
 	$SelectedSprite.animation = node_color
 	if available:
 		focus_mode = Control.FOCUS_ALL
@@ -32,9 +45,9 @@ func set_selected(value):
 		for n in get_tree().get_nodes_in_group("MapNodes"):
 			if n != self:
 				n.selected = false
-		get_tree().get_first_node_in_group("TerminalScene")._on_level_pressed(node_level)
+		terminal_scene._on_level_pressed(node_level)
 	else:
-		get_tree().get_first_node_in_group("TerminalScene")._on_level_pressed(null)
+		terminal_scene._on_level_pressed(null)
 
 func set_available(value):
 	available = value
@@ -55,15 +68,16 @@ func set_available(value):
 
 func _on_focus_entered():
 	$FocusSprite.visible = true
-	get_tree().get_first_node_in_group("LevelNameLabel").text = $/root/Main.get_level_name(node_level)
-	get_tree().get_first_node_in_group("MapFrame").visible = true
+	name_label.text = main.get_level_name(node_level)
+	set_labels()
+	map_frame.visible = true
 
 func _on_focus_exited():
-	if get_tree().get_first_node_in_group("LevelNameLabel") == null:
+	if name_label == null:
 		return
 	$FocusSprite.visible = false
-	get_tree().get_first_node_in_group("LevelNameLabel").text = ""
-	get_tree().get_first_node_in_group("MapFrame").visible = false
+	clear_labels()
+	map_frame.visible = false
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE:
@@ -73,3 +87,30 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	moused = false
+
+func set_labels():
+	name_label.text = main.get_level_name(node_level)
+	var access_unlocked = [0,0]
+	for k in progress_manager.levels[node_level]:
+		if k is int:
+			access_unlocked[1] += 1
+			if progress_manager.levels[node_level][k]:
+				access_unlocked[0] += 1
+		if k is String:
+			if progress_manager.levels[node_level][k]:
+				program_label.append_text("[color=green]Program Found")
+			else:
+				program_label.append_text("[color=red]Program Not Found")
+	if access_unlocked[0] == access_unlocked[1]:
+		access_point_label.append_text("[color=green]")
+	else:
+		access_point_label.append_text("[color=red]")
+	access_point_label.append_text("Access Point")
+	if access_unlocked[1] > 1:
+		access_point_label.append_text("s")
+	access_point_label.append_text(": " + str(access_unlocked[0]) + "/" + str(access_unlocked[1]))
+
+func clear_labels():
+	name_label.text = ""
+	access_point_label.clear()
+	program_label.clear()

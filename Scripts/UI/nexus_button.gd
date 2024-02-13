@@ -2,16 +2,20 @@ extends Control
 
 var available = false : set = set_available
 var moused = false
+var terminal_scene
+
+func _ready():
+	terminal_scene = get_tree().get_first_node_in_group("TerminalScene")
 
 func _input(event):
 	if !available:
 		return
 	if has_focus():
 		if event.is_action_pressed("ui_accept"):
-			get_tree().get_first_node_in_group("TerminalScene")._on_go_button_pressed()
+			terminal_scene._on_go_button_pressed()
 		if event is InputEventMouseButton:
 			if event.is_pressed() && event.button_index == 1 && moused:
-				get_tree().get_first_node_in_group("TerminalScene")._on_go_button_pressed()
+				terminal_scene._on_go_button_pressed()
 
 func set_available(value):
 	available = value
@@ -24,11 +28,11 @@ func set_available(value):
 
 func _on_focus_entered():
 	$Selected.visible = true
-	get_tree().get_first_node_in_group("LevelNameLabel").text = $/root/Main.get_level_name((get_tree().get_first_node_in_group("TerminalScene").loaded_level))
+	terminal_scene.get_node("Control/Map/Level" + str(terminal_scene.loaded_level)).set_labels()
 
 func _on_focus_exited():
 	$Selected.visible = false
-	get_tree().get_first_node_in_group("LevelNameLabel").text = ""
+	terminal_scene.get_node("Control/Map/Level" + str(terminal_scene.loaded_level)).clear_labels()
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE:
