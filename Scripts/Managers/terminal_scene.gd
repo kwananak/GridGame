@@ -59,12 +59,13 @@ func _on_visibility_changed():
 		loaded_level = null
 		if terminal_number != null:
 			$AudioStreamPlayer.play()
-			$Control/DoorLabel/Label.text = "Terminal" + str(terminal_number) +"\n"
+			$Control/DoorLabel/Label.text = ""
+			$Control/DoorLabel/Label.append_text("[center]")
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
 					$Control/DoorLabel/Sprite.play()
-					$Control/DoorLabel/Label.text += "unlocked"
+					$Control/DoorLabel/Label.append_text("[color=green]Terminal" + str(terminal_number) +"\nunlocked")
 					return
-			$Control/DoorLabel/Label.text += "locked"
+			$Control/DoorLabel/Label.append_text("[color=red]Terminal" + str(terminal_number) +"\nlocked")
 	else:
 		$AudioStreamPlayer.stop()

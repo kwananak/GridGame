@@ -92,8 +92,6 @@ func set_labels():
 	name_label.text = main.get_level_name(node_level)
 	var access_unlocked = [0,0]
 	for k in progress_manager.levels[str(node_level)]:
-		print(k)
-		print(progress_manager.levels[str(node_level)][k])
 		if k == "prog":
 			if progress_manager.levels[str(node_level)][k]:
 				program_label.append_text("[color=green]Program Found")
