@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="13_mjkxb"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="13_texlx"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="14_xyae1"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_h7jhc"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="17_h7jhc"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="19_drlkm"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="19_ette0"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="20_c1aoj"]
@@ -1514,15 +1514,16 @@ position = Vector2(1920, 224)
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("20_iopkg")]
-text = Array[String](["What is this $orange laser field$?", "Must not be good..."])
+text = Array[String](["What's this $orange laser field$?", "Probably not too good..."])
 related_node = NodePath("../../GameplayElements/WarningTiles/DialogueYellowWarningTile2")
+highlight_color = "orange"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(896, 224)
 shape = SubResource("RectangleShape2D_2rl3a")
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("20_iopkg")]
-text = Array[String](["The $Red Laser Field$ is worse.", "The $Firewall$ will be even faster."])
+text = Array[String](["The $Red Laser Field$ is worse.", "The $DoomWall$ will be even faster."])
 related_node = NodePath("../../GameplayElements/WarningTiles/DialogueRedWarningTile2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
@@ -1530,7 +1531,7 @@ position = Vector2(1568, 224)
 shape = SubResource("RectangleShape2D_d5j31")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("20_iopkg")]
-text = Array[String](["Oh good, i see a $Booster Chip$.", "Those give me $1 action$ that i could use with my $Amazing Goggles$ to push back the Firewall.", "I can activate my program by pressing $1$ or using the $mouse$ on the icon in the middle bottom screen."])
+text = Array[String](["Oh good, I see a $booster chip$.", "Those give me $1 action$ that I could use with my $Amazing Goggles$ to push back the DoomWall.", "I can activate my program by pressing $1$ or using the $left mouse$ on its icon in the bottom bar."])
 related_node = NodePath("../../GameplayElements/BaseStuffs/DialogueBooster2")
 highlight_color = "green"
 
@@ -1539,7 +1540,7 @@ position = Vector2(1824, 224)
 shape = SubResource("RectangleShape2D_uuswx")
 
 [node name="DialogueArea4" parent="Dialogue" instance=ExtResource("20_iopkg")]
-text = Array[String](["I think i can hear the $FireWall$ coming!", "I should hurry up!"])
+text = Array[String](["I think I can hear the $DoomWall$ coming!", "I should hurry up!"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea4"]
 position = Vector2(1408, 320)

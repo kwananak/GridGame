@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="20_yp7x1"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="21_0wsfn"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="21_5f2hd"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="21_oc3fy"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="21_t2dp6"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="22_35cvy"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_v414e"]
@@ -2665,7 +2665,7 @@ position = Vector2(800, 448)
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea3" parent="Dialogue" instance=ExtResource("22_v414e")]
-text = Array[String](["I'm gonna try to activate the $FireWall$ the futher away possible.", "That will give me a chance to find the next $Acces Point$."])
+text = Array[String](["I'm gonna try to activate the $DoomWall$ the further away possible.", "That will give me a chance to find the next $Access Point$."])
 highlight_color = "Red"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
@@ -2673,7 +2673,7 @@ position = Vector2(672, 541.5)
 shape = SubResource("RectangleShape2D_h1rdq")
 
 [node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_v414e")]
-text = Array[String](["They are call the $Malfunction chip$ because they slow down the processor.", "When i grab them, $the FireWall freeze for 4 actions.$", "I Better grab them when we are chase by the FireWall like right now!."])
+text = Array[String](["These are called $malfunction chips$ because they slow down the processor.", "When I grab them, $the DoomWall freezes for 4 turns.$", "I better grab them when we are chased by the DoomWall ..like right now!"])
 related_node = NodePath("../../GameplayElements/Items/Malfunction4")
 highlight_color = "green"
 
