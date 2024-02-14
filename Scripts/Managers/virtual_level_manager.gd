@@ -148,7 +148,7 @@ func shield_spawn_anim(shield):
 
 func set_remaining_actions(value):
 	remaining_actions = value
-	var actions_ui = ui.get_node("ProgramBar/Labels/Legs")
+	var actions_ui = ui.get_node("ProgramBar/Labels/Actions")
 	actions_ui.text = str(remaining_actions)
 
 func on_success(level_unlocked):
