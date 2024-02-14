@@ -1457,6 +1457,9 @@ position = Vector2(1568, 256)
 [node name="PyramidByteBarrierTile6" parent="GameplayElements/Barriers" instance=ExtResource("19_ette0")]
 position = Vector2(1536, 224)
 
+[node name="BeetleBarrier" parent="GameplayElements/Barriers" instance=ExtResource("19_drlkm")]
+position = Vector2(1408, 448)
+
 [node name="AccesPoint" type="Node2D" parent="GameplayElements"]
 
 [node name="AccessPoint1" parent="GameplayElements/AccesPoint" instance=ExtResource("11_ihssd")]
@@ -1508,9 +1511,6 @@ position = Vector2(256, 224)
 [node name="DialogueBooster2" parent="GameplayElements/BaseStuffs" instance=ExtResource("20_c1aoj")]
 position = Vector2(1920, 224)
 
-[node name="BeetleBarrier" parent="GameplayElements" instance=ExtResource("19_drlkm")]
-position = Vector2(1408, 448)
-
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("20_iopkg")]
@@ -1529,8 +1529,9 @@ related_node = NodePath("../../GameplayElements/WarningTiles/DialogueRedWarningT
 position = Vector2(1568, 224)
 shape = SubResource("RectangleShape2D_d5j31")
 
-[node name="DialogueArea3" parent="Dialogue" instance=ExtResource("20_iopkg")]
+[node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("20_iopkg")]
 text = Array[String](["Oh good, i see a $Booster Chip$.", "Those give me $1 action$ that i could use with my $Amazing Goggles$ to push back the Firewall.", "I can activate my program by pressing $1$ or using the $mouse$ on the icon in the middle bottom screen."])
+related_node = NodePath("../../GameplayElements/BaseStuffs/DialogueBooster2")
 highlight_color = "green"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]

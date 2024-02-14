@@ -3,7 +3,7 @@ extends "res://Scripts/Programs/program.gd"
 @export var strength = 3
 
 func _ready():
-	info = "Action : Destroy everything around the player"
+	info = "Action : Destroy enemies and Bytes Barrier around you"
 	super._ready()
 
 func loaded():

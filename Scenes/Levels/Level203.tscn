@@ -30,7 +30,7 @@
 size = Vector2(74, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htqk1"]
-size = Vector2(160, 20)
+size = Vector2(32, 128)
 
 [node name="Level203" type="Node2D"]
 
@@ -2048,7 +2048,7 @@ position = Vector2(1024, 864)
 position = Vector2(544, 480)
 
 [node name="BeetleBarrier16" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_3ojhn")]
-position = Vector2(416, 256)
+position = Vector2(704, 736)
 
 [node name="BeetleBarrier4" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_3ojhn")]
 position = Vector2(1088, 864)
@@ -2109,14 +2109,20 @@ position = Vector2(1984, 736)
 [node name="BeamCannon" type="Node2D" parent="GameplayElements"]
 
 [node name="BeamTile" parent="GameplayElements/BeamCannon" instance=ExtResource("11_hkkww")]
-position = Vector2(704, 736)
-rotation = 1.5708
+position = Vector2(416, 288)
+rotation = 3.14159
 duration = 1000
 distance = 0
 
 [node name="BeamTile7" parent="GameplayElements/BeamCannon" instance=ExtResource("11_hkkww")]
-position = Vector2(416, 288)
-rotation = 3.14159
+position = Vector2(736, 736)
+rotation = 1.5708
+intial_charge = 1
+distance = 0
+
+[node name="BeamTile8" parent="GameplayElements/BeamCannon" instance=ExtResource("11_hkkww")]
+position = Vector2(832, 864)
+rotation = -1.5708
 intial_charge = 1
 distance = 0
 
@@ -2207,7 +2213,7 @@ shape = SubResource("RectangleShape2D_sjogw")
 text = Array[String](["The famous $Laser Beam turet$. It's oviusly dangerous.", "I can press on $SPACE$ at any moment to pass $1 action$ and coordinate with the laser beam."])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-position = Vector2(336, 224)
+position = Vector2(656, 800)
 shape = SubResource("RectangleShape2D_htqk1")
 
 [node name="HandsTile" parent="." instance=ExtResource("25_oj20c")]

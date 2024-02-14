@@ -5,7 +5,7 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 
 func _ready():
 	super._ready()
-	info = "Freeze the wall for " + str(strength) + " turns"
+	info = "Freeze the Firewall for " + str(strength) + " turns"
 
 # sends freeze strength to firewall and removes item
 func pick_up(area):
