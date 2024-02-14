@@ -4,7 +4,7 @@ var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
-var levels ={"101" : {"102" : false},
+var levels = {"101" : {"102" : false},
 			"102" : {"103" : false, "prog" : false},
 			"103" : {"2" : false},
 			"201" : {"202" : false, "prog" : false},
@@ -128,7 +128,7 @@ func get_available_programs(slot):
 	return available_programs
 
 # erases game state
-func reset_programs():
+func reset_progress():
 	for n in get_children():
 		for o in n.get_children():
 			if o.get_child_count() > 0:
@@ -137,6 +137,9 @@ func reset_programs():
 	completed_levels = []
 	unlocked_levels = ["101", "201"]
 	doors = []
+	for n in levels:
+		for o in levels[n]:
+			levels[n][o] = false
 	save_point = null
 
 func save():
@@ -167,7 +170,7 @@ func save_game():
 	FileAccess.open("res://savegame.txt", FileAccess.WRITE).store_line(JSON.stringify(save()))
 
 func load_game():
-	await reset_programs()
+	await reset_progress()
 	if not FileAccess.file_exists("res://savegame.txt"):
 		$/root/Main.disable_continue()
 		return

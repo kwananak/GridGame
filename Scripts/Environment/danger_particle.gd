@@ -10,6 +10,8 @@ func _ready():
 
 func zigzagger():
 	while true:
+		if !is_inside_tree():
+			continue
 		await get_tree().create_timer(randf_range(1.0, 2.0)).timeout
 		var dice = randf_range(0.0, 10.0)
 		if dice < 8.0:

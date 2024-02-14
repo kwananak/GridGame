@@ -64,8 +64,8 @@ func _on_visibility_changed():
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
 					$Control/DoorLabel/Sprite.play()
-					$Control/DoorLabel/Label.append_text("[color=green]Terminal" + str(terminal_number) +"\nunlocked")
+					$Control/DoorLabel/Label.append_text("[color=green]Terminal " + str(terminal_number) + "\nunlocked")
 					return
-			$Control/DoorLabel/Label.append_text("[color=red]Terminal" + str(terminal_number) +"\nlocked")
+			$Control/DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
 	else:
 		$AudioStreamPlayer.stop()

@@ -137,7 +137,7 @@ func return_to_real_scene():
 
 # resets game status and starts Level 1
 func new_game():
-	await progress_manager.reset_programs()
+	await progress_manager.reset_progress()
 	real_scene = null
 	terminal_scene = null
 	virtual_scene = null
