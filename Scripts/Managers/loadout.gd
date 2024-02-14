@@ -148,13 +148,13 @@ func set_program_sprites():
 			available_programs[i].z_index = 92
 			var tween = create_tween()
 			tween.tween_property(available_programs[i], "scale",
-				Vector2(2, 2),
+				Vector2(4, 4),
 				0.3).set_trans(Tween.TRANS_SINE)
 		else:
 			available_programs[i].z_index = 91
 			var tween = create_tween()
 			tween.tween_property(available_programs[i], "scale",
-				Vector2(1.5, 1.5),
+				Vector2(3, 3),
 				0.3).set_trans(Tween.TRANS_SINE)
 		var tween = create_tween()
 		tween.tween_property(available_programs[i], "global_position",

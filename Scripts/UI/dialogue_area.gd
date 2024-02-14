@@ -53,7 +53,7 @@ func close():
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(300, 300)
 	bubble.show()
-	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-300, 12), 0.4).finished
+	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-300, 12), 0.2).finished
 	bubble.get_node("Tail").hide()
 	bubble.play()
 	await bubble.animation_finished
