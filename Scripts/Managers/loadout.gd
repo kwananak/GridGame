@@ -195,4 +195,4 @@ func _on_rune_pressed():
 		rune_mode = prog_load.get_node("Runes").get_child(0)
 		rune_mode.position = Vector2(30, -100)
 	else:
-		info.text = "no runes"
+		info.text = "NO RUNE"

@@ -23,7 +23,7 @@ func add_to_programs(slot, program, level):
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
-	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
+	await get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 	levels[str(level)]["prog"] = true
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
@@ -38,7 +38,6 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 			doors += [str(level_unlocked)]
 	if level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
-	await get_tree().create_timer(0.2).timeout
 	save_game()
 
 func add_amplifier(amp):

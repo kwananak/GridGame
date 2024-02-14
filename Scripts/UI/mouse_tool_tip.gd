@@ -14,7 +14,13 @@ func _process(_delta):
 			return
 		var area = get_overlapping_areas()[0]
 		if area.get("info"):
-			$Label.text = area.name + "\n" + area.info
+			var adjusted_name = area.name
+			while true:
+				if adjusted_name.right(1).is_valid_int():
+					adjusted_name = adjusted_name.left(-1)
+				else:
+					break
+			$Label.text = adjusted_name + "\n" + area.info
 			show()
 	else:
 		hide()
