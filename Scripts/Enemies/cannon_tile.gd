@@ -49,6 +49,7 @@ func fire_bullet():
 func hit_by_player(_strength):
 	is_destroyed = true
 	$AnimatedSprite2D.frame = 1
+	$Audio.play()
 
 func set_speed(value):
 	if value < 1:

@@ -59,7 +59,7 @@ func _on_visibility_changed():
 		loaded_level = null
 		if terminal_number != null:
 			$AudioStreamPlayer.play()
-			$Control/DoorLabel/Label.text = ""
+			$Control/DoorLabel/Label.clear()
 			$Control/DoorLabel/Label.append_text("[center]")
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:

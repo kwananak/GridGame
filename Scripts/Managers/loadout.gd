@@ -23,6 +23,19 @@ func _ready():
 	await get_tree().create_timer(0.02).timeout
 	set_slots()
 
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed() && event.button_index == 1:
+			for n in get_children():
+				if n.name == "Label":
+					continue
+				for i in n.get_child_count():
+					if n.get_child(i).mouse_on:
+						array_selected = i
+						confirm_loadout(n.name)
+						get_viewport().set_input_as_handled()
+						return
+
 func set_slots():
 	loaded_slots = 0
 	prog_load.show()
@@ -94,7 +107,7 @@ func confirm_loadout(slot):
 	progress_manager.select_loadout(slot, selected_program)
 	for n in available_programs:
 		n.monitorable = false
-		remove_child(n)
+		get_node(str(slot)).remove_child(n)
 		if n.name == "Empty":
 			n.queue_free()
 		else:
@@ -109,7 +122,7 @@ func confirm_loadout(slot):
 	available_programs = null
 	set_slots()
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
-	get_node(slot).grab_focus()
+	get_node(str(slot)).grab_focus()
 	_on_focus_entered(slot)
 
 func open_program_selection(slot):
@@ -124,8 +137,8 @@ func open_program_selection(slot):
 			array_selected = n + 1
 			available_programs.erase(n) 
 		else:
-			add_child(n)
-			n.position = get_node(slot).position + Vector2(32, 32)
+			get_node(slot).add_child(n)
+			n.global_position = get_node(slot).global_position + Vector2(16, 16)
 			n.scale = Vector2(1.5, 1.5)
 	set_program_sprites()
 
@@ -144,8 +157,8 @@ func set_program_sprites():
 				Vector2(1.5, 1.5),
 				0.3).set_trans(Tween.TRANS_SINE)
 		var tween = create_tween()
-		tween.tween_property(available_programs[i], "position",
-				get_node(selection_opened).position + Vector2(((i - array_selected) * 64) + 32, 32),
+		tween.tween_property(available_programs[i], "global_position",
+				get_node(selection_opened).global_position + Vector2(((i - array_selected) * 64) + 16, 16),
 				0.3).set_trans(Tween.TRANS_SINE)
 		available_programs[i].show()
 	info.text = available_programs[array_selected].name + "\n" + available_programs[array_selected].info
