@@ -45,6 +45,9 @@ func confirm():
 	pass
 
 func _on_mouse_entered():
+	if get_parent().get_parent().name == "Loadout":
+		if "info" in get_parent().get_parent():
+			get_parent().get_parent().info.text = get_parent().name + "\n" + name + "\n" + info
 	mouse_on = true
 
 func _on_mouse_exited():

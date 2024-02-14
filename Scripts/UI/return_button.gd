@@ -1,6 +1,10 @@
 extends Control
 
 var moused = false
+var loadout
+
+func _ready():
+	loadout = get_tree().get_first_node_in_group("Loadout")
 
 func _input(event):
 	if has_focus():
@@ -17,6 +21,8 @@ func _on_focus_exited():
 	$Focus.visible = false
 
 func _on_mouse_entered():
+	if loadout.selection_opened:
+		return
 	grab_focus()
 	moused = true
 

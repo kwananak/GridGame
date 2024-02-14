@@ -15,6 +15,7 @@ var name_label
 var terminal_scene
 var access_point_label
 var program_label
+var loadout
 
 func _ready():
 	progress_manager =  get_tree().get_first_node_in_group("ProgressManager")
@@ -23,6 +24,7 @@ func _ready():
 	name_label = get_tree().get_first_node_in_group("LevelNameLabel")
 	access_point_label = get_tree().get_first_node_in_group("AccessPointLabel")
 	program_label = get_tree().get_first_node_in_group("ProgramLabel")
+	loadout = get_tree().get_first_node_in_group("Loadout")
 	$SelectedSprite.animation = node_color
 	if available:
 		focus_mode = Control.FOCUS_ALL
@@ -80,7 +82,7 @@ func _on_focus_exited():
 	map_frame.visible = false
 
 func _on_mouse_entered():
-	if focus_mode == FOCUS_NONE:
+	if focus_mode == FOCUS_NONE || loadout.selection_opened:
 		return
 	grab_focus()
 	moused = true

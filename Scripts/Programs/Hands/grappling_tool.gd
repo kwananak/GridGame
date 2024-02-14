@@ -13,7 +13,7 @@ var tip
 
 
 func _ready():
-	info = "Action : Grappling of 5"
+	info = "Action : Grappling of " + str(grapple_range)
 	super._ready()
 
 func loaded():

@@ -67,11 +67,15 @@ func fire_beam():
 			beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 
 func hit_by_player(_strength):
-	is_destroyed = true
+	if is_destroyed:
+		return
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame = 1
 	if get_tree().get_first_node_in_group("FramedChecker").check(position):
 		$Audio.play()
+	for n in $Beam.get_children():
+		n.queue_free()
+	is_destroyed = true
 
 func set_duration(value):
 	if value < 1:

@@ -148,20 +148,20 @@ func set_program_sprites():
 			available_programs[i].z_index = 92
 			var tween = create_tween()
 			tween.tween_property(available_programs[i], "scale",
-				Vector2(4, 4),
+				Vector2(3, 3),
 				0.3).set_trans(Tween.TRANS_SINE)
 		else:
 			available_programs[i].z_index = 91
 			var tween = create_tween()
 			tween.tween_property(available_programs[i], "scale",
-				Vector2(3, 3),
+				Vector2(2, 2),
 				0.3).set_trans(Tween.TRANS_SINE)
 		var tween = create_tween()
 		tween.tween_property(available_programs[i], "global_position",
-				get_node(selection_opened).global_position + Vector2(((i - array_selected) * 64) + 16, 16),
+				get_node(selection_opened).global_position + Vector2(((i - array_selected) * 48) + 16, 16),
 				0.3).set_trans(Tween.TRANS_SINE)
 		available_programs[i].show()
-	info.text = available_programs[array_selected].name + "\n" + available_programs[array_selected].info
+	info.text = selection_opened + "\n" + available_programs[array_selected].name + "\n" + available_programs[array_selected].info
 
 func _on_focus_entered(slot):
 	programs_frame.visible = true

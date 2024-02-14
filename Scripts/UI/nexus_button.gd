@@ -3,9 +3,11 @@ extends Control
 var available = false : set = set_available
 var moused = false
 var terminal_scene
+var loadout
 
 func _ready():
 	terminal_scene = get_tree().get_first_node_in_group("TerminalScene")
+	loadout = get_tree().get_first_node_in_group("Loadout")
 
 func _input(event):
 	if !available:
@@ -35,7 +37,7 @@ func _on_focus_exited():
 	terminal_scene.get_node("Control/Map/Level" + str(terminal_scene.loaded_level)).clear_labels()
 
 func _on_mouse_entered():
-	if focus_mode == FOCUS_NONE:
+	if focus_mode == FOCUS_NONE || loadout.selection_opened:
 		return
 	grab_focus()
 	moused = true
