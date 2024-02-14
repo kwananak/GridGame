@@ -8,14 +8,15 @@ var levels ={"101" : {"102" : false},
 			"102" : {"103" : false, "prog" : false},
 			"103" : {"2" : false},
 			"201" : {"202" : false, "prog" : false},
-			202 : {203 : false, "prog" : false},
-			203 : {204 : false, "prog" : false},
-			204 : {205 : false, "prog" : false},
-			205 : {206 : false, "prog" : false}}
+			"202" : {"203" : false, "prog" : false},
+			"203" : {"204" : false, "prog" : false},
+			"204" : {"205" : false, "prog" : false},
+			"205" : {"206" : false, "prog" : false}}
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
+	print(slot + " " + program.name + " " + str(level))
 	if program.name == "Rune":
 		get_node("Loadout/Runes").call_deferred("add_child", program)
 		return
@@ -37,6 +38,7 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 			doors += [str(level_unlocked)]
 	if level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
+	await get_tree().create_timer(0.2).timeout
 	save_game()
 
 func add_amplifier(amp):

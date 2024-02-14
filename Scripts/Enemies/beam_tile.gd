@@ -70,6 +70,7 @@ func hit_by_player(_strength):
 	is_destroyed = true
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.frame = 1
+	$Audio.play()
 
 func set_duration(value):
 	if value < 1:

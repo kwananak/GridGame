@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://livwg3kbkesi"]
 
-[ext_resource type="Script" path="res://Scripts/Programs/Legs/synthetik_thought.gd" id="1_171hh"]
+[ext_resource type="Script" path="res://Scripts/Programs/Legs/loop_pants.gd" id="1_e1dud"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_oixvl"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_axirf"]
 
@@ -18,7 +18,7 @@ region = Rect2(10, 554, 42, 35)
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("1_171hh")
+script = ExtResource("1_e1dud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -44,3 +44,6 @@ vertical_alignment = 1
 visible = false
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_0uark")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

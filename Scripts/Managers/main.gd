@@ -165,7 +165,8 @@ func continue_game():
 		add_child(virtual_scene)
 		return
 	if !real_scene:
-		await progress_manager.load_game()
+		if !progress_manager.save_point:
+			await progress_manager.load_game()
 		real_scene = load("res://Scenes/Levels/" + progress_manager.save_point + ".tscn").instantiate()
 	menu_audio.stop()
 	if has_node("RealAudio"):

@@ -7,5 +7,7 @@ func _ready():
 
 func deviator():
 	while true:
+		if !is_inside_tree():
+			continue
 		await get_tree().create_timer(randf_range(1.0, 2.0)).timeout
 		direction.y = -direction.y
