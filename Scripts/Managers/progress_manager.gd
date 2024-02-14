@@ -16,14 +16,13 @@ var levels = {"101" : {"102" : false},
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
-	print(slot + " " + program.name + " " + str(level))
 	if program.name == "Rune":
-		get_node("Loadout/Runes").call_deferred("add_child", program)
+		get_node("Loadout/Runes").add_child(program)
 		return
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
-	await get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
+	get_node("OwnedPrograms/" + slot).add_child(program)
 	levels[str(level)]["prog"] = true
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
