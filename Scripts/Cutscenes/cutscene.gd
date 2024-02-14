@@ -9,10 +9,10 @@ var written = 0
 
 func _ready():
 	$Sprite2D/Button.grab_focus()
-	if not FileAccess.file_exists("res://cutscenes.txt"):
+	if not FileAccess.file_exists("res://Txts/cutscenes.txt"):
 		$/root/Main.disable_continue()
 		return
-	var json_string = FileAccess.open("res://cutscenes.txt", FileAccess.READ).get_line()
+	var json_string = FileAccess.open("res://Txts/cutscenes.txt", FileAccess.READ).get_line()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:

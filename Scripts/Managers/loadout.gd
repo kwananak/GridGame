@@ -120,6 +120,10 @@ func confirm_loadout(slot):
 					n.position = Vector2.ZERO
 	selection_opened = null
 	available_programs = null
+	for n in get_children():
+		if n.name == "Label":
+			continue
+		n.focus_mode = Control.FOCUS_ALL
 	set_slots()
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	get_node(str(slot)).grab_focus()
@@ -130,6 +134,10 @@ func open_program_selection(slot):
 	info.text = ""
 	array_selected = 0
 	selection_opened = slot
+	for n in get_children():
+		if n.name == "Label":
+			continue
+		n.focus_mode = Control.FOCUS_NONE
 	var new_empty = empty.instantiate()
 	available_programs = [new_empty] + progress_manager.get_available_programs(slot)
 	for n in available_programs:
@@ -196,3 +204,8 @@ func _on_rune_pressed():
 		rune_mode.position = Vector2(30, -100)
 	else:
 		info.text = "NO RUNE"
+
+func _on_mouse_entered(slot):
+	if selection_opened:
+		return
+	get_node(slot).grab_focus()

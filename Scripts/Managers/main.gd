@@ -30,8 +30,7 @@ func set_menu():
 		if progress_manager.save_point:
 			continue_button.grab_focus()
 		else:
-			continue_button.disabled = true
-			new_game_button.grab_focus()
+			disable_continue()
 	menu_audio = menu.get_node("MenuAudio")
 	menu_audio.play()
 
@@ -180,10 +179,14 @@ func call_cutscene(cutscene_number):
 	camera.add_child(load("res://Scenes/Cutscenes/Cutscene" + str(cutscene_number) + ".tscn").instantiate())
 
 func get_level_name(level_number):
-	var json_string = FileAccess.open("res://level_names.txt", FileAccess.READ).get_line()
+	var json_string = FileAccess.open("res://Txts/level_names.txt", FileAccess.READ).get_line()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	return json.get_data()[str(level_number)]
+
+func disable_continue():
+	continue_button.disabled = true
+	new_game_button.grab_focus()
