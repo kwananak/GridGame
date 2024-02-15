@@ -53,6 +53,8 @@ func get_input(delta):
 
 # checks for pause input
 func _input(_event):
+	if level_manager.game_over:
+		return
 	if _event.is_action_pressed("pause"):
 		level_manager.press_pause()
 

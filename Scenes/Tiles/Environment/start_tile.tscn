@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cucuq7j1dctnn"]
+[gd_scene load_steps=9 format=3 uid="uid://cucuq7j1dctnn"]
 
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="1_44hwa"]
 
@@ -21,6 +21,10 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_44hwa")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jrqi"]
+atlas = ExtResource("1_44hwa")
+region = Rect2(96, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0hrto"]
 animations = [{
 "frames": [{
@@ -39,17 +43,25 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jrqi")
+}],
+"loop": false,
+"name": &"unlocked",
+"speed": 5.0
 }]
 
 [node name="StartTile" type="Area2D" groups=["StartTile"]]
 z_index = 30
 collision_layer = 0
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f7yg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0hrto")
+animation = &"unlocked"
 autoplay = "default"
-frame_progress = 1.0

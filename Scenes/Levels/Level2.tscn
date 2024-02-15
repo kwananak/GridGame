@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
+[ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
 
 [node name="Level2" type="Node2D"]
 
@@ -46,6 +46,10 @@ position = Vector2(192, 224)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
 position = Vector2(546, 224)
+
+[node name="EndTile2" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
+position = Vector2(192, 224)
+door_number = 1
 
 [node name="FloorTileComplex" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(192, 160)

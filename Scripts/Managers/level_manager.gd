@@ -111,9 +111,9 @@ func _on_button_pressed():
 		$/root/Main.call_menu(level_number)
 
 # called by end tile when the player reaches it
-func on_end_tile_entered():
+func on_end_tile_entered(next_level):
 	game_over = true
-	button.text = "Enter Complex"
+	button.text = "Enter " + $/root/Main.get_level_name(next_level)
 	button.visible = true
 	button.grab_focus()
 

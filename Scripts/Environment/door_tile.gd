@@ -1,13 +1,13 @@
 extends Area2D
 
 var level_manager
-var unlocked = false
 var opened = false
 var tile_type = "door"
 var key_lights = []
 var light_prefab = preload("res://Scenes/Prefabs/door_light.tscn")
 
 # set up key(s) needed to open door from inspector
+@export var unlocked = false
 @export_category("Setup")
 @export var keys_needed : int
 @export_enum("blue", "pink", "yellow") var key_type : String
