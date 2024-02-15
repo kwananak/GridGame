@@ -95,7 +95,7 @@ func on_button_pressed(slot):
 			confirm_loadout(slot)
 		return
 	if loaded_slots >= max_loads && progress_manager.get_node("Loadout/" + slot).get_child_count() == 0:
-		info.text = "max program quantity reach\nunequip a program to equip an other one"
+		info.text = slot + "\nmax program quantity reach\nunequip a program to equip an other one"
 		return
 	open_program_selection(slot)
 
