@@ -55,6 +55,9 @@ func set_available(value):
 	available = value
 	for n in get_children():
 		match n.name:
+			"IncompleteSprite":
+				if available:
+					n.visible = true
 			"LinkSprite":
 				if !completed:
 					n.get_node("AnimationPlayer").play("new_animation")

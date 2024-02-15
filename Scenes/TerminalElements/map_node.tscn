@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c02ntgyr1bb1j"]
+[gd_scene load_steps=15 format=3 uid="uid://c02ntgyr1bb1j"]
 
 [ext_resource type="Script" path="res://Scripts/UI/map_node.gd" id="1_blot7"]
 [ext_resource type="Texture2D" uid="uid://bcu3usrgyc0ad" path="res://Sprites/UI/terminal_1_nodes.png" id="1_mhuy2"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_i0djd"]
+[ext_resource type="Texture2D" uid="uid://dkxk67hrwx01a" path="res://Sprites/UI/map_node_sheet.png" id="3_8mfqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2gh5k"]
 atlas = ExtResource("2_i0djd")
@@ -44,8 +45,12 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxv13"]
-atlas = ExtResource("1_mhuy2")
-region = Rect2(0, 36, 16, 16)
+atlas = ExtResource("3_8mfqf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df01b"]
+atlas = ExtResource("3_8mfqf")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqd81"]
 atlas = ExtResource("1_mhuy2")
@@ -91,12 +96,17 @@ grow_vertical = 2
 script = ExtResource("1_blot7")
 
 [node name="SelectedSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_58sum")
 animation = &"purple"
 
-[node name="CompletedSprite" type="Sprite2D" parent="."]
+[node name="IncompleteSprite" type="Sprite2D" parent="."]
 visible = false
 texture = SubResource("AtlasTexture_oxv13")
+
+[node name="CompletedSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_df01b")
 
 [node name="FocusSprite" type="Sprite2D" parent="."]
 visible = false

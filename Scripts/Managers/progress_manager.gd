@@ -36,7 +36,11 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 	else:
 		if level_unlocked not in doors:
 			doors += [str(level_unlocked)]
-	if level_completed not in completed_levels:
+	var completed = true
+	for n in levels[str(level_completed)]:
+		if !levels[str(level_completed)][n]:
+			completed = false
+	if completed && level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
 	save_game()
 
