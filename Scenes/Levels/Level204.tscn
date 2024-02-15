@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cy0ww"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="5_tc2he"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="6_qkksv"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_7mjym"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="10_56w5e"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_2kxjm"]
@@ -1659,6 +1659,7 @@ distance = 0
 [node name="BeamTile11" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1632, 640)
 rotation = -1.5708
+duration = 1000
 distance = 0
 
 [node name="BeamTile4" parent="." instance=ExtResource("10_56w5e")]
@@ -1752,7 +1753,7 @@ position = Vector2(448, 288)
 position = Vector2(1632, 384)
 
 [node name="ByteBarrierEasy14" parent="." instance=ExtResource("12_adb4i")]
-position = Vector2(1632, 576)
+position = Vector2(1568, 576)
 
 [node name="ByteBarrierEasy11" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(1792, 288)
@@ -1774,12 +1775,6 @@ position = Vector2(1376, 192)
 
 [node name="ByteBarrierEasy4" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(1440, 288)
-
-[node name="ByteBarrierEasy9" parent="." instance=ExtResource("12_adb4i")]
-position = Vector2(1632, 288)
-
-[node name="ByteBarrierEasy10" parent="." instance=ExtResource("12_adb4i")]
-position = Vector2(1632, 288)
 
 [node name="ByteBarrierEasy5" parent="." instance=ExtResource("12_adb4i")]
 position = Vector2(1408, 384)
@@ -1916,9 +1911,6 @@ position = Vector2(448, 224)
 
 [node name="Booster2" parent="." instance=ExtResource("24_buq8i")]
 position = Vector2(1632, 352)
-
-[node name="Booster3" parent="." instance=ExtResource("24_buq8i")]
-position = Vector2(1632, 192)
 
 [node name="Booster4" parent="." instance=ExtResource("24_buq8i")]
 position = Vector2(1440, 192)
