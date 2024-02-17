@@ -18,9 +18,11 @@ var possible_moves
 var row_checker
 var teleport = false
 var saved_frame = 0
+var skip_turn_button
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	skip_turn_button = get_tree().get_first_node_in_group("SkipTurnButton")
 	possible_moves = $PossibleMoves.get_children()
 	row_checker = $RowChecker
 	await enter_level_animation()
@@ -78,9 +80,13 @@ func _input(event):
 
 # self explanatory
 func skip_turn():
+	if level_manager.game_over || level_manager.dialogue || level_manager.paused:
+		return
 	moving = true
 	for n in possible_moves:
 		n.reset()
+	skip_turn_button.show_skip()
+	await get_tree().create_timer(0.1).timeout
 	await level_manager.end_turn()
 
 # triggers action on selected direction

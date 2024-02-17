@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv056doytbg8m"]
+
+[ext_resource type="Script" path="res://Scripts/UI/skip_turn_button.gd" id="1_1cmpc"]
+[ext_resource type="Texture2D" uid="uid://chp5nv85lfaua" path="res://Sprites/UI/skip_button.png" id="1_1lmd5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7grep"]
+size = Vector2(48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f68w6"]
+atlas = ExtResource("1_1lmd5")
+region = Rect2(0, 0, 48, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkpk6"]
+atlas = ExtResource("1_1lmd5")
+region = Rect2(0, 14, 48, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6no06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f68w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkpk6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SkipTurnButton" type="Area2D" groups=["SkipTurnButton"]]
+script = ExtResource("1_1cmpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7grep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6no06")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
