@@ -1,5 +1,6 @@
 extends Node2D
 
+var save_path = "user://savegame.save"
 var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
@@ -170,17 +171,18 @@ func save():
 	return dict
 
 func save_game():
-	#game_data.save_game = save()
-	#ResourceSaver.save(game_data, save_file_path + save_file_path)
-	FileAccess.open("user://Txts/savegame.txt", FileAccess.WRITE).store_line(JSON.stringify(save()))
+	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
+	save_file.store_line(JSON.stringify(save()))
+	save_file.close()
 
 func load_game():
 	await reset_progress()
-	if not FileAccess.file_exists("user://Txts/savegame.txt"):
+	if not FileAccess.file_exists(save_path):
 		$/root/Main.disable_continue()
 		return
-	var save_file = FileAccess.open("user://Txts/savegame.txt", FileAccess.READ)
+	var save_file = FileAccess.open(save_path, FileAccess.READ)
 	var json_string = save_file.get_line()
+	save_file.close()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:

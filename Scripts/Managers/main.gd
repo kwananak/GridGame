@@ -1,10 +1,15 @@
 extends Node2D
 
+# scenes
 var real_scene
 var terminal_scene
 var virtual_scene
+
+# menu
 var menu
 var menu_audio
+
+# buttons
 var continue_button
 var new_game_button
 
@@ -56,6 +61,7 @@ func call_level(level_number):
 			remove_child(terminal_scene)
 	add_child(level)
 
+# restarts loaded level
 func retry_level():
 	var loaded_virtual_number = virtual_scene.get_node("VirtualLevelManager").level_number
 	virtual_scene.queue_free()
@@ -90,6 +96,7 @@ func call_menu(level_number):
 		else:
 			new_game_button. grab_focus()
 
+# alternative to call_menu function for virtual levels
 func menu_from_virtual():
 	remove_child(virtual_scene)
 	camera.position = get_viewport_rect().size / 4
@@ -98,6 +105,7 @@ func menu_from_virtual():
 	continue_button.disabled = false
 	continue_button.grab_focus()
 
+# returns to terminal form virtual scene. if no terminal (ex: debug menu) will return to menu
 func back_to_terminal():
 	if !terminal_scene:
 		call_menu(virtual_scene.get_node("VirtualLevelManager").level_number)
@@ -110,7 +118,7 @@ func back_to_terminal():
 	terminal_scene.visible = true
 	terminal_scene._ready()
 
-# quits game when quit button is pressed
+# quits game when called. usually from quit button being pressed
 func call_quit():
 	get_tree().quit()
 
@@ -173,11 +181,13 @@ func continue_game():
 	menu.visible = false
 	add_child(real_scene)
 
-
+# starts cutscene
 func call_cutscene(cutscene_number):
 	menu.visible = false
 	camera.add_child(load("res://Scenes/Cutscenes/Cutscene" + str(cutscene_number) + ".tscn").instantiate())
 
+
+# provided with a level number, retrieves level name from resource file
 func get_level_name(level_number):
 	var json_string = FileAccess.open("res://Txts/level_names.txt", FileAccess.READ).get_line()
 	var json = JSON.new()
@@ -187,6 +197,7 @@ func get_level_name(level_number):
 		return
 	return json.get_data()[str(level_number)]
 
+# disables continue button
 func disable_continue():
 	continue_button.disabled = true
 	new_game_button.grab_focus()
