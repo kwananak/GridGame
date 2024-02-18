@@ -195,7 +195,7 @@ func back_to_terminal():
 	$/root/Main.back_to_terminal()
 
 func call_menu():
-	$/root/Main.menu_from_virtual()
+	$/root/Main.call_menu(level_number)
 
 func _on_tree_entered():
 	if camera:

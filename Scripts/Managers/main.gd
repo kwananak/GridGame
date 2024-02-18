@@ -68,37 +68,21 @@ func retry_level():
 	await get_tree().create_timer(0.05).timeout
 	call_level(loaded_virtual_number)
 
-### needs cleanup ###
-# handles various level quitting scenario, needs cleanup
+# calls menu from real or virtual scene
 func call_menu(level_number):
-	if level_number == 0:
-		$RealAudio.stop()
-		get_node("RealTestLevel").queue_free()
-	elif level_number < 100:
+	if level_number < 100:
 		remove_child(real_scene)
 		$RealAudio.stop()
 	else:
-		virtual_scene.queue_free()
-		virtual_scene = null
-	if real_scene and terminal_scene != null:
-		$RealAudio.play()
-		camera.position = terminal_scene.position + get_viewport_rect().size / 4
-		terminal_scene.get_node("Control/Loadout").set_slots()
-		terminal_scene.visible = true
-		terminal_scene._ready()
-	else:
-		camera.position = get_viewport_rect().size / 4
-		menu.visible = true
-		menu_audio.play()
-		if real_scene:
-			continue_button.disabled = false
-			continue_button.grab_focus()
-		else:
-			new_game_button. grab_focus()
+		remove_child(virtual_scene)
+	camera.position = get_viewport_rect().size / 4
+	menu.visible = true
+	menu_audio.play()
+	continue_button.disabled = false
+	continue_button.grab_focus()
 
 # alternative to call_menu function for virtual levels
 func menu_from_virtual():
-	remove_child(virtual_scene)
 	camera.position = get_viewport_rect().size / 4
 	menu.visible = true
 	menu_audio.play()
