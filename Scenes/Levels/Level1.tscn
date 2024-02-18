@@ -16,12 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="14_od6qr"]
 [ext_resource type="PackedScene" uid="uid://dxkd6yu4ron2r" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_b.tscn" id="15_pu85d"]
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_xavkm"]
-[ext_resource type="Texture2D" uid="uid://dj7603nsjbfyb" path="res://Sprites/EnvironmentReal/Dumpyard/dump.png" id="17_w6g1u"]
+[ext_resource type="Texture2D" uid="uid://brs7sxdb6t3st" path="res://Sprites/EnvironmentReal/Dumpyard/complex_outside.png" id="18_4dl07"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="18_bl844"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+position = Vector2(0, 96)
 
 [node name="DumpBack" type="Sprite2D" parent="Background"]
 position = Vector2(232, 57.5)
@@ -50,10 +51,9 @@ position = Vector2(608, 448)
 texture = ExtResource("1_ykg1m")
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
-position = Vector2(64, 64)
 level_name = "Dumpyard"
 level_height = 16
-level_length = 24
+level_length = 23
 level_number = 1
 animation_speed = 10
 end_turn_speed = 0.01
@@ -61,6 +61,7 @@ end_turn_speed = 0.01
 [node name="UI" parent="." instance=ExtResource("2_y6187")]
 
 [node name="Environment" type="Node2D" parent="."]
+position = Vector2(32, 96)
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
@@ -401,6 +402,15 @@ position = Vector2(448, 96)
 [node name="WallHorizontalTileReal10" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
 position = Vector2(480, 96)
 
+[node name="WallHorizontalTileReal12" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
+position = Vector2(640, 176)
+
+[node name="WallHorizontalTileReal34" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
+position = Vector2(672, 176)
+
+[node name="WallHorizontalTileReal35" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
+position = Vector2(704, 176)
+
 [node name="WallHorizontalTileReal11" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
 position = Vector2(512, 128)
 
@@ -475,15 +485,16 @@ position = Vector2(576, 288)
 rotation = 3.14159
 
 [node name="Trials" type="Node2D" parent="."]
+position = Vector2(32, 96)
 
 [node name="Terminal1" parent="." instance=ExtResource("9_5o5vp")]
-position = Vector2(416, 192)
+position = Vector2(448, 288)
 
 [node name="RealPlayer" parent="." instance=ExtResource("10_r0mu2")]
-position = Vector2(64, 64)
+position = Vector2(120, 176)
 
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_r8naw")]
-position = Vector2(544, 128)
+position = Vector2(576, 225)
 door_number = 2
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
@@ -492,23 +503,23 @@ bus = &"Music"
 
 [node name="DumpyardDecoA" parent="." instance=ExtResource("14_od6qr")]
 z_index = 20
-position = Vector2(288, 160)
+position = Vector2(320, 256)
 
 [node name="DumpyardDecoA2" parent="." instance=ExtResource("14_od6qr")]
 z_index = 20
-position = Vector2(224, 288)
+position = Vector2(256, 384)
 
 [node name="DumpyardDecoB" parent="." instance=ExtResource("15_pu85d")]
 z_index = 20
-position = Vector2(384, 262)
+position = Vector2(416, 358)
 
 [node name="DumpyardDecoC" parent="." instance=ExtResource("16_xavkm")]
 z_index = 20
-position = Vector2(477, 259)
-
-[node name="Dump" type="Sprite2D" parent="."]
-position = Vector2(576, 128)
-texture = ExtResource("17_w6g1u")
+position = Vector2(509, 355)
 
 [node name="InvisibleWall" parent="." instance=ExtResource("18_bl844")]
-position = Vector2(576, 160)
+position = Vector2(608, 256)
+
+[node name="ComplexOutside" type="Sprite2D" parent="."]
+position = Vector2(687, 144)
+texture = ExtResource("18_4dl07")
