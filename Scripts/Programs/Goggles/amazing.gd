@@ -4,7 +4,7 @@ var doomwall
 var distance = -5
 
 func _ready():
-	info = "Action : Move the Firewall back by 5 squares."
+	info = "Action : Move the DoomWall back by 5 tiles."
 	super._ready()
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
 
