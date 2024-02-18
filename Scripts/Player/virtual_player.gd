@@ -35,10 +35,10 @@ func _physics_process(_delta):
 func get_input():
 	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue:
 		return
+	moving = true
 	for dir in inputs.keys():
 		var dir_node = get_node("PossibleMoves/" + dir)
 		if Input.is_action_pressed(dir):
-			moving = true
 			match dir:
 				"left":
 					animated_sprite_2d.flip_h = true
@@ -46,10 +46,11 @@ func get_input():
 					animated_sprite_2d.flip_h = false
 			if dir_node.available_action != null:
 				act(dir_node)
+				return
 			elif dir_node.possible:
 				move(dir_node.global_position)
-			else:
-				moving = false
+				return
+	moving = false
 
 func _input(event):
 	if level_manager.game_over:

@@ -35,6 +35,8 @@ func _input(event):
 						confirm_loadout(n.name)
 						get_viewport().set_input_as_handled()
 						return
+			if selection_opened:
+				on_button_pressed(selection_opened)
 
 func set_slots():
 	loaded_slots = 0
@@ -131,6 +133,7 @@ func confirm_loadout(slot):
 
 func open_program_selection(slot):
 	get_node(slot).release_focus()
+	programs_frame.visible = true
 	info.text = ""
 	array_selected = 0
 	selection_opened = slot

@@ -30,3 +30,4 @@ func on_exit_options_menu():
 	options_menu.hide()
 	margin_container.set_process(true)
 	margin_container.show()
+	new_game.grab_focus()

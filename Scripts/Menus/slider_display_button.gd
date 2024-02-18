@@ -8,4 +8,7 @@ func _ready():
 	h_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(name)) + 80
 
 func _on_h_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(name), (h_slider.value - 80) / 4)
+	if value <= 0:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(name), -80)
+	else:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(name), (h_slider.value - 80) / 4)
