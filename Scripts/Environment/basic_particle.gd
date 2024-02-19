@@ -22,7 +22,6 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	if scale_value < 0.4:
 		animation = "back_layer"
-	#spinner()
 
 func _process(delta):
 	if paused:
@@ -43,12 +42,3 @@ func _process(delta):
 
 func set_pause(value):
 	paused = value
-
-func spinner():
-	while true:
-		await get_tree().create_timer(randf_range(0.5, 1.0)).timeout
-		var spin_dice = randf_range(0.3, 0.6)
-		if randf_range(0.0, 2.0) < 1.0:
-			spin = spin_dice
-		else:
-			spin = -spin_dice

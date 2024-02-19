@@ -1,7 +1,7 @@
 extends "res://Scripts/ItemChips/item_chip.gd"
 
 func _ready():
-	info = "Placébot for Busque. When the player go on it, it disapear"
+	info = "Placebot for Busque. When the player walks on it, it disappears"
 
 # removes item
 func pick_up(_area):

@@ -1,13 +1,14 @@
 extends "res://Scripts/Environment/basic_particle.gd"
 
+var deviation_countdown = 0.0
+
 func _ready():
 	super._ready()
-	deviator()
 	speed *= randf_range(1.5, 2.5)
 
-func deviator():
-	while true:
-		if !is_inside_tree():
-			continue
-		await get_tree().create_timer(randf_range(1.0, 2.0)).timeout
+func _process(delta):
+	deviation_countdown -= delta
+	if deviation_countdown < 0:
 		direction.y = -direction.y
+		deviation_countdown = randf_range(1.0, 2.0)
+	super._process(delta)

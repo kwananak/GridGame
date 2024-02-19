@@ -9,6 +9,6 @@ func _ready():
 
 # adds strength to actions and removes item
 func pick_up(area):
-	if area.name != "Firewall":
+	if area.name != "DoomWall":
 		get_tree().get_first_node_in_group("VirtualLevelManager").remaining_actions += strength
 	queue_free()

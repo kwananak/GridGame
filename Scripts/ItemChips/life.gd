@@ -9,6 +9,6 @@ func _ready():
 
 # adds strength to lives and removes item
 func pick_up(area):
-	if area.name != "Firewall":
+	if area.name != "DoomWall":
 		get_tree().get_first_node_in_group("VirtualLevelManager").lives += strength
 	queue_free()

@@ -6,10 +6,12 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 func _ready():
 	super._ready()
 	info = "Give +" + str(strength) + " shield"
+	if strength > 1:
+		info += "s"
 
 # adds strength to shields and removes item
 func pick_up(area):
-	if area.name != "Firewall":
+	if area.name != "DoomWall":
 		var diamond_armor = get_tree().get_first_node_in_group("DiamondArmor")
 		if diamond_armor:
 			if diamond_armor.used != 0:
