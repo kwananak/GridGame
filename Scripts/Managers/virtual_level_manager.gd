@@ -57,7 +57,7 @@ func set_pause(value):
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	pause_menu.position = camera.position + Vector2(0, -16)
+	pause_menu.position = camera.position
 
 # calls subscribed nodes when player makes a move
 func end_turn():

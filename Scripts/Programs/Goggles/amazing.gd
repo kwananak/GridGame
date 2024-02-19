@@ -1,10 +1,10 @@
 extends "res://Scripts/Programs/program.gd"
 
 var doomwall
-var distance = -5
+var distance = 5
 
 func _ready():
-	info = "Action : Move the DoomWall back by 5 tiles."
+	info = "Action : Move the DoomWall back by " + str(distance) + " tiles."
 	super._ready()
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
 
@@ -26,7 +26,7 @@ func action():
 				$Audio.play()
 			3:
 				break
-	doomwall.move_wall(distance)
+	doomwall.move_wall(-distance)
 	await anim.animation_finished
 	anim.animation = "idle"
 	anim.flip_h = flip_save

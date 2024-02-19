@@ -1,6 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=23 format=3 uid="uid://dje6l66lot2b8"]
 
+[ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/skyline.gd" id="1_eyoy3"]
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
+[ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_y6187"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_ssime"]
@@ -19,17 +21,38 @@
 [ext_resource type="Texture2D" uid="uid://brs7sxdb6t3st" path="res://Sprites/EnvironmentReal/Dumpyard/complex_outside.png" id="18_4dl07"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="18_bl844"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_njf3c"]
+atlas = ExtResource("18_4dl07")
+region = Rect2(93, 86, 83, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrb72"]
+atlas = ExtResource("18_4dl07")
+region = Rect2(0, 13, 175, 243)
+
 [node name="Level1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(0, 96)
 
+[node name="Skyline" type="Node2D" parent="Background"]
+script = ExtResource("1_eyoy3")
+
+[node name="Skyline1" type="Sprite2D" parent="Background/Skyline"]
+position = Vector2(240, -38)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p66h4")
+
+[node name="Skyline2" type="Sprite2D" parent="Background/Skyline"]
+position = Vector2(715, -41)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p66h4")
+
 [node name="DumpBack" type="Sprite2D" parent="Background"]
-position = Vector2(232, 57.5)
+position = Vector2(233, 148)
 texture = ExtResource("1_ykg1m")
 
 [node name="DumpBack2" type="Sprite2D" parent="Background"]
-position = Vector2(584, 57.5)
+position = Vector2(723, 144)
 texture = ExtResource("1_ykg1m")
 
 [node name="DumpBack3" type="Sprite2D" parent="Background"]
@@ -37,23 +60,52 @@ position = Vector2(230.5, 251)
 texture = ExtResource("1_ykg1m")
 
 [node name="DumpBack4" type="Sprite2D" parent="Background"]
-position = Vector2(582.5, 251)
+position = Vector2(718, 431)
 texture = ExtResource("1_ykg1m")
 
 [node name="DumpBack5" type="Sprite2D" parent="Background"]
 z_index = 21
-position = Vector2(224, 480)
+position = Vector2(244, 470)
 texture = ExtResource("1_ykg1m")
 
 [node name="DumpBack6" type="Sprite2D" parent="Background"]
 z_index = 21
-position = Vector2(608, 448)
+position = Vector2(838, 317)
 texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack7" type="Sprite2D" parent="Background"]
+z_index = 21
+position = Vector2(652, 437)
+texture = ExtResource("1_ykg1m")
+
+[node name="DumpBack8" type="Sprite2D" parent="Background"]
+z_index = 21
+position = Vector2(-39, 409)
+texture = ExtResource("1_ykg1m")
+
+[node name="ComplexSprites" type="Node2D" parent="Background"]
+position = Vector2(0, -96)
+
+[node name="ComplexOutside2" type="Sprite2D" parent="Background/ComplexSprites"]
+position = Vector2(776, 187)
+texture = SubResource("AtlasTexture_njf3c")
+
+[node name="ComplexOutside3" type="Sprite2D" parent="Background/ComplexSprites"]
+position = Vector2(857, 187)
+texture = SubResource("AtlasTexture_njf3c")
+
+[node name="ComplexOutside4" type="Sprite2D" parent="Background/ComplexSprites"]
+position = Vector2(938, 187)
+texture = SubResource("AtlasTexture_njf3c")
+
+[node name="ComplexOutside" type="Sprite2D" parent="Background/ComplexSprites"]
+position = Vector2(647, 151)
+texture = SubResource("AtlasTexture_wrb72")
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
 level_name = "Dumpyard"
-level_height = 16
-level_length = 23
+level_height = 18
+level_length = 30
 level_number = 1
 animation_speed = 10
 end_turn_speed = 0.01
@@ -402,15 +454,6 @@ position = Vector2(448, 96)
 [node name="WallHorizontalTileReal10" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
 position = Vector2(480, 96)
 
-[node name="WallHorizontalTileReal12" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
-position = Vector2(640, 176)
-
-[node name="WallHorizontalTileReal34" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
-position = Vector2(672, 176)
-
-[node name="WallHorizontalTileReal35" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
-position = Vector2(704, 176)
-
 [node name="WallHorizontalTileReal11" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
 position = Vector2(512, 128)
 
@@ -450,12 +493,6 @@ position = Vector2(512, 288)
 [node name="WallHorizontalTileReal24" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
 position = Vector2(544, 288)
 
-[node name="WallHorizontalTileReal32" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
-position = Vector2(576, 176)
-
-[node name="WallHorizontalTileReal33" parent="Environment/Walls" instance=ExtResource("6_ai3pg")]
-position = Vector2(608, 176)
-
 [node name="WallVerticalTileReal" parent="Environment/Walls" instance=ExtResource("7_ci6bd")]
 position = Vector2(32, 224)
 
@@ -466,14 +503,17 @@ position = Vector2(32, 192)
 position = Vector2(160, 160)
 
 [node name="WallVerticalTileReal5" parent="Environment/Walls" instance=ExtResource("7_ci6bd")]
+z_index = 21
 position = Vector2(576, 224)
 rotation = 3.14159
 
 [node name="WallVerticalTileReal6" parent="Environment/Walls" instance=ExtResource("7_ci6bd")]
+z_index = 21
 position = Vector2(576, 192)
 rotation = 3.14159
 
 [node name="WallVerticalTileReal8" parent="Environment/Walls" instance=ExtResource("7_ci6bd")]
+z_index = 21
 position = Vector2(576, 256)
 rotation = 3.14159
 
@@ -519,7 +559,3 @@ position = Vector2(509, 355)
 
 [node name="InvisibleWall" parent="." instance=ExtResource("18_bl844")]
 position = Vector2(608, 256)
-
-[node name="ComplexOutside" type="Sprite2D" parent="."]
-position = Vector2(687, 144)
-texture = ExtResource("18_4dl07")
