@@ -2,13 +2,16 @@ extends Control
 
 var level_manager
 @onready var container = $VBoxContainer
+@onready var resume
+@onready var retry = $VBoxContainer/Retry
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	if name == "LevelFail":
-		container.get_node("Retry").grab_focus()
+		retry.grab_focus()
 	else:
-		container.get_node("Resume").grab_focus()
+		resume = $VBoxContainer/Resume
+		resume.grab_focus()
 
 func _on_retry_button_down():
 	$/root/Main.retry_level()

@@ -73,8 +73,8 @@ func turn_call():
 
 # called when firewall hits player
 func _on_area_entered(area):
-	print(area)
-	level_manager.call_game_over()
+	if area.is_in_group("VirtualPlayer"):
+		level_manager.call_game_over()
 
 # called to change wall position out of turn call
 func move_wall(distance):

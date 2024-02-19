@@ -346,8 +346,8 @@ func enter_level_animation():
 
 func death_animation():
 	await get_tree().create_timer(0.3).timeout
-	animated_sprite_2d.animation = "death"
-	animated_sprite_2d.play()
 	$PossibleMoves.hide()
 	if animated_sprite_2d.get_child_count() > 0:
 		deactivate_shield()
+	animated_sprite_2d.animation = "death"
+	animated_sprite_2d.play()

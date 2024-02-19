@@ -57,7 +57,6 @@ func set_pause(value):
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	print(str(pause_menu.position) + " " + str(camera.position))
 	pause_menu.position = camera.position + Vector2(0, -16)
 
 # calls subscribed nodes when player makes a move
@@ -166,6 +165,8 @@ func on_success(level_unlocked):
 	display_summary()
 
 func call_game_over():
+	if game_over:
+		return
 	game_over = true
 	game_over_trigger.emit(true)
 	var audio = get_parent().get_node("AudioStreamPlayer")
@@ -188,7 +189,7 @@ func display_fail():
 	if pause_menu:
 		return
 	pause_menu = fail_prefab.instantiate()
-	add_child(pause_menu)
+	get_parent().add_child(pause_menu)
 	pause_menu.position = camera.position
 	ui.queue_free()
 
@@ -202,5 +203,8 @@ func _on_tree_entered():
 	if camera:
 		camera.position = out_of_bounds_check(player.position)
 		await get_tree().create_timer(0.1).timeout
-		if paused:
-			pause_menu.get_node("Control/Resume").grab_focus()
+		if pause_menu:
+			if pause_menu.name == "VirtualPause":
+				pause_menu.resume.grab_focus()
+			else:
+				pause_menu.retry.grab_focus()
