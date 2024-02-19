@@ -14,6 +14,7 @@ func _process(delta):
 	if reverse_countdown < 0:
 		reverse_countdown = randf_range(1.0, 2.0)
 		zigzagger()
+	super._process(delta)
 
 func zigzagger():
 		if randf_range(0.0, 10.0) < 8.0:

@@ -50,7 +50,8 @@ func set_slots():
 				v.global_position = n.global_position + Vector2(16, 16)
 			_:
 				var v = prog_load.get_node(str(n.name))
-				v.global_position = n.global_position + Vector2(16, 16)
+				v.global_position = n.global_position + Vector2(22, 22)
+				v.scale = Vector2(1.3, 1.3)
 				if v.get_child_count() > 0:
 					loaded_slots += 1
 	$Label.text = "available: " + str(max_loads - loaded_slots)
@@ -149,8 +150,8 @@ func open_program_selection(slot):
 			available_programs.erase(n) 
 		else:
 			get_node(slot).add_child(n)
-			n.global_position = get_node(slot).global_position + Vector2(16, 16)
-			n.scale = Vector2(1.5, 1.5)
+			n.global_position = get_node(slot).global_position + Vector2(22, 22)
+			n.scale = Vector2(1.3, 1.3)
 	set_program_sprites()
 
 func set_program_sprites():
@@ -169,7 +170,7 @@ func set_program_sprites():
 				0.3).set_trans(Tween.TRANS_SINE)
 		var tween = create_tween()
 		tween.tween_property(available_programs[i], "global_position",
-				get_node(selection_opened).global_position + Vector2(((i - array_selected) * 48) + 16, 16),
+				get_node(selection_opened).global_position + Vector2(((i - array_selected) * 48) + 22, 22),
 				0.3).set_trans(Tween.TRANS_SINE)
 		available_programs[i].show()
 	info.text = selection_opened + "\n" + available_programs[array_selected].name + "\n" + available_programs[array_selected].info
