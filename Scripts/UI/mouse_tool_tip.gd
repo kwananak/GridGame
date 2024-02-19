@@ -8,7 +8,7 @@ func _ready():
 
 # updates position to mouse position on each frame
 func _process(_delta):
-	position = (get_viewport().get_mouse_position() / 2) + (camera.position - (get_viewport_rect().size / 4)) - Vector2(0, 32)
+	position = (get_viewport().get_mouse_position() / 2) + (camera.position - (get_viewport_rect().size / 4)) + Vector2(16, -32)
 	if has_overlapping_areas():
 		if get_overlapping_areas().is_empty():
 			return

@@ -179,7 +179,7 @@ func display_summary():
 	var body = "[center]Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) + "\nBarriers: " + str(barriers_down)
 	for a in programs:
 		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
-	summary.get_node("Title").text = level_name
+	summary.get_node("Title").text = $/root/Main.get_level_name(level_number)
 	summary.get_node("Body").append_text(body)
 	summary.position = camera.position
 	add_child(summary)
