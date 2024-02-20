@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfp55uxbk1cts"]
+
+[ext_resource type="Texture2D" uid="uid://btmcei5mfciyy" path="res://Sprites/EnvironmentVirtual/Terminal200/environnement_virtuel_200.png" id="1_emir0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xestf"]
+atlas = ExtResource("1_emir0")
+region = Rect2(0, 0, 32, 32)
+
+[node name="UpperLeftCornerTile" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xestf")
