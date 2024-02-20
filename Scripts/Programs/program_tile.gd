@@ -25,14 +25,19 @@ func _ready():
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
-	program.scale = Vector2.ONE
+	get_tree().get_first_node_in_group("VirtualLevelManager").dialogue = true
 	program.set_deferred("monitorable", false)
+	$AnimatedSprite2D.z_index = 90
+	await create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(2.5, 2.5), 1).finished
+	await get_tree().create_timer(1.5).timeout
+	program.scale = Vector2.ONE
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$AnimatedSprite2D.remove_child(program)
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	$AnimatedSprite2D.hide()
+	get_tree().get_first_node_in_group("VirtualLevelManager").dialogue = false
 
 func _on_mouse_entered():
 	if !monitoring:
