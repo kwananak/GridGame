@@ -1,5 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
+@export var bit_number : int
+
 func _ready():
-	info = "one more program can be loaded"
+	info = "+1 action from now on"
 	super._ready()

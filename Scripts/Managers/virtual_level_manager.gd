@@ -15,6 +15,7 @@ var dialogue = false
 var shields = 0 : set = set_shield
 var doomwall
 var pause_menu
+var progress_manager
 
 @export var skip_dialogues = false
 @export var green_doomwall_step = 0.0
@@ -27,11 +28,12 @@ var pause_menu
 @onready var pause_prefab = preload("res://Scenes/UI/virtual_pause.tscn")
 
 func _ready():
+	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
-	set_remaining_actions(remaining_actions)
-	if str(level_number) in get_tree().get_first_node_in_group("ProgressManager").completed_levels:
+	set_remaining_actions(progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count())
+	if str(level_number) in progress_manager.completed_levels:
 		skip_dialogues = true
 	super._ready()
 

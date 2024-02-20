@@ -4,7 +4,7 @@ var selection_opened = null
 var available_programs
 var array_selected
 var loaded_slots = 0
-var max_loads = 1
+var max_loads = 6
 var rune_mode = null
 
 var progress_manager
@@ -17,7 +17,7 @@ var programs_frame
 func _ready():
 	programs_frame = get_tree().get_first_node_in_group("ProgramsFrame")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
-	max_loads += progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
+	#max_loads += progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
 	prog_load = progress_manager.get_node("Loadout")
 	info = get_parent().get_node("Info/Label")
 	await get_tree().create_timer(0.02).timeout
