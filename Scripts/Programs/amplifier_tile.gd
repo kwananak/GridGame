@@ -5,7 +5,7 @@ var opened = false
 @export_enum("NeuroEnhanceAmplifier1", "NeuroEnhanceAmplifier2", "NeuroEnhanceAmplifier3", "NeuroEnhanceAmplifier4") var select_amplifier : String
 
 func _ready():
-	for n in get_tree().get_first_node_in_group("ProgressManager").get_node("OwnedPrograms/Amplifiers").get_children():
+	for n in get_tree().get_first_node_in_group("ProgressManager").get_node("Amplifiers").get_children():
 		if n.name == select_amplifier:
 			$ChestSprite.animation = "open"
 			$ChestSprite.frame = 7

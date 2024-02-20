@@ -20,7 +20,7 @@ func activate_program_bar():
 			"Labels", "Sprite2D":
 				continue
 			_:
-				var slot = progress_manager.get_node("Loadout").get_node(str(n.name)).get_children()
+				var slot = progress_manager.get_node(str(n.name)).get_children()
 				if !slot.is_empty():
 					var loaded_program = slot[0].duplicate(15)
 					n.add_child(loaded_program)

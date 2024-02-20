@@ -1,14 +1,14 @@
 extends Node2D
 
-var loadout
 var loaded_level = null
 var terminal_number
+var prog_man
 
 @onready var terminal_name = $Control/Map/MapInfos/TerminalName
 @onready var main = $/root/Main
 
 func _ready():
-	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
+	prog_man = get_tree().get_first_node_in_group("ProgressManager")
 	terminal_number = name.substr(name.length() - 1)
 	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
 	_on_visibility_changed()
@@ -23,7 +23,7 @@ func _input(event):
 
 # called by return button to send the player back to the real world
 func _on_return_button_pressed():
-	loadout.hide()
+	prog_man.hide()
 	main.return_to_real_scene()
 
 func _on_level_pressed(level_number):
@@ -36,15 +36,16 @@ func _on_level_pressed(level_number):
 func _on_go_button_pressed():
 	if loaded_level == null:
 		return
-	loadout.hide()
+	prog_man.hide()
 	main.call_level(loaded_level)
 	visible = false
 
 func _on_visibility_changed():
+	if !prog_man:
+		return
 	if visible:
-		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Control/Map.get_children():
-			if n.name == "MapInfos":
+			if n.name == "MapInfos" :
 				continue
 			if n.selected:
 				n.selected = false
@@ -54,8 +55,7 @@ func _on_visibility_changed():
 				n.available = true
 		for n in prog_man.get_children():
 			for o in n.get_children():
-				for p in o.get_children():
-					p.monitorable = false
+				o.monitorable = false
 		loaded_level = null
 		if terminal_number != null:
 			$AudioStreamPlayer.play()

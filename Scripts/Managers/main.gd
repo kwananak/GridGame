@@ -14,7 +14,7 @@ var continue_button
 var new_game_button
 
 @onready var camera = $Camera2D
-@onready var progress_manager = $ProgressManager
+@onready var progress_manager = $NewProgressManager
 
 func _ready():
 	set_menu()

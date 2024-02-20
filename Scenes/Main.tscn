@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://com1wps1gaayy" path="res://Scenes/Menus/main_menu.tscn" id="3_tujkf"]
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="5_6upos"]
-[ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
 [ext_resource type="PackedScene" uid="uid://fjmps8nq3w8k" path="res://Scenes/Menus/window_mode_button.tscn" id="6_a7415"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Backgrounds/menu.wav" id="6_i0vs7"]
 [ext_resource type="PackedScene" uid="uid://dssm38uoyiv3d" path="res://Scenes/Menus/resolution_mode_button.tscn" id="7_fg0yk"]
 [ext_resource type="PackedScene" uid="uid://ckrjxmggvq5cs" path="res://Scenes/Menus/slider_display_button.tscn" id="8_7q35u"]
 [ext_resource type="PackedScene" uid="uid://cselemljabpr2" path="res://Scenes/Managers/framed_checker.tscn" id="9_yo8bd"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="11_akdjr"]
+[ext_resource type="PackedScene" uid="uid://d1hvr3d0sefg3" path="res://Scenes/Managers/new_progress_manager.tscn" id="12_4xgl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_na72e"]
 atlas = ExtResource("11_akdjr")
@@ -365,8 +365,7 @@ theme_override_fonts/font = ExtResource("3_clwr3")
 theme_override_font_sizes/font_size = 28
 autowrap_mode = 3
 
-[node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
-position = Vector2(0, 0)
+[node name="NewProgressManager" parent="." instance=ExtResource("12_4xgl7")]
 
 [node name="FramedChecker" parent="." instance=ExtResource("9_yo8bd")]
 

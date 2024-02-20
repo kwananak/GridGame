@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=3 uid="uid://c72dk3mb8bqns"]
+
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_ksgfs"]
+[ext_resource type="Script" path="res://Scripts/UI/new_loadout.gd" id="2_8kq55"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_wwhvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqygs"]
+atlas = ExtResource("1_ksgfs")
+region = Rect2(629, 1775, 255, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sveff"]
+atlas = ExtResource("1_ksgfs")
+region = Rect2(352, 470, 257, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtqna"]
+atlas = ExtResource("1_ksgfs")
+region = Rect2(142, 449, 110, 255)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptb0e"]
+atlas = ExtResource("2_wwhvm")
+region = Rect2(129, 35, 30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4dde"]
+atlas = ExtResource("2_wwhvm")
+region = Rect2(97, 35, 30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2eky"]
+atlas = ExtResource("2_wwhvm")
+region = Rect2(33, 35, 30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd5ma"]
+atlas = ExtResource("2_wwhvm")
+region = Rect2(225, 35, 30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwhde"]
+atlas = ExtResource("2_wwhvm")
+region = Rect2(65, 35, 30, 26)
+
+[node name="NewLoadout" type="Sprite2D" groups=["Loadout"]]
+texture = SubResource("AtlasTexture_sqygs")
+script = ExtResource("2_8kq55")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Frame" type="Sprite2D" parent="Background"]
+texture = SubResource("AtlasTexture_sveff")
+
+[node name="Character" type="Sprite2D" parent="Background"]
+position = Vector2(1.5, 8.5)
+texture = SubResource("AtlasTexture_rtqna")
+
+[node name="Goggles" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -90.05
+offset_top = -278.0
+offset_right = -45.05
+offset_bottom = -239.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Goggles"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_ptb0e")
+centered = false
+
+[node name="Armor" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -234.05
+offset_top = -244.0
+offset_right = -189.05
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Armor"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_g4dde")
+centered = false
+
+[node name="LeftHand" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -69.05
+offset_top = -182.0
+offset_right = -24.05
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftHand"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_s2eky")
+centered = false
+
+[node name="RightHand" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -225.05
+offset_top = -173.0
+offset_right = -180.05
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="RightHand"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_s2eky")
+centered = false
+
+[node name="Legs" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -85.05
+offset_top = -116.0
+offset_right = -40.05
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Legs"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_xd5ma")
+centered = false
+
+[node name="Boots" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.51
+anchor_top = 0.5
+anchor_right = 0.51
+anchor_bottom = 0.5
+offset_left = -230.05
+offset_top = -83.0
+offset_right = -185.05
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Boots"]
+position = Vector2(-1, 0)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_xwhde")
+centered = false

@@ -2,19 +2,24 @@ extends Node2D
 
 var save_path = "user://savegame.save"
 var completed_levels = []
-var unlocked_levels = ["101", "201"]
+var unlocked_levels = ["101", "201", "301", "401", "501"]
 var doors = []
 var save_point
-var levels = {"101" : {"102" : false},
+var levels = {"100" : {"101" : false, "prog" : false},
+			"101" : {"102" : false},
 			"102" : {"103" : false, "prog" : false},
 			"103" : {"2" : false},
+			"200" : {"201" : false, "prog" : false},
 			"201" : {"202" : false, "prog" : false},
 			"202" : {"203" : false, "prog" : false},
 			"203" : {"204" : false, "prog" : false},
 			"204" : {"205" : false, "prog" : false},
 			"205" : {"206" : false, "prog" : false}}
 
-@onready var amplifiers = $OwnedPrograms/Amplifiers
+var amplifiers
+
+func _ready():
+	amplifiers = $OwnedPrograms/Amplifiers
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
