@@ -1,4 +1,4 @@
-extends Area2D
+extends AnimatedSprite2D
 
 func _ready():
-	$"AnimatedSprite2D".frame = randi_range(0, $AnimatedSprite2D.sprite_frames.get_frame_count("default") - 1)
+	frame = randi_range(0, sprite_frames.get_frame_count("default") - 1)

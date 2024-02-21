@@ -110,13 +110,13 @@ func call_quit():
 
 # instantiates terminal scene and hides + pauses real scene when called
 func call_terminal_scene(terminal_name):
-	remove_child(real_scene)
+	call_deferred("remove_child", real_scene)
 	$RealAudio.volume_db = -10
 	if terminal_name == "TerminalTestScene":
 		terminal_scene = load("res://Scenes/terminal_test_scene.tscn").instantiate()
 	else:
 		terminal_scene = load("res://Scenes/Levels/" + terminal_name + ".tscn").instantiate()
-	add_child(terminal_scene)
+	await call_deferred("add_child", terminal_scene)
 	terminal_scene.position = camera.position - get_viewport_rect().size / 4
 
 # returns to real scene when closing terminal

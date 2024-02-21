@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cju2s40ajwdq8"]
+[gd_scene load_steps=12 format=3 uid="uid://cju2s40ajwdq8"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/terminal_door_tile.gd" id="1_cu7g5"]
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="2_2s60n"]
@@ -61,6 +61,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoktn"]
+size = Vector2(30, 30)
+
 [node name="TerminalDoorTile" type="Area2D" groups=["AStarGridSolid", "Doors", "TerminalDoors"]]
 z_index = 30
 script = ExtResource("1_cu7g5")
@@ -73,3 +76,8 @@ shape = SubResource("RectangleShape2D_jlqeg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["TerminalDoor"]]
 sprite_frames = SubResource("SpriteFrames_qon0b")
 animation = &"closed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_uoktn")

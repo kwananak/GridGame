@@ -7,7 +7,7 @@ var key_lights = []
 var light_prefab = preload("res://Scenes/Prefabs/door_light.tscn")
 
 # set up key(s) needed to open door from inspector
-@export var unlocked = false
+@export var unlocked = false : set = set_lock
 @export_category("Setup")
 @export var keys_needed : int
 @export_enum("blue", "pink", "yellow") var key_type : String
@@ -54,8 +54,8 @@ func update_door():
 
 # called by player with the right key(s)
 # makes the tile available for path finding, removes the key(s) used and opens the door
-func open_door():
-	if opened:
+func open_door(body):
+	if opened || !body.is_in_group("RealPlayer"):
 		return
 	opened = true
 	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
@@ -64,3 +64,6 @@ func open_door():
 		level_manager.keys.erase(key_type)
 		level_manager.set_keys(level_manager.keys)
 	animated_sprite_2d.play("opening")
+
+func set_lock(value):
+	$StaticBody2D.set_collision_layer_value(1, !value)

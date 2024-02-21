@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://firosl348slf"]
+[gd_scene load_steps=8 format=3 uid="uid://firosl348slf"]
 
+[ext_resource type="Script" path="res://Scripts/Environment/terminal_tile.gd" id="1_6itkm"]
 [ext_resource type="Texture2D" uid="uid://x8ggkamyj53p" path="res://Sprites/EnvironmentVirtual/terminal.png" id="1_8u5ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8tyt"]
+size = Vector2(18.6667, 17.3333)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5y1a"]
 atlas = ExtResource("1_8u5ep")
@@ -26,10 +28,15 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="TerminalTile" type="Area2D" groups=["Terminal"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnt7o"]
+size = Vector2(33, 32)
+
+[node name="TerminalTile" type="StaticBody2D" groups=["Terminal"]]
 z_index = 30
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_y8tyt")
 
@@ -37,3 +44,15 @@ shape = SubResource("RectangleShape2D_y8tyt")
 sprite_frames = SubResource("SpriteFrames_v6jga")
 autoplay = "default"
 frame_progress = 0.0915921
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_6itkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_dnt7o")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

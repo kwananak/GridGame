@@ -5,9 +5,11 @@ var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
-var levels = {"101" : {"102" : false},
+var levels = {"100" : {"200" : false},
+			"101" : {"102" : false},
 			"102" : {"103" : false, "prog" : false},
 			"103" : {"2" : false},
+			"200" : {"300" : false},
 			"201" : {"202" : false, "prog" : false},
 			"202" : {"203" : false, "prog" : false},
 			"203" : {"204" : false, "prog" : false},

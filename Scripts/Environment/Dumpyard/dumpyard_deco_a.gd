@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 @export var wait_time_min = 5.0
 @export var wait_time_max = 12.0

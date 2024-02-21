@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5s14bwibo7lb"]
+[gd_scene load_steps=20 format=3 uid="uid://c5s14bwibo7lb"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/amplifier_tile.gd" id="1_mxy63"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_5le7p"]
 [ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="3_rypoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
+size = Vector2(34, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puun2"]
 atlas = ExtResource("3_rypoc")
@@ -105,7 +106,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_wp524"]
 resource_name = "new_animation"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,7 +114,7 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.22, 0.22), Vector2(2, 2)]
@@ -124,6 +125,9 @@ _data = {
 "new_animation": SubResource("Animation_wp524")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsgkd"]
+size = Vector2(26, 29)
+
 [node name="AmplifierTile" type="Area2D"]
 z_index = 30
 collision_layer = 257
@@ -131,6 +135,7 @@ collision_mask = 2
 script = ExtResource("1_mxy63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ofsl2")
 
 [node name="ChestSprite" type="AnimatedSprite2D" parent="."]
@@ -169,6 +174,12 @@ scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
-[connection signal="area_entered" from="." to="." method="pick_up"]
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rsgkd")
+
+[connection signal="body_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

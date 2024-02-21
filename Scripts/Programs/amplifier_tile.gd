@@ -22,18 +22,22 @@ func _ready():
 func pick_up(_area):
 	if opened:
 		return
+	get_tree().get_first_node_in_group("RealPlayer").active = false
+	get_tree().get_first_node_in_group("RealPlayer").get_node("AnimatedSprite2D").animation = "idle"
+	get_tree().get_first_node_in_group("RealPlayer").get_node("AnimatedSprite2D").play()
 	opened = true
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$ChestSprite.animation = "open"
 	await $ChestSprite.animation_finished
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D/AnimationPlayer.play("new_animation")
-	await get_tree().create_timer(3.2).timeout
+	await get_tree().create_timer(3.0).timeout
 	program.scale = Vector2.ONE
 	program.set_deferred("monitorable", false)
 	$AnimatedSprite2D.remove_child(program)
 	progress_manager.add_amplifier(program)
 	$AnimatedSprite2D.hide()
+	get_tree().get_first_node_in_group("RealPlayer").active = true
 
 func _on_mouse_entered():
 	pass

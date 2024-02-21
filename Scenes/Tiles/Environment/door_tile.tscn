@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4u78iqhrfrx5"]
+[gd_scene load_steps=12 format=3 uid="uid://c4u78iqhrfrx5"]
 
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="1_2ici0"]
 [ext_resource type="Script" path="res://Scripts/Environment/door_tile.gd" id="1_qiop7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqeg"]
+size = Vector2(17.3333, 16.6667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3p7rq"]
 atlas = ExtResource("1_2ici0")
@@ -60,14 +61,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r86fd"]
+size = Vector2(30, 30)
+
 [node name="DoorTile" type="Area2D" groups=["AStarGridSolid", "Doors"]]
 z_index = 30
 script = ExtResource("1_qiop7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.15256e-07, -0.500001)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_jlqeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qon0b")
 animation = &"closed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_r86fd")
+
+[connection signal="body_entered" from="." to="." method="open_door"]

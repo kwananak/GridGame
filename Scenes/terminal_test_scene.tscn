@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=26 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_bbwhi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_h2awp"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2rv1v"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="5_3g0o7"]
+[ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_uam6u"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_6rmuo"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_33d10"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="8_46quv"]
@@ -38,26 +39,6 @@ region = Rect2(20, 0, 16, 102)
 atlas = ExtResource("2_bbwhi")
 region = Rect2(119, 176, 2, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xdvl"]
-atlas = ExtResource("2_bbwhi")
-region = Rect2(629, 1774, 255, 345)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_raseu"]
-atlas = ExtResource("2_bbwhi")
-region = Rect2(142, 449, 110, 255)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhw18"]
-atlas = ExtResource("2_bbwhi")
-region = Rect2(64, 2141, 209, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vilsq"]
-atlas = ExtResource("2_bbwhi")
-region = Rect2(352, 470, 257, 346)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_typhr"]
-atlas = ExtResource("2_bbwhi")
-region = Rect2(256, 400, 203, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ockt"]
 atlas = ExtResource("2_bbwhi")
 region = Rect2(290, 2024, 314, 105)
@@ -82,13 +63,25 @@ region = Rect2(96, 32, 32, 32)
 atlas = ExtResource("10_cklvg")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3de4l"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_als8k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uskum")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_gbi37")
 }, {
 "duration": 1.0,
@@ -163,61 +156,14 @@ available = true
 node_level = 100
 node_color = "pink"
 
-[node name="Infos" type="Control" parent="Control/Map"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -167.0
-offset_top = -51.0
-offset_right = -68.0
-offset_bottom = 56.0
-
-[node name="TerminalName" type="Label" parent="Control/Map/Infos"]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 3.0
-offset_right = 468.0
-offset_bottom = 80.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("5_3g0o7")
-theme_override_font_sizes/font_size = 64
-text = "Real name
-"
-
-[node name="LevelName" type="Label" parent="Control/Map/Infos" groups=["LevelNameLabel"]]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 16.0
-offset_right = 468.0
-offset_bottom = 143.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("5_3g0o7")
-theme_override_font_sizes/font_size = 52
-autowrap_mode = 3
-
-[node name="ProgramsBackground" type="Sprite2D" parent="Control"]
-position = Vector2(576, 192)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_5xdvl")
-
-[node name="PlayerSprite" type="Sprite2D" parent="Control/ProgramsBackground"]
-modulate = Color(1, 1, 1, 0.788235)
-position = Vector2(10, 0)
-texture = SubResource("AtlasTexture_raseu")
-
-[node name="Title" type="Sprite2D" parent="Control/ProgramsBackground"]
-position = Vector2(-11.25, -157.5)
-texture = SubResource("AtlasTexture_fhw18")
-
-[node name="Frame" type="Sprite2D" parent="Control/ProgramsBackground" groups=["ProgramsFrame"]]
-visible = false
-texture = SubResource("AtlasTexture_vilsq")
-
-[node name="InfoBox" type="Sprite2D" parent="Control/ProgramsBackground"]
-position = Vector2(17.5, 155)
-texture = SubResource("AtlasTexture_typhr")
+[node name="MapInfos" parent="Control/Map" instance=ExtResource("5_uam6u")]
 
 [node name="Loadout" parent="Control" instance=ExtResource("6_6rmuo")]
 layout_mode = 1
+anchor_left = 0.208622
+anchor_top = 0.383691
+anchor_right = 0.208622
+anchor_bottom = 0.383691
 
 [node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
 position = Vector2(331, 300)
@@ -258,7 +204,7 @@ offset_top = 175.0
 offset_right = 122.0
 offset_bottom = 240.0
 
-[node name="Label" type="Label" parent="Control/DoorLabel"]
+[node name="Label" type="RichTextLabel" parent="Control/DoorLabel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -272,13 +218,14 @@ offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("5_3g0o7")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_3g0o7")
+theme_override_font_sizes/normal_font_size = 64
+text = "Terminal 1
+locked"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
 position = Vector2(37, 19)
-sprite_frames = SubResource("SpriteFrames_3de4l")
+sprite_frames = SubResource("SpriteFrames_als8k")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_2rv1v")

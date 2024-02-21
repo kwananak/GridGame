@@ -1,25 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=23 format=3 uid="uid://dje6l66lot2b8"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/skyline.gd" id="1_eyoy3"]
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_y6187"]
-[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="3_ssime"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_ey8wb"]
-[ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile_real.tscn" id="5_fiana"]
+[ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile.tscn" id="5_fiana"]
 [ext_resource type="PackedScene" uid="uid://bhn51npk5t3pe" path="res://Scenes/Tiles/EnvironmentDump/wall_horizontal_tile_real.tscn" id="6_ai3pg"]
 [ext_resource type="PackedScene" uid="uid://jxey8sp2ire7" path="res://Scenes/Tiles/EnvironmentDump/wall_vertical_tile_real.tscn" id="7_ci6bd"]
 [ext_resource type="PackedScene" uid="uid://cekbk2j4t5i37" path="res://Scenes/Tiles/EnvironmentDump/corner_wall_tile_real.tscn" id="8_28ctj"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="9_5o5vp"]
-[ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="10_r0mu2"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_5o5vp"]
+[ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="10_r0mu2"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="11_r8naw"]
 [ext_resource type="AudioStream" uid="uid://y4m14rk7x318" path="res://Sounds/Backgrounds/dumpyard.wav" id="12_qkb76"]
 [ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="14_od6qr"]
 [ext_resource type="PackedScene" uid="uid://dxkd6yu4ron2r" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_b.tscn" id="15_pu85d"]
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_xavkm"]
 [ext_resource type="Texture2D" uid="uid://brs7sxdb6t3st" path="res://Sprites/EnvironmentReal/Dumpyard/complex_outside.png" id="18_4dl07"]
-[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="18_bl844"]
+[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="18_bl844"]
 [ext_resource type="PackedScene" uid="uid://bhpf60dxp85k4" path="res://Scenes/Tiles/SharedReal/return_tile.tscn" id="21_bwmqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njf3c"]
@@ -118,10 +117,6 @@ position = Vector2(32, 96)
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
-[node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_ssime")]
-visible = false
-position = Vector2(64, 192)
-
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_ey8wb")]
 position = Vector2(545, 129)
 door_number = 2
@@ -138,7 +133,7 @@ position = Vector2(192, 224)
 [node name="FloorTileReal3" parent="Environment/Floor" instance=ExtResource("5_fiana")]
 position = Vector2(64, 224)
 
-[node name="FloorTileReal65" parent="Environment/Floor" instance=ExtResource("5_fiana")]
+[node name="StartTile" parent="Environment/Floor" groups=["StartTile"] instance=ExtResource("5_fiana")]
 position = Vector2(64, 192)
 
 [node name="FloorTileReal66" parent="Environment/Floor" instance=ExtResource("5_fiana")]
@@ -531,9 +526,6 @@ position = Vector2(32, 96)
 [node name="Terminal1" parent="." instance=ExtResource("9_5o5vp")]
 position = Vector2(448, 288)
 
-[node name="RealPlayer" parent="." instance=ExtResource("10_r0mu2")]
-position = Vector2(120, 176)
-
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_r8naw")]
 position = Vector2(577, 225)
 door_number = 2
@@ -572,3 +564,6 @@ position = Vector2(608, 224)
 
 [node name="InvisibleWall4" parent="." instance=ExtResource("18_bl844")]
 position = Vector2(544, 200)
+
+[node name="RealPlayer" parent="." instance=ExtResource("10_r0mu2")]
+position = Vector2(56, 185)

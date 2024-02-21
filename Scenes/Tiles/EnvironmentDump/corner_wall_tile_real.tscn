@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjjls33wvoamg" path="res://Sprites/EnvironmentReal/dump.png" id="1_mwu3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
-size = Vector2(32, 32)
+size = Vector2(32.6667, 24.8889)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbqds"]
 atlas = ExtResource("1_mwu3c")
@@ -20,10 +20,11 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="CornerWallTile" type="Area2D" groups=["AStarGridSolid"]]
+[node name="CornerWallTile" type="StaticBody2D" groups=["AStarGridSolid"]]
 z_index = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.300001, 3.2)
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_pb7ci")
 

@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="4_hicxf"]
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="5_yotuo"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="6_vbysc"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="9_4uou4"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_4uou4"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="9_o170u"]
 [ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="10_b8ppj"]
-[ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="10_lnpi0"]
 [ext_resource type="PackedScene" uid="uid://x4ildy0cc28d" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex_right.tscn" id="10_r1kny"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="11_mads1"]
 [ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="11_rajsu"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
+[ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="18_oxmmy"]
 
 [node name="Level2" type="Node2D"]
 
@@ -313,9 +313,6 @@ position = Vector2(576, 288)
 [node name="Terminal2" parent="." instance=ExtResource("9_4uou4")]
 position = Vector2(384, 256)
 
-[node name="RealPlayer" parent="." instance=ExtResource("10_lnpi0")]
-position = Vector2(64, 64)
-
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_mads1")]
 position = Vector2(544, 224)
 door_number = 1
@@ -328,3 +325,5 @@ bus = &"Music"
 [node name="AmplifierTile" parent="." instance=ExtResource("18_ipnln")]
 position = Vector2(416, 160)
 select_amplifier = "NeuroEnhanceAmplifier1"
+
+[node name="RealPlayer" parent="." instance=ExtResource("18_oxmmy")]

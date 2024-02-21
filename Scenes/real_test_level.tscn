@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_fufk3"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="3_imbq2"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_h5lbe"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/Environment/terminal_tile.tscn" id="6_75bqa"]
-[ext_resource type="PackedScene" uid="uid://db5mn4e7dyins" path="res://Scenes/Prefabs/real_player.tscn" id="7_5vdvo"]
+[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="6_75bqa"]
 [ext_resource type="AudioStream" uid="uid://y4m14rk7x318" path="res://Sounds/Backgrounds/dumpyard.wav" id="8_3uets"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="8_egm48"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="9_gq025"]
 [ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="10_00ai2"]
 [ext_resource type="PackedScene" uid="uid://dxkd6yu4ron2r" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_b.tscn" id="11_u8j7s"]
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="12_1q1cc"]
+[ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="13_rt01a"]
 
 [node name="RealTestLevel" type="Node2D"]
 
@@ -32,7 +32,7 @@ z_index = 1
 position = Vector2(128, 192)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("3_imbq2")]
-position = Vector2(482, 192)
+position = Vector2(448, 192)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
@@ -41,11 +41,8 @@ position = Vector2(482, 192)
 [node name="TerminalTestScene" parent="." instance=ExtResource("6_75bqa")]
 position = Vector2(192, 160)
 
-[node name="RealPlayer" parent="." instance=ExtResource("7_5vdvo")]
-position = Vector2(69, 132)
-
 [node name="TerminalDoor" parent="." instance=ExtResource("8_egm48")]
-position = Vector2(480, 192)
+position = Vector2(448, 192)
 door_number = 1
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
@@ -68,3 +65,6 @@ position = Vector2(128, 256)
 
 [node name="DumpyardDecoC" parent="." instance=ExtResource("12_1q1cc")]
 position = Vector2(288, 224)
+
+[node name="NewPlayer" parent="." instance=ExtResource("13_rt01a")]
+position = Vector2(256, 272)
