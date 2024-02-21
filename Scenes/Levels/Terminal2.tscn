@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=33 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_yq20t"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_cm8sf"]
+[ext_resource type="Texture2D" uid="uid://dwtxput2vsrxo" path="res://Sprites/UI/programs_no_selection.png" id="6_1yg2k"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_pf44h"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_1j7k8"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="8_xdasv"]
@@ -44,23 +45,23 @@ region = Rect2(575, 143, 34, 18)
 atlas = ExtResource("2_o3ila")
 region = Rect2(605, 97, 10, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ggqj7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lokf4"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(629, 1774, 255, 345)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbykh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dry1t"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(142, 449, 110, 255)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjulk"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(64, 2141, 209, 19)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u4g0"]
+atlas = ExtResource("6_1yg2k")
+region = Rect2(0, 346, 103, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rblou"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(352, 470, 257, 346)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln8ox"]
+atlas = ExtResource("6_1yg2k")
+region = Rect2(0, 0, 257, 346)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8he0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lftgx"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(256, 400, 203, 32)
 
@@ -202,26 +203,26 @@ offset_bottom = 25.0
 scale = Vector2(1.5, 1.5)
 
 [node name="ProgramsBackground" type="Sprite2D" parent="Control"]
-position = Vector2(576, 192)
+position = Vector2(580.597, 197.761)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_ggqj7")
+texture = SubResource("AtlasTexture_lokf4")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Control/ProgramsBackground"]
 modulate = Color(1, 1, 1, 0.788235)
 position = Vector2(10, 0)
-texture = SubResource("AtlasTexture_rbykh")
+texture = SubResource("AtlasTexture_dry1t")
 
 [node name="Title" type="Sprite2D" parent="Control/ProgramsBackground"]
-position = Vector2(-11.25, -157.5)
-texture = SubResource("AtlasTexture_rjulk")
+position = Vector2(-63.2836, -156.045)
+texture = SubResource("AtlasTexture_5u4g0")
 
 [node name="Frame" type="Sprite2D" parent="Control/ProgramsBackground" groups=["ProgramsFrame"]]
 visible = false
-texture = SubResource("AtlasTexture_rblou")
+texture = SubResource("AtlasTexture_ln8ox")
 
 [node name="InfoBox" type="Sprite2D" parent="Control/ProgramsBackground"]
 position = Vector2(17.5, 155)
-texture = SubResource("AtlasTexture_y8he0")
+texture = SubResource("AtlasTexture_lftgx")
 
 [node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
 layout_mode = 1
