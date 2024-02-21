@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
-[ext_resource type="PackedScene" uid="uid://w6dfm2wturk6" path="res://Scenes/Programs/Armor/Diamond.tscn" id="2_lus2y"]
-[ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="2_rrnsa"]
-[ext_resource type="PackedScene" uid="uid://livwg3kbkesi" path="res://Scenes/Programs/Legs/LoopPants.tscn" id="3_rryy1"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 position = Vector2(-200, -200)
@@ -17,17 +14,11 @@ z_index = 90
 
 [node name="Armor" type="Node2D" parent="Loadout"]
 
-[node name="Diamond" parent="Loadout/Armor" instance=ExtResource("2_lus2y")]
-
 [node name="LeftHand" type="Node2D" parent="Loadout"]
-
-[node name="GrapplingTool" parent="Loadout/LeftHand" instance=ExtResource("2_rrnsa")]
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 
 [node name="Legs" type="Node2D" parent="Loadout"]
-
-[node name="LoopPants" parent="Loadout/Legs" instance=ExtResource("3_rryy1")]
 
 [node name="Boots" type="Node2D" parent="Loadout"]
 

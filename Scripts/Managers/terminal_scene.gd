@@ -11,6 +11,7 @@ func _ready():
 	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
 	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
+	await get_tree().get_first_node_in_group("ProgressManager").auto_loader()
 	_on_visibility_changed()
 	await get_tree().create_timer(0.5).timeout
 	$Control/ReturnButton.grab_focus()

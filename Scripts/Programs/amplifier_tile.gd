@@ -1,11 +1,13 @@
 extends "res://Scripts/Programs/program_tile.gd"
 
 var opened = false
+var progress_manager
 
 @export_enum("NeuroEnhanceAmplifier1", "NeuroEnhanceAmplifier2", "NeuroEnhanceAmplifier3", "NeuroEnhanceAmplifier4") var select_amplifier : String
 
 func _ready():
-	for n in get_tree().get_first_node_in_group("ProgressManager").get_node("OwnedPrograms/Amplifiers").get_children():
+	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
 		if n.name == select_amplifier:
 			$ChestSprite.animation = "open"
 			$ChestSprite.frame = 7
@@ -21,6 +23,7 @@ func pick_up(_area):
 	if opened:
 		return
 	opened = true
+	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$ChestSprite.animation = "open"
 	await $ChestSprite.animation_finished
 	$AnimatedSprite2D.show()
@@ -28,9 +31,8 @@ func pick_up(_area):
 	await get_tree().create_timer(3.2).timeout
 	program.scale = Vector2.ONE
 	program.set_deferred("monitorable", false)
-	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$AnimatedSprite2D.remove_child(program)
-	get_tree().get_first_node_in_group("ProgressManager").add_amplifier(program)
+	progress_manager.add_amplifier(program)
 	$AnimatedSprite2D.hide()
 
 func _on_mouse_entered():

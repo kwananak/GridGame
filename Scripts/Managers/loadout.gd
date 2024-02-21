@@ -23,7 +23,8 @@ func _ready():
 	await get_tree().create_timer(0.02).timeout
 	set_slots()
 
-func _input(event):
+# removed from use because of programs auto-loading. remove "legacy" to use again
+func legacy_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			for n in get_children():
@@ -54,7 +55,7 @@ func set_slots():
 				v.scale = Vector2(1.3, 1.3)
 				if v.get_child_count() > 0:
 					loaded_slots += 1
-	$Label.text = "available: " + str(max_loads - loaded_slots)
+	$Label.text = "Action Points: " + str(progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count())
 
 func _unhandled_input(event):
 	if selection_opened == null:
@@ -75,7 +76,10 @@ func cycle_programs(cycle):
 		array_selected -= 1
 	set_program_sprites()
 
+# removed from use because of programs auto-loading. remove if true loop to use again
 func on_button_pressed(slot):
+	if true:
+		return
 	if rune_mode:
 		if prog_load.get_node(slot).get_child_count() > 0:
 			var v = prog_load.get_node(slot).get_child(0)

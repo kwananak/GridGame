@@ -24,8 +24,28 @@ func add_to_programs(slot, program, level):
 	for n in get_node("OwnedPrograms/" + slot).get_children():
 		if n.name == program.name:
 			return
+	program.position = Vector2.ZERO
 	get_node("OwnedPrograms/" + slot).add_child(program)
 	levels[str(level)]["prog"] = true
+
+func auto_loader():
+	for n in $Loadout.get_children():
+		for o in n.get_children():
+			o.queue_free()
+	await get_tree().create_timer(0.1).timeout
+	for n in $OwnedPrograms.get_children():
+		match n.name:
+			"Amplifiers":
+				continue
+			"Hands":
+				for i in n.get_child_count():
+					if i == 0:
+						$Loadout.get_node("LeftHand").add_child(n.get_child(0).duplicate())
+					if i == 1:
+						$Loadout.get_node("RightHand").add_child(n.get_child(1).duplicate())
+			_:
+				if n.get_child_count() > 0:
+					$Loadout.get_node(str(n.name)).add_child(n.get_child(0).duplicate())
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
 func add_to_levels(level_unlocked, real_level, level_completed):
