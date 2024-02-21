@@ -1,8 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://dik7767w56mld"]
+[gd_scene load_steps=18 format=3 uid="uid://dik7767w56mld"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="1_cro6k"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_jj2mc"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_lsp0t"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_mbhx0"]
+[ext_resource type="Texture2D" uid="uid://dwtxput2vsrxo" path="res://Sprites/UI/programs_no_selection.png" id="3_ewxit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijx5n"]
+atlas = ExtResource("2_lsp0t")
+region = Rect2(629, 1774, 255, 345)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7m4d"]
+atlas = ExtResource("2_lsp0t")
+region = Rect2(142, 449, 110, 255)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkk5a"]
+atlas = ExtResource("3_ewxit")
+region = Rect2(0, 346, 103, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp3ve"]
+atlas = ExtResource("3_ewxit")
+region = Rect2(0, 0, 257, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h871s"]
+atlas = ExtResource("2_lsp0t")
+region = Rect2(256, 400, 203, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koreh"]
 atlas = ExtResource("2_mbhx0")
@@ -38,19 +60,40 @@ anchor_left = -0.172743
 anchor_top = 0.0421875
 anchor_right = -0.172743
 anchor_bottom = 0.0421875
-offset_left = 672.0
-offset_top = 32.0
-offset_right = 862.0
-offset_bottom = 302.0
+offset_left = 331.667
+offset_top = -45.5625
+offset_right = 331.667
+offset_bottom = -45.5625
 script = ExtResource("1_cro6k")
 metadata/_edit_use_anchors_ = true
 
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_ijx5n")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Background"]
+modulate = Color(1, 1, 1, 0.788235)
+position = Vector2(10, 0)
+texture = SubResource("AtlasTexture_b7m4d")
+
+[node name="Title" type="Sprite2D" parent="Background"]
+position = Vector2(-63.2836, -156.045)
+texture = SubResource("AtlasTexture_xkk5a")
+
+[node name="Frame" type="Sprite2D" parent="Background" groups=["ProgramsFrame"]]
+visible = false
+texture = SubResource("AtlasTexture_lp3ve")
+
+[node name="InfoBox" type="Sprite2D" parent="Background"]
+position = Vector2(17.5, 155)
+texture = SubResource("AtlasTexture_h871s")
+
 [node name="Goggles" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 29.0
-offset_right = 78.9999
-offset_bottom = 93.0
+offset_left = 40.0
+offset_top = -96.0
+offset_right = 104.0
+offset_bottom = -32.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_koreh")
 flat = true
@@ -59,10 +102,10 @@ expand_icon = true
 
 [node name="Armor" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 65.0
-offset_right = 78.9999
-offset_bottom = 129.0
+offset_left = -69.0
+offset_top = -73.0
+offset_right = -5.0
+offset_bottom = -9.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_hvsh3")
 flat = true
@@ -71,10 +114,10 @@ expand_icon = true
 
 [node name="LeftHand" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 101.0
-offset_right = 78.9999
-offset_bottom = 165.0
+offset_left = 57.0
+offset_top = -14.0
+offset_right = 121.0
+offset_bottom = 50.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_y4sd6")
 flat = true
@@ -83,10 +126,10 @@ expand_icon = true
 
 [node name="RightHand" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 137.0
-offset_right = 78.9999
-offset_bottom = 201.0
+offset_left = -65.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = 56.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_wergd")
 flat = true
@@ -95,10 +138,10 @@ expand_icon = true
 
 [node name="Legs" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 173.0
-offset_right = 78.9999
-offset_bottom = 237.0
+offset_left = 40.0
+offset_top = 37.0
+offset_right = 104.0
+offset_bottom = 101.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_cf10q")
 flat = true
@@ -107,10 +150,10 @@ expand_icon = true
 
 [node name="Boots" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.9999
-offset_top = 209.0
-offset_right = 78.9999
-offset_bottom = 273.0
+offset_left = -69.0
+offset_top = 73.0
+offset_right = -5.0
+offset_bottom = 137.0
 scale = Vector2(0.5, 0.5)
 icon = SubResource("AtlasTexture_6owcg")
 flat = true
@@ -132,10 +175,10 @@ expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 245.0
-offset_right = 775.0
-offset_bottom = 365.0
+offset_left = -57.9999
+offset_top = 112.0
+offset_right = 662.0
+offset_bottom = 232.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("2_jj2mc")
 theme_override_font_sizes/font_size = 64

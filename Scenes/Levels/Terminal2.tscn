@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=27 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_yq20t"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_cm8sf"]
-[ext_resource type="Texture2D" uid="uid://dwtxput2vsrxo" path="res://Sprites/UI/programs_no_selection.png" id="6_1yg2k"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_pf44h"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_1j7k8"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="8_xdasv"]
@@ -44,26 +43,6 @@ region = Rect2(575, 143, 34, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0o3o"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(605, 97, 10, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lokf4"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(629, 1774, 255, 345)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dry1t"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(142, 449, 110, 255)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5u4g0"]
-atlas = ExtResource("6_1yg2k")
-region = Rect2(0, 346, 103, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ln8ox"]
-atlas = ExtResource("6_1yg2k")
-region = Rect2(0, 0, 257, 346)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lftgx"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(256, 400, 203, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
 atlas = ExtResource("9_qed1s")
@@ -202,39 +181,6 @@ offset_right = -155.0
 offset_bottom = 25.0
 scale = Vector2(1.5, 1.5)
 
-[node name="ProgramsBackground" type="Sprite2D" parent="Control"]
-position = Vector2(580.597, 197.761)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_lokf4")
-
-[node name="PlayerSprite" type="Sprite2D" parent="Control/ProgramsBackground"]
-modulate = Color(1, 1, 1, 0.788235)
-position = Vector2(10, 0)
-texture = SubResource("AtlasTexture_dry1t")
-
-[node name="Title" type="Sprite2D" parent="Control/ProgramsBackground"]
-position = Vector2(-63.2836, -156.045)
-texture = SubResource("AtlasTexture_5u4g0")
-
-[node name="Frame" type="Sprite2D" parent="Control/ProgramsBackground" groups=["ProgramsFrame"]]
-visible = false
-texture = SubResource("AtlasTexture_ln8ox")
-
-[node name="InfoBox" type="Sprite2D" parent="Control/ProgramsBackground"]
-position = Vector2(17.5, 155)
-texture = SubResource("AtlasTexture_lftgx")
-
-[node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
-layout_mode = 1
-
-[node name="NexusButton" parent="Control" instance=ExtResource("7_1j7k8")]
-layout_mode = 1
-offset_left = -448.0
-offset_top = -32.0
-offset_right = -448.0
-offset_bottom = -32.0
-scale = Vector2(0.8, 0.8)
-
 [node name="DoorLabel" type="Control" parent="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -266,6 +212,28 @@ locked"
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_ajnw5")
 
+[node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
+layout_mode = 1
+anchor_left = 0.214142
+anchor_top = 0.381359
+anchor_right = 0.214142
+anchor_bottom = 0.381359
+
+[node name="NexusButton" parent="Control" instance=ExtResource("7_1j7k8")]
+layout_mode = 1
+offset_left = -448.0
+offset_top = -32.0
+offset_right = -448.0
+offset_bottom = -32.0
+scale = Vector2(0.8, 0.8)
+
+[node name="ReturnButton" parent="Control" instance=ExtResource("9_bd5av")]
+layout_mode = 1
+offset_left = -433.0
+offset_top = 14.0
+offset_right = -433.0
+offset_bottom = 14.0
+
 [node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
 position = Vector2(331, 300)
 scale = Vector2(0.8, 0.8)
@@ -281,13 +249,6 @@ scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("8_xdasv")
 theme_override_font_sizes/font_size = 96
 autowrap_mode = 3
-
-[node name="ReturnButton" parent="Control" instance=ExtResource("9_bd5av")]
-layout_mode = 1
-offset_left = -433.0
-offset_top = 14.0
-offset_right = -433.0
-offset_bottom = 14.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b1tni")
