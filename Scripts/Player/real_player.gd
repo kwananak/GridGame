@@ -65,10 +65,13 @@ func move(dir, delta):
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
 	moving = true
-	position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	var level_number = $/root/Main.real_scene.name.substr($/root/Main.real_scene.name.length() -1, -1)
+	if int($/root/Main.coming_from) > int(level_number):
+		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
+		get_tree().get_first_node_in_group("StartTile").get_node("AnimatedSprite2D").animation = "unlocked"
+	else:
+		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
+	await create_tween().tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
 	moving = false
 
 # checks for collision before moving or taking appropriate action
@@ -119,6 +122,12 @@ func collision_check(dir, delta):
 				match collision.tile_type:
 					"door":
 						if collision.unlocked: 
+							for n in get_tree().get_nodes_in_group("EndTile"):
+								if collision.global_position == n.global_position:
+									if n.on:
+										collision.open_door()
+								move(dir,delta)
+								return
 							collision.open_door()
 							move(dir, delta)
 			return

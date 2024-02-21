@@ -104,6 +104,7 @@ func process_camera(delta):
 # called by the button to quit the level
 func _on_button_pressed():
 	if real_done:
+		$/root/Main.coming_from = $/root/Main.real_scene.name.substr($/root/Main.real_scene.name.length() - 1, -1)
 		$/root/Main.switch_level(real_done)
 	else:
 		if camera.get_child_count() > 0:

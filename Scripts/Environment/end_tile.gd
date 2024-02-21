@@ -26,4 +26,5 @@ func _on_area_entered(_area):
 		l_m.on_end_tile_entered(door_number)
 
 func _on_area_exited(_area):
+	await get_tree().create_timer(0.1).timeout
 	on = true

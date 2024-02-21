@@ -13,6 +13,8 @@ var menu_audio
 var continue_button
 var new_game_button
 
+var coming_from = "0"
+
 @onready var camera = $Camera2D
 @onready var progress_manager = $ProgressManager
 

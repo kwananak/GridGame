@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=24 format=3 uid="uid://dje6l66lot2b8"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/skyline.gd" id="1_eyoy3"]
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_xavkm"]
 [ext_resource type="Texture2D" uid="uid://brs7sxdb6t3st" path="res://Sprites/EnvironmentReal/Dumpyard/complex_outside.png" id="18_4dl07"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/Environment/invisible_wall.tscn" id="18_bl844"]
+[ext_resource type="PackedScene" uid="uid://bhpf60dxp85k4" path="res://Scenes/Tiles/SharedReal/return_tile.tscn" id="21_bwmqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njf3c"]
 atlas = ExtResource("18_4dl07")
@@ -118,11 +119,11 @@ position = Vector2(32, 96)
 [node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_ssime")]
+visible = false
 position = Vector2(64, 192)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_ey8wb")]
-position = Vector2(544, 128)
-on = true
+position = Vector2(545, 129)
 door_number = 2
 
 [node name="FloorTileReal" parent="Environment/Floor" instance=ExtResource("5_fiana")]
@@ -534,7 +535,7 @@ position = Vector2(448, 288)
 position = Vector2(120, 176)
 
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_r8naw")]
-position = Vector2(576, 225)
+position = Vector2(577, 225)
 door_number = 2
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
@@ -559,3 +560,15 @@ position = Vector2(509, 355)
 
 [node name="InvisibleWall" parent="." instance=ExtResource("18_bl844")]
 position = Vector2(608, 256)
+
+[node name="ReturnTile" parent="." instance=ExtResource("21_bwmqw")]
+position = Vector2(576, 256)
+
+[node name="InvisibleWall2" parent="." instance=ExtResource("18_bl844")]
+position = Vector2(576, 200)
+
+[node name="InvisibleWall3" parent="." instance=ExtResource("18_bl844")]
+position = Vector2(608, 224)
+
+[node name="InvisibleWall4" parent="." instance=ExtResource("18_bl844")]
+position = Vector2(544, 200)

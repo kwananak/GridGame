@@ -14,3 +14,9 @@ func update_door():
 		if i == str(door_number):
 			animated_sprite_2d.frame = 1
 			unlocked = true
+			await get_tree().create_timer(0.1).timeout
+			for n in get_tree().get_nodes_in_group("EndTile"):
+				if n.global_position == global_position:
+					if get_tree().get_first_node_in_group("RealPlayer").global_position == global_position:
+						continue
+					n.on = true
