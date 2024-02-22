@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=3 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
+[ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/Amazing.tscn" id="2_fhhg3"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 position = Vector2(-200, -200)
@@ -11,6 +12,8 @@ visible = false
 z_index = 90
 
 [node name="Goggles" type="Node2D" parent="Loadout"]
+
+[node name="Amazing" parent="Loadout/Goggles" instance=ExtResource("2_fhhg3")]
 
 [node name="Armor" type="Node2D" parent="Loadout"]
 
