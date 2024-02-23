@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://be8v7f8xogyjk"]
+
+[ext_resource type="Texture2D" uid="uid://ck7a5m7dpcdht" path="res://Sprites/EnvironmentReal/Complex/complex_arm.png" id="1_lqls1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5u41"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fn2q"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h22hx"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srtbw"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u6fv"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veejn"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41e51"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ax5"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkfgw"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prm84"]
+atlas = ExtResource("1_lqls1")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_traph"]
+animations = [{
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_h5u41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fn2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h22hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srtbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u6fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veejn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41e51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5ax5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkfgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prm84")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijss4"]
+size = Vector2(78, 74)
+
+[node name="ComplexArm" type="StaticBody2D"]
+z_index = 30
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_traph")
+autoplay = "default"
+frame_progress = 0.275236
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 3)
+shape = SubResource("RectangleShape2D_ijss4")
