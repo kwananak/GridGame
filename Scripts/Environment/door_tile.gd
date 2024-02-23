@@ -67,3 +67,11 @@ func open_door(body):
 
 func set_lock(value):
 	$StaticBody2D.set_collision_layer_value(1, !value)
+
+func door_sound():
+	match animated_sprite_2d.animation:
+		"open":
+			$OpenDoor.play()
+		"close":
+			await animated_sprite_2d.frame_changed
+			$CloseDoor.play()

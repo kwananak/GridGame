@@ -7,6 +7,7 @@ var progress_manager
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	animated_sprite_2d.animation_changed.connect(door_sound)
 	update_door()
 
 func update_door():
@@ -18,5 +19,10 @@ func update_door():
 			for n in get_tree().get_nodes_in_group("EndTile"):
 				if n.global_position == global_position:
 					if get_tree().get_first_node_in_group("RealPlayer").global_position == global_position:
+						animated_sprite_2d.play("close")
 						continue
 					n.on = true
+
+func _on_body_entered(body):
+	if body.global_position != global_position:
+		animated_sprite_2d.play("open")

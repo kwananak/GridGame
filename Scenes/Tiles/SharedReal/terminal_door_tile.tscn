@@ -1,10 +1,28 @@
-[gd_scene load_steps=12 format=3 uid="uid://cju2s40ajwdq8"]
+[gd_scene load_steps=14 format=3 uid="uid://cju2s40ajwdq8"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/terminal_door_tile.gd" id="1_cu7g5"]
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="2_2s60n"]
+[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/Door 03 Open.wav" id="3_1ntdh"]
+[ext_resource type="AudioStream" uid="uid://bvy6jh7mmwmyw" path="res://Sounds/Real/Door 03 Close.wav" id="4_uve1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqeg"]
 size = Vector2(18.6667, 16.6667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3iba"]
+atlas = ExtResource("2_2s60n")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng6nj"]
+atlas = ExtResource("2_2s60n")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifw8c"]
+atlas = ExtResource("2_2s60n")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm3i8"]
+atlas = ExtResource("2_2s60n")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3p7rq"]
 atlas = ExtResource("2_2s60n")
@@ -14,24 +32,25 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("2_2s60n")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jm3i8"]
-atlas = ExtResource("2_2s60n")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifw8c"]
-atlas = ExtResource("2_2s60n")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ng6nj"]
-atlas = ExtResource("2_2s60n")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3iba"]
-atlas = ExtResource("2_2s60n")
-region = Rect2(0, 64, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_qon0b"]
 animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_y3iba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng6nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifw8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm3i8")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3p7rq")
@@ -44,9 +63,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_jm3i8")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ifw8c")
 }, {
@@ -57,7 +73,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_y3iba")
 }],
 "loop": false,
-"name": &"opening",
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -66,6 +82,8 @@ size = Vector2(30, 30)
 
 [node name="TerminalDoorTile" type="Area2D" groups=["AStarGridSolid", "Doors", "TerminalDoors"]]
 z_index = 30
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_cu7g5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -81,3 +99,13 @@ animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_uoktn")
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1ntdh")
+volume_db = -20.0
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uve1p")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

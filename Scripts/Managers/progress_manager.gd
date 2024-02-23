@@ -3,7 +3,7 @@ extends Node2D
 var save_path = "user://savegame.save"
 var completed_levels = []
 var unlocked_levels = ["101", "201"]
-var doors = []
+var doors = ["2"]
 var save_point
 var levels = {"100" : {"200" : false},
 			"101" : {"102" : false},

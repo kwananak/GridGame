@@ -1,6 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cucuq7j1dctnn"]
+[gd_scene load_steps=11 format=3 uid="uid://cucuq7j1dctnn"]
 
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="1_44hwa"]
+[ext_resource type="Script" path="res://Scripts/Environment/start_tile.gd" id="1_em1h1"]
+[ext_resource type="AudioStream" uid="uid://bvy6jh7mmwmyw" path="res://Sounds/Real/Door 03 Close.wav" id="2_drxbk"]
+[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/Door 03 Open.wav" id="3_lyd8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
 size = Vector2(32, 32)
@@ -16,10 +19,6 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8i7l2"]
 atlas = ExtResource("1_44hwa")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bnewd"]
-atlas = ExtResource("1_44hwa")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jrqi"]
 atlas = ExtResource("1_44hwa")
@@ -38,10 +37,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_8i7l2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bnewd")
+"texture": SubResource("AtlasTexture_2jrqi")
 }],
 "loop": false,
-"name": &"default",
+"name": &"close",
 "speed": 3.0
 }, {
 "frames": [{
@@ -49,7 +48,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_2jrqi")
 }],
 "loop": false,
-"name": &"unlocked",
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i7l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt1t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rijau")
+}],
+"loop": false,
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -57,10 +70,21 @@ animations = [{
 z_index = 30
 collision_layer = 0
 collision_mask = 2
+script = ExtResource("1_em1h1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f7yg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0hrto")
-autoplay = "default"
+animation = &"closed"
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_drxbk")
+volume_db = -20.0
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lyd8q")
+volume_db = -20.0
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
