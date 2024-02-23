@@ -3,12 +3,16 @@ extends Node2D
 var save_path = "user://savegame.save"
 var completed_levels = []
 var unlocked_levels = ["101", "201"]
-var doors = ["2"]
+var doors = []
 var save_point
 var levels = {"100" : {"200" : false},
 			"101" : {"102" : false},
-			"102" : {"103" : false, "prog" : false},
-			"103" : {"2" : false},
+			"102" : {"103" : false},
+			"103" : {"104" : false},
+			"104" : {"105" : false},
+			"105" : {"106" : false},
+			"106" : {"107" : false},
+			"107" : {"2" : false},
 			"200" : {"300" : false},
 			"201" : {"202" : false, "prog" : false},
 			"202" : {"203" : false, "prog" : false},
@@ -51,6 +55,7 @@ func auto_loader():
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
 func add_to_levels(level_unlocked, real_level, level_completed):
+	print(str(level_unlocked) + " " + str(real_level) + " " + str(level_completed))
 	save_point = real_level
 	levels[str(level_completed)][str(level_unlocked)] = true
 	if level_unlocked > 100:
