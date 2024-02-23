@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5s14bwibo7lb"]
+[gd_scene load_steps=22 format=3 uid="uid://c5s14bwibo7lb"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/amplifier_tile.gd" id="1_mxy63"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_5le7p"]
 [ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="3_rypoc"]
+[ext_resource type="AudioStream" uid="uid://dmldi02tcifo3" path="res://Sounds/Real/chest_open.wav" id="4_1dpt3"]
+[ext_resource type="AudioStream" uid="uid://2eucm1dk6y7i" path="res://Sounds/Real/chest_ding.wav" id="5_3bi2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 size = Vector2(34, 31)
@@ -140,7 +142,6 @@ shape = SubResource("RectangleShape2D_ofsl2")
 
 [node name="ChestSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b5h58")
-animation = &"open"
 autoplay = "default"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -179,6 +180,16 @@ autowrap_mode = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_rsgkd")
+
+[node name="OpenChest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1dpt3")
+pitch_scale = 0.29
+bus = &"FX"
+
+[node name="DingChest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3bi2d")
+volume_db = -10.0
+pitch_scale = 0.95
 
 [connection signal="body_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

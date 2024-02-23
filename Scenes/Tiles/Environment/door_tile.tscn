@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="1_2ici0"]
 [ext_resource type="Script" path="res://Scripts/Environment/door_tile.gd" id="1_qiop7"]
-[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/Door 03 Open.wav" id="3_4nkqr"]
+[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/door_open.wav" id="3_l05gn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqeg"]
 size = Vector2(17.3333, 16.6667)
@@ -84,7 +84,8 @@ animation = &"opening"
 shape = SubResource("RectangleShape2D_r86fd")
 
 [node name="OpenDoor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_4nkqr")
-volume_db = -20.0
+stream = ExtResource("3_l05gn")
+volume_db = -10.0
+bus = &"FX"
 
 [connection signal="body_entered" from="." to="." method="open_door"]

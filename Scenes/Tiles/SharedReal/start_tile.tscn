@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="1_44hwa"]
 [ext_resource type="Script" path="res://Scripts/Environment/start_tile.gd" id="1_em1h1"]
-[ext_resource type="AudioStream" uid="uid://bvy6jh7mmwmyw" path="res://Sounds/Real/Door 03 Close.wav" id="2_drxbk"]
-[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/Door 03 Open.wav" id="3_lyd8q"]
+[ext_resource type="AudioStream" uid="uid://bvy6jh7mmwmyw" path="res://Sounds/Real/door_close.wav" id="3_13kr1"]
+[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/door_open.wav" id="4_345xc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
 size = Vector2(32, 32)
@@ -80,11 +80,13 @@ sprite_frames = SubResource("SpriteFrames_0hrto")
 animation = &"closed"
 
 [node name="CloseDoor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_drxbk")
-volume_db = -20.0
+stream = ExtResource("3_13kr1")
+volume_db = -10.0
+bus = &"FX"
 
 [node name="OpenDoor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_lyd8q")
-volume_db = -20.0
+stream = ExtResource("4_345xc")
+volume_db = -10.0
+bus = &"FX"
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

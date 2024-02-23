@@ -1,6 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://be8v7f8xogyjk"]
+[gd_scene load_steps=16 format=3 uid="uid://be8v7f8xogyjk"]
 
 [ext_resource type="Texture2D" uid="uid://ck7a5m7dpcdht" path="res://Sprites/EnvironmentReal/Complex/complex_arm.png" id="1_lqls1"]
+[ext_resource type="Script" path="res://Scripts/Environment/complex_arm.gd" id="1_xbt5p"]
+[ext_resource type="AudioStream" uid="uid://c5w4l5yfmi4yg" path="res://Sounds/Real/robo_arm.wav" id="2_hcg5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5u41"]
 atlas = ExtResource("1_lqls1")
@@ -85,6 +87,7 @@ size = Vector2(78, 74)
 
 [node name="ComplexArm" type="StaticBody2D"]
 z_index = 30
+script = ExtResource("1_xbt5p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_traph")
@@ -94,3 +97,10 @@ frame_progress = 0.275236
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, 3)
 shape = SubResource("RectangleShape2D_ijss4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hcg5k")
+max_distance = 200.0
+bus = &"FX"
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

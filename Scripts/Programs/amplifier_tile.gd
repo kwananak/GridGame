@@ -27,6 +27,7 @@ func pick_up(_area):
 	get_tree().get_first_node_in_group("RealPlayer").get_node("AnimatedSprite2D").play()
 	opened = true
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
+	$ChestSprite.frame_changed.connect(chest_sounds)
 	$ChestSprite.animation = "open"
 	await $ChestSprite.animation_finished
 	$AnimatedSprite2D.show()
@@ -44,3 +45,11 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	pass
+
+func chest_sounds():
+	match $ChestSprite.frame:
+		0, 2, 4:
+			$DingChest.play()
+		5:
+			$OpenChest.play()
+			$ChestSprite.frame_changed.disconnect(chest_sounds)
