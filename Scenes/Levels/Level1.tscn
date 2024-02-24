@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=20 format=3 uid="uid://dje6l66lot2b8"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/Dumpyard/skyline.gd" id="1_eyoy3"]
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
@@ -23,21 +22,26 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0.7)
+
+[node name="Skyline" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, 96)
 
-[node name="Skyline" type="Node2D" parent="Background"]
-script = ExtResource("1_eyoy3")
-
-[node name="Skyline1" type="Sprite2D" parent="Background/Skyline"]
-position = Vector2(240, -38)
+[node name="Skyline1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Skyline"]
+position = Vector2(240, -36)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_p66h4")
 
-[node name="Skyline2" type="Sprite2D" parent="Background/Skyline"]
-position = Vector2(715, -41)
+[node name="Skyline2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Skyline"]
+position = Vector2(715, -39)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_p66h4")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(0, 96)
 
 [node name="DumpBack" type="Sprite2D" parent="Background"]
 position = Vector2(233, 148)
@@ -84,7 +88,7 @@ texture = ExtResource("18_4dl07")
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
 level_name = "Dumpyard"
-level_height = 18
+level_height = 20
 level_length = 30
 level_number = 1
 animation_speed = 10

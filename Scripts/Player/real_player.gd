@@ -10,6 +10,7 @@ var level_manager
 var active = false
 var floating = false
 var waiting_for_action = null
+var target_move
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -20,11 +21,16 @@ func _ready():
 	active = true
 
 # checks for pause input
-func _input(_event):
-	if level_manager.game_over:
+func _input(event):
+	if level_manager.game_over || !active:
 		return
-	if _event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
+	if level_manager.paused:
+		return
+	if event is InputEventMouseButton:
+		if event.is_pressed() && event.button_index == 1:
+			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2
 
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
@@ -40,15 +46,23 @@ func _process(delta):
 		return
 	var input_direction  = Input.get_vector("left", "right", "up", "down")
 	if input_direction != Vector2.ZERO:
-		if input_direction.x < 0:
-			animated_sprite_2d.flip_h = true
-		if input_direction.x > 0:
-			animated_sprite_2d.flip_h = false
-		if animated_sprite_2d.animation != "move":
-				animated_sprite_2d.animation = "move"
-		if !$Footsteps.is_playing():
-			$Footsteps.play()
-		move_and_collide(input_direction * SPEED * delta)
+		target_move = null
+	elif target_move:
+		if target_move.snapped(Vector2.ONE) == global_position.snapped(Vector2.ONE):
+			target_move = null
+			return
+		input_direction = (target_move - global_position).normalized()
 	else:
 		if animated_sprite_2d.animation != "idle":
-			animated_sprite_2d.animation = "idle";
+			animated_sprite_2d.animation = "idle"
+		return
+	if input_direction.x < 0:
+		animated_sprite_2d.flip_h = true
+	if input_direction.x > 0:
+		animated_sprite_2d.flip_h = false
+	if animated_sprite_2d.animation != "move":
+			animated_sprite_2d.animation = "move"
+	if !$Footsteps.is_playing():
+		$Footsteps.play()
+	if move_and_collide(input_direction * SPEED * delta):
+		target_move = null
