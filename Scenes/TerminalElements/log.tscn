@@ -52,5 +52,6 @@ theme_override_font_sizes/normal_font_size = 64
 scroll_following = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="visibility_changed" from="." to="." method="update_log"]
 [connection signal="focus_entered" from="RichTextLabel" to="." method="_on_rich_text_label_focus_entered"]
 [connection signal="focus_exited" from="RichTextLabel" to="." method="_on_rich_text_label_focus_exited"]

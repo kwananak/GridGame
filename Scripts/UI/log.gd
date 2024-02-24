@@ -5,7 +5,10 @@ var log_path = "res://Txts/dialogues.txt"
 
 @onready var label = $RichTextLabel
 
-func _ready():
+func update_log():
+	if !visible:
+		return
+	label.clear()
 	var log_file = FileAccess.open(log_path, FileAccess.READ)
 	var json_string = log_file.get_line()
 	log_file.close()
