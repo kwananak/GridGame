@@ -5,6 +5,7 @@ var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
+var log_save_point = "0"
 var levels = {"100" : {"200" : false},
 			"101" : {"102" : false},
 			"102" : {"103" : false},
@@ -55,7 +56,6 @@ func auto_loader():
 
 # called by level manager through main at end of level to add unlocked level and create automatic save_point
 func add_to_levels(level_unlocked, real_level, level_completed):
-	print(str(level_unlocked) + " " + str(real_level) + " " + str(level_completed))
 	save_point = real_level
 	levels[str(level_completed)][str(level_unlocked)] = true
 	if level_unlocked > 100:
@@ -195,6 +195,7 @@ func save():
 	dict["unlocked_levels"] = unlocked_levels
 	dict["doors"] = doors
 	dict["save_point"] = save_point
+	dict["log_save_point"] = log_save_point
 	return dict
 
 func save_game():
@@ -232,6 +233,9 @@ func load_game():
 				continue
 			"save_point":
 				save_point = data[n]
+				continue
+			"log_save_point":
+				log_save_point = data[n]
 				continue
 			_: 
 				for o in data[n]:

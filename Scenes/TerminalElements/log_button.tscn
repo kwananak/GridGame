@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://4p227i7nigqx"]
+
+[ext_resource type="Script" path="res://Scripts/UI/log_button.gd" id="1_bstbh"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_rp7lm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gccty"]
+atlas = ExtResource("2_rp7lm")
+region = Rect2(204, 2095, 68, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo7au"]
+atlas = ExtResource("2_rp7lm")
+region = Rect2(416, 2141, 50, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbov3"]
+atlas = ExtResource("2_rp7lm")
+region = Rect2(256, 460, 70, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0twqf"]
+size = Vector2(70, 37.5)
+
+[node name="LogButton" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+focus_mode = 2
+script = ExtResource("1_bstbh")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_gccty")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wo7au")
+
+[node name="Focus" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_kbov3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.38418e-06, 4.47035e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0twqf")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

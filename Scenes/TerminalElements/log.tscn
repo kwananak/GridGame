@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c74t16iivk706"]
+
+[ext_resource type="Script" path="res://Scripts/UI/log.gd" id="1_ej2nd"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_u60cj"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_bhyys"]
+[ext_resource type="Texture2D" uid="uid://cpk1av5k70k4o" path="res://Sprites/UI/logs_frame.png" id="3_h7knx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyx1w"]
+atlas = ExtResource("2_u60cj")
+region = Rect2(629, 1775, 255, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00hu8"]
+atlas = ExtResource("2_u60cj")
+region = Rect2(416, 2141, 50, 19)
+
+[node name="Log" type="Control" groups=["Log"]]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -705.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ej2nd")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xyx1w")
+centered = false
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(35, 19)
+texture = SubResource("AtlasTexture_00hu8")
+
+[node name="Frame" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_h7knx")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 49.0
+offset_right = 1090.0
+offset_bottom = 1419.0
+scale = Vector2(0.2, 0.2)
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_bhyys")
+theme_override_font_sizes/normal_font_size = 64
+scroll_following = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="focus_entered" from="RichTextLabel" to="." method="_on_rich_text_label_focus_entered"]
+[connection signal="focus_exited" from="RichTextLabel" to="." method="_on_rich_text_label_focus_exited"]

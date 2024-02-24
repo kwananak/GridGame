@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var dialogue_number : int
 @export var text : Array[String]
 @export var related_node : Node
 @export var text_speed = 5
@@ -87,6 +88,7 @@ func write_bubble(sentence):
 
 func remove_bubble():
 	label.hide()
+	get_tree().get_first_node_in_group("ProgressManager").log_save_point = str(dialogue_number)
 	button_sprite.hide()
 	bubble.play_backwards()
 	await bubble.animation_finished
