@@ -16,6 +16,8 @@ func _ready():
 		return
 	var data = json.get_data()
 	for i in int(get_tree().get_first_node_in_group("ProgressManager").log_save_point):
+		if not str(i+1) in data:
+			continue
 		if !data[str(i+1)]["log"]:
 			continue
 		for n in data[str(i+1)]["text"]:
