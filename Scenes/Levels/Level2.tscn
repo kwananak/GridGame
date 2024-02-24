@@ -4,319 +4,2284 @@
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="3_yd3js"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_hicxf"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="5_mc1di"]
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="5_yotuo"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="6_vbysc"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_4uou4"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="9_o170u"]
-[ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="10_b8ppj"]
-[ext_resource type="PackedScene" uid="uid://x4ildy0cc28d" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex_right.tscn" id="10_r1kny"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="11_mads1"]
 [ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="11_rajsu"]
-[ext_resource type="PackedScene" uid="uid://cyiqeevclf4ir" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex_right.tscn" id="13_mvi4t"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="18_oxmmy"]
+[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="19_eeb4t"]
 [ext_resource type="PackedScene" uid="uid://be8v7f8xogyjk" path="res://Scenes/Tiles/EnvironmentComplex/complex_arm.tscn" id="19_neo2u"]
 [ext_resource type="PackedScene" uid="uid://dv8ksq5v36juw" path="res://Scenes/Tiles/EnvironmentComplex/conveyor.tscn" id="20_shhch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns0it"]
+atlas = ExtResource("5_mc1di")
+region = Rect2(0, 0, 192, 192)
 
 [node name="Level2" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 640.0
+offset_right = 1488.0
+offset_bottom = 1232.0
 color = Color(0.423529, 0.443137, 0.509804, 1)
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_jef0p")]
-position = Vector2(64, 64)
-level_height = 16
-level_length = 32
+level_height = 64
+level_length = 64
 level_number = 2
 animation_speed = 10
 end_turn_speed = 0.01
 
 [node name="UI" parent="." instance=ExtResource("2_o22k4")]
-position = Vector2(24, 16)
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_yd3js")]
-position = Vector2(192, 224)
+position = Vector2(160, 800)
 
 [node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
-position = Vector2(544, 224)
+z_index = 0
+position = Vector2(288, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor/EndTile"]
+z_index = 20
+scale = Vector2(0.167, 0.167)
+texture = SubResource("AtlasTexture_ns0it")
 
 [node name="EndTile2" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
-position = Vector2(192, 224)
+z_index = 0
+position = Vector2(160, 800)
 door_number = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor/EndTile2"]
+z_index = 20
+scale = Vector2(0.167, 0.167)
+texture = SubResource("AtlasTexture_ns0it")
+
 [node name="FloorTileComplex" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(192, 160)
-
-[node name="FloorTileComplex2" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(192, 192)
-
-[node name="FloorTileComplex3" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(192, 224)
-
-[node name="FloorTileComplex4" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(192, 256)
-
-[node name="FloorTileComplex5" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(224, 160)
-
-[node name="FloorTileComplex6" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(224, 192)
-
-[node name="FloorTileComplex7" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(224, 224)
-
-[node name="FloorTileComplex8" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(224, 256)
-
-[node name="FloorTileComplex9" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(256, 160)
 
-[node name="FloorTileComplex10" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex2" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(256, 192)
 
-[node name="FloorTileComplex11" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex3" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(256, 224)
 
-[node name="FloorTileComplex12" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex4" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(256, 256)
 
-[node name="FloorTileComplex13" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex5" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(288, 160)
 
-[node name="FloorTileComplex14" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex6" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(288, 192)
 
-[node name="FloorTileComplex15" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex7" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(288, 224)
 
-[node name="FloorTileComplex16" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex8" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(288, 256)
 
-[node name="FloorTileComplex17" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex9" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(320, 160)
 
-[node name="FloorTileComplex18" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex10" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(320, 192)
 
-[node name="FloorTileComplex19" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex11" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(320, 224)
 
-[node name="FloorTileComplex20" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex12" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(320, 256)
 
-[node name="FloorTileComplex21" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex13" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(352, 160)
 
-[node name="FloorTileComplex22" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex14" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(352, 192)
 
-[node name="FloorTileComplex23" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex15" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(352, 224)
 
-[node name="FloorTileComplex24" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex16" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(352, 256)
 
-[node name="FloorTileComplex25" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex17" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(384, 160)
 
-[node name="FloorTileComplex26" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex18" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(384, 192)
 
-[node name="FloorTileComplex27" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex19" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(384, 224)
 
-[node name="FloorTileComplex28" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex20" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(384, 256)
 
-[node name="FloorTileComplex29" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex21" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(416, 160)
 
-[node name="FloorTileComplex30" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex22" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(416, 192)
 
-[node name="FloorTileComplex31" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex23" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(416, 224)
 
-[node name="FloorTileComplex32" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex24" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(416, 256)
 
-[node name="FloorTileComplex33" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex25" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(448, 160)
 
-[node name="FloorTileComplex34" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex26" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(448, 192)
 
-[node name="FloorTileComplex35" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex27" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(448, 224)
 
-[node name="FloorTileComplex36" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex28" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(448, 256)
 
-[node name="FloorTileComplex37" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex29" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(480, 160)
 
-[node name="FloorTileComplex38" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex30" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(480, 192)
 
-[node name="FloorTileComplex39" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex31" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(480, 224)
 
-[node name="FloorTileComplex40" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex32" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(480, 256)
 
-[node name="FloorTileComplex41" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex33" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(512, 160)
 
-[node name="FloorTileComplex42" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex34" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(512, 192)
 
-[node name="FloorTileComplex43" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex35" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(512, 224)
 
-[node name="FloorTileComplex44" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex36" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(512, 256)
 
-[node name="FloorTileComplex45" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex37" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(544, 160)
 
-[node name="FloorTileComplex46" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex38" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(544, 192)
 
-[node name="FloorTileComplex47" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex39" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(544, 224)
 
-[node name="FloorTileComplex48" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+[node name="FloorTileComplex40" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(544, 256)
+
+[node name="FloorTileComplex41" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576, 160)
+
+[node name="FloorTileComplex42" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576, 192)
+
+[node name="FloorTileComplex43" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576, 224)
+
+[node name="FloorTileComplex44" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576, 256)
+
+[node name="FloorTileComplex45" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608, 160)
+
+[node name="FloorTileComplex46" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608, 192)
+
+[node name="FloorTileComplex47" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608, 224)
+
+[node name="FloorTileComplex48" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608, 256)
+
+[node name="FloorTileComplex49" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 288.032)
+
+[node name="FloorTileComplex50" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 320.032)
+
+[node name="FloorTileComplex51" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 352.032)
+
+[node name="FloorTileComplex52" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 384.032)
+
+[node name="FloorTileComplex53" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 288.032)
+
+[node name="FloorTileComplex54" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 320.032)
+
+[node name="FloorTileComplex55" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 352.032)
+
+[node name="FloorTileComplex56" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 384.032)
+
+[node name="FloorTileComplex57" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 288.032)
+
+[node name="FloorTileComplex58" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 320.032)
+
+[node name="FloorTileComplex59" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 352.032)
+
+[node name="FloorTileComplex60" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 384.032)
+
+[node name="FloorTileComplex61" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 288.032)
+
+[node name="FloorTileComplex62" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 320.032)
+
+[node name="FloorTileComplex63" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 352.032)
+
+[node name="FloorTileComplex64" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 384.032)
+
+[node name="FloorTileComplex65" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 288.032)
+
+[node name="FloorTileComplex66" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 320.032)
+
+[node name="FloorTileComplex67" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 352.032)
+
+[node name="FloorTileComplex68" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 384.032)
+
+[node name="FloorTileComplex69" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 288.032)
+
+[node name="FloorTileComplex70" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 320.032)
+
+[node name="FloorTileComplex71" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 352.032)
+
+[node name="FloorTileComplex72" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 384.032)
+
+[node name="FloorTileComplex73" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 288.032)
+
+[node name="FloorTileComplex74" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 320.032)
+
+[node name="FloorTileComplex75" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 352.032)
+
+[node name="FloorTileComplex76" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 384.032)
+
+[node name="FloorTileComplex77" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 288.032)
+
+[node name="FloorTileComplex78" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 320.032)
+
+[node name="FloorTileComplex79" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 352.032)
+
+[node name="FloorTileComplex80" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 384.032)
+
+[node name="FloorTileComplex81" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 288.032)
+
+[node name="FloorTileComplex82" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 320.032)
+
+[node name="FloorTileComplex83" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 352.032)
+
+[node name="FloorTileComplex84" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 384.032)
+
+[node name="FloorTileComplex85" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 288.032)
+
+[node name="FloorTileComplex86" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 320.032)
+
+[node name="FloorTileComplex87" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 352.032)
+
+[node name="FloorTileComplex88" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 384.032)
+
+[node name="FloorTileComplex89" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 288.032)
+
+[node name="FloorTileComplex90" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 320.032)
+
+[node name="FloorTileComplex91" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 352.032)
+
+[node name="FloorTileComplex92" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 384.032)
+
+[node name="FloorTileComplex93" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 288.032)
+
+[node name="FloorTileComplex94" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 320.032)
+
+[node name="FloorTileComplex95" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 352.032)
+
+[node name="FloorTileComplex96" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 384.032)
+
+[node name="FloorTileComplex97" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 416.032)
+
+[node name="FloorTileComplex98" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 448.032)
+
+[node name="FloorTileComplex99" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 480.032)
+
+[node name="FloorTileComplex100" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 512.032)
+
+[node name="FloorTileComplex101" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 416.032)
+
+[node name="FloorTileComplex102" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 448.032)
+
+[node name="FloorTileComplex103" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 480.032)
+
+[node name="FloorTileComplex104" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 512.032)
+
+[node name="FloorTileComplex105" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 416.032)
+
+[node name="FloorTileComplex106" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 448.032)
+
+[node name="FloorTileComplex107" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 480.032)
+
+[node name="FloorTileComplex108" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 512.032)
+
+[node name="FloorTileComplex109" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 416.032)
+
+[node name="FloorTileComplex110" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 448.032)
+
+[node name="FloorTileComplex111" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 480.032)
+
+[node name="FloorTileComplex112" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 512.032)
+
+[node name="FloorTileComplex113" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 416.032)
+
+[node name="FloorTileComplex114" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 448.032)
+
+[node name="FloorTileComplex115" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 480.032)
+
+[node name="FloorTileComplex116" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 512.032)
+
+[node name="FloorTileComplex117" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 416.032)
+
+[node name="FloorTileComplex118" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 448.032)
+
+[node name="FloorTileComplex119" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 480.032)
+
+[node name="FloorTileComplex120" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 512.032)
+
+[node name="FloorTileComplex121" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 416.032)
+
+[node name="FloorTileComplex122" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 448.032)
+
+[node name="FloorTileComplex123" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 480.032)
+
+[node name="FloorTileComplex124" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 512.032)
+
+[node name="FloorTileComplex125" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 416.032)
+
+[node name="FloorTileComplex126" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 448.032)
+
+[node name="FloorTileComplex127" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 480.032)
+
+[node name="FloorTileComplex128" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 512.032)
+
+[node name="FloorTileComplex129" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 416.032)
+
+[node name="FloorTileComplex130" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 448.032)
+
+[node name="FloorTileComplex131" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 480.032)
+
+[node name="FloorTileComplex132" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 512.032)
+
+[node name="FloorTileComplex133" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 416.032)
+
+[node name="FloorTileComplex134" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 448.032)
+
+[node name="FloorTileComplex135" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 480.032)
+
+[node name="FloorTileComplex136" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 512.032)
+
+[node name="FloorTileComplex137" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 416.032)
+
+[node name="FloorTileComplex138" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 448.032)
+
+[node name="FloorTileComplex139" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 480.032)
+
+[node name="FloorTileComplex140" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 512.032)
+
+[node name="FloorTileComplex141" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 416.032)
+
+[node name="FloorTileComplex142" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 448.032)
+
+[node name="FloorTileComplex143" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 480.032)
+
+[node name="FloorTileComplex144" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 512.032)
+
+[node name="FloorTileComplex145" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 160.032)
+
+[node name="FloorTileComplex146" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 192.032)
+
+[node name="FloorTileComplex147" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 224.032)
+
+[node name="FloorTileComplex148" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 256.032)
+
+[node name="FloorTileComplex149" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 160.032)
+
+[node name="FloorTileComplex150" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 192.032)
+
+[node name="FloorTileComplex151" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 224.032)
+
+[node name="FloorTileComplex152" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 256.032)
+
+[node name="FloorTileComplex153" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 160.032)
+
+[node name="FloorTileComplex154" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 192.032)
+
+[node name="FloorTileComplex155" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 224.032)
+
+[node name="FloorTileComplex156" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 256.032)
+
+[node name="FloorTileComplex157" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 160.032)
+
+[node name="FloorTileComplex158" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 192.032)
+
+[node name="FloorTileComplex159" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 224.032)
+
+[node name="FloorTileComplex160" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 256.032)
+
+[node name="FloorTileComplex161" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 160.032)
+
+[node name="FloorTileComplex162" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 192.032)
+
+[node name="FloorTileComplex163" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 224.032)
+
+[node name="FloorTileComplex164" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 256.032)
+
+[node name="FloorTileComplex165" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 160.032)
+
+[node name="FloorTileComplex166" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 192.032)
+
+[node name="FloorTileComplex167" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 224.032)
+
+[node name="FloorTileComplex168" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 256.032)
+
+[node name="FloorTileComplex169" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 160.032)
+
+[node name="FloorTileComplex170" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 192.032)
+
+[node name="FloorTileComplex171" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 224.032)
+
+[node name="FloorTileComplex172" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 256.032)
+
+[node name="FloorTileComplex173" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 160.032)
+
+[node name="FloorTileComplex174" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 192.032)
+
+[node name="FloorTileComplex175" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 224.032)
+
+[node name="FloorTileComplex176" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 256.032)
+
+[node name="FloorTileComplex177" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 160.032)
+
+[node name="FloorTileComplex178" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 192.032)
+
+[node name="FloorTileComplex179" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 224.032)
+
+[node name="FloorTileComplex180" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 256.032)
+
+[node name="FloorTileComplex181" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 160.032)
+
+[node name="FloorTileComplex182" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 192.032)
+
+[node name="FloorTileComplex183" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 224.032)
+
+[node name="FloorTileComplex184" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 256.032)
+
+[node name="FloorTileComplex185" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 160.032)
+
+[node name="FloorTileComplex186" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 192.032)
+
+[node name="FloorTileComplex187" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 224.032)
+
+[node name="FloorTileComplex188" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 256.032)
+
+[node name="FloorTileComplex189" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 160.032)
+
+[node name="FloorTileComplex190" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 192.032)
+
+[node name="FloorTileComplex191" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 224.032)
+
+[node name="FloorTileComplex192" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 256.032)
+
+[node name="FloorTileComplex193" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 288.064)
+
+[node name="FloorTileComplex194" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 320.064)
+
+[node name="FloorTileComplex195" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 352.064)
+
+[node name="FloorTileComplex196" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 384.064)
+
+[node name="FloorTileComplex197" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 288.064)
+
+[node name="FloorTileComplex198" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 320.064)
+
+[node name="FloorTileComplex199" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 352.064)
+
+[node name="FloorTileComplex200" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 384.064)
+
+[node name="FloorTileComplex201" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 288.064)
+
+[node name="FloorTileComplex202" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 320.064)
+
+[node name="FloorTileComplex203" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 352.064)
+
+[node name="FloorTileComplex204" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 384.064)
+
+[node name="FloorTileComplex205" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 288.064)
+
+[node name="FloorTileComplex206" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 320.064)
+
+[node name="FloorTileComplex207" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 352.064)
+
+[node name="FloorTileComplex208" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 384.064)
+
+[node name="FloorTileComplex209" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 288.064)
+
+[node name="FloorTileComplex210" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 320.064)
+
+[node name="FloorTileComplex211" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 352.064)
+
+[node name="FloorTileComplex212" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 384.064)
+
+[node name="FloorTileComplex213" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 288.064)
+
+[node name="FloorTileComplex214" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 320.064)
+
+[node name="FloorTileComplex215" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 352.064)
+
+[node name="FloorTileComplex216" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 384.064)
+
+[node name="FloorTileComplex217" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 288.064)
+
+[node name="FloorTileComplex218" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 320.064)
+
+[node name="FloorTileComplex219" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 352.064)
+
+[node name="FloorTileComplex220" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 384.064)
+
+[node name="FloorTileComplex221" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 288.064)
+
+[node name="FloorTileComplex222" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 320.064)
+
+[node name="FloorTileComplex223" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 352.064)
+
+[node name="FloorTileComplex224" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 384.064)
+
+[node name="FloorTileComplex225" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 288.064)
+
+[node name="FloorTileComplex226" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 320.064)
+
+[node name="FloorTileComplex227" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 352.064)
+
+[node name="FloorTileComplex228" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 384.064)
+
+[node name="FloorTileComplex229" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 288.064)
+
+[node name="FloorTileComplex230" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 320.064)
+
+[node name="FloorTileComplex231" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 352.064)
+
+[node name="FloorTileComplex232" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 384.064)
+
+[node name="FloorTileComplex233" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 288.064)
+
+[node name="FloorTileComplex234" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 320.064)
+
+[node name="FloorTileComplex235" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 352.064)
+
+[node name="FloorTileComplex236" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 384.064)
+
+[node name="FloorTileComplex237" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 288.064)
+
+[node name="FloorTileComplex238" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 320.064)
+
+[node name="FloorTileComplex239" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 352.064)
+
+[node name="FloorTileComplex240" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 384.064)
+
+[node name="FloorTileComplex241" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 416.064)
+
+[node name="FloorTileComplex242" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 448.064)
+
+[node name="FloorTileComplex243" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 480.064)
+
+[node name="FloorTileComplex244" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 512.064)
+
+[node name="FloorTileComplex245" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 416.064)
+
+[node name="FloorTileComplex246" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 448.064)
+
+[node name="FloorTileComplex247" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 480.064)
+
+[node name="FloorTileComplex248" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 512.064)
+
+[node name="FloorTileComplex249" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 416.064)
+
+[node name="FloorTileComplex250" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 448.064)
+
+[node name="FloorTileComplex251" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 480.064)
+
+[node name="FloorTileComplex252" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 512.064)
+
+[node name="FloorTileComplex253" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 416.064)
+
+[node name="FloorTileComplex254" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 448.064)
+
+[node name="FloorTileComplex255" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 480.064)
+
+[node name="FloorTileComplex256" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 512.064)
+
+[node name="FloorTileComplex257" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 416.064)
+
+[node name="FloorTileComplex258" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 448.064)
+
+[node name="FloorTileComplex259" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 480.064)
+
+[node name="FloorTileComplex260" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 512.064)
+
+[node name="FloorTileComplex261" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 416.064)
+
+[node name="FloorTileComplex262" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 448.064)
+
+[node name="FloorTileComplex263" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 480.064)
+
+[node name="FloorTileComplex264" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 512.064)
+
+[node name="FloorTileComplex265" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 416.064)
+
+[node name="FloorTileComplex266" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 448.064)
+
+[node name="FloorTileComplex267" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 480.064)
+
+[node name="FloorTileComplex268" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 512.064)
+
+[node name="FloorTileComplex269" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 416.064)
+
+[node name="FloorTileComplex270" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 448.064)
+
+[node name="FloorTileComplex271" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 480.064)
+
+[node name="FloorTileComplex272" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 512.064)
+
+[node name="FloorTileComplex273" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 416.064)
+
+[node name="FloorTileComplex274" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 448.064)
+
+[node name="FloorTileComplex275" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 480.064)
+
+[node name="FloorTileComplex276" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 512.064)
+
+[node name="FloorTileComplex277" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 416.064)
+
+[node name="FloorTileComplex278" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 448.064)
+
+[node name="FloorTileComplex279" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 480.064)
+
+[node name="FloorTileComplex280" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 512.064)
+
+[node name="FloorTileComplex281" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 416.064)
+
+[node name="FloorTileComplex282" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 448.064)
+
+[node name="FloorTileComplex283" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 480.064)
+
+[node name="FloorTileComplex284" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 512.064)
+
+[node name="FloorTileComplex285" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 416.064)
+
+[node name="FloorTileComplex286" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 448.064)
+
+[node name="FloorTileComplex287" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 480.064)
+
+[node name="FloorTileComplex288" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 512.064)
+
+[node name="FloorTileComplex289" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 544.032)
+
+[node name="FloorTileComplex290" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 576.032)
+
+[node name="FloorTileComplex291" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 608.032)
+
+[node name="FloorTileComplex292" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.032, 640.032)
+
+[node name="FloorTileComplex293" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 544.032)
+
+[node name="FloorTileComplex294" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 576.032)
+
+[node name="FloorTileComplex295" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 608.032)
+
+[node name="FloorTileComplex296" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.032, 640.032)
+
+[node name="FloorTileComplex297" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 544.032)
+
+[node name="FloorTileComplex298" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 576.032)
+
+[node name="FloorTileComplex299" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 608.032)
+
+[node name="FloorTileComplex300" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.032, 640.032)
+
+[node name="FloorTileComplex301" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 544.032)
+
+[node name="FloorTileComplex302" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 576.032)
+
+[node name="FloorTileComplex303" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 608.032)
+
+[node name="FloorTileComplex304" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.032, 640.032)
+
+[node name="FloorTileComplex305" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 544.032)
+
+[node name="FloorTileComplex306" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 576.032)
+
+[node name="FloorTileComplex307" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 608.032)
+
+[node name="FloorTileComplex308" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.032, 640.032)
+
+[node name="FloorTileComplex309" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 544.032)
+
+[node name="FloorTileComplex310" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 576.032)
+
+[node name="FloorTileComplex311" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 608.032)
+
+[node name="FloorTileComplex312" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.032, 640.032)
+
+[node name="FloorTileComplex313" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 544.032)
+
+[node name="FloorTileComplex314" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 576.032)
+
+[node name="FloorTileComplex315" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 608.032)
+
+[node name="FloorTileComplex316" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.032, 640.032)
+
+[node name="FloorTileComplex317" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 544.032)
+
+[node name="FloorTileComplex318" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 576.032)
+
+[node name="FloorTileComplex319" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 608.032)
+
+[node name="FloorTileComplex320" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.032, 640.032)
+
+[node name="FloorTileComplex321" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 544.032)
+
+[node name="FloorTileComplex322" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 576.032)
+
+[node name="FloorTileComplex323" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 608.032)
+
+[node name="FloorTileComplex324" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.032, 640.032)
+
+[node name="FloorTileComplex325" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 544.032)
+
+[node name="FloorTileComplex326" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 576.032)
+
+[node name="FloorTileComplex327" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 608.032)
+
+[node name="FloorTileComplex328" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.032, 640.032)
+
+[node name="FloorTileComplex329" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 544.032)
+
+[node name="FloorTileComplex330" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 576.032)
+
+[node name="FloorTileComplex331" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 608.032)
+
+[node name="FloorTileComplex332" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.032, 640.032)
+
+[node name="FloorTileComplex333" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 544.032)
+
+[node name="FloorTileComplex334" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 576.032)
+
+[node name="FloorTileComplex335" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 608.032)
+
+[node name="FloorTileComplex336" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.032, 640.032)
+
+[node name="FloorTileComplex337" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 672.064)
+
+[node name="FloorTileComplex338" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 704.064)
+
+[node name="FloorTileComplex339" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 736.064)
+
+[node name="FloorTileComplex340" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 768.064)
+
+[node name="FloorTileComplex341" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 672.064)
+
+[node name="FloorTileComplex342" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 704.064)
+
+[node name="FloorTileComplex343" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 736.064)
+
+[node name="FloorTileComplex344" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 768.064)
+
+[node name="FloorTileComplex345" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 672.064)
+
+[node name="FloorTileComplex346" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 704.064)
+
+[node name="FloorTileComplex347" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 736.064)
+
+[node name="FloorTileComplex348" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 768.064)
+
+[node name="FloorTileComplex349" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 672.064)
+
+[node name="FloorTileComplex350" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 704.064)
+
+[node name="FloorTileComplex351" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 736.064)
+
+[node name="FloorTileComplex352" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 768.064)
+
+[node name="FloorTileComplex353" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 672.064)
+
+[node name="FloorTileComplex354" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 704.064)
+
+[node name="FloorTileComplex355" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 736.064)
+
+[node name="FloorTileComplex356" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 768.064)
+
+[node name="FloorTileComplex357" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 672.064)
+
+[node name="FloorTileComplex358" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 704.064)
+
+[node name="FloorTileComplex359" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 736.064)
+
+[node name="FloorTileComplex360" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 768.064)
+
+[node name="FloorTileComplex361" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 672.064)
+
+[node name="FloorTileComplex362" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 704.064)
+
+[node name="FloorTileComplex363" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 736.064)
+
+[node name="FloorTileComplex364" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 768.064)
+
+[node name="FloorTileComplex365" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 672.064)
+
+[node name="FloorTileComplex366" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 704.064)
+
+[node name="FloorTileComplex367" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 736.064)
+
+[node name="FloorTileComplex368" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 768.064)
+
+[node name="FloorTileComplex369" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 672.064)
+
+[node name="FloorTileComplex370" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 704.064)
+
+[node name="FloorTileComplex371" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 736.064)
+
+[node name="FloorTileComplex372" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 768.064)
+
+[node name="FloorTileComplex373" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 672.064)
+
+[node name="FloorTileComplex374" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 704.064)
+
+[node name="FloorTileComplex375" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 736.064)
+
+[node name="FloorTileComplex376" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 768.064)
+
+[node name="FloorTileComplex377" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 672.064)
+
+[node name="FloorTileComplex378" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 704.064)
+
+[node name="FloorTileComplex379" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 736.064)
+
+[node name="FloorTileComplex380" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 768.064)
+
+[node name="FloorTileComplex381" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 672.064)
+
+[node name="FloorTileComplex382" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 704.064)
+
+[node name="FloorTileComplex383" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 736.064)
+
+[node name="FloorTileComplex384" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 768.064)
+
+[node name="FloorTileComplex385" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 800.064)
+
+[node name="FloorTileComplex386" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 832.064)
+
+[node name="FloorTileComplex387" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 864.064)
+
+[node name="FloorTileComplex388" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(640.064, 896.064)
+
+[node name="FloorTileComplex389" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 800.064)
+
+[node name="FloorTileComplex390" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 832.064)
+
+[node name="FloorTileComplex391" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 864.064)
+
+[node name="FloorTileComplex392" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(672.064, 896.064)
+
+[node name="FloorTileComplex393" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 800.064)
+
+[node name="FloorTileComplex394" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 832.064)
+
+[node name="FloorTileComplex395" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 864.064)
+
+[node name="FloorTileComplex396" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(704.064, 896.064)
+
+[node name="FloorTileComplex397" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 800.064)
+
+[node name="FloorTileComplex398" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 832.064)
+
+[node name="FloorTileComplex399" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 864.064)
+
+[node name="FloorTileComplex400" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(736.064, 896.064)
+
+[node name="FloorTileComplex401" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 800.064)
+
+[node name="FloorTileComplex402" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 832.064)
+
+[node name="FloorTileComplex403" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 864.064)
+
+[node name="FloorTileComplex404" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(768.064, 896.064)
+
+[node name="FloorTileComplex405" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 800.064)
+
+[node name="FloorTileComplex406" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 832.064)
+
+[node name="FloorTileComplex407" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 864.064)
+
+[node name="FloorTileComplex408" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(800.064, 896.064)
+
+[node name="FloorTileComplex409" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 800.064)
+
+[node name="FloorTileComplex410" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 832.064)
+
+[node name="FloorTileComplex411" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 864.064)
+
+[node name="FloorTileComplex412" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(832.064, 896.064)
+
+[node name="FloorTileComplex413" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 800.064)
+
+[node name="FloorTileComplex414" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 832.064)
+
+[node name="FloorTileComplex415" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 864.064)
+
+[node name="FloorTileComplex416" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(864.064, 896.064)
+
+[node name="FloorTileComplex417" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 800.064)
+
+[node name="FloorTileComplex418" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 832.064)
+
+[node name="FloorTileComplex419" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 864.064)
+
+[node name="FloorTileComplex420" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(896.064, 896.064)
+
+[node name="FloorTileComplex421" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 800.064)
+
+[node name="FloorTileComplex422" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 832.064)
+
+[node name="FloorTileComplex423" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 864.064)
+
+[node name="FloorTileComplex424" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(928.064, 896.064)
+
+[node name="FloorTileComplex425" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 800.064)
+
+[node name="FloorTileComplex426" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 832.064)
+
+[node name="FloorTileComplex427" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 864.064)
+
+[node name="FloorTileComplex428" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(960.064, 896.064)
+
+[node name="FloorTileComplex429" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 800.064)
+
+[node name="FloorTileComplex430" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 832.064)
+
+[node name="FloorTileComplex431" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 864.064)
+
+[node name="FloorTileComplex432" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(992.064, 896.064)
+
+[node name="FloorTileComplex433" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 544.032)
+
+[node name="FloorTileComplex434" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 576.032)
+
+[node name="FloorTileComplex435" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 608.032)
+
+[node name="FloorTileComplex436" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.032, 640.032)
+
+[node name="FloorTileComplex437" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 544.032)
+
+[node name="FloorTileComplex438" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 576.032)
+
+[node name="FloorTileComplex439" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 608.032)
+
+[node name="FloorTileComplex440" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.032, 640.032)
+
+[node name="FloorTileComplex441" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 544.032)
+
+[node name="FloorTileComplex442" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 576.032)
+
+[node name="FloorTileComplex443" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 608.032)
+
+[node name="FloorTileComplex444" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.032, 640.032)
+
+[node name="FloorTileComplex445" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 544.032)
+
+[node name="FloorTileComplex446" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 576.032)
+
+[node name="FloorTileComplex447" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 608.032)
+
+[node name="FloorTileComplex448" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.032, 640.032)
+
+[node name="FloorTileComplex449" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 544.032)
+
+[node name="FloorTileComplex450" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 576.032)
+
+[node name="FloorTileComplex451" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 608.032)
+
+[node name="FloorTileComplex452" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.032, 640.032)
+
+[node name="FloorTileComplex453" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 544.032)
+
+[node name="FloorTileComplex454" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 576.032)
+
+[node name="FloorTileComplex455" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 608.032)
+
+[node name="FloorTileComplex456" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.032, 640.032)
+
+[node name="FloorTileComplex457" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 544.032)
+
+[node name="FloorTileComplex458" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 576.032)
+
+[node name="FloorTileComplex459" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 608.032)
+
+[node name="FloorTileComplex460" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.032, 640.032)
+
+[node name="FloorTileComplex461" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 544.032)
+
+[node name="FloorTileComplex462" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 576.032)
+
+[node name="FloorTileComplex463" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 608.032)
+
+[node name="FloorTileComplex464" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.032, 640.032)
+
+[node name="FloorTileComplex465" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 544.032)
+
+[node name="FloorTileComplex466" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 576.032)
+
+[node name="FloorTileComplex467" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 608.032)
+
+[node name="FloorTileComplex468" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.032, 640.032)
+
+[node name="FloorTileComplex469" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 544.032)
+
+[node name="FloorTileComplex470" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 576.032)
+
+[node name="FloorTileComplex471" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 608.032)
+
+[node name="FloorTileComplex472" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.032, 640.032)
+
+[node name="FloorTileComplex473" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 544.032)
+
+[node name="FloorTileComplex474" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 576.032)
+
+[node name="FloorTileComplex475" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 608.032)
+
+[node name="FloorTileComplex476" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.032, 640.032)
+
+[node name="FloorTileComplex477" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 544.032)
+
+[node name="FloorTileComplex478" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 576.032)
+
+[node name="FloorTileComplex479" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 608.032)
+
+[node name="FloorTileComplex480" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.032, 640.032)
+
+[node name="FloorTileComplex481" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 672.064)
+
+[node name="FloorTileComplex482" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 704.064)
+
+[node name="FloorTileComplex483" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 736.064)
+
+[node name="FloorTileComplex484" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 768.064)
+
+[node name="FloorTileComplex485" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 672.064)
+
+[node name="FloorTileComplex486" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 704.064)
+
+[node name="FloorTileComplex487" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 736.064)
+
+[node name="FloorTileComplex488" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 768.064)
+
+[node name="FloorTileComplex489" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 672.064)
+
+[node name="FloorTileComplex490" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 704.064)
+
+[node name="FloorTileComplex491" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 736.064)
+
+[node name="FloorTileComplex492" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 768.064)
+
+[node name="FloorTileComplex493" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 672.064)
+
+[node name="FloorTileComplex494" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 704.064)
+
+[node name="FloorTileComplex495" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 736.064)
+
+[node name="FloorTileComplex496" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 768.064)
+
+[node name="FloorTileComplex497" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 672.064)
+
+[node name="FloorTileComplex498" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 704.064)
+
+[node name="FloorTileComplex499" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 736.064)
+
+[node name="FloorTileComplex500" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 768.064)
+
+[node name="FloorTileComplex501" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 672.064)
+
+[node name="FloorTileComplex502" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 704.064)
+
+[node name="FloorTileComplex503" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 736.064)
+
+[node name="FloorTileComplex504" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 768.064)
+
+[node name="FloorTileComplex505" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 672.064)
+
+[node name="FloorTileComplex506" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 704.064)
+
+[node name="FloorTileComplex507" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 736.064)
+
+[node name="FloorTileComplex508" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 768.064)
+
+[node name="FloorTileComplex509" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 672.064)
+
+[node name="FloorTileComplex510" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 704.064)
+
+[node name="FloorTileComplex511" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 736.064)
+
+[node name="FloorTileComplex512" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 768.064)
+
+[node name="FloorTileComplex513" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 672.064)
+
+[node name="FloorTileComplex514" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 704.064)
+
+[node name="FloorTileComplex515" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 736.064)
+
+[node name="FloorTileComplex516" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 768.064)
+
+[node name="FloorTileComplex517" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 672.064)
+
+[node name="FloorTileComplex518" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 704.064)
+
+[node name="FloorTileComplex519" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 736.064)
+
+[node name="FloorTileComplex520" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 768.064)
+
+[node name="FloorTileComplex521" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 672.064)
+
+[node name="FloorTileComplex522" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 704.064)
+
+[node name="FloorTileComplex523" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 736.064)
+
+[node name="FloorTileComplex524" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 768.064)
+
+[node name="FloorTileComplex525" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 672.064)
+
+[node name="FloorTileComplex526" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 704.064)
+
+[node name="FloorTileComplex527" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 736.064)
+
+[node name="FloorTileComplex528" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 768.064)
+
+[node name="FloorTileComplex529" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 800.064)
+
+[node name="FloorTileComplex530" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256, 832)
+
+[node name="FloorTileComplex531" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 864.064)
+
+[node name="FloorTileComplex532" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(256.064, 896.064)
+
+[node name="FloorTileComplex533" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 800.064)
+
+[node name="FloorTileComplex534" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 832.064)
+
+[node name="FloorTileComplex535" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 864.064)
+
+[node name="FloorTileComplex536" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(288.064, 896.064)
+
+[node name="FloorTileComplex537" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 800.064)
+
+[node name="FloorTileComplex538" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 832.064)
+
+[node name="FloorTileComplex539" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 864.064)
+
+[node name="FloorTileComplex540" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(320.064, 896.064)
+
+[node name="FloorTileComplex577" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(160.032, 832.032)
+
+[node name="FloorTileComplex578" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(160.096, 864.096)
+
+[node name="FloorTileComplex579" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(160.096, 896.096)
+
+[node name="FloorTileComplex580" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(192.096, 832.096)
+
+[node name="FloorTileComplex581" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(192.096, 864.096)
+
+[node name="FloorTileComplex582" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(192.096, 896.096)
+
+[node name="FloorTileComplex583" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(224.096, 832.096)
+
+[node name="FloorTileComplex584" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(224.096, 864.096)
+
+[node name="FloorTileComplex585" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(224.096, 896.096)
+
+[node name="FloorTileComplex541" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 800.064)
+
+[node name="FloorTileComplex542" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 832.064)
+
+[node name="FloorTileComplex543" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 864.064)
+
+[node name="FloorTileComplex544" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(352.064, 896.064)
+
+[node name="FloorTileComplex545" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 800.064)
+
+[node name="FloorTileComplex546" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 832.064)
+
+[node name="FloorTileComplex547" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 864.064)
+
+[node name="FloorTileComplex548" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(384.064, 896.064)
+
+[node name="FloorTileComplex549" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 800.064)
+
+[node name="FloorTileComplex550" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 832.064)
+
+[node name="FloorTileComplex551" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 864.064)
+
+[node name="FloorTileComplex552" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(416.064, 896.064)
+
+[node name="FloorTileComplex553" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 800.064)
+
+[node name="FloorTileComplex554" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 832.064)
+
+[node name="FloorTileComplex555" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 864.064)
+
+[node name="FloorTileComplex556" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(448.064, 896.064)
+
+[node name="FloorTileComplex557" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 800.064)
+
+[node name="FloorTileComplex558" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 832.064)
+
+[node name="FloorTileComplex559" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 864.064)
+
+[node name="FloorTileComplex560" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(480.064, 896.064)
+
+[node name="FloorTileComplex561" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 800.064)
+
+[node name="FloorTileComplex562" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 832.064)
+
+[node name="FloorTileComplex563" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 864.064)
+
+[node name="FloorTileComplex564" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(512.064, 896.064)
+
+[node name="FloorTileComplex565" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 800.064)
+
+[node name="FloorTileComplex566" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 832.064)
+
+[node name="FloorTileComplex567" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 864.064)
+
+[node name="FloorTileComplex568" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(544.064, 896.064)
+
+[node name="FloorTileComplex569" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 800.064)
+
+[node name="FloorTileComplex570" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 832.064)
+
+[node name="FloorTileComplex571" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 864.064)
+
+[node name="FloorTileComplex572" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(576.064, 896.064)
+
+[node name="FloorTileComplex573" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 800.064)
+
+[node name="FloorTileComplex574" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 832.064)
+
+[node name="FloorTileComplex575" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 864.064)
+
+[node name="FloorTileComplex576" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
+position = Vector2(608.064, 896.064)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallBackTileComplex" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(192, 128)
-
-[node name="WallBackTileComplex2" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(224, 128)
-
-[node name="WallBackTileComplex3" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(256, 128)
 
-[node name="WallBackTileComplex4" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(288, 128)
-
-[node name="WallBackTileComplex5" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex3" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(320, 128)
 
-[node name="WallBackTileComplex6" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex53" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(192, 800)
+
+[node name="WallBackTileComplex54" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(224, 800)
+
+[node name="WallBackTileComplex4" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(352, 128)
 
-[node name="WallBackTileComplex7" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex5" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(384, 128)
 
-[node name="WallBackTileComplex8" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex6" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(416, 128)
 
-[node name="WallBackTileComplex9" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex7" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(448, 128)
 
-[node name="WallBackTileComplex10" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex8" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(480, 128)
 
-[node name="WallBackTileComplex11" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex9" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(512, 128)
 
-[node name="WallBackTileComplex12" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+[node name="WallBackTileComplex10" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(544, 128)
 
-[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("10_b8ppj")]
+[node name="WallBackTileComplex11" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(576, 128)
 
+[node name="WallBackTileComplex12" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(608, 128)
+
+[node name="WallBackTileComplex37" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(640, 128)
+
+[node name="WallBackTileComplex38" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(672, 128)
+
+[node name="WallBackTileComplex39" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(704, 128)
+
+[node name="WallBackTileComplex40" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(736, 128)
+
+[node name="WallBackTileComplex41" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(768, 128)
+
+[node name="WallBackTileComplex42" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(800, 128)
+
+[node name="WallBackTileComplex43" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(832, 128)
+
+[node name="WallBackTileComplex44" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(864, 128)
+
+[node name="WallBackTileComplex45" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(896, 128)
+
+[node name="WallBackTileComplex46" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(928, 128)
+
+[node name="WallBackTileComplex47" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(960, 128)
+
+[node name="WallBackTileComplex48" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(992, 128)
+
 [node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
-position = Vector2(160, 128)
+position = Vector2(224, 128)
 
 [node name="WallVerticalTileComplex" parent="Environment/Walls" instance=ExtResource("9_o170u")]
-position = Vector2(160, 160)
+position = Vector2(224, 160)
 
 [node name="WallVerticalTileComplex2" parent="Environment/Walls" instance=ExtResource("9_o170u")]
-position = Vector2(160, 192)
+position = Vector2(224, 192)
 
 [node name="WallVerticalTileComplex3" parent="Environment/Walls" instance=ExtResource("9_o170u")]
-position = Vector2(160, 224)
+position = Vector2(224, 224)
+
+[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
+position = Vector2(128, 800)
+
+[node name="WallVerticalTileComplex21" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(128, 832)
+
+[node name="WallVerticalTileComplex22" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(128, 864)
+
+[node name="WallVerticalTileComplex23" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(128, 896)
 
 [node name="WallVerticalTileComplex4" parent="Environment/Walls" instance=ExtResource("9_o170u")]
-position = Vector2(160, 256)
+position = Vector2(224, 256)
 
 [node name="WallVerticalTileComplex5" parent="Environment/Walls" instance=ExtResource("9_o170u")]
-position = Vector2(160, 256)
-
-[node name="WallVerticalTileComplex6" parent="Environment/Walls" instance=ExtResource("10_r1kny")]
-position = Vector2(576, 160)
-
-[node name="WallVerticalTileComplex7" parent="Environment/Walls" instance=ExtResource("10_r1kny")]
-position = Vector2(576, 192)
-
-[node name="WallVerticalTileComplex8" parent="Environment/Walls" instance=ExtResource("10_r1kny")]
-position = Vector2(576, 224)
-
-[node name="WallVerticalTileComplex9" parent="Environment/Walls" instance=ExtResource("10_r1kny")]
-position = Vector2(576, 256)
-
-[node name="WallBackTileComplex13" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(192, 288)
-
-[node name="WallBackTileComplex14" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
 position = Vector2(224, 288)
 
+[node name="WallVerticalTileComplex6" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 320)
+
+[node name="WallVerticalTileComplex7" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 352)
+
+[node name="WallVerticalTileComplex8" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 384)
+
+[node name="WallVerticalTileComplex9" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 416)
+
+[node name="WallVerticalTileComplex10" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 448)
+
+[node name="WallVerticalTileComplex11" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 480)
+
+[node name="WallVerticalTileComplex12" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 512)
+
+[node name="WallVerticalTileComplex13" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 544)
+
+[node name="WallVerticalTileComplex14" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 576)
+
+[node name="WallVerticalTileComplex15" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 608)
+
+[node name="WallVerticalTileComplex16" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 640)
+
+[node name="WallVerticalTileComplex17" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 672)
+
+[node name="WallVerticalTileComplex18" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 704)
+
+[node name="WallVerticalTileComplex19" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 736)
+
+[node name="WallVerticalTileComplex20" parent="Environment/Walls" instance=ExtResource("9_o170u")]
+position = Vector2(224, 768)
+
+[node name="WallBackTileComplex13" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(256, 928)
+
+[node name="WallBackTileComplex14" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(288, 928)
+
 [node name="WallBackTileComplex15" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(256, 288)
+position = Vector2(320, 928)
+
+[node name="WallBackTileComplex49" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(160, 928)
+
+[node name="WallBackTileComplex50" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(192, 928)
+
+[node name="WallBackTileComplex51" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(224, 928)
 
 [node name="WallBackTileComplex16" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(288, 288)
+position = Vector2(352, 928)
 
 [node name="WallBackTileComplex17" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(320, 288)
+position = Vector2(384, 928)
 
 [node name="WallBackTileComplex18" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(352, 288)
+position = Vector2(416, 928)
 
 [node name="WallBackTileComplex19" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(384, 288)
+position = Vector2(448, 928)
 
 [node name="WallBackTileComplex20" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(416, 288)
+position = Vector2(480, 928)
 
 [node name="WallBackTileComplex21" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(448, 288)
+position = Vector2(512, 928)
 
 [node name="WallBackTileComplex22" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(480, 288)
+position = Vector2(544, 928)
 
 [node name="WallBackTileComplex23" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(512, 288)
+position = Vector2(576, 928)
 
 [node name="WallBackTileComplex24" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
-position = Vector2(544, 288)
+position = Vector2(608, 928)
+
+[node name="WallBackTileComplex25" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(640, 928)
+
+[node name="WallBackTileComplex26" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(672, 928)
+
+[node name="WallBackTileComplex27" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(704, 928)
+
+[node name="WallBackTileComplex28" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(736, 928)
+
+[node name="WallBackTileComplex29" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(768, 928)
+
+[node name="WallBackTileComplex30" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(800, 928)
+
+[node name="WallBackTileComplex31" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(832, 928)
+
+[node name="WallBackTileComplex32" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(864, 928)
+
+[node name="WallBackTileComplex33" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(896, 928)
+
+[node name="WallBackTileComplex34" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(928, 928)
+
+[node name="WallBackTileComplex35" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(960, 928)
+
+[node name="WallBackTileComplex36" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+position = Vector2(992, 928)
 
 [node name="CornerWallTileComplex3" parent="Environment/Walls" instance=ExtResource("15_o25el")]
-position = Vector2(160, 288)
+position = Vector2(128, 928)
 
-[node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("13_mvi4t")]
-position = Vector2(576, 288)
+[node name="AssemblyLane" type="Node2D" parent="Environment"]
+
+[node name="ComplexArm" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(992, 192)
+
+[node name="ComplexArm2" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(888, 192)
+
+[node name="conveyor" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(952, 232)
+
+[node name="ComplexArm3" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(760, 192)
+
+[node name="ComplexArm4" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(656, 192)
+
+[node name="conveyor2" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(720, 232)
+
+[node name="ComplexArm5" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(528, 192)
+
+[node name="ComplexArm6" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(424, 192)
+
+[node name="conveyor3" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(488, 232)
+
+[node name="ComplexArm7" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(992, 288)
+
+[node name="ComplexArm8" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(888, 288)
+
+[node name="conveyor4" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(952, 328)
+
+[node name="ComplexArm9" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(760, 288)
+
+[node name="ComplexArm10" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(656, 288)
+
+[node name="conveyor5" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(720, 328)
+
+[node name="ComplexArm11" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(528, 288)
+
+[node name="ComplexArm12" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(424, 288)
+
+[node name="conveyor6" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(488, 328)
+
+[node name="ComplexArm13" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(992, 384)
+
+[node name="ComplexArm14" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(888, 384)
+
+[node name="conveyor7" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(952, 424)
+
+[node name="ComplexArm15" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(760, 384)
+
+[node name="ComplexArm16" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(656, 384)
+
+[node name="conveyor8" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(720, 424)
+
+[node name="ComplexArm17" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(528, 384)
+
+[node name="ComplexArm18" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(424, 384)
+
+[node name="conveyor9" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(488, 424)
+
+[node name="ComplexArm19" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(984, 480)
+
+[node name="ComplexArm20" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(880, 480)
+
+[node name="conveyor10" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(944, 520)
+
+[node name="ComplexArm21" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(752, 480)
+
+[node name="ComplexArm22" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(648, 480)
+
+[node name="conveyor11" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(712, 520)
+
+[node name="ComplexArm23" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(520, 480)
+
+[node name="ComplexArm24" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(416, 480)
+
+[node name="conveyor12" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(480, 520)
+
+[node name="ComplexArm25" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(984, 576)
+
+[node name="ComplexArm26" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(880, 576)
+
+[node name="conveyor13" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(944, 616)
+
+[node name="ComplexArm27" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(752, 576)
+
+[node name="ComplexArm28" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(648, 576)
+
+[node name="conveyor14" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(712, 616)
+
+[node name="ComplexArm29" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(520, 576)
+
+[node name="ComplexArm30" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(416, 576)
+
+[node name="conveyor15" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(480, 616)
+
+[node name="ComplexArm31" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(984, 672)
+
+[node name="ComplexArm32" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(880, 672)
+
+[node name="conveyor16" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(944, 712)
+
+[node name="ComplexArm33" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(752, 672)
+
+[node name="ComplexArm34" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(648, 672)
+
+[node name="conveyor17" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(712, 712)
+
+[node name="ComplexArm35" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(520, 672)
+
+[node name="ComplexArm36" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(416, 672)
+
+[node name="conveyor18" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(480, 712)
+
+[node name="ComplexArm37" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(984, 768)
+
+[node name="ComplexArm38" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(880, 768)
+
+[node name="conveyor19" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(944, 808)
+
+[node name="ComplexArm39" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(752, 768)
+
+[node name="ComplexArm40" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(648, 768)
+
+[node name="conveyor20" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(712, 808)
+
+[node name="ComplexArm41" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(520, 768)
+
+[node name="ComplexArm42" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(416, 768)
+
+[node name="conveyor21" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(480, 808)
+
+[node name="ComplexArm43" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(984, 864)
+
+[node name="ComplexArm44" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(880, 864)
+
+[node name="conveyor22" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(944, 904)
+
+[node name="ComplexArm45" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(752, 864)
+
+[node name="ComplexArm46" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(648, 864)
+
+[node name="conveyor23" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(712, 904)
+
+[node name="ComplexArm47" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(520, 864)
+
+[node name="ComplexArm48" parent="Environment/AssemblyLane" instance=ExtResource("19_neo2u")]
+position = Vector2(416, 864)
+
+[node name="conveyor24" parent="Environment/AssemblyLane" instance=ExtResource("20_shhch")]
+position = Vector2(480, 904)
 
 [node name="Trials" type="Node2D" parent="."]
 
 [node name="Terminal2" parent="." instance=ExtResource("9_4uou4")]
-position = Vector2(384, 256)
+position = Vector2(256, 480)
 
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_mads1")]
-position = Vector2(544, 224)
+position = Vector2(288, 128)
 door_number = 1
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
@@ -325,16 +2290,13 @@ autoplay = true
 bus = &"Music"
 
 [node name="AmplifierTile" parent="." instance=ExtResource("18_ipnln")]
-position = Vector2(192, 160)
+position = Vector2(264, 664)
 select_amplifier = "NeuroEnhanceAmplifier1"
 
 [node name="RealPlayer" parent="." instance=ExtResource("18_oxmmy")]
 
-[node name="ComplexArm" parent="." instance=ExtResource("19_neo2u")]
-position = Vector2(480, 136)
+[node name="InvisibleWall" parent="." instance=ExtResource("19_eeb4t")]
+position = Vector2(160, 768)
 
-[node name="ComplexArm2" parent="." instance=ExtResource("19_neo2u")]
-position = Vector2(376, 136)
-
-[node name="conveyor" parent="." instance=ExtResource("20_shhch")]
-position = Vector2(440, 176)
+[node name="InvisibleWall2" parent="." instance=ExtResource("19_eeb4t")]
+position = Vector2(288, 96)

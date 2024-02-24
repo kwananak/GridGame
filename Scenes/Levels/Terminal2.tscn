@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=29 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_cm8sf"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_pf44h"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_1j7k8"]
+[ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="8_ad6ji"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="8_xdasv"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="9_bd5av"]
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="9_qed1s"]
+[ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="12_p4gqk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apdsw"]
 atlas = ExtResource("2_o3ila")
@@ -108,7 +110,7 @@ scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_apdsw")
 
 [node name="MapBackground" type="Sprite2D" parent="Control"]
-position = Vector2(256, 152)
+position = Vector2(248.09, 142.269)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_7012p")
 
@@ -121,7 +123,7 @@ visible = false
 texture = SubResource("AtlasTexture_ca6sk")
 
 [node name="Map" type="Sprite2D" parent="Control"]
-position = Vector2(304, 152)
+position = Vector2(296.09, 142.269)
 texture = SubResource("AtlasTexture_8xg8u")
 
 [node name="Level201" parent="Control/Map" instance=ExtResource("3_ew1yl")]
@@ -129,9 +131,6 @@ offset_left = -304.0
 offset_top = -8.0
 offset_right = -304.0
 offset_bottom = -8.0
-focus_neighbor_left = NodePath("../../NexusButton")
-focus_neighbor_top = NodePath("../Level202")
-focus_neighbor_bottom = NodePath("../../NexusButton")
 node_level = 201
 node_color = "blue"
 
@@ -140,9 +139,6 @@ offset_left = -238.0
 offset_top = -11.0
 offset_right = -238.0
 offset_bottom = -11.0
-focus_neighbor_left = NodePath("../Level201")
-focus_neighbor_right = NodePath("../Level203")
-focus_neighbor_bottom = NodePath("../../NexusButton")
 node_level = 202
 node_color = "blue"
 
@@ -184,10 +180,10 @@ scale = Vector2(1.5, 1.5)
 [node name="DoorLabel" type="Control" parent="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 51.0
-offset_top = 175.0
-offset_right = 122.0
-offset_bottom = 240.0
+offset_left = 43.0895
+offset_top = 165.269
+offset_right = 114.09
+offset_bottom = 230.269
 
 [node name="Label" type="RichTextLabel" parent="Control/DoorLabel"]
 layout_mode = 1
@@ -205,37 +201,75 @@ grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/normal_font = ExtResource("8_xdasv")
 theme_override_font_sizes/normal_font_size = 64
-text = "Terminal 1
+text = "Terminal 2
 locked"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_ajnw5")
 
+[node name="Log" parent="Control" instance=ExtResource("8_ad6ji")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 578.0
+offset_top = 199.0
+offset_right = 578.0
+offset_bottom = 199.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.86, 0.86)
+
 [node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
 layout_mode = 1
-anchor_left = 0.214142
-anchor_top = 0.381359
-anchor_right = 0.214142
-anchor_bottom = 0.381359
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.31
+anchor_right = 0.502
+anchor_bottom = 0.31
+offset_left = -0.304016
+offset_top = 0.600006
+offset_right = -0.304016
+offset_bottom = 0.600006
+scale = Vector2(0.86, 0.86)
 
 [node name="NexusButton" parent="Control" instance=ExtResource("7_1j7k8")]
 layout_mode = 1
-offset_left = -448.0
-offset_top = -32.0
-offset_right = -448.0
-offset_bottom = -32.0
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.45
+anchor_right = 0.111
+anchor_bottom = 0.45
+offset_left = 0.127991
+offset_top = 0.0
+offset_right = 0.127991
+offset_bottom = 0.0
 scale = Vector2(0.8, 0.8)
 
 [node name="ReturnButton" parent="Control" instance=ExtResource("9_bd5av")]
 layout_mode = 1
-offset_left = -433.0
-offset_top = 14.0
-offset_right = -433.0
-offset_bottom = 14.0
+anchors_preset = -1
+anchor_left = 0.124
+anchor_top = 0.522
+anchor_right = 0.124
+anchor_bottom = 0.522
+offset_left = 184.018
+offset_top = -79.6024
+offset_right = 184.018
+offset_bottom = -79.6024
+
+[node name="LogButton" parent="Control" instance=ExtResource("12_p4gqk")]
+layout_mode = 1
+offset_left = -149.134
+offset_top = -65.5224
+offset_right = -149.134
+offset_bottom = -65.5224
 
 [node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
-position = Vector2(331, 300)
+position = Vector2(338.806, 312.687)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_i875o")
 metadata/_edit_use_anchors_ = true

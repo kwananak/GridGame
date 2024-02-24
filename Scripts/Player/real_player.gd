@@ -35,7 +35,7 @@ func enter_level_animation():
 		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
 	await create_tween().tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
 
-func _physics_process(delta):
+func _process(delta):
 	if level_manager.game_over || level_manager.paused || !active:
 		return
 	var input_direction  = Input.get_vector("left", "right", "up", "down")
@@ -44,13 +44,11 @@ func _physics_process(delta):
 			animated_sprite_2d.flip_h = true
 		if input_direction.x > 0:
 			animated_sprite_2d.flip_h = false
-		animated_sprite_2d.animation = "move"
-		if !animated_sprite_2d.is_playing():
-				animated_sprite_2d.play()
+		if animated_sprite_2d.animation != "move":
+				animated_sprite_2d.animation = "move"
 		if !$Footsteps.is_playing():
 			$Footsteps.play()
 		move_and_collide(input_direction * SPEED * delta)
 	else:
-		animated_sprite_2d.animation = "idle";
-		if !animated_sprite_2d.is_playing():
-				animated_sprite_2d.play()
+		if animated_sprite_2d.animation != "idle":
+			animated_sprite_2d.animation = "idle";
