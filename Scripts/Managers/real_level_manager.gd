@@ -1,6 +1,7 @@
 extends "res://Scripts/Managers/level_manager.gd"
 
 var turn = 0
+var first = true
 
 @onready var audio
 
@@ -20,3 +21,9 @@ func end_turn(_value):
 # called by player when activating a terminal
 func call_terminal(terminal_name):
 	$/root/Main.call_terminal_scene(terminal_name)
+
+func _on_tree_entered():
+	if first:
+		first = false
+		return
+	paused = false
