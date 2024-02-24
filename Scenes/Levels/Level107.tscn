@@ -34,7 +34,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_nrsom")]
-yellow_doomwall_step = 0.75
+yellow_doomwall_step = 0.5
 red_doomwall_step = 1.5
 level_name = "No turnback"
 level_height = 90
@@ -973,7 +973,7 @@ position = Vector2(640, 128)
 position = Vector2(736, 352)
 
 [node name="Booster4" parent="GameplayElements/Items" instance=ExtResource("22_u0ec5")]
-position = Vector2(704, 544)
+position = Vector2(768, 512)
 
 [node name="Booster7" parent="GameplayElements/Items" instance=ExtResource("22_u0ec5")]
 position = Vector2(736, 544)
@@ -988,7 +988,7 @@ position = Vector2(768, 576)
 position = Vector2(736, 576)
 
 [node name="Booster10" parent="GameplayElements/Items" instance=ExtResource("22_u0ec5")]
-position = Vector2(704, 576)
+position = Vector2(736, 512)
 
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
@@ -1086,7 +1086,7 @@ position = Vector2(704, 352)
 position = Vector2(768, 352)
 
 [node name="ByteBarrierHard126" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
-position = Vector2(672, 512)
+position = Vector2(704, 512)
 
 [node name="ByteBarrierHard127" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
 position = Vector2(736, 288)
@@ -1095,10 +1095,10 @@ position = Vector2(736, 288)
 position = Vector2(736, 384)
 
 [node name="ByteBarrierHard129" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
-position = Vector2(736, 512)
+position = Vector2(736, 480)
 
 [node name="ByteBarrierHard130" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
-position = Vector2(704, 512)
+position = Vector2(704, 480)
 
 [node name="ByteBarrierHard131" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
 position = Vector2(768, 416)
@@ -1107,7 +1107,7 @@ position = Vector2(768, 416)
 position = Vector2(704, 448)
 
 [node name="ByteBarrierHard133" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
-position = Vector2(768, 512)
+position = Vector2(768, 480)
 
 [node name="ByteBarrierHard134" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_1g4i3")]
 position = Vector2(736, 448)
@@ -1289,11 +1289,14 @@ position = Vector2(672, 448)
 [node name="PyramidByteBarrierTile11" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_cgecf")]
 position = Vector2(256, 192)
 
+[node name="PyramidByteBarrierTile12" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_cgecf")]
+position = Vector2(384, 128)
+
 [node name="PyramidByteBarrierTile7" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_cgecf")]
-position = Vector2(672, 544)
+position = Vector2(704, 544)
 
 [node name="PyramidByteBarrierTile8" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_cgecf")]
-position = Vector2(672, 576)
+position = Vector2(704, 576)
 
 [node name="PyramidByteBarrierTile9" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_cgecf")]
 position = Vector2(576, 544)
@@ -1335,6 +1338,7 @@ position = Vector2(320, 256)
 
 [node name="AccessPoint2" parent="GameplayElements/GameplayTiles" instance=ExtResource("20_xyso6")]
 position = Vector2(608, 608)
+unlocks = 2
 
 [node name="AccessPointKeyPoint2" parent="GameplayElements/GameplayTiles" instance=ExtResource("21_21845")]
 position = Vector2(576, 608)
@@ -1360,17 +1364,14 @@ bus = &"Music"
 text = Array[String](["Those are a special type of $byte barriers$.", "They are called $mobile barriers$ because they can move, but only $1 space$."])
 highlight_color = "yellow"
 
-[node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pjni7")]
+[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("19_pjni7")]
 text = Array[String](["Those are the $beetle barriers$, they just don't move at all."])
-related_node = NodePath("")
 highlight_color = "yellow"
 
-[node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pjni7")]
+[node name="DialogueArea4" parent="Dialogue" instance=ExtResource("19_pjni7")]
 text = Array[String](["The red $byte barriers$ are harder to disable, but it won’t be a problem for me."])
-related_node = NodePath("")
 highlight_color = "yellow"
 
-[node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("19_pjni7")]
+[node name="DialogueArea3" parent="Dialogue" instance=ExtResource("19_pjni7")]
 text = Array[String](["Oh! This looks good.", "It's a $ GOGGLES PROGRAM$.", "I will be able to $equip it between missions$ and it'll give me $new abilities$."])
-related_node = NodePath("")
 highlight_color = null
