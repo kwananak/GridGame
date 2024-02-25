@@ -131,4 +131,3 @@ func out_of_bounds_check(target):
 	elif target.y > level_height * tile_size - view_margin.y:
 		target.y = level_height * tile_size - view_margin.y
 	return target
-

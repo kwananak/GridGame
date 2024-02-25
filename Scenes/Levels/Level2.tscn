@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=22 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="19_eeb4t"]
 [ext_resource type="PackedScene" uid="uid://be8v7f8xogyjk" path="res://Scenes/Tiles/EnvironmentComplex/complex_arm.tscn" id="19_neo2u"]
 [ext_resource type="PackedScene" uid="uid://dv8ksq5v36juw" path="res://Scenes/Tiles/EnvironmentComplex/conveyor.tscn" id="20_shhch"]
+[ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_utj30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ns0it"]
 atlas = ExtResource("5_mc1di")
@@ -32,8 +33,7 @@ offset_bottom = 1232.0
 color = Color(0.423529, 0.443137, 0.509804, 1)
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_jef0p")]
-level_height = 64
-level_length = 64
+level_length = 32
 level_number = 2
 animation_speed = 10
 end_turn_speed = 0.01
@@ -2300,3 +2300,5 @@ position = Vector2(160, 768)
 
 [node name="InvisibleWall2" parent="." instance=ExtResource("19_eeb4t")]
 position = Vector2(288, 96)
+
+[node name="TargetMove" parent="." instance=ExtResource("20_utj30")]

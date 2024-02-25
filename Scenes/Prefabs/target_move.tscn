@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1ydr133f7sks"]
+
+[ext_resource type="Texture2D" uid="uid://dcccivha8w6cs" path="res://Sprites/Character/target_move.png" id="1_okt16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqkkp"]
+atlas = ExtResource("1_okt16")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndhgc"]
+atlas = ExtResource("1_okt16")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nlni"]
+atlas = ExtResource("1_okt16")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgxdm"]
+atlas = ExtResource("1_okt16")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqq28"]
+atlas = ExtResource("1_okt16")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic5ti"]
+atlas = ExtResource("1_okt16")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vo6u"]
+atlas = ExtResource("1_okt16")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_en15f"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_jqkkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndhgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nlni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgxdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqq28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic5ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vo6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic5ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqq28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgxdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nlni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndhgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="TargetMove" type="AnimatedSprite2D" groups=["TargetMoveSprite"]]
+visible = false
+z_index = 40
+sprite_frames = SubResource("SpriteFrames_en15f")
+autoplay = "default"

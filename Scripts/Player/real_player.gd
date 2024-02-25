@@ -11,11 +11,13 @@ var active = false
 var floating = false
 var waiting_for_action = null
 var target_move
+var target_sprite
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
+	target_sprite = get_tree().get_first_node_in_group("TargetMoveSprite")
 	scale = Vector2.ZERO
 	await enter_level_animation()
 	active = true
@@ -48,11 +50,14 @@ func _process(delta):
 	if input_direction != Vector2.ZERO:
 		target_move = null
 	elif target_move:
+		target_sprite.position = target_move
+		target_sprite.show()
 		if target_move.snapped(Vector2.ONE) == global_position.snapped(Vector2.ONE):
 			target_move = null
 			return
 		input_direction = (target_move - global_position).normalized()
 	else:
+		target_sprite.hide()
 		if animated_sprite_2d.animation != "idle":
 			animated_sprite_2d.animation = "idle"
 		return

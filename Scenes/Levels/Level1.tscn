@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=21 format=3 uid="uid://dje6l66lot2b8"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_xavkm"]
 [ext_resource type="Texture2D" uid="uid://brs7sxdb6t3st" path="res://Sprites/EnvironmentReal/Dumpyard/complex_outside.png" id="18_4dl07"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="18_bl844"]
+[ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_wo2ff"]
 [ext_resource type="PackedScene" uid="uid://bhpf60dxp85k4" path="res://Scenes/Tiles/SharedReal/return_tile.tscn" id="21_bwmqw"]
 
 [node name="Level1" type="Node2D"]
@@ -87,7 +88,6 @@ position = Vector2(768, 147)
 texture = ExtResource("18_4dl07")
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
-level_name = "Dumpyard"
 level_height = 20
 level_length = 30
 level_number = 1
@@ -551,3 +551,5 @@ position = Vector2(544, 200)
 
 [node name="RealPlayer" parent="." instance=ExtResource("10_r0mu2")]
 position = Vector2(56, 185)
+
+[node name="TargetMove" parent="." instance=ExtResource("20_wo2ff")]
