@@ -32,7 +32,10 @@ func _input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
-			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2
+			target_sprite.frame = 0
+			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2 - Vector2(0, 16)
+			target_sprite.position = target_move + Vector2(0, 16)
+			target_sprite.show()
 
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
@@ -50,9 +53,7 @@ func _process(delta):
 	if input_direction != Vector2.ZERO:
 		target_move = null
 	elif target_move:
-		target_sprite.position = target_move
-		target_sprite.show()
-		if target_move.snapped(Vector2.ONE) == global_position.snapped(Vector2.ONE):
+		if target_move.snapped(Vector2.ONE * 2) == global_position.snapped(Vector2.ONE * 2):
 			target_move = null
 			return
 		input_direction = (target_move - global_position).normalized()
