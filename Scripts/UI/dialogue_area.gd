@@ -14,6 +14,7 @@ var camera
 var level_manager
 var player
 var progress_manager
+var dialog
 
 @onready var bubble = $Bubble
 @onready var button = $Bubble/Button
@@ -26,7 +27,8 @@ func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
-	text = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)][text]
+	dialog = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)]["text"]
+	highlight_color = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)]["color"]
 
 func _on_area_entered(_area):
 	if str(level_manager.level_number) not in progress_manager.log_progress:
@@ -49,7 +51,7 @@ func close():
 	if writing:
 		writing = false
 		return
-	if broadcasted < text.size():
+	if broadcasted < dialog.size():
 		write_bubble(broadcasted)
 		broadcasted += 1
 		return
@@ -74,7 +76,7 @@ func write_bubble(sentence):
 	writing = true
 	label.clear()
 	var bolded = false
-	for i in text[sentence]:
+	for i in dialog[sentence]:
 		if i == "$":
 			if !bolded:
 				if !highlight_color:
