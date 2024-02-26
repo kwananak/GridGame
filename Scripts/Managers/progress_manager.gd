@@ -1,11 +1,13 @@
 extends Node2D
 
+var log_path = "res://Txts/dialogs.txt"
 var save_path = "user://savegame.save"
 var completed_levels = []
 var unlocked_levels = ["101", "201"]
 var doors = []
 var save_point
-var log_save_point = "0"
+var dialogs
+var log_progress = {}
 var levels = {"100" : {"200" : false},
 			"101" : {"102" : false},
 			"102" : {"103" : false},
@@ -22,6 +24,33 @@ var levels = {"100" : {"200" : false},
 			"205" : {"206" : false, "prog" : false}}
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
+
+func _ready():
+	create_dialogs_dict()
+
+func create_dialogs_dict():
+	dialogs = {}
+	var log_file = FileAccess.open(log_path, FileAccess.READ)
+	var section
+	var sub_section
+	while true:
+		var line = log_file.get_line()
+		if line.is_empty():
+			break
+		if int(line) > 100:
+			section = line
+			dialogs[section] = {}
+			continue
+		if int(line):
+			sub_section = line
+			dialogs[section][sub_section] = {"color" : null, "log" : null, "text" : []}
+			continue
+		if line.begins_with("color"):
+			dialogs[section][sub_section]["color"] = line.split(":")[1]
+		elif line.begins_with("log"):
+			dialogs[section][sub_section]["log"] = line.split(":")[1]
+		else:
+			dialogs[section][sub_section]["text"] += [line]
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
@@ -195,7 +224,7 @@ func save():
 	dict["unlocked_levels"] = unlocked_levels
 	dict["doors"] = doors
 	dict["save_point"] = save_point
-	dict["log_save_point"] = log_save_point
+	dict["log_progress"] = log_progress
 	return dict
 
 func save_game():
@@ -234,8 +263,8 @@ func load_game():
 			"save_point":
 				save_point = data[n]
 				continue
-			"log_save_point":
-				log_save_point = data[n]
+			"log_progress":
+				log_progress = data[n]
 				continue
 			_: 
 				for o in data[n]:

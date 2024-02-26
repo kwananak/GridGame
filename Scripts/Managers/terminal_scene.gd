@@ -59,6 +59,8 @@ func _on_visibility_changed():
 					p.monitorable = false
 		loaded_level = null
 		if terminal_number != null:
+			$Control/Log.hide()
+			$Control/Loadout.show()
 			$AudioStreamPlayer.play()
 			$Control/DoorLabel/Label.clear()
 			$Control/DoorLabel/Label.append_text("[center]")

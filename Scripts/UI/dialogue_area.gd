@@ -13,6 +13,7 @@ var camera_spot
 var camera
 var level_manager
 var player
+var progress_manager
 
 @onready var bubble = $Bubble
 @onready var button = $Bubble/Button
@@ -24,9 +25,13 @@ func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	camera = get_tree().get_first_node_in_group("Camera")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	text = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)][text]
 
 func _on_area_entered(_area):
-	if level_manager.skip_dialogues || dialogue_number <= int(get_tree().get_first_node_in_group("ProgressManager").log_save_point):
+	if str(level_manager.level_number) not in progress_manager.log_progress:
+		progress_manager.log_progress[str(level_manager.level_number)] = []
+	if level_manager.skip_dialogues || str(dialogue_number) in progress_manager.log_progress[str(level_manager.level_number)]:
 		queue_free()
 		return
 	player.get_node("PossibleMoves").hide()
@@ -88,7 +93,8 @@ func write_bubble(sentence):
 
 func remove_bubble():
 	label.hide()
-	get_tree().get_first_node_in_group("ProgressManager").log_save_point = str(dialogue_number)
+	if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
+		progress_manager.log_progress[str(level_manager.level_number)] += [str(dialogue_number)]
 	button_sprite.hide()
 	bubble.play_backwards()
 	await bubble.animation_finished

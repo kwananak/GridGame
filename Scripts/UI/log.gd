@@ -2,32 +2,25 @@ extends Control
 
 var bolded
 var log_path = "res://Txts/dialogues.txt"
+var progress_manager
 
 @onready var label = $RichTextLabel
+
+func _ready():
+	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 
 func update_log():
 	if !visible:
 		return
 	label.clear()
-	var log_file = FileAccess.open(log_path, FileAccess.READ)
-	var json_string = log_file.get_line()
-	log_file.close()
-	var json = JSON.new()
-	var parse_result = json.parse(json_string)
-	if not parse_result == OK:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return
-	var data = json.get_data()
-	for i in int(get_tree().get_first_node_in_group("ProgressManager").log_save_point):
-		if not str(i+1) in data:
-			continue
-		if !data[str(i+1)]["log"]:
-			continue
-		for n in data[str(i+1)]["text"]:
-			for c in n:
+	for i in progress_manager.log_progress:
+		for n in progress_manager.log_progress[i]:
+			if !progress_manager.dialogs[i][n]["log"]:
+				continue
+			for c in progress_manager.dialogs[i][n]["log"]:
 				if c == "$":
 					if !bolded:
-						label.append_text("[color=" + data[str(i+1)]["color"] + "]")
+						label.append_text("[color=" + progress_manager.dialogs[i][n]["color"] + "]")
 						bolded = true
 					else:
 						label.append_text("[color=white]")
