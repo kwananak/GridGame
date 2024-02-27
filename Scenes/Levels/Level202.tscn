@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2fr0186huvao"]
+[gd_scene load_steps=25 format=3 uid="uid://c2fr0186huvao"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_0mrig"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_cg4d0"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="12_1ppo4"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="13_827k4"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="14_4uljf"]
-[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="15_puo75"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="16_c864c"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="18_hlm57"]
 [ext_resource type="PackedScene" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="19_apqb7"]
@@ -1028,14 +1027,6 @@ position = Vector2(576, 640)
 [node name="Doomwall" parent="." instance=ExtResource("14_4uljf")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="DialogueArea3" parent="Dialogue" instance=ExtResource("15_puo75")]
-text = Array[String](["I'm gonna try to activate the $DoomWall$ the further away possible.", "That will give me a chance to find the next $Access Point$."])
-highlight_color = "Red"
-
-[node name="DialogueArea4" parent="Dialogue" instance=ExtResource("15_puo75")]
-text = Array[String](["These are called $malfunction chips$ because they slow down the processor.", "When I grab them, $the DoomWall freezes for 4 turns$.", "I better grab them when we are chased by the DoomWall ..like right now!"])
-highlight_color = "green"
 
 [node name="AccessPoint1" parent="." instance=ExtResource("16_c864c")]
 position = Vector2(1120, 768)
