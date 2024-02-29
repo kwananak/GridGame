@@ -54,7 +54,10 @@ func set_slots():
 				v.scale = Vector2(1.3, 1.3)
 				if v.get_child_count() > 0:
 					loaded_slots += 1
-	$Label.text = "Action Points: " + str(progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count())
+	var action_points = 0
+	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
+		action_points += n.strength
+	$Label.text = "Action Points: " + str(action_points)
 
 func _unhandled_input(event):
 	if selection_opened == null:

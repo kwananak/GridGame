@@ -1,23 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=14 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_qyfal"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_fufk3"]
-[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/Environment/end_tile.tscn" id="3_imbq2"]
-[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/Environment/start_tile.tscn" id="5_h5lbe"]
+[ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="3_imbq2"]
+[ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="5_h5lbe"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="6_75bqa"]
 [ext_resource type="AudioStream" uid="uid://y4m14rk7x318" path="res://Sounds/Backgrounds/dumpyard.wav" id="8_3uets"]
-[ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/Environment/terminal_door_tile.tscn" id="8_egm48"]
+[ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="8_egm48"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="9_gq025"]
 [ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="10_00ai2"]
 [ext_resource type="PackedScene" uid="uid://dxkd6yu4ron2r" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_b.tscn" id="11_u8j7s"]
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="12_1q1cc"]
+[ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="13_mtaa3"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="13_rt01a"]
 
 [node name="RealTestLevel" type="Node2D"]
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_qyfal")]
 position = Vector2(69, 132)
-level_name = "Real Test Level"
 animation_speed = 10
 end_turn_speed = 0.01
 
@@ -68,3 +68,5 @@ position = Vector2(288, 224)
 
 [node name="NewPlayer" parent="." instance=ExtResource("13_rt01a")]
 position = Vector2(256, 272)
+
+[node name="TargetMove" parent="." instance=ExtResource("13_mtaa3")]

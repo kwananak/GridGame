@@ -32,7 +32,10 @@ func _ready():
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
-	set_remaining_actions(progress_manager.amplifiers.get_child_count())
+	var action_points = 0
+	for n in progress_manager.amplifiers.get_children():
+		action_points += n.strength
+	set_remaining_actions(action_points)
 	if str(level_number) in progress_manager.completed_levels:
 		skip_dialogues = true
 	super._ready()
