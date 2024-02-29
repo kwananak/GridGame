@@ -141,40 +141,45 @@ animations = [{
 atlas = ExtResource("5_ktjds")
 region = Rect2(290, 2024, 314, 105)
 
-[node name="Terminal1" type="Node2D" groups=["TerminalScene"]]
+[node name="Terminal1" type="Control" groups=["TerminalScene"]]
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(1.34, 1.34)
 script = ExtResource("1_m3qxo")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 640.0
-metadata/_edit_use_anchors_ = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2viqu")
+pitch_scale = 0.85
+bus = &"FX"
 
-[node name="TerminalSprite" type="Sprite2D" parent="Control"]
+[node name="TerminalSprite" type="Sprite2D" parent="."]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_w2y5h")
 
-[node name="MapBackground" type="Sprite2D" parent="Control"]
+[node name="MapBackground" type="Sprite2D" parent="."]
 position = Vector2(247.015, 141.791)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_0qof6")
 
-[node name="Title" type="Sprite2D" parent="Control/MapBackground"]
+[node name="Title" type="Sprite2D" parent="MapBackground"]
 position = Vector2(-237.5, -105)
 texture = SubResource("AtlasTexture_w7s1c")
 
-[node name="Frame" type="Sprite2D" parent="Control/MapBackground" groups=["MapFrame"]]
+[node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
 texture = SubResource("AtlasTexture_ffpcy")
 
-[node name="Map" type="Node2D" parent="Control"]
-position = Vector2(299.254, 141.045)
+[node name="Map" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 299.254
+offset_top = 141.045
+offset_right = 299.254
+offset_bottom = 141.045
 scale = Vector2(1.5, 1.5)
 
-[node name="Level101" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level101" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = -95.204
 offset_top = 24.0398
 offset_right = -95.204
@@ -182,10 +187,11 @@ offset_bottom = 24.0398
 node_level = 101
 node_color = "blue"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level101"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level101"]
 texture = SubResource("AtlasTexture_bpqoi")
 
-[node name="Level102" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level102" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = -46.9453
 offset_top = 8.1194
 offset_right = -46.9453
@@ -193,15 +199,16 @@ offset_bottom = 8.1194
 node_level = 102
 node_color = "blue"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level102"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level102"]
 position = Vector2(-17.811, 1.77114)
 texture = SubResource("AtlasTexture_b5rnr")
 
-[node name="LinkSprite" parent="Control/Map/Level102" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level102" instance=ExtResource("4_x6tjo")]
 position = Vector2(-24.6667, 6)
 texture = SubResource("AtlasTexture_cpwyd")
 
-[node name="Level103" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level103" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = -47.9403
 offset_top = -25.2139
 offset_right = -47.9403
@@ -209,15 +216,16 @@ offset_bottom = -25.2139
 node_level = 103
 node_color = "blue"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level103"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level103"]
 position = Vector2(0.35817, 8.65671)
 texture = SubResource("AtlasTexture_jqrbg")
 
-[node name="LinkSprite" parent="Control/Map/Level103" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level103" instance=ExtResource("4_x6tjo")]
 position = Vector2(0.497513, 16.9154)
 texture = SubResource("AtlasTexture_o8e4d")
 
-[node name="Level104" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level104" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = -14.607
 offset_top = 6.62686
 offset_right = -14.607
@@ -225,15 +233,16 @@ offset_bottom = 6.62686
 node_level = 104
 node_color = "blue"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level104"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level104"]
 position = Vector2(-9.17412, -9.3731)
 texture = SubResource("AtlasTexture_igwtw")
 
-[node name="LinkSprite" parent="Control/Map/Level104" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level104" instance=ExtResource("4_x6tjo")]
 position = Vector2(-16.1393, -16.3383)
 texture = SubResource("AtlasTexture_12dnt")
 
-[node name="Level105" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level105" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = 30.1691
 offset_top = -17.7512
 offset_right = 30.1691
@@ -241,15 +250,16 @@ offset_bottom = -17.7512
 node_level = 105
 node_color = "blue"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level105"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level105"]
 position = Vector2(-15.1443, 7.04475)
 texture = SubResource("AtlasTexture_bvdn4")
 
-[node name="LinkSprite" parent="Control/Map/Level105" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level105" instance=ExtResource("4_x6tjo")]
 position = Vector2(-22.1095, 13.5124)
 texture = SubResource("AtlasTexture_26vmj")
 
-[node name="Level106" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level106" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 offset_left = 30.1691
 offset_top = 32.995
 offset_right = 30.1691
@@ -257,15 +267,16 @@ offset_bottom = 32.995
 node_level = 106
 node_color = "pink"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level106"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level106"]
 position = Vector2(-0.497528, -17.4129)
 texture = SubResource("AtlasTexture_skfqi")
 
-[node name="LinkSprite" parent="Control/Map/Level106" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level106" instance=ExtResource("4_x6tjo")]
 position = Vector2(-0.497513, -25.3731)
 texture = SubResource("AtlasTexture_7170w")
 
-[node name="Level107" parent="Control/Map" instance=ExtResource("3_4ghj7")]
+[node name="Level107" parent="Map" instance=ExtResource("3_4ghj7")]
+layout_mode = 1
 anchors_preset = 15
 anchor_left = 0.0
 anchor_top = 0.0
@@ -278,24 +289,24 @@ offset_bottom = -0.995026
 node_level = 107
 node_color = "purple"
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/Map/Level107"]
+[node name="Sprite2D" type="Sprite2D" parent="Map/Level107"]
 position = Vector2(-17.4129, 10.4478)
 texture = SubResource("AtlasTexture_cey6s")
 
-[node name="LinkSprite" parent="Control/Map/Level107" instance=ExtResource("4_x6tjo")]
+[node name="LinkSprite" parent="Map/Level107" instance=ExtResource("4_x6tjo")]
 position = Vector2(-24.3781, 16.9154)
 texture = SubResource("AtlasTexture_j3fs6")
 
-[node name="MapInfos" parent="Control/Map" instance=ExtResource("5_tw42l")]
+[node name="MapInfos" parent="Map" instance=ExtResource("5_tw42l")]
 
-[node name="DoorLabel" type="Control" parent="Control"]
+[node name="DoorLabel" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 51.0
 offset_top = 175.0
 offset_right = 122.0
 offset_bottom = 240.0
 
-[node name="Label" type="RichTextLabel" parent="Control/DoorLabel"]
+[node name="Label" type="RichTextLabel" parent="DoorLabel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -314,76 +325,76 @@ theme_override_font_sizes/normal_font_size = 64
 text = "Terminal 1
 locked"
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
+[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_rhx4x")
 
-[node name="Log" parent="Control" instance=ExtResource("6_rrlng")]
+[node name="Log" parent="." instance=ExtResource("6_rrlng")]
 visible = false
 layout_mode = 1
-offset_left = 0.0
-offset_top = -121.0
-offset_right = 0.0
-offset_bottom = -121.0
+offset_left = 576.0
+offset_top = 199.0
+offset_right = 576.0
+offset_bottom = 199.0
 scale = Vector2(0.86, 0.86)
 
-[node name="Loadout" parent="Control" instance=ExtResource("6_t4r27")]
+[node name="Loadout" parent="." instance=ExtResource("6_t4r27")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.499
 anchor_top = 0.31
 anchor_right = 0.499
 anchor_bottom = 0.31
-offset_left = 1.15198
-offset_top = 0.600006
-offset_right = 1.15198
-offset_bottom = 0.600006
+offset_left = 576.0
+offset_top = 199.0
+offset_right = 576.0
+offset_bottom = 199.0
 scale = Vector2(0.86, 0.86)
 
-[node name="NexusButton" parent="Control" instance=ExtResource("7_l7vs7")]
+[node name="NexusButton" parent="." instance=ExtResource("7_l7vs7")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.104
 anchor_top = 0.436
 anchor_right = 0.104
 anchor_bottom = 0.436
-offset_left = -0.404984
-offset_top = 0.0643921
-offset_right = -0.404984
-offset_bottom = 0.0643921
+offset_left = 119.403
+offset_top = 279.104
+offset_right = 119.403
+offset_bottom = 279.104
 scale = Vector2(0.8, 0.8)
 
-[node name="ReturnButton" parent="Control" instance=ExtResource("10_li6ja")]
+[node name="ReturnButton" parent="." instance=ExtResource("10_li6ja")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.286
 anchor_top = 0.396
 anchor_right = 0.286
 anchor_bottom = 0.396
-offset_left = -0.368011
-offset_top = 0.29126
-offset_right = -0.368011
-offset_bottom = 0.29126
+offset_left = 329.104
+offset_top = 253.731
+offset_right = 329.104
+offset_bottom = 253.731
 
-[node name="LogButton" parent="Control" instance=ExtResource("12_schas")]
+[node name="LogButton" parent="." instance=ExtResource("12_schas")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.369
 anchor_top = 0.395
 anchor_right = 0.369
 anchor_bottom = 0.395
-offset_left = 0.284943
-offset_top = 0.185104
-offset_right = 0.284943
-offset_bottom = 0.185104
+offset_left = 425.373
+offset_top = 252.985
+offset_right = 425.373
+offset_bottom = 252.985
 
-[node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
+[node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
 position = Vector2(335.821, 310.448)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_ryhuj")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Info"]
+[node name="Label" type="Label" parent="Info"]
 offset_left = -142.0
 offset_top = -40.0
 offset_right = 1277.0
@@ -392,10 +403,5 @@ scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("9_mslom")
 theme_override_font_sizes/font_size = 96
 autowrap_mode = 3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_2viqu")
-pitch_scale = 0.85
-bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

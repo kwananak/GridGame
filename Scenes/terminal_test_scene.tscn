@@ -98,40 +98,41 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Terminal0" type="Node2D" groups=["TerminalScene"]]
-script = ExtResource("1_20cn2")
-
-[node name="Control" type="Control" parent="."]
+[node name="Terminal0" type="Control" groups=["TerminalScene"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 640.0
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_20cn2")
 
-[node name="TerminalSprite" type="Sprite2D" parent="Control"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2rv1v")
+pitch_scale = 0.9
+autoplay = true
+bus = &"FX"
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_5ue3d")
 
-[node name="MapBackground" type="Sprite2D" parent="Control"]
+[node name="MapBackground" type="Sprite2D" parent="."]
 position = Vector2(248, 152)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_k8wbx")
 
-[node name="Title" type="Sprite2D" parent="Control/MapBackground"]
+[node name="Title" type="Sprite2D" parent="MapBackground"]
 position = Vector2(-237.5, -105)
 texture = SubResource("AtlasTexture_gbata")
 
-[node name="Frame" type="Sprite2D" parent="Control/MapBackground" groups=["MapFrame"]]
+[node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
 texture = SubResource("AtlasTexture_74m8f")
 
-[node name="Map" type="Sprite2D" parent="Control"]
+[node name="Map" type="Sprite2D" parent="."]
 position = Vector2(304, 152)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_rkmlo")
 
-[node name="Level200" parent="Control/Map" instance=ExtResource("4_230c3")]
+[node name="Level200" parent="Map" instance=ExtResource("4_230c3")]
 offset_left = -8.0
 offset_top = -93.6667
 offset_right = -8.0
@@ -140,11 +141,11 @@ focus_neighbor_left = NodePath("../../NexusButton")
 node_level = 200
 node_color = "purple"
 
-[node name="LinkSprite" parent="Control/Map/Level200" instance=ExtResource("4_h2awp")]
+[node name="LinkSprite" parent="Map/Level200" instance=ExtResource("4_h2awp")]
 position = Vector2(0, 42.6667)
 texture = SubResource("AtlasTexture_ci4et")
 
-[node name="Level100" parent="Control/Map" instance=ExtResource("4_230c3")]
+[node name="Level100" parent="Map" instance=ExtResource("4_230c3")]
 offset_left = -8.0
 offset_top = -8.33334
 offset_right = -8.0
@@ -156,22 +157,27 @@ available = true
 node_level = 100
 node_color = "pink"
 
-[node name="MapInfos" parent="Control/Map" instance=ExtResource("5_uam6u")]
+[node name="MapInfos" parent="Map" instance=ExtResource("5_uam6u")]
 
-[node name="Loadout" parent="Control" instance=ExtResource("6_6rmuo")]
+[node name="Loadout" parent="." instance=ExtResource("6_6rmuo")]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.208622
 anchor_top = 0.383691
 anchor_right = 0.208622
 anchor_bottom = 0.383691
+offset_left = -719.667
+offset_top = -294.438
+offset_right = -719.667
+offset_bottom = -294.438
 
-[node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
+[node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
 position = Vector2(331, 300)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_7ockt")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Info"]
+[node name="Label" type="Label" parent="Info"]
 offset_left = -142.0
 offset_top = -40.0
 offset_right = 1277.0
@@ -181,22 +187,22 @@ theme_override_fonts/font = ExtResource("5_3g0o7")
 theme_override_font_sizes/font_size = 64
 autowrap_mode = 3
 
-[node name="NexusButton" parent="Control" instance=ExtResource("7_33d10")]
+[node name="NexusButton" parent="." instance=ExtResource("7_33d10")]
 layout_mode = 1
-offset_left = -444.0
-offset_top = -38.0
-offset_right = -444.0
-offset_bottom = -38.0
+offset_left = 132.0
+offset_top = 282.0
+offset_right = 132.0
+offset_bottom = 282.0
 scale = Vector2(0.8, 0.8)
 
-[node name="ReturnButton" parent="Control" instance=ExtResource("8_46quv")]
+[node name="ReturnButton" parent="." instance=ExtResource("8_46quv")]
 layout_mode = 1
-offset_left = -428.0
-offset_top = 7.99997
-offset_right = -428.0
-offset_bottom = 7.99997
+offset_left = 148.0
+offset_top = 328.0
+offset_right = 148.0
+offset_bottom = 328.0
 
-[node name="DoorLabel" type="Control" parent="Control"]
+[node name="DoorLabel" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 51.0
@@ -204,7 +210,7 @@ offset_top = 175.0
 offset_right = 122.0
 offset_bottom = 240.0
 
-[node name="Label" type="RichTextLabel" parent="Control/DoorLabel"]
+[node name="Label" type="RichTextLabel" parent="DoorLabel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -223,14 +229,8 @@ theme_override_font_sizes/normal_font_size = 64
 text = "Terminal 1
 locked"
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
+[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_als8k")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_2rv1v")
-pitch_scale = 0.9
-autoplay = true
-bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -29,6 +29,7 @@ region = Rect2(64, 2018, 170, 73)
 script = ExtResource("1_mdavh")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_tujkf")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,7 +45,16 @@ scale = Vector2(0.67, 0.67)
 
 [node name="DebugMenu" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DebugMenu"]
+position = Vector2(488, 259)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_6upos")
 
 [node name="Level102Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
@@ -152,47 +162,11 @@ text = "Level 205"
 [node name="Level2Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 551.0
-offset_top = 222.0
-offset_right = 613.0
-offset_bottom = 253.0
-text = "Level 7"
-
-[node name="Level7Button" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 552.0
-offset_top = 187.0
-offset_right = 614.0
-offset_bottom = 218.0
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 103.0
+offset_bottom = 64.0
 text = "Level 2"
-
-[node name="Level8Button" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 552.0
-offset_top = 255.0
-offset_right = 614.0
-offset_bottom = 286.0
-text = "Level 8"
-
-[node name="Level9Button" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 551.0
-offset_top = 287.0
-offset_right = 613.0
-offset_bottom = 318.0
-text = "Level 9"
-
-[node name="Level10Button" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 551.0
-offset_top = 316.0
-offset_right = 622.0
-offset_bottom = 347.0
-text = "Level 10"
 
 [node name="Level203Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
@@ -216,43 +190,43 @@ text = "Level 202"
 texture_filter = 1
 layout_mode = 0
 offset_left = 18.0
-offset_top = 266.0
+offset_top = 359.0
 offset_right = 159.0
-offset_bottom = 314.0
+offset_bottom = 407.0
 text = "Virtual Test Level"
 
 [node name="RealTestLevelButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = 208.0
-offset_right = 141.0
-offset_bottom = 256.0
+offset_left = 20.0
+offset_top = 297.0
+offset_right = 143.0
+offset_bottom = 345.0
 text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 290.0
-offset_top = 329.0
-offset_right = 402.0
-offset_bottom = 377.0
+offset_left = 442.0
+offset_top = 405.0
+offset_right = 554.0
+offset_bottom = 453.0
 text = "Quit"
 
 [node name="NewGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 46.0
-offset_right = 137.0
-offset_bottom = 77.0
+offset_left = 432.0
+offset_top = 310.0
+offset_right = 558.0
+offset_bottom = 341.0
 text = "New Game"
 
 [node name="ContinueGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 83.0
-offset_right = 633.0
-offset_bottom = 303.0
+offset_left = 436.0
+offset_top = 353.0
+offset_right = 1056.0
+offset_bottom = 573.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("3_clwr3")
 theme_override_font_sizes/font_size = 64
@@ -260,32 +234,27 @@ text = "Continue Game"
 
 [node name="Cutscene" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 342.0
-offset_right = 218.0
-offset_bottom = 376.0
+offset_left = 25.0
+offset_top = 419.0
+offset_right = 108.0
+offset_bottom = 453.0
 text = "Cutscene"
 
 [node name="ResolutionModeButton" parent="DebugMenu" instance=ExtResource("7_fg0yk")]
 layout_mode = 1
-offset_left = 514.0
-offset_top = 50.0
-offset_right = 514.0
-offset_bottom = 50.0
+offset_left = 637.0
+offset_top = 473.0
+offset_right = 637.0
+offset_bottom = 473.0
 scale = Vector2(0.5, 0.5)
 
 [node name="WindowModeButton" parent="DebugMenu" instance=ExtResource("6_a7415")]
 layout_mode = 1
-offset_left = 526.0
-offset_top = 73.0
-offset_right = 526.0
-offset_bottom = 73.0
+offset_left = 635.0
+offset_top = 433.0
+offset_right = 635.0
+offset_bottom = 433.0
 scale = Vector2(0.5, 0.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="DebugMenu"]
-position = Vector2(360, 222)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_6upos")
 
 [node name="MenuAudio" type="AudioStreamPlayer" parent="DebugMenu"]
 stream = ExtResource("6_i0vs7")
@@ -293,91 +262,11 @@ bus = &"Music"
 
 [node name="Master" parent="DebugMenu" instance=ExtResource("8_7q35u")]
 layout_mode = 1
-offset_left = 529.0
-offset_top = 94.0
-offset_right = 529.0
-offset_bottom = 94.0
+offset_left = 635.0
+offset_top = 391.0
+offset_right = 635.0
+offset_bottom = 391.0
 scale = Vector2(0.5, 0.5)
-
-[node name="Level11" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 355.0
-offset_top = 9.0
-offset_right = 435.0
-offset_bottom = 40.0
-text = "Level 11
-"
-
-[node name="Level12" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 354.0
-offset_top = 38.0
-offset_right = 434.0
-offset_bottom = 69.0
-text = "Level 12
-"
-
-[node name="Level13" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 354.0
-offset_top = 67.0
-offset_right = 434.0
-offset_bottom = 98.0
-text = "Level 13
-"
-
-[node name="Level14" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 356.0
-offset_top = 96.0
-offset_right = 436.0
-offset_bottom = 127.0
-text = "Level 14
-"
-
-[node name="Level15" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 358.0
-offset_top = 138.0
-offset_right = 438.0
-offset_bottom = 169.0
-text = "Level 15
-"
-
-[node name="Level16" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 358.0
-offset_top = 166.0
-offset_right = 438.0
-offset_bottom = 197.0
-text = "Level 16
-"
-
-[node name="Level17" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 355.0
-offset_top = 195.0
-offset_right = 435.0
-offset_bottom = 226.0
-text = "Level 17
-"
-
-[node name="Level18" type="Button" parent="DebugMenu"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 353.0
-offset_top = 223.0
-offset_right = 433.0
-offset_bottom = 254.0
-text = "Level 11
-"
 
 [node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
 position = Vector2(481, 266)
@@ -432,11 +321,7 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/Level201Button" to="." method="call_level" binds= [201]]
 [connection signal="pressed" from="DebugMenu/Level204Button" to="." method="call_level" binds= [204]]
 [connection signal="pressed" from="DebugMenu/Level205Button" to="." method="call_level" binds= [205]]
-[connection signal="pressed" from="DebugMenu/Level2Button" to="." method="call_level"]
-[connection signal="pressed" from="DebugMenu/Level7Button" to="." method="call_level" binds= [2]]
-[connection signal="pressed" from="DebugMenu/Level8Button" to="." method="call_level" binds= [8]]
-[connection signal="pressed" from="DebugMenu/Level9Button" to="." method="call_level" binds= [9]]
-[connection signal="pressed" from="DebugMenu/Level10Button" to="." method="call_level" binds= [10]]
+[connection signal="pressed" from="DebugMenu/Level2Button" to="." method="call_level" binds= [2]]
 [connection signal="pressed" from="DebugMenu/Level203Button" to="." method="call_level" binds= [203]]
 [connection signal="pressed" from="DebugMenu/Level202Button" to="." method="call_level" binds= [202]]
 [connection signal="pressed" from="DebugMenu/VirtualTestLevelButton" to="." method="call_level" binds= [100]]
@@ -445,11 +330,3 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
 [connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]
 [connection signal="button_down" from="DebugMenu/Cutscene" to="." method="call_cutscene" binds= [1]]
-[connection signal="pressed" from="DebugMenu/Level11" to="." method="call_level" binds= [11]]
-[connection signal="pressed" from="DebugMenu/Level12" to="." method="call_level" binds= [12]]
-[connection signal="pressed" from="DebugMenu/Level13" to="." method="call_level" binds= [13]]
-[connection signal="pressed" from="DebugMenu/Level14" to="." method="call_level" binds= [14]]
-[connection signal="pressed" from="DebugMenu/Level15" to="." method="call_level" binds= [15]]
-[connection signal="pressed" from="DebugMenu/Level16" to="." method="call_level" binds= [16]]
-[connection signal="pressed" from="DebugMenu/Level17" to="." method="call_level" binds= [17]]
-[connection signal="pressed" from="DebugMenu/Level18" to="." method="call_level"]

@@ -100,7 +100,7 @@ func back_to_terminal():
 	virtual_scene.queue_free()
 	$RealAudio.play()
 	camera.position = terminal_scene.position + get_viewport_rect().size / 4
-	terminal_scene.get_node("Control/Loadout").set_slots()
+	terminal_scene.get_node("Loadout").set_slots()
 	terminal_scene.visible = true
 	terminal_scene._ready()
 

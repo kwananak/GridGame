@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2rplqe3yixvr"]
+[gd_scene load_steps=23 format=3 uid="uid://b2rplqe3yixvr"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_kbjq3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_2645l"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="14_x3rk3"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="15_dl8ul"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_sr7xw"]
-[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="18_sl1w4"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="19_tppkk"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="20_65w4p"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="21_3150p"]
@@ -23,9 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="24_1smtj"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_l7fo7"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_pqyvc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_140jh"]
-size = Vector2(20, 74)
 
 [node name="Level201" type="Node2D"]
 
@@ -1206,13 +1202,6 @@ position = Vector2(640, 544)
 [node name="Doomwall" parent="." instance=ExtResource("17_sr7xw")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="DialogueArea" parent="Dialogue" instance=ExtResource("18_sl1w4")]
-dialogue_number = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(384, 507)
-shape = SubResource("RectangleShape2D_140jh")
 
 [node name="AccessPoint1" parent="." instance=ExtResource("19_tppkk")]
 position = Vector2(1312, 544)

@@ -17,10 +17,10 @@ var levels = {"100" : {"200" : false},
 			"106" : {"107" : false, "prog" : false},
 			"107" : {"2" : false},
 			"200" : {"300" : false},
-			"201" : {"202" : false, "prog" : false},
-			"202" : {"203" : false, "prog" : false},
-			"203" : {"204" : false, "prog" : false},
-			"204" : {"205" : false, "prog" : false},
+			"201" : {"202" : false},
+			"202" : {"203" : false},
+			"203" : {"204" : false},
+			"204" : {"205" : false},
 			"205" : {"206" : false, "prog" : false}}
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers

@@ -30,11 +30,11 @@ func set_available(value):
 
 func _on_focus_entered():
 	$Selected.visible = true
-	terminal_scene.get_node("Control/Map/Level" + str(terminal_scene.loaded_level)).set_labels()
+	terminal_scene.get_node("Map/Level" + str(terminal_scene.loaded_level)).set_labels()
 
 func _on_focus_exited():
 	$Selected.visible = false
-	terminal_scene.get_node("Control/Map/Level" + str(terminal_scene.loaded_level)).clear_labels()
+	terminal_scene.get_node("Map/Level" + str(terminal_scene.loaded_level)).clear_labels()
 
 func _on_mouse_entered():
 	if focus_mode == FOCUS_NONE || loadout.selection_opened:

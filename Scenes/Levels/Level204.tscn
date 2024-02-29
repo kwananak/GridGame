@@ -26,14 +26,23 @@
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="25_0svv1"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="25_kohys"]
 
-[node name="Level203" type="Node2D"]
+[node name="Level204" type="Node2D"]
+
+[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("22_cj4oc")]
+offset_right = 1456.0
+offset_bottom = 1064.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_w5nwu")
+autoplay = true
+bus = &"Music"
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_ke31v")]
 yellow_doomwall_step = 0.5
 red_doomwall_step = 1.0
 level_height = 100
 level_length = 100
-level_number = 201
+level_number = 204
 
 [node name="UI" parent="." instance=ExtResource("3_mrqfd")]
 visible = false
@@ -619,6 +628,9 @@ position = Vector2(256, 704)
 
 [node name="200FloorTile376" parent="Environment/Floor" instance=ExtResource("5_6e3c7")]
 position = Vector2(256, 640)
+
+[node name="200FloorTile378" parent="Environment/Floor" instance=ExtResource("5_6e3c7")]
+position = Vector2(256, 672)
 
 [node name="200FloorTile377" parent="Environment/Floor" instance=ExtResource("5_6e3c7")]
 position = Vector2(288, 704)
@@ -1307,7 +1319,7 @@ position = Vector2(544, 672)
 
 [node name="AccessPoint1" parent="GameplayElements/Others" instance=ExtResource("16_2h3i4")]
 position = Vector2(672, 352)
-unlocks = 204
+unlocks = 205
 
 [node name="VirtualStartTile2" parent="GameplayElements/Others" instance=ExtResource("17_ka4nb")]
 position = Vector2(256, 672)
@@ -1316,24 +1328,8 @@ position = Vector2(256, 672)
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_w5nwu")
-autoplay = true
-bus = &"Music"
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("21_honkr")]
 position = Vector2(64, 416)
-
-[node name="VirtualLevelBackgroundColors" parent="." instance=ExtResource("22_cj4oc")]
-offset_left = 720.0
-offset_top = 512.0
-offset_right = 720.0
-offset_bottom = 512.0
-scale = Vector2(18.7369, 3.86048)
-
-[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("22_cj4oc")]
-offset_right = 1760.0
-offset_bottom = 960.0
 
 [node name="AccessPointKey" parent="." instance=ExtResource("25_kohys")]
 position = Vector2(992, 576)

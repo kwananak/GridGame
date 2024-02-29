@@ -1,10 +1,10 @@
-extends Node2D
+extends Control
 
 var loadout
 var loaded_level = null
 var terminal_number
 
-@onready var terminal_name = $Control/Map/MapInfos/TerminalName
+@onready var terminal_name = $Map/MapInfos/TerminalName
 @onready var main = $/root/Main
 
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 	await get_tree().get_first_node_in_group("ProgressManager").auto_loader()
 	_on_visibility_changed()
 	await get_tree().create_timer(0.5).timeout
-	$Control/ReturnButton.grab_focus()
+	$ReturnButton.grab_focus()
 
 func _input(event):
 	if visible == false:
@@ -30,9 +30,9 @@ func _on_return_button_pressed():
 func _on_level_pressed(level_number):
 	loaded_level = level_number
 	if level_number:
-		$Control/NexusButton.available = true
+		$NexusButton.available = true
 	else:
-		$Control/NexusButton.available = false
+		$NexusButton.available = false
 
 func _on_go_button_pressed():
 	if loaded_level == null:
@@ -44,7 +44,7 @@ func _on_go_button_pressed():
 func _on_visibility_changed():
 	if visible:
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
-		for n in $Control/Map.get_children():
+		for n in $Map.get_children():
 			if n.name == "MapInfos":
 				continue
 			if n.selected:
@@ -59,16 +59,16 @@ func _on_visibility_changed():
 					p.monitorable = false
 		loaded_level = null
 		if terminal_number != null:
-			$Control/Log.hide()
-			$Control/Loadout.show()
+			$Log.hide()
+			$Loadout.show()
 			$AudioStreamPlayer.play()
-			$Control/DoorLabel/Label.clear()
-			$Control/DoorLabel/Label.append_text("[center]")
+			$DoorLabel/Label.clear()
+			$DoorLabel/Label.append_text("[center]")
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
-					$Control/DoorLabel/Sprite.play()
-					$Control/DoorLabel/Label.append_text("[color=green]Terminal " + str(terminal_number) + "\nunlocked")
+					$DoorLabel/Sprite.play()
+					$DoorLabel/Label.append_text("[color=green]Terminal " + str(terminal_number) + "\nunlocked")
 					return
-			$Control/DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
+			$DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
 	else:
 		$AudioStreamPlayer.stop()

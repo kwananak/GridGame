@@ -93,40 +93,40 @@ animations = [{
 atlas = ExtResource("2_o3ila")
 region = Rect2(290, 2024, 314, 105)
 
-[node name="Terminal2" type="Node2D" groups=["TerminalScene"]]
+[node name="Terminal2" type="Control" groups=["TerminalScene"]]
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(1.34, 1.34)
 script = ExtResource("1_2piqq")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 640.0
-metadata/_edit_use_anchors_ = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_b1tni")
+pitch_scale = 0.85
+bus = &"FX"
 
-[node name="TerminalSprite" type="Sprite2D" parent="Control"]
+[node name="TerminalSprite" type="Sprite2D" parent="."]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_apdsw")
 
-[node name="MapBackground" type="Sprite2D" parent="Control"]
+[node name="MapBackground" type="Sprite2D" parent="."]
 position = Vector2(248.09, 142.269)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_7012p")
 
-[node name="Title" type="Sprite2D" parent="Control/MapBackground"]
+[node name="Title" type="Sprite2D" parent="MapBackground"]
 position = Vector2(-237.5, -105)
 texture = SubResource("AtlasTexture_eqor7")
 
-[node name="Frame" type="Sprite2D" parent="Control/MapBackground" groups=["MapFrame"]]
+[node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
 texture = SubResource("AtlasTexture_ca6sk")
 
-[node name="Map" type="Sprite2D" parent="Control"]
+[node name="Map" type="Sprite2D" parent="."]
 position = Vector2(296.09, 142.269)
 texture = SubResource("AtlasTexture_8xg8u")
 
-[node name="Level201" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+[node name="Level201" parent="Map" instance=ExtResource("3_ew1yl")]
 offset_left = -304.0
 offset_top = -8.0
 offset_right = -304.0
@@ -134,7 +134,7 @@ offset_bottom = -8.0
 node_level = 201
 node_color = "blue"
 
-[node name="Level202" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+[node name="Level202" parent="Map" instance=ExtResource("3_ew1yl")]
 offset_left = -238.0
 offset_top = -11.0
 offset_right = -238.0
@@ -142,11 +142,11 @@ offset_bottom = -11.0
 node_level = 202
 node_color = "blue"
 
-[node name="LinkSprite" parent="Control/Map/Level202" instance=ExtResource("4_yq20t")]
+[node name="LinkSprite" parent="Map/Level202" instance=ExtResource("4_yq20t")]
 position = Vector2(-33, 2)
 texture = SubResource("AtlasTexture_orsoq")
 
-[node name="Level203" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+[node name="Level203" parent="Map" instance=ExtResource("3_ew1yl")]
 offset_left = -195.0
 offset_top = -38.0
 offset_right = -195.0
@@ -154,11 +154,11 @@ offset_bottom = -38.0
 node_level = 203
 node_color = "blue"
 
-[node name="LinkSprite" parent="Control/Map/Level203" instance=ExtResource("4_yq20t")]
+[node name="LinkSprite" parent="Map/Level203" instance=ExtResource("4_yq20t")]
 position = Vector2(-21, 14)
 texture = SubResource("AtlasTexture_456wg")
 
-[node name="Level204" parent="Control/Map" instance=ExtResource("3_ew1yl")]
+[node name="Level204" parent="Map" instance=ExtResource("3_ew1yl")]
 offset_left = -202.0
 offset_top = -87.0
 offset_right = -202.0
@@ -166,18 +166,18 @@ offset_bottom = -87.0
 node_level = 204
 node_color = "blue"
 
-[node name="LinkSprite" parent="Control/Map/Level204" instance=ExtResource("4_yq20t")]
+[node name="LinkSprite" parent="Map/Level204" instance=ExtResource("4_yq20t")]
 position = Vector2(4, 25)
 texture = SubResource("AtlasTexture_e0o3o")
 
-[node name="MapInfos" parent="Control/Map" instance=ExtResource("5_cm8sf")]
+[node name="MapInfos" parent="Map" instance=ExtResource("5_cm8sf")]
 offset_left = -252.0
 offset_top = -76.0
 offset_right = -155.0
 offset_bottom = 25.0
 scale = Vector2(1.5, 1.5)
 
-[node name="DoorLabel" type="Control" parent="Control"]
+[node name="DoorLabel" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 43.0895
@@ -185,7 +185,7 @@ offset_top = 165.269
 offset_right = 114.09
 offset_bottom = 230.269
 
-[node name="Label" type="RichTextLabel" parent="Control/DoorLabel"]
+[node name="Label" type="RichTextLabel" parent="DoorLabel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -204,11 +204,11 @@ theme_override_font_sizes/normal_font_size = 64
 text = "Terminal 2
 locked"
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Control/DoorLabel"]
+[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_ajnw5")
 
-[node name="Log" parent="Control" instance=ExtResource("8_ad6ji")]
+[node name="Log" parent="." instance=ExtResource("8_ad6ji")]
 visible = false
 layout_mode = 1
 anchors_preset = 0
@@ -224,58 +224,58 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.86, 0.86)
 
-[node name="Loadout" parent="Control" instance=ExtResource("6_pf44h")]
+[node name="Loadout" parent="." instance=ExtResource("6_pf44h")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.502
 anchor_top = 0.31
 anchor_right = 0.502
 anchor_bottom = 0.31
-offset_left = -0.304016
-offset_top = 0.600006
-offset_right = -0.304016
-offset_bottom = 0.600006
+offset_left = 578.0
+offset_top = 199.0
+offset_right = 578.0
+offset_bottom = 199.0
 scale = Vector2(0.86, 0.86)
 
-[node name="NexusButton" parent="Control" instance=ExtResource("7_1j7k8")]
+[node name="NexusButton" parent="." instance=ExtResource("7_1j7k8")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.111
 anchor_top = 0.45
 anchor_right = 0.111
 anchor_bottom = 0.45
-offset_left = 0.127991
-offset_top = 0.0
-offset_right = 0.127991
-offset_bottom = 0.0
+offset_left = 128.0
+offset_top = 288.0
+offset_right = 128.0
+offset_bottom = 288.0
 scale = Vector2(0.8, 0.8)
 
-[node name="ReturnButton" parent="Control" instance=ExtResource("9_bd5av")]
+[node name="ReturnButton" parent="." instance=ExtResource("9_bd5av")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.124
 anchor_top = 0.522
 anchor_right = 0.124
 anchor_bottom = 0.522
-offset_left = 184.018
-offset_top = -79.6024
-offset_right = 184.018
-offset_bottom = -79.6024
+offset_left = 326.866
+offset_top = 254.478
+offset_right = 326.866
+offset_bottom = 254.478
 
-[node name="LogButton" parent="Control" instance=ExtResource("12_p4gqk")]
+[node name="LogButton" parent="." instance=ExtResource("12_p4gqk")]
 layout_mode = 1
-offset_left = -149.134
-offset_top = -65.5224
-offset_right = -149.134
-offset_bottom = -65.5224
+offset_left = 426.866
+offset_top = 254.478
+offset_right = 426.866
+offset_bottom = 254.478
 
-[node name="Info" type="Sprite2D" parent="Control" groups=["InfoPanel"]]
+[node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
 position = Vector2(338.806, 312.687)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_i875o")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/Info"]
+[node name="Label" type="Label" parent="Info"]
 offset_left = -142.0
 offset_top = -40.0
 offset_right = 1277.0
@@ -284,10 +284,5 @@ scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("8_xdasv")
 theme_override_font_sizes/font_size = 96
 autowrap_mode = 3
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_b1tni")
-pitch_scale = 0.85
-bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
