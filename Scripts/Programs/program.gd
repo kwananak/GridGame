@@ -1,5 +1,6 @@
 extends Area2D
 
+var type : String
 var progress_manager
 var level_manager
 var player

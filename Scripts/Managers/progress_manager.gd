@@ -58,7 +58,7 @@ func add_to_programs(slot, program, level):
 		get_node("Loadout/Runes").add_child(program)
 		return
 	for n in get_node("OwnedPrograms/" + slot).get_children():
-		if n.name == program.name:
+		if n.type == program.type:
 			return
 	program.position = Vector2.ZERO
 	get_node("OwnedPrograms/" + slot).add_child(program)
@@ -216,7 +216,7 @@ func save():
 							dict[n.name][o.name] += [p.name + "_runed"]
 							continue
 					else:
-						dict[n.name][o.name] += [p.name]
+						dict[n.name][o.name] += [p.type]
 			else:
 				dict[n.name][o.name] = ["empty"]
 	dict["levels"] = levels
