@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6ywi2vp4nkok"]
+[gd_scene load_steps=27 format=3 uid="uid://6ywi2vp4nkok"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_ke31v"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_mrqfd"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="24_mwfwn"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="25_0svv1"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="25_kohys"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="26_0m0gx"]
 
 [node name="Level204" type="Node2D"]
 
@@ -1319,7 +1320,6 @@ position = Vector2(544, 672)
 
 [node name="AccessPoint1" parent="GameplayElements/Others" instance=ExtResource("16_2h3i4")]
 position = Vector2(672, 352)
-unlocks = 205
 
 [node name="VirtualStartTile2" parent="GameplayElements/Others" instance=ExtResource("17_ka4nb")]
 position = Vector2(256, 672)
@@ -1333,3 +1333,7 @@ position = Vector2(64, 416)
 
 [node name="AccessPointKey" parent="." instance=ExtResource("25_kohys")]
 position = Vector2(992, 576)
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("26_0m0gx")]
+position = Vector2(672, 352)
+unlocks = 205
