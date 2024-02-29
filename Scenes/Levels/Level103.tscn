@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://tlnaja2m7t7v"]
+[gd_scene load_steps=19 format=3 uid="uid://tlnaja2m7t7v"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_fkgdb"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_psqid"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="10_3etgm"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="11_qbqmo"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="12_dj3sp"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="12_uu5k5"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="13_gx2t4"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="14_t0s0c"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="15_j3mi1"]
@@ -461,9 +462,12 @@ position = Vector2(608, 576)
 [node name="VirtualStartTile" parent="GameplayElements" instance=ExtResource("11_qbqmo")]
 position = Vector2(544, 448)
 
-[node name="AccessPoint1" parent="GameplayElements" instance=ExtResource("12_dj3sp")]
+[node name="VirtualEndTile" parent="GameplayElements" instance=ExtResource("12_uu5k5")]
 position = Vector2(544, 672)
 unlocks = 104
+
+[node name="AccessPoint1" parent="GameplayElements" instance=ExtResource("12_dj3sp")]
+position = Vector2(544, 672)
 
 [node name="AccessPointKeyPoint" parent="GameplayElements" instance=ExtResource("13_gx2t4")]
 position = Vector2(480, 608)

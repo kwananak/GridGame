@@ -11,7 +11,7 @@ var remaining_actions = 0 : set = set_remaining_actions
 var floating = false
 var programs = []
 var vision = false
-var dialogue = false
+var dialogue = false : set = set_dialogue
 var shields = 0 : set = set_shield
 var doomwall
 var pause_menu
@@ -32,7 +32,10 @@ func _ready():
 	doomwall = get_tree().get_first_node_in_group("DoomWall")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	health = initial_health
-	set_remaining_actions(progress_manager.amplifiers.get_child_count())
+	var action_points = 0
+	for n in progress_manager.amplifiers.get_children():
+		action_points += n.strength
+	set_remaining_actions(action_points)
 	if str(level_number) in progress_manager.completed_levels:
 		skip_dialogues = true
 	super._ready()
@@ -43,6 +46,11 @@ func _process(delta):
 		ui.position = camera.position
 		return
 	super._process(delta)
+
+func set_dialogue(value):
+	if !value:
+		await create_tween().tween_property(camera, "position", out_of_bounds_check(player_sprite.global_position), 0.2).finished
+	dialogue = value
 
 # update paused value and shows or hide pause "menu" accordingly
 func set_pause(value):

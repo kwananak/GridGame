@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2fr0186huvao"]
+[gd_scene load_steps=25 format=3 uid="uid://c2fr0186huvao"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_cg4d0"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_g4eo5"]
@@ -22,13 +22,14 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="22_xew37"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_38rr4"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="24_irg0d"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="24_oj26e"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="25_nl3ed"]
 
 [node name="Level202" type="Node2D"]
 
 [node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("24_38rr4")]
 offset_right = 1760.0
-offset_bottom = 960.0
+offset_bottom = 1080.0
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_cg4d0")]
 yellow_doomwall_step = 0.5
@@ -1025,7 +1026,6 @@ position = Vector2(576, 640)
 
 [node name="AccessPoint1" parent="." instance=ExtResource("16_c864c")]
 position = Vector2(1120, 768)
-unlocks = 203
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_hlm57")
@@ -1205,3 +1205,7 @@ position = Vector2(320, 832)
 
 [node name="Booster" parent="." instance=ExtResource("25_nl3ed")]
 position = Vector2(320, 800)
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("24_oj26e")]
+position = Vector2(1120, 768)
+unlocks = 203

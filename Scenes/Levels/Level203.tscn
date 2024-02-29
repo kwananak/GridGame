@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ptboronf6e7c"]
+[gd_scene load_steps=23 format=3 uid="uid://ptboronf6e7c"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_0bab4"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_xa2md"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="19_aar7i"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="20_himsb"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="21_pkjh7"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="22_n7ks3"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="22_vnowp"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="23_epxa1"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="25_71opp"]
@@ -26,7 +27,7 @@
 
 [node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("20_himsb")]
 offset_right = 1072.0
-offset_bottom = 1056.0
+offset_bottom = 1104.0
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_0bab4")]
 yellow_doomwall_step = 0.5
@@ -951,7 +952,6 @@ position = Vector2(256, 288)
 
 [node name="AccessPoint1" parent="GameplayElements/Others" instance=ExtResource("16_8hnhq")]
 position = Vector2(576, 864)
-unlocks = 204
 
 [node name="VirtualStartTile2" parent="GameplayElements/Others" instance=ExtResource("18_qtibs")]
 position = Vector2(192, 320)
@@ -970,3 +970,7 @@ bus = &"Music"
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("19_aar7i")]
 position = Vector2(256, 224)
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("22_n7ks3")]
+position = Vector2(576, 864)
+unlocks = 204

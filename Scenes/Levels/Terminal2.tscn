@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=30 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -45,6 +45,10 @@ region = Rect2(575, 143, 34, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e0o3o"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(605, 97, 10, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqejg"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(611, 64, 31, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
 atlas = ExtResource("9_qed1s")
@@ -169,6 +173,18 @@ node_color = "blue"
 [node name="LinkSprite" parent="Map/Level204" instance=ExtResource("4_yq20t")]
 position = Vector2(4, 25)
 texture = SubResource("AtlasTexture_e0o3o")
+
+[node name="Level205" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -161.045
+offset_top = -117.314
+offset_right = -161.045
+offset_bottom = -117.314
+node_level = 205
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level205" instance=ExtResource("4_yq20t")]
+position = Vector2(-20.8955, 14.9254)
+texture = SubResource("AtlasTexture_wqejg")
 
 [node name="MapInfos" parent="Map" instance=ExtResource("5_cm8sf")]
 offset_left = -252.0

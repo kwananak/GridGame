@@ -11,5 +11,7 @@ func _on_area_exited(_area):
 			return
 	for n in get_tree().get_nodes_in_group("AccessPointKeyPoint"):
 		n.get_node("AnimatedSprite2D").frame = 0
-	get_tree().get_first_node_in_group("AccessPoint").vulnerable = false
-	
+	var access_point = get_tree().get_first_node_in_group("AccessPoint")
+	if access_point:
+		access_point.vulnerable = false
+

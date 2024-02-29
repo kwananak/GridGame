@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://7g8x0r5canbr"]
+[gd_scene load_steps=28 format=3 uid="uid://7g8x0r5canbr"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_20cn2"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_bbwhi"]
@@ -8,9 +8,11 @@
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="5_3g0o7"]
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_uam6u"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_6rmuo"]
+[ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="7_6l14e"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_33d10"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="8_46quv"]
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="10_cklvg"]
+[ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="12_rh8xp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ue3d"]
 atlas = ExtResource("2_bbwhi")
@@ -159,17 +161,20 @@ node_color = "pink"
 
 [node name="MapInfos" parent="Map" instance=ExtResource("5_uam6u")]
 
+[node name="Log" parent="." instance=ExtResource("7_6l14e")]
+visible = false
+layout_mode = 1
+offset_left = 580.0
+offset_top = 200.0
+offset_right = 580.0
+offset_bottom = 200.0
+
 [node name="Loadout" parent="." instance=ExtResource("6_6rmuo")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.208622
-anchor_top = 0.383691
-anchor_right = 0.208622
-anchor_bottom = 0.383691
-offset_left = -719.667
-offset_top = -294.438
-offset_right = -719.667
-offset_bottom = -294.438
+offset_left = 580.0
+offset_top = 204.0
+offset_right = 580.0
+offset_bottom = 204.0
 
 [node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
 position = Vector2(331, 300)
@@ -200,6 +205,13 @@ layout_mode = 1
 offset_left = 148.0
 offset_top = 328.0
 offset_right = 148.0
+offset_bottom = 328.0
+
+[node name="LogButton" parent="." instance=ExtResource("12_rh8xp")]
+layout_mode = 1
+offset_left = 59.9999
+offset_top = 328.0
+offset_right = 59.9999
 offset_bottom = 328.0
 
 [node name="DoorLabel" type="Control" parent="."]
