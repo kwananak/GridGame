@@ -56,6 +56,9 @@ visible = false
 [node name="FloorTile" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 position = Vector2(448, 352)
 
+[node name="FloorTile2" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 384)
+
 [node name="FloorTile5" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 position = Vector2(448, 416)
 
@@ -534,9 +537,3 @@ related_node = NodePath("../../GameplayElements/AccessPoint1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
 position = Vector2(960, 384)
 shape = SubResource("RectangleShape2D_ylfqu")
-
-[node name="DialogueArea4" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("27_sobd0")]
-dialogue_number = 4
-text = Array[String](["Ok! It changed the $Access point$ to $green$.", "By destroying the $Access Point$, I will be able to $hack a new node in the terminal$."])
-related_node = NodePath("../../GameplayElements/AccessPoint1")
-highlight_color = "green"

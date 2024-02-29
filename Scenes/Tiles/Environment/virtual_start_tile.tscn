@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg5hkhyrof4ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
+size = Vector2(32, 32)
+
+[node name="VirtualStartTile" type="Area2D" groups=["StartTile"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f7yg6")
