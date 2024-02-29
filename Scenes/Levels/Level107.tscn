@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cljm2unsknu0d"]
+[gd_scene load_steps=21 format=3 uid="uid://cljm2unsknu0d"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_ufbyt"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_nrsom"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="15_w0e1c"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="16_avk8w"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="18_xv0j6"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="20_wgs5d"]
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="20_xyso6"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="21_21845"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="22_u0ec5"]
@@ -1336,7 +1337,6 @@ position = Vector2(384, 416)
 
 [node name="AccessPoint2" parent="GameplayElements/GameplayTiles" instance=ExtResource("20_xyso6")]
 position = Vector2(672, 768)
-unlocks = 2
 
 [node name="AccessPointKeyPoint2" parent="GameplayElements/GameplayTiles" instance=ExtResource("21_21845")]
 position = Vector2(640, 768)
@@ -1357,3 +1357,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("20_wgs5d")]
+position = Vector2(672, 768)
+unlocks = 2

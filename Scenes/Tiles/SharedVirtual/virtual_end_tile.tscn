@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://6q8fw5okn8tb"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/virtual_end_tile.gd" id="1_wgolf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7yg6"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5psir"]
+
+[node name="VirtualEndTile" type="Area2D" groups=["EndTile"]]
+z_index = 30
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_wgolf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_f7yg6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5psir")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

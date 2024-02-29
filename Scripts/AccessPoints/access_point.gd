@@ -9,7 +9,6 @@ var locked = true : set = set_lock
 @export var is_locked = true
 @export var is_vulnerable= false
 @export var strength = 3
-@export var unlocks : int
 
 @onready var anim = $AnimatedSprite2D
 
@@ -46,7 +45,7 @@ func hit_by_player(hit):
 			$destroy.play()
 			anim.animation = "destruction"
 			await anim.animation_finished
-			get_tree().get_first_node_in_group("VirtualLevelManager").on_success(unlocks)
+			queue_free()
 
 func set_vulnerability(value):
 	if !locked:

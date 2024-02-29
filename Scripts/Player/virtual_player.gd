@@ -27,6 +27,7 @@ func _ready():
 	row_checker = $RowChecker
 	await enter_level_animation()
 	move_check(step)
+	$AudioListener2D.make_current()
 
 func _physics_process(_delta):
 	get_input()
