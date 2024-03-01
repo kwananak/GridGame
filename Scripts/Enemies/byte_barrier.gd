@@ -26,6 +26,7 @@ func match_strength(value):
 	if value <= 0:
 		if !destroyed_by_wall:
 			level_manager.barriers_down[byte_type - 1] += 1
+			level_manager.barrier_down.emit()
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
 		await spawn_explosion()
 		queue_free()
@@ -36,6 +37,7 @@ func match_strength(value):
 		sprite.frame = saved_frame
 		label.text = str(strength)
 
+# instantiates an explosion on root based on barrier type
 func spawn_explosion():
 	if !get_tree().get_first_node_in_group("FramedChecker").check(position):
 		return

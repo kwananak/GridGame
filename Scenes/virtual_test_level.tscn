@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=19 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="7_s407l"]
-[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/Environment/access_point_key_point.tscn" id="8_wd5ix"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_7havv"]
-[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="9_ivrcl"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="7_s407l"]
+[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="8_wd5ix"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="9_7havv"]
+[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="9_ivrcl"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="10_b2rqp"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="11_f4qlo"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="12_6j7m5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="14_e3i2p"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="15_phdav"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="17_f2dpq"]
+[ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="18_124ti"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -36,8 +37,7 @@ bus = &"Music"
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
 attack_particles = true
-level_name = "Virtual Test Level"
-level_height = 16
+level_height = 24
 level_length = 32
 level_number = 100
 
@@ -65,7 +65,6 @@ position = Vector2(128, 160)
 
 [node name="AccessPoint1" parent="." instance=ExtResource("7_s407l")]
 position = Vector2(288, 160)
-unlocks = 200
 
 [node name="AccessPointKeyPoint" parent="." instance=ExtResource("8_wd5ix")]
 position = Vector2(256, 160)
@@ -100,3 +99,7 @@ position = Vector2(288, 256)
 
 [node name="RedWarningTile2" parent="." instance=ExtResource("17_f2dpq")]
 position = Vector2(288, 288)
+
+[node name="TerminalAccesPoint" parent="." instance=ExtResource("18_124ti")]
+position = Vector2(224, 320)
+targets = Vector3i(1, 0, 0)

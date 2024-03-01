@@ -2,7 +2,7 @@ extends "res://Scripts/Managers/level_manager.gd"
 
 var turn = 0
 var time_elapsed = 0.0
-var barriers_down = [0, 0 , 0]
+var barriers_down = [0, 0, 0]
 var freeze = 0
 var is_immune_to_bullets = false
 var invincible = false
@@ -16,6 +16,8 @@ var shields = 0 : set = set_shield
 var doomwall
 var pause_menu
 var progress_manager
+
+signal barrier_down
 
 @export var skip_dialogues = false
 @export var green_doomwall_step = 0.0
