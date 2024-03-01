@@ -45,6 +45,9 @@ func get_input():
 					animated_sprite_2d.flip_h = true
 				"right":
 					animated_sprite_2d.flip_h = false
+			if teleport:
+				waiting_for_action.confirm_with_dir(dir_node)
+				return
 			if dir_node.available_action != null:
 				act(dir_node)
 				return
@@ -73,6 +76,9 @@ func _input(event):
 							animated_sprite_2d.flip_h = true
 						"right":
 							animated_sprite_2d.flip_h = false
+					if teleport:
+						waiting_for_action.confirm_with_dir(n)
+						return
 					if n.possible:
 						move(n.global_position)
 					elif n.available_action != null:
@@ -101,7 +107,7 @@ func act(dir):
 		await dir.available_action.hit_by_player(strength)
 	else:
 		match waiting_for_action.name:
-			dir.available_action.name, "GrapplingTool":
+			dir.available_action.name, "GrapplingTool", "Sour":
 				await waiting_for_action.confirm_with_dir(dir)
 			_:
 				if waiting_for_action != null:
@@ -125,12 +131,8 @@ func move(pos):
 		n.reset()
 	if teleport:
 		hide()
-		await get_tree().create_timer(0.1).timeout
-		var tween = create_tween().tween_property(self, "position",
-				pos,
-				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-		animated_sprite_2d.play("move")
-		await tween.finished
+		await get_tree().create_timer(0.2).timeout
+		position = pos
 		await get_tree().create_timer(0.1).timeout
 		show()
 	else:
@@ -167,10 +169,12 @@ func move_check(distance):
 			ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 			ray.position = n.dir * level_manager.tile_size * (distance - 1)
 			ray.force_raycast_update()
-			if ray.get_collider():
-				continue
+			var collision = ray.get_collider()
+			if collision:
+				n.check_collision(collision)
+			else:
+				n.possible = true
 			n.position = n.dir * (level_manager.tile_size * distance)
-			n.possible = true
 		else:
 			ray.target_position = n.dir * (level_manager.tile_size * 1.5)
 			for i in distance:

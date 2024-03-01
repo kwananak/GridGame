@@ -42,6 +42,10 @@ func hit_by_player(hit):
 		else:
 			strength -= 1
 		if strength <= 0:
+			for n in get_tree().get_nodes_in_group("VirtualEndTile"):
+				if n.global_position == global_position:
+					n.on = true
+					n.get_node("AnimatedSprite2D").show()
 			$destroy.play()
 			anim.animation = "destruction"
 			await anim.animation_finished

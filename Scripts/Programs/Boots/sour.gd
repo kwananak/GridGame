@@ -3,7 +3,8 @@ extends "res://Scripts/Programs/program.gd"
 var distance = 2
 
 func _ready():
-	info = "Action : Teleport 2 in front"
+	type = "Sour"
+	info = "Action : Teleport " + str(distance) + " tiles"
 	super._ready()
 
 func loaded():
@@ -22,6 +23,19 @@ func action():
 	player.teleport = true
 	player.move_check(distance)
 
-func confirm():
-	player.teleport = false
+func confirm_with_dir(dir):
+	var tele = dir.available_action
+	if tele:
+		tele.monitoring = false
+		tele.hide()
+		tele.global_position = Vector2.ZERO
+	var pos = player.global_position
+	player.move(dir.global_position)
+	await get_tree().create_timer(0.3).timeout
+	if tele:
+		tele.global_position = pos
+		tele.show()
+		tele.monitoring = true
 	focus = false
+	player.waiting_for_action = null
+	player.teleport = false

@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=6 format=3 uid="uid://caq3tmtnish1u"]
 
-[ext_resource type="Texture2D" uid="uid://cxpfuhm4d55ri" path="res://Sprites/Programs/programs.png" id="1_k8lmo"]
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/sour.gd" id="2_4sv8q"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_imkw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ut2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kappb"]
-atlas = ExtResource("1_k8lmo")
-region = Rect2(64, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgjk"]
+atlas = ExtResource("2_imkw1")
+region = Rect2(69, 549, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbvvq"]
+atlas = ExtResource("2_imkw1")
+region = Rect2(75, 555, 42, 35)
 
 [node name="Sour" type="Area2D"]
 collision_layer = 256
@@ -20,7 +24,13 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_v4ut2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_kappb")
+scale = Vector2(0.571, 0.571)
+texture = SubResource("AtlasTexture_1rgjk")
+
+[node name="LoadedSprite" type="Sprite2D" parent="."]
+position = Vector2(1.78814e-07, -7.7486e-07)
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_xbvvq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
