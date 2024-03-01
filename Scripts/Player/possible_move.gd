@@ -17,6 +17,8 @@ func check_collision(collision):
 	if "tile_type" in collision:
 		match collision.tile_type:
 			"access_point":
+				if player.teleport:
+					return
 				if collision.vulnerable:
 					available_action = collision
 					return
@@ -28,12 +30,11 @@ func check_collision(collision):
 					possible = true
 					return
 			"hardened":
-				if !player.teleport:
-					shootable = true
-					available_action = collision
-					return
+				shootable = true
+				available_action = collision
+				return
 			"cannon", "enemy":
-				if !player.teleport && !collision.is_destroyed:
+				if player.teleport || !collision.is_destroyed:
 					available_action = collision
 					return
 			"hole":
@@ -47,7 +48,7 @@ func check_collision(collision):
 					return
 			"mobile":
 				if player.waiting_for_action:
-					if player.waiting_for_action.name == "GrapplingTool":
+					if player.waiting_for_action.name == "GrapplingTool" || player.teleport:
 						available_action = collision
 						return
 				if !collision.moved:
