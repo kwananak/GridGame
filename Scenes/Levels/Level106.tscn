@@ -1106,6 +1106,36 @@ position = Vector2(704, 544)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
+[node name="Malfunction" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(352, 224)
+
+[node name="Malfunction13" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(224, 256)
+
+[node name="Malfunction11" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(256, 352)
+
+[node name="Malfunction6" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(352, 384)
+
+[node name="Malfunction8" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(416, 608)
+
+[node name="Malfunction9" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(544, 512)
+
+[node name="Malfunction10" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(608, 576)
+
+[node name="Malfunction2" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(448, 288)
+
+[node name="Malfunction3" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(576, 256)
+
+[node name="Malfunction4" parent="GameplayElements/Items" instance=ExtResource("18_0imgh")]
+position = Vector2(736, 320)
+
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="ByteBarrierEasy7" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_oir3d")]
@@ -1492,6 +1522,33 @@ position = Vector2(352, 416)
 [node name="BeetleBarrier8" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_nrtvv")]
 position = Vector2(384, 288)
 
+[node name="ByteBarrierHard" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(480, 288)
+
+[node name="ByteBarrierHard6" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(384, 416)
+
+[node name="ByteBarrierHard7" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(640, 256)
+
+[node name="ByteBarrierHard8" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(672, 256)
+
+[node name="ByteBarrierHard9" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(704, 256)
+
+[node name="ByteBarrierHard2" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(288, 576)
+
+[node name="ByteBarrierHard3" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(640, 512)
+
+[node name="ByteBarrierHard4" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(608, 512)
+
+[node name="ByteBarrierHard5" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_ralup")]
+position = Vector2(672, 576)
+
 [node name="GameplayTiles" type="Node2D" parent="GameplayElements"]
 
 [node name="Doomwall" parent="GameplayElements/GameplayTiles" instance=ExtResource("14_qusdn")]
@@ -1500,9 +1557,38 @@ position = Vector2(-32, 224)
 [node name="VirtualPlayer" parent="GameplayElements/GameplayTiles" instance=ExtResource("15_gul57")]
 position = Vector2(64, 32)
 
+[node name="GogglesTile" parent="GameplayElements/GameplayTiles" instance=ExtResource("17_b0rct")]
+position = Vector2(800, 448)
+select_program = "Amazing"
+
+[node name="AccessPoint1" parent="GameplayElements/GameplayTiles" instance=ExtResource("20_1125s")]
+position = Vector2(896, 448)
+
+[node name="AccessPointKeyPoint" parent="GameplayElements/GameplayTiles" instance=ExtResource("21_ucs1y")]
+position = Vector2(896, 416)
+
+[node name="AccessPointKeyPoint2" parent="GameplayElements/GameplayTiles" instance=ExtResource("21_ucs1y")]
+position = Vector2(896, 480)
+
+[node name="AccessPointKeyPoint3" parent="GameplayElements/GameplayTiles" instance=ExtResource("21_ucs1y")]
+position = Vector2(864, 448)
+
+[node name="VirtualEndTile" parent="GameplayElements/GameplayTiles" instance=ExtResource("22_4trx8")]
+position = Vector2(896, 448)
+unlocks = 107
+
 [node name="BeamCannon" type="Node2D" parent="GameplayElements"]
 
 [node name="WarningTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="YellowWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("20_lkwys")]
+position = Vector2(256, 384)
+
+[node name="YellowWarningTile2" parent="GameplayElements/WarningTiles" instance=ExtResource("20_lkwys")]
+position = Vector2(352, 448)
+
+[node name="YellowWarningTile3" parent="GameplayElements/WarningTiles" instance=ExtResource("20_lkwys")]
+position = Vector2(256, 512)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_on6c4")
@@ -1510,89 +1596,3 @@ autoplay = true
 bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="ByteBarrierHard" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(480, 288)
-
-[node name="ByteBarrierHard6" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(384, 416)
-
-[node name="ByteBarrierHard7" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(640, 256)
-
-[node name="ByteBarrierHard8" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(672, 256)
-
-[node name="ByteBarrierHard9" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(704, 256)
-
-[node name="ByteBarrierHard2" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(288, 576)
-
-[node name="ByteBarrierHard3" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(640, 512)
-
-[node name="ByteBarrierHard4" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(608, 512)
-
-[node name="ByteBarrierHard5" parent="." instance=ExtResource("10_ralup")]
-position = Vector2(672, 576)
-
-[node name="Malfunction" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(352, 224)
-
-[node name="Malfunction13" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(224, 256)
-
-[node name="Malfunction11" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(256, 352)
-
-[node name="Malfunction6" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(352, 384)
-
-[node name="Malfunction8" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(416, 608)
-
-[node name="Malfunction9" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(544, 512)
-
-[node name="Malfunction10" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(608, 576)
-
-[node name="Malfunction2" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(448, 288)
-
-[node name="Malfunction3" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(576, 256)
-
-[node name="Malfunction4" parent="." instance=ExtResource("18_0imgh")]
-position = Vector2(736, 320)
-
-[node name="GogglesTile" parent="." instance=ExtResource("17_b0rct")]
-position = Vector2(800, 448)
-select_program = "Amazing"
-
-[node name="YellowWarningTile" parent="." instance=ExtResource("20_lkwys")]
-position = Vector2(256, 384)
-
-[node name="YellowWarningTile2" parent="." instance=ExtResource("20_lkwys")]
-position = Vector2(352, 448)
-
-[node name="YellowWarningTile3" parent="." instance=ExtResource("20_lkwys")]
-position = Vector2(256, 512)
-
-[node name="AccessPoint1" parent="." instance=ExtResource("20_1125s")]
-position = Vector2(896, 448)
-
-[node name="AccessPointKeyPoint" parent="." instance=ExtResource("21_ucs1y")]
-position = Vector2(896, 416)
-
-[node name="AccessPointKeyPoint2" parent="." instance=ExtResource("21_ucs1y")]
-position = Vector2(896, 480)
-
-[node name="AccessPointKeyPoint3" parent="." instance=ExtResource("21_ucs1y")]
-position = Vector2(864, 448)
-
-[node name="VirtualEndTile" parent="." instance=ExtResource("22_4trx8")]
-position = Vector2(896, 448)
-unlocks = 107

@@ -1000,6 +1000,12 @@ position = Vector2(1344, 352)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
+[node name="Booster4" parent="GameplayElements/Items" instance=ExtResource("24_1smtj")]
+position = Vector2(1184, 480)
+
+[node name="Booster5" parent="GameplayElements/Items" instance=ExtResource("24_1smtj")]
+position = Vector2(1184, 544)
+
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="SphereByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_ji1j4")]
@@ -1196,109 +1202,105 @@ position = Vector2(672, 512)
 [node name="MobileBarrier22" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
 position = Vector2(640, 544)
 
+[node name="BeatleBarrrier" type="Node2D" parent="GameplayElements/MobileBarrier"]
+
 [node name="WarningTiles" type="Node2D" parent="GameplayElements"]
 
-[node name="BeatleBarrrier" type="Node2D" parent="GameplayElements"]
+[node name="YellowWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 544)
+
+[node name="YellowWarningTile3" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 512)
+
+[node name="YellowWarningTile4" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 480)
+
+[node name="YellowWarningTile5" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 448)
+
+[node name="YellowWarningTile6" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 416)
+
+[node name="YellowWarningTile7" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(480, 384)
+
+[node name="YellowWarningTile8" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 544)
+
+[node name="YellowWarningTile9" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 512)
+
+[node name="YellowWarningTile10" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 480)
+
+[node name="YellowWarningTile11" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 448)
+
+[node name="YellowWarningTile12" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 416)
+
+[node name="YellowWarningTile13" parent="GameplayElements/WarningTiles" instance=ExtResource("14_x3rk3")]
+position = Vector2(512, 384)
+
+[node name="RedWarningTile2" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 544)
+
+[node name="RedWarningTile3" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 512)
+
+[node name="RedWarningTile4" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 480)
+
+[node name="RedWarningTile6" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 544)
+
+[node name="RedWarningTile7" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 512)
+
+[node name="RedWarningTile8" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 480)
+
+[node name="RedWarningTile9" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 448)
+
+[node name="RedWarningTile10" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 416)
+
+[node name="RedWarningTile11" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(704, 384)
+
+[node name="RedWarningTile12" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 448)
+
+[node name="RedWarningTile13" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 416)
+
+[node name="RedWarningTile14" parent="GameplayElements/WarningTiles" instance=ExtResource("15_dl8ul")]
+position = Vector2(736, 384)
+
+[node name="GameplayTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="AccessPoint1" parent="GameplayElements/GameplayTiles" instance=ExtResource("19_tppkk")]
+position = Vector2(1312, 544)
+
+[node name="AccessPointKeyPoint" parent="GameplayElements/GameplayTiles" instance=ExtResource("20_65w4p")]
+position = Vector2(1312, 384)
+
+[node name="VirtualStartTile" parent="GameplayElements/GameplayTiles" instance=ExtResource("23_dqxw7")]
+position = Vector2(192, 480)
+
+[node name="VirtualEndTile" parent="GameplayElements/GameplayTiles" instance=ExtResource("23_fi2v1")]
+position = Vector2(1312, 544)
+unlocks = 202
 
 [node name="Doomwall" parent="." instance=ExtResource("17_sr7xw")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AccessPoint1" parent="." instance=ExtResource("19_tppkk")]
-position = Vector2(1312, 544)
-
-[node name="AccessPointKeyPoint" parent="." instance=ExtResource("20_65w4p")]
-position = Vector2(1312, 384)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_3150p")
 autoplay = true
 bus = &"Music"
 
-[node name="VirtualStartTile" parent="." instance=ExtResource("23_dqxw7")]
-position = Vector2(192, 480)
-
 [node name="VirtualPlayer" parent="." instance=ExtResource("25_pqyvc")]
 position = Vector2(384, 224)
-
-[node name="YellowWarningTile" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 544)
-
-[node name="YellowWarningTile3" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 512)
-
-[node name="YellowWarningTile4" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 480)
-
-[node name="YellowWarningTile5" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 448)
-
-[node name="YellowWarningTile6" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 416)
-
-[node name="YellowWarningTile7" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(480, 384)
-
-[node name="YellowWarningTile8" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 544)
-
-[node name="YellowWarningTile9" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 512)
-
-[node name="YellowWarningTile10" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 480)
-
-[node name="YellowWarningTile11" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 448)
-
-[node name="YellowWarningTile12" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 416)
-
-[node name="YellowWarningTile13" parent="." instance=ExtResource("14_x3rk3")]
-position = Vector2(512, 384)
-
-[node name="RedWarningTile2" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 544)
-
-[node name="RedWarningTile3" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 512)
-
-[node name="RedWarningTile4" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 480)
-
-[node name="RedWarningTile6" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 544)
-
-[node name="RedWarningTile7" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 512)
-
-[node name="RedWarningTile8" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 480)
-
-[node name="RedWarningTile9" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 448)
-
-[node name="RedWarningTile10" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 416)
-
-[node name="RedWarningTile11" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(704, 384)
-
-[node name="RedWarningTile12" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 448)
-
-[node name="RedWarningTile13" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 416)
-
-[node name="RedWarningTile14" parent="." instance=ExtResource("15_dl8ul")]
-position = Vector2(736, 384)
-
-[node name="Booster4" parent="." instance=ExtResource("24_1smtj")]
-position = Vector2(1184, 480)
-
-[node name="Booster5" parent="." instance=ExtResource("24_1smtj")]
-position = Vector2(1184, 544)
-
-[node name="VirtualEndTile" parent="." instance=ExtResource("23_fi2v1")]
-position = Vector2(1312, 544)
-unlocks = 202

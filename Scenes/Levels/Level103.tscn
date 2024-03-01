@@ -459,23 +459,43 @@ position = Vector2(640, 576)
 [node name="PyramidByteBarrierTile23" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_3etgm")]
 position = Vector2(608, 576)
 
-[node name="VirtualStartTile" parent="GameplayElements" instance=ExtResource("11_qbqmo")]
+[node name="ByteBarrierHard" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(480, 672)
+
+[node name="ByteBarrierHard2" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(480, 640)
+
+[node name="ByteBarrierHard3" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(512, 640)
+
+[node name="ByteBarrierHard4" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(544, 640)
+
+[node name="ByteBarrierHard5" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(576, 640)
+
+[node name="ByteBarrierHard6" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_2eidw")]
+position = Vector2(576, 672)
+
+[node name="Other" type="Node2D" parent="GameplayElements"]
+
+[node name="VirtualStartTile" parent="GameplayElements/Other" instance=ExtResource("11_qbqmo")]
 position = Vector2(544, 448)
 
-[node name="VirtualEndTile" parent="GameplayElements" instance=ExtResource("12_uu5k5")]
+[node name="VirtualEndTile" parent="GameplayElements/Other" instance=ExtResource("12_uu5k5")]
 position = Vector2(544, 672)
 unlocks = 104
 
-[node name="AccessPoint1" parent="GameplayElements" instance=ExtResource("12_dj3sp")]
+[node name="AccessPoint1" parent="GameplayElements/Other" instance=ExtResource("12_dj3sp")]
 position = Vector2(544, 672)
 
-[node name="AccessPointKeyPoint" parent="GameplayElements" instance=ExtResource("13_gx2t4")]
+[node name="AccessPointKeyPoint" parent="GameplayElements/Other" instance=ExtResource("13_gx2t4")]
 position = Vector2(480, 608)
 
-[node name="AccessPointKeyPoint2" parent="GameplayElements" instance=ExtResource("13_gx2t4")]
+[node name="AccessPointKeyPoint2" parent="GameplayElements/Other" instance=ExtResource("13_gx2t4")]
 position = Vector2(608, 640)
 
-[node name="AccessPointKeyPoint3" parent="GameplayElements" instance=ExtResource("13_gx2t4")]
+[node name="AccessPointKeyPoint3" parent="GameplayElements/Other" instance=ExtResource("13_gx2t4")]
 position = Vector2(512, 672)
 
 [node name="Doomwall" parent="." instance=ExtResource("14_t0s0c")]
@@ -490,21 +510,3 @@ autoplay = true
 bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="ByteBarrierHard" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(480, 672)
-
-[node name="ByteBarrierHard2" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(480, 640)
-
-[node name="ByteBarrierHard3" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(512, 640)
-
-[node name="ByteBarrierHard4" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(544, 640)
-
-[node name="ByteBarrierHard5" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(576, 640)
-
-[node name="ByteBarrierHard6" parent="." instance=ExtResource("18_2eidw")]
-position = Vector2(576, 672)
