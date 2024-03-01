@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=20 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="15_phdav"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="17_f2dpq"]
 [ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="18_124ti"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="19_lrtm7"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -103,3 +104,7 @@ position = Vector2(288, 288)
 [node name="TerminalAccesPoint" parent="." instance=ExtResource("18_124ti")]
 position = Vector2(224, 320)
 targets = Vector3i(1, 0, 0)
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("19_lrtm7")]
+position = Vector2(224, 320)
+unlocks = 200

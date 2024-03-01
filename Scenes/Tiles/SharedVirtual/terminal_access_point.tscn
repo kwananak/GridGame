@@ -1,11 +1,45 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvgos4griyly8"]
+[gd_scene load_steps=25 format=3 uid="uid://cvgos4griyly8"]
 
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="1_d5wtd"]
 [ext_resource type="Script" path="res://Scripts/Environment/terminal_access_point.gd" id="1_omknn"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_dsyic"]
+[ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="4_nb7nd"]
+[ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="5_yws0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jma7m"]
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bob8q"]
 atlas = ExtResource("1_d5wtd")
 region = Rect2(80, 704, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4fel"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(165, 709, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gkms"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(5, 741, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieccu"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(37, 774, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7ohg"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(0, 560, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0l4i"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(48, 560, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3j7y"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(96, 560, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkw7n"]
+atlas = ExtResource("1_d5wtd")
+region = Rect2(144, 560, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r64co"]
 atlas = ExtResource("1_d5wtd")
@@ -45,6 +79,23 @@ region = Rect2(120, 816, 24, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiw15"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7ohg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0l4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3j7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkw7n")
+}],
+"loop": false,
+"name": &"destruction",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r64co")
@@ -88,47 +139,75 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i4fel"]
-atlas = ExtResource("1_d5wtd")
-region = Rect2(165, 709, 22, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gkms"]
-atlas = ExtResource("1_d5wtd")
-region = Rect2(5, 741, 22, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieccu"]
-atlas = ExtResource("1_d5wtd")
-region = Rect2(37, 774, 22, 22)
-
 [node name="TerminalAccesPoint" type="Area2D"]
 z_index = 30
 script = ExtResource("1_omknn")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-15, -47, 15, -47, 15, 47, -15, 47, -15, 15, -47, 15, -47, -15, -15, -15)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jma7m")
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, 0)
 texture = SubResource("AtlasTexture_bob8q")
+
+[node name="Byte1Sprite" type="Sprite2D" parent="BaseSprite"]
+visible = false
+position = Vector2(16, -32)
+texture = SubResource("AtlasTexture_i4fel")
+
+[node name="Byte2Sprite" type="Sprite2D" parent="BaseSprite"]
+visible = false
+position = Vector2(-16, 0)
+texture = SubResource("AtlasTexture_3gkms")
+
+[node name="Byte3Sprite" type="Sprite2D" parent="BaseSprite"]
+visible = false
+position = Vector2(16, 33)
+texture = SubResource("AtlasTexture_ieccu")
+
+[node name="Label1" type="Label" parent="BaseSprite"]
+offset_left = 2.0
+offset_top = -46.0
+offset_right = 142.0
+offset_bottom = 89.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_dsyic")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="BaseSprite"]
+offset_left = -30.0
+offset_top = -14.0
+offset_right = 110.0
+offset_bottom = 126.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_dsyic")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="BaseSprite"]
+offset_left = 2.0
+offset_top = 19.0
+offset_right = 142.0
+offset_bottom = 154.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_dsyic")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_iiw15")
 animation = &"red"
 autoplay = "red"
-frame_progress = 0.0958619
 
-[node name="Byte1Sprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -32)
-texture = SubResource("AtlasTexture_i4fel")
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nb7nd")
+bus = &"FX"
 
-[node name="Byte2Sprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-32, 0)
-texture = SubResource("AtlasTexture_3gkms")
-
-[node name="Byte3Sprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 33)
-texture = SubResource("AtlasTexture_ieccu")
+[node name="destroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yws0r")
+bus = &"FX"
