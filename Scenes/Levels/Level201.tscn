@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2rplqe3yixvr"]
+[gd_scene load_steps=23 format=3 uid="uid://b2rplqe3yixvr"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_kbjq3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_2645l"]
@@ -20,7 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="21_3150p"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="23_dqxw7"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="23_fi2v1"]
-[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="24_1smtj"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_l7fo7"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_pqyvc"]
 
@@ -638,7 +637,7 @@ position = Vector2(1184, 480)
 position = Vector2(1184, 512)
 
 [node name="200FloorTile198" parent="Environment/Floor" instance=ExtResource("5_mbsrq")]
-position = Vector2(1184, 544)
+position = Vector2(1216, 576)
 
 [node name="200FloorTile199" parent="Environment/Floor" instance=ExtResource("5_mbsrq")]
 position = Vector2(1216, 384)
@@ -1000,12 +999,6 @@ position = Vector2(1344, 352)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
-[node name="Booster4" parent="GameplayElements/Items" instance=ExtResource("24_1smtj")]
-position = Vector2(1184, 480)
-
-[node name="Booster5" parent="GameplayElements/Items" instance=ExtResource("24_1smtj")]
-position = Vector2(1184, 544)
-
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="SphereByteBarrierTile4" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_ji1j4")]
@@ -1095,6 +1088,9 @@ position = Vector2(1152, 416)
 [node name="CubeByteBarrierTile127" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
 position = Vector2(1216, 544)
 
+[node name="CubeByteBarrierTile128" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
+position = Vector2(1184, 544)
+
 [node name="CubeByteBarrierTile129" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
 position = Vector2(1184, 448)
 
@@ -1102,6 +1098,9 @@ position = Vector2(1184, 448)
 position = Vector2(1216, 448)
 
 [node name="CubeByteBarrierTile132" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
+position = Vector2(1184, 480)
+
+[node name="CubeByteBarrierTile139" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
 position = Vector2(1216, 480)
 
 [node name="CubeByteBarrierTile133" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_3r1pd")]
@@ -1160,32 +1159,23 @@ position = Vector2(320, 512)
 [node name="MobileBarrier18" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
 position = Vector2(288, 544)
 
-[node name="MobileBarrier20" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(672, 480)
+[node name="MobileBarrier26" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(608, 544)
 
-[node name="MobileBarrier23" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(640, 480)
-
-[node name="MobileBarrier32" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(576, 480)
-
-[node name="MobileBarrier33" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(576, 512)
+[node name="MobileBarrier30" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(608, 512)
 
 [node name="MobileBarrier31" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
 position = Vector2(608, 480)
 
-[node name="MobileBarrier24" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(640, 512)
+[node name="MobileBarrier32" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(608, 416)
 
-[node name="MobileBarrier25" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(608, 512)
+[node name="MobileBarrier34" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(608, 384)
 
-[node name="MobileBarrier30" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(672, 544)
-
-[node name="MobileBarrier26" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(608, 544)
+[node name="MobileBarrier33" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(576, 448)
 
 [node name="MobileBarrier27" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
 position = Vector2(896, 448)
@@ -1196,11 +1186,8 @@ position = Vector2(1088, 512)
 [node name="MobileBarrier29" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
 position = Vector2(1312, 416)
 
-[node name="MobileBarrier21" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(672, 512)
-
-[node name="MobileBarrier22" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
-position = Vector2(640, 544)
+[node name="MobileBarrier35" parent="GameplayElements/MobileBarrier" instance=ExtResource("13_hpt6p")]
+position = Vector2(1248, 512)
 
 [node name="BeatleBarrrier" type="Node2D" parent="GameplayElements/MobileBarrier"]
 
