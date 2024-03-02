@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=25 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="20_nmpip"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="21_3d5h7"]
 [ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="22_pn7gt"]
+[ext_resource type="PackedScene" uid="uid://churemch44h8q" path="res://Scenes/EnemiesObstaclesTiles/mantis_barrier.tscn" id="23_foe8a"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="24_ign4x"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -62,7 +64,7 @@ position = Vector2(-224, -160)
 [node name="Doomwall" parent="." instance=ExtResource("6_7kf8h")]
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("7_bd7xi")]
-position = Vector2(69, 132)
+position = Vector2(64, 128)
 
 [node name="VirtualStartTile" parent="." instance=ExtResource("9_7havv")]
 position = Vector2(128, 160)
@@ -84,6 +86,9 @@ position = Vector2(256, 224)
 
 [node name="MobileBarrier" parent="." instance=ExtResource("12_6j7m5")]
 position = Vector2(256, 128)
+
+[node name="MobileBarrier2" parent="." instance=ExtResource("12_6j7m5")]
+position = Vector2(64, 288)
 
 [node name="BootsTile" parent="." instance=ExtResource("13_cbgds")]
 position = Vector2(192, 160)
@@ -125,3 +130,9 @@ position = Vector2(128, 224)
 
 [node name="ForeverBeamTile" parent="." instance=ExtResource("22_pn7gt")]
 position = Vector2(128, 192)
+
+[node name="MantisBarrier" parent="." instance=ExtResource("23_foe8a")]
+position = Vector2(96, 256)
+
+[node name="Booster" parent="." instance=ExtResource("24_ign4x")]
+position = Vector2(96, 128)
