@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5hcnk5blete0"]
+[gd_scene load_steps=10 format=3 uid="uid://5hcnk5blete0"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/beam_tile.gd" id="1_py5i8"]
 [ext_resource type="Texture2D" uid="uid://bvrenwrowpsup" path="res://Sprites/Enemies/beam.png" id="2_a784m"]
@@ -6,37 +6,39 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqu2r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucdx8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oud15"]
 atlas = ExtResource("2_a784m")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2psm0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_melkl"]
 atlas = ExtResource("2_a784m")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lsa7b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgvix"]
 atlas = ExtResource("2_a784m")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_buoya"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfgeq"]
+atlas = ExtResource("2_a784m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ktt0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ucdx8")
+"texture": SubResource("AtlasTexture_oud15")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2psm0")
+"texture": SubResource("AtlasTexture_melkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgvix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfgeq")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lsa7b")
-}],
-"loop": true,
-"name": &"firing",
 "speed": 5.0
 }]
 
@@ -44,6 +46,7 @@ animations = [{
 z_index = 30
 collision_mask = 4
 script = ExtResource("1_py5i8")
+distance = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xqu2r")
@@ -54,12 +57,11 @@ collide_with_areas = true
 
 [node name="Beam" type="Node2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_buoya")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1ktt0")
 
 [node name="Label" type="Label" parent="."]
 visible = false
-z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

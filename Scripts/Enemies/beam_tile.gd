@@ -14,6 +14,7 @@ var level_manager
 @onready var beam_prefab = preload("res://Scenes/Prefabs/beam.tscn")
 @onready var label = $Label
 @onready var ray = $RayCast2D
+@onready var sprite = $Sprite
 
 func _ready():
 	charge = intial_charge
@@ -24,22 +25,30 @@ func _ready():
 		label.global_position += Vector2(-16, -16)
 		label.text = str(cannon_recharge - charge) + "  " + str(duration)
 		label.show()
+	if cannon_recharge == 0:
+		sprite.frame = 2
+		fire_beam()
 
 # called by level manager to fire a beam if recharge is complete
 func turn_call():
 	for n in $Beam.get_children():
 		n.queue_free()
 	if !is_destroyed:
+		if cannon_recharge == 0:
+			fire_beam()
+			return
 		if charge == cannon_recharge:
 			if firing_for == duration:
-				$AnimatedSprite2D.animation = "default"
+				sprite.frame = 0
 				charge = 0
 				firing_for = 0
 			else:
-				$AnimatedSprite2D.animation = "firing"
+				sprite.frame = 2
 				firing_for += 1
 				fire_beam()
 		else:
+			if cannon_recharge - charge == 1:
+				sprite.frame = 1
 			charge += 1
 		label.text = str(cannon_recharge - charge) + "  " + str(duration)
 	else:
@@ -58,6 +67,8 @@ func fire_beam():
 			else:
 				var beam_section = beam_prefab.instantiate()
 				$Beam.add_child(beam_section)
+				if cannon_recharge == 0:
+					beam_section.get_node("AnimatedSprite2D").animation = "forever"
 				beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 				i += 1
 	else:
@@ -69,8 +80,7 @@ func fire_beam():
 func hit_by_player(_strength):
 	if is_destroyed:
 		return
-	$AnimatedSprite2D.animation = "default"
-	$AnimatedSprite2D.frame = 1
+	sprite.frame = 3
 	if get_tree().get_first_node_in_group("FramedChecker").check(position):
 		$Audio.play()
 	for n in $Beam.get_children():

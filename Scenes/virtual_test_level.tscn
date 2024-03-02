@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=23 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="18_124ti"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="19_lrtm7"]
 [ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="20_nmpip"]
+[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="21_3d5h7"]
+[ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="22_pn7gt"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -117,3 +119,9 @@ unlocks = 200
 [node name="GogglesTile" parent="." instance=ExtResource("20_nmpip")]
 position = Vector2(192, 64)
 select_program = "Amazing"
+
+[node name="BeamTile" parent="." instance=ExtResource("21_3d5h7")]
+position = Vector2(128, 224)
+
+[node name="ForeverBeamTile" parent="." instance=ExtResource("22_pn7gt")]
+position = Vector2(128, 192)
