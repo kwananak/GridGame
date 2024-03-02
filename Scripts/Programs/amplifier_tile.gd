@@ -31,6 +31,7 @@ func pick_up(_area):
 	$ChestSprite.animation = "open"
 	await $ChestSprite.animation_finished
 	$AnimatedSprite2D.show()
+	$AudioStreamPlayer.play()
 	$AnimatedSprite2D/AnimationPlayer.play("new_animation")
 	await get_tree().create_timer(3.0).timeout
 	program.scale = Vector2.ONE

@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5s14bwibo7lb"]
+[gd_scene load_steps=23 format=3 uid="uid://c5s14bwibo7lb"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/amplifier_tile.gd" id="1_mxy63"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_5le7p"]
 [ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="3_rypoc"]
 [ext_resource type="AudioStream" uid="uid://dmldi02tcifo3" path="res://Sounds/Real/chest_open.wav" id="4_1dpt3"]
 [ext_resource type="AudioStream" uid="uid://2eucm1dk6y7i" path="res://Sounds/Real/chest_ding.wav" id="5_3bi2d"]
+[ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="6_87df2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 size = Vector2(34, 31)
@@ -190,6 +191,10 @@ bus = &"FX"
 stream = ExtResource("5_3bi2d")
 volume_db = -10.0
 pitch_scale = 0.95
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_87df2")
+bus = &"FX"
 
 [connection signal="body_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

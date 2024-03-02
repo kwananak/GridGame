@@ -69,5 +69,5 @@ func hit_by_player(hit):
 			$BaseSprite.hide()
 			$destroy.play()
 			anim.animation = "destruction"
-			await anim.animation_finished
+			await $destroy.finished
 			queue_free()

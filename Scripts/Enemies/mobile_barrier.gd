@@ -16,6 +16,7 @@ func check_move(player_position):
 
 func _on_area_entered(area):
 	moved = true
+	$AudioStreamPlayer2D.play()
 	if area is Vector2:
 		var old_pos = global_position
 		position += area

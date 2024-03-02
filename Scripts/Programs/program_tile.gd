@@ -25,6 +25,7 @@ func _ready():
 
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
+	$AudioStreamPlayer.play()
 	get_tree().get_first_node_in_group("VirtualLevelManager").dialogue = true
 	program.set_deferred("monitorable", false)
 	$AnimatedSprite2D.z_index = 90

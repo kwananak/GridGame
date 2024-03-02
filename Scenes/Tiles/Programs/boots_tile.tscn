@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dikffbj6d3ce3"]
+[gd_scene load_steps=11 format=3 uid="uid://dikffbj6d3ce3"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/boots_tile.gd" id="1_ms0wn"]
 [ext_resource type="Texture2D" uid="uid://cy2s6csxgbo68" path="res://Sprites/EnvironmentVirtual/virtual_environnement.png" id="2_lkpd2"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_x15dg"]
+[ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="4_sxwhs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsiki"]
 atlas = ExtResource("2_lkpd2")
@@ -88,6 +89,10 @@ offset_bottom = 197.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sxwhs")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
