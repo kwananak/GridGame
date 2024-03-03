@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=8 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
 [ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/Amazing.tscn" id="2_fhhg3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/CircleWhip.tscn" id="4_j2ydk"]
 [ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="5_2wone"]
 [ext_resource type="PackedScene" uid="uid://my6oyv50hb2h" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifier1.tscn" id="6_cui3m"]
+[ext_resource type="PackedScene" uid="uid://caq3tmtnish1u" path="res://Scenes/Programs/Boots/Sour.tscn" id="6_k1guy"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 position = Vector2(-200, -200)
@@ -34,6 +35,8 @@ z_index = 90
 [node name="Legs" type="Node2D" parent="Loadout"]
 
 [node name="Boots" type="Node2D" parent="Loadout"]
+
+[node name="Sour" parent="Loadout/Boots" instance=ExtResource("6_k1guy")]
 
 [node name="Runes" type="Node2D" parent="Loadout"]
 

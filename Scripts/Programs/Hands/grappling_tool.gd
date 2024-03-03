@@ -110,15 +110,20 @@ func grapple_hit(dir):
 	tip_sound.play()
 	await get_tree().create_timer(0.1).timeout
 	if "tile_type" in dir.available_action:
-		if dir.available_action.tile_type == "mobile":
-			if !dir.available_action.moved:
-				grapple_mobile(destination, dir.available_action)
-				if destination.x > 0:
-					destination.x -= destination.x / destination.x
-				if destination.y > 0:
-					destination.y -= destination.y / destination.y
-		else:
-			dir.available_action.hit_by_player(strength)
+		match dir.available_action.tile_type:
+			"mobile":
+				if !dir.available_action.moved:
+					grapple_mobile(destination, dir.available_action)
+					if destination.x > 0:
+						destination.x -= destination.x / destination.x
+					if destination.y > 0:
+						destination.y -= destination.y / destination.y
+			"soap":
+				if !dir.available_action.moved:
+					grapple_soap(destination, dir.available_action)
+					destination = Vector2.ZERO
+			_:
+				dir.available_action.hit_by_player(strength)
 	var tween = create_tween().tween_property(player, "position",
 			player.position + destination * level_manager.tile_size,
 			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
@@ -135,6 +140,17 @@ func grapple_mobile(destination, barrier):
 	barrier._on_area_entered(-des * level_manager.tile_size)
 	for n in 8:
 		await get_tree().create_timer(0.01).timeout
+		var section = grapple.pop_back()
+		if tip != null:
+			tip.position = section.position
+		if section != null:
+			section.queue_free()
+
+func grapple_soap(destination, barrier):
+	var des = destination
+	barrier._on_area_entered(-des * level_manager.tile_size)
+	for n in grapple.size():
+		await get_tree().create_timer(0.005).timeout
 		var section = grapple.pop_back()
 		if tip != null:
 			tip.position = section.position

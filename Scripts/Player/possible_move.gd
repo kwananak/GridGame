@@ -46,7 +46,7 @@ func check_collision(collision):
 				if !collision.opened || get_tree().get_first_node_in_group("VirtualLevelManager").floating:
 					possible = true
 					return
-			"mobile":
+			"mobile", "soap":
 				if player.waiting_for_action:
 					if player.waiting_for_action.name == "GrapplingTool" || player.teleport:
 						available_action = collision
