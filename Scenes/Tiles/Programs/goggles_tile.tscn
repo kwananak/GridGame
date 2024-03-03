@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk7dr8vjilu3d"]
+[gd_scene load_steps=15 format=3 uid="uid://bk7dr8vjilu3d"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/goggles_tile.gd" id="1_iuqbv"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_gpdrg"]
 [ext_resource type="Texture2D" uid="uid://cy2s6csxgbo68" path="res://Sprites/EnvironmentVirtual/virtual_environnement.png" id="2_trafh"]
+[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_rv4cc"]
 [ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="4_yykkm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lr3g"]
@@ -47,6 +48,28 @@ _data = {
 "new_animation": SubResource("Animation_wp524")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_08df0"]
+atlas = ExtResource("4_rv4cc")
+region = Rect2(112, 128, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mb3t"]
+atlas = ExtResource("4_rv4cc")
+region = Rect2(145, 129, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u53ua"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_08df0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mb3t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="GogglesTile" type="Area2D"]
 z_index = 30
 collision_layer = 256
@@ -88,6 +111,12 @@ offset_bottom = 197.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
+
+[node name="ButtonSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(36.3636, 29.5455)
+sprite_frames = SubResource("SpriteFrames_u53ua")
+autoplay = "default"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yykkm")

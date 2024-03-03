@@ -5,6 +5,8 @@ var program_slot : String
 var program_type : String
 var program
 
+signal remove
+
 @onready var name_label = $AnimatedSprite2D/NameLabel
 @onready var info_label = $AnimatedSprite2D/InfoLabel
 @onready var animation_player = $AnimatedSprite2D/AnimationPlayer
@@ -23,6 +25,14 @@ func _ready():
 	program.position = Vector2(-13.5, -9.5)
 	program.scale = Vector2(1.25, 1.25)
 
+func _input(event):
+	if Input.is_action_pressed("skip_turn"):
+		remove.emit()
+		return
+	if event is InputEventMouseButton:
+		if event.is_pressed() && event.button_index == 1:
+			remove.emit()
+
 # calls progress manager to add picked up program to the list
 func pick_up(_area):
 	$AudioStreamPlayer.play()
@@ -30,7 +40,8 @@ func pick_up(_area):
 	program.set_deferred("monitorable", false)
 	$AnimatedSprite2D.z_index = 90
 	await create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(2.5, 2.5), 1).finished
-	await get_tree().create_timer(1.5).timeout
+	$AnimatedSprite2D/ButtonSprite.show()
+	await remove
 	program.scale = Vector2.ONE
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	get_tree().get_first_node_in_group("MouseToolTip").hide()

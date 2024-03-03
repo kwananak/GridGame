@@ -57,11 +57,11 @@ func get_input():
 	moving = false
 
 func _input(event):
-	if level_manager.game_over:
+	if level_manager.game_over || level_manager.dialogue:
 		return
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
-	if level_manager.dialogue || level_manager.paused:
+	if level_manager.paused:
 		return
 	if event.is_action_pressed("skip_turn"):
 		if !moving:

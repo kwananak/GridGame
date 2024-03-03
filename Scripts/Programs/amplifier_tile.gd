@@ -33,7 +33,9 @@ func pick_up(_area):
 	$AnimatedSprite2D.show()
 	$AudioStreamPlayer.play()
 	$AnimatedSprite2D/AnimationPlayer.play("new_animation")
-	await get_tree().create_timer(3.0).timeout
+	await $AnimatedSprite2D/AnimationPlayer.animation_finished
+	$AnimatedSprite2D/ButtonSprite.show()
+	await remove
 	program.scale = Vector2.ONE
 	program.set_deferred("monitorable", false)
 	$AnimatedSprite2D.remove_child(program)
