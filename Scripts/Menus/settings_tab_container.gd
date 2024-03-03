@@ -2,9 +2,13 @@ extends Control
 
 @onready var tab_container = $TabContainer
 var exit_button
+var config_path = "user://config.save"
+var config = {}
 
 func _ready():
 	exit_button = get_tree().get_first_node_in_group("OptionExitButton")
+	await get_tree().create_timer(0.1).timeout
+	load_config()
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -16,3 +20,25 @@ func _input(event):
 			if tab_container.current_tab < 2:
 				tab_container.current_tab += 1
 				exit_button.grab_focus()
+
+func save_config():
+	for n in $TabContainer/Audio/MarginContainer/VBoxContainer.get_children():
+		config[n.name] = n.h_slider.value
+	var config_file = FileAccess.open(config_path, FileAccess.WRITE)
+	config_file.store_line(JSON.stringify(config))
+	config_file.close()
+
+func load_config():
+	if not FileAccess.file_exists(config_path):
+		return
+	var config_file = FileAccess.open(config_path, FileAccess.READ)
+	var json_string = config_file.get_line()
+	config_file.close()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	if not parse_result == OK:
+		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		return
+	var data = json.get_data()
+	for n in data:
+		$TabContainer/Audio/MarginContainer/VBoxContainer.get_node(n).h_slider.value = data[n]
