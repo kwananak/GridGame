@@ -16,9 +16,9 @@ func _on_area_entered(area, caller):
 	else:
 		return
 	used = true
-	$Sprite2D.texture.region.position.x = 64
+	$Sprite.frame = 1
 	var anim = get_node(caller).get_node("AnimatedSprite2D")
 	anim.play()
 	$AudioStreamPlayer2D.play()
 	await anim.animation_finished
-	$Sprite2D.texture.region.position = Vector2(16, 288)
+	$Sprite.frame = 2

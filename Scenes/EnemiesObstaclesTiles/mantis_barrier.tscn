@@ -1,12 +1,37 @@
-[gd_scene load_steps=12 format=3 uid="uid://churemch44h8q"]
+[gd_scene load_steps=15 format=3 uid="uid://churemch44h8q"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/mantis_barrier.gd" id="1_idwwa"]
 [ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_boru6"]
 [ext_resource type="AudioStream" uid="uid://bmm26ylpr0he5" path="res://Sounds/FX/mantis_barrier.wav" id="3_c1kv3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ut4y8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkhun"]
 atlas = ExtResource("2_boru6")
 region = Rect2(16, 240, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tit1q"]
+atlas = ExtResource("2_boru6")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxv6t"]
+atlas = ExtResource("2_boru6")
+region = Rect2(16, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ue71l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkhun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tit1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxv6t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gyous"]
 
@@ -60,8 +85,8 @@ animations = [{
 [node name="MantisBarrier" type="Node2D"]
 script = ExtResource("1_idwwa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_ut4y8")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ue71l")
 
 [node name="MainArea" type="Area2D" parent="."]
 collision_mask = 0
