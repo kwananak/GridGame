@@ -1,13 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvgos4griyly8"]
+[gd_scene load_steps=24 format=3 uid="uid://cvgos4griyly8"]
 
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="1_d5wtd"]
 [ext_resource type="Script" path="res://Scripts/Environment/terminal_access_point.gd" id="1_omknn"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_dsyic"]
 [ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="4_nb7nd"]
 [ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="5_yws0r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jma7m"]
-size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bob8q"]
 atlas = ExtResource("1_d5wtd")
@@ -143,8 +140,8 @@ animations = [{
 z_index = 30
 script = ExtResource("1_omknn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_jma7m")
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, -15, -15, -47, 15, -47, 15, 47, -15, 47, -15, 16, -47, 15, -47, -15)
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, 0)
