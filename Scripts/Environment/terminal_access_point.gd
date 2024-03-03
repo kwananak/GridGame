@@ -4,6 +4,7 @@ var tile_type = "access_point"
 var level_manager
 var progress = [[0, 0], [0, 0], [0, 0]]
 var vulnerable
+var ui
 
 @export var strength = 3
 @export var targets : Vector3i
@@ -12,6 +13,8 @@ var vulnerable
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	ui = get_tree().get_first_node_in_group("TerminalAccessPointUI")
+	ui.show()
 	level_manager.barrier_down.connect(update_progress)
 	progress[0][1] = targets.x
 	progress[1][1] = targets.y
@@ -26,11 +29,16 @@ func update_progress():
 func set_sprites():
 	var all_good = true
 	for i in progress.size():
-		get_node("BaseSprite/Label"+str(i+1)).text = str(progress[i][0]) + "/" + str(progress[i][1])
+		if rotation_degrees != 0:
+			get_node("BaseSprite/Byte"+str(i+1)).rotation_degrees = - rotation_degrees
+		get_node("BaseSprite/Byte"+str(i+1)+"/Label").text = str(progress[i][0]) + "/" + str(progress[i][1])
+		ui.get_node("Byte"+str(i+1)+"/Label").text = str(progress[i][0]) + "/" + str(progress[i][1])
 		if progress[i][0] == progress[i][1]:
-			get_node("BaseSprite/Byte"+str(i+1)+"Sprite").show()
+			get_node("BaseSprite/Byte"+str(i+1)+"/Sprite").show()
+			ui.get_node("Byte"+str(i+1)).frame = 1
 		else:
-			get_node("BaseSprite/Byte"+str(i+1)+"Sprite").hide()
+			get_node("BaseSprite/Byte"+str(i+1)+"/Sprite").hide()
+			ui.get_node("Byte"+str(i+1)).frame = 0
 			all_good = false
 	if all_good:
 		$BaseSprite.texture.region.position.x = 0

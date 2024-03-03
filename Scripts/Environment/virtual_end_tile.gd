@@ -13,4 +13,4 @@ func _on_area_entered(area):
 	if !on:
 		return
 	level_manager.on_success(unlocks)
-	area.death_animation()
+	area.return_animation()

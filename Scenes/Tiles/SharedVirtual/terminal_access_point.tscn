@@ -147,48 +147,54 @@ polygon = PackedVector2Array(-15, -15, -15, -47, 15, -47, 15, 47, -15, 47, -15, 
 position = Vector2(-16, 0)
 texture = SubResource("AtlasTexture_bob8q")
 
-[node name="Byte1Sprite" type="Sprite2D" parent="BaseSprite"]
-visible = false
+[node name="Byte1" type="Node2D" parent="BaseSprite"]
 position = Vector2(16, -32)
+
+[node name="Sprite" type="Sprite2D" parent="BaseSprite/Byte1"]
+visible = false
 texture = SubResource("AtlasTexture_i4fel")
 
-[node name="Byte2Sprite" type="Sprite2D" parent="BaseSprite"]
-visible = false
+[node name="Label" type="Label" parent="BaseSprite/Byte1"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 144.0
+offset_bottom = 144.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_dsyic")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Byte2" type="Node2D" parent="BaseSprite"]
 position = Vector2(-16, 0)
+
+[node name="Sprite" type="Sprite2D" parent="BaseSprite/Byte2"]
+visible = false
 texture = SubResource("AtlasTexture_3gkms")
 
-[node name="Byte3Sprite" type="Sprite2D" parent="BaseSprite"]
+[node name="Label" type="Label" parent="BaseSprite/Byte2"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 144.0
+offset_bottom = 144.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_dsyic")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Byte3" type="Node2D" parent="BaseSprite"]
+position = Vector2(16, 32)
+
+[node name="Sprite" type="Sprite2D" parent="BaseSprite/Byte3"]
 visible = false
-position = Vector2(16, 33)
 texture = SubResource("AtlasTexture_ieccu")
 
-[node name="Label1" type="Label" parent="BaseSprite"]
-offset_left = 2.0
-offset_top = -46.0
-offset_right = 142.0
-offset_bottom = 89.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_dsyic")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="BaseSprite"]
-offset_left = -30.0
-offset_top = -14.0
-offset_right = 110.0
-offset_bottom = 126.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_dsyic")
-theme_override_font_sizes/font_size = 64
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="BaseSprite"]
-offset_left = 2.0
-offset_top = 19.0
-offset_right = 142.0
-offset_bottom = 154.0
+[node name="Label" type="Label" parent="BaseSprite/Byte3"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 144.0
+offset_bottom = 144.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("3_dsyic")
 theme_override_font_sizes/font_size = 64

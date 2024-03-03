@@ -356,3 +356,11 @@ func death_animation():
 		deactivate_shield()
 	animated_sprite_2d.animation = "death"
 	animated_sprite_2d.play()
+
+func return_animation():
+	await get_tree().create_timer(0.3).timeout
+	$PossibleMoves.hide()
+	if animated_sprite_2d.get_child_count() > 0:
+		deactivate_shield()
+	animated_sprite_2d.animation = "return"
+	animated_sprite_2d.play()

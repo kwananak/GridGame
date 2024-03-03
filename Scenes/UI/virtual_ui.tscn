@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=25 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/UI/ui.gd" id="1_oy1qy"]
 [ext_resource type="Texture2D" uid="uid://bent0hld5jcyy" path="res://Sprites/UI/underskin_program.png" id="2_6gjgn"]
@@ -36,6 +36,72 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m3x6b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m882"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(0, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1458c"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(96, 672, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7hx4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m882")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1458c")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hflup"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(32, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fpb"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(128, 672, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryu63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hflup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0fpb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnvh3"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(64, 672, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckpy4"]
+atlas = ExtResource("6_jqhbw")
+region = Rect2(160, 672, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssyac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnvh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckpy4")
 }],
 "loop": true,
 "name": &"default",
@@ -321,5 +387,53 @@ position = Vector2(126.866, 167.164)
 
 [node name="PauseButton" parent="." instance=ExtResource("11_6sme2")]
 position = Vector2(126.866, 184.328)
+
+[node name="TerminalAccessPoint" type="Node2D" parent="." groups=["TerminalAccessPointUI"]]
+visible = false
+
+[node name="Byte1" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+position = Vector2(-247.015, 174.627)
+sprite_frames = SubResource("SpriteFrames_7hx4t")
+
+[node name="Label" type="Label" parent="TerminalAccessPoint/Byte1"]
+offset_left = -14.1791
+offset_top = -13.4329
+offset_right = 125.821
+offset_bottom = 121.567
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_7dmoc")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Byte2" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+position = Vector2(-215.672, 174.627)
+sprite_frames = SubResource("SpriteFrames_ryu63")
+
+[node name="Label" type="Label" parent="TerminalAccessPoint/Byte2"]
+offset_left = -14.1791
+offset_top = -13.4329
+offset_right = 125.821
+offset_bottom = 121.567
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_7dmoc")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Byte3" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+position = Vector2(-184.328, 174.627)
+sprite_frames = SubResource("SpriteFrames_ssyac")
+
+[node name="Label" type="Label" parent="TerminalAccessPoint/Byte3"]
+offset_left = -14.1791
+offset_top = -13.4329
+offset_right = 125.821
+offset_bottom = 121.567
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_7dmoc")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
