@@ -11,4 +11,7 @@ func _ready():
 func pick_up(area):
 	if area.is_in_group("VirtualPlayer"):
 		get_tree().get_first_node_in_group("DoomWall").freeze = strength
+		$Audio.play()
+		hide()
+		await $Audio.finished
 	queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjen3mye5rd47"]
+[gd_scene load_steps=7 format=3 uid="uid://bjen3mye5rd47"]
 
 [ext_resource type="Script" path="res://Scripts/ItemChips/placebot.gd" id="1_ghd1t"]
 [ext_resource type="Texture2D" uid="uid://cp2o6pma0cnne" path="res://Sprites/Items/item_chips.png" id="2_uabrg"]
+[ext_resource type="AudioStream" uid="uid://dkahrr8va8ym" path="res://Sounds/FX/chip_pickup.wav" id="3_i5yh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
 
@@ -32,5 +33,9 @@ shape = SubResource("RectangleShape2D_sn47n")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g1uhk")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i5yh4")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

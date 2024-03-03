@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqafjth10skg2"]
+[gd_scene load_steps=10 format=3 uid="uid://cqafjth10skg2"]
 
 [ext_resource type="Script" path="res://Scripts/ItemChips/malfunction.gd" id="1_oqjn5"]
 [ext_resource type="Texture2D" uid="uid://cp2o6pma0cnne" path="res://Sprites/Items/item_chips.png" id="2_opqsx"]
+[ext_resource type="AudioStream" uid="uid://dkahrr8va8ym" path="res://Sounds/FX/chip_pickup.wav" id="3_d50b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
 
@@ -55,5 +56,9 @@ shape = SubResource("RectangleShape2D_sn47n")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sk47w")
 autoplay = "default"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d50b2")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

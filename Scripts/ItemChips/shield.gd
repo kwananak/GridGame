@@ -17,6 +17,12 @@ func pick_up(area):
 			if diamond_armor.used != 0:
 				get_tree().get_first_node_in_group("VirtualLevelManager").shields += strength
 				diamond_armor.used -= 1
+				$Audio.play()
+				hide()
+				await $Audio.finished
 		else:
 			get_tree().get_first_node_in_group("VirtualLevelManager").shields += strength
+			$Audio.play()
+			hide()
+			await $Audio.finished
 	queue_free()

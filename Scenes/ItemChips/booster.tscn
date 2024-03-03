@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://duxljcc6n73yo"]
+[gd_scene load_steps=10 format=3 uid="uid://duxljcc6n73yo"]
 
 [ext_resource type="Script" path="res://Scripts/ItemChips/booster.gd" id="1_byxlm"]
 [ext_resource type="Texture2D" uid="uid://cp2o6pma0cnne" path="res://Sprites/Items/item_chips.png" id="2_pjr35"]
+[ext_resource type="AudioStream" uid="uid://dkahrr8va8ym" path="res://Sounds/FX/chip_pickup.wav" id="3_oh10x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn47n"]
 
@@ -55,5 +56,9 @@ shape = SubResource("RectangleShape2D_sn47n")
 sprite_frames = SubResource("SpriteFrames_xbukl")
 autoplay = "default"
 frame_progress = 0.878433
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oh10x")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="pick_up"]
