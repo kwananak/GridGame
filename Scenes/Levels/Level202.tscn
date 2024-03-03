@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2fr0186huvao"]
+[gd_scene load_steps=24 format=3 uid="uid://c2fr0186huvao"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_cg4d0"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_g4eo5"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_38rr4"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="24_irg0d"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="24_oj26e"]
-[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="25_nl3ed"]
 
 [node name="Level202" type="Node2D"]
 
@@ -970,9 +969,6 @@ position = Vector2(736, 672)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
-[node name="Booster" parent="GameplayElements/Items" instance=ExtResource("25_nl3ed")]
-position = Vector2(320, 800)
-
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="SphereByteBarrierTile10" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_tytn4")]
@@ -1068,6 +1064,9 @@ position = Vector2(352, 768)
 
 [node name="YellowWarningTile27" parent="GameplayElements/WarningTiles" instance=ExtResource("21_d4s3s")]
 position = Vector2(320, 768)
+
+[node name="YellowWarningTile31" parent="GameplayElements/WarningTiles" instance=ExtResource("21_d4s3s")]
+position = Vector2(320, 800)
 
 [node name="YellowWarningTile28" parent="GameplayElements/WarningTiles" instance=ExtResource("21_d4s3s")]
 position = Vector2(288, 768)
