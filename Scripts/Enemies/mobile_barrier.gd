@@ -16,8 +16,8 @@ func check_move(player_position):
 
 func _on_area_entered(area):
 	moved = true
-	$AudioStreamPlayer2D.play()
 	if area is Vector2:
+		$AudioStreamPlayer2D.play()
 		var old_pos = global_position
 		position += area
 		$AnimatedSprite2D.global_position = old_pos
@@ -25,6 +25,7 @@ func _on_area_entered(area):
 		$AnimatedSprite2D.frame = 1
 		return
 	if area.is_in_group("Player"):
+		$AudioStreamPlayer2D.play()
 		var old_pos = global_position
 		position += target
 		$AnimatedSprite2D.global_position = old_pos

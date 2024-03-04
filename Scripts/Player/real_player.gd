@@ -33,17 +33,17 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			target_sprite.frame = 0
-			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2 - Vector2(0, 16)
-			target_sprite.position = target_move + Vector2(0, 16)
+			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2
+			target_sprite.position = target_move
 			target_sprite.show()
 
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
 	var level_number = $/root/Main.real_scene.name.substr($/root/Main.real_scene.name.length() -1, -1)
 	if int($/root/Main.coming_from) > int(level_number):
-		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
+		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
 	else:
-		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size)
+		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
 	await create_tween().tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
 
 func _process(delta):
@@ -53,7 +53,7 @@ func _process(delta):
 	if input_direction != Vector2.ZERO:
 		target_move = null
 	elif target_move:
-		if target_move.snapped(Vector2.ONE * 2) == global_position.snapped(Vector2.ONE * 2):
+		if target_move.snapped(Vector2.ONE * 3) == global_position.snapped(Vector2.ONE * 3):
 			target_move = null
 			return
 		input_direction = (target_move - global_position).normalized()
