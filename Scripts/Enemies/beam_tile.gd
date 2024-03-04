@@ -34,11 +34,8 @@ func turn_call():
 	for n in $Beam.get_children():
 		n.queue_free()
 	if !is_destroyed:
-		if cannon_recharge == 0:
-			fire_beam()
-			return
 		if charge == cannon_recharge:
-			if firing_for == duration:
+			if firing_for == duration && cannon_recharge != 0:
 				sprite.frame = 0
 				charge = 0
 				firing_for = 0
@@ -66,6 +63,7 @@ func fire_beam():
 				break
 			else:
 				var beam_section = beam_prefab.instantiate()
+				beam_section.cannon = self
 				$Beam.add_child(beam_section)
 				if cannon_recharge == 0:
 					beam_section.get_node("AnimatedSprite2D").animation = "forever"
