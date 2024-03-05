@@ -1,0 +1,697 @@
+[gd_scene load_steps=23 format=3 uid="uid://chcl8bygxwvrr"]
+
+[ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_17red"]
+[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="2_bf761"]
+[ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="3_l35bc"]
+[ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="4_pyaja"]
+[ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="5_5ck8q"]
+[ext_resource type="PackedScene" uid="uid://bp2vnsgs7oqhr" path="res://Scenes/Tiles/VirtualEnvironment200/200_horizontal_wall_tile.tscn" id="6_a02j8"]
+[ext_resource type="PackedScene" uid="uid://cfp55uxbk1cts" path="res://Scenes/Tiles/VirtualEnvironment200/200_upper_left_corner_tile.tscn" id="7_7pqsw"]
+[ext_resource type="PackedScene" uid="uid://1s5c2qp7pnnq" path="res://Scenes/Tiles/VirtualEnvironment200/200_lower_left_corner_tile.tscn" id="8_a1mrc"]
+[ext_resource type="PackedScene" uid="uid://d0baeiioyxixi" path="res://Scenes/Tiles/VirtualEnvironment200/200_upper_right_corner_tile.tscn" id="9_lsjb3"]
+[ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="10_lr8j2"]
+[ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="11_rd502"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="12_vdhtm"]
+[ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="13_dklnv"]
+[ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="14_balag"]
+[ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="15_mps8q"]
+[ext_resource type="PackedScene" uid="uid://byinsx25o8k8n" path="res://Scenes/Tiles/VirtualEnvironment200/200_lower_right_corner_tile.tscn" id="17_qh4yl"]
+[ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="18_4kq8k"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="19_y5eyv"]
+[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="20_0nins"]
+[ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="21_fawad"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="22_yekw7"]
+[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="23_lt0to"]
+
+[node name="Level208" type="Node2D"]
+
+[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("1_17red")]
+visible = false
+offset_right = 1456.0
+offset_bottom = 1064.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bf761")
+autoplay = true
+bus = &"Music"
+
+[node name="VirtualLevelManager" parent="." instance=ExtResource("3_l35bc")]
+yellow_doomwall_step = 0.5
+red_doomwall_step = 1.0
+level_height = 100
+level_length = 100
+level_number = 209
+
+[node name="UI" parent="." instance=ExtResource("4_pyaja")]
+visible = false
+
+[node name="ProgramManager" parent="." instance=ExtResource("5_5ck8q")]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Floor" type="Node2D" parent="Environment"]
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="HorizontalWallTile159" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(832, 800)
+rotation = -1.5708
+
+[node name="HorizontalWallTile191" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(832, 832)
+rotation = -1.5708
+
+[node name="HorizontalWallTile160" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(832, 864)
+rotation = -1.5708
+
+[node name="HorizontalWallTile251" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(128, 832)
+rotation = -1.5708
+
+[node name="HorizontalWallTile259" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(128, 800)
+rotation = -1.5708
+
+[node name="UpperLeftCornerTile12" parent="Environment/Walls" instance=ExtResource("7_7pqsw")]
+position = Vector2(128, 768)
+
+[node name="HorizontalWallTile264" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(448, 1216)
+
+[node name="HorizontalWallTile121" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(160, 768)
+
+[node name="HorizontalWallTile108" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(608, 768)
+
+[node name="HorizontalWallTile117" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(576, 768)
+
+[node name="HorizontalWallTile125" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(640, 768)
+
+[node name="HorizontalWallTile176" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(544, 768)
+
+[node name="HorizontalWallTile149" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(480, 1216)
+
+[node name="HorizontalWallTile150" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(576, 1216)
+
+[node name="HorizontalWallTile151" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(544, 1216)
+
+[node name="HorizontalWallTile265" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(608, 1216)
+
+[node name="HorizontalWallTile267" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(672, 1216)
+
+[node name="HorizontalWallTile268" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(640, 1216)
+
+[node name="HorizontalWallTile269" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(704, 1216)
+
+[node name="HorizontalWallTile270" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(736, 1216)
+
+[node name="HorizontalWallTile271" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(768, 1216)
+
+[node name="HorizontalWallTile272" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(800, 1216)
+
+[node name="HorizontalWallTile273" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(672, 768)
+
+[node name="HorizontalWallTile266" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(512, 1216)
+
+[node name="HorizontalWallTile275" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(224, 1216)
+
+[node name="HorizontalWallTile157" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(256, 1216)
+
+[node name="HorizontalWallTile279" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(160, 1216)
+
+[node name="HorizontalWallTile162" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(192, 1216)
+
+[node name="HorizontalWallTile158" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(352, 1216)
+
+[node name="HorizontalWallTile161" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(320, 1216)
+
+[node name="HorizontalWallTile276" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(384, 1216)
+
+[node name="HorizontalWallTile277" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(416, 1216)
+
+[node name="HorizontalWallTile278" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(288, 1216)
+
+[node name="HorizontalWallTile126" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(192, 768)
+
+[node name="HorizontalWallTile111" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(384, 768)
+
+[node name="HorizontalWallTile195" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(352, 768)
+
+[node name="HorizontalWallTile115" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(416, 768)
+
+[node name="HorizontalWallTile129" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(448, 768)
+
+[node name="HorizontalWallTile118" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(256, 768)
+
+[node name="HorizontalWallTile205" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(224, 768)
+
+[node name="HorizontalWallTile148" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(288, 768)
+
+[node name="HorizontalWallTile155" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(320, 768)
+
+[node name="HorizontalWallTile116" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(512, 768)
+
+[node name="HorizontalWallTile201" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(480, 768)
+
+[node name="HorizontalWallTile123" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(736, 768)
+
+[node name="HorizontalWallTile166" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(704, 768)
+
+[node name="HorizontalWallTile124" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(800, 768)
+
+[node name="HorizontalWallTile167" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(768, 768)
+
+[node name="LowerLeftCornerTile9" parent="Environment/Walls" instance=ExtResource("8_a1mrc")]
+position = Vector2(128, 1216)
+
+[node name="HorizontalWallTile122" parent="Environment/Walls" instance=ExtResource("6_a02j8")]
+position = Vector2(-1680, 544)
+
+[node name="UpperRightCornerTile9" parent="Environment/Walls" instance=ExtResource("9_lsjb3")]
+position = Vector2(832, 768)
+
+[node name="GameplayElements" type="Node2D" parent="."]
+
+[node name="Items" type="Node2D" parent="GameplayElements"]
+
+[node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
+
+[node name="BeetleBarrier165" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 960)
+
+[node name="BeetleBarrier170" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 832)
+
+[node name="BeetleBarrier172" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 800)
+
+[node name="BeetleBarrier182" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 1152)
+
+[node name="BeetleBarrier185" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 1184)
+
+[node name="BeetleBarrier168" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_lr8j2")]
+position = Vector2(800, 896)
+
+[node name="MobileBarrier" type="Node2D" parent="GameplayElements"]
+
+[node name="WarningTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="YellowWarningTile7" parent="GameplayElements/WarningTiles" instance=ExtResource("11_rd502")]
+position = Vector2(192, 800)
+
+[node name="YellowWarningTile11" parent="GameplayElements/WarningTiles" instance=ExtResource("11_rd502")]
+position = Vector2(192, 832)
+
+[node name="YellowWarningTile12" parent="GameplayElements/WarningTiles" instance=ExtResource("11_rd502")]
+position = Vector2(160, 832)
+
+[node name="BeatleBarrrier" type="Node2D" parent="GameplayElements"]
+
+[node name="Others" type="Node2D" parent="GameplayElements"]
+
+[node name="VirtualStartTile2" parent="GameplayElements/Others" instance=ExtResource("12_vdhtm")]
+position = Vector2(160, 800)
+
+[node name="CanonBeams" type="Node2D" parent="GameplayElements"]
+
+[node name="Doomwall" parent="." instance=ExtResource("13_dklnv")]
+
+[node name="Dialogue" type="Node2D" parent="."]
+
+[node name="VirtualPlayer" parent="." instance=ExtResource("14_balag")]
+position = Vector2(288, 640)
+
+[node name="ForeverBeamTile30" parent="." instance=ExtResource("15_mps8q")]
+position = Vector2(800, 992)
+rotation = -3.14159
+
+[node name="ForeverBeamTile33" parent="." instance=ExtResource("15_mps8q")]
+position = Vector2(800, 1120)
+rotation = -3.14159
+
+[node name="ForeverBeamTile34" parent="." instance=ExtResource("15_mps8q")]
+position = Vector2(736, 1056)
+rotation = -3.14159
+
+[node name="ForeverBeamTile31" parent="." instance=ExtResource("15_mps8q")]
+position = Vector2(800, 928)
+rotation = -3.14159
+
+[node name="ForeverBeamTile32" parent="." instance=ExtResource("15_mps8q")]
+position = Vector2(800, 864)
+rotation = -3.14159
+
+[node name="HorizontalWallTile271" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 928)
+rotation = -1.5708
+
+[node name="HorizontalWallTile298" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 896)
+rotation = -1.5708
+
+[node name="HorizontalWallTile272" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 960)
+rotation = -1.5708
+
+[node name="HorizontalWallTile273" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 992)
+rotation = -1.5708
+
+[node name="HorizontalWallTile274" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1024)
+rotation = -1.5708
+
+[node name="HorizontalWallTile275" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1056)
+rotation = -1.5708
+
+[node name="HorizontalWallTile276" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1088)
+rotation = -1.5708
+
+[node name="HorizontalWallTile277" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1120)
+rotation = -1.5708
+
+[node name="HorizontalWallTile278" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1152)
+rotation = -1.5708
+
+[node name="HorizontalWallTile279" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(832, 1184)
+rotation = -1.5708
+
+[node name="LowerRightCornerTile13" parent="." instance=ExtResource("17_qh4yl")]
+position = Vector2(832, 1216)
+
+[node name="HorizontalWallTile304" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 896)
+rotation = -1.5708
+
+[node name="HorizontalWallTile305" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 864)
+rotation = -1.5708
+
+[node name="HorizontalWallTile306" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 928)
+rotation = -1.5708
+
+[node name="HorizontalWallTile307" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 960)
+rotation = -1.5708
+
+[node name="HorizontalWallTile308" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 992)
+rotation = -1.5708
+
+[node name="HorizontalWallTile309" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1024)
+rotation = -1.5708
+
+[node name="HorizontalWallTile310" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1056)
+rotation = -1.5708
+
+[node name="HorizontalWallTile311" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1088)
+rotation = -1.5708
+
+[node name="HorizontalWallTile312" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1120)
+rotation = -1.5708
+
+[node name="HorizontalWallTile313" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1152)
+rotation = -1.5708
+
+[node name="HorizontalWallTile314" parent="." instance=ExtResource("6_a02j8")]
+position = Vector2(128, 1184)
+rotation = -1.5708
+
+[node name="ByteBarrierEasy10" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(256, 832)
+
+[node name="ByteBarrierEasy16" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(288, 832)
+
+[node name="ByteBarrierEasy18" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(320, 832)
+
+[node name="ByteBarrierEasy19" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(352, 832)
+
+[node name="ByteBarrierEasy20" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(384, 832)
+
+[node name="ByteBarrierEasy22" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(448, 832)
+
+[node name="ByteBarrierEasy23" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(480, 832)
+
+[node name="ByteBarrierEasy24" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(512, 832)
+
+[node name="ByteBarrierEasy26" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(576, 832)
+
+[node name="ByteBarrierEasy27" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(608, 832)
+
+[node name="ByteBarrierEasy28" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(640, 832)
+
+[node name="ByteBarrierEasy29" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(672, 832)
+
+[node name="ByteBarrierEasy32" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(256, 1152)
+
+[node name="ByteBarrierEasy33" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(288, 1152)
+
+[node name="ByteBarrierEasy35" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(352, 1152)
+
+[node name="ByteBarrierEasy36" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(384, 1152)
+
+[node name="ByteBarrierEasy37" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(416, 1152)
+
+[node name="ByteBarrierEasy40" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(512, 1152)
+
+[node name="ByteBarrierEasy42" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(576, 1152)
+
+[node name="ByteBarrierEasy43" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(608, 1152)
+
+[node name="ByteBarrierEasy44" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(640, 1152)
+
+[node name="ByteBarrierEasy45" parent="." instance=ExtResource("19_y5eyv")]
+position = Vector2(672, 1152)
+
+[node name="ByteBarrierMedium3" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(256, 1088)
+
+[node name="ByteBarrierMedium6" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(288, 1088)
+
+[node name="ByteBarrierMedium7" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(320, 1088)
+
+[node name="ByteBarrierMedium8" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(352, 1088)
+
+[node name="ByteBarrierMedium9" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(384, 1088)
+
+[node name="ByteBarrierMedium10" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(416, 1088)
+
+[node name="ByteBarrierMedium12" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(480, 1088)
+
+[node name="ByteBarrierMedium13" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(512, 1088)
+
+[node name="ByteBarrierMedium14" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(544, 1088)
+
+[node name="ByteBarrierMedium15" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(576, 1088)
+
+[node name="ByteBarrierMedium16" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(608, 1088)
+
+[node name="ByteBarrierMedium17" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(640, 1088)
+
+[node name="ByteBarrierMedium18" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(672, 1088)
+
+[node name="ByteBarrierMedium20" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(256, 800)
+
+[node name="ByteBarrierMedium21" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(256, 896)
+
+[node name="ByteBarrierMedium22" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(288, 896)
+
+[node name="ByteBarrierMedium23" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(320, 896)
+
+[node name="ByteBarrierMedium25" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(384, 896)
+
+[node name="ByteBarrierMedium26" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(416, 896)
+
+[node name="ByteBarrierMedium27" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(448, 896)
+
+[node name="ByteBarrierMedium28" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(480, 896)
+
+[node name="ByteBarrierMedium30" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(544, 896)
+
+[node name="ByteBarrierMedium31" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(576, 896)
+
+[node name="ByteBarrierMedium32" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(608, 896)
+
+[node name="ByteBarrierMedium33" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(640, 896)
+
+[node name="ByteBarrierMedium19" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(672, 896)
+
+[node name="ByteBarrierMedium34" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(288, 800)
+
+[node name="ByteBarrierMedium35" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(320, 800)
+
+[node name="ByteBarrierMedium36" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(352, 800)
+
+[node name="ByteBarrierMedium37" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(384, 800)
+
+[node name="ByteBarrierMedium39" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(448, 800)
+
+[node name="ByteBarrierMedium40" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(480, 800)
+
+[node name="ByteBarrierMedium41" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(512, 800)
+
+[node name="ByteBarrierMedium42" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(544, 800)
+
+[node name="ByteBarrierMedium43" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(576, 800)
+
+[node name="ByteBarrierMedium45" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(640, 800)
+
+[node name="ByteBarrierMedium46" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(672, 800)
+
+[node name="ByteBarrierMedium48" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(256, 1184)
+
+[node name="ByteBarrierMedium49" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(288, 1184)
+
+[node name="ByteBarrierMedium50" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(320, 1184)
+
+[node name="ByteBarrierMedium51" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(352, 1184)
+
+[node name="ByteBarrierMedium52" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(384, 1184)
+
+[node name="ByteBarrierMedium53" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(416, 1184)
+
+[node name="ByteBarrierMedium54" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(448, 1184)
+
+[node name="ByteBarrierMedium56" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(512, 1184)
+
+[node name="ByteBarrierMedium57" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(544, 1184)
+
+[node name="ByteBarrierMedium58" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(576, 1184)
+
+[node name="ByteBarrierMedium59" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(608, 1184)
+
+[node name="ByteBarrierMedium60" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(640, 1184)
+
+[node name="ByteBarrierMedium61" parent="." instance=ExtResource("20_0nins")]
+position = Vector2(672, 1184)
+
+[node name="MobileBarrier15" parent="." instance=ExtResource("18_4kq8k")]
+position = Vector2(16, 400)
+
+[node name="ByteBarrierHard" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(256, 960)
+
+[node name="ByteBarrierHard3" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(320, 960)
+
+[node name="ByteBarrierHard4" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(352, 960)
+
+[node name="ByteBarrierHard5" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(384, 960)
+
+[node name="ByteBarrierHard6" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(416, 960)
+
+[node name="ByteBarrierHard7" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(448, 960)
+
+[node name="ByteBarrierHard8" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(480, 960)
+
+[node name="ByteBarrierHard9" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(512, 960)
+
+[node name="ByteBarrierHard10" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(544, 960)
+
+[node name="ByteBarrierHard11" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(576, 960)
+
+[node name="ByteBarrierHard12" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(608, 960)
+
+[node name="ByteBarrierHard13" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(640, 960)
+
+[node name="ByteBarrierHard14" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(672, 960)
+
+[node name="ByteBarrierHard15" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(256, 1024)
+
+[node name="ByteBarrierHard16" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(288, 1024)
+
+[node name="ByteBarrierHard17" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(320, 1024)
+
+[node name="ByteBarrierHard18" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(352, 1024)
+
+[node name="ByteBarrierHard20" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(416, 1024)
+
+[node name="ByteBarrierHard21" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(448, 1024)
+
+[node name="ByteBarrierHard22" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(480, 1024)
+
+[node name="ByteBarrierHard23" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(512, 1024)
+
+[node name="ByteBarrierHard24" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(544, 1024)
+
+[node name="ByteBarrierHard26" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(608, 1024)
+
+[node name="ByteBarrierHard27" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(640, 1024)
+
+[node name="ByteBarrierHard28" parent="." instance=ExtResource("23_lt0to")]
+position = Vector2(672, 1024)
+
+[node name="TerminalAccesPoint" parent="." instance=ExtResource("21_fawad")]
+position = Vector2(800, 1056)
+targets = Vector3i(8, 8, 8)
+
+[node name="Booster" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(544, 1152)
+
+[node name="Booster9" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(320, 1152)
+
+[node name="Booster2" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(448, 1088)
+
+[node name="Booster5" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(576, 1024)
+
+[node name="Booster6" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(512, 896)
+
+[node name="Booster3" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(384, 1024)
+
+[node name="Booster4" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(288, 960)
+
+[node name="Booster7" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(224, 896)
+
+[node name="Booster8" parent="." instance=ExtResource("22_yekw7")]
+position = Vector2(224, 832)
