@@ -9,6 +9,7 @@ var locked = true : set = set_lock
 @export var is_locked = true
 @export var is_vulnerable= false
 @export var strength = 3
+@export var access_point_number : int
 
 @onready var anim = $AnimatedSprite2D
 
