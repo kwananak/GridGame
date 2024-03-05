@@ -175,25 +175,34 @@ offset_left = 256.0
 offset_top = 232.0
 offset_right = 336.0
 offset_bottom = 263.0
-text = "Level 208-2 way"
+text = "Level 208"
 
 [node name="Level209Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 256.0
 offset_top = 264.0
-offset_right = 350.0
+offset_right = 386.0
 offset_bottom = 295.0
-text = "Level 209 Armor"
+text = "Level 209-2 way"
 
 [node name="Level210Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 256.0
 offset_top = 296.0
-offset_right = 349.0
+offset_right = 390.0
 offset_bottom = 327.0
-text = "Level 210 Door+Brain"
+text = "Level 210 Armor"
+
+[node name="Level211Button" type="Button" parent="DebugMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 256.0
+offset_top = 328.0
+offset_right = 429.0
+offset_bottom = 359.0
+text = "Level 211 Door+Brain"
 
 [node name="Level301Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
@@ -476,8 +485,9 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/Level206Button" to="." method="call_level" binds= [206]]
 [connection signal="pressed" from="DebugMenu/Level207Button" to="." method="call_level" binds= [207]]
 [connection signal="pressed" from="DebugMenu/Level208Button" to="." method="call_level" binds= [208]]
-[connection signal="pressed" from="DebugMenu/Level209Button" to="." method="call_level"]
-[connection signal="pressed" from="DebugMenu/Level210Button" to="." method="call_level"]
+[connection signal="pressed" from="DebugMenu/Level209Button" to="." method="call_level" binds= [209]]
+[connection signal="pressed" from="DebugMenu/Level210Button" to="." method="call_level" binds= [210]]
+[connection signal="pressed" from="DebugMenu/Level211Button" to="." method="call_level" binds= [211]]
 [connection signal="pressed" from="DebugMenu/Level301Button" to="." method="call_level"]
 [connection signal="pressed" from="DebugMenu/Level302Button" to="." method="call_level"]
 [connection signal="pressed" from="DebugMenu/Level303Button" to="." method="call_level"]
