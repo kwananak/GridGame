@@ -4,6 +4,7 @@ var level_manager
 var camera
 var label
 var player
+var state = "default" : set = set_state
 
 var freeze = 0
 var adjustment = 0
@@ -39,6 +40,7 @@ func create_wall_sprite():
 		var section = section_prefab.instantiate()
 		sprite.add_child(section)
 		section.position = Vector2(16 - section_number * level_manager.tile_size, h * level_manager.tile_size * 8)
+		section.animation = state
 		section.frame = section_number % 3
 		section.modulate.a = 1 - 0.1 * section_number
 		if section.modulate.a < 0.2:
@@ -100,3 +102,10 @@ func vision_check():
 
 func fade_out():
 	create_tween().tween_property($AudioStreamPlayer2D, "volume_db", -80, 1)
+
+func set_state(value):
+	state = value
+	for n in sprite.get_children():
+		var frame = n.frame
+		n.animation = state
+		n.frame = frame
