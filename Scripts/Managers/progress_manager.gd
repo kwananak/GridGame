@@ -3,7 +3,7 @@ extends Node2D
 var log_path = "res://Txts/dialogs.txt"
 var save_path = "user://savegame.save"
 var completed_levels = []
-var unlocked_levels = ["101", "201"]
+var unlocked_levels = ["101", "201", "301"]
 var doors = []
 var save_point
 var dialogs
@@ -20,8 +20,22 @@ var levels = {"100" : {"200" : false},
 			"201" : {"202" : false},
 			"202" : {"203" : false},
 			"203" : {"204" : false},
-			"204" : {"205" : false},
-			"205" : {"206" : false, "prog" : false}}
+			"204" : {"205" : false, "206" : false},
+			"205" : {"prog" : false},
+			"206" : {"207" : false},
+			"207" : {"208" : false},
+			"208" : {"209" : false},
+			"209" : {"210" : false, "211" : false},
+			"210" : {"prog" : false},
+			"211" : {"3" : false},
+			"301" : {"302" : false},
+			"302" : {"303" : false},
+			"303" : {"304" : false},
+			"304" : {"305" : false},
+			"305" : {"306" : false},
+			"306" : {"307" : false},
+			"307" : {"308" : false},
+			"308" : {"4" : false}}
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -195,7 +209,7 @@ func reset_progress():
 				for p in o.get_children():
 					p.queue_free()
 	completed_levels = []
-	unlocked_levels = ["101", "201"]
+	unlocked_levels = ["101", "201", "301"]
 	doors = []
 	for n in levels:
 		for o in levels[n]:
