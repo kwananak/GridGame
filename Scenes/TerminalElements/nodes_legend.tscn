@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnaggoj45isfh"]
+
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_m6gg6"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_scdgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vljpq"]
+atlas = ExtResource("1_m6gg6")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgtlu"]
+atlas = ExtResource("1_m6gg6")
+region = Rect2(16, 80, 16, 16)
+
+[node name="NodesLegend" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pink" type="Sprite2D" parent="."]
+position = Vector2(-116.083, -103.209)
+texture = SubResource("AtlasTexture_vljpq")
+
+[node name="Label" type="Label" parent="pink"]
+offset_left = 7.46271
+offset_top = -9.32837
+offset_right = 395.463
+offset_bottom = 91.6716
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_scdgj")
+theme_override_font_sizes/font_size = 48
+text = "program zone"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="purple" type="Sprite2D" parent="."]
+position = Vector2(-20.9334, -103.209)
+texture = SubResource("AtlasTexture_sgtlu")
+
+[node name="Label" type="Label" parent="purple"]
+offset_left = 7.46271
+offset_top = -9.32837
+offset_right = 395.463
+offset_bottom = 91.6716
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_scdgj")
+theme_override_font_sizes/font_size = 48
+text = "terminal zone"
+horizontal_alignment = 1
+vertical_alignment = 1

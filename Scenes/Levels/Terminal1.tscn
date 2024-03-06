@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://c8tpvtaqmdco"]
+[gd_scene load_steps=43 format=3 uid="uid://c8tpvtaqmdco"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_m3qxo"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_4ghj7"]
+[ext_resource type="PackedScene" uid="uid://dnaggoj45isfh" path="res://Scenes/TerminalElements/nodes_legend.tscn" id="4_tkltp"]
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_x6tjo"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_2viqu"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="5_ktjds"]
@@ -102,10 +103,26 @@ region = Rect2(96, 32, 32, 32)
 atlas = ExtResource("9_yykok")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulfve"]
+atlas = ExtResource("9_yykok")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5svl"]
+atlas = ExtResource("9_yykok")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy4xf"]
+atlas = ExtResource("9_yykok")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8hfj"]
+atlas = ExtResource("9_yykok")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rhx4x"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_uskum")
 }, {
 "duration": 1.0,
@@ -134,6 +151,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ulfve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}],
+"loop": true,
+"name": &"opened",
 "speed": 5.0
 }]
 
@@ -169,6 +209,8 @@ texture = SubResource("AtlasTexture_w7s1c")
 [node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
 texture = SubResource("AtlasTexture_ffpcy")
+
+[node name="NodesLegend" parent="MapBackground" instance=ExtResource("4_tkltp")]
 
 [node name="Map" type="Control" parent="."]
 anchors_preset = 0
@@ -328,6 +370,7 @@ locked"
 [node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_rhx4x")
+animation = &"opened"
 
 [node name="Log" parent="." instance=ExtResource("6_rrlng")]
 visible = false

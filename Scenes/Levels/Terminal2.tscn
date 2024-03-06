@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=37 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_ew1yl"]
+[ext_resource type="PackedScene" uid="uid://dnaggoj45isfh" path="res://Scenes/TerminalElements/nodes_legend.tscn" id="4_pa0fv"]
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_yq20t"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="5_cm8sf"]
@@ -32,7 +33,7 @@ region = Rect2(16, 848, 541, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xg8u"]
 atlas = ExtResource("2_o3ila")
-region = Rect2(176, 8, 312, 168)
+region = Rect2(815, 13, 312, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orsoq"]
 atlas = ExtResource("2_o3ila")
@@ -48,7 +49,34 @@ region = Rect2(605, 97, 10, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqejg"]
 atlas = ExtResource("2_o3ila")
-region = Rect2(611, 64, 31, 20)
+region = Rect2(892, 238, 30, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nowom"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(930, 238, 34, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vigb1"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(964, 242, 18, 68)
+margin = Rect2(-0.19, 0.685, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6b38"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(990, 276, 42, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b62dh"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(1040, 248, 28, 22)
+margin = Rect2(0.185, 0.275, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr052"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(1046, 200, 22, 40)
+margin = Rect2(0.33, -0.13, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mulh6"]
+atlas = ExtResource("2_o3ila")
+region = Rect2(1076, 248, 38, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
 atlas = ExtResource("9_qed1s")
@@ -126,23 +154,25 @@ texture = SubResource("AtlasTexture_eqor7")
 visible = false
 texture = SubResource("AtlasTexture_ca6sk")
 
+[node name="NodesLegend" parent="MapBackground" instance=ExtResource("4_pa0fv")]
+
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(296.09, 142.269)
 texture = SubResource("AtlasTexture_8xg8u")
 
 [node name="Level201" parent="Map" instance=ExtResource("3_ew1yl")]
-offset_left = -304.0
-offset_top = -8.0
-offset_right = -304.0
-offset_bottom = -8.0
+offset_left = -302.836
+offset_top = -9.34363
+offset_right = -302.836
+offset_bottom = -9.34363
 node_level = 201
 node_color = "blue"
 
 [node name="Level202" parent="Map" instance=ExtResource("3_ew1yl")]
-offset_left = -238.0
-offset_top = -11.0
-offset_right = -238.0
-offset_bottom = -11.0
+offset_left = -237.165
+offset_top = -12.3287
+offset_right = -237.165
+offset_bottom = -12.3287
 node_level = 202
 node_color = "blue"
 
@@ -151,10 +181,10 @@ position = Vector2(-33, 2)
 texture = SubResource("AtlasTexture_orsoq")
 
 [node name="Level203" parent="Map" instance=ExtResource("3_ew1yl")]
-offset_left = -195.0
-offset_top = -38.0
-offset_right = -195.0
-offset_bottom = -38.0
+offset_left = -193.881
+offset_top = -39.1944
+offset_right = -193.881
+offset_bottom = -39.1944
 node_level = 203
 node_color = "blue"
 
@@ -163,10 +193,10 @@ position = Vector2(-21, 14)
 texture = SubResource("AtlasTexture_456wg")
 
 [node name="Level204" parent="Map" instance=ExtResource("3_ew1yl")]
-offset_left = -202.0
-offset_top = -87.0
-offset_right = -202.0
-offset_bottom = -87.0
+offset_left = -201.344
+offset_top = -88.4481
+offset_right = -201.344
+offset_bottom = -88.4481
 node_level = 204
 node_color = "blue"
 
@@ -175,16 +205,90 @@ position = Vector2(4, 25)
 texture = SubResource("AtlasTexture_e0o3o")
 
 [node name="Level205" parent="Map" instance=ExtResource("3_ew1yl")]
-offset_left = -161.045
-offset_top = -117.314
-offset_right = -161.045
-offset_bottom = -117.314
+offset_left = -238.657
+offset_top = -118.299
+offset_right = -238.657
+offset_bottom = -118.299
 node_level = 205
-node_color = "blue"
+node_color = "pink"
 
 [node name="LinkSprite" parent="Map/Level205" instance=ExtResource("4_yq20t")]
-position = Vector2(-20.8955, 14.9254)
+position = Vector2(18.6567, 14.9254)
 texture = SubResource("AtlasTexture_wqejg")
+offset = Vector2(0.35, 0.055)
+
+[node name="Level206" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -159.553
+offset_top = -118.299
+offset_right = -159.553
+offset_bottom = -118.299
+node_level = 206
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level206" instance=ExtResource("4_yq20t")]
+position = Vector2(-20.8955, 14.9254)
+texture = SubResource("AtlasTexture_nowom")
+offset = Vector2(0.86, 0.05)
+
+[node name="Level207" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -140.896
+offset_top = -39.1944
+offset_right = -140.896
+offset_bottom = -39.1944
+node_level = 207
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level207" instance=ExtResource("4_yq20t")]
+position = Vector2(-12.6866, -38.806)
+texture = SubResource("AtlasTexture_vigb1")
+
+[node name="Level208" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -92.3885
+offset_top = -80.9854
+offset_right = -92.3885
+offset_bottom = -80.9854
+node_level = 208
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level208" instance=ExtResource("4_yq20t")]
+position = Vector2(-23.8806, 20.8955)
+texture = SubResource("AtlasTexture_q6b38")
+
+[node name="Level209" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -55.8214
+offset_top = -110.09
+offset_right = -55.8214
+offset_bottom = -110.09
+node_level = 209
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level209" instance=ExtResource("4_yq20t")]
+position = Vector2(-17.1642, 15.6716)
+texture = SubResource("AtlasTexture_b62dh")
+
+[node name="Level210" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -85.6721
+offset_top = -155.612
+offset_right = -85.6721
+offset_bottom = -155.612
+node_level = 210
+node_color = "pink"
+
+[node name="LinkSprite" parent="Map/Level210" instance=ExtResource("4_yq20t")]
+position = Vector2(15.6716, 23.1343)
+texture = SubResource("AtlasTexture_fr052")
+
+[node name="Level211" parent="Map" instance=ExtResource("3_ew1yl")]
+offset_left = -8.06017
+offset_top = -45.1645
+offset_right = -8.06017
+offset_bottom = -45.1645
+node_level = 211
+node_color = "purple"
+
+[node name="LinkSprite" parent="Map/Level211" instance=ExtResource("4_yq20t")]
+position = Vector2(-23.8806, -32.0895)
+texture = SubResource("AtlasTexture_mulh6")
 
 [node name="MapInfos" parent="Map" instance=ExtResource("5_cm8sf")]
 offset_left = -252.0

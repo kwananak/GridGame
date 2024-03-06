@@ -106,6 +106,8 @@ func set_labels():
 			access_unlocked[1] += 1
 			if progress_manager.levels[str(node_level)][k]:
 				access_unlocked[0] += 1
+	if access_unlocked[1] == 0:
+		return
 	if access_unlocked[0] == access_unlocked[1]:
 		access_point_label.append_text("[color=green]")
 	else:
