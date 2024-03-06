@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dg6n7pupedtmj"]
+[gd_scene load_steps=77 format=3 uid="uid://dg6n7pupedtmj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/virtual_player.gd" id="1_0kghv"]
 [ext_resource type="Texture2D" uid="uid://dbn3u3skuotun" path="res://Sprites/Programs/Arms/circle_whip.png" id="2_e1p3t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3k6pd56xjakj" path="res://Scenes/Prefabs/possible_move.tscn" id="4_gobr5"]
 [ext_resource type="Texture2D" uid="uid://bo1ng3xxytxlb" path="res://Sprites/Programs/Arms/grappling_tool_sheet.png" id="4_ilmo0"]
 [ext_resource type="AudioStream" uid="uid://dfm1pbbrsn18s" path="res://Sounds/Player/virtual_footsteps.wav" id="6_27qtg"]
+[ext_resource type="PackedScene" uid="uid://dedtxcgq4whkl" path="res://Scenes/Prefabs/shield.tscn" id="8_ww5pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ab277"]
 size = Vector2(30, 30)
@@ -557,6 +558,9 @@ libraries = {
 sprite_frames = SubResource("SpriteFrames_85hmi")
 animation = &"return"
 autoplay = "spawn"
+
+[node name="Shield" parent="AnimatedSprite2D" instance=ExtResource("8_ww5pj")]
+visible = false
 
 [node name="PossibleMoves" type="Node2D" parent="."]
 

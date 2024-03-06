@@ -20,6 +20,8 @@ var teleport = false
 var saved_frame = 0
 var skip_turn_button
 
+@onready var shield = $AnimatedSprite2D/Shield
+
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	skip_turn_button = get_tree().get_first_node_in_group("SkipTurnButton")
@@ -324,14 +326,17 @@ func grapple_check(distance):
 	moving = false
 
 func activate_shield():
-	var shield = load("res://Scenes/Prefabs/shield.tscn").instantiate()
-	animated_sprite_2d.add_child(shield)
-	create_tween().tween_property(shield, "scale",
-			Vector2.ONE,
-			0.5).set_trans(Tween.TRANS_SINE)
+	shield.show()
+	shield.get_node("new").play()
+	shield.play("new")
+	await shield.animation_finished
+	shield.play("default")
 
 func deactivate_shield():
-	animated_sprite_2d.get_child(0).queue_free()
+	shield.play("pop")
+	shield.get_node("pop").play()
+	await shield.animation_finished
+	shield.hide()
 
 func get_hit():
 	var temp_move = moving
