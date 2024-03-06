@@ -4,7 +4,6 @@ var paused = false
 var loaded_prefab
 var level_manager
 var upper_range = 1.0
-
 var next_spawn_countdown = 0.0
 
 @onready var active_node = $Careful
@@ -18,6 +17,8 @@ func _ready():
 		level_manager.pause_trigger.connect(set_pause)
 		level_manager.game_over_trigger.connect(set_pause)
 		upper_range = 0.3
+	if get_parent().name.substr(5, -1).begins_with("2"):
+		basic_particle_prefab = load("res://Scenes/Tiles/200_basic_particle.tscn")
 	loaded_prefab = basic_particle_prefab
 
 func _process(delta):
