@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://be8v7f8xogyjk"]
+[gd_scene load_steps=26 format=3 uid="uid://be8v7f8xogyjk"]
 
 [ext_resource type="Texture2D" uid="uid://ck7a5m7dpcdht" path="res://Sprites/EnvironmentReal/Complex/complex_arm.png" id="1_lqls1"]
 [ext_resource type="Script" path="res://Scripts/Environment/complex_arm.gd" id="1_xbt5p"]
 [ext_resource type="AudioStream" uid="uid://c5w4l5yfmi4yg" path="res://Sounds/Real/robo_arm.wav" id="2_hcg5k"]
+[ext_resource type="Texture2D" uid="uid://b2uice0ppm15y" path="res://Sprites/EnvironmentReal/Complex/assembly_robot.png" id="4_ct2d3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5u41"]
 atlas = ExtResource("1_lqls1")
@@ -85,6 +86,70 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijss4"]
 size = Vector2(78, 74)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pnt2"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(12, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sccm"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(32, 132, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7hsr"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(32, 252, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo2ja"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(16, 320, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3v5f"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(0, 420, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cjin"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(18, 488, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f288m"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(22, 584, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfdr5"]
+atlas = ExtResource("4_ct2d3")
+region = Rect2(24, 680, 32, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ddc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pnt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sccm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7hsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo2ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3v5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cjin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f288m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfdr5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ComplexArm" type="StaticBody2D"]
 z_index = 30
 script = ExtResource("1_xbt5p")
@@ -93,14 +158,20 @@ script = ExtResource("1_xbt5p")
 sprite_frames = SubResource("SpriteFrames_traph")
 autoplay = "default"
 frame_progress = 0.275236
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, 3)
+position = Vector2(78, 67)
 shape = SubResource("RectangleShape2D_ijss4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_hcg5k")
 max_distance = 200.0
 bus = &"FX"
+
+[node name="LimbSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3ddc0")
+centered = false
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

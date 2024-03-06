@@ -86,6 +86,7 @@ func move_wall(distance):
 		audio.pitch_scale = 0.9
 	else:
 		audio.pitch_scale = 1
+		audio.position.y = player.global_position.y
 	audio.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position",
