@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ivbvlflygwaj"]
+
+[ext_resource type="Texture2D" uid="uid://745f3t320ixx" path="res://Sprites/EnvironmentVirtual/Terminal300/environnement_virtuel_300.png" id="1_6qm46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f857r"]
+atlas = ExtResource("1_6qm46")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jjke"]
+atlas = ExtResource("1_6qm46")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l2wi"]
+atlas = ExtResource("1_6qm46")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dur2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f857r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jjke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l2wi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="HorizontalWallTile" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dur2d")
+autoplay = "default"
+frame_progress = 0.850913

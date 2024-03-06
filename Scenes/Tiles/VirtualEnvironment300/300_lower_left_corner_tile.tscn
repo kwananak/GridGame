@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://btvr0esnhqxxp"]
+
+[ext_resource type="Texture2D" uid="uid://745f3t320ixx" path="res://Sprites/EnvironmentVirtual/Terminal300/environnement_virtuel_300.png" id="1_eh2mc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmt1u"]
+atlas = ExtResource("1_eh2mc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57x0c"]
+atlas = ExtResource("1_eh2mc")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrseq"]
+atlas = ExtResource("1_eh2mc")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psejb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmt1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57x0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrseq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="LowerLeftCornerTile" type="Area2D" groups=["AStarGridSolid"]]
+z_index = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_psejb")
+autoplay = "default"
+frame_progress = 0.105255
