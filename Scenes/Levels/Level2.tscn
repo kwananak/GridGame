@@ -44,28 +44,6 @@ end_turn_speed = 0.01
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
-[node name="StartTile" parent="Environment/Floor" instance=ExtResource("3_yd3js")]
-position = Vector2(160, 800)
-
-[node name="EndTile" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
-z_index = 0
-position = Vector2(288, 128)
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor/EndTile"]
-z_index = 20
-scale = Vector2(0.167, 0.167)
-texture = SubResource("AtlasTexture_ns0it")
-
-[node name="EndTile2" parent="Environment/Floor" instance=ExtResource("4_hicxf")]
-z_index = 0
-position = Vector2(160, 800)
-door_number = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor/EndTile2"]
-z_index = 20
-scale = Vector2(0.167, 0.167)
-texture = SubResource("AtlasTexture_ns0it")
-
 [node name="FloorTileComplex" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(256, 160)
 
@@ -2282,7 +2260,30 @@ position = Vector2(256, 480)
 
 [node name="TerminalDoorTile" parent="." instance=ExtResource("11_mads1")]
 position = Vector2(288, 128)
+door_number = 3
+
+[node name="StartTile" parent="." instance=ExtResource("3_yd3js")]
+position = Vector2(160, 800)
+
+[node name="EndTile" parent="." instance=ExtResource("4_hicxf")]
+z_index = 0
+position = Vector2(288, 128)
+door_number = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="EndTile"]
+z_index = 20
+scale = Vector2(0.167, 0.167)
+texture = SubResource("AtlasTexture_ns0it")
+
+[node name="EndTile2" parent="." instance=ExtResource("4_hicxf")]
+z_index = 0
+position = Vector2(160, 800)
 door_number = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="EndTile2"]
+z_index = 20
+scale = Vector2(0.167, 0.167)
+texture = SubResource("AtlasTexture_ns0it")
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_na0sr")

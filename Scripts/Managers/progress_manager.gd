@@ -75,7 +75,7 @@ func add_to_programs(slot, program, level):
 		if n.type == program.type:
 			return
 	program.position = Vector2.ZERO
-	get_node("OwnedPrograms/" + slot).add_child(program)
+	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 	levels[str(level)]["prog"] = true
 
 func auto_loader():
@@ -295,7 +295,7 @@ func load_game():
 								get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Amplifiers/" + p + ".tscn").instantiate())
 						_:
 							for p in data[n][o]:
-								if p != "empty":
+								if p != "empty" && p != "":
 									if p.ends_with("runed"):
 										var s = p.get_slice("_", 0)
 										var v = load("res://Scenes/Programs/" + o + "/" + s + ".tscn").instantiate()

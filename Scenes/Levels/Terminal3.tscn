@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0mcdkb118qdp"]
+[gd_scene load_steps=32 format=3 uid="uid://0mcdkb118qdp"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_pi8fv"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="2_51s4d"]
@@ -59,13 +59,41 @@ region = Rect2(96, 32, 32, 32)
 atlas = ExtResource("8_b07wj")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ajnw5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulfve"]
+atlas = ExtResource("8_b07wj")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5svl"]
+atlas = ExtResource("8_b07wj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy4xf"]
+atlas = ExtResource("8_b07wj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8hfj"]
+atlas = ExtResource("8_b07wj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pin8k"]
 animations = [{
 "frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uskum")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_gbi37")
 }, {
 "duration": 1.0,
@@ -79,6 +107,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ulfve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}],
+"loop": true,
+"name": &"opened",
 "speed": 5.0
 }]
 
@@ -177,7 +228,7 @@ locked"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
 position = Vector2(37, 19)
-sprite_frames = SubResource("SpriteFrames_ajnw5")
+sprite_frames = SubResource("SpriteFrames_pin8k")
 
 [node name="Log" parent="." instance=ExtResource("9_ddrgw")]
 visible = false

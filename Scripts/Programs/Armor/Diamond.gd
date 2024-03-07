@@ -7,6 +7,7 @@ var regen_turn = 0
 var used = 0 : set = set_used
 
 func _ready():
+	type = "Diamond"
 	info = "Passive : Gives you " + str(strength) + " shield"
 	if strength > 1:
 		info += "s"

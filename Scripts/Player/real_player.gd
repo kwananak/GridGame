@@ -18,7 +18,7 @@ var target_sprite
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	target_sprite = get_tree().get_first_node_in_group("TargetMoveSprite")
-	scale = Vector2.ZERO
+	$AnimatedSprite2D.scale = Vector2.ZERO
 	await enter_level_animation()
 	active = true
 
@@ -44,7 +44,8 @@ func enter_level_animation():
 		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
 	else:
 		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
-	await create_tween().tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
+	await create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
+	set_collision_layer_value(2, true)
 
 func _process(delta):
 	if level_manager.game_over || level_manager.paused || !active:
