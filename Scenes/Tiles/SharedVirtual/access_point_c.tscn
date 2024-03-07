@@ -1,9 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddj25hskh4bb5"]
+[gd_scene load_steps=28 format=3 uid="uid://ddj25hskh4bb5"]
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point.gd" id="1_d0awa"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="2_16scb"]
 [ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="3_rshop"]
 [ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="4_fkkkn"]
+[ext_resource type="AudioStream" uid="uid://dnrdsg8b81uk2" path="res://Sounds/FX/access_point_on.wav" id="5_wlokb"]
+[ext_resource type="AudioStream" uid="uid://b13ia07ha5rc6" path="res://Sounds/FX/access_point_off.wav" id="6_t0plx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ww"]
 
@@ -216,4 +218,16 @@ bus = &"FX"
 
 [node name="destroy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_fkkkn")
+bus = &"FX"
+
+[node name="on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wlokb")
+volume_db = 10.0
+attenuation = 2.54912
+bus = &"FX"
+
+[node name="off" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_t0plx")
+volume_db = 10.0
+attenuation = 2.54912
 bus = &"FX"
