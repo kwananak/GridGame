@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqy0kn70q6mgg"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/beam_tile.gd" id="1_6tmbg"]
+[ext_resource type="Texture2D" uid="uid://bvrenwrowpsup" path="res://Sprites/Enemies/beam.png" id="2_yr3vf"]
+[ext_resource type="AudioStream" uid="uid://uckawnh2ctl" path="res://Sounds/FX/cannon_destroy.wav" id="3_muai7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqu2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqam5"]
+atlas = ExtResource("2_yr3vf")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uyaw"]
+atlas = ExtResource("2_yr3vf")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_601op"]
+atlas = ExtResource("2_yr3vf")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlbfs"]
+atlas = ExtResource("2_yr3vf")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04lt8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqam5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uyaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_601op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlbfs")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ExtremeForeverBeamTile" type="Area2D" groups=["AStarGridSolid", "EndTurn", "Hittable"]]
+z_index = 30
+collision_mask = 4
+script = ExtResource("1_6tmbg")
+cannon_recharge = 0
+duration = 0
+distance = 0
+extreme = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xqu2r")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(32, 0)
+collide_with_areas = true
+
+[node name="Beam" type="Node2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_04lt8")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1  2"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_muai7")
+pitch_scale = 0.2
+bus = &"FX"
+
+[connection signal="area_entered" from="." to="." method="hit_by_player"]

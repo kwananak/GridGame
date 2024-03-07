@@ -10,6 +10,7 @@ var level_manager
 @export var cannon_recharge = 1
 @export var duration = 1 : set = set_duration
 @export var distance = 1
+@export var extreme = false
 
 @onready var beam_prefab = preload("res://Scenes/Prefabs/beam.tscn")
 @onready var label = $Label
@@ -66,7 +67,10 @@ func fire_beam():
 				beam_section.cannon = self
 				$Beam.add_child(beam_section)
 				if cannon_recharge == 0:
-					beam_section.get_node("AnimatedSprite2D").animation = "forever"
+					if extreme:
+						beam_section.get_node("AnimatedSprite2D").animation = "extreme"
+					else:
+						beam_section.get_node("AnimatedSprite2D").animation = "forever"
 				beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 				i += 1
 	else:
