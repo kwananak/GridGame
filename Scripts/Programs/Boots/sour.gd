@@ -25,6 +25,7 @@ func action():
 
 func confirm_with_dir(dir):
 	var tele = dir.available_action
+	print(tele)
 	if tele:
 		tele.monitoring = false
 		tele.hide()

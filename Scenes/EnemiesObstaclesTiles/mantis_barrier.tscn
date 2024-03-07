@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bkou1j7vi2y5c" path="res://Sprites/Enemies/barriers_sheet.png" id="2_boru6"]
 [ext_resource type="AudioStream" uid="uid://bmm26ylpr0he5" path="res://Sounds/FX/mantis_barrier.wav" id="3_c1kv3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyous"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkhun"]
 atlas = ExtResource("2_boru6")
 region = Rect2(16, 240, 32, 32)
@@ -32,10 +34,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyous"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgre"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02wdq"]
 atlas = ExtResource("2_boru6")
@@ -82,73 +80,84 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MantisBarrier" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgre"]
+
+[node name="MantisBarrier" type="Area2D"]
 z_index = 33
+collision_mask = 23
 script = ExtResource("1_idwwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gyous")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ue71l")
 
-[node name="MainArea" type="Area2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea"]
-shape = SubResource("RectangleShape2D_gyous")
-
-[node name="Left" type="Area2D" parent="."]
+[node name="Left" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-32, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
-shape = SubResource("RectangleShape2D_ckgre")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Left"]
-rotation = 4.71239
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_xtw6i")
 frame = 6
 frame_progress = 1.0
 
-[node name="Right" type="Area2D" parent="."]
-position = Vector2(32, 0)
+[node name="Left" type="Area2D" parent="Left"]
+visible = false
+rotation = 1.5708
 collision_layer = 0
-collision_mask = 3
+collision_mask = 19
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left/Left"]
 shape = SubResource("RectangleShape2D_ckgre")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Right"]
+[node name="Right" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(32, 0)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_xtw6i")
 frame = 6
 frame_progress = 1.0
 
-[node name="Up" type="Area2D" parent="."]
-position = Vector2(0, -32)
+[node name="Right" type="Area2D" parent="Right"]
+visible = false
+rotation = -1.5708
 collision_layer = 0
-collision_mask = 3
+collision_mask = 19
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right/Right"]
 shape = SubResource("RectangleShape2D_ckgre")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Up"]
+[node name="Up" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_xtw6i")
 frame = 6
 frame_progress = 1.0
 
-[node name="Down" type="Area2D" parent="."]
-position = Vector2(0, 32)
+[node name="Up" type="Area2D" parent="Up"]
+visible = false
 collision_layer = 0
-collision_mask = 3
+collision_mask = 19
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/Up"]
 shape = SubResource("RectangleShape2D_ckgre")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Down"]
+[node name="Down" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 32)
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_xtw6i")
 frame = 6
 frame_progress = 1.0
+
+[node name="Down" type="Area2D" parent="Down"]
+visible = false
+rotation = -3.14159
+collision_layer = 0
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/Down"]
+shape = SubResource("RectangleShape2D_ckgre")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_c1kv3")
@@ -156,7 +165,7 @@ volume_db = 20.0
 attenuation = 2.54912
 bus = &"FX"
 
-[connection signal="area_entered" from="Left" to="." method="_on_area_entered" binds= ["Left"]]
-[connection signal="area_entered" from="Right" to="." method="_on_area_entered" binds= ["Right"]]
-[connection signal="area_entered" from="Up" to="." method="_on_area_entered" binds= ["Up"]]
-[connection signal="area_entered" from="Down" to="." method="_on_area_entered" binds= ["Down"]]
+[connection signal="area_entered" from="Left/Left" to="." method="_on_area_entered" binds= ["Left"]]
+[connection signal="area_entered" from="Right/Right" to="." method="_on_area_entered" binds= ["Right"]]
+[connection signal="area_entered" from="Up/Up" to="." method="_on_area_entered" binds= ["Up"]]
+[connection signal="area_entered" from="Down/Down" to="." method="_on_area_entered" binds= ["Down"]]
