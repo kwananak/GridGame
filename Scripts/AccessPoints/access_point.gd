@@ -16,11 +16,8 @@ var locked = true : set = set_lock
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	locked = is_locked
-	vulnerable = is_vulnerable
-	if vulnerable and !locked:
-		anim.animation = "vulnerable"
-	else:
-		anim.animation = "invulnerable"
+	if is_vulnerable:
+		vulnerable = is_vulnerable
 
 func _process(_delta):
 	if level_manager.vision:
@@ -59,11 +56,14 @@ func set_vulnerability(value):
 	vulnerable = value
 	var frame = anim.frame
 	if value:
+		$on.play()
 		anim.animation = "vulnerable"
 	else:
+		$off.play()
 		anim.animation = "invulnerable"
 	anim.frame = frame
 
 func set_lock(value):
-	vulnerable = true
+	if !value:
+		vulnerable = true
 	locked = value

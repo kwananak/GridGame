@@ -1,9 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://buhx8hv7me51"]
+[gd_scene load_steps=37 format=3 uid="uid://buhx8hv7me51"]
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point.gd" id="1_ec2s4"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="2_nom5u"]
 [ext_resource type="AudioStream" uid="uid://7ss3m2cf40yr" path="res://Sounds/FX/access_point_hit.wav" id="3_hidml"]
 [ext_resource type="AudioStream" uid="uid://dalx3w1at40u0" path="res://Sounds/FX/access_point_destroy.wav" id="4_q1cix"]
+[ext_resource type="AudioStream" uid="uid://dnrdsg8b81uk2" path="res://Sounds/FX/access_point_on.wav" id="5_hpb12"]
+[ext_resource type="AudioStream" uid="uid://b13ia07ha5rc6" path="res://Sounds/FX/access_point_off.wav" id="6_hvxuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu7ww"]
 
@@ -226,7 +228,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="AccessPoint1" type="Area2D" groups=["AccessPoint"]]
+[node name="AccessPointA" type="Area2D" groups=["AccessPoint"]]
 z_index = 30
 script = ExtResource("1_ec2s4")
 
@@ -235,8 +237,8 @@ shape = SubResource("RectangleShape2D_tu7ww")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jn5ln")
-animation = &"destruction"
-autoplay = "vulnerable"
+animation = &"invulnerable"
+autoplay = "invulnerable"
 
 [node name="Label" type="Label" parent="."]
 offset_left = -8.0
@@ -244,10 +246,22 @@ offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 18.0
 
-[node name="hit" type="AudioStreamPlayer" parent="."]
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hidml")
 bus = &"FX"
 
-[node name="destroy" type="AudioStreamPlayer" parent="."]
+[node name="destroy" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_q1cix")
+bus = &"FX"
+
+[node name="on" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hpb12")
+volume_db = 10.0
+attenuation = 2.54912
+bus = &"FX"
+
+[node name="off" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hvxuk")
+volume_db = 10.0
+attenuation = 2.54912
 bus = &"FX"
