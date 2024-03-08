@@ -21,6 +21,7 @@ func _on_animated_sprite_2d_frame_changed():
 	match sprite.frame:
 		0:
 			animation_player.play("new_animation")
+		1:
 			limb_sprite.hide()
 		3:
 			$AudioStreamPlayer.play()
