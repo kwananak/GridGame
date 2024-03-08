@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvmqo5esvy8gy"]
+
+[ext_resource type="Texture2D" uid="uid://745f3t320ixx" path="res://Sprites/EnvironmentVirtual/Terminal300/environnement_virtuel_300.png" id="1_ndv1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfb6w"]
+atlas = ExtResource("1_ndv1f")
+region = Rect2(304, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il5on"]
+atlas = ExtResource("1_ndv1f")
+region = Rect2(352, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqvms"]
+atlas = ExtResource("1_ndv1f")
+region = Rect2(400, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0my6e"]
+atlas = ExtResource("1_ndv1f")
+region = Rect2(448, 80, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytl8y"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_nfb6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il5on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqvms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0my6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="300SoapCrossTile" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ytl8y")
+autoplay = "default"

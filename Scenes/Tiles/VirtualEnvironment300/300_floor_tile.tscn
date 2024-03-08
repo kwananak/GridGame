@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://745f3t320ixx" path="res://Sprites/EnvironmentVirtual/Terminal300/environnement_virtuel_300.png" id="1_lwx3n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3kuq"]
-atlas = ExtResource("1_lwx3n")
-region = Rect2(32, 32, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6mrx"]
 atlas = ExtResource("1_lwx3n")
 region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3kuq"]
+atlas = ExtResource("1_lwx3n")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jwn7"]
 atlas = ExtResource("1_lwx3n")
@@ -17,14 +17,17 @@ region = Rect2(224, 32, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_uptec"]
 animations = [{
 "frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_u6mrx")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m3kuq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u6mrx")
+"texture": SubResource("AtlasTexture_3jwn7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3jwn7")
+"texture": SubResource("AtlasTexture_m3kuq")
 }],
 "loop": true,
 "name": &"default",
@@ -35,4 +38,3 @@ animations = [{
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_uptec")
 autoplay = "default"
-frame_progress = 0.847377

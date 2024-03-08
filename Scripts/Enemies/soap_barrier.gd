@@ -18,10 +18,7 @@ func _on_area_entered(area):
 	moved = true
 	$AudioStreamPlayer2D.play()
 	if area is Vector2:
-		var old_pos = global_position
-		position += area
-		$AnimatedSprite2D.global_position = old_pos
-		create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE)
+		create_tween().tween_property(self, "position", position + area, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE)
 		$AnimatedSprite2D.frame = 1
 		return
 	if area.is_in_group("Player"):
