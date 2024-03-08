@@ -6,17 +6,26 @@ const points = [Vector2(103, 109),
 				Vector2(103, 65),
 				Vector2(91, 73)]
 
-var loaded_limb
-
 @export var limb : int
 @onready var sprite = $AnimatedSprite2D
+@onready var limb_sprite = $LimbSprite
+@onready var bot_sprite = $BotSprite
+@onready var animation_player = $BotSprite/AnimationPlayer
 
 func _ready():
 	$AudioStreamPlayer.pitch_scale = randf_range(0.95, 1.05)
-	$LimbSprite.frame = limb
+	limb_sprite.frame = limb
+	bot_sprite.frame = limb
 
 func _on_animated_sprite_2d_frame_changed():
-	if sprite.frame == 1:
-		$AudioStreamPlayer.play()
-	if sprite.frame > 3 && sprite.frame < 8:
-		$LimbSprite.position = points[sprite.frame - 3]
+	match sprite.frame:
+		0:
+			animation_player.play("new_animation")
+			limb_sprite.hide()
+		3:
+			$AudioStreamPlayer.play()
+		6:
+			limb_sprite.show()
+			limb_sprite.position = points[sprite.frame - 5]
+		7, 8, 9:
+			limb_sprite.position = points[sprite.frame - 5]
