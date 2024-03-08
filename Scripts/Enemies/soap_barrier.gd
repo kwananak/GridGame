@@ -26,7 +26,6 @@ func _on_area_entered(area):
 		while true:
 			ray.force_raycast_update()
 			if ray.get_collider():
-				print(ray.get_collider())
 				break
 			var old_pos = global_position
 			position += target
