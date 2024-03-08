@@ -16,6 +16,12 @@ func _ready():
 	$AudioStreamPlayer.pitch_scale = randf_range(0.95, 1.05)
 	limb_sprite.frame = limb
 	bot_sprite.frame = limb
+	if limb == 7:
+		sprite.hide()
+		animation_player.play("conveyor_end")
+	else:
+		sprite.play()
+		animation_player.play("new_animation")
 
 func _on_animated_sprite_2d_frame_changed():
 	match sprite.frame:
@@ -23,8 +29,14 @@ func _on_animated_sprite_2d_frame_changed():
 			limb_sprite.hide()
 		3:
 			$AudioStreamPlayer.play()
+			if limb == 6:
+				bot_sprite.frame = 7
 		6:
 			limb_sprite.show()
 			limb_sprite.position = points[sprite.frame - 5]
-		7, 8, 9:
+		7, 9:
 			limb_sprite.position = points[sprite.frame - 5]
+		8:
+			limb_sprite.position = points[sprite.frame - 5]
+			if limb == 6:
+				bot_sprite.frame = 6

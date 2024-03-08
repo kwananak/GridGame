@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cimgj6cn4tfce"]
+
+[ext_resource type="Texture2D" uid="uid://csy72snq7ggl0" path="res://Sprites/EnvironmentReal/Complex/conveyor.png" id="1_3nyht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i15yg"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 80, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm1gj"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 64, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc21j"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 48, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy2ja"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 32, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4kbx"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 16, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x25c"]
+atlas = ExtResource("1_3nyht")
+region = Rect2(0, 0, 80, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmhs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i15yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm1gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc21j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy2ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4kbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x25c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="ConveyorEnd" type="AnimatedSprite2D"]
+z_index = 30
+rotation = -0.523599
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_dmhs0")
+autoplay = "default"
+frame_progress = 0.639185
