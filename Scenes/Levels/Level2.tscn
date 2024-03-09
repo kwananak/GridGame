@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=30 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="9_o170u"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="11_mads1"]
 [ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="11_rajsu"]
+[ext_resource type="Texture2D" uid="uid://3moped42ipsw" path="res://Sprites/EnvironmentReal/Complex/complex_window.png" id="13_0ulnl"]
+[ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="14_2yy35"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
+[ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="15_yh82c"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="18_oxmmy"]
@@ -21,6 +24,19 @@
 [ext_resource type="PackedScene" uid="uid://dv8ksq5v36juw" path="res://Scenes/Tiles/EnvironmentComplex/conveyor.tscn" id="20_shhch"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_utj30"]
 [ext_resource type="PackedScene" uid="uid://cimgj6cn4tfce" path="res://Scenes/Tiles/EnvironmentComplex/conveyor_end.tscn" id="21_65wie"]
+[ext_resource type="PackedScene" uid="uid://bo048pm8qjmme" path="res://Scenes/Tiles/EnvironmentComplex/window.tscn" id="22_8km8i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vosv2"]
+atlas = ExtResource("13_0ulnl")
+region = Rect2(0, 0, 32, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_710dv"]
+atlas = ExtResource("14_2yy35")
+region = Rect2(0, 0, 64, 307)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lso0"]
+atlas = ExtResource("15_yh82c")
+region = Rect2(397, -9, 68, 252)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ns0it"]
 atlas = ExtResource("5_mc1di")
@@ -31,14 +47,6 @@ region = Rect2(0, 0, 192, 192)
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1800.0
 offset_bottom = 1232.0
-color = Color(0.423529, 0.443137, 0.509804, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-z_index = 40
-offset_left = 1408.0
-offset_top = -8.0
-offset_right = 1616.0
-offset_bottom = 1184.0
 color = Color(0.423529, 0.443137, 0.509804, 1)
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_jef0p")]
@@ -1259,9 +1267,6 @@ position = Vector2(1312.03, 160.032)
 [node name="FloorTileComplex856" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 160.032)
 
-[node name="FloorTileComplex857" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 160.032)
-
 [node name="FloorTileComplex753" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1216.03, 192.032)
 
@@ -1598,20 +1603,11 @@ position = Vector2(1312.03, 192.032)
 [node name="FloorTileComplex858" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 192.032)
 
-[node name="FloorTileComplex859" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 192.032)
-
 [node name="FloorTileComplex860" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 352.032)
 
-[node name="FloorTileComplex861" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 352.032)
-
 [node name="FloorTileComplex862" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 320.032)
-
-[node name="FloorTileComplex863" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 320.032)
 
 [node name="FloorTileComplex864" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 256.032)
@@ -1619,29 +1615,8 @@ position = Vector2(1344.03, 256.032)
 [node name="FloorTileComplex865" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 288.032)
 
-[node name="FloorTileComplex866" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 256.032)
-
-[node name="FloorTileComplex867" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 288.032)
-
 [node name="FloorTileComplex868" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 224.032)
-
-[node name="FloorTileComplex869" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 224.032)
-
-[node name="FloorTileComplex870" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 480.032)
-
-[node name="FloorTileComplex871" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 448.032)
-
-[node name="FloorTileComplex872" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 384.032)
-
-[node name="FloorTileComplex873" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 416.032)
 
 [node name="FloorTileComplex789" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.03, 480.032)
@@ -1741,45 +1716,6 @@ position = Vector2(1344.06, 704.064)
 
 [node name="FloorTileComplex821" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(1344.06, 736.064)
-
-[node name="FloorTileComplex822" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 896.032)
-
-[node name="FloorTileComplex823" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 544.032)
-
-[node name="FloorTileComplex824" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 576.032)
-
-[node name="FloorTileComplex825" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 512.032)
-
-[node name="FloorTileComplex826" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.03, 608.032)
-
-[node name="FloorTileComplex827" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 640.064)
-
-[node name="FloorTileComplex828" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 672.064)
-
-[node name="FloorTileComplex829" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 704.064)
-
-[node name="FloorTileComplex830" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 736.064)
-
-[node name="FloorTileComplex831" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 768.064)
-
-[node name="FloorTileComplex832" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 800.064)
-
-[node name="FloorTileComplex833" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 832.064)
-
-[node name="FloorTileComplex834" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
-position = Vector2(1376.06, 864.064)
 
 [node name="FloorTileComplex289" parent="Environment/Floor" instance=ExtResource("5_yotuo")]
 position = Vector2(640.032, 544.032)
@@ -2782,8 +2718,8 @@ position = Vector2(1312, 128)
 [node name="WallBackTileComplex64" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(1344, 128)
 
-[node name="WallBackTileComplex65" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(1376, 128)
+[node name="WallBackTileComplex79" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
+position = Vector2(1408, 128)
 
 [node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
 position = Vector2(224, 128)
@@ -2862,127 +2798,127 @@ position = Vector2(224, 768)
 
 [node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
 z_index = 40
-position = Vector2(1408, 128)
+position = Vector2(1424, 128)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex24" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 160)
+position = Vector2(1424, 160)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex25" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 192)
+position = Vector2(1424, 192)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex26" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 224)
+position = Vector2(1424, 224)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex27" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 256)
+position = Vector2(1424, 256)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex28" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 288)
+position = Vector2(1424, 288)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex29" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 320)
+position = Vector2(1424, 320)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex30" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 352)
+position = Vector2(1424, 352)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex31" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 384)
+position = Vector2(1424, 384)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex32" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 416)
+position = Vector2(1424, 416)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex33" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 448)
+position = Vector2(1424, 448)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex34" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 480)
+position = Vector2(1424, 480)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex35" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 512)
+position = Vector2(1424, 512)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex36" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 544)
+position = Vector2(1424, 544)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex37" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 576)
+position = Vector2(1424, 576)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex38" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 608)
+position = Vector2(1424, 608)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex39" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 640)
+position = Vector2(1424, 640)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex40" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 672)
+position = Vector2(1424, 672)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex41" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 704)
+position = Vector2(1424, 704)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex42" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 736)
+position = Vector2(1424, 736)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex43" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 768)
+position = Vector2(1424, 768)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex44" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 800)
+position = Vector2(1424, 800)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex45" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 832)
+position = Vector2(1424, 832)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex46" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 864)
+position = Vector2(1424, 864)
 scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex47" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
-position = Vector2(1408, 896)
+position = Vector2(1424, 896)
 scale = Vector2(-1, 1)
 
 [node name="WallBackTileComplex13" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
@@ -3098,16 +3034,23 @@ position = Vector2(1280, 928)
 position = Vector2(1312, 928)
 
 [node name="WallBackTileComplex76" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+z_index = 30
 position = Vector2(1344, 928)
 
 [node name="WallBackTileComplex77" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+z_index = 30
 position = Vector2(1376, 928)
+
+[node name="WallBackTileComplex78" parent="Environment/Walls" instance=ExtResource("14_hsdls")]
+z_index = 35
+position = Vector2(1392, 928)
 
 [node name="CornerWallTileComplex3" parent="Environment/Walls" instance=ExtResource("15_o25el")]
 position = Vector2(128, 928)
 
 [node name="CornerWallTileComplex5" parent="Environment/Walls" instance=ExtResource("15_o25el")]
-position = Vector2(1408, 928)
+z_index = 36
+position = Vector2(1424, 928)
 scale = Vector2(-1, 1)
 
 [node name="AssemblyLine" type="Node2D" parent="Environment"]
@@ -3525,6 +3468,63 @@ position = Vector2(1322, 889)
 rotation = 2.61799
 scale = Vector2(1, -1)
 frame_progress = 0.133657
+
+[node name="Windows" type="Node2D" parent="Environment/AssemblyLine"]
+
+[node name="Window" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 840)
+scale = Vector2(2, 2)
+
+[node name="Window2" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 744)
+scale = Vector2(2, 2)
+
+[node name="Window3" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 648)
+scale = Vector2(2, 2)
+
+[node name="Window4" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 552)
+scale = Vector2(2, 2)
+
+[node name="Window5" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 456)
+scale = Vector2(2, 2)
+
+[node name="Window6" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 360)
+scale = Vector2(2, 2)
+
+[node name="Window7" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 264)
+scale = Vector2(2, 2)
+
+[node name="Window8" parent="Environment/AssemblyLine/Windows" instance=ExtResource("22_8km8i")]
+position = Vector2(1368, 168)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
+z_index = 29
+position = Vector2(1376, 904)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_vosv2")
+offset = Vector2(0.5, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
+position = Vector2(1384, 760)
+texture = SubResource("AtlasTexture_710dv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
+position = Vector2(1392, 456)
+texture = SubResource("AtlasTexture_710dv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
+position = Vector2(1360, 248)
+texture = SubResource("AtlasTexture_2lso0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
+position = Vector2(1376, 400)
+texture = SubResource("AtlasTexture_710dv")
 
 [node name="Trials" type="Node2D" parent="."]
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo048pm8qjmme"]
+
+[ext_resource type="Texture2D" uid="uid://3moped42ipsw" path="res://Sprites/EnvironmentReal/Complex/complex_window.png" id="1_osjgb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ayna"]
+atlas = ExtResource("1_osjgb")
+region = Rect2(0, 8, 23, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xhvo"]
+atlas = ExtResource("1_osjgb")
+region = Rect2(23, 8, 9, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjq60"]
+atlas = ExtResource("1_osjgb")
+region = Rect2(0, 0, 32, 12)
+
+[node name="Window" type="Node2D"]
+z_index = 29
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_5ayna")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(16, 0)
+texture = SubResource("AtlasTexture_1xhvo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(4, 30)
+texture = SubResource("AtlasTexture_pjq60")
+offset = Vector2(0.5, 0)
