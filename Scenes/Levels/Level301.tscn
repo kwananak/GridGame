@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcm25emq8r0xb"]
+[gd_scene load_steps=24 format=3 uid="uid://dcm25emq8r0xb"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_gwkj8"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_hf2kb"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="23_e0cpd"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="23_i5myu"]
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="23_o4yww"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="23_xxj8s"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="24_57jtn"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_2au3s"]
 [ext_resource type="PackedScene" uid="uid://c5owey4h2s8ek" path="res://Scenes/Tiles/SharedVirtual/access_point_b.tscn" id="25_ajuwi"]
@@ -1182,3 +1183,7 @@ bus = &"Music"
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("25_2au3s")]
 position = Vector2(64, 416)
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("23_xxj8s")]
+position = Vector2(800, 160)
+unlocks = 302

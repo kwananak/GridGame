@@ -15,11 +15,11 @@ func check_move(player_position):
 	return true
 
 func _on_area_entered(area):
-	moved = true
 	$AudioStreamPlayer2D.play()
 	if area is Vector2:
 		create_tween().tween_property(self, "position", position + area, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE)
 		$AnimatedSprite2D.frame = 1
+		moved = true
 		return
 	if area.is_in_group("Player"):
 		ray.target_position = target
@@ -30,5 +30,6 @@ func _on_area_entered(area):
 			var old_pos = global_position
 			position += target
 			$AnimatedSprite2D.global_position = old_pos
-			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
+			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.5 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
 		$AnimatedSprite2D.frame = 1
+		moved = true
