@@ -1,20 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://my6oyv50hb2h"]
 
-[ext_resource type="Script" path="res://Scripts/Programs/amplifier.gd" id="1_xlyyk"]
-[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_in7n6"]
+[ext_resource type="Script" path="res://Scripts/Programs/amplifier.gd" id="1_s4c2x"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_yc0yr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tinig"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76ef3"]
-atlas = ExtResource("2_in7n6")
+atlas = ExtResource("2_yc0yr")
 region = Rect2(144, 269, 42, 35)
 
-[node name="NeuroEnhanceAmplifier1" type="Area2D"]
+[node name="NeuroEnhanceAmplifierA" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("1_xlyyk")
+script = ExtResource("1_s4c2x")
 strength = 2
+amplifier_class = "A"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)

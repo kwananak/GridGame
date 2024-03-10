@@ -76,6 +76,7 @@ func fire_beam():
 	else:
 		for i in distance:
 			var beam_section = beam_prefab.instantiate()
+			beam_section.cannon = self
 			$Beam.add_child(beam_section)
 			beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 

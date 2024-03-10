@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://by3hf4dsi6gwn"]
+[gd_scene load_steps=25 format=3 uid="uid://by3hf4dsi6gwn"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_qyikc"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_7i3jq"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="23_6cpix"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="24_3sscm"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="24_s3fno"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="24_tjlmj"]
 [ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="26_i3f0x"]
 
 [node name="Level304" type="Node2D"]
@@ -1434,3 +1435,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="300LevelBackgroundColors" parent="." instance=ExtResource("26_i3f0x")]
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("24_tjlmj")]
+position = Vector2(608, 1280)
+unlocks = 305

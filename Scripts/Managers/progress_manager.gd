@@ -29,11 +29,11 @@ var levels = {"100" : {"200" : false},
 			"210" : {"prog" : false},
 			"211" : {"3" : false},
 			"301" : {"302" : false},
-			"302" : {"303" : false},
-			"303" : {"304" : false},
-			"304" : {"305" : false},
-			"305" : {"306" : false},
-			"306" : {"307" : false},
+			"302" : {"303" : false, "304" : false},
+			"303" : {"prog" : false},
+			"304" : {"305" : false, "5" : false},
+			"305" : {"306" : false, "307" : false},
+			"306" : {"prog" : false},
 			"307" : {"308" : false},
 			"308" : {"4" : false}}
 
@@ -68,7 +68,6 @@ func create_dialogs_dict():
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
-	print(slot + " " + program.type + " " + str(level))
 	if program.name == "Rune":
 		get_node("Loadout/Runes").add_child(program)
 		return

@@ -31,5 +31,5 @@ func _on_area_entered(area):
 			position += target
 			$AnimatedSprite2D.global_position = old_pos
 			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.5 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
-		$AnimatedSprite2D.frame = 1
 		moved = true
+		$AnimatedSprite2D.frame = 1

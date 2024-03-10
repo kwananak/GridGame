@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=21 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_73lqa"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="10_r0hly"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="11_21w8d"]
+[ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="12_5m0d7"]
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aobp3"]
@@ -70,6 +71,9 @@ position = Vector2(304, 144)
 
 [node name="Catwalk10" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(336, 144)
+
+[node name="Catwalk44" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(336, 176)
 
 [node name="Catwalk13" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(368, 176)
@@ -128,6 +132,21 @@ position = Vector2(400, 496)
 [node name="Catwalk29" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(368, 528)
 
+[node name="Catwalk91" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(336, 496)
+
+[node name="Catwalk92" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(336, 528)
+
+[node name="Catwalk93" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(304, 464)
+
+[node name="Catwalk99" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(336, 464)
+
+[node name="Catwalk94" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(304, 496)
+
 [node name="Catwalk30" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(400, 528)
 
@@ -175,9 +194,6 @@ position = Vector2(464, 592)
 
 [node name="Catwalk43" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(432, 624)
-
-[node name="Catwalk44" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(464, 624)
 
 [node name="Catwalk45" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(880, 592)
@@ -546,6 +562,10 @@ rotation = -1.5708
 position = Vector2(432, 560)
 rotation = -1.5708
 
+[node name="Railing68" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(432, 624)
+rotation = -1.5708
+
 [node name="Railing54" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(1040, 400)
 rotation = -1.5708
@@ -582,10 +602,16 @@ rotation = -1.5708
 position = Vector2(368, 752)
 
 [node name="Railing20" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(464, 624)
+position = Vector2(464, 592)
 
 [node name="Railing21" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(432, 624)
+
+[node name="Railing36" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(336, 528)
+
+[node name="Railing67" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(304, 496)
 
 [node name="Railing22" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(912, 624)
@@ -627,7 +653,7 @@ position = Vector2(1104, 528)
 position = Vector2(1008, 624)
 
 [node name="Railing2" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 144)
+position = Vector2(336, 176)
 
 [node name="Railing3" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(304, 144)
@@ -716,7 +742,7 @@ position = Vector2(336, 272)
 rotation = -1.5708
 
 [node name="Railing32" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 496)
+position = Vector2(272, 496)
 rotation = -1.5708
 
 [node name="Railing33" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
@@ -728,7 +754,7 @@ position = Vector2(336, 432)
 rotation = -1.5708
 
 [node name="Railing35" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 464)
+position = Vector2(272, 464)
 rotation = -1.5708
 
 [node name="Railing36" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
@@ -739,12 +765,16 @@ rotation = -1.5708
 position = Vector2(336, 656)
 rotation = -1.5708
 
+[node name="Railing54" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(464, 624)
+rotation = -1.5708
+
 [node name="Railing53" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(304, 688)
 rotation = -1.5708
 
 [node name="Railing37" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 528)
+position = Vector2(304, 528)
 rotation = -1.5708
 
 [node name="Railing38" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
@@ -788,7 +818,7 @@ position = Vector2(336, 368)
 rotation = -1.5708
 
 [node name="Railing29" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 176)
+position = Vector2(304, 176)
 rotation = -1.5708
 
 [node name="Railing30" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
@@ -816,6 +846,12 @@ position = Vector2(464, 560)
 
 [node name="Railing7" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(432, 528)
+
+[node name="Railing13" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(336, 432)
+
+[node name="Railing24" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(304, 432)
 
 [node name="Railing14" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(880, 560)
@@ -915,7 +951,7 @@ position = Vector2(1040, 368)
 position = Vector2(432, 656)
 
 [node name="InvisibleWall26" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(464, 656)
+position = Vector2(464, 624)
 
 [node name="InvisibleWall71" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(688, 560)
@@ -1083,16 +1119,16 @@ position = Vector2(432, 208)
 position = Vector2(112, 656)
 
 [node name="InvisibleWall51" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 464)
+position = Vector2(272, 464)
 
 [node name="InvisibleWall52" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(336, 560)
 
 [node name="InvisibleWall53" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 528)
+position = Vector2(304, 528)
 
 [node name="InvisibleWall54" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 496)
+position = Vector2(272, 496)
 
 [node name="InvisibleWall61" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(336, 656)
@@ -1109,6 +1145,9 @@ position = Vector2(336, 272)
 [node name="InvisibleWall56" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(336, 432)
 
+[node name="InvisibleWall93" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
+position = Vector2(304, 432)
+
 [node name="InvisibleWall57" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(336, 400)
 
@@ -1116,7 +1155,7 @@ position = Vector2(336, 400)
 position = Vector2(336, 368)
 
 [node name="InvisibleWall59" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 176)
+position = Vector2(304, 176)
 
 [node name="InvisibleWall60" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(336, 240)
@@ -1183,9 +1222,6 @@ position = Vector2(240, 176)
 
 [node name="InvisibleWall65" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(272, 176)
-
-[node name="InvisibleWall66" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 176)
 
 [node name="InvisibleWall10" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(400, 112)
@@ -1929,6 +1965,16 @@ collision_mask = 0
 
 [node name="Gameplay" type="Node2D" parent="."]
 
+[node name="AmplifierTile" parent="Gameplay" instance=ExtResource("12_5m0d7")]
+z_index = 45
+position = Vector2(368, 112)
+select_amplifier = "NeuroEnhanceAmplifierB"
+
+[node name="AmplifierTile2" parent="Gameplay" instance=ExtResource("12_5m0d7")]
+z_index = 45
+position = Vector2(1024, 400)
+select_amplifier = "NeuroEnhanceAmplifierC"
+
 [node name="EndTile" parent="Gameplay" instance=ExtResource("6_0mrpp")]
 position = Vector2(112, 688)
 door_number = 4
@@ -1944,11 +1990,14 @@ position = Vector2(208, 80)
 position = Vector2(112, 688)
 door_number = 4
 
+[node name="TerminalDoorTile2" parent="Gameplay" instance=ExtResource("8_jg6as")]
+z_index = 46
+position = Vector2(464, 592)
+door_number = 5
+
 [node name="Terminal3" parent="Gameplay" instance=ExtResource("9_73lqa")]
 z_index = 46
-position = Vector2(1024, 400)
-rotation = 3.14159
-scale = Vector2(1, -1)
+position = Vector2(304, 464)
 
 [node name="RealPlayer" parent="." instance=ExtResource("5_12xde")]
 

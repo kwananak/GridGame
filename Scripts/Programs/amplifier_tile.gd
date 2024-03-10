@@ -3,7 +3,7 @@ extends "res://Scripts/Programs/program_tile.gd"
 var opened = false
 var progress_manager
 
-@export_enum("NeuroEnhanceAmplifier1", "NeuroEnhanceAmplifier2", "NeuroEnhanceAmplifier3", "NeuroEnhanceAmplifier4") var select_amplifier : String
+@export_enum("NeuroEnhanceAmplifierA", "NeuroEnhanceAmplifierB", "NeuroEnhanceAmplifierC", "NeuroEnhanceAmplifierD") var select_amplifier : String
 
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
