@@ -6,10 +6,10 @@ var charge = 0
 var opened_for = 0
 var is_destroyed = false
 var level_manager
-var opened = false
 
+@export var opened = true
 @export var intial_charge = 0
-@export var cannon_recharge = 1
+@export var cannon_recharge = 0
 @export var duration = 1 : set = set_duration
 @export var distance = 1
 
@@ -25,6 +25,9 @@ func _ready():
 		label.global_position += Vector2(-16, -16)
 		label.text = str(cannon_recharge - charge) + "  " + str(duration - opened_for)
 		label.show()
+	if cannon_recharge != 0:
+		opened = false
+		$AnimatedSprite2D.show()
 
 # called by level manager to fire a beam if recharge is complete
 func turn_call():
@@ -39,6 +42,9 @@ func turn_call():
 					for n in get_overlapping_areas():
 						if n.is_in_group("VirtualPlayer"):
 							level_manager.call_game_over()
+							n.return_animation()
+			if cannon_recharge == 0:
+				return
 			if opened_for == duration:
 				sprite.animation = "close"
 				sprite.play()
@@ -55,6 +61,8 @@ func turn_call():
 		remove_from_group("EndTurn")
 
 func hit_by_wall(area):
+	if cannon_recharge == 0:
+		return
 	if area.name == "Firewall":
 		is_destroyed = true
 

@@ -319,6 +319,9 @@ func grapple_check(distance):
 					break
 				if n.available_action == null:
 					n.available_action = waiting_for_action
+				if "moving" in n.available_action:
+					if n.available_action.moving:
+						n.available_action = null
 				break
 			if i == distance - 1:
 				await n.reset()
@@ -335,6 +338,12 @@ func activate_shield():
 func deactivate_shield():
 	shield.play("pop")
 	shield.get_node("pop").play()
+	await shield.animation_finished
+	shield.hide()
+
+func reduce_shield():
+	shield.get_node("pop").volume_db = -80
+	shield.play("new", 1.5, true)
 	await shield.animation_finished
 	shield.hide()
 
@@ -366,6 +375,6 @@ func return_animation():
 	await get_tree().create_timer(0.3).timeout
 	$PossibleMoves.hide()
 	if animated_sprite_2d.get_child_count() > 0:
-		deactivate_shield()
+		reduce_shield()
 	animated_sprite_2d.animation = "return"
 	animated_sprite_2d.play()
