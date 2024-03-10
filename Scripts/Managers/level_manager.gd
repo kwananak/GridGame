@@ -9,6 +9,7 @@ var player
 var player_sprite
 var view_margin
 var real_done
+var tile_map
 
 signal pause_trigger
 signal game_over_trigger
@@ -25,7 +26,6 @@ signal game_over_trigger
 @onready var button = $"../UI/Button"
 @onready var camera = $"../../Camera2D"
 @onready var ui = $"../UI"
-var tile_map
 
 func _ready():
 	tile_map = get_tree().get_first_node_in_group("TileMap")

@@ -30,3 +30,10 @@ func _on_area_entered(area, caller):
 	$AudioStreamPlayer2D.play()
 	await anim.animation_finished
 	$Sprite.frame = 2
+
+func _on_tree_exited():
+	used = true
+
+func _on_tree_entered():
+	await get_tree().create_timer(0.1).timeout
+	used = false

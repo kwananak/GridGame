@@ -68,6 +68,7 @@ func create_dialogs_dict():
 
 # called by level manager at end of level to add picked up programs
 func add_to_programs(slot, program, level):
+	print(slot + " " + program.type + " " + str(level))
 	if program.name == "Rune":
 		get_node("Loadout/Runes").add_child(program)
 		return
@@ -113,13 +114,12 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 			completed = false
 	if completed && level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
-	save_game()
+	call_deferred("save_game")
 
 func add_amplifier(amp):
 	amplifiers.call_deferred("add_child", amp)
 	save_point = $/root/Main.real_scene.name
-	await get_tree().create_timer(0.05).timeout
-	save_game()
+	call_deferred("save_game")
 
 # adds selected program from terminal to loadout
 func select_loadout(slot, program):
@@ -243,7 +243,8 @@ func save():
 
 func save_game():
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
-	save_file.store_line(JSON.stringify(save()))
+	var s = save()
+	save_file.store_line(JSON.stringify(s))
 	save_file.close()
 
 func load_game():

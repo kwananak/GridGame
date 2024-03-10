@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=7 format=3 uid="uid://caq3tmtnish1u"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/sour.gd" id="2_4sv8q"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_imkw1"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wcf68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ut2"]
 
@@ -24,8 +25,21 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_v4ut2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.571, 0.571)
 texture = SubResource("AtlasTexture_1rgjk")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 207.0
+offset_bottom = 66.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_wcf68")
+theme_override_font_sizes/font_size = 32
+text = "AmazingSour"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
 position = Vector2(1.78814e-07, -7.7486e-07)

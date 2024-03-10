@@ -146,7 +146,8 @@ func switch_level(level_number):
 
 # passthrough function from level manager to progress manager adding active real scene to save point
 func add_to_levels(level_unlocked, level_completed):
-	if real_scene == null:
+	if !real_scene:
+		print("main: !real_scene")
 		return
 	progress_manager.add_to_levels(level_unlocked, real_scene.name, level_completed)
 

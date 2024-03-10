@@ -50,8 +50,8 @@ func set_slots():
 				v.global_position = n.global_position + Vector2(16, 16)
 			_:
 				var v = prog_load.get_node(str(n.name))
-				v.global_position = n.global_position + Vector2(22, 22)
-				v.scale = Vector2(1.3, 1.3)
+				v.global_position = n.global_position + Vector2(32, 32)
+				v.scale = Vector2(1.67, 1.67)
 				if v.get_child_count() > 0:
 					loaded_slots += 1
 	var action_points = 0

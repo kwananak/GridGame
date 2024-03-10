@@ -165,6 +165,8 @@ volume_db = 20.0
 attenuation = 2.54912
 bus = &"FX"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="area_entered" from="Left/Left" to="." method="_on_area_entered" binds= ["Left"]]
 [connection signal="area_entered" from="Right/Right" to="." method="_on_area_entered" binds= ["Right"]]
 [connection signal="area_entered" from="Up/Up" to="." method="_on_area_entered" binds= ["Up"]]

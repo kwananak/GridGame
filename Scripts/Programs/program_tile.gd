@@ -43,6 +43,8 @@ func pick_up(_area):
 	$AnimatedSprite2D/ButtonSprite.show()
 	await remove
 	program.scale = Vector2.ONE
+	program.get_node("LoadedSprite").hide()
+	program.get_node("Sprite2D").show()
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	get_tree().get_first_node_in_group("MouseToolTip").hide()
 	$AnimatedSprite2D.remove_child(program)
