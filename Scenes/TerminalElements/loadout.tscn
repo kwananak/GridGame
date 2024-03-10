@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dik7767w56mld"]
+[gd_scene load_steps=23 format=3 uid="uid://dik7767w56mld"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="1_cro6k"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_jj2mc"]
@@ -25,6 +25,26 @@ region = Rect2(0, 0, 257, 346)
 [sub_resource type="AtlasTexture" id="AtlasTexture_h871s"]
 atlas = ExtResource("2_lsp0t")
 region = Rect2(256, 400, 203, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf5vf"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(0, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4px7t"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(48, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14v26"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(96, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyuqj"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(144, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2gbi"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(192, 304, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koreh"]
 atlas = ExtResource("2_mbhx0")
@@ -75,11 +95,12 @@ texture = SubResource("AtlasTexture_ijx5n")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Background"]
 modulate = Color(1, 1, 1, 0.788235)
-position = Vector2(10, 0)
+position = Vector2(-9, 25)
+scale = Vector2(-1, 1)
 texture = SubResource("AtlasTexture_b7m4d")
 
 [node name="Title" type="Sprite2D" parent="Background"]
-position = Vector2(-63.2836, -156.045)
+position = Vector2(-62.969, -156.35)
 texture = SubResource("AtlasTexture_xkk5a")
 
 [node name="Frame" type="Sprite2D" parent="Background" groups=["ProgramsFrame"]]
@@ -87,15 +108,36 @@ visible = false
 texture = SubResource("AtlasTexture_lp3ve")
 
 [node name="InfoBox" type="Sprite2D" parent="Background"]
-position = Vector2(17.5, 155)
+position = Vector2(39, -128)
+scale = Vector2(0.67, 0.67)
 texture = SubResource("AtlasTexture_h871s")
+
+[node name="Amplifiers" type="Sprite2D" parent="."]
+position = Vector2(-54, -103)
+texture = SubResource("AtlasTexture_cf5vf")
+
+[node name="A" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_4px7t")
+
+[node name="B" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_14v26")
+
+[node name="C" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_oyuqj")
+
+[node name="D" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_v2gbi")
 
 [node name="Goggles" type="Button" parent="."]
 layout_mode = 0
-offset_left = 51.0
-offset_top = -125.0
-offset_right = 115.0
-offset_bottom = -61.0
+offset_left = 43.0
+offset_top = -100.0
+offset_right = 107.0
+offset_bottom = -36.0
 icon = SubResource("AtlasTexture_koreh")
 flat = true
 icon_alignment = 1
@@ -103,10 +145,10 @@ expand_icon = true
 
 [node name="Armor" type="Button" parent="."]
 layout_mode = 0
-offset_left = -112.0
-offset_top = -72.0
-offset_right = -48.0
-offset_bottom = -8.0
+offset_left = -122.0
+offset_top = -76.0
+offset_right = -58.0
+offset_bottom = -12.0
 icon = SubResource("AtlasTexture_hvsh3")
 flat = true
 icon_alignment = 1
@@ -114,10 +156,10 @@ expand_icon = true
 
 [node name="LeftHand" type="Button" parent="."]
 layout_mode = 0
-offset_left = 62.0
-offset_top = -24.0
-offset_right = 126.0
-offset_bottom = 40.0
+offset_left = 48.0
+offset_top = -3.0
+offset_right = 112.0
+offset_bottom = 61.0
 icon = SubResource("AtlasTexture_y4sd6")
 flat = true
 icon_alignment = 1
@@ -125,10 +167,10 @@ expand_icon = true
 
 [node name="RightHand" type="Button" parent="."]
 layout_mode = 0
-offset_left = -100.0
-offset_top = 10.0
-offset_right = -36.0
-offset_bottom = 74.0
+offset_left = -119.0
+offset_top = 37.0
+offset_right = -55.0
+offset_bottom = 101.0
 icon = SubResource("AtlasTexture_wergd")
 flat = true
 icon_alignment = 1
@@ -148,10 +190,10 @@ expand_icon = true
 
 [node name="Boots" type="Button" parent="."]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 64.0
-offset_right = 123.0
-offset_bottom = 128.0
+offset_left = 50.0
+offset_top = 83.0
+offset_right = 114.0
+offset_bottom = 147.0
 icon = SubResource("AtlasTexture_6owcg")
 flat = true
 icon_alignment = 1
@@ -171,13 +213,14 @@ expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -79.0
-offset_top = 139.0
-offset_right = 886.0
-offset_bottom = 299.0
+offset_left = -26.0
+offset_top = -138.0
+offset_right = 624.0
+offset_bottom = -38.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("2_jj2mc")
 theme_override_font_sizes/font_size = 64
+text = "Action Points:"
 vertical_alignment = 1
 
 [connection signal="focus_entered" from="Goggles" to="." method="_on_focus_entered" binds= ["Goggles"]]

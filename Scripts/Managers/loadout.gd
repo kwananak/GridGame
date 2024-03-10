@@ -45,19 +45,23 @@ func set_slots():
 		match n.name:
 			"Label", "Background":
 				continue
+			"Amplifiers":
+				var action_points = 0
+				for a in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
+					n.get_node(a.amplifier_class).show()
+					action_points += a.strength
+				$Label.text = "Action Points: " + str(action_points)
 			"Runes":
 				var v = prog_load.get_node(str(n.name))
 				v.global_position = n.global_position + Vector2(16, 16)
 			_:
 				var v = prog_load.get_node(str(n.name))
-				v.global_position = n.global_position + Vector2(32, 32)
-				v.scale = Vector2(1.67, 1.67)
+				v.global_position = n.global_position + Vector2(37, 36)
+				v.scale = Vector2(2, 2)
 				if v.get_child_count() > 0:
+					v.get_child(0).get_node("Sprite2D").show()
+					v.get_child(0).get_node("LoadedSprite").hide()
 					loaded_slots += 1
-	var action_points = 0
-	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
-		action_points += n.strength
-	$Label.text = "Action Points: " + str(action_points)
 
 func _unhandled_input(event):
 	if selection_opened == null:
