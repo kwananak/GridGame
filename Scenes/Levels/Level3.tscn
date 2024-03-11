@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=24 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="5_je5lu"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="5_ut53j"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="6_0mrpp"]
+[ext_resource type="PackedScene" uid="uid://bkn2dyeml572a" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_b.tscn" id="6_651fm"]
+[ext_resource type="PackedScene" uid="uid://cc687unvwtc1t" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_c.tscn" id="6_kwmk2"]
+[ext_resource type="PackedScene" uid="uid://b8mpgdnqjupub" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner.tscn" id="6_ya86d"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="7_dwjma"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="8_jg6as"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_73lqa"]
@@ -31,467 +34,469 @@ region = Rect2(0, 0, 192, 192)
 [node name="ParallaxLayer" parent="ParallaxBackground" instance=ExtResource("1_h23i5")]
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_4b3my")]
-level_height = 30
+level_height = 29
 level_length = 64
 level_number = 3
 
 [node name="UI" parent="." instance=ExtResource("2_lupxg")]
-visible = false
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="Catwalk" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(208, 112)
+position = Vector2(160, 96)
 
 [node name="Catwalk2" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(240, 112)
+position = Vector2(192, 96)
 
 [node name="Catwalk3" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(272, 112)
+position = Vector2(224, 96)
 
 [node name="Catwalk4" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 112)
+position = Vector2(256, 96)
 
 [node name="Catwalk5" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 112)
+position = Vector2(288, 96)
 
 [node name="Catwalk6" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 112)
+position = Vector2(320, 96)
 
 [node name="Catwalk7" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(240, 144)
+position = Vector2(192, 128)
 
 [node name="Catwalk8" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(272, 144)
+position = Vector2(224, 128)
 
 [node name="Catwalk9" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 144)
+position = Vector2(256, 128)
 
 [node name="Catwalk10" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 144)
+position = Vector2(288, 128)
 
 [node name="Catwalk44" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 176)
+position = Vector2(288, 160)
 
 [node name="Catwalk13" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 176)
+position = Vector2(320, 160)
 
 [node name="Catwalk14" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 176)
+position = Vector2(352, 160)
 
 [node name="Catwalk15" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 240)
+position = Vector2(320, 224)
 
 [node name="Catwalk144" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 208)
+position = Vector2(320, 192)
 
 [node name="Catwalk145" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 208)
+position = Vector2(352, 192)
 
 [node name="Catwalk16" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 240)
+position = Vector2(352, 224)
 
 [node name="Catwalk17" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 272)
+position = Vector2(320, 256)
 
 [node name="Catwalk18" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 272)
+position = Vector2(352, 256)
 
 [node name="Catwalk19" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 368)
+position = Vector2(320, 352)
 
 [node name="Catwalk20" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 368)
+position = Vector2(352, 352)
 
 [node name="Catwalk21" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 400)
+position = Vector2(320, 384)
 
 [node name="Catwalk22" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 400)
+position = Vector2(352, 384)
 
 [node name="Catwalk23" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 432)
+position = Vector2(320, 416)
 
 [node name="Catwalk24" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 432)
+position = Vector2(352, 416)
 
 [node name="Catwalk25" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 464)
+position = Vector2(320, 448)
 
 [node name="Catwalk26" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 464)
+position = Vector2(352, 448)
 
 [node name="Catwalk27" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 496)
+position = Vector2(320, 480)
 
 [node name="Catwalk28" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 496)
+position = Vector2(352, 480)
 
 [node name="Catwalk29" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 528)
+position = Vector2(320, 512)
 
 [node name="Catwalk91" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 496)
+position = Vector2(288, 480)
 
 [node name="Catwalk92" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 528)
+position = Vector2(288, 512)
 
 [node name="Catwalk93" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 464)
+position = Vector2(256, 448)
 
 [node name="Catwalk99" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 464)
+position = Vector2(288, 448)
 
 [node name="Catwalk94" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 496)
+position = Vector2(256, 480)
 
 [node name="Catwalk30" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 528)
+position = Vector2(352, 512)
 
 [node name="Catwalk31" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 560)
+position = Vector2(320, 544)
 
 [node name="Catwalk32" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 560)
+position = Vector2(352, 544)
 
 [node name="Catwalk143" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(432, 560)
+position = Vector2(384, 544)
 
 [node name="Catwalk33" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 592)
+position = Vector2(320, 576)
 
 [node name="Catwalk34" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 592)
+position = Vector2(352, 576)
 
 [node name="Catwalk35" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 624)
+position = Vector2(320, 608)
 
 [node name="Catwalk36" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 624)
+position = Vector2(352, 608)
 
 [node name="Catwalk37" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 656)
+position = Vector2(320, 640)
 
 [node name="Catwalk38" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 656)
+position = Vector2(352, 640)
 
 [node name="Catwalk39" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 688)
+position = Vector2(320, 672)
 
 [node name="Catwalk64" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 688)
+position = Vector2(288, 672)
 
 [node name="Catwalk40" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 688)
+position = Vector2(352, 672)
 
 [node name="Catwalk41" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(432, 592)
+position = Vector2(384, 576)
 
 [node name="Catwalk42" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(464, 592)
+position = Vector2(416, 576)
+
+[node name="Catwalk100" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
+position = Vector2(416, 608)
 
 [node name="Catwalk43" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(432, 624)
+position = Vector2(384, 608)
 
 [node name="Catwalk45" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(880, 592)
+position = Vector2(832, 576)
 
 [node name="Catwalk46" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 464)
+position = Vector2(896, 448)
 
 [node name="Catwalk47" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(880, 624)
+position = Vector2(832, 608)
 
 [node name="Catwalk48" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(912, 624)
+position = Vector2(864, 608)
 
 [node name="Catwalk49" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 464)
+position = Vector2(928, 448)
 
 [node name="Catwalk50" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 464)
+position = Vector2(960, 448)
 
 [node name="Catwalk51" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 624)
+position = Vector2(896, 608)
 
 [node name="Catwalk52" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 624)
+position = Vector2(928, 608)
 
 [node name="Catwalk53" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 400)
+position = Vector2(896, 384)
 
 [node name="Catwalk54" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 400)
+position = Vector2(928, 384)
 
 [node name="Catwalk55" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 432)
+position = Vector2(896, 416)
 
 [node name="Catwalk56" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 432)
+position = Vector2(928, 416)
 
 [node name="Catwalk57" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 400)
+position = Vector2(960, 384)
 
 [node name="Catwalk58" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 400)
+position = Vector2(992, 384)
 
 [node name="Catwalk59" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 432)
+position = Vector2(960, 416)
 
 [node name="Catwalk60" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 432)
+position = Vector2(992, 416)
 
 [node name="Catwalk61" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 464)
+position = Vector2(992, 448)
 
 [node name="Catwalk62" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1072, 464)
+position = Vector2(1024, 448)
 
 [node name="Catwalk115" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 496)
+position = Vector2(928, 480)
 
 [node name="Catwalk116" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 496)
+position = Vector2(960, 480)
 
 [node name="Catwalk117" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 496)
+position = Vector2(992, 480)
 
 [node name="Catwalk118" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1072, 496)
+position = Vector2(1024, 480)
 
 [node name="Catwalk119" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1104, 496)
+position = Vector2(1056, 480)
 
 [node name="Catwalk120" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 528)
+position = Vector2(928, 512)
 
 [node name="Catwalk121" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 528)
+position = Vector2(960, 512)
 
 [node name="Catwalk122" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 528)
+position = Vector2(992, 512)
 
 [node name="Catwalk123" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1072, 528)
+position = Vector2(1024, 512)
 
 [node name="Catwalk124" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1104, 528)
+position = Vector2(1056, 512)
 
 [node name="Catwalk125" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 560)
+position = Vector2(896, 544)
 
 [node name="Catwalk126" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 560)
+position = Vector2(928, 544)
 
 [node name="Catwalk127" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 560)
+position = Vector2(960, 544)
 
 [node name="Catwalk128" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 560)
+position = Vector2(992, 544)
 
 [node name="Catwalk129" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1072, 560)
+position = Vector2(1024, 544)
 
 [node name="Catwalk130" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(912, 592)
+position = Vector2(864, 576)
 
 [node name="Catwalk131" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(944, 592)
+position = Vector2(896, 576)
 
 [node name="Catwalk132" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(976, 592)
+position = Vector2(928, 576)
 
 [node name="Catwalk133" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 592)
+position = Vector2(960, 576)
 
 [node name="Catwalk134" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1040, 592)
+position = Vector2(992, 576)
 
 [node name="Catwalk63" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(1008, 624)
+position = Vector2(960, 608)
 
 [node name="Catwalk65" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 720)
+position = Vector2(320, 704)
 
 [node name="Catwalk66" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 720)
+position = Vector2(352, 704)
 
 [node name="Catwalk67" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 752)
+position = Vector2(320, 736)
 
 [node name="Catwalk68" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 752)
+position = Vector2(352, 736)
 
 [node name="Catwalk69" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(144, 720)
+position = Vector2(96.0001, 704)
 
 [node name="Catwalk73" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(112, 720)
+position = Vector2(64.0001, 704)
 
 [node name="Catwalk74" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(112, 752)
+position = Vector2(64.0001, 736)
 
 [node name="Catwalk70" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 720)
+position = Vector2(288, 704)
 
 [node name="Catwalk71" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(144, 752)
+position = Vector2(96.0001, 736)
 
 [node name="Catwalk72" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(336, 752)
+position = Vector2(288, 736)
 
 [node name="Catwalk11" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 144)
+position = Vector2(320, 128)
 
 [node name="Catwalk12" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 144)
+position = Vector2(352, 128)
 
 [node name="Catwalk75" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(688, 592)
+position = Vector2(640, 576)
 
 [node name="Catwalk76" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(720, 592)
+position = Vector2(672, 576)
 
 [node name="Catwalk77" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(688, 624)
+position = Vector2(640, 608)
 
 [node name="Catwalk78" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(720, 624)
+position = Vector2(672, 608)
 
 [node name="Catwalk79" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(752, 592)
+position = Vector2(704, 576)
 
 [node name="Catwalk80" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(784, 592)
+position = Vector2(736, 576)
 
 [node name="Catwalk81" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(752, 624)
+position = Vector2(704, 608)
 
 [node name="Catwalk82" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(784, 624)
+position = Vector2(736, 608)
 
 [node name="Catwalk83" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(816, 592)
+position = Vector2(768, 576)
 
 [node name="Catwalk84" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(848, 592)
+position = Vector2(800, 576)
 
 [node name="Catwalk85" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(816, 624)
+position = Vector2(768, 608)
 
 [node name="Catwalk86" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(848, 624)
+position = Vector2(800, 608)
 
 [node name="Catwalk87" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 304)
+position = Vector2(320, 288)
 
 [node name="Catwalk88" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 304)
+position = Vector2(352, 288)
 
 [node name="Catwalk89" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(368, 336)
+position = Vector2(320, 320)
 
 [node name="Catwalk90" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(400, 336)
+position = Vector2(352, 320)
 
 [node name="Catwalk95" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(272, 720)
+position = Vector2(224, 704)
 
 [node name="Catwalk96" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(272, 752)
+position = Vector2(224, 736)
 
 [node name="Catwalk97" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 720)
+position = Vector2(256, 704)
 
 [node name="Catwalk98" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(304, 752)
+position = Vector2(256, 736)
 
 [node name="Catwalk101" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(240, 720)
+position = Vector2(192, 704)
 
 [node name="Catwalk102" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(240, 752)
+position = Vector2(192, 736)
 
 [node name="Catwalk103" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(496, 592)
+position = Vector2(448, 576)
 
 [node name="Catwalk104" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(528, 592)
+position = Vector2(480, 576)
 
 [node name="Catwalk105" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(496, 624)
+position = Vector2(448, 608)
 
 [node name="Catwalk106" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(528, 624)
+position = Vector2(480, 608)
 
 [node name="Catwalk107" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(560, 592)
+position = Vector2(512, 576)
 
 [node name="Catwalk108" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(592, 592)
+position = Vector2(544, 576)
 
 [node name="Catwalk109" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(560, 624)
+position = Vector2(512, 608)
 
 [node name="Catwalk110" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(592, 624)
+position = Vector2(544, 608)
 
 [node name="Catwalk111" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(624, 592)
+position = Vector2(576, 576)
 
 [node name="Catwalk112" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(656, 592)
+position = Vector2(608, 576)
 
 [node name="Catwalk113" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(624, 624)
+position = Vector2(576, 608)
 
 [node name="Catwalk114" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(656, 624)
+position = Vector2(608, 608)
 
 [node name="Catwalk135" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(208, 720)
+position = Vector2(160, 704)
 
 [node name="Catwalk136" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(208, 752)
+position = Vector2(160, 736)
 
 [node name="Catwalk137" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(176, 720)
+position = Vector2(128, 704)
 
 [node name="Catwalk138" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
-position = Vector2(176, 752)
+position = Vector2(128, 736)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="OuterWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="ColorRect" type="ColorRect" parent="Environment/Walls/OuterWalls"]
-offset_right = 160.0
-offset_bottom = 672.0
+offset_right = 112.0
+offset_bottom = 656.0
 color = Color(0.235294, 0.254902, 0.309804, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Environment/Walls/OuterWalls"]
-offset_top = 672.0
-offset_right = 64.0
-offset_bottom = 832.0
+offset_top = 656.0
+offset_right = 16.0
+offset_bottom = 816.0
 color = Color(0.235294, 0.254902, 0.309804, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Environment/Walls/OuterWalls"]
-offset_left = 160.0
-offset_right = 1280.0
-offset_bottom = 64.0
+offset_left = 112.0
+offset_right = 1232.0
+offset_bottom = 48.0
 color = Color(0.235294, 0.254902, 0.309804, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Environment/Walls/OuterWalls"]
-offset_left = 1280.0
-offset_right = 1640.0
+offset_left = 1232.0
+offset_right = 1504.0
 offset_bottom = 984.0
 color = Color(0.235294, 0.254902, 0.309804, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Environment/Walls/OuterWalls"]
-offset_top = 832.0
-offset_right = 1280.0
+offset_top = 816.0
+offset_right = 1232.0
 offset_bottom = 984.0
 color = Color(0.235294, 0.254902, 0.309804, 1)
 
@@ -499,960 +504,963 @@ color = Color(0.235294, 0.254902, 0.309804, 1)
 z_index = 55
 
 [node name="Railing43" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 240)
+position = Vector2(352, 224)
 rotation = -1.5708
 
 [node name="Railing44" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 464)
+position = Vector2(352, 448)
 rotation = -1.5708
 
 [node name="Railing45" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 368)
+position = Vector2(352, 352)
 rotation = -1.5708
 
 [node name="Railing46" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 400)
+position = Vector2(352, 384)
 rotation = -1.5708
 
 [node name="Railing47" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 432)
-rotation = -1.5708
-
-[node name="Railing48" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 752)
+position = Vector2(352, 416)
 rotation = -1.5708
 
 [node name="Railing49" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 656)
+position = Vector2(352, 640)
 rotation = -1.5708
 
 [node name="Railing50" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 688)
-rotation = -1.5708
-
-[node name="Railing51" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 720)
-rotation = -1.5708
-
-[node name="Railing58" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 496)
-rotation = -1.5708
-
-[node name="Railing59" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 528)
-rotation = -1.5708
-
-[node name="Railing40" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 272)
-rotation = -1.5708
-
-[node name="Railing41" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 144)
-rotation = -1.5708
-
-[node name="Railing42" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 176)
-rotation = -1.5708
-
-[node name="Railing78" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 208)
-rotation = -1.5708
-
-[node name="Railing60" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(432, 560)
-rotation = -1.5708
-
-[node name="Railing68" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(432, 624)
-rotation = -1.5708
-
-[node name="Railing54" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1040, 400)
+position = Vector2(352, 672)
 rotation = -1.5708
 
 [node name="Railing55" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1040, 432)
+position = Vector2(32.0001, 704)
 rotation = -1.5708
 
-[node name="Railing69" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1072, 464)
+[node name="Railing51" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 704)
 rotation = -1.5708
+
+[node name="Railing58" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 480)
+rotation = -1.5708
+
+[node name="RailingCornerC" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(352, 608)
+
+[node name="RailingCornerC2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(960, 576)
+
+[node name="RailingCornerC3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(992, 544)
+
+[node name="RailingCornerC4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(1024, 512)
+
+[node name="Railing40" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 256)
+rotation = -1.5708
+
+[node name="Railing41" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 128)
+rotation = -1.5708
+
+[node name="Railing42" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 160)
+rotation = -1.5708
+
+[node name="Railing78" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 192)
+rotation = -1.5708
+
+[node name="Railing54" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(992, 384)
+rotation = -1.5708
+
+[node name="RailingCornerB" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
+position = Vector2(352, 736)
+
+[node name="RailingCornerB2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
+position = Vector2(960, 608)
+
+[node name="RailingCornerB3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
+position = Vector2(992, 576)
+
+[node name="RailingCornerB4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1024, 544)
+
+[node name="RailingCornerB5" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1056, 512)
 
 [node name="Railing70" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1104, 496)
-rotation = -1.5708
-
-[node name="Railing71" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1104, 528)
-rotation = -1.5708
-
-[node name="Railing72" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1072, 560)
-rotation = -1.5708
-
-[node name="Railing73" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1040, 592)
-rotation = -1.5708
-
-[node name="Railing74" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1008, 624)
+position = Vector2(1056, 480)
 rotation = -1.5708
 
 [node name="Railing27" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(368, 752)
-
-[node name="Railing20" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(464, 592)
-
-[node name="Railing21" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(432, 624)
+position = Vector2(320, 736)
 
 [node name="Railing36" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 528)
+position = Vector2(416, 608)
 
-[node name="Railing67" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 496)
+[node name="Railing21" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(384, 608)
 
 [node name="Railing22" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 624)
+position = Vector2(864, 608)
 
 [node name="Railing23" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(880, 624)
+position = Vector2(832, 608)
 
 [node name="Railing24" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 752)
+position = Vector2(288, 736)
 
 [node name="Railing25" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(144, 752)
+position = Vector2(96.0001, 736)
 
 [node name="Railing63" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(112, 752)
-
-[node name="Railing26" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 752)
+position = Vector2(64.0001, 736)
 
 [node name="Railing16" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(976, 624)
+position = Vector2(928, 608)
 
 [node name="Railing17" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 624)
+position = Vector2(896, 608)
 
-[node name="Railing18" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1040, 592)
+[node name="RailingCorner" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(256, 128)
+scale = Vector2(-1, 1)
 
-[node name="Railing77" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 464)
+[node name="RailingCorner3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(288, 160)
+scale = Vector2(-1, 1)
 
-[node name="Railing75" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1072, 560)
+[node name="RailingCorner4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(288, 512)
+scale = Vector2(-1, 1)
 
-[node name="Railing76" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1104, 528)
+[node name="RailingCorner10" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(896, 448)
+scale = Vector2(-1, 1)
 
-[node name="Railing19" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1008, 624)
+[node name="RailingCorner5" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(256, 480)
+scale = Vector2(-1, 1)
 
-[node name="Railing2" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 176)
+[node name="RailingCorner6" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(352, 512)
+rotation = 4.71239
 
-[node name="Railing3" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 144)
+[node name="RailingCorner13" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(324, 96)
+rotation = 4.71239
+
+[node name="RailingCorner7" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(384, 544)
+rotation = 4.71239
+
+[node name="RailingCorner8" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(992, 416)
+rotation = 4.71239
+
+[node name="RailingCorner9" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(1024, 448)
+rotation = 4.71239
+
+[node name="RailingCorner11" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(128, 96)
+rotation = 4.71239
+
+[node name="RailingCorner12" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(32.0001, 736)
+rotation = 4.71239
+
+[node name="RailingCorner2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(160, 96)
+scale = Vector2(-1, 1)
 
 [node name="Railing4" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(272, 144)
+position = Vector2(224, 128)
 
 [node name="Railing5" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(240, 144)
-
-[node name="Railing62" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(208, 112)
+position = Vector2(192, 128)
 
 [node name="Railing28" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(720, 624)
+position = Vector2(672, 608)
 
 [node name="Railing29" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(688, 624)
+position = Vector2(640, 608)
 
 [node name="Railing30" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(784, 624)
+position = Vector2(736, 608)
 
 [node name="Railing31" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(752, 624)
+position = Vector2(704, 608)
 
 [node name="Railing32" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(848, 624)
+position = Vector2(800, 608)
 
 [node name="Railing33" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(816, 624)
+position = Vector2(768, 608)
 
 [node name="Railing53" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 336)
+position = Vector2(352, 320)
 rotation = -1.5708
 
 [node name="Railing52" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 304)
+position = Vector2(352, 288)
 rotation = -1.5708
 
 [node name="Railing34" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(272, 752)
+position = Vector2(224, 736)
 
 [node name="Railing35" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 752)
+position = Vector2(256, 736)
 
 [node name="Railing37" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(240, 752)
+position = Vector2(192, 736)
 
 [node name="Railing56" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(208, 752)
+position = Vector2(160, 736)
 
 [node name="Railing57" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(176, 752)
+position = Vector2(128, 736)
 
 [node name="Railing38" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(528, 624)
+position = Vector2(480, 608)
 
 [node name="Railing39" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(496, 624)
+position = Vector2(448, 608)
 
 [node name="Railing61" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(592, 624)
+position = Vector2(544, 608)
 
 [node name="Railing64" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(560, 624)
+position = Vector2(512, 608)
 
 [node name="Railing65" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(656, 624)
+position = Vector2(608, 608)
 
 [node name="Railing66" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(624, 624)
+position = Vector2(576, 608)
 
 [node name="UpperRailing" type="Node2D" parent="Environment/Walls"]
 
-[node name="Railing12" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 656)
-
 [node name="Railing22" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(272, 688)
-
-[node name="Railing23" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 688)
+position = Vector2(224, 672)
 
 [node name="Railing31" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 272)
-rotation = -1.5708
-
-[node name="Railing32" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(272, 496)
+position = Vector2(288, 256)
 rotation = -1.5708
 
 [node name="Railing33" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 400)
-rotation = -1.5708
-
-[node name="Railing34" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 432)
+position = Vector2(288, 384)
 rotation = -1.5708
 
 [node name="Railing35" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(272, 464)
+position = Vector2(224, 448)
 rotation = -1.5708
 
 [node name="Railing36" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 624)
+position = Vector2(288, 608)
 rotation = -1.5708
 
-[node name="Railing52" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 656)
-rotation = -1.5708
+[node name="RailingCornerC" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(224, 416)
 
-[node name="Railing54" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(464, 624)
-rotation = -1.5708
+[node name="RailingCornerC2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(864, 512)
 
-[node name="Railing53" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 688)
-rotation = -1.5708
+[node name="RailingCornerC3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(864, 352)
 
-[node name="Railing37" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 528)
-rotation = -1.5708
+[node name="RailingCornerC4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(256, 640)
+
+[node name="RailingCornerB" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+position = Vector2(256, 672)
+
+[node name="RailingCornerB2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+position = Vector2(288, 640)
+
+[node name="RailingCornerB4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+position = Vector2(864, 544)
+
+[node name="RailingCornerB5" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+position = Vector2(896, 512)
+
+[node name="RailingCornerB3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+position = Vector2(288, 416)
 
 [node name="Railing38" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 560)
+position = Vector2(288, 544)
 rotation = -1.5708
 
 [node name="Railing39" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 592)
+position = Vector2(288, 576)
 rotation = -1.5708
 
 [node name="Railing56" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 400)
+position = Vector2(864, 384)
 rotation = -1.5708
 
-[node name="Railing61" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(208, 144)
-rotation = -1.5708
+[node name="RailingCorner" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(160, 128)
+rotation = 4.71239
+
+[node name="RailingCorner2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(256, 160)
+rotation = 4.71239
+
+[node name="RailingCorner4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(224, 480)
+rotation = 4.71239
+
+[node name="RailingCorner5" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(256, 512)
+rotation = 4.71239
+
+[node name="RailingCorner6" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(864, 448)
+rotation = 4.71239
+
+[node name="RailingCorner3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(352, 96)
+scale = Vector2(-1, 1)
+
+[node name="RailingCorner7" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(992, 352)
+scale = Vector2(-1, 1)
+
+[node name="RailingCorner10" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(384, 512)
+scale = Vector2(-1, 1)
+
+[node name="RailingCorner9" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(1024, 416)
+scale = Vector2(-1, 1)
+
+[node name="RailingCorner8" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(1056, 448)
+scale = Vector2(-1, 1)
 
 [node name="Railing57" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 432)
-rotation = -1.5708
-
-[node name="Railing58" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 464)
+position = Vector2(864, 416)
 rotation = -1.5708
 
 [node name="Railing59" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 496)
-rotation = -1.5708
-
-[node name="Railing60" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 528)
-rotation = -1.5708
-
-[node name="Railing62" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 560)
+position = Vector2(896, 480)
 rotation = -1.5708
 
 [node name="Railing28" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 368)
-rotation = -1.5708
-
-[node name="Railing29" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 176)
+position = Vector2(288, 352)
 rotation = -1.5708
 
 [node name="Railing30" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 240)
+position = Vector2(288, 224)
 rotation = -1.5708
 
 [node name="Railing51" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 208)
+position = Vector2(288, 192)
 rotation = -1.5708
 
 [node name="Railing8" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(976, 368)
+position = Vector2(928, 352)
 
 [node name="Railing9" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 368)
-
-[node name="Railing10" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1040, 368)
+position = Vector2(896, 352)
 
 [node name="Railing11" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1008, 368)
+position = Vector2(960, 352)
 
 [node name="Railing6" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(464, 560)
-
-[node name="Railing7" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(432, 528)
-
-[node name="Railing13" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 432)
+position = Vector2(416, 544)
 
 [node name="Railing24" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(304, 432)
+position = Vector2(256, 416)
 
 [node name="Railing14" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(880, 560)
-
-[node name="Railing15" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1072, 432)
-
-[node name="Railing50" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1104, 464)
-
-[node name="Railing48" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(912, 560)
-
-[node name="Railing49" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(944, 528)
-
-[node name="Railing" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(400, 112)
+position = Vector2(832, 544)
 
 [node name="Railing16" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(720, 560)
+position = Vector2(672, 544)
 
 [node name="Railing17" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(688, 560)
+position = Vector2(640, 544)
 
 [node name="Railing18" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(784, 560)
+position = Vector2(736, 544)
 
 [node name="Railing19" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(752, 560)
+position = Vector2(704, 544)
 
 [node name="Railing20" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(848, 560)
+position = Vector2(800, 544)
 
 [node name="Railing21" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(816, 560)
+position = Vector2(768, 544)
 
 [node name="Railing26" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(528, 560)
+position = Vector2(480, 544)
 
 [node name="Railing27" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(496, 560)
+position = Vector2(448, 544)
 
 [node name="Railing44" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(592, 560)
+position = Vector2(544, 544)
 
 [node name="Railing45" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(560, 560)
+position = Vector2(512, 544)
 
 [node name="Railing46" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(656, 560)
+position = Vector2(608, 544)
 
 [node name="Railing47" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(624, 560)
+position = Vector2(576, 544)
 
 [node name="Railing40" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 336)
+position = Vector2(288, 320)
 rotation = -1.5708
 
 [node name="Railing41" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(336, 304)
+position = Vector2(288, 288)
 rotation = -1.5708
 
 [node name="Railing25" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(240, 688)
+position = Vector2(192, 672)
 
 [node name="Railing42" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(208, 688)
+position = Vector2(160, 672)
 
 [node name="Railing43" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(176, 688)
+position = Vector2(128, 672)
 
 [node name="InvisibleWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="InvisibleWall" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(208, 144)
+position = Vector2(160, 128)
 
 [node name="InvisibleWall4" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(208, 48)
+position = Vector2(160, 32)
 
 [node name="InvisibleWall14" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(460, 560)
+position = Vector2(412, 544)
 
 [node name="InvisibleWall16" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(944, 368)
+position = Vector2(896, 352)
 
 [node name="InvisibleWall17" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(976, 368)
+position = Vector2(928, 352)
 
 [node name="InvisibleWall18" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1008, 368)
+position = Vector2(960, 352)
 
 [node name="InvisibleWall19" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1040, 368)
+position = Vector2(992, 352)
 
 [node name="InvisibleWall25" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 656)
+position = Vector2(380, 640)
 
 [node name="InvisibleWall26" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(460, 624)
+position = Vector2(416, 640)
 
 [node name="InvisibleWall71" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(688, 560)
+position = Vector2(640, 544)
 
 [node name="InvisibleWall72" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(720, 560)
+position = Vector2(672, 544)
 
 [node name="InvisibleWall73" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(688, 656)
+position = Vector2(640, 640)
 
 [node name="InvisibleWall74" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(720, 656)
+position = Vector2(672, 640)
 
 [node name="InvisibleWall75" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(752, 560)
+position = Vector2(704, 544)
 
 [node name="InvisibleWall76" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(784, 560)
+position = Vector2(736, 544)
 
 [node name="InvisibleWall77" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(752, 656)
+position = Vector2(704, 640)
 
 [node name="InvisibleWall78" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(784, 656)
+position = Vector2(736, 640)
 
 [node name="InvisibleWall79" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(816, 560)
+position = Vector2(768, 544)
 
 [node name="InvisibleWall80" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(848, 560)
+position = Vector2(800, 544)
 
 [node name="InvisibleWall81" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(816, 656)
+position = Vector2(768, 640)
 
 [node name="InvisibleWall82" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(848, 656)
+position = Vector2(800, 640)
 
 [node name="InvisibleWall99" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(496, 560)
+position = Vector2(448, 544)
 
 [node name="InvisibleWall100" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(528, 560)
+position = Vector2(480, 544)
 
 [node name="InvisibleWall101" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(496, 656)
+position = Vector2(448, 640)
 
 [node name="InvisibleWall102" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(528, 656)
+position = Vector2(480, 640)
 
 [node name="InvisibleWall103" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(560, 560)
+position = Vector2(512, 544)
 
 [node name="InvisibleWall104" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(592, 560)
+position = Vector2(544, 544)
 
 [node name="InvisibleWall105" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(560, 656)
+position = Vector2(512, 640)
 
 [node name="InvisibleWall106" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(592, 656)
+position = Vector2(544, 640)
 
 [node name="InvisibleWall107" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(624, 560)
+position = Vector2(576, 544)
 
 [node name="InvisibleWall108" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(656, 560)
+position = Vector2(608, 544)
 
 [node name="InvisibleWall109" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(624, 656)
+position = Vector2(576, 640)
 
 [node name="InvisibleWall110" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(656, 656)
+position = Vector2(608, 640)
 
 [node name="InvisibleWall27" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(880, 656)
+position = Vector2(832, 640)
 
 [node name="InvisibleWall28" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(912, 656)
+position = Vector2(864, 640)
 
 [node name="InvisibleWall29" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(944, 656)
+position = Vector2(896, 640)
 
 [node name="InvisibleWall30" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(976, 656)
+position = Vector2(928, 640)
 
 [node name="InvisibleWall31" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1008, 656)
+position = Vector2(960, 640)
 
 [node name="InvisibleWall32" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1036, 624)
+position = Vector2(988, 608)
 
 [node name="InvisibleWall38" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 752)
+position = Vector2(380, 736)
 
 [node name="InvisibleWall67" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(400, 784)
+position = Vector2(352, 768)
 
 [node name="InvisibleWall68" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(368, 784)
+position = Vector2(320, 768)
 
 [node name="InvisibleWall69" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 784)
+position = Vector2(288, 768)
 
 [node name="InvisibleWall87" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 784)
+position = Vector2(256, 768)
 
 [node name="InvisibleWall88" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(272, 784)
+position = Vector2(224, 768)
 
 [node name="InvisibleWall89" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(240, 784)
+position = Vector2(192, 768)
 
 [node name="InvisibleWall90" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(208, 784)
+position = Vector2(160, 768)
 
 [node name="InvisibleWall91" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(176, 784)
+position = Vector2(128, 768)
 
 [node name="InvisibleWall95" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(144, 784)
+position = Vector2(96.0001, 768)
 
 [node name="InvisibleWall97" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(112, 784)
+position = Vector2(64.0001, 768)
 
 [node name="InvisibleWall39" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 720)
+position = Vector2(380, 704)
 
 [node name="InvisibleWall40" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 688)
+position = Vector2(380, 672)
 
 [node name="InvisibleWall41" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 432)
+position = Vector2(380, 416)
 
 [node name="InvisibleWall42" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 528)
+position = Vector2(380, 512)
 
 [node name="InvisibleWall43" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 496)
+position = Vector2(380, 480)
 
 [node name="InvisibleWall44" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 464)
+position = Vector2(380, 448)
 
 [node name="InvisibleWall45" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 240)
+position = Vector2(380, 224)
 
 [node name="InvisibleWall46" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 400)
+position = Vector2(380, 384)
 
 [node name="InvisibleWall47" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 368)
+position = Vector2(380, 352)
 
 [node name="InvisibleWall48" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 272)
+position = Vector2(380, 256)
 
 [node name="InvisibleWall49" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 144)
+position = Vector2(380, 128)
 
 [node name="InvisibleWall50" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 176)
+position = Vector2(380, 160)
 
 [node name="InvisibleWall124" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 208)
+position = Vector2(380, 192)
 
 [node name="InvisibleWall70" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(112, 656)
+position = Vector2(64.0001, 640)
 
 [node name="InvisibleWall51" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(272, 464)
+position = Vector2(224, 448)
 
 [node name="InvisibleWall52" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 560)
+position = Vector2(288, 544)
 
 [node name="InvisibleWall53" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 528)
+position = Vector2(256, 512)
 
 [node name="InvisibleWall54" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(272, 496)
+position = Vector2(224, 480)
 
 [node name="InvisibleWall61" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 656)
+position = Vector2(288, 640)
 
 [node name="InvisibleWall62" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 624)
+position = Vector2(288, 608)
 
 [node name="InvisibleWall63" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 592)
+position = Vector2(288, 576)
 
 [node name="InvisibleWall55" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 272)
+position = Vector2(288, 256)
 
 [node name="InvisibleWall56" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 432)
+position = Vector2(288, 416)
 
 [node name="InvisibleWall93" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 432)
+position = Vector2(256, 416)
 
 [node name="InvisibleWall57" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 400)
+position = Vector2(288, 384)
 
 [node name="InvisibleWall58" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 368)
+position = Vector2(288, 352)
 
 [node name="InvisibleWall59" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 176)
+position = Vector2(256, 160)
 
 [node name="InvisibleWall60" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 240)
+position = Vector2(288, 224)
 
 [node name="InvisibleWall123" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 208)
+position = Vector2(288, 192)
 
 [node name="InvisibleWall83" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 304)
+position = Vector2(380, 288)
 
 [node name="InvisibleWall84" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(428, 336)
+position = Vector2(380, 320)
 
 [node name="InvisibleWall85" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 336)
+position = Vector2(288, 320)
 
 [node name="InvisibleWall86" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(336, 304)
+position = Vector2(288, 288)
 
 [node name="InvisibleWall21" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1068, 400)
+position = Vector2(1020, 384)
 
 [node name="InvisibleWall22" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(912, 400)
+position = Vector2(864, 384)
 
 [node name="InvisibleWall23" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1100, 464)
+position = Vector2(1052, 448)
 
 [node name="InvisibleWall24" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1068, 592)
+position = Vector2(1020, 576)
 
 [node name="InvisibleWall111" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1100, 560)
+position = Vector2(1052, 544)
 
 [node name="InvisibleWall112" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1132, 528)
+position = Vector2(1084, 512)
 
 [node name="InvisibleWall113" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1132, 496)
+position = Vector2(1084, 480)
 
 [node name="InvisibleWall114" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(1068, 432)
+position = Vector2(1020, 416)
 
 [node name="InvisibleWall117" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(912, 432)
+position = Vector2(864, 416)
 
 [node name="InvisibleWall118" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(912, 464)
+position = Vector2(864, 448)
 
 [node name="InvisibleWall119" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(944, 496)
+position = Vector2(896, 480)
 
 [node name="InvisibleWall120" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(944, 528)
+position = Vector2(864, 544)
 
 [node name="InvisibleWall121" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(912, 560)
+position = Vector2(896, 512)
 
 [node name="InvisibleWall122" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(880, 560)
+position = Vector2(832, 544)
 
 [node name="InvisibleWall64" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(240, 176)
+position = Vector2(192, 160)
 
 [node name="InvisibleWall65" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(272, 176)
+position = Vector2(224, 160)
 
 [node name="InvisibleWall10" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(400, 112)
+position = Vector2(352, 96)
 
 [node name="InvisibleWall92" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(272, 688)
+position = Vector2(224, 672)
 
 [node name="InvisibleWall94" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(304, 688)
+position = Vector2(256, 672)
 
 [node name="InvisibleWall126" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(240, 688)
+position = Vector2(192, 672)
 
 [node name="InvisibleWall98" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(208, 688)
+position = Vector2(160, 672)
 
 [node name="InvisibleWall115" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(176, 688)
+position = Vector2(128, 672)
 
 [node name="BackWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallBackTileComplex" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(240, 80)
+position = Vector2(192, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex13" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(176, 80)
+position = Vector2(128, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex2" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(272, 80)
+position = Vector2(224, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex3" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(304, 80)
+position = Vector2(256, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex66" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(80, 688)
+position = Vector2(32.0001, 672)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex65" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(112, 688.5)
+position = Vector2(64.0001, 672.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex54" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(144, 688)
+position = Vector2(96.0001, 672)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex4" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(336, 80)
+position = Vector2(288, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex5" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(368, 80)
+position = Vector2(320, 64)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex6" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(400, 80.5)
+position = Vector2(352, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex7" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(432, 80.5)
+position = Vector2(384, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex8" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(464, 80.5)
+position = Vector2(416, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex9" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(496, 80.5)
+position = Vector2(448, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex10" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(528, 80.5)
+position = Vector2(480, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex11" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(560, 80.5)
+position = Vector2(512, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex12" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(592, 80.5)
+position = Vector2(544, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex37" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(624, 80.5)
+position = Vector2(576, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex38" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(656, 80.5)
+position = Vector2(608, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex39" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(688, 80.5)
+position = Vector2(640, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex40" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(720, 80.5)
+position = Vector2(672, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex41" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(752, 80.5)
+position = Vector2(704, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex42" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(784, 80.5)
+position = Vector2(736, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex43" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(816, 80.5)
+position = Vector2(768, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex44" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(848, 80.5)
+position = Vector2(800, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex45" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(880, 80.5)
+position = Vector2(832, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex46" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(912, 80.5)
+position = Vector2(864, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex47" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(944, 80.5)
+position = Vector2(896, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex48" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(976, 80.5)
+position = Vector2(928, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex52" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1008, 80.5)
+position = Vector2(960, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex55" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1040, 80.5)
+position = Vector2(992, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex56" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1072, 80.5)
+position = Vector2(1024, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex57" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1104, 80.5)
+position = Vector2(1056, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex58" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1136, 80.5)
+position = Vector2(1088, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex59" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1168, 80.5)
+position = Vector2(1120, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex60" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1200, 80.5)
+position = Vector2(1152, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex61" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1232, 80.5)
+position = Vector2(1184, 64.5)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/BackWall"]
-position = Vector2(208, 80)
+position = Vector2(160, 64)
 rotation = 3.14159
 scale = Vector2(0.167, 0.167)
 texture = SubResource("AtlasTexture_aobp3")
@@ -1460,130 +1468,130 @@ texture = SubResource("AtlasTexture_aobp3")
 [node name="LeftWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallVerticalTileComplex" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 112)
+position = Vector2(128, 96)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallVerticalTileComplex2" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 144)
+position = Vector2(128, 128)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex3" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 176)
+position = Vector2(128, 160)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex21" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(80, 720)
+position = Vector2(32.0001, 704)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallVerticalTileComplex22" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(80, 752)
+position = Vector2(32.0001, 736)
 rotation = 3.14159
 collision_mask = 0
 
 [node name="WallVerticalTileComplex23" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(80, 784)
+position = Vector2(32.0001, 768)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex24" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(80, 816)
+position = Vector2(32.0001, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex4" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 208)
+position = Vector2(128, 192)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex5" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 240)
+position = Vector2(128, 224)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex6" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 272)
+position = Vector2(128, 256)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex7" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 304)
+position = Vector2(128, 288)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex8" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 336)
+position = Vector2(128, 320)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex9" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 368)
+position = Vector2(128, 352)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex10" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 400)
+position = Vector2(128, 384)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex11" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 432)
+position = Vector2(128, 416)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex12" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 464)
+position = Vector2(128, 448)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex13" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 496)
+position = Vector2(128, 480)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex14" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 528)
+position = Vector2(128, 512)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex15" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 560)
+position = Vector2(128, 544)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex16" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 592)
+position = Vector2(128, 576)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex17" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 624)
+position = Vector2(128, 608)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex18" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(176, 656)
+position = Vector2(128, 640)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
@@ -1591,217 +1599,217 @@ collision_mask = 0
 [node name="FrontWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallBackTileComplex13" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(176, 816)
+position = Vector2(128, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex14" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(208, 816)
+position = Vector2(160, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex15" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(240, 816)
+position = Vector2(192, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex50" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(112, 816)
+position = Vector2(64.0001, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex51" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(144, 816)
+position = Vector2(96.0001, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex16" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(272, 816)
+position = Vector2(224, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex17" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(304, 816)
+position = Vector2(256, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex18" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(336, 816)
+position = Vector2(288, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex19" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(368, 816)
+position = Vector2(320, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex20" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(400, 816)
+position = Vector2(352, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex21" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(432, 816)
+position = Vector2(384, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex22" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(464, 816)
+position = Vector2(416, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex23" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(496, 816)
+position = Vector2(448, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex24" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(528, 816)
+position = Vector2(480, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex25" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(560, 816)
+position = Vector2(512, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex26" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(592, 816)
+position = Vector2(544, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex27" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(624, 816)
+position = Vector2(576, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex28" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(656, 816)
+position = Vector2(608, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex29" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(688, 816)
+position = Vector2(640, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex30" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(720, 816)
+position = Vector2(672, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex31" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(752, 816)
+position = Vector2(704, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex32" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(784, 816)
+position = Vector2(736, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex33" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(816, 816)
+position = Vector2(768, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex34" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(848, 816)
+position = Vector2(800, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex35" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(880, 816)
+position = Vector2(832, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex36" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(912, 816)
+position = Vector2(864, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex66" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(944, 816)
+position = Vector2(896, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex67" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(976, 816)
+position = Vector2(928, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex68" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1008, 816)
+position = Vector2(960, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex69" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1040, 816)
+position = Vector2(992, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex70" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1072, 816)
+position = Vector2(1024, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex71" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1104, 816)
+position = Vector2(1056, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex72" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1136, 816)
+position = Vector2(1088, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex73" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1168, 816)
+position = Vector2(1120, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex74" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1200, 816)
+position = Vector2(1152, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex75" parent="Environment/Walls/FrontWall" instance=ExtResource("5_ut53j")]
-position = Vector2(1232, 816)
+position = Vector2(1184, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
@@ -1810,145 +1818,145 @@ collision_mask = 0
 
 [node name="CornerWallTileComplex4" parent="Environment/Walls/RightWall" instance=ExtResource("3_8gaoy")]
 z_index = 40
-position = Vector2(1264, 80)
+position = Vector2(1216, 64)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex24" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 112)
+position = Vector2(1216, 96)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex25" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 144)
+position = Vector2(1216, 128)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex26" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 176)
+position = Vector2(1216, 160)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex27" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 208)
+position = Vector2(1216, 192)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex28" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 240)
+position = Vector2(1216, 224)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex29" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 272)
+position = Vector2(1216, 256)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex30" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 304)
+position = Vector2(1216, 288)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex31" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 336)
+position = Vector2(1216, 320)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex32" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 368)
+position = Vector2(1216, 352)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex33" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 400)
+position = Vector2(1216, 384)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex34" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 432)
+position = Vector2(1216, 416)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex35" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 464)
+position = Vector2(1216, 448)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex36" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 496)
+position = Vector2(1216, 480)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex37" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 528)
+position = Vector2(1216, 512)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex38" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 560)
+position = Vector2(1216, 544)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex39" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 592)
+position = Vector2(1216, 576)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex40" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 624)
+position = Vector2(1216, 608)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex41" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 656)
+position = Vector2(1216, 640)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex42" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 688)
+position = Vector2(1216, 672)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex43" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 720)
+position = Vector2(1216, 704)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex44" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 752)
+position = Vector2(1216, 736)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex45" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 784)
+position = Vector2(1216, 768)
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallVerticalTileComplex46" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
-position = Vector2(1264, 816)
+position = Vector2(1216, 800)
 collision_layer = 0
 collision_mask = 0
 
@@ -1956,38 +1964,45 @@ collision_mask = 0
 
 [node name="AmplifierTile" parent="Gameplay" instance=ExtResource("12_5m0d7")]
 z_index = 45
-position = Vector2(368, 112)
+position = Vector2(308, 96)
 select_amplifier = "NeuroEnhanceAmplifierB"
 
 [node name="AmplifierTile2" parent="Gameplay" instance=ExtResource("12_5m0d7")]
 z_index = 45
-position = Vector2(1024, 400)
+position = Vector2(976, 384)
 select_amplifier = "NeuroEnhanceAmplifierC"
 
 [node name="EndTile" parent="Gameplay" instance=ExtResource("6_0mrpp")]
-position = Vector2(112, 688)
+position = Vector2(64.0001, 672)
 door_number = 4
 
 [node name="EndTile2" parent="Gameplay" instance=ExtResource("6_0mrpp")]
-position = Vector2(208, 80)
+position = Vector2(160, 64)
 door_number = 2
 
 [node name="StartTile" parent="Gameplay" instance=ExtResource("7_dwjma")]
-position = Vector2(208, 80)
+position = Vector2(160, 64)
 
 [node name="TerminalDoorTile" parent="Gameplay" instance=ExtResource("8_jg6as")]
-position = Vector2(112, 688)
+position = Vector2(64.0001, 672)
 door_number = 4
 
 [node name="TerminalDoorTile2" parent="Gameplay" instance=ExtResource("8_jg6as")]
 z_index = 46
-position = Vector2(464, 592)
+position = Vector2(416, 576)
+door_number = 5
+unlocked = true
+
+[node name="TerminalDoorTile3" parent="Gameplay" instance=ExtResource("8_jg6as")]
+z_index = 46
+position = Vector2(416, 608)
+rotation = 3.14159
 door_number = 5
 unlocked = true
 
 [node name="Terminal3" parent="Gameplay" instance=ExtResource("9_73lqa")]
 z_index = 46
-position = Vector2(304, 464)
+position = Vector2(256, 448)
 
 [node name="RealPlayer" parent="." instance=ExtResource("5_12xde")]
 
