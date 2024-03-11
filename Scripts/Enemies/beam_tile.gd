@@ -62,7 +62,13 @@ func fire_beam():
 		while true:
 			ray.position = Vector2(i * level_manager.tile_size, 0)
 			ray.force_raycast_update()
-			if ray.get_collider() || i > 64:
+			if ray.get_collider():
+				if "tile_type" in ray.get_collider():
+					if ray.get_collider().tile_type != "hole":
+						break
+				else:
+					break
+			if i > 64:
 				break
 			else:
 				var beam_section = beam_prefab.instantiate()

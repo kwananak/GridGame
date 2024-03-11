@@ -13,8 +13,11 @@ func check_move(player_position):
 	if ray.get_collider():
 		var collision = ray.get_collider()
 		if "tile_type" in collision:
-			if collision.tile_type != "hole":
-				return true
+			match collision.tile_type:
+				"hole", "chip", "key":
+					pass
+				_:
+					return false
 		else:
 			return false
 	target = ray.target_position
@@ -35,8 +38,11 @@ func _on_area_entered(area):
 			if ray.get_collider():
 				var collision = ray.get_collider()
 				if "tile_type" in collision:
-					if collision.tile_type != "hole":
-						break
+					match collision.tile_type:
+						"hole", "chip", "key":
+							pass
+						_:
+							break
 				else:
 					break
 			var old_pos = global_position

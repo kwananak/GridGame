@@ -22,7 +22,12 @@ func check_collision(collision):
 				if collision.vulnerable:
 					available_action = collision
 					return
-			"chip":
+			"chip", "key":
+				if player.waiting_for_action:
+					match player.waiting_for_action.name:
+						"GrapplingTool":
+							available_action = collision
+							return
 				possible = true
 				return
 			"door":

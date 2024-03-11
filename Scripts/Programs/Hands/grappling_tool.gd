@@ -123,6 +123,9 @@ func grapple_hit(dir):
 				if !dir.available_action.moved:
 					grapple_soap(destination, dir.available_action)
 					destination = Vector2.ZERO
+			"chip", "key":
+				grapple_item(dir.available_action)
+				destination = Vector2.ZERO
 			_:
 				dir.available_action.hit_by_player(strength)
 	var tween = create_tween().tween_property(player, "position",
@@ -155,6 +158,17 @@ func grapple_soap(destination, barrier):
 		var section = grapple.pop_back()
 		if tip != null:
 			tip.position = section.position
+		if section != null:
+			section.queue_free()
+
+func grapple_item(item):
+	item.global_position = tip.global_position
+	for n in grapple.size():
+		await get_tree().create_timer(0.005).timeout
+		var section = grapple.pop_back()
+		if tip != null:
+			tip.position = section.position
+			item.global_position = tip.global_position
 		if section != null:
 			section.queue_free()
 

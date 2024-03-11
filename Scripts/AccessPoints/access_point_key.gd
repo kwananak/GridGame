@@ -1,5 +1,7 @@
 extends Area2D
 
+var tile_type = "key"
+
 func _on_area_entered(_area):
 	for n in get_tree().get_nodes_in_group("AccessPoint"):
 		n.locked = false
