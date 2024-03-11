@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://r1hnehs6otbr"]
+[gd_scene load_steps=31 format=3 uid="uid://r1hnehs6otbr"]
 
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="1_mb2mn"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="2_qdtj1"]
@@ -65,6 +65,13 @@ animations = [{
 "name": &"default",
 "speed": 2.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_ujs40"]
+offsets = PackedFloat32Array(0, 0.419872, 1)
+colors = PackedColorArray(0, 0, 0, 0.4, 0.205128, 0.205128, 0.205128, 0.317949, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_blpye"]
+gradient = SubResource("Gradient_ujs40")
 
 [node name="ParallaxLayer" type="ParallaxLayer"]
 scale = Vector2(0.8, 0.8)
@@ -3989,12 +3996,10 @@ offset = Vector2(0.5, 0)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
 position = Vector2(1360, 248)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_sh385")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
 position = Vector2(1380, 390)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_wuid3")
 
 [node name="DumpyardDecoB" parent="Environment/AssemblyLine/Windows" instance=ExtResource("14_gwub4")]
@@ -4002,26 +4007,21 @@ position = Vector2(1381.25, 371.25)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
 position = Vector2(1390, 500)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_wuid3")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
 position = Vector2(1390, 680)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_wuid3")
 
 [node name="DumpyardDecoA" parent="Environment/AssemblyLine/Windows" instance=ExtResource("15_4uxu1")]
 position = Vector2(1361.25, 640)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D6" type="Sprite2D" parent="Environment/AssemblyLine/Windows"]
 position = Vector2(1370, 770)
-scale = Vector2(1, 1)
 texture = SubResource("AtlasTexture_wuid3")
 
 [node name="DumpyardDecoC" parent="Environment/AssemblyLine/Windows" instance=ExtResource("16_iivvs")]
 position = Vector2(1386.25, 870)
-scale = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 20
@@ -4043,3 +4043,9 @@ z_index = 30
 position = Vector2(260, 470)
 sprite_frames = SubResource("SpriteFrames_v0iqq")
 autoplay = "default"
+
+[node name="ColorRect2" type="Sprite2D" parent="."]
+z_index = 40
+position = Vector2(900, 616.625)
+scale = Vector2(7.04102, 1234.25)
+texture = SubResource("GradientTexture1D_blpye")

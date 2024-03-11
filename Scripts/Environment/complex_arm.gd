@@ -10,7 +10,7 @@ const points = [Vector2(103, 109),
 @onready var sprite = $AnimatedSprite2D
 @onready var limb_sprite = $LimbSprite
 @onready var bot_sprite = $BotSprite
-@onready var animation_player = $BotSprite/AnimationPlayer
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	$AudioStreamPlayer.pitch_scale = randf_range(0.95, 1.05)
@@ -20,7 +20,6 @@ func _ready():
 		sprite.hide()
 		animation_player.play("conveyor_end")
 	else:
-		sprite.play()
 		animation_player.play("new_animation")
 
 func _on_animated_sprite_2d_frame_changed():
