@@ -19,7 +19,8 @@ func _ready():
 
 func loaded():
 	active = true
-	super.loaded()
+	await super.loaded()
+	level_manager.game_over_trigger.connect(game_over_remove)
 
 func action():
 	focus = true
@@ -168,3 +169,9 @@ func remove_grapple(destination):
 		grapple_sound.pitch_scale -= 0.01
 	grapple_sound.stop()
 	tip.queue_free()
+
+func game_over_remove(_arg):
+	for n in grapple:
+		n.queue_free()
+	if is_instance_valid(tip):
+		tip.queue_free()
