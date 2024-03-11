@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://t38ki6epb1j4"]
+[gd_scene load_steps=33 format=3 uid="uid://t38ki6epb1j4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_3bi1c"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_7w60o"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="30_dffxx"]
 [ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="31_1yw4j"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="32_5khvv"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="32_7t1f5"]
 
 [node name="Level306" type="Node2D"]
 
@@ -1987,7 +1988,7 @@ position = Vector2(1024, 480)
 position = Vector2(1504, 608)
 
 [node name="VirtualStartTile" parent="GameplayElements/Others" instance=ExtResource("24_unh5t")]
-position = Vector2(352, 480)
+position = Vector2(1120, 384)
 
 [node name="BootsTile" parent="GameplayElements/Others" instance=ExtResource("27_yppqv")]
 position = Vector2(1392, 608)
@@ -2062,3 +2063,6 @@ bus = &"Music"
 visible = false
 offset_right = 1488.0
 offset_bottom = 1392.0
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("32_7t1f5")]
+position = Vector2(1504, 608)
