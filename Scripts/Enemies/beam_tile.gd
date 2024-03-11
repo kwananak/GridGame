@@ -55,6 +55,8 @@ func turn_call():
 
 # instantiates new beam as a child
 func fire_beam():
+	for n in $Beam.get_children():
+		n.queue_free()
 	if distance == 0:
 		var i = 0
 		while true:
@@ -65,12 +67,12 @@ func fire_beam():
 			else:
 				var beam_section = beam_prefab.instantiate()
 				beam_section.cannon = self
-				$Beam.add_child(beam_section)
+				$Beam.call_deferred("add_child", beam_section)
 				if cannon_recharge == 0:
 					if extreme:
-						beam_section.get_node("AnimatedSprite2D").animation = "extreme"
+						beam_section.get_node("AnimatedSprite2D").set_deferred("animation", "extreme")
 					else:
-						beam_section.get_node("AnimatedSprite2D").animation = "forever"
+						beam_section.get_node("AnimatedSprite2D").set_deferred("animation", "forever")
 				beam_section.position = Vector2.RIGHT * level_manager.tile_size * (i + 1)
 				i += 1
 	else:
