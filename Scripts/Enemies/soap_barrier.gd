@@ -28,11 +28,16 @@ func _on_area_entered(area):
 		while true:
 			ray.force_raycast_update()
 			if ray.get_collider():
-				break
+				var collision = ray.get_collider()
+				if "tile_type" in collision:
+					if collision.tile_type != "hole":
+						break
+				else:
+					break
 			var old_pos = global_position
 			position += target
 			$AnimatedSprite2D.global_position = old_pos
-			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.5 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
+			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.3 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
 		moved = true
 		$AnimatedSprite2D.frame = 1
 	moving = false
