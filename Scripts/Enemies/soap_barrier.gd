@@ -11,7 +11,12 @@ func check_move(player_position):
 	ray.target_position = position - player_position
 	ray.force_raycast_update()
 	if ray.get_collider():
-		return false
+		var collision = ray.get_collider()
+		if "tile_type" in collision:
+			if collision.tile_type != "hole":
+				return true
+		else:
+			return false
 	target = ray.target_position
 	return true
 
