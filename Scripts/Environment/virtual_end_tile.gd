@@ -19,4 +19,5 @@ func _on_area_entered(area):
 func _on_animated_sprite_2d_visibility_changed():
 	audio.play()
 	await get_tree().create_timer(2).timeout
-	audio.play()
+	if is_inside_tree():
+		audio.play()

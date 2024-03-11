@@ -38,25 +38,11 @@ func _physics_process(_delta):
 func get_input():
 	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue:
 		return
-	moving = true
 	for dir in inputs.keys():
 		var dir_node = get_node("PossibleMoves/" + dir)
 		if Input.is_action_pressed(dir):
-			match dir:
-				"left":
-					animated_sprite_2d.flip_h = true
-				"right":
-					animated_sprite_2d.flip_h = false
-			if teleport:
-				waiting_for_action.confirm_with_dir(dir_node)
-				return
-			if dir_node.available_action != null:
-				act(dir_node)
-				return
-			elif dir_node.possible:
-				move(dir_node.global_position)
-				return
-	moving = false
+			handle_directional_input(dir_node)
+			return
 
 func _input(event):
 	if level_manager.game_over || level_manager.dialogue:
@@ -72,21 +58,26 @@ func _input(event):
 		if event.is_pressed() && event.button_index == 1:
 			for n in $PossibleMoves.get_children():
 				if n.moused:
-					moving = true
-					match n.name:
-						"left":
-							animated_sprite_2d.flip_h = true
-						"right":
-							animated_sprite_2d.flip_h = false
-					if teleport:
-						waiting_for_action.confirm_with_dir(n)
-						return
-					if n.possible:
-						move(n.global_position)
-					elif n.available_action != null:
-						act(n)
-					else:
-						moving = false
+					await handle_directional_input(n)
+
+func handle_directional_input(dir):
+	moving = true
+	match dir.name:
+		"left":
+			animated_sprite_2d.flip_h = true
+		"right":
+			animated_sprite_2d.flip_h = false
+	if teleport:
+		if dir.possible || dir.available_action:
+			waiting_for_action.confirm_with_dir(dir)
+			return
+	if dir.available_action != null:
+		act(dir)
+		return
+	elif dir.possible:
+		move(dir.global_position)
+		return
+	moving = false
 
 # self explanatory
 func skip_turn():
@@ -134,8 +125,12 @@ func move(pos):
 	if teleport:
 		hide()
 		await get_tree().create_timer(0.2).timeout
+		var old_pos = position
 		position = pos
-		await get_tree().create_timer(0.1).timeout
+		animated_sprite_2d.position = old_pos - position
+		await create_tween().tween_property(animated_sprite_2d, "position",
+				Vector2.ZERO,
+				1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 		show()
 	else:
 		var old_pos = position
