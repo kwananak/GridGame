@@ -1,6 +1,6 @@
 extends "res://Scripts/Programs/program.gd"
 
-var distance = 3
+var distance = 2
 
 func _ready():
 	type = "Sour"
