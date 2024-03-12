@@ -7,9 +7,12 @@ var moused = false
 var shootable = false
 
 @export var dir : Vector2
+@onready var sprite = $AnimatedSprite2D
+@onready var teleport_sprite = $TeleportSprite
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	teleport_sprite.rotation = -rotation
 
 # checks collision and adjusts vars accordingly
 func check_collision(collision):
@@ -81,7 +84,13 @@ func reset():
 func set_possible(value):
 	possible = value
 	if value == true:
-		$AnimatedSprite2D.animation = "move"
+		if player.teleport:
+			sprite.hide()
+			teleport_sprite.show()
+		else:
+			teleport_sprite.hide()
+			sprite.animation = "move"
+			sprite.show()
 		show()
 
 func set_available_action(value):
@@ -89,7 +98,13 @@ func set_available_action(value):
 	if available_action == null:
 		hide()
 		return
-	$AnimatedSprite2D.animation = "hit"
+	if player.teleport:
+		sprite.hide()
+		teleport_sprite.show()
+	else:
+		teleport_sprite.hide()
+		sprite.animation = "hit"
+		sprite.show()
 	show()
 
 func _on_mouse_entered():

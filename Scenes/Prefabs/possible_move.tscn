@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3k6pd56xjakj"]
+[gd_scene load_steps=21 format=3 uid="uid://d3k6pd56xjakj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/possible_move.gd" id="1_rtxwk"]
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/virtual_character.png" id="2_y1uxi"]
+[ext_resource type="Texture2D" uid="uid://cwvdipej1whlh" path="res://Sprites/Character/teleport_move.png" id="3_p5ktl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv3a2"]
 
@@ -60,6 +61,70 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vxh8"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohkvm"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xucpk"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywxc3"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noh6k"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlk0q"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuwo5"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo1d6"]
+atlas = ExtResource("3_p5ktl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxnpn"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_3vxh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohkvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xucpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywxc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noh6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlk0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuwo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo1d6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="PossibleMove" type="Area2D"]
 collision_layer = 256
 collision_mask = 256
@@ -74,6 +139,11 @@ rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_p3fjg")
 animation = &"hit"
 autoplay = "move"
+
+[node name="TeleportSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fxnpn")
+autoplay = "default"
+frame_progress = 0.0773254
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
