@@ -1,19 +1,17 @@
 extends Node2D
 
 var level_manager
+var main
 
 func _ready():
 	show()
+	main = $/root/Main
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	if level_manager == null:
 		level_manager = get_tree().get_first_node_in_group("RealLevelManager")
-	if $/root/Main.real_scene != null:
-		match $/root/Main.real_scene.name:
-			"Level1":
-				$InfoUI.text = "DumpCore\n"
-			"Level2":
-				$InfoUI.text = "Humanity Diagnostic Mainframe\n"
-	$InfoUI.text += $/root/Main.get_level_name(level_manager.level_number)
+	if main.real_scene != null:
+		$InfoUI.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number) + "\n"
+	$InfoUI.text += main.get_level_name(level_manager.level_number)
 
 # relays quit level button press to level manager
 func _on_button_pressed():

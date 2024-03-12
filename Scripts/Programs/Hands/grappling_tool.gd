@@ -115,10 +115,7 @@ func grapple_hit(dir):
 			"mobile":
 				if !dir.available_action.moved:
 					grapple_mobile(destination, dir.available_action)
-					if destination.x > 0:
-						destination.x -= destination.x / destination.x
-					if destination.y > 0:
-						destination.y -= destination.y / destination.y
+					destination -= destination.normalized()
 			"soap":
 				if !dir.available_action.moved:
 					grapple_soap(destination, dir.available_action)
@@ -136,12 +133,7 @@ func grapple_hit(dir):
 	player.animated_sprite_2d.play("idle")
 
 func grapple_mobile(destination, barrier):
-	var des = destination
-	if des.x > 0:
-		des.x = des.x / des.x
-	if des.y > 0:
-		des.y = des.y / des.y
-	barrier._on_area_entered(-des * level_manager.tile_size)
+	barrier.grapple_move(-destination.normalized() * 32)
 	for n in 8:
 		await get_tree().create_timer(0.01).timeout
 		var section = grapple.pop_back()

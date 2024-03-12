@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlyrwgmg3ve6g"]
+[gd_scene load_steps=10 format=3 uid="uid://dlyrwgmg3ve6g"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/grappling_tool.gd" id="2_8llf7"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_si3jg"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_1a3h4"]
 [ext_resource type="AudioStream" uid="uid://byuxfnojgpaqw" path="res://Sounds/FX/grapple.wav" id="4_75hlv"]
 [ext_resource type="AudioStream" uid="uid://cgb3vwy651e1g" path="res://Sounds/FX/hook.wav" id="5_h6yu2"]
+[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="6_opfwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7u1"]
 
@@ -48,6 +49,26 @@ position = Vector2(1.37091e-06, 0.500001)
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_jq3u0")
 
+[node name="Label" type="Label" parent="LoadedSprite"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.4297
+offset_top = -33.2687
+offset_right = 49.5703
+offset_bottom = 38.7313
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_1a3h4")
+theme_override_font_sizes/font_size = 64
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GrappleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_75hlv")
 bus = &"FX"
@@ -56,6 +77,9 @@ bus = &"FX"
 stream = ExtResource("5_h6yu2")
 pitch_scale = 0.4
 bus = &"FX"
+
+[node name="Focus" parent="." instance=ExtResource("6_opfwf")]
+visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

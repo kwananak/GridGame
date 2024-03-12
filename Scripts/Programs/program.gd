@@ -13,7 +13,6 @@ var active = false
 var usable = true
 var runed = false
 var mouse_on = false
-var focus_rect = preload("res://Scenes/Programs/focus.tscn")
 
 func _ready():
 	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")
@@ -22,9 +21,12 @@ func _ready():
 
 func loaded():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	$Sprite2D.hide()
-	if $LoadedSprite:
-		$LoadedSprite.show()
+	$LoadedSprite.show()
+	if active:
+		player.moving_signal.connect(available)
+		$LoadedSprite/Label.show()
 
 func picked_up(slot):
 	set_deferred("monitorable", false)
@@ -58,6 +60,20 @@ func _on_mouse_exited():
 func set_focus(value):
 	focus = value
 	if focus:
-		add_child(focus_rect.instantiate())
+		create_tween().tween_property(self, "scale", Vector2(2.0, 2.0), 0.2)
+		create_tween().tween_property(self, "position", position - Vector2(0, 8), 0.2)
+		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.4, 0.4), 0.2)
+		create_tween().tween_property($LoadedSprite/Label, "position", $LoadedSprite/Label.position - Vector2(8, 0), 0.2)
 	else:
-		remove_child($Focus)
+		create_tween().tween_property(self, "scale", Vector2.ONE, 0.2)
+		create_tween().tween_property(self, "position", position + Vector2(0, 8), 0.2)
+		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.2, 0.2), 0.2)
+		create_tween().tween_property($LoadedSprite/Label, "position", $LoadedSprite/Label.position + Vector2(8, 0), 0.2)
+
+func available(value):
+	if value:
+		$Focus.show()
+	else:
+		await get_tree().create_timer(0.02).timeout
+		if !player.moving:
+			$Focus.hide()
