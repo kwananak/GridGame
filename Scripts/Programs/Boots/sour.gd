@@ -29,7 +29,7 @@ func confirm_with_dir(dir):
 	var tele = dir.available_action
 	if tele:
 		tele.monitoring = false
-		#await create_tween().tween_property(tele, "scale", Vector2(0.5, 0.5), 0.05).finished
+		await tele.create_tween().tween_property(tele, "scale", Vector2(0.5, 0.5), 0.05).finished
 		tele.hide()
 		tele.global_position = Vector2.ZERO
 	var pos = player.global_position
@@ -40,5 +40,5 @@ func confirm_with_dir(dir):
 	if tele:
 		tele.global_position = pos
 		tele.show()
-		#create_tween().tween_property(tele, "scale", Vector2.ONE, 0.05)
+		tele.create_tween().tween_property(tele, "scale", Vector2.ONE, 0.05)
 		tele.monitoring = true
