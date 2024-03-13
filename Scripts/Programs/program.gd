@@ -18,6 +18,7 @@ func _ready():
 	mouse_tip = get_tree().get_first_node_in_group("MouseToolTip")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+	visibility_changed.connect(vis_changed)
 
 func loaded():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -77,3 +78,8 @@ func available(value):
 		await get_tree().create_timer(0.02).timeout
 		if !player.moving:
 			$Focus.hide()
+
+func vis_changed():
+	var ui = get_tree().get_first_node_in_group("UI")
+	if ui:
+		monitorable = ui.visible

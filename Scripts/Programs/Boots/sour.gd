@@ -33,8 +33,7 @@ func confirm_with_dir(dir):
 		tele.hide()
 		tele.global_position = Vector2.ZERO
 	var pos = player.global_position
-	player.move(dir.global_position)
-	await get_tree().create_timer(0.3).timeout
+	await player.move(dir.global_position)
 	focus = false
 	player.waiting_for_action = null
 	player.teleport = false
