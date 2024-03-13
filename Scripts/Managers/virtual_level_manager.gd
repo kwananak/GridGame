@@ -195,7 +195,7 @@ func display_summary():
 	summary.get_node("Body").append_text(body)
 	summary.position = camera.position
 	add_child(summary)
-	ui.queue_free()
+	get_parent().remove_child(ui)
 
 func display_fail():
 	if pause_menu:
@@ -203,7 +203,7 @@ func display_fail():
 	pause_menu = fail_prefab.instantiate()
 	get_parent().add_child(pause_menu)
 	pause_menu.position = camera.position
-	ui.queue_free()
+	get_parent().remove_child(ui)
 
 func back_to_terminal():
 	$/root/Main.back_to_terminal()

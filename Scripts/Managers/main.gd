@@ -181,7 +181,11 @@ func get_level_name(level_number):
 	if not parse_result == OK:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
-	return json.get_data()[str(level_number)]
+	var data = json.get_data()
+	if str(level_number) in data:
+		return data[str(level_number)]
+	else:
+		return "name not found"
 
 # disables continue button
 func disable_continue():
