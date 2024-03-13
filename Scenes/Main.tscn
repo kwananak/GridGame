@@ -368,6 +368,15 @@ offset_right = 160.0
 offset_bottom = 329.0
 text = "Level 3"
 
+[node name="Level4Button" type="Button" parent="DebugMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 167.0
+offset_top = 298.0
+offset_right = 229.0
+offset_bottom = 329.0
+text = "Level 4"
+
 [node name="Level203Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
@@ -544,6 +553,7 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/Level404Button" to="." method="call_level"]
 [connection signal="pressed" from="DebugMenu/Level2Button" to="." method="call_level" binds= [2]]
 [connection signal="pressed" from="DebugMenu/Level3Button" to="." method="call_level" binds= [3]]
+[connection signal="pressed" from="DebugMenu/Level4Button" to="." method="call_level" binds= [4]]
 [connection signal="pressed" from="DebugMenu/Level203Button" to="." method="call_level" binds= [203]]
 [connection signal="pressed" from="DebugMenu/Level202Button" to="." method="call_level" binds= [202]]
 [connection signal="pressed" from="DebugMenu/VirtualTestLevelButton" to="." method="call_level" binds= [100]]

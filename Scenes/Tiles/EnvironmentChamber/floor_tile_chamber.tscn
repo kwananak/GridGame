@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://sl8bn63avfuv"]
+
+[ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="1_8alqk"]
+[ext_resource type="Script" path="res://Scripts/Environment/floor_tile.gd" id="2_mnqj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igr6y"]
+atlas = ExtResource("1_8alqk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkjt0"]
+atlas = ExtResource("1_8alqk")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0kn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igr6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkjt0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FloorTileChamber" type="AnimatedSprite2D"]
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_x0kn3")
+script = ExtResource("2_mnqj1")

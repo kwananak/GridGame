@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbiapxu4xt11n"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_8cbcc"]
+[ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="2_hilol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qccl"]
+atlas = ExtResource("2_hilol")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4m5a"]
+atlas = ExtResource("2_hilol")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mq13p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qccl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4m5a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WallBackTileChamber" type="StaticBody2D"]
+z_index = 20
+script = ExtResource("1_8cbcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mq13p")

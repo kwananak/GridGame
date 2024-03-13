@@ -35,7 +35,10 @@ var levels = {"100" : {"200" : false},
 			"305" : {"306" : false, "307" : false},
 			"306" : {"prog" : false},
 			"307" : {"308" : false},
-			"308" : {"4" : false}}
+			"308" : {"4" : false},
+			"401" : {"402" : false},
+			"402" : {"403" : false},
+			"403" : {"5" : false}}
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 

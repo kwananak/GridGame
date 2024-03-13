@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt8k386jybf5a"]
+
+[ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="1_3uoqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy6no"]
+atlas = ExtResource("1_3uoqv")
+region = Rect2(0, 32, 32, 32)
+
+[node name="WallVerticalTileChamber" type="StaticBody2D"]
+z_index = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xy6no")
