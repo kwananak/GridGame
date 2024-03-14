@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=36 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://c6k7i5a04pfbh" path="res://Scenes/Tiles/VirtualEnvironment300/300_soap_tile.tscn" id="31_hilm2"]
 [ext_resource type="PackedScene" uid="uid://cvmqo5esvy8gy" path="res://Scenes/Tiles/VirtualEnvironment300/300_soap_cross_tile.tscn" id="32_3nw07"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="33_rl2pb"]
+[ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="34_3nw4j"]
+[ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="35_bxqb8"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -97,7 +99,7 @@ position = Vector2(448, 256)
 position = Vector2(448, 160)
 
 [node name="MobileBarrier2" parent="." instance=ExtResource("12_6j7m5")]
-position = Vector2(272, 336)
+position = Vector2(256, 320)
 
 [node name="BootsTile" parent="." instance=ExtResource("13_cbgds")]
 position = Vector2(576, 96)
@@ -143,6 +145,15 @@ position = Vector2(320, 224)
 [node name="MantisBarrier" parent="." instance=ExtResource("23_foe8a")]
 position = Vector2(288, 288)
 
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(512, 512)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(576, 512)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(576, 448)
+
 [node name="MantisBarrier2" parent="." instance=ExtResource("23_foe8a")]
 position = Vector2(256, 160)
 
@@ -165,7 +176,7 @@ position = Vector2(288, 160)
 position = Vector2(448, 224)
 
 [node name="SoapBarrier" parent="." instance=ExtResource("25_bmmiy")]
-position = Vector2(304, 80)
+position = Vector2(320, 64)
 
 [node name="SoapBarrier2" parent="." instance=ExtResource("25_bmmiy")]
 position = Vector2(320, 160)
@@ -220,3 +231,10 @@ rotation = 1.5708
 
 [node name="HoleTile" parent="." instance=ExtResource("33_rl2pb")]
 position = Vector2(320, 128)
+
+[node name="SeekerEnemy" parent="." instance=ExtResource("34_3nw4j")]
+position = Vector2(768, 256)
+
+[node name="PathEnemy" parent="." node_paths=PackedStringArray("path_nodes") instance=ExtResource("35_bxqb8")]
+position = Vector2(512, 448)
+path_nodes = [NodePath("../Node2D2"), NodePath("../Node2D"), NodePath("../Node2D3"), NodePath("../Node2D")]

@@ -46,7 +46,7 @@ func initialize_grid():
 	astar_grid.default_estimate_heuristic = AStarGrid2D.HEURISTIC_OCTILE
 	astar_grid.update()
 	for n in get_tree().get_nodes_in_group("AStarGridSolid"):
-		astar_grid.set_point_solid(Vector2i(n.position) / tile_size, true)
+		astar_grid.set_point_solid(Vector2i(n.global_position) / tile_size, true)
 
 # called by player input func to pause the game
 func press_pause():

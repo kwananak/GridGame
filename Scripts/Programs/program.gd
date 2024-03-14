@@ -82,4 +82,4 @@ func available(value):
 func vis_changed():
 	var ui = get_tree().get_first_node_in_group("UI")
 	if ui:
-		monitorable = ui.visible
+		set_deferred("monitorable", ui.visible)

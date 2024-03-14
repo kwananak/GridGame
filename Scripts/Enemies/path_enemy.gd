@@ -19,7 +19,7 @@ func _ready():
 
 ## Handles level manager's end_turn_call by moving towards next node on path
 func turn_call():
-	if level_manager.turn % speed !=0:
+	if level_manager.turn % speed !=0 || path_nodes.is_empty():
 		return
 	$Sprite2D.hide()
 	var direction = position.direction_to(path_nodes[0].position)
@@ -28,11 +28,9 @@ func turn_call():
 			animated_sprite_2d.flip_h = true
 		Vector2.RIGHT:
 			animated_sprite_2d.flip_h = false
-	var tween = create_tween()
-	tween.tween_property(self, "position",
-		position + direction * 
-			level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
+	await create_tween().tween_property(self, "position", position + direction * level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 	if position == path_nodes[0].position:
 		path_nodes.push_back(path_nodes.pop_front())
 	$Sprite2D.position = position.direction_to(path_nodes[0].position) * level_manager.tile_size

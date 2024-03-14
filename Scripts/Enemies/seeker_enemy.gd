@@ -25,11 +25,9 @@ func turn_call():
 		animated_sprite_2d.flip_h = false
 	if direction.x < 0:
 		animated_sprite_2d.flip_h = true
-	var tween = create_tween()
-	tween.tween_property(self, "position",
-		position + direction * 
-			level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
+	await create_tween().tween_property(self, "position", position + direction * level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
+	level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 
 # called when enemy hits player
 func _on_area_entered(_area):
