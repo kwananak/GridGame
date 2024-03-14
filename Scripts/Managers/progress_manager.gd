@@ -1,6 +1,7 @@
 extends Node2D
 
 var log_path = "res://Txts/dialogs.txt"
+var levels_path = "res://Txts/levels_info.txt"
 var save_path = "user://savegame.save"
 var completed_levels = []
 var unlocked_levels = ["101", "201", "301"]
@@ -8,42 +9,25 @@ var doors = []
 var save_point
 var dialogs
 var log_progress = {}
-var levels = {"100" : {"200" : false},
-			"101" : {"102" : false},
-			"102" : {"103" : false},
-			"103" : {"104" : false},
-			"104" : {"105" : false},
-			"105" : {"106" : false},
-			"106" : {"107" : false, "prog" : false},
-			"107" : {"2" : false},
-			"200" : {"300" : false},
-			"201" : {"202" : false},
-			"202" : {"203" : false},
-			"203" : {"204" : false},
-			"204" : {"205" : false, "206" : false},
-			"205" : {"prog" : false},
-			"206" : {"207" : false},
-			"207" : {"208" : false},
-			"208" : {"209" : false},
-			"209" : {"210" : false, "211" : false},
-			"210" : {"prog" : false},
-			"211" : {"3" : false},
-			"301" : {"302" : false},
-			"302" : {"303" : false, "304" : false},
-			"303" : {"prog" : false},
-			"304" : {"305" : false, "5" : false},
-			"305" : {"306" : false, "307" : false},
-			"306" : {"prog" : false},
-			"307" : {"308" : false},
-			"308" : {"4" : false},
-			"401" : {"402" : false},
-			"402" : {"403" : false},
-			"403" : {"5" : false}}
+var levels
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
 func _ready():
 	create_dialogs_dict()
+	create_levels_dict()
+
+func create_levels_dict():
+	levels = {}
+	var levels_file = FileAccess.open(levels_path, FileAccess.READ)
+	while true:
+		var line = levels_file.get_line()
+		if line.is_empty():
+			break
+		line = line.split(":")
+		levels[line[0]] = {"difficulty" : line[1]}
+		for n in line[2].split(","):
+			levels[line[0]][n] = false
 
 func create_dialogs_dict():
 	dialogs = {}
