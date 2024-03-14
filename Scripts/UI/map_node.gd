@@ -15,6 +15,7 @@ var name_label
 var terminal_scene
 var access_point_label
 var program_label
+var difficulty_label
 var loadout
 
 func _ready():
@@ -24,6 +25,7 @@ func _ready():
 	name_label = get_tree().get_first_node_in_group("LevelNameLabel")
 	access_point_label = get_tree().get_first_node_in_group("AccessPointLabel")
 	program_label = get_tree().get_first_node_in_group("ProgramLabel")
+	difficulty_label = get_tree().get_first_node_in_group("DifficultyLabel")
 	loadout = get_tree().get_first_node_in_group("Loadout")
 	$SelectedSprite.animation = node_color
 	if available:
@@ -105,7 +107,8 @@ func set_labels():
 			"name":
 				name_label.text = progress_manager.levels[str(node_level)][k]
 			"difficulty":
-				pass
+				for i in int(progress_manager.levels[str(node_level)][k]):
+					difficulty_label.get_child(i).show()
 			_:
 				access_unlocked[1] += 1
 				if progress_manager.levels[str(node_level)][k]:
@@ -125,3 +128,5 @@ func clear_labels():
 	name_label.text = ""
 	access_point_label.clear()
 	program_label.clear()
+	for n in difficulty_label.get_children():
+		n.hide() 
