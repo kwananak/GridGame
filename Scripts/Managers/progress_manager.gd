@@ -20,13 +20,16 @@ func _ready():
 func create_levels_dict():
 	levels = {}
 	var levels_file = FileAccess.open(levels_path, FileAccess.READ)
+	levels_file.get_line()
 	while true:
 		var line = levels_file.get_line()
 		if line.is_empty():
 			break
-		line = line.split(":")
-		levels[line[0]] = {"difficulty" : line[1]}
-		for n in line[2].split(","):
+		line = line.split(" : ")
+		levels[line[0]] = {}
+		levels[line[0]]["name"] = line[1]
+		levels[line[0]]["difficulty"] = line[2]
+		for n in line[3].split(","):
 			levels[line[0]][n] = false
 
 func create_dialogs_dict():
@@ -197,9 +200,7 @@ func reset_progress():
 	completed_levels = []
 	unlocked_levels = ["101", "201", "301"]
 	doors = []
-	for n in levels:
-		for o in levels[n]:
-			levels[n][o] = false
+	create_levels_dict()
 	save_point = null
 
 func save():

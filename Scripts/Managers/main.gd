@@ -175,15 +175,8 @@ func call_cutscene(cutscene_number):
 
 # provided with a level number, retrieves level name from resource file
 func get_level_name(level_number):
-	var json_string = FileAccess.open("res://Txts/level_names.txt", FileAccess.READ).get_line()
-	var json = JSON.new()
-	var parse_result = json.parse(json_string)
-	if not parse_result == OK:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-		return
-	var data = json.get_data()
-	if str(level_number) in data:
-		return data[str(level_number)]
+	if str(level_number) in progress_manager.levels:
+		return progress_manager.levels[str(level_number)]["name"]
 	else:
 		return "name not found"
 
