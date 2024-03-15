@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/Environment/floor_tile.tscn" id="4_cy0ww"]
 [ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/Environment/wall_tile.tscn" id="5_tc2he"]
 [ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/Environment/corner_wall_tile.tscn" id="6_qkksv"]
-[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="9_diec2"]
+[ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="9_diec2"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_7mjym"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="10_56w5e"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_2kxjm"]
@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="12_adb4i"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="12_svoqd"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="13_sfa0b"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/Environment/access_point_1.tscn" id="14_r2pfd"]
-[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/Environment/access_point_key.tscn" id="17_hwmsc"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_a.tscn" id="14_r2pfd"]
+[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="17_hwmsc"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="17_mljuk"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="17_t6lp3"]
 [ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="21_ip5y7"]
@@ -1642,56 +1642,46 @@ position = Vector2(1248, 256)
 
 [node name="BeamTile" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1120, 448)
-distance = 0
 
 [node name="BeamTile9" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1312, 448)
 rotation = -3.14159
 intial_charge = 1
-distance = 0
 
 [node name="BeamTile2" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1024, 384)
 rotation = -1.5708
-distance = 0
 
 [node name="BeamTile11" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(1632, 640)
 rotation = -1.5708
 duration = 1000
-distance = 0
 
 [node name="BeamTile4" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(992, 320)
 rotation = -1.5708
-distance = 0
 
 [node name="BeamTile7" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(736, 384)
 rotation = -1.5708
-distance = 0
 
 [node name="BeamTile3" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(928, 192)
 rotation = 1.5708
-distance = 0
 
 [node name="BeamTile5" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(896, 192)
 rotation = 1.5708
 intial_charge = 1
-distance = 0
 
 [node name="BeamTile6" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(864, 192)
 rotation = 1.5708
 intial_charge = 1
-distance = 0
 
 [node name="BeamTile8" parent="." instance=ExtResource("10_56w5e")]
 position = Vector2(544, 224)
 rotation = 1.5708
-distance = 0
 
 [node name="BeetleBarrier" parent="." instance=ExtResource("12_svoqd")]
 position = Vector2(1056, 384)
@@ -1740,7 +1730,6 @@ position = Vector2(1632, 320)
 
 [node name="AccessPoint1" parent="." instance=ExtResource("14_r2pfd")]
 position = Vector2(1760, 224)
-unlocks = 205
 
 [node name="AccessPointKey" parent="." instance=ExtResource("17_hwmsc")]
 position = Vector2(352, 288)
@@ -1837,72 +1826,58 @@ bus = &"Music"
 
 [node name="HoleTile" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1504, 224)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile10" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 288)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile11" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 320)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile12" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 352)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile13" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 256)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile15" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(576, 256)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile16" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 288)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile17" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 320)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile18" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(512, 352)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile2" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1504, 256)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile3" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1504, 288)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile7" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1568, 224)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile8" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1568, 256)
-cannon_recharge = 0
 duration = 200
 
 [node name="HoleTile9" parent="." instance=ExtResource("23_w4ddr")]
 position = Vector2(1568, 288)
-cannon_recharge = 0
 duration = 200
 
 [node name="Booster" parent="." instance=ExtResource("24_buq8i")]
