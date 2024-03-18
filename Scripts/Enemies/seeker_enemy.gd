@@ -1,5 +1,6 @@
 extends Area2D
 
+var tile_type = "enemy" 
 var level_manager
 var player
 

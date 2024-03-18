@@ -39,8 +39,10 @@ func turn_call():
 
 # called when enemy hits player
 func _on_area_entered(area):
-	if area.name == "Firewall":
+	print(area)
+	if area.name == "Doomwall":
 		hit_by_player(3)
+		return
 	if is_destroyed:
 		return
 	level_manager.call_game_over()

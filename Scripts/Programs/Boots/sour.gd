@@ -28,6 +28,7 @@ func confirm_with_dir(dir):
 		n.hide()
 	var tele = dir.available_action
 	if tele:
+		tele.monitorable = false
 		tele.monitoring = false
 		#await create_tween().tween_property(tele, "scale", Vector2(0.5, 0.5), 0.05).finished
 		tele.hide()
@@ -41,4 +42,5 @@ func confirm_with_dir(dir):
 		tele.global_position = pos
 		tele.show()
 		#create_tween().tween_property(tele, "scale", Vector2.ONE, 0.05)
+		tele.monitorable = true
 		tele.monitoring = true
