@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://nap8qutslefr"]
+[gd_scene load_steps=8 format=3 uid="uid://nap8qutslefr"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/seeker_enemy.gd" id="1_l4xhf"]
 [ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Enemies/Environnement_sheet_2.png" id="2_u0n33"]
+[ext_resource type="Texture2D" uid="uid://dcckw5qijvrq1" path="res://Sprites/Enemies/seeker_enemy.png" id="3_mp6gs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdil"]
 
@@ -9,11 +10,18 @@
 atlas = ExtResource("2_u0n33")
 region = Rect2(272, 160, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2g08"]
+atlas = ExtResource("3_mp6gs")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_23smh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_etpdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2g08")
 }],
 "loop": true,
 "name": &"idle",
@@ -22,7 +30,6 @@ animations = [{
 
 [node name="SeekerEnemy" type="Area2D" groups=["AStarGridSolid", "EndTurn", "Hittable"]]
 z_index = 30
-collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_l4xhf")
 

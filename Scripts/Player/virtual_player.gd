@@ -69,7 +69,8 @@ func handle_directional_input(dir):
 			animated_sprite_2d.flip_h = false
 	if teleport:
 		if dir.possible || dir.available_action:
-			waiting_for_action.confirm_with_dir(dir)
+			await waiting_for_action.confirm_with_dir(dir)
+			level_manager.end_turn()
 			return
 	if dir.available_action != null:
 		act(dir)
@@ -149,7 +150,8 @@ func move(pos):
 	if waiting_for_action != null:
 		waiting_for_action.confirm()
 		waiting_for_action = null
-	level_manager.end_turn()
+	if !teleport:
+		level_manager.end_turn()
 
 # check for available location for player movement or action
 func move_check(distance):

@@ -1,6 +1,7 @@
 extends Area2D
 
 var tile_type = "enemy" 
+var is_destroyed = false
 var level_manager
 var player
 
@@ -33,3 +34,11 @@ func turn_call():
 # called when enemy hits player
 func _on_area_entered(_area):
 	level_manager.call_game_over()
+
+func hit_by_player(_strength):
+	if is_destroyed:
+		return
+	is_destroyed = true
+	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
+	animated_sprite_2d.frame = 1
+	remove_from_group("EndTurn")
