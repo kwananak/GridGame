@@ -64,8 +64,11 @@ func fire_beam():
 			ray.force_raycast_update()
 			if ray.get_collider():
 				if "tile_type" in ray.get_collider():
-					if ray.get_collider().tile_type != "hole":
-						break
+					match ray.get_collider().tile_type:
+						"hole", "chip", "key":
+							pass
+						_:
+							break
 				else:
 					break
 			if i > 64:
