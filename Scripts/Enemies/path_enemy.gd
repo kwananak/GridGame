@@ -23,8 +23,9 @@ func turn_call():
 		return
 	$Sprite2D.hide()
 	var path = level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size), Vector2i(path_nodes[0].position / level_manager.tile_size))
-	if path.is_empty():
-		return
+	while path.size() < 2:
+		path_nodes.push_back(path_nodes.pop_front())
+		path = level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size), Vector2i(path_nodes[0].position / level_manager.tile_size))
 	var direction = position.direction_to(path[1] * level_manager.tile_size)
 	match direction:
 		Vector2.LEFT:
@@ -32,7 +33,10 @@ func turn_call():
 		Vector2.RIGHT:
 			animated_sprite_2d.flip_h = false
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, false)
-	await create_tween().tween_property(self, "position", position + direction * level_manager.tile_size, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
+	var old_pos = animated_sprite_2d.global_position
+	position += direction * level_manager.tile_size
+	animated_sprite_2d.global_position = old_pos
+	create_tween().tween_property(animated_sprite_2d, "position", Vector2.ZERO, 1.0/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
 	if position == path_nodes[0].global_position:
 		path_nodes.push_back(path_nodes.pop_front())

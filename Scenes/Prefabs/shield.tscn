@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dedtxcgq4whkl"]
+[gd_scene load_steps=17 format=3 uid="uid://dedtxcgq4whkl"]
 
 [ext_resource type="Texture2D" uid="uid://b56m3jdjbu421" path="res://Sprites/Character/virtual_character.png" id="1_sbf7n"]
 [ext_resource type="AudioStream" uid="uid://bkbelwh43wsf0" path="res://Sounds/Player/shield_up.wav" id="2_uw4f5"]
@@ -7,10 +7,6 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sudy4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amjwh"]
-atlas = ExtResource("1_sbf7n")
-region = Rect2(0, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m7jqk"]
 atlas = ExtResource("1_sbf7n")
 region = Rect2(0, 160, 32, 32)
 
@@ -61,9 +57,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_amjwh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m7jqk")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jas0c")
 }, {
 "duration": 1.0,
@@ -97,7 +90,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"new",
-"speed": 3.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,6 +114,8 @@ material = SubResource("CanvasItemMaterial_sudy4")
 sprite_frames = SubResource("SpriteFrames_abbhj")
 animation = &"new"
 autoplay = "default"
+frame = 5
+frame_progress = 1.0
 
 [node name="new" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_uw4f5")

@@ -44,3 +44,6 @@ func confirm_with_dir(dir):
 		#create_tween().tween_property(tele, "scale", Vector2.ONE, 0.05)
 		tele.monitorable = true
 		tele.monitoring = true
+		if level_manager.astar_grid.is_point_solid(player.global_position / level_manager.tile_size):
+			level_manager.astar_grid.set_point_solid(player.global_position / level_manager.tile_size, false)
+			level_manager.astar_grid.set_point_solid(tele.global_position / level_manager.tile_size, true)

@@ -91,7 +91,7 @@ func end_turn():
 	await doomwall.turn_call()
 	for node in get_tree().get_nodes_in_group("EndTurn"):
 		# get_tree().create_timer(end_turn_speed).timeout
-		node.turn_call()
+		await node.turn_call()
 	await get_tree().create_timer(0.02).timeout
 	player.move_check(player.step)
 
