@@ -21,6 +21,8 @@ func _ready():
 		basic_particle_prefab = preload("res://Scenes/Tiles/200_basic_particle.tscn")
 	elif get_parent().name.substr(5, -1).begins_with("3"):
 		basic_particle_prefab = preload("res://Scenes/Tiles/300_basic_particle.tscn")
+	elif get_parent().name.substr(5, -1).begins_with("4"):
+		basic_particle_prefab = preload("res://Scenes/Tiles/400_basic_particle.tscn")
 	loaded_prefab = basic_particle_prefab
 
 func _process(delta):

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_3bi1c"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_7w60o"]
+[ext_resource type="AudioStream" uid="uid://dsapfo4utgv4o" path="res://Sounds/Backgrounds/300.wav" id="3_gfm73"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_j6q0w"]
 [ext_resource type="PackedScene" uid="uid://dkcymwvrtde3u" path="res://Scenes/Tiles/VirtualEnvironment300/300_floor_tile.tscn" id="4_ta2a2"]
 [ext_resource type="PackedScene" uid="uid://ivbvlflygwaj" path="res://Scenes/Tiles/VirtualEnvironment300/300_horizontal_wall_tile.tscn" id="5_70phm"]
@@ -22,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="24_unh5t"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="25_x01lo"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="26_6yg6q"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="27_dw147"]
 [ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="27_yppqv"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="28_2ellh"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="28_h6khv"]
@@ -42,10 +42,20 @@ level_height = 100
 level_length = 100
 level_number = 306
 
+[node name="ProgramManager" parent="." instance=ExtResource("3_j6q0w")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gfm73")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("2_7w60o")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("3_j6q0w")]
+[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("29_lrsg7")]
+offset_right = 2379.0
+offset_bottom = 1274.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -2080,16 +2090,6 @@ position = Vector2(896, 480)
 rotation = -1.5708
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("27_dw147")
-autoplay = true
-bus = &"Music"
-
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("29_lrsg7")]
-visible = false
-offset_right = 1488.0
-offset_bottom = 1392.0
 
 [node name="VirtualEndTile" parent="." instance=ExtResource("32_7t1f5")]
 position = Vector2(1504, 608)

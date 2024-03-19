@@ -27,7 +27,7 @@ func check_collision(collision):
 					return
 			"chip", "key":
 				if player.waiting_for_action:
-					match player.waiting_for_action.name:
+					match player.waiting_for_action.type:
 						"GrapplingTool":
 							available_action = collision
 							return
@@ -47,7 +47,7 @@ func check_collision(collision):
 					return
 			"hole":
 				if player.waiting_for_action:
-					match player.waiting_for_action.name:
+					match player.waiting_for_action.type:
 						"GrapplingTool" , "1-0-1Shotgun", "Salty":
 							possible = true
 							return
@@ -56,7 +56,7 @@ func check_collision(collision):
 					return
 			"mobile", "soap":
 				if player.waiting_for_action:
-					if player.waiting_for_action.name == "GrapplingTool" || player.teleport:
+					if player.waiting_for_action.type == "GrapplingTool" || player.teleport:
 						available_action = collision
 						return
 				if !collision.moved:

@@ -100,7 +100,7 @@ func act(dir):
 		play_hit()
 		await dir.available_action.hit_by_player(strength)
 	else:
-		match waiting_for_action.name:
+		match waiting_for_action.type:
 			dir.available_action.name, "GrapplingTool", "Sour":
 				await waiting_for_action.confirm_with_dir(dir)
 			_:

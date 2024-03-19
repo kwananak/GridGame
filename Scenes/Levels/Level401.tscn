@@ -1,15 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://b146iopxvfqx4"]
+[gd_scene load_steps=25 format=3 uid="uid://b146iopxvfqx4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_l7x1c"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_tw1ra"]
+[ext_resource type="AudioStream" uid="uid://b301wh57lfmrw" path="res://Sounds/Backgrounds/400.wav" id="3_dlnef"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_kfqpl"]
-[ext_resource type="PackedScene" uid="uid://ivbvlflygwaj" path="res://Scenes/Tiles/VirtualEnvironment300/300_horizontal_wall_tile.tscn" id="4_1vnc4"]
+[ext_resource type="PackedScene" uid="uid://cukalfajpr3j0" path="res://Scenes/Tiles/VirtualEnvironment400/400_level_background.tscn" id="4_go34v"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="9_qb44x"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="12_ybt5b"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="13_qjsyi"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="14_sh3rn"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="15_ugvf6"]
-[ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="16_osn3w"]
 [ext_resource type="PackedScene" uid="uid://bqhwaiyujet8h" path="res://Scenes/Tiles/VirtualEnvironment400/400_back_wall_tile.tscn" id="17_24t23"]
 [ext_resource type="PackedScene" uid="uid://cfi0afs2eqfpo" path="res://Scenes/Tiles/VirtualEnvironment400/400_floor_tile.tscn" id="18_h6rb7"]
 [ext_resource type="PackedScene" uid="uid://churemch44h8q" path="res://Scenes/EnemiesObstaclesTiles/mantis_barrier.tscn" id="18_voknh"]
@@ -35,10 +34,20 @@ level_height = 100
 level_length = 100
 level_number = 401
 
+[node name="ProgramManager" parent="." instance=ExtResource("3_kfqpl")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dlnef")
+volume_db = -3.0
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("2_tw1ra")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("3_kfqpl")]
+[node name="400LevelBackgroundColors" parent="." instance=ExtResource("4_go34v")]
+offset_right = 2544.0
+offset_bottom = 862.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -559,9 +568,6 @@ position = Vector2(1280, 352)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
-[node name="HorizontalWallTile349" parent="Environment/Walls" instance=ExtResource("4_1vnc4")]
-position = Vector2(2688, 848)
-
 [node name="BackWallTile37" parent="Environment/Walls" instance=ExtResource("17_24t23")]
 position = Vector2(896, 224)
 
@@ -961,9 +967,6 @@ position = Vector2(1184, 384)
 [node name="FrontWallTile39" parent="Environment/Walls" instance=ExtResource("19_mgguo")]
 position = Vector2(1312, 416)
 
-[node name="FrontWallTile36" parent="Environment/Walls" instance=ExtResource("19_mgguo")]
-position = Vector2(1232, 560)
-
 [node name="FrontWallTile37" parent="Environment/Walls" instance=ExtResource("19_mgguo")]
 position = Vector2(1216, 384)
 
@@ -1111,33 +1114,6 @@ position = Vector2(1312, 352)
 [node name="MobileBarrier10" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
 position = Vector2(1248, 352)
 
-[node name="MobileBarrier18" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2352, 784)
-
-[node name="MobileBarrier19" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2384, 752)
-
-[node name="MobileBarrier20" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2352, 752)
-
-[node name="MobileBarrier21" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2384, 784)
-
-[node name="MobileBarrier22" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2384, 816)
-
-[node name="MobileBarrier23" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2416, 752)
-
-[node name="MobileBarrier24" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2416, 784)
-
-[node name="MobileBarrier25" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2416, 816)
-
-[node name="MobileBarrier26" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_21oiw")]
-position = Vector2(2352, 816)
-
 [node name="SoapBarrier" parent="GameplayElements/BytesBarrier" instance=ExtResource("22_4rfd4")]
 position = Vector2(896, 256)
 
@@ -1204,16 +1180,6 @@ position = Vector2(384, 48)
 [node name="Doomwall" parent="." instance=ExtResource("13_qjsyi")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_sh3rn")
-autoplay = true
-bus = &"Music"
-
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("16_osn3w")]
-visible = false
-offset_right = 1488.0
-offset_bottom = 1392.0
 
 [node name="AccessPointC" parent="." instance=ExtResource("23_0ym5u")]
 position = Vector2(1920, 320)

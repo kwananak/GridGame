@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_ityqd"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_u2du5"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_h4e8e"]
+[ext_resource type="AudioStream" uid="uid://b301wh57lfmrw" path="res://Sounds/Backgrounds/400.wav" id="3_qjvrc"]
 [ext_resource type="PackedScene" uid="uid://cfi0afs2eqfpo" path="res://Scenes/Tiles/VirtualEnvironment400/400_floor_tile.tscn" id="4_c41fh"]
+[ext_resource type="PackedScene" uid="uid://cukalfajpr3j0" path="res://Scenes/Tiles/VirtualEnvironment400/400_level_background.tscn" id="4_jkon7"]
 [ext_resource type="PackedScene" uid="uid://bqhwaiyujet8h" path="res://Scenes/Tiles/VirtualEnvironment400/400_back_wall_tile.tscn" id="6_pjjtw"]
 [ext_resource type="PackedScene" uid="uid://4ej47uyk4hsw" path="res://Scenes/Tiles/VirtualEnvironment400/400_front_wall_tile.tscn" id="7_57ohb"]
 [ext_resource type="PackedScene" uid="uid://dv5ix0pq5yyeh" path="res://Scenes/Tiles/VirtualEnvironment400/400_lower_left_corner_tile.tscn" id="8_ie578"]
@@ -11,11 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://6gwbfnhf3h8g" path="res://Scenes/Tiles/VirtualEnvironment400/400_upper_left_corner_tile.tscn" id="10_43nrb"]
 [ext_resource type="PackedScene" uid="uid://brh7slj8peh11" path="res://Scenes/Tiles/VirtualEnvironment400/400_upper_right_corner_tile.tscn" id="11_5h5gh"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="15_a62q4"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/100.wav" id="16_0oeyo"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="18_hrufa"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="19_ttugt"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="20_vaf7o"]
-[ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="22_xafi7"]
 [ext_resource type="PackedScene" uid="uid://ddj25hskh4bb5" path="res://Scenes/Tiles/SharedVirtual/access_point_c.tscn" id="23_2grer"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="24_21qpl"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="25_m0icj"]
@@ -30,10 +30,22 @@ level_height = 100
 level_length = 100
 level_number = 402
 
+[node name="ProgramManager" parent="." instance=ExtResource("3_h4e8e")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qjvrc")
+volume_db = -3.0
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("2_u2du5")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("3_h4e8e")]
+[node name="400LevelBackgroundColors" parent="." instance=ExtResource("4_jkon7")]
+offset_left = 387.54
+offset_top = 144.994
+offset_right = 387.54
+offset_bottom = 144.994
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1691,16 +1703,6 @@ position = Vector2(1728, 672)
 [node name="Doomwall" parent="." instance=ExtResource("20_vaf7o")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_0oeyo")
-autoplay = true
-bus = &"Music"
-
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("22_xafi7")]
-visible = false
-offset_right = 1488.0
-offset_bottom = 1392.0
 
 [node name="AccessPointC" parent="." instance=ExtResource("23_2grer")]
 position = Vector2(1856, 832)

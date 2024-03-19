@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_s1vjs"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_wg4e8"]
+[ext_resource type="AudioStream" uid="uid://dsapfo4utgv4o" path="res://Sounds/Backgrounds/300.wav" id="3_5dxt4"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_ba3hw"]
 [ext_resource type="PackedScene" uid="uid://ivbvlflygwaj" path="res://Scenes/Tiles/VirtualEnvironment300/300_horizontal_wall_tile.tscn" id="4_4qlcf"]
 [ext_resource type="PackedScene" uid="uid://c7sdepuf13s04" path="res://Scenes/Tiles/VirtualEnvironment300/300_upper_left_corner_tile.tscn" id="5_ibei3"]
@@ -13,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_rntmx"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/Environment/virtual_start_tile.tscn" id="13_l82ys"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="14_ujono"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="15_vpw8q"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="16_xq2yg"]
 [ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="17_pxxgf"]
 [ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="18_2l572"]
@@ -37,10 +37,20 @@ level_height = 100
 level_length = 100
 level_number = 308
 
+[node name="ProgramManager" parent="." instance=ExtResource("3_ba3hw")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5dxt4")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("2_wg4e8")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("3_ba3hw")]
+[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("17_pxxgf")]
+offset_right = 2080.0
+offset_bottom = 1216.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -856,42 +866,6 @@ position = Vector2(1184, 544)
 [node name="300FloorTile368" parent="Environment/Floor" instance=ExtResource("23_j8int")]
 position = Vector2(1056, 544)
 
-[node name="300FloorTile201" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(640, 992)
-
-[node name="300FloorTile202" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(672, 992)
-
-[node name="300FloorTile203" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(704, 992)
-
-[node name="300FloorTile204" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(608, 992)
-
-[node name="300FloorTile205" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(640, 1024)
-
-[node name="300FloorTile206" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(672, 1024)
-
-[node name="300FloorTile207" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(704, 1024)
-
-[node name="300FloorTile208" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(608, 1024)
-
-[node name="300FloorTile209" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(640, 1056)
-
-[node name="300FloorTile210" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(672, 1056)
-
-[node name="300FloorTile211" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(704, 1056)
-
-[node name="300FloorTile212" parent="Environment/Floor" instance=ExtResource("23_j8int")]
-position = Vector2(608, 1056)
-
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="HorizontalWallTile187" parent="Environment/Walls" instance=ExtResource("4_4qlcf")]
@@ -1264,9 +1238,6 @@ position = Vector2(896, 256)
 [node name="ByteBarrierMedium10" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_rntmx")]
 position = Vector2(896, 320)
 
-[node name="MantisBarrier37" parent="GameplayElements/BytesBarrier" instance=ExtResource("20_j8dv4")]
-position = Vector2(384, 1312)
-
 [node name="MantisBarrier22" parent="GameplayElements/BytesBarrier" instance=ExtResource("20_j8dv4")]
 position = Vector2(1120, 384)
 
@@ -1361,16 +1332,6 @@ rotation = -3.14159
 [node name="Doomwall" parent="." instance=ExtResource("14_ujono")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_vpw8q")
-autoplay = true
-bus = &"Music"
-
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("17_pxxgf")]
-visible = false
-offset_right = 1488.0
-offset_bottom = 1392.0
 
 [node name="YellowWarningTile" parent="." instance=ExtResource("24_tm5cu")]
 position = Vector2(864, 576)
