@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=10 format=3 uid="uid://caq3tmtnish1u"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/sour.gd" id="2_4sv8q"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_imkw1"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wcf68"]
 [ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="4_4tc1x"]
+[ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="5_n3ds2"]
+[ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="6_x5koy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ut2"]
 
@@ -69,6 +71,16 @@ vertical_alignment = 1
 
 [node name="Focus" parent="." instance=ExtResource("4_4tc1x")]
 visible = false
+
+[node name="Up" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n3ds2")
+pitch_scale = 1.2
+bus = &"FX"
+
+[node name="Down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_x5koy")
+pitch_scale = 1.2
+bus = &"FX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
