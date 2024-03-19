@@ -107,8 +107,8 @@ func set_labels():
 			"name":
 				name_label.text = progress_manager.levels[str(node_level)][k]
 			"difficulty":
-				for i in int(progress_manager.levels[str(node_level)][k]):
-					difficulty_label.get_child(i).show()
+				difficulty_label.texture.region = Rect2(0, 0, float(progress_manager.levels[str(node_level)][k]) * 12 + 1, 16)
+				difficulty_label.show()
 			_:
 				access_unlocked[1] += 1
 				if progress_manager.levels[str(node_level)][k]:
@@ -128,5 +128,4 @@ func clear_labels():
 	name_label.text = ""
 	access_point_label.clear()
 	program_label.clear()
-	for n in difficulty_label.get_children():
-		n.hide() 
+	difficulty_label.hide() 

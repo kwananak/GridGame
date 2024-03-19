@@ -1,6 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://c00k5y7xhu1di"]
 
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_0e1k5"]
+[ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_l7kal"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_rnn54"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_wjcrd"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="3_daeok"]
@@ -22,16 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="20_6q3s1"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="21_j2lds"]
 [ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="22_nxl3o"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="22_pvakp"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="23_p5g1x"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="25_ubryh"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="26_e4cpc"]
 
 [node name="Level205" type="Node2D"]
-
-[node name="200LevelBackgroundColors" parent="." instance=ExtResource("1_0e1k5")]
-offset_right = 1376.0
-offset_bottom = 1408.0
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_rnn54")]
 yellow_doomwall_step = 0.5
@@ -40,10 +36,19 @@ level_height = 100
 level_length = 100
 level_number = 205
 
+[node name="ProgramManager" parent="." instance=ExtResource("3_daeok")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_l7kal")
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("2_wjcrd")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("3_daeok")]
+[node name="200LevelBackgroundColors" parent="." instance=ExtResource("1_0e1k5")]
+offset_right = 1376.0
+offset_bottom = 1408.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1573,11 +1578,6 @@ select_program = "CircleWhip"
 [node name="Doomwall" parent="." instance=ExtResource("21_j2lds")]
 
 [node name="Dialogue" type="Node2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_pvakp")
-autoplay = true
-bus = &"Music"
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("23_p5g1x")]
 position = Vector2(64, 416)

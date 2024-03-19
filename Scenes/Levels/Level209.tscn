@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://dej66ilebsvqs"]
 
+[ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_84jhy"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_fqa5q"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="2_1hydo"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="3_i3bwq"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="4_j1oq7"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="5_j25f2"]
@@ -30,15 +30,6 @@
 
 [node name="Level208" type="Node2D"]
 
-[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("1_fqa5q")]
-offset_right = 1944.0
-offset_bottom = 1856.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_1hydo")
-autoplay = true
-bus = &"Music"
-
 [node name="VirtualLevelManager" parent="." instance=ExtResource("3_i3bwq")]
 yellow_doomwall_step = 0.5
 red_doomwall_step = 1.0
@@ -46,10 +37,19 @@ level_height = 100
 level_length = 100
 level_number = 209
 
+[node name="ProgramManager" parent="." instance=ExtResource("5_j25f2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_84jhy")
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("4_j1oq7")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("5_j25f2")]
+[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("1_fqa5q")]
+offset_right = 1944.0
+offset_bottom = 1856.0
 
 [node name="Environment" type="Node2D" parent="."]
 

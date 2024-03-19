@@ -1,5 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://6ywi2vp4nkok"]
 
+[ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_01576"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_ke31v"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_mrqfd"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="4_iv7a3"]
@@ -14,10 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="13_0oidd"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="14_s80um"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="15_4md3o"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_1.tscn" id="16_2h3i4"]
+[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_a.tscn" id="16_2h3i4"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="17_ka4nb"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="19_bdh6g"]
-[ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/virtual.wav" id="20_w5nwu"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="21_honkr"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="22_cj4oc"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="23_hdym8"]
@@ -29,15 +29,6 @@
 
 [node name="Level204" type="Node2D"]
 
-[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("22_cj4oc")]
-offset_right = 1456.0
-offset_bottom = 1528.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_w5nwu")
-autoplay = true
-bus = &"Music"
-
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_ke31v")]
 yellow_doomwall_step = 0.5
 red_doomwall_step = 1.0
@@ -45,10 +36,19 @@ level_height = 100
 level_length = 100
 level_number = 204
 
+[node name="ProgramManager" parent="." instance=ExtResource("4_iv7a3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_01576")
+autoplay = true
+bus = &"Music"
+
 [node name="UI" parent="." instance=ExtResource("3_mrqfd")]
 visible = false
 
-[node name="ProgramManager" parent="." instance=ExtResource("4_iv7a3")]
+[node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("22_cj4oc")]
+offset_right = 1456.0
+offset_bottom = 1528.0
 
 [node name="Environment" type="Node2D" parent="."]
 
