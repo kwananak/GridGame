@@ -38,6 +38,24 @@
 
 [node name="VirtualTestLevel" type="Node2D"]
 
+[node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
+attack_particles = true
+level_height = 24
+level_length = 32
+level_number = 100
+
+[node name="ProgramManager" parent="." instance=ExtResource("2_jhbp3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3r6qy")
+volume_db = -4.0
+autoplay = true
+bus = &"Music"
+
+[node name="UI" parent="." instance=ExtResource("3_jefsd")]
+visible = false
+position = Vector2(-224, -160)
+
 [node name="BackgroundColors" parent="." instance=ExtResource("1_w8gh5")]
 visible = false
 anchors_preset = 0
@@ -47,24 +65,6 @@ offset_right = 1440.0
 offset_bottom = 810.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_3r6qy")
-volume_db = -4.0
-autoplay = true
-bus = &"Music"
-
-[node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
-attack_particles = true
-level_height = 24
-level_length = 32
-level_number = 100
-
-[node name="ProgramManager" parent="." instance=ExtResource("2_jhbp3")]
-
-[node name="UI" parent="." instance=ExtResource("3_jefsd")]
-visible = false
-position = Vector2(-224, -160)
 
 [node name="Environment" type="Node2D" parent="."]
 

@@ -3,10 +3,12 @@ extends Control
 var moused = false
 var loadout
 var logs
+var prog_load
 
 func _ready():
 	loadout = get_tree().get_first_node_in_group("Loadout")
 	logs = get_tree().get_first_node_in_group("Log")
+	prog_load = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
 
 func _input(event):
 	if has_focus():
@@ -20,9 +22,11 @@ func toggle_log():
 	if logs.visible:
 		logs.hide()
 		loadout.show()
+		prog_load.show()
 	else:
 		logs.show()
 		loadout.hide()
+		prog_load.hide()
 
 func _on_focus_entered():
 	$Focus.visible = true
