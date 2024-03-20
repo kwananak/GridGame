@@ -3,15 +3,19 @@ extends Area2D
 var level_manager
 var is_destroyed = false
 var tile_type = "enemy"
+var framed_checker
 
 # add path nodes and set speed from inspector. 1 will move every turn, 2 every 2 turn, etc.
 @export var path_nodes : Array[Node] = []
 @export var speed = 1
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var move = $Move
+@onready var hit = $Hit
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	framed_checker = get_tree().get_first_node_in_group("FramedChecker")
 	await get_tree().create_timer(0.2).timeout
 	if level_manager.vision:
 		$Sprite2D.global_position = global_position.direction_to(path_nodes[0].global_position)
@@ -32,6 +36,8 @@ func turn_call():
 			animated_sprite_2d.flip_h = true
 		Vector2.RIGHT:
 			animated_sprite_2d.flip_h = false
+	if framed_checker.check(global_position):
+		move.play()
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, false)
 	var old_pos = animated_sprite_2d.global_position
 	position += direction * level_manager.tile_size
@@ -56,6 +62,8 @@ func _on_area_entered(area):
 func hit_by_player(_strength):
 	if is_destroyed:
 		return
+	if framed_checker.check(global_position):
+		hit.play()
 	is_destroyed = true
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
 	animated_sprite_2d.frame = 1

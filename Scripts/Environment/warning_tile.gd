@@ -11,6 +11,7 @@ func _on_area_entered(area):
 	match type:
 		"Yellow":
 			if area.is_in_group("VirtualPlayer"):
+				doom_wall.get_node("AudioStreamPlayer").play()
 				doom_wall.step = get_tree().get_first_node_in_group("VirtualLevelManager").yellow_doomwall_step
 				doom_wall.state = "carefull"
 				get_tree().get_first_node_in_group("WarningUI").frame = 1
@@ -19,6 +20,7 @@ func _on_area_entered(area):
 				n.queue_free()
 		"Red":
 			if area.is_in_group("VirtualPlayer"):
+				doom_wall.get_node("AudioStreamPlayer").play()
 				doom_wall.step = get_tree().get_first_node_in_group("VirtualLevelManager").red_doomwall_step
 				doom_wall.state = "danger"
 				get_tree().get_first_node_in_group("WarningUI").frame = 2
