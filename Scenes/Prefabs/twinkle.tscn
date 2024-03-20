@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj4wb2uts8ej8"]
+
+[ext_resource type="Texture2D" uid="uid://cgdufk8y1d635" path="res://Sprites/EnvironmentVirtual/Terminal400/environnement_virtuel_400.png" id="1_nq3w2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj3by"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og0pd"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vup0g"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpc06"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51y5"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(128, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mu4j"]
+atlas = ExtResource("1_nq3w2")
+region = Rect2(160, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fe5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj3by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og0pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vup0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpc06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51y5")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3mu4j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Twinkle" type="AnimatedSprite2D"]
+z_index = 21
+sprite_frames = SubResource("SpriteFrames_3fe5j")
+frame = 5
+frame_progress = 1.0

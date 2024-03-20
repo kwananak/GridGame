@@ -13,7 +13,8 @@ func _process(delta):
 	reverse_countdown -= delta
 	if reverse_countdown < 0:
 		reverse_countdown = randf_range(1.0, 2.0)
-		zigzagger()
+		if !level_manager.game_over:
+			zigzagger()
 	super._process(delta)
 
 func zigzagger():
