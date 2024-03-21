@@ -16,8 +16,8 @@ func _ready():
 	program_type = select_amplifier
 	program_slot = "Amplifiers"
 	super._ready()
-	$AnimatedSprite2D/NameLabel.text = select_amplifier.substr(0, select_amplifier.length() - 1)
-	$AnimatedSprite2D/NameLabel.add_theme_font_size_override("font_size", 28)
+	name_label.text = select_amplifier.substr(0, select_amplifier.length() - 1)
+	name_label.add_theme_font_size_override("font_size", 28)
 
 func pick_up(_area):
 	if opened:
@@ -30,17 +30,21 @@ func pick_up(_area):
 	$ChestSprite.frame_changed.connect(chest_sounds)
 	$ChestSprite.animation = "open"
 	await $ChestSprite.animation_finished
-	$AnimatedSprite2D.show()
+	$Sprite2D.show()
+	program.z_index = 91
+	program.position = Vector2(-4.5, -3.0)
+	program.scale = Vector2(0.45, 0.45)
+	animation_player.stop()
 	$AudioStreamPlayer.play()
-	$AnimatedSprite2D/AnimationPlayer.play("new_animation")
-	await $AnimatedSprite2D/AnimationPlayer.animation_finished
-	$AnimatedSprite2D/ButtonSprite.show()
+	create_tween().tween_property($Sprite2D, "global_position", global_position + global_position.direction_to(get_tree().get_first_node_in_group("Camera").global_position) * global_position.distance_to(get_tree().get_first_node_in_group("Camera").global_position) / 4, 1)
+	await create_tween().tween_property($Sprite2D, "scale", Vector2(7, 7), 1).finished
+	$Sprite2D/PickUp/ButtonSprite.show()
 	await remove
 	program.scale = Vector2.ONE
 	program.set_deferred("monitorable", false)
-	$AnimatedSprite2D.remove_child(program)
+	$Sprite2D.remove_child(program)
 	progress_manager.add_amplifier(program)
-	$AnimatedSprite2D.hide()
+	$Sprite2D.hide()
 	get_tree().get_first_node_in_group("RealPlayer").active = true
 
 func _on_mouse_entered():

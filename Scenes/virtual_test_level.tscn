@@ -1,7 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=35 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
-[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/virtual_level_background.tscn" id="1_w8gh5"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/SharedVirtual/virtual_level_background.tscn" id="1_w8gh5"]
 [ext_resource type="AudioStream" uid="uid://b301wh57lfmrw" path="res://Sounds/Backgrounds/400.wav" id="2_3r6qy"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_jhbp3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="9_ivrcl"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="10_b2rqp"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="12_6j7m5"]
-[ext_resource type="PackedScene" uid="uid://dikffbj6d3ce3" path="res://Scenes/Tiles/Programs/boots_tile.tscn" id="13_cbgds"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="14_e3i2p"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="15_phdav"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="17_f2dpq"]
@@ -147,10 +146,6 @@ position = Vector2(448, 160)
 [node name="MobileBarrier2" parent="." instance=ExtResource("12_6j7m5")]
 position = Vector2(256, 320)
 
-[node name="BootsTile" parent="." instance=ExtResource("13_cbgds")]
-position = Vector2(576, 96)
-select_program = "Sour"
-
 [node name="BeetleBarrier" parent="." instance=ExtResource("14_e3i2p")]
 position = Vector2(320, 288)
 
@@ -179,7 +174,7 @@ position = Vector2(480, 192)
 unlocks = 200
 
 [node name="GogglesTile" parent="." instance=ExtResource("20_nmpip")]
-position = Vector2(384, 96)
+position = Vector2(96, 128)
 select_program = "Amazing"
 
 [node name="BeamTile" parent="." instance=ExtResource("21_3d5h7")]
@@ -236,9 +231,6 @@ rotation = 3.14159
 
 [node name="HoleTile" parent="." instance=ExtResource("33_rl2pb")]
 position = Vector2(320, 128)
-
-[node name="SeekerEnemy" parent="." instance=ExtResource("34_3nw4j")]
-position = Vector2(96, 128)
 
 [node name="PathEnemy" parent="." node_paths=PackedStringArray("path_nodes") instance=ExtResource("35_bxqb8")]
 position = Vector2(96, 256)

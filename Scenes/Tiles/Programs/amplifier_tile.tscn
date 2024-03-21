@@ -1,12 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5s14bwibo7lb"]
+[gd_scene load_steps=29 format=3 uid="uid://c5s14bwibo7lb"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/amplifier_tile.gd" id="1_mxy63"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_5le7p"]
 [ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="3_rypoc"]
 [ext_resource type="AudioStream" uid="uid://dmldi02tcifo3" path="res://Sounds/Real/chest_open.wav" id="4_1dpt3"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_vrjts"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_wl2eg"]
 [ext_resource type="AudioStream" uid="uid://2eucm1dk6y7i" path="res://Sounds/Real/chest_ding.wav" id="5_3bi2d"]
 [ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="6_87df2"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="8_8ju5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 size = Vector2(34, 31)
@@ -93,41 +95,37 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7gdi"]
-atlas = ExtResource("2_5le7p")
-region = Rect2(450, 0, 90, 78)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsgkd"]
+size = Vector2(26, 29)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qn2qn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7gdi")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uefnn"]
+atlas = ExtResource("8_8ju5p")
+region = Rect2(129, 3, 30, 26)
 
-[sub_resource type="Animation" id="Animation_wp524"]
+[sub_resource type="Animation" id="Animation_pm8yl"]
 resource_name = "new_animation"
-length = 1.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1.1487, 1.1487),
 "update": 0,
-"values": [Vector2(0.22, 0.22), Vector2(2, 2)]
+"values": [Vector2(0, -1), Vector2(0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rs7t"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crcqh"]
 _data = {
-"new_animation": SubResource("Animation_wp524")
+"new_animation": SubResource("Animation_pm8yl")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lu4k"]
+atlas = ExtResource("2_5le7p")
+region = Rect2(270, 0, 90, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_08df0"]
 atlas = ExtResource("4_wl2eg")
@@ -137,7 +135,7 @@ region = Rect2(112, 128, 32, 16)
 atlas = ExtResource("4_wl2eg")
 region = Rect2(145, 129, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eh8tx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhq0a"]
 animations = [{
 "frames": [{
 "duration": 5.0,
@@ -150,9 +148,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsgkd"]
-size = Vector2(26, 29)
 
 [node name="AmplifierTile" type="Area2D"]
 z_index = 30
@@ -167,44 +162,6 @@ shape = SubResource("RectangleShape2D_ofsl2")
 [node name="ChestSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b5h58")
 autoplay = "default"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-z_index = 90
-position = Vector2(0, 0.5)
-scale = Vector2(0.22, 0.22)
-sprite_frames = SubResource("SpriteFrames_qn2qn")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_1rs7t")
-}
-
-[node name="NameLabel" type="Label" parent="AnimatedSprite2D"]
-offset_left = -36.0
-offset_top = 20.0
-offset_right = 326.0
-offset_bottom = 112.0
-scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="InfoLabel" type="Label" parent="AnimatedSprite2D"]
-offset_left = 10.0
-offset_top = -30.0
-offset_right = 170.0
-offset_bottom = 197.0
-scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 20
-autowrap_mode = 3
-
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
-visible = false
-position = Vector2(36.3636, 29.5455)
-sprite_frames = SubResource("SpriteFrames_eh8tx")
-autoplay = "default"
-frame_progress = 0.00258925
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 
@@ -225,6 +182,50 @@ pitch_scale = 0.95
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_87df2")
 bus = &"FX"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+texture = SubResource("AtlasTexture_uefnn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_crcqh")
+}
+
+[node name="PickUp" type="Sprite2D" parent="Sprite2D"]
+z_index = 90
+scale = Vector2(0.33, 0.33)
+texture = SubResource("AtlasTexture_7lu4k")
+
+[node name="NameLabel" type="Label" parent="Sprite2D/PickUp"]
+offset_left = -36.0
+offset_top = 21.0
+offset_right = 326.0
+offset_bottom = 113.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("4_vrjts")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="Sprite2D/PickUp"]
+offset_left = 10.0
+offset_top = -29.0
+offset_right = 170.0
+offset_bottom = 198.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("4_vrjts")
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3
+
+[node name="ButtonSprite" type="AnimatedSprite2D" parent="Sprite2D/PickUp"]
+visible = false
+z_index = 2
+position = Vector2(40, 35)
+sprite_frames = SubResource("SpriteFrames_vhq0a")
+autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

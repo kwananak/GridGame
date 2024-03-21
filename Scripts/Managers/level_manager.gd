@@ -20,7 +20,7 @@ signal game_over_trigger
 @export var level_number = 0
 @export var tile_size = 32
 @export var animation_speed = 6
-@export var end_turn_speed = 0.1
+@export var end_turn_speed = 0.01
 @export var camera_speed = 200
 
 @onready var button = $"../UI/Button"

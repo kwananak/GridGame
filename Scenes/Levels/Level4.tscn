@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bmgcjr3ducbhs" path="res://Scenes/Tiles/EnvironmentChamber/outer_corner_front_wall_tile_chamber.tscn" id="9_vvxt4"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="10_wpcyd"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="13_xjkmi"]
-[ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="14_35j6b"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="14_j8r36"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="14_ouxdj"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="15_42ogp"]
+[ext_resource type="PackedScene" uid="uid://wutkufemunvt" path="res://Scenes/Tiles/SharedReal/chamber_terminal_tile.tscn" id="17_k0pd2"]
 
 [node name="Level4" type="Node2D"]
 
@@ -1904,9 +1904,6 @@ position = Vector2(672, 832)
 
 [node name="Gameplay" type="Node2D" parent="."]
 
-[node name="Terminal4" parent="Gameplay" instance=ExtResource("14_35j6b")]
-position = Vector2(464, 96)
-
 [node name="AmplifierTile" parent="Gameplay" instance=ExtResource("15_42ogp")]
 position = Vector2(464, 960)
 select_amplifier = "NeuroEnhanceAmplifierD"
@@ -1921,3 +1918,6 @@ door_number = 3
 [node name="RealPlayer" parent="." instance=ExtResource("14_j8r36")]
 
 [node name="TargetMove" parent="." instance=ExtResource("4_utpb5")]
+
+[node name="Terminal4" parent="." instance=ExtResource("17_k0pd2")]
+position = Vector2(464, 96)

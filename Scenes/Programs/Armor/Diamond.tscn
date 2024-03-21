@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://w6dfm2wturk6"]
+[gd_scene load_steps=8 format=3 uid="uid://w6dfm2wturk6"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/diamond.gd" id="2_mwdss"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_qh8ab"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_fo6vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otr5h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8knc7"]
+atlas = ExtResource("2_qh8ab")
+region = Rect2(1, 163, 30, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmaj4"]
 atlas = ExtResource("2_qh8ab")
@@ -24,7 +28,11 @@ script = ExtResource("2_mwdss")
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_otr5h")
 
+[node name="TileSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_8knc7")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.571, 0.571)
 texture = SubResource("AtlasTexture_mmaj4")
 

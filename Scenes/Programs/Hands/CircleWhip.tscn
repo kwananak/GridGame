@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b71bjivqvxg8c"]
+[gd_scene load_steps=10 format=3 uid="uid://b71bjivqvxg8c"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/circle_whip.gd" id="2_axfky"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_bv0q6"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="5_4kui6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ccg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgsfj"]
+atlas = ExtResource("2_bv0q6")
+region = Rect2(33, 195, 30, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4shs"]
 atlas = ExtResource("2_bv0q6")
@@ -26,7 +30,11 @@ script = ExtResource("2_axfky")
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_u8ccg")
 
+[node name="TileSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mgsfj")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.571, 0.571)
 texture = SubResource("AtlasTexture_y4shs")
 
