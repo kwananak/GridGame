@@ -155,8 +155,16 @@ func move(pos):
 	if !teleport:
 		level_manager.end_turn()
 
+func soap_moving():
+	for n in get_tree().get_nodes_in_group("SoapBarriers"):
+		if n.moving:
+			return true
+	return false
+
 # check for available location for player movement or action
 func move_check(distance):
+	while soap_moving():
+		await get_tree().create_timer(0.01).timeout
 	moving = true
 	if level_manager.game_over:
 		return
