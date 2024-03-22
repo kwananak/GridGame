@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://nap8qutslefr"]
+[gd_scene load_steps=11 format=3 uid="uid://nap8qutslefr"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/seeker_enemy.gd" id="1_l4xhf"]
 [ext_resource type="Texture2D" uid="uid://ckoahlec6jygu" path="res://Sprites/Enemies/Environnement_sheet_2.png" id="2_u0n33"]
 [ext_resource type="Texture2D" uid="uid://dcckw5qijvrq1" path="res://Sprites/Enemies/seeker_enemy.png" id="3_mp6gs"]
 [ext_resource type="AudioStream" uid="uid://fdqdjn7pklik" path="res://Sounds/FX/enemy_move.wav" id="4_ky36s"]
+[ext_resource type="Texture2D" uid="uid://b0xu7md86h614" path="res://Sprites/icon.svg" id="4_ob3dq"]
 [ext_resource type="AudioStream" uid="uid://cut25d2ygwtr5" path="res://Sounds/FX/enemy_hit.wav" id="5_bxdrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhdil"]
@@ -43,6 +44,11 @@ shape = SubResource("RectangleShape2D_xhdil")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_23smh")
 animation = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_ob3dq")
 
 [node name="Move" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ky36s")
