@@ -84,11 +84,13 @@ func handle_directional_input(dir):
 func skip_turn():
 	if level_manager.game_over || level_manager.dialogue || level_manager.paused:
 		return
+	if waiting_for_action:
+		waiting_for_action.cancel_action()
 	moving = true
 	for n in possible_moves:
 		n.reset()
-	skip_turn_button.show_skip()
 	await get_tree().create_timer(0.1).timeout
+	skip_turn_button.show_skip()
 	await level_manager.end_turn()
 
 # triggers action on selected direction

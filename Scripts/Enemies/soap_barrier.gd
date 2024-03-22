@@ -5,11 +5,13 @@ var moved = false
 var target 
 var moving = false 
 var level_manager
+var player
 
 @onready var ray = $RayCast2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
+	player = get_tree().get_first_node_in_group("VirtualPlayer")
 
 func check_move(player_position):
 	ray.target_position = position - player_position
@@ -55,7 +57,7 @@ func _on_area_entered(area):
 			var old_pos = global_position
 			position += target
 			$AnimatedSprite2D.global_position = old_pos
-			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.3 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
+			await create_tween().tween_property($AnimatedSprite2D, "position", Vector2.ZERO, 1.0 /get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
 			level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 		moved = true
 		$AnimatedSprite2D.frame = 1
