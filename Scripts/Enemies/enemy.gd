@@ -87,9 +87,12 @@ func _on_area_entered(area):
 		return
 	hit_by_player(3)
 
-func hit_by_player(_strength):
+func hit_by_player(strength):
 	if is_destroyed:
 		return
+	if strength is Node:
+		if strength.is_in_group("VirtualPlayer"):
+			level_manager.health -= 1
 	if framed_checker.check(global_position):
 		hit.play()
 	if shielded:
