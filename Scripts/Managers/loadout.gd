@@ -60,6 +60,7 @@ func set_slots():
 				v.scale = Vector2(2, 2)
 				if v.get_child_count() > 0:
 					v.get_child(0).get_node("Sprite2D").show()
+					v.get_child(0).get_node("TileSprite").hide()
 					v.get_child(0).get_node("LoadedSprite").hide()
 					loaded_slots += 1
 

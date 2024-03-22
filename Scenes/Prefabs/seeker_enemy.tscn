@@ -30,9 +30,10 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="SeekerEnemy" type="Area2D" groups=["AStarGridSolid", "EndTurn", "Hittable"]]
+[node name="SeekerEnemy" type="Area2D" groups=["AStarGridSolid", "EndTurn", "Hittable", "SeekerEnemies"]]
 z_index = 30
-collision_mask = 2
+collision_layer = 17
+collision_mask = 14
 script = ExtResource("1_l4xhf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
