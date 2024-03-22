@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=36 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/SharedVirtual/virtual_level_background.tscn" id="1_w8gh5"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="33_rl2pb"]
 [ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="34_3nw4j"]
 [ext_resource type="PackedScene" uid="uid://c1rxtknyx8nnt" path="res://Scenes/Prefabs/path_enemy.tscn" id="35_bxqb8"]
+[ext_resource type="PackedScene" uid="uid://bncpjk0wbiv1s" path="res://Scenes/EnemiesObstaclesTiles/seeker_trigger_tile.tscn" id="35_pikxk"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -244,3 +245,6 @@ path_nodes = [NodePath("../Node2D2"), NodePath("../Node2D"), NodePath("../Node2D
 
 [node name="SeekerEnemy2" parent="." instance=ExtResource("34_3nw4j")]
 position = Vector2(448, 288)
+
+[node name="SeekerTriggerTile" parent="." instance=ExtResource("35_pikxk")]
+position = Vector2(160, 192)
