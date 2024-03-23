@@ -3,7 +3,7 @@ extends Control
 var paused = false
 var loaded_prefab
 var level_manager
-var upper_range = 1.0
+var upper_range = 1.5
 var next_spawn_countdown = 0.0
 var basic_particle_prefab
 var careful_particle_prefab
