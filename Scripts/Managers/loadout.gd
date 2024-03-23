@@ -19,7 +19,7 @@ func _ready():
 	#max_loads += progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
 	prog_load = progress_manager.get_node("Loadout")
 	info = get_parent().get_node("Info/Label")
-	await get_tree().create_timer(0.02).timeout
+	await get_tree().create_timer(0.2).timeout
 	set_slots()
 
 # removed from use because of programs auto-loading. remove "legacy" to use again

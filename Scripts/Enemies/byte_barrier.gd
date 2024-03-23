@@ -58,5 +58,8 @@ func hit_by_player(hit):
 	if hit is int:
 		strength -= hit
 	else:
-		destroyed_by_wall = true
-		strength = 0
+		if hit.is_in_group("VirtualPlayer"):
+			strength -= hit.strength
+		else:
+			destroyed_by_wall = true
+			strength = 0

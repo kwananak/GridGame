@@ -8,7 +8,7 @@ var progress_manager
 func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
-		if n.name == select_amplifier:
+		if n.type == select_amplifier:
 			$ChestSprite.animation = "open"
 			$ChestSprite.frame = 7
 			opened = true
