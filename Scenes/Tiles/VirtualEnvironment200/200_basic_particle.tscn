@@ -3,30 +3,30 @@
 [ext_resource type="Texture2D" uid="uid://dvav0idcv0pt6" path="res://Sprites/EnvironmentVirtual/DumpCore_Terminal/background__virtual_dumpster_terminal_sheet.png" id="1_6gvqj"]
 [ext_resource type="Script" path="res://Scripts/Environment/basic_particle.gd" id="2_1q2bp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8cnut"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqsn2"]
 atlas = ExtResource("1_6gvqj")
-region = Rect2(0, 256, 32, 32)
+region = Rect2(128, 496, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a3rce"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mtbo"]
 atlas = ExtResource("1_6gvqj")
-region = Rect2(32, 256, 32, 32)
+region = Rect2(192, 496, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvx6l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o1hj"]
 atlas = ExtResource("1_6gvqj")
-region = Rect2(0, 224, 32, 32)
+region = Rect2(0, 496, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8b7l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy5f5"]
 atlas = ExtResource("1_6gvqj")
-region = Rect2(32, 224, 32, 32)
+region = Rect2(64, 496, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7g08p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8cnut")
+"texture": SubResource("AtlasTexture_fqsn2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a3rce")
+"texture": SubResource("AtlasTexture_2mtbo")
 }],
 "loop": true,
 "name": &"back_layer",
@@ -34,10 +34,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yvx6l")
+"texture": SubResource("AtlasTexture_7o1hj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d8b7l")
+"texture": SubResource("AtlasTexture_cy5f5")
 }],
 "loop": true,
 "name": &"default",
@@ -47,6 +47,5 @@ animations = [{
 [node name="BasicParticle" type="AnimatedSprite2D"]
 rotation = 0.785398
 sprite_frames = SubResource("SpriteFrames_7g08p")
-animation = &"back_layer"
 autoplay = "default"
 script = ExtResource("2_1q2bp")

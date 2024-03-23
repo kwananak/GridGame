@@ -5,11 +5,11 @@ var loaded_prefab
 var level_manager
 var upper_range = 1.0
 var next_spawn_countdown = 0.0
+var basic_particle_prefab
+var careful_particle_prefab
+var danger_particle_prefab
 
 @onready var active_node = $Careful
-@onready var basic_particle_prefab = preload("res://Scenes/Tiles/VirtualEnvironment100/100_basic_particle.tscn")
-@onready var careful_particle_prefab = preload("res://Scenes/Tiles/SharedVirtual/careful_particle.tscn")
-@onready var danger_particle_prefab = preload("res://Scenes/Tiles/SharedVirtual/danger_particle.tscn")
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -17,12 +17,12 @@ func _ready():
 		level_manager.pause_trigger.connect(set_pause)
 		level_manager.game_over_trigger.connect(set_pause)
 		upper_range = 0.3
-	if get_parent().name.substr(5, -1).begins_with("2"):
-		basic_particle_prefab = preload("res://Scenes/Tiles/VirtualEnvironment200/200_basic_particle.tscn")
-	elif get_parent().name.substr(5, -1).begins_with("3"):
-		basic_particle_prefab = preload("res://Scenes/Tiles/VirtualEnvironment300/300_basic_particle.tscn")
-	elif get_parent().name.substr(5, -1).begins_with("4"):
-		basic_particle_prefab = preload("res://Scenes/Tiles/VirtualEnvironment400/400_basic_particle.tscn")
+	var number = get_parent().name.substr(5, 1)
+	if not int(number):
+		number = "1"
+	basic_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_basic_particle.tscn")
+	careful_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_careful_particle.tscn")
+	danger_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_danger_particle.tscn")
 	loaded_prefab = basic_particle_prefab
 
 func _process(delta):

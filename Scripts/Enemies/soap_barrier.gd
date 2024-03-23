@@ -38,8 +38,7 @@ func _on_area_entered(area):
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
 		$AnimatedSprite2D.frame = 1
 		moved = true
-		return
-	if area.is_in_group("Player"):
+	elif area.is_in_group("Player"):
 		ray.target_position = target
 		while true:
 			ray.force_raycast_update()

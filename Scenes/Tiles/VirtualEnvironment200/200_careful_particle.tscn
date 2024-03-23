@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://okvfb0ib168n"]
+
+[ext_resource type="Texture2D" uid="uid://dvav0idcv0pt6" path="res://Sprites/EnvironmentVirtual/DumpCore_Terminal/background__virtual_dumpster_terminal_sheet.png" id="1_lbvsw"]
+[ext_resource type="Script" path="res://Scripts/Environment/careful_particle.gd" id="2_socj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecyd8"]
+atlas = ExtResource("1_lbvsw")
+region = Rect2(128, 560, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfxtu"]
+atlas = ExtResource("1_lbvsw")
+region = Rect2(192, 560, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylcff"]
+atlas = ExtResource("1_lbvsw")
+region = Rect2(0, 560, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jhog"]
+atlas = ExtResource("1_lbvsw")
+region = Rect2(64, 560, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gycc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecyd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfxtu")
+}],
+"loop": true,
+"name": &"back_layer",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylcff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jhog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="CarefulParticle" type="AnimatedSprite2D"]
+rotation = 0.785398
+sprite_frames = SubResource("SpriteFrames_gycc2")
+animation = &"back_layer"
+autoplay = "default"
+script = ExtResource("2_socj4")
