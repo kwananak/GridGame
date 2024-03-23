@@ -1,10 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://c76u1wy5uwvkw"]
+[gd_scene load_steps=24 format=3 uid="uid://c76u1wy5uwvkw"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_niens"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_2gg1d"]
 [ext_resource type="AudioStream" uid="uid://b301wh57lfmrw" path="res://Sounds/Backgrounds/400.wav" id="3_vrld3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="4_ua868"]
-[ext_resource type="PackedScene" uid="uid://cfi0afs2eqfpo" path="res://Scenes/Tiles/VirtualEnvironment400/400_floor_tile.tscn" id="6_tyfi2"]
 [ext_resource type="PackedScene" uid="uid://bqhwaiyujet8h" path="res://Scenes/Tiles/VirtualEnvironment400/400_back_wall_tile.tscn" id="7_yt2p8"]
 [ext_resource type="PackedScene" uid="uid://4ej47uyk4hsw" path="res://Scenes/Tiles/VirtualEnvironment400/400_front_wall_tile.tscn" id="8_sjpaw"]
 [ext_resource type="PackedScene" uid="uid://dv5ix0pq5yyeh" path="res://Scenes/Tiles/VirtualEnvironment400/400_lower_left_corner_tile.tscn" id="9_yxm6k"]
@@ -48,42 +47,6 @@ visible = false
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Floor" type="Node2D" parent="Environment"]
-
-[node name="400FloorTile" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(608, 608)
-
-[node name="400FloorTile2" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(608, 640)
-
-[node name="400FloorTile3" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(736, 640)
-
-[node name="400FloorTile10" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(640, 608)
-
-[node name="400FloorTile11" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(640, 640)
-
-[node name="400FloorTile12" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(768, 640)
-
-[node name="400FloorTile13" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(672, 608)
-
-[node name="400FloorTile14" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(672, 640)
-
-[node name="400FloorTile15" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(800, 640)
-
-[node name="400FloorTile172" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(704, 608)
-
-[node name="400FloorTile173" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(704, 640)
-
-[node name="400FloorTile174" parent="Environment/Floor" instance=ExtResource("6_tyfi2")]
-position = Vector2(832, 640)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
@@ -704,10 +667,10 @@ rotation = -1.5708
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
 [node name="VirtualStartTile" parent="GameplayElements/Others" instance=ExtResource("14_ghory")]
-position = Vector2(2400, 448)
+position = Vector2(896, 448)
 
 [node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("15_nu3mr")]
-position = Vector2(976, 720)
+position = Vector2(480, 320)
 
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
@@ -829,6 +792,8 @@ position = Vector2(1296, 480)
 
 [node name="SeekerEnemy" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(768, 448)
+activated = false
+seeker_number = 10
 
 [node name="SeekerEnemy4" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1504, 320)
@@ -838,12 +803,16 @@ position = Vector2(1504, 576)
 
 [node name="SeekerEnemy2" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(640, 416)
+activated = false
+seeker_number = 10
 
 [node name="SeekerEnemy5" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1728, 576)
 
 [node name="SeekerEnemy3" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(640, 480)
+activated = false
+seeker_number = 10
 
 [node name="SeekerEnemy6" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1728, 320)
@@ -945,7 +914,7 @@ position = Vector2(2016, 416)
 position = Vector2(2304, 416)
 
 [node name="BeetleBarrier6" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(2304, 448)
+position = Vector2(2336, 448)
 
 [node name="BeetleBarrier2" parent="." instance=ExtResource("24_pifco")]
 position = Vector2(2304, 480)
