@@ -161,7 +161,16 @@ func shield_spawn_anim(shield):
 func set_remaining_actions(value):
 	remaining_actions = value
 	var actions_ui = ui.get_node("ProgramBar/Labels/Actions")
-	actions_ui.text = str(remaining_actions)
+	if value < 1:
+		actions_ui.hide()
+		return
+	else:
+		actions_ui.text = str(remaining_actions)
+		if value == 1:
+			actions_ui.get_node("Label").text = "ACTION"
+		else:
+			actions_ui.get_node("Label").text = "ACTIONS"
+		actions_ui.show()
 
 func on_success(level_unlocked):
 	game_over = true

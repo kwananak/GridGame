@@ -1,16 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=32 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/UI/ui.gd" id="1_oy1qy"]
-[ext_resource type="Texture2D" uid="uid://bent0hld5jcyy" path="res://Sprites/UI/underskin_program.png" id="2_6gjgn"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_8ar8x"]
 [ext_resource type="PackedScene" uid="uid://bsofmf0ufr5fn" path="res://Scenes/UI/heart.tscn" id="2_pxw4q"]
 [ext_resource type="PackedScene" uid="uid://bwi6wucgbbhe3" path="res://Scenes/UI/shield.tscn" id="3_rhewn"]
 [ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="4_lt3to"]
 [ext_resource type="PackedScene" uid="uid://bsuq8gp62a2vk" path="res://Scenes/UI/warning_ui.tscn" id="5_l7mnn"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="6_jqhbw"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="6_ru6rq"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="9_7dmoc"]
 [ext_resource type="PackedScene" uid="uid://cv056doytbg8m" path="res://Scenes/UI/skip_turn_button.tscn" id="10_vp1a7"]
 [ext_resource type="PackedScene" uid="uid://dec7gq4nqo5f3" path="res://Scenes/UI/pause_button.tscn" id="11_6sme2"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="12_q8c77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1muv2"]
 atlas = ExtResource("2_8ar8x")
@@ -26,6 +27,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b4lo"]
+atlas = ExtResource("6_ru6rq")
+region = Rect2(0, 272, 128, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3x6b"]
 atlas = ExtResource("6_jqhbw")
@@ -108,6 +113,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg657"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(0, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q2qr"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(48, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4qd6"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(96, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxmq8"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(144, 304, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svao4"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(192, 304, 48, 48)
+
 [node name="UI" type="Node2D" groups=["UI"]]
 z_index = 90
 scale = Vector2(1.34, 1.34)
@@ -173,28 +198,31 @@ visible = false
 position = Vector2(106.667, 0)
 
 [node name="ShieldsUI" type="Node2D" parent="."]
-z_index = 3
-position = Vector2(-48.5075, 176.119)
-scale = Vector2(0.75, 0.75)
+z_index = 4
 
 [node name="Shield0" parent="ShieldsUI" instance=ExtResource("3_rhewn")]
 visible = false
+position = Vector2(83.5821, 173.134)
 
 [node name="Shield1" parent="ShieldsUI" instance=ExtResource("3_rhewn")]
 visible = false
-position = Vector2(26.6667, 0)
+position = Vector2(83.5821, 173.134)
+scale = Vector2(0.75, 0.75)
 
 [node name="Shield2" parent="ShieldsUI" instance=ExtResource("3_rhewn")]
 visible = false
-position = Vector2(53.3333, 0)
+position = Vector2(83.5821, 173.134)
+scale = Vector2(0.75, 0.75)
 
 [node name="Shield3" parent="ShieldsUI" instance=ExtResource("3_rhewn")]
 visible = false
-position = Vector2(80, 0)
+position = Vector2(83.5821, 173.134)
+scale = Vector2(0.75, 0.75)
 
 [node name="Shield4" parent="ShieldsUI" instance=ExtResource("3_rhewn")]
 visible = false
-position = Vector2(106.667, 0)
+position = Vector2(83.5821, 173.134)
+scale = Vector2(0.75, 0.75)
 
 [node name="FreezeUI" type="Label" parent="."]
 offset_left = -256.0
@@ -223,49 +251,58 @@ offset_bottom = -97.0
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="ProgramBar"]
-position = Vector2(0, 192)
-texture = ExtResource("2_6gjgn")
+position = Vector2(0, 173.134)
+texture = SubResource("AtlasTexture_3b4lo")
 
 [node name="Goggles" type="Node2D" parent="ProgramBar"]
 z_index = 1
-position = Vector2(-64, 168)
-
-[node name="Armor" type="Node2D" parent="ProgramBar"]
-z_index = 1
-position = Vector2(-32, 168)
+position = Vector2(-32, 165)
 
 [node name="LeftHand" type="Node2D" parent="ProgramBar"]
 z_index = 1
-position = Vector2(0, 168)
+position = Vector2(0, 165)
 
 [node name="RightHand" type="Node2D" parent="ProgramBar"]
 z_index = 1
-position = Vector2(32, 168)
-
-[node name="Legs" type="Node2D" parent="ProgramBar"]
-z_index = 1
-position = Vector2(64, 168)
+position = Vector2(32, 165)
 
 [node name="Boots" type="Node2D" parent="ProgramBar"]
 z_index = 1
-position = Vector2(96, 168)
+position = Vector2(64, 165)
+
+[node name="Armor" type="Node2D" parent="ProgramBar"]
+z_index = 1
+position = Vector2(105.224, 161.94)
+scale = Vector2(1.34, 1.34)
 
 [node name="Labels" type="Node2D" parent="ProgramBar"]
 z_index = 1
 
 [node name="Actions" type="Label" parent="ProgramBar/Labels"]
-offset_left = -120.0
-offset_top = 168.0
-offset_right = -20.0
-offset_bottom = 268.0
+offset_left = -97.7612
+offset_top = 161.94
+offset_right = 2.23881
+offset_bottom = 273.94
 scale = Vector2(0.2, 0.2)
 theme_override_colors/font_color = Color(0.968627, 0.74902, 0, 1)
 theme_override_fonts/font = ExtResource("4_lt3to")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 124
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ProgramBar/Labels/Actions"]
+offset_left = -52.2388
+offset_top = 93.2836
+offset_right = 134.761
+offset_bottom = 151.284
+theme_override_colors/font_color = Color(0.968627, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("9_7dmoc")
+theme_override_font_sizes/font_size = 48
+text = "Actions"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Goggles" type="Label" parent="ProgramBar/Labels"]
 visible = false
@@ -369,23 +406,11 @@ visible = false
 position = Vector2(-220.149, 168.657)
 sprite_frames = SubResource("SpriteFrames_uytqf")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -168.0
-offset_top = 168.0
-offset_right = 78.0
-offset_bottom = 248.0
-scale = Vector2(0.2, 0.2)
-theme_override_colors/font_color = Color(0.968627, 0.74902, 0, 1)
-theme_override_fonts/font = ExtResource("9_7dmoc")
-theme_override_font_sizes/font_size = 64
-text = "Actions:"
-vertical_alignment = 2
-
 [node name="SkipTurnButton" parent="." instance=ExtResource("10_vp1a7")]
-position = Vector2(126.866, 167.164)
+position = Vector2(128.358, 164.925)
 
 [node name="PauseButton" parent="." instance=ExtResource("11_6sme2")]
-position = Vector2(126.866, 184.328)
+position = Vector2(128.358, 182.089)
 
 [node name="TerminalAccessPoint" type="Node2D" parent="." groups=["TerminalAccessPointUI"]]
 visible = false
@@ -434,5 +459,25 @@ theme_override_fonts/font = ExtResource("9_7dmoc")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Amplifiers" type="Sprite2D" parent="."]
+position = Vector2(-89.5522, 173.134)
+texture = SubResource("AtlasTexture_yg657")
+
+[node name="A" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_2q2qr")
+
+[node name="B" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_d4qd6")
+
+[node name="C" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_lxmq8")
+
+[node name="D" type="Sprite2D" parent="Amplifiers"]
+visible = false
+texture = SubResource("AtlasTexture_svao4")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

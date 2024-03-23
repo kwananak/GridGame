@@ -33,7 +33,7 @@ func _input(event):
 	if player.moving || level_manager.game_over || level_manager.paused:
 		return
 	for slot in program_bar.get_children():
-		if slot.name == "Labels" || slot.name == "Legs" || slot.get_child_count() == 0:
+		if slot.name == "Labels" || slot.name == "Legs" || slot.name == "Armor" || slot.get_child_count() == 0:
 			continue
 		var prog = slot.get_child(0)
 		if !prog.usable:
