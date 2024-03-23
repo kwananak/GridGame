@@ -6,6 +6,10 @@ var player
 @export var activated = false
 @export var seeker_number = 0
 
+func turn_call():
+	if activated:
+		super.turn_call()
+
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	super._ready()
