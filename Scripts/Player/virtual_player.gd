@@ -84,11 +84,13 @@ func handle_directional_input(dir):
 func skip_turn():
 	if level_manager.game_over || level_manager.dialogue || level_manager.paused:
 		return
+	if waiting_for_action:
+		waiting_for_action.cancel_action()
 	moving = true
 	for n in possible_moves:
 		n.reset()
-	skip_turn_button.show_skip()
 	await get_tree().create_timer(0.1).timeout
+	skip_turn_button.show_skip()
 	await level_manager.end_turn()
 
 # triggers action on selected direction
@@ -98,7 +100,7 @@ func act(dir):
 		n.hide()
 	if !waiting_for_action:
 		play_hit()
-		await dir.available_action.hit_by_player(strength)
+		await dir.available_action.hit_by_player(self)
 	else:
 		match waiting_for_action.type:
 			dir.available_action.name, "GrapplingTool", "Sour":
@@ -153,8 +155,16 @@ func move(pos):
 	if !teleport:
 		level_manager.end_turn()
 
+func soap_moving():
+	for n in get_tree().get_nodes_in_group("SoapBarriers"):
+		if n.moving:
+			return true
+	return false
+
 # check for available location for player movement or action
 func move_check(distance):
+	while soap_moving():
+		await get_tree().create_timer(0.01).timeout
 	moving = true
 	if level_manager.game_over:
 		return
