@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=42 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_ew1yl"]
+[ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/terminal_backgrounds.png" id="3_nf8op"]
 [ext_resource type="PackedScene" uid="uid://dnaggoj45isfh" path="res://Scenes/TerminalElements/nodes_legend.tscn" id="4_pa0fv"]
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="4_yq20t"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="5_b1tni"]
@@ -15,9 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="9_qed1s"]
 [ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="12_p4gqk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_apdsw"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(0, 1199.22, 960, 513)
+[sub_resource type="AtlasTexture" id="AtlasTexture_30x0t"]
+atlas = ExtResource("3_nf8op")
+region = Rect2(0, 0, 960, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7012p"]
 atlas = ExtResource("2_o3ila")
@@ -172,7 +173,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i875o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1f5e"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(290, 2024, 314, 105)
 
@@ -190,10 +191,10 @@ bus = &"FX"
 [node name="TerminalSprite" type="Sprite2D" parent="."]
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
-texture = SubResource("AtlasTexture_apdsw")
+texture = SubResource("AtlasTexture_30x0t")
 
 [node name="MapBackground" type="Sprite2D" parent="."]
-position = Vector2(248.09, 142.269)
+position = Vector2(248.09, 146.746)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_7012p")
 
@@ -212,7 +213,7 @@ offset_right = 214.0
 offset_bottom = 146.0
 
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(296.09, 142.269)
+position = Vector2(296.09, 146.746)
 texture = SubResource("AtlasTexture_8xg8u")
 
 [node name="Level201" parent="Map" instance=ExtResource("3_ew1yl")]
@@ -356,9 +357,9 @@ scale = Vector2(1.5, 1.5)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 31.3433
-offset_top = 176.119
+offset_top = 180.596
 offset_right = 102.344
-offset_bottom = 241.119
+offset_bottom = 245.596
 
 [node name="Label" type="RichTextLabel" parent="DoorLabel"]
 layout_mode = 1
@@ -415,39 +416,44 @@ scale = Vector2(0.86, 0.86)
 [node name="NexusButton" parent="." instance=ExtResource("7_1j7k8")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.45
-anchor_right = 0.111
-anchor_bottom = 0.45
-offset_left = 128.0
-offset_top = 288.0
-offset_right = 128.0
-offset_bottom = 288.0
+anchor_left = 0.104
+anchor_top = 0.436
+anchor_right = 0.104
+anchor_bottom = 0.436
+offset_left = 117.164
+offset_top = 279.851
+offset_right = 117.164
+offset_bottom = 279.851
 scale = Vector2(0.8, 0.8)
 
 [node name="ReturnButton" parent="." instance=ExtResource("9_bd5av")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.124
-anchor_top = 0.522
-anchor_right = 0.124
-anchor_bottom = 0.522
-offset_left = 326.866
-offset_top = 254.478
-offset_right = 326.866
-offset_bottom = 254.478
+anchor_left = 0.286
+anchor_top = 0.396
+anchor_right = 0.286
+anchor_bottom = 0.396
+offset_left = 85.0746
+offset_top = 329.104
+offset_right = 85.0746
+offset_bottom = 329.104
 
 [node name="LogButton" parent="." instance=ExtResource("12_p4gqk")]
 layout_mode = 1
-offset_left = 426.866
-offset_top = 254.478
-offset_right = 426.866
-offset_bottom = 254.478
+anchors_preset = -1
+anchor_left = 0.369
+anchor_top = 0.395
+anchor_right = 0.369
+anchor_bottom = 0.395
+offset_left = 173.881
+offset_top = 328.358
+offset_right = 173.881
+offset_bottom = 328.358
 
 [node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
-position = Vector2(338.806, 312.687)
+position = Vector2(332.836, 296.269)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_i875o")
+texture = SubResource("AtlasTexture_n1f5e")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Info"]
