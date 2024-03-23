@@ -61,6 +61,7 @@ func _on_mouse_exited():
 func set_focus(value):
 	focus = value
 	if focus:
+		z_index = 90
 		create_tween().tween_property(self, "scale", Vector2(2.0, 2.0), 0.2)
 		create_tween().tween_property(self, "position", position - Vector2(0, 8), 0.2)
 		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.4, 0.4), 0.2)
@@ -70,6 +71,7 @@ func set_focus(value):
 		create_tween().tween_property(self, "position", position + Vector2(0, 8), 0.2)
 		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.2, 0.2), 0.2)
 		create_tween().tween_property($LoadedSprite/Label, "position", $LoadedSprite/Label.position + Vector2(8, 0), 0.2)
+		z_index = 0
 
 func available(value):
 	if value:

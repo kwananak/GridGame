@@ -16,11 +16,11 @@ func _ready():
 
 ## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
 func path_find():
-	var path = level_manager.astar_grid.get_id_path(Vector2i(position / level_manager.tile_size),
-			Vector2i(player.position / level_manager.tile_size))
+	var path = level_manager.astar_grid.get_id_path(Vector2i(global_position / level_manager.tile_size),
+			Vector2i(player.global_position / level_manager.tile_size))
 	if path.is_empty():
 		return
-	return position.direction_to(path[1] * level_manager.tile_size)
+	return global_position.direction_to(path[1] * level_manager.tile_size)
 
 func cycle_path():
 	pass

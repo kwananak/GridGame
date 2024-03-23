@@ -6,7 +6,7 @@ var label
 var player
 var state = "default" : set = set_state
 
-var freeze = 0
+var freeze = 0 : set = set_freeze
 var adjustment = 0
 var skip_turn = false
 var step
@@ -110,3 +110,16 @@ func set_state(value):
 		var frame = n.frame
 		n.animation = state
 		n.frame = frame
+
+func set_freeze(value):
+	freeze = value
+	if freeze > 0:
+		for n in sprite.get_children():
+			var frame = n.frame
+			n.animation = state + "freeze"
+			n.frame = frame
+	else:
+		for n in sprite.get_children():
+			var frame = n.frame
+			n.animation = state
+			n.frame = frame

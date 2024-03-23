@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://c76u1wy5uwvkw"]
+[gd_scene load_steps=25 format=3 uid="uid://c76u1wy5uwvkw"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_niens"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_2gg1d"]
 [ext_resource type="AudioStream" uid="uid://b301wh57lfmrw" path="res://Sounds/Backgrounds/400.wav" id="3_vrld3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="4_ua868"]
+[ext_resource type="PackedScene" uid="uid://cukalfajpr3j0" path="res://Scenes/Tiles/VirtualEnvironment400/400_level_background.tscn" id="5_fcch8"]
 [ext_resource type="PackedScene" uid="uid://bqhwaiyujet8h" path="res://Scenes/Tiles/VirtualEnvironment400/400_back_wall_tile.tscn" id="7_yt2p8"]
 [ext_resource type="PackedScene" uid="uid://4ej47uyk4hsw" path="res://Scenes/Tiles/VirtualEnvironment400/400_front_wall_tile.tscn" id="8_sjpaw"]
 [ext_resource type="PackedScene" uid="uid://dv5ix0pq5yyeh" path="res://Scenes/Tiles/VirtualEnvironment400/400_lower_left_corner_tile.tscn" id="9_yxm6k"]
@@ -43,6 +44,8 @@ bus = &"Music"
 
 [node name="UI" parent="." instance=ExtResource("4_ua868")]
 visible = false
+
+[node name="400LevelBackgroundColors" parent="." instance=ExtResource("5_fcch8")]
 
 [node name="Environment" type="Node2D" parent="."]
 

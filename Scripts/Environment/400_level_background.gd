@@ -22,6 +22,8 @@ func _process(delta):
 		twinkle_count = randf_range(0.1, 1.0)
 
 func shine():
+	if get_tree().get_nodes_in_group("FloorTiles").size() < 2:
+		return
 	var floor_tile = get_tree().get_nodes_in_group("FloorTiles")[randi_range(0, get_tree().get_nodes_in_group("FloorTiles").size()) - 1]
 	while !framed_checker.check(floor_tile.global_position):
 		floor_tile = get_tree().get_nodes_in_group("FloorTiles")[randi_range(0, get_tree().get_nodes_in_group("FloorTiles").size()) - 1]
