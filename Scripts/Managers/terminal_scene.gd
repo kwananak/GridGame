@@ -69,9 +69,19 @@ func _on_visibility_changed():
 					open_door_sprite()
 					$DoorLabel/Label.append_text("[color=green]Terminal " + str(terminal_number) + "\nunlocked")
 					return
+				if has_node("GateLabel"):
+					if int(i) == 5:
+						open_gate_sprite()
+						$GateLabel/Label.append_text("[color=green]Gate " + str(terminal_number) + "\nunlocked")
 			$DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
 	else:
 		$AudioStreamPlayer.stop()
+
+func open_gate_sprite():
+	var door_sprite = $GateLabel/Sprite
+	door_sprite.play()
+	await door_sprite.animation_finished
+	door_sprite.play("opened")
 
 func open_door_sprite():
 	var door_sprite = $DoorLabel/Sprite

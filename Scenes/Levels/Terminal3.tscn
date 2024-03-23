@@ -274,7 +274,6 @@ offset_left = -255.792
 offset_top = -78.0899
 offset_right = -158.792
 offset_bottom = 22.9101
-scale = Vector2(1.5, 1.5)
 
 [node name="DoorLabel" type="Control" parent="."]
 layout_mode = 3
@@ -304,6 +303,37 @@ text = "Terminal 3
 locked"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
+position = Vector2(37, 19)
+sprite_frames = SubResource("SpriteFrames_pin8k")
+
+[node name="GateLabel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 98.5075
+offset_top = 181.343
+offset_right = 169.508
+offset_bottom = 246.343
+
+[node name="Label" type="RichTextLabel" parent="GateLabel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -29.0
+offset_right = 316.5
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/normal_font = ExtResource("7_4qiru")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[color=red][center]Gate locked"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="GateLabel"]
 position = Vector2(37, 19)
 sprite_frames = SubResource("SpriteFrames_pin8k")
 
