@@ -124,6 +124,9 @@ func grapple_hit(dir):
 			"chip", "key":
 				grapple_item(dir.available_action)
 				destination = Vector2.ZERO
+			"enemy":
+				dir.available_action.hit_by_player(strength)
+				destination = Vector2.ZERO
 			_:
 				dir.available_action.hit_by_player(strength)
 	var tween = create_tween().tween_property(player, "position",
@@ -171,6 +174,12 @@ func remove_grapple(destination):
 		await get_tree().create_timer(0.005).timeout
 		if destination != Vector2.ZERO:
 			var section = grapple.pop_front()
+			if section != null:
+				section.queue_free()
+		else:
+			var section = grapple.pop_back()
+			if tip != null:
+				tip.position = section.position
 			if section != null:
 				section.queue_free()
 		grapple_sound.pitch_scale -= 0.01
