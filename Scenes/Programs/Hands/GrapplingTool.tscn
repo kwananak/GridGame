@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlyrwgmg3ve6g"]
+[gd_scene load_steps=16 format=3 uid="uid://dlyrwgmg3ve6g"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/grappling_tool.gd" id="2_8llf7"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_si3jg"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_1a3h4"]
 [ext_resource type="AudioStream" uid="uid://byuxfnojgpaqw" path="res://Sounds/FX/grapple.wav" id="4_75hlv"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_f3ied"]
 [ext_resource type="AudioStream" uid="uid://cgb3vwy651e1g" path="res://Sounds/FX/hook.wav" id="5_h6yu2"]
 [ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="6_opfwf"]
 
@@ -16,6 +17,32 @@ region = Rect2(1, 195, 30, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3455"]
 atlas = ExtResource("2_si3jg")
 region = Rect2(4, 484, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l12na"]
+atlas = ExtResource("2_si3jg")
+region = Rect2(131, 483, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd0db"]
+atlas = ExtResource("4_f3ied")
+region = Rect2(144, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f4w6"]
+atlas = ExtResource("4_f3ied")
+region = Rect2(160, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfl70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd0db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f4w6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq3u0"]
 atlas = ExtResource("2_si3jg")
@@ -53,29 +80,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_l12na")
+
+[node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
+position = Vector2(0, 18.3968)
+sprite_frames = SubResource("SpriteFrames_vfl70")
+
+[node name="FileSprite" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_jq3u0")
-
-[node name="Label" type="Label" parent="LoadedSprite"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.4297
-offset_top = -33.2687
-offset_right = 49.5703
-offset_bottom = 38.7313
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_1a3h4")
-theme_override_font_sizes/font_size = 64
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="GrappleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_75hlv")

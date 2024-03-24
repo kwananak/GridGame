@@ -12,4 +12,5 @@ func loaded():
 	super.loaded()
 
 func action():
+	$LoadedSprite/Button.frame = 1
 	player.circle_hit(self)

@@ -34,6 +34,7 @@ func cancel_action():
 
 func confirm_with_dir(dir):
 	focus = false
+	$LoadedSprite/Button.frame = 1
 	await grapple_hit(dir)
 
 # executes grapple towards chosen direction

@@ -27,7 +27,7 @@ func loaded():
 	$LoadedSprite.show()
 	if active:
 		player.moving_signal.connect(available)
-		$LoadedSprite/Label.show()
+		$LoadedSprite/Button.show()
 
 func picked_up(slot):
 	set_deferred("monitorable", false)
@@ -64,13 +64,15 @@ func set_focus(value):
 		z_index = 90
 		create_tween().tween_property(self, "scale", Vector2(2.0, 2.0), 0.2)
 		create_tween().tween_property(self, "position", position - Vector2(0, 8), 0.2)
-		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.4, 0.4), 0.2)
-		create_tween().tween_property($LoadedSprite/Label, "position", $LoadedSprite/Label.position - Vector2(8, 0), 0.2)
+		create_tween().tween_property($LoadedSprite/Button, "scale", Vector2(1.5, 1.5), 0.2)
+		create_tween().tween_property($LoadedSprite/Button, "position", $LoadedSprite/Button.position - Vector2(0, 4), 0.2)
+		$LoadedSprite/Button.frame = 1
 	else:
 		create_tween().tween_property(self, "scale", Vector2.ONE, 0.2)
 		create_tween().tween_property(self, "position", position + Vector2(0, 8), 0.2)
-		create_tween().tween_property($LoadedSprite/Label, "scale", Vector2(0.2, 0.2), 0.2)
-		create_tween().tween_property($LoadedSprite/Label, "position", $LoadedSprite/Label.position + Vector2(8, 0), 0.2)
+		create_tween().tween_property($LoadedSprite/Button, "scale", Vector2.ONE, 0.2)
+		create_tween().tween_property($LoadedSprite/Button, "position", $LoadedSprite/Button.position + Vector2(0, 4), 0.2)
+		$LoadedSprite/Button.frame = 0
 		z_index = 0
 
 func available(value):
@@ -80,6 +82,8 @@ func available(value):
 		await get_tree().create_timer(0.02).timeout
 		if !player.moving:
 			$Focus.hide()
+			if !focus:
+				$LoadedSprite/Button.frame = 0
 
 func vis_changed():
 	var ui = get_tree().get_first_node_in_group("UI")

@@ -26,6 +26,8 @@ func action():
 	player.move_check(distance)
 
 func confirm_with_dir(dir):
+	focus = false
+	$LoadedSprite/Button.frame = 1
 	up.play()
 	for n in player.possible_moves:
 		n.hide()
@@ -38,7 +40,6 @@ func confirm_with_dir(dir):
 	var pos = player.global_position
 	await player.move(dir.global_position)
 	down.play()
-	focus = false
 	player.waiting_for_action = null
 	player.teleport = false
 	if tele:

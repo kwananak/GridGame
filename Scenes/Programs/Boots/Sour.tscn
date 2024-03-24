@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=16 format=3 uid="uid://caq3tmtnish1u"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/sour.gd" id="2_4sv8q"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_imkw1"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wcf68"]
 [ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="4_4tc1x"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_nwnvc"]
 [ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="5_n3ds2"]
 [ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="6_x5koy"]
 
@@ -16,6 +17,32 @@ region = Rect2(65, 3, 30, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rgjk"]
 atlas = ExtResource("2_imkw1")
 region = Rect2(69, 549, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksaql"]
+atlas = ExtResource("2_imkw1")
+region = Rect2(131, 547, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy17a"]
+atlas = ExtResource("4_nwnvc")
+region = Rect2(144, 240, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2n4f"]
+atlas = ExtResource("4_nwnvc")
+region = Rect2(160, 240, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q2oh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy17a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2n4f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbvvq"]
 atlas = ExtResource("2_imkw1")
@@ -52,30 +79,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
+position = Vector2(1.78814e-07, -7.7486e-07)
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_ksaql")
+
+[node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
+position = Vector2(-2.34972e-07, 18.3968)
+sprite_frames = SubResource("SpriteFrames_5q2oh")
+
+[node name="FileSprite" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1.78814e-07, -7.7486e-07)
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_xbvvq")
-
-[node name="Label" type="Label" parent="LoadedSprite"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.4297
-offset_top = -33.2687
-offset_right = 49.5703
-offset_bottom = 38.7313
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_wcf68")
-theme_override_font_sizes/font_size = 64
-text = "4"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Focus" parent="." instance=ExtResource("4_4tc1x")]
 visible = false
