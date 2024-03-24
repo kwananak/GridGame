@@ -129,11 +129,9 @@ func grapple_hit(dir):
 				destination = Vector2.ZERO
 			_:
 				dir.available_action.hit_by_player(strength)
-	var tween = create_tween().tween_property(player, "position",
-			player.position + destination * level_manager.tile_size,
-			1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE)
 	remove_grapple(destination)
-	await tween.finished
+	if destination != Vector2.ZERO:
+		await create_tween().tween_property(player, "position", player.position + destination * level_manager.tile_size, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 	player.animated_sprite_2d.play("idle")
 
 func grapple_mobile(destination, barrier):
