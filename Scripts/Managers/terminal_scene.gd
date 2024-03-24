@@ -72,7 +72,8 @@ func _on_visibility_changed():
 				if has_node("GateLabel"):
 					if int(i) == 5:
 						open_gate_sprite()
-						$GateLabel/Label.append_text("[color=green]Gate " + str(terminal_number) + "\nunlocked")
+						$GateLabel/Label.clear()
+						$GateLabel/Label.append_text("[color=green]Gate unlocked")
 			$DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
 	else:
 		$AudioStreamPlayer.stop()

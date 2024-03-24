@@ -68,7 +68,7 @@ func cycle_path():
 	$Sprite2D.position = position.direction_to(path_nodes[0].global_position) * level_manager.tile_size
 
 func shield_check():
-	if shielded:
+	if shielded || !shield_count:
 		return
 	shield_count -= 1
 	if shield_count < 1:
