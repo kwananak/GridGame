@@ -175,7 +175,8 @@ func remove_grapple(destination):
 				section.queue_free()
 		grapple_sound.pitch_scale -= 0.01
 	grapple_sound.stop()
-	tip.queue_free()
+	if is_instance_valid(tip):
+		tip.queue_free()
 
 func game_over_remove(_arg):
 	for n in grapple:
