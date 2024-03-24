@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://0mcdkb118qdp"]
+[gd_scene load_steps=44 format=3 uid="uid://0mcdkb118qdp"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_pi8fv"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="2_51s4d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="9_ddrgw"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="10_ichpi"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="11_776mv"]
+[ext_resource type="Texture2D" uid="uid://b0ea6v1kb23fi" path="res://Sprites/EnvironmentReal/Complex/gate_sheet.png" id="11_mm5d3"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="12_ixm5u"]
 [ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="13_n81du"]
 
@@ -157,7 +158,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l5svl")
 }],
-"loop": true,
+"loop": false,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1b7m"]
+atlas = ExtResource("11_mm5d3")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3w1k"]
+atlas = ExtResource("11_mm5d3")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo8yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1b7m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3w1k")
+}],
+"loop": false,
 "name": &"opened",
 "speed": 5.0
 }]
@@ -361,9 +389,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -33.5
+offset_left = -33.5002
 offset_top = -29.0
-offset_right = 316.5
+offset_right = 266.5
 offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -371,11 +399,12 @@ scale = Vector2(0.2, 0.2)
 theme_override_fonts/normal_font = ExtResource("7_4qiru")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "[color=red][center]Gate locked"
+text = "[center] [color=red]Gate
+locked"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="GateLabel"]
-position = Vector2(37, 19)
-sprite_frames = SubResource("SpriteFrames_pin8k")
+position = Vector2(34.3283, 25.3734)
+sprite_frames = SubResource("SpriteFrames_oo8yj")
 
 [node name="Log" parent="." instance=ExtResource("9_ddrgw")]
 visible = false

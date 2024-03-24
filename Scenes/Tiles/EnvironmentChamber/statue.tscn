@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://br4ii4h7t5kd3"]
+
+[ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="1_u4dpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anx0s"]
+atlas = ExtResource("1_u4dpl")
+region = Rect2(136, 18, 50, 78)
+
+[node name="Statue" type="Sprite2D"]
+z_index = 30
+texture = SubResource("AtlasTexture_anx0s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-16, -34, -7, -40, 9, -40, 15, -30, 14, 22, 18, 22, 25, 32, 25, 41, -26, 41, -26, 32, -25, 4, -26, -10, -18, -20)

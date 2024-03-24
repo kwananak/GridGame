@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddset0crqtcah"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/terminal_door_tile.gd" id="1_54g62"]
+[ext_resource type="Texture2D" uid="uid://b0ea6v1kb23fi" path="res://Sprites/EnvironmentReal/Complex/gate_sheet.png" id="2_kq4hw"]
+[ext_resource type="AudioStream" uid="uid://cv3ae0ply40xt" path="res://Sounds/Real/door_open.wav" id="3_dymm8"]
+[ext_resource type="AudioStream" uid="uid://bvy6jh7mmwmyw" path="res://Sounds/Real/door_close.wav" id="4_mod2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlqeg"]
+size = Vector2(18.6667, 62.6667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_budlu"]
+atlas = ExtResource("2_kq4hw")
+region = Rect2(48, 0, 48, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpelx"]
+atlas = ExtResource("2_kq4hw")
+region = Rect2(0, 0, 48, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oudwk"]
+atlas = ExtResource("2_kq4hw")
+region = Rect2(48, 0, 48, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh4vw"]
+atlas = ExtResource("2_kq4hw")
+region = Rect2(48, 0, 48, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qon0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_budlu")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpelx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oudwk")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh4vw")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoktn"]
+size = Vector2(30, 96)
+
+[node name="GateTile" type="Area2D" groups=["AStarGridSolid", "Doors", "TerminalDoors"]]
+z_index = 30
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_54g62")
+door_number = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_jlqeg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["TerminalDoor"]]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_qon0b")
+animation = &"closed"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_uoktn")
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dymm8")
+volume_db = -10.0
+bus = &"FX"
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mod2x")
+volume_db = -10.0
+bus = &"FX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
