@@ -1,7 +1,7 @@
 extends "res://Scripts/Programs/program.gd"
 
 @export var strength = 1
-@export var regen = 6
+@export var regen = 4
 
 var regen_turn = 0
 var used = 0 : set = set_used
@@ -11,6 +11,8 @@ func _ready():
 	info = "Passive : Gives you " + str(strength) + " shield"
 	if strength > 1:
 		info += "s"
+	else:
+		info = "Passive : Gives you a shield"
 	info += " and regen after " + str(regen) + " turns"
 	super._ready()
 

@@ -24,6 +24,8 @@ func loaded():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	$Sprite2D.hide()
+	$TileSprite.hide()
+	$FileSprite.hide()
 	$LoadedSprite.show()
 	if active:
 		player.moving_signal.connect(available)

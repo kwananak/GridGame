@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w6dfm2wturk6"]
+[gd_scene load_steps=9 format=3 uid="uid://w6dfm2wturk6"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Armor/diamond.gd" id="2_mwdss"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_qh8ab"]
@@ -18,19 +18,21 @@ region = Rect2(4, 420, 56, 56)
 atlas = ExtResource("2_qh8ab")
 region = Rect2(78, 431, 34, 25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgvo0"]
+atlas = ExtResource("2_qh8ab")
+region = Rect2(10, 426, 42, 35)
+
 [node name="Diamond" type="Area2D" groups=["EndTurn"]]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
 script = ExtResource("2_mwdss")
-regen = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_otr5h")
 
 [node name="TileSprite" type="Sprite2D" parent="."]
-visible = false
 texture = SubResource("AtlasTexture_8knc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -54,6 +56,11 @@ vertical_alignment = 1
 visible = false
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_nntqa")
+
+[node name="FileSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.761, 0.761)
+texture = SubResource("AtlasTexture_kgvo0")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -16.0

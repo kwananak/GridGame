@@ -57,6 +57,7 @@ func _on_visibility_changed():
 			for o in n.get_children():
 				for p in o.get_children():
 					p.monitorable = false
+					p.get_node("Sprite2D").show()
 		loaded_level = null
 		if terminal_number != null:
 			$Log.hide()
@@ -73,7 +74,7 @@ func _on_visibility_changed():
 					if int(i) == 5:
 						open_gate_sprite()
 						$GateLabel/Label.clear()
-						$GateLabel/Label.append_text("[color=green]Gate unlocked")
+						$GateLabel/Label.append_text("[center][color=green]Gate unlocked")
 			$DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
 	else:
 		$AudioStreamPlayer.stop()

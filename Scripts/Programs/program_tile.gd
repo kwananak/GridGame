@@ -36,7 +36,7 @@ func pick_up(_area):
 	get_tree().get_first_node_in_group("VirtualLevelManager").dialogue = true
 	$Sprite2D/PickUp.show()
 	program.get_node("TileSprite").hide()
-	program.get_node("LoadedSprite").show()
+	program.get_node("FileSprite").show()
 	program.z_index = 91
 	program.position = Vector2(-4.5, -3.0)
 	program.scale = Vector2(0.45, 0.45)
@@ -47,7 +47,7 @@ func pick_up(_area):
 	$Sprite2D/PickUp/ButtonSprite.show()
 	await remove
 	program.scale = Vector2.ONE
-	program.get_node("LoadedSprite").hide()
+	program.get_node("FileSprite").hide()
 	program.get_node("Sprite2D").show()
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
 	$Sprite2D.remove_child(program)

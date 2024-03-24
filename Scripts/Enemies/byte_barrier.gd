@@ -43,12 +43,17 @@ func spawn_explosion():
 		return
 	var explo = load("res://Scenes/Prefabs/byte_explosion.tscn").instantiate()
 	get_parent().add_child(explo)
+	if destroyed_by_wall:
+		explo.get_node("AudioStreamPlayer").volume_db = -5
 	explo.start_explosion(byte_type, position)
 
 # called when player hits the tile
 func hit_by_player(hit):
 	if get_tree().get_first_node_in_group("FramedChecker").check(position):
 		sprite.frame = 1
+		if not hit is int:
+			if hit.is_in_group("DoomWall"):
+				$Audio.volume_db = -5
 		$Audio.play()
 		for i in randi_range(3, 5):
 			sprite.position = Vector2(randi_range(-3, 3), randi_range(-3, 3))
