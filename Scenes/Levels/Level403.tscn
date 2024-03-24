@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c76u1wy5uwvkw"]
+[gd_scene load_steps=26 format=3 uid="uid://c76u1wy5uwvkw"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_niens"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_2gg1d"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="22_n8m4a"]
 [ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="23_ehc58"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="24_pifco"]
+[ext_resource type="PackedScene" uid="uid://bncpjk0wbiv1s" path="res://Scenes/EnemiesObstaclesTiles/seeker_trigger_tile.tscn" id="25_ntjam"]
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="26_tlgo4"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="27_d6ttk"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="28_sy2b2"]
@@ -670,7 +671,7 @@ rotation = -1.5708
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
 [node name="VirtualStartTile" parent="GameplayElements/Others" instance=ExtResource("14_ghory")]
-position = Vector2(896, 448)
+position = Vector2(1104, 320)
 
 [node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("15_nu3mr")]
 position = Vector2(480, 320)
@@ -800,9 +801,13 @@ seeker_number = 10
 
 [node name="SeekerEnemy4" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1504, 320)
+activated = false
+seeker_number = 20
 
 [node name="SeekerEnemy7" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1504, 576)
+activated = false
+seeker_number = 20
 
 [node name="SeekerEnemy2" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(640, 416)
@@ -811,6 +816,8 @@ seeker_number = 10
 
 [node name="SeekerEnemy5" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1728, 576)
+activated = false
+seeker_number = 20
 
 [node name="SeekerEnemy3" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(640, 480)
@@ -819,9 +826,13 @@ seeker_number = 10
 
 [node name="SeekerEnemy6" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1728, 320)
+activated = false
+seeker_number = 20
 
 [node name="SeekerEnemy8" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1760, 416)
+activated = false
+seeker_number = 20
 
 [node name="SeekerEnemy10" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(2272, 320)
@@ -852,6 +863,8 @@ position = Vector2(2208, 576)
 
 [node name="SeekerEnemy9" parent="." instance=ExtResource("29_ipx06")]
 position = Vector2(1600, 448)
+activated = false
+seeker_number = 20
 
 [node name="AccessPointKey" parent="." instance=ExtResource("30_awrl0")]
 position = Vector2(576, 448)
@@ -939,3 +952,22 @@ position = Vector2(2464, 448)
 
 [node name="SoapBarrier3" parent="." instance=ExtResource("26_tlgo4")]
 position = Vector2(2464, 480)
+
+[node name="SeekerTriggerTile" parent="." instance=ExtResource("25_ntjam")]
+position = Vector2(928, 448)
+scale = Vector2(1, 4.24)
+seeker_number = 10
+
+[node name="SeekerTriggerTile2" parent="." instance=ExtResource("25_ntjam")]
+position = Vector2(1376, 448)
+scale = Vector2(1, 4.2)
+seeker_number = 20
+
+[node name="SeekerTriggerTile2" parent="SeekerTriggerTile2" instance=ExtResource("25_ntjam")]
+position = Vector2(1376, 448)
+scale = Vector2(1, 4.2)
+seeker_number = 20
+
+[node name="SeekerTriggerTile3" parent="." instance=ExtResource("25_ntjam")]
+position = Vector2(1920, 448)
+scale = Vector2(1, 4.36)
