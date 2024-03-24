@@ -9,6 +9,7 @@ var player
 func turn_call():
 	if activated:
 		super.turn_call()
+	shield_prefab = preload("res://Scenes/Prefabs/seeker_enemy_shield.tscn")
 
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
@@ -18,7 +19,7 @@ func _ready():
 func path_find():
 	var path = level_manager.astar_grid.get_id_path(Vector2i(global_position / level_manager.tile_size),
 			Vector2i(player.global_position / level_manager.tile_size))
-	if path.is_empty():
+	if path.size() < 2:
 		return
 	return global_position.direction_to(path[1] * level_manager.tile_size)
 
