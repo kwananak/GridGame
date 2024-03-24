@@ -12,10 +12,11 @@ func _on_area_entered(area):
 			lev_man.health -= 1
 	if "tile_type" in area:
 		match area.tile_type:
-			"soap":
+			"soap", "enemy":
 				hide()
-				while true:
-					await get_tree().create_timer(0.01).timeout
-					if !area.moving:
-						break
+				if "moving" in area:
+					while true:
+						await get_tree().create_timer(0.01).timeout
+						if !area.moving:
+							break
 				cannon.fire_beam()

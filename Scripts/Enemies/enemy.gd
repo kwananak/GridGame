@@ -54,10 +54,12 @@ func turn_call():
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
 	animated_sprite_2d.global_position = old_pos
 	var frame = animated_sprite_2d.frame
-	animated_sprite_2d.animation = "move"
+	if !is_destroyed:
+		animated_sprite_2d.animation = "move"
 	await create_tween().tween_property(animated_sprite_2d, "position", Vector2.ZERO, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
-	animated_sprite_2d.animation = "idle"
-	animated_sprite_2d.frame = frame
+	if !is_destroyed:
+		animated_sprite_2d.animation = "idle"
+		animated_sprite_2d.frame = frame
 	if level_manager.vision:
 		$Sprite2D.show()
 
@@ -111,27 +113,30 @@ func hit_by_player(strength):
 		hit.play()
 	var frame = animated_sprite_2d.frame
 	animated_sprite_2d.play("hit")
-	await get_tree().create_timer(0.1).timeout
 	if strength is Node:
 		if strength.is_in_group("VirtualPlayer"):
-			level_manager.health -= 1
 			match global_position.direction_to(strength.global_position):
 				Vector2.LEFT:
 					animated_sprite_2d.flip_h = true
 				Vector2.RIGHT:
 					animated_sprite_2d.flip_h = false
+			await get_tree().create_timer(0.1).timeout
 			animated_sprite_2d.play("counter")
 			await animated_sprite_2d.animation_finished
 			animated_sprite_2d.play("idle")
 			animated_sprite_2d.frame = frame
+			level_manager.health -= 1
 	if shielded: 
 		shielded = false
+		await get_tree().create_timer(0.1).timeout
 		remove_shield()
 	else:
+		is_destroyed = true
+		remove_from_group("EndTurn")
+		await get_tree().create_timer(0.1).timeout
 		animated_sprite_2d.play("destroyed")
 		level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
-		is_destroyed = true
-		animated_sprite_2d.frame = 1
 		$Sprite2D.hide()
-		remove_from_group("EndTurn")
+		if animated_sprite_2d.is_playing():
+			await animated_sprite_2d.animation_finished
 	hitted = false

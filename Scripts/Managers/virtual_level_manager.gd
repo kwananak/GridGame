@@ -197,7 +197,7 @@ func call_game_over():
 
 func display_summary():
 	var summary = summary_prefab.instantiate()
-	var body = "[center]Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) + "\nBarriers: " + str(barriers_down)
+	var body = "[center]Time: " + str(int(time_elapsed)) + " seconds\nTurns: " + str(turn) # + "\nBarriers: " + str(barriers_down)
 	for a in programs:
 		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = $/root/Main.get_level_name(level_number)
