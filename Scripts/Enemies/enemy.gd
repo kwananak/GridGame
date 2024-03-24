@@ -99,6 +99,7 @@ func hit_by_player(strength):
 		shielded = false
 		$AnimatedSprite2D/Shield.queue_free()
 		return
+	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
 	is_destroyed = true
 	animated_sprite_2d.frame = 1
 	$Sprite2D.hide()
