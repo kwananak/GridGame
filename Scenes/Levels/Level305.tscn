@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cqlsjwyxijtr8"]
+[gd_scene load_steps=30 format=3 uid="uid://cqlsjwyxijtr8"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_m1ifw"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_us26v"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="26_r21j6"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="27_7lgfw"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/VirtualEnvironment100/virtual_start_tile.tscn" id="28_84hn4"]
+[ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="28_orlwm"]
+[ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="29_kip8j"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="31_0ux0x"]
 
 [node name="Level305" type="Node2D"]
@@ -3073,3 +3075,9 @@ position = Vector2(544, 1024)
 
 [node name="BeetleBarrier2" parent="." instance=ExtResource("7_3t1y6")]
 position = Vector2(544, 1152)
+
+[node name="YellowWarningTile" parent="." instance=ExtResource("28_orlwm")]
+position = Vector2(384, 864)
+
+[node name="RedWarningTile" parent="." instance=ExtResource("29_kip8j")]
+position = Vector2(736, 1024)
