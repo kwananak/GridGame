@@ -6,8 +6,10 @@ var frame_counter = 0.0
 
 func _ready():
 	super._ready()
-	for i in 6:
-		textures += [get_tree().get_first_node_in_group("100Walls" + str(i)).texture]
+	for i in 7:
+		var wall = get_tree().get_first_node_in_group("100Walls" + str(i))
+		if wall:
+			textures += [get_tree().get_first_node_in_group("100Walls" + str(i)).texture]
 
 func _process(delta):
 	super._process(delta)
