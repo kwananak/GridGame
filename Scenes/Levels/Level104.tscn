@@ -1,21 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://dosg0adtegtop"]
+[gd_scene load_steps=24 format=3 uid="uid://dosg0adtegtop"]
 
-[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_pdmr2"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_pdmr2"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_xloie"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_txb3y"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="4_lalnn"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/VirtualEnvironment100/floor_tile.tscn" id="5_owtxi"]
-[ext_resource type="PackedScene" uid="uid://cd0glhsrlf1wm" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_back.tscn" id="6_6x7w5"]
-[ext_resource type="PackedScene" uid="uid://c63cfkhl1phmo" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_left_corner.tscn" id="7_nprr6"]
+[ext_resource type="PackedScene" uid="uid://c2d3f5737uuxo" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_back.tscn" id="6_6x7w5"]
+[ext_resource type="PackedScene" uid="uid://ymh44tqqto72" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_left_corner.tscn" id="7_nprr6"]
 [ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/VirtualEnvironment100/inner_corner_wall_tile.tscn" id="8_maqw1"]
-[ext_resource type="PackedScene" uid="uid://ce2njoxlg3n2i" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_front.tscn" id="9_nui7x"]
+[ext_resource type="PackedScene" uid="uid://b6ug30wd5df4w" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_front.tscn" id="9_nui7x"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="9_t5nx8"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_4k8nb"]
-[ext_resource type="PackedScene" uid="uid://cott46hgyfitl" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_left_corner.tscn" id="10_bbsle"]
-[ext_resource type="PackedScene" uid="uid://140qeyguwec1" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_right_corner.tscn" id="11_gyqe0"]
+[ext_resource type="PackedScene" uid="uid://b3v5ih4tiwn3w" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_left_corner.tscn" id="10_bbsle"]
+[ext_resource type="PackedScene" uid="uid://c3miqb3nboho7" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_right_corner.tscn" id="11_gyqe0"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="11_kc5w7"]
-[ext_resource type="PackedScene" uid="uid://ofcrwic5djn2" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_right_corner.tscn" id="12_mnn1s"]
-[ext_resource type="PackedScene" uid="uid://pt0mt7be1gfe" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_inner_right_corner.tscn" id="13_4k64s"]
+[ext_resource type="PackedScene" uid="uid://dpfrto4yk0wth" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_right_corner.tscn" id="12_mnn1s"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="14_ce4pb"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="15_hup21"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="15_wwtk6"]
@@ -1145,6 +1144,9 @@ position = Vector2(192, 384)
 [node name="CornerWallTile6" parent="Environment/Walls" instance=ExtResource("7_nprr6")]
 position = Vector2(1024, 192)
 
+[node name="CornerWallTile7" parent="Environment/Walls" instance=ExtResource("7_nprr6")]
+position = Vector2(1248, 384)
+
 [node name="100WallFront" parent="Environment/Walls" instance=ExtResource("9_nui7x")]
 position = Vector2(224, 640)
 
@@ -1315,9 +1317,6 @@ position = Vector2(1440, 384)
 
 [node name="100WallUpperRightCorner" parent="Environment/Walls" instance=ExtResource("12_mnn1s")]
 position = Vector2(1440, 192)
-
-[node name="100WallInnerRightCorner" parent="Environment/Walls" instance=ExtResource("13_4k64s")]
-position = Vector2(1248, 384)
 
 [node name="GameplayElements" type="Node2D" parent="."]
 

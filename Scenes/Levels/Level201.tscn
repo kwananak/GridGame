@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2rplqe3yixvr"]
+[gd_scene load_steps=24 format=3 uid="uid://b2rplqe3yixvr"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_kbjq3"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_2645l"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="21_1w1lc"]
 [ext_resource type="PackedScene" uid="uid://dekyr2d2kqlah" path="res://Scenes/Tiles/SharedVirtual/virtual_start_tile.tscn" id="23_dqxw7"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="23_fi2v1"]
+[ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="23_pux80"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_l7fo7"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_pqyvc"]
 
@@ -1049,3 +1050,6 @@ unlocks = 202
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("25_pqyvc")]
 position = Vector2(96, 192)
+
+[node name="InvisibleWall" parent="." instance=ExtResource("23_pux80")]
+position = Vector2(278, 200)
