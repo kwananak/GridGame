@@ -21,6 +21,8 @@ func check_move(player_position):
 	return true
 
 func move(direction):
+	if moved:
+		return
 	moved = true
 	audio.play()
 	var old_pos = global_position

@@ -33,6 +33,8 @@ func hit_by_player(area):
 	await _on_area_entered(area)
 
 func _on_area_entered(area):
+	if area is int:
+		return
 	moving = true
 	$AudioStreamPlayer2D.play()
 	if area is Vector2:
