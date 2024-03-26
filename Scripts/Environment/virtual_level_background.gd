@@ -17,6 +17,7 @@ func _ready():
 		level_manager.pause_trigger.connect(set_pause)
 		level_manager.game_over_trigger.connect(set_pause)
 		upper_range = 0.3
+		level_manager.doomwall_state_changed.connect(state_changed)
 	var number = get_parent().name.substr(5, 1)
 	if not int(number):
 		number = "1"
@@ -24,7 +25,6 @@ func _ready():
 	careful_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_careful_particle.tscn")
 	danger_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_danger_particle.tscn")
 	loaded_prefab = basic_particle_prefab
-	level_manager.doomwall_state_changed.connect(state_changed)
 
 func _process(delta):
 	if paused:
