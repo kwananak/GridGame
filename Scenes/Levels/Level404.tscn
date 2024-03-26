@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://40m7l7uap5v0"]
+[gd_scene load_steps=32 format=3 uid="uid://40m7l7uap5v0"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_c3nim"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_lxasi"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://churemch44h8q" path="res://Scenes/EnemiesObstaclesTiles/mantis_barrier.tscn" id="20_lhmwf"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="21_3xxfp"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="22_ngqna"]
-[ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="23_ycbgw"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="24_cdlwr"]
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="25_4soeu"]
 [ext_resource type="PackedScene" uid="uid://bncpjk0wbiv1s" path="res://Scenes/EnemiesObstaclesTiles/seeker_trigger_tile.tscn" id="26_fyg1r"]
@@ -30,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="29_d7mgx"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="29_dkhy6"]
 [ext_resource type="PackedScene" uid="uid://bsikpwvfgeymy" path="res://Scenes/Tiles/VirtualEnvironment400/400_soap_tile.tscn" id="30_505ui"]
+[ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="31_ha7kd"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="31_o3ewx"]
 
 [node name="Level404" type="Node2D"]
 
@@ -2487,14 +2488,6 @@ position = Vector2(1728, 544)
 [node name="ByteBarrierEasy3" parent="." instance=ExtResource("22_ngqna")]
 position = Vector2(1760, 608)
 
-[node name="ExtremeForeverBeamTile2" parent="." instance=ExtResource("23_ycbgw")]
-position = Vector2(2336, 448)
-rotation = 1.5708
-
-[node name="ExtremeForeverBeamTile3" parent="." instance=ExtResource("23_ycbgw")]
-position = Vector2(2304, 704)
-rotation = -1.5708
-
 [node name="BeetleBarrier" parent="." instance=ExtResource("24_cdlwr")]
 position = Vector2(2016, 544)
 
@@ -2741,3 +2734,15 @@ rotation = 1.5708
 [node name="400SoapTile15" parent="." instance=ExtResource("30_505ui")]
 position = Vector2(1984, 544)
 rotation = 1.5708
+
+[node name="ForeverBeamTile" parent="." instance=ExtResource("31_ha7kd")]
+position = Vector2(2304, 704)
+rotation = -1.5708
+
+[node name="ForeverBeamTile2" parent="." instance=ExtResource("31_ha7kd")]
+position = Vector2(2336, 448)
+rotation = 1.5708
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("31_o3ewx")]
+position = Vector2(2624, 576)
+unlocks = 405
