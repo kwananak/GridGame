@@ -75,7 +75,7 @@ func set_pause(value):
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	pause_menu.position = camera.position
+	pause_menu.position = camera.position + Vector2(140, 0)
 
 # calls subscribed nodes when player makes a move
 func end_turn():
@@ -209,7 +209,7 @@ func display_summary():
 		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = $/root/Main.get_level_name(level_number)
 	summary.get_node("Body").append_text(body)
-	summary.position = camera.position
+	summary.position = camera.position + Vector2(200, 0)
 	add_child(summary)
 	ui.hide()
 
@@ -218,7 +218,7 @@ func display_fail():
 		return
 	pause_menu = fail_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	pause_menu.position = camera.position
+	pause_menu.position = camera.position + Vector2(200, 0)
 	ui.hide()
 
 func back_to_terminal():
