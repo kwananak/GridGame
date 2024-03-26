@@ -43,7 +43,12 @@ func _on_area_entered(area):
 		moved = true
 	elif area.is_in_group("Player"):
 		ray.target_position = target
+		var lost_counter = 0
 		while true:
+			lost_counter += 1
+			if lost_counter > 32:
+				queue_free()
+				return
 			ray.force_raycast_update()
 			if ray.get_collider():
 				var collision = ray.get_collider()

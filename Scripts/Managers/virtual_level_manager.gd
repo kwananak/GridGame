@@ -14,10 +14,12 @@ var vision = false
 var dialogue = false : set = set_dialogue
 var shields = 0 : set = set_shield
 var doomwall
+var doomwall_state = "default" : set = set_doomwall_state
 var pause_menu
 var progress_manager
 
 signal barrier_down
+signal doomwall_state_changed
 
 @export var skip_dialogues = false
 @export var green_doomwall_step = 0.0
@@ -48,6 +50,10 @@ func _process(delta):
 		ui.position = camera.position
 		return
 	super._process(delta)
+
+func set_doomwall_state(value):
+	doomwall_state = value
+	doomwall_state_changed.emit(value)
 
 func set_dialogue(value):
 	if !value:

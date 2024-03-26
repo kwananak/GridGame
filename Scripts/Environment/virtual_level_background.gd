@@ -24,6 +24,7 @@ func _ready():
 	careful_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_careful_particle.tscn")
 	danger_particle_prefab = load("res://Scenes/Tiles/VirtualEnvironment" + number + "00/" + number + "00_danger_particle.tscn")
 	loaded_prefab = basic_particle_prefab
+	level_manager.doomwall_state_changed.connect(state_changed)
 
 func _process(delta):
 	if paused:
@@ -33,12 +34,23 @@ func _process(delta):
 		add_child(loaded_prefab.instantiate())
 		next_spawn_countdown = randf_range(0.1, upper_range)
 
-func _on_careful_visibility_changed():
-	loaded_prefab = careful_particle_prefab
-
-func _on_danger_visibility_changed():
-	loaded_prefab = danger_particle_prefab
-	upper_range = 0.2
-
 func set_pause(value):
 	paused = value
+
+func state_changed(value):
+	match value:
+		"careful":
+			$Careful.show()
+			loaded_prefab = careful_particle_prefab
+		"danger":
+			$Careful.hide()
+			$Danger.show()
+			loaded_prefab = danger_particle_prefab
+			upper_range = 0.2
+	for n in get_children():
+		if not n is ColorRect:
+			var substitute = loaded_prefab.instantiate()
+			add_child(substitute)
+			substitute.position = n.position
+			substitute.direction = n.direction
+			n.queue_free()

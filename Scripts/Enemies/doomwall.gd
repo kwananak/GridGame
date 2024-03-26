@@ -24,6 +24,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	set_collision_shape()
 	step = level_manager.green_doomwall_step
+	level_manager.doomwall_state_changed.connect(set_state)
 	vision_check()
 
 func _process(delta):
@@ -106,6 +107,14 @@ func fade_out():
 
 func set_state(value):
 	state = value
+	match state:
+		"careful":
+			step = level_manager.yellow_doomwall_step
+			get_tree().get_first_node_in_group("WarningUI").play("yellow")
+		"danger":
+			step = level_manager.red_doomwall_step
+			get_tree().get_first_node_in_group("WarningUI").play("red")
+	$AudioStreamPlayer.play()
 	for n in sprite.get_children():
 		var frame = n.frame
 		n.animation = state
