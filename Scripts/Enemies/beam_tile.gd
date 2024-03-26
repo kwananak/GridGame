@@ -45,7 +45,9 @@ func turn_call():
 				firing_for += 1
 				fire_beam()
 		else:
-			if cannon_recharge - charge == 1:
+			if charge == -1:
+				fire_beam()
+			elif cannon_recharge - charge == 1:
 				sprite.frame = 1
 			charge += 1
 		label.text = str(cannon_recharge - charge) + "  " + str(duration)
@@ -64,12 +66,17 @@ func fire_beam():
 			ray.force_raycast_update()
 			var hit = ray.get_collider()
 			if hit:
+				if hit.is_in_group("VirtualPlayer"):
+					if charge != -1:
+						hit.level_manager.health -= 1
+					break
 				if "tile_type" in hit:
 					match hit.tile_type:
 						"hole", "chip", "key":
 							pass
 						"enemy":
-							hit.hit_by_player(3)
+							if charge != -1:
+								hit.hit_by_player(3)
 							break
 						_:
 							break
