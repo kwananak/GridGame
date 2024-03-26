@@ -8,12 +8,12 @@ var player
 
 func turn_call():
 	if activated:
-		super.turn_call()
-	shield_prefab = preload("res://Scenes/Prefabs/seeker_enemy_shield.tscn")
+		await super.turn_call()
 
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	super._ready()
+	shield_prefab = preload("res://Scenes/Prefabs/seeker_enemy_shield.tscn")
 
 ## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
 func path_find():

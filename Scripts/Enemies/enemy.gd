@@ -34,7 +34,7 @@ func _ready():
 func turn_call():
 	while hitted:
 		await get_tree().create_timer(0.01).timeout
-	shield_check()
+	await shield_check()
 	if level_manager.turn % speed !=0:
 		return
 	$Sprite2D.hide()
@@ -56,12 +56,15 @@ func turn_call():
 	var frame = animated_sprite_2d.frame
 	if !is_destroyed:
 		animated_sprite_2d.animation = "move"
+	move_animation(frame)
+	if level_manager.vision:
+		$Sprite2D.show()
+
+func move_animation(frame):
 	await create_tween().tween_property(animated_sprite_2d, "position", Vector2.ZERO, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 	if !is_destroyed:
 		animated_sprite_2d.animation = "idle"
 		animated_sprite_2d.frame = frame
-	if level_manager.vision:
-		$Sprite2D.show()
 
 func path_find():
 	if path_nodes.is_empty():
@@ -102,6 +105,8 @@ func _on_area_entered(area):
 		return
 	if area.is_in_group("VirtualPlayer"):
 		level_manager.call_game_over()
+		return
+	if area.is_in_group("Beam"):
 		return
 	hit_by_player(3)
 

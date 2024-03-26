@@ -89,10 +89,11 @@ func end_turn():
 		return
 	turn += 1
 	await doomwall.turn_call()
-	for node in get_tree().get_nodes_in_group("EndTurn"):
-		node.turn_call()
-		#get_tree().create_timer(end_turn_speed).timeout
-	await get_tree().create_timer(0.02).timeout
+	for n in get_tree().get_nodes_in_group("EndTurn"):
+		await n.turn_call()
+	await get_tree().create_timer(0.03).timeout
+	for n in get_tree().get_nodes_in_group("LatterEndTurn"):
+		await n.turn_call()
 	player.move_check(player.step)
 
 func set_shield(value):

@@ -67,6 +67,9 @@ func fire_beam():
 					match ray.get_collider().tile_type:
 						"hole", "chip", "key":
 							pass
+						"enemy":
+							ray.get_collider().hit_by_player(3)
+							break
 						_:
 							break
 				else:

@@ -21,6 +21,7 @@ func loaded():
 	await get_tree().create_timer(0.2).timeout
 	level_manager.shields += strength
 	add_to_group("DiamondArmor")
+	add_to_group("EndTurn")
 
 func turn_call():
 	if !is_in_group("DiamondArmor") || used == 0:
