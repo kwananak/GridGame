@@ -20,23 +20,20 @@ func check_move(player_position):
 	target = ray.target_position
 	return true
 
-func _on_area_entered(area):
-	moved = true
-	if area.is_in_group("Player"):
-		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)
-		audio.play()
-		var old_pos = global_position
-		position += target
-		sprite.global_position = old_pos
-		await create_tween().tween_property(sprite, "position", Vector2.ZERO, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
-		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, true)
-	sprite.frame = 1
-
-func grapple_move(direction):
+func move(direction):
 	moved = true
 	audio.play()
 	var old_pos = global_position
+	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, false)
 	position += direction
+	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
 	sprite.global_position = old_pos
-	await create_tween().tween_property(sprite, "position", Vector2.ZERO, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE).finished
+	create_tween().tween_property(sprite, "position", Vector2.ZERO, 1.5/get_tree().get_first_node_in_group("VirtualLevelManager").animation_speed).set_trans(Tween.TRANS_SINE)
 	sprite.frame = 1
+
+func _on_area_entered(_area):
+	moved = true
+	sprite.frame = 1
+
+func hit_by_player(_hit):
+	await move(target)

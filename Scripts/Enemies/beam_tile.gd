@@ -62,13 +62,14 @@ func fire_beam():
 		while true:
 			ray.position = Vector2(i * level_manager.tile_size, 0)
 			ray.force_raycast_update()
-			if ray.get_collider():
-				if "tile_type" in ray.get_collider():
-					match ray.get_collider().tile_type:
+			var hit = ray.get_collider()
+			if hit:
+				if "tile_type" in hit:
+					match hit.tile_type:
 						"hole", "chip", "key":
 							pass
 						"enemy":
-							ray.get_collider().hit_by_player(3)
+							hit.hit_by_player(3)
 							break
 						_:
 							break

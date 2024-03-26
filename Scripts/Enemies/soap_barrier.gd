@@ -29,6 +29,9 @@ func check_move(player_position):
 	target = ray.target_position
 	return true
 
+func hit_by_player(area):
+	await _on_area_entered(area)
+
 func _on_area_entered(area):
 	moving = true
 	$AudioStreamPlayer2D.play()

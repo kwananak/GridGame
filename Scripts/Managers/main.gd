@@ -27,7 +27,7 @@ func set_menu():
 		$MainMenu.visible = false
 		menu = $DebugMenu
 		continue_button = $DebugMenu/ContinueGame
-		new_game_button = $DebugMenu/NewGame
+		new_game_button = $DebugMenu/VirtualTestLevelButton
 		new_game_button.grab_focus()
 	else:
 		menu = $MainMenu

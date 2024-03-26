@@ -45,15 +45,14 @@ func get_input():
 			return
 
 func _input(event):
-	if level_manager.game_over || level_manager.dialogue:
+	if level_manager.game_over || level_manager.dialogue || moving :
 		return
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
 	if level_manager.paused:
 		return
 	if event.is_action_pressed("skip_turn"):
-		if !moving:
-			skip_turn()
+		skip_turn()
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			for n in $PossibleMoves.get_children():
@@ -61,6 +60,8 @@ func _input(event):
 					await handle_directional_input(n)
 
 func handle_directional_input(dir):
+	if moving:
+		return
 	moving = true
 	match dir.name:
 		"left":
@@ -76,7 +77,9 @@ func handle_directional_input(dir):
 		act(dir)
 		return
 	elif dir.possible:
-		move(dir.global_position)
+		await move(dir.global_position)
+		if !teleport:
+			level_manager.end_turn()
 		return
 	moving = false
 
@@ -84,14 +87,17 @@ func handle_directional_input(dir):
 func skip_turn():
 	if level_manager.game_over || level_manager.dialogue || level_manager.paused:
 		return
+	moving = true
 	if waiting_for_action:
 		waiting_for_action.cancel_action()
-	moving = true
-	for n in possible_moves:
-		n.reset()
+	reset_moves()
 	await get_tree().create_timer(0.1).timeout
 	skip_turn_button.show_skip()
 	await level_manager.end_turn()
+
+func reset_moves():
+	for n in possible_moves:
+		n.reset()
 
 # triggers action on selected direction
 func act(dir):
@@ -99,8 +105,13 @@ func act(dir):
 	for n in possible_moves:
 		n.hide()
 	if !waiting_for_action:
+		var saved_dir = dir.available_action
 		play_hit()
-		await dir.available_action.hit_by_player(self)
+		if "tile_type" in dir.available_action:
+			match dir.available_action.tile_type:
+				"mobile", "soap":
+					move(dir.global_position)
+		await saved_dir.hit_by_player(self)
 	else:
 		match waiting_for_action.type:
 			dir.available_action.name, "GrapplingTool", "Sour":
@@ -123,8 +134,7 @@ func play_hit():
 # grid based character movement to available checked locations
 func move(pos):
 	moving = true
-	for n in possible_moves:
-		n.reset()
+	reset_moves()
 	if teleport:
 		hide()
 		await get_tree().create_timer(0.2).timeout
@@ -152,19 +162,9 @@ func move(pos):
 	if waiting_for_action != null:
 		waiting_for_action.confirm()
 		waiting_for_action = null
-	if !teleport:
-		level_manager.end_turn()
-
-func soap_moving():
-	for n in get_tree().get_nodes_in_group("SoapBarriers"):
-		if n.moving:
-			return true
-	return false
 
 # check for available location for player movement or action
 func move_check(distance):
-	while soap_moving():
-		await get_tree().create_timer(0.01).timeout
 	moving = true
 	if level_manager.game_over:
 		return

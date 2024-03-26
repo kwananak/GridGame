@@ -61,7 +61,7 @@ func check_collision(collision):
 						return
 				if !collision.moved:
 					if collision.check_move(player.global_position):
-						possible = true
+						available_action = collision
 						return
 			"beetle":
 				if player.teleport:

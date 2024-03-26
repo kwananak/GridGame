@@ -14,9 +14,9 @@ func _on_area_entered(area):
 						break
 				cannon.fire_beam()
 			"enemy":
+				cannon.fire_beam()
 				if cannon.name.begins_with("Forever"):
 					cannon.charge = -1
-				cannon.fire_beam()
 	if area.is_in_group("Player"):
 		var lev_man = get_tree().get_first_node_in_group("VirtualLevelManager")
 		lev_man.health -= 1

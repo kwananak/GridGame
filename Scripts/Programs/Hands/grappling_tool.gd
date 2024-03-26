@@ -135,7 +135,7 @@ func grapple_hit(dir):
 	player.animated_sprite_2d.play("idle")
 
 func grapple_mobile(destination, barrier):
-	barrier.grapple_move(-destination.normalized() * 32)
+	barrier.move(-destination.normalized() * 32)
 	for n in 8:
 		await get_tree().create_timer(0.01).timeout
 		var section = grapple.pop_back()
@@ -172,13 +172,13 @@ func remove_grapple(destination):
 		await get_tree().create_timer(0.005).timeout
 		if destination != Vector2.ZERO:
 			var section = grapple.pop_front()
-			if section != null:
+			if is_instance_valid(section):
 				section.queue_free()
 		else:
 			var section = grapple.pop_back()
-			if tip != null:
+			if is_instance_valid(tip) && is_instance_valid(section):
 				tip.position = section.position
-			if section != null:
+			if is_instance_valid(section):
 				section.queue_free()
 		grapple_sound.pitch_scale -= 0.01
 	grapple_sound.stop()
