@@ -37,6 +37,9 @@ func _on_area_entered(_area):
 	moved = true
 	sprite.frame = 1
 
-func hit_by_player(_hit):
+func hit_by_player(hit):
+	if "type" in hit:
+		if hit.type == "CircleWhip":
+			return
 	move(target)
 	await get_tree().create_timer(0.1).timeout

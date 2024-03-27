@@ -282,24 +282,19 @@ func circle_hit(whip):
 	moving = true
 	for n in possible_moves:
 		n.hide()
-	animated_sprite_2d.animation = "circle_whip"
-	await animated_sprite_2d.animation_finished
+	$AnimationPlayer.play("circle_whip")
+	await get_tree().create_timer(0.5).timeout
 	whip.get_node("Audio").play()
-	var tween = create_tween()
-	tween.tween_property(animated_sprite_2d, "rotation_degrees", 360, 0.8)
 	for dir in all_dir:
 		ray.target_position = dir * (level_manager.tile_size * 1.5)
 		ray.force_raycast_update()
 		var collision = ray.get_collider()
 		if collision:
-			if collision.is_in_group("AccessPoint"):
+			if collision.is_in_group("AccessPoint") || collision.name.begins_with("Mobile"):
 				collision.hit_by_player(whip)
 			elif collision.has_method("hit_by_player"):
 				collision.hit_by_player(whip.strength)
-	await tween.finished
-	animated_sprite_2d.rotation_degrees = 0
-	animated_sprite_2d.animation = "idle"
-	animated_sprite_2d.play()
+	await $AnimationPlayer.animation_finished
 	level_manager.end_turn()
 
 # check for grapple points availablity

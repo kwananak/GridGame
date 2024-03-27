@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=12 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_w8gh5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/VirtualEnvironment100/virtual_start_tile.tscn" id="11_7i0mp"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="15_y7k4q"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="21_3d5h7"]
+[ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="25_bmmiy"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -82,3 +83,9 @@ position = Vector2(192, 352)
 
 [node name="BeamTile" parent="." instance=ExtResource("21_3d5h7")]
 position = Vector2(192, 192)
+
+[node name="SoapBarrier" parent="." instance=ExtResource("25_bmmiy")]
+position = Vector2(288, 224)
+
+[node name="SoapBarrier2" parent="." instance=ExtResource("25_bmmiy")]
+position = Vector2(192, 288)
