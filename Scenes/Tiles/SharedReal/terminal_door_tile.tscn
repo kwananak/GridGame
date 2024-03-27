@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_jlqeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["TerminalDoor"]]
 sprite_frames = SubResource("SpriteFrames_qon0b")
-animation = &"open"
+animation = &"closed"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -111,3 +111,4 @@ volume_db = -10.0
 bus = &"FX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
