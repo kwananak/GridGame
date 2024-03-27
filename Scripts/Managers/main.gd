@@ -159,7 +159,7 @@ func continue_game():
 		return
 	if !real_scene:
 		if !progress_manager.save_point:
-			await progress_manager.load_game()
+			await progress_manager.load_game(null)
 		real_scene = load("res://Scenes/Levels/" + progress_manager.save_point + ".tscn").instantiate()
 	menu_audio.stop()
 	if has_node("RealAudio"):
@@ -184,3 +184,15 @@ func get_level_name(level_number):
 func disable_continue():
 	continue_button.disabled = true
 	new_game_button.grab_focus()
+
+func load_fixed_save(save_number):
+	real_scene = null
+	terminal_scene = null
+	virtual_scene = null
+	await progress_manager.load_game(save_number)
+	real_scene = load("res://Scenes/Levels/" + progress_manager.save_point + ".tscn").instantiate()
+	menu_audio.stop()
+	if has_node("RealAudio"):
+		$RealAudio.play()
+	menu.visible = false
+	add_child(real_scene)

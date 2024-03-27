@@ -441,6 +441,22 @@ offset_right = 558.0
 offset_bottom = 341.0
 text = "New Game"
 
+[node name="Level2Save" type="Button" parent="DebugMenu"]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 239.0
+offset_right = 871.0
+offset_bottom = 270.0
+text = "Level 2 Save"
+
+[node name="Level3Save" type="Button" parent="DebugMenu"]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 285.0
+offset_right = 872.0
+offset_bottom = 316.0
+text = "Level 3 Save"
+
 [node name="ContinueGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
 offset_left = 436.0
@@ -575,5 +591,7 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/RealTestLevelButton" to="." method="call_level" binds= [0]]
 [connection signal="pressed" from="DebugMenu/QuitButton" to="." method="call_quit"]
 [connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
+[connection signal="pressed" from="DebugMenu/Level2Save" to="." method="load_fixed_save" binds= [1]]
+[connection signal="pressed" from="DebugMenu/Level3Save" to="." method="load_fixed_save" binds= [2]]
 [connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]
 [connection signal="button_down" from="DebugMenu/Cutscene" to="." method="call_cutscene" binds= [1]]

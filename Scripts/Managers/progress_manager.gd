@@ -234,14 +234,25 @@ func save_game():
 	save_file.store_line(JSON.stringify(s))
 	save_file.close()
 
-func load_game():
+func load_game(save_number):
+	print(save_number)
 	await reset_progress()
-	if not FileAccess.file_exists(save_path):
-		$/root/Main.disable_continue()
-		return
-	var save_file = FileAccess.open(save_path, FileAccess.READ)
-	var json_string = save_file.get_line()
-	save_file.close()
+	var json_string
+	if !save_number:
+		if not FileAccess.file_exists(save_path):
+			$/root/Main.disable_continue()
+			return
+		var save_file = FileAccess.open(save_path, FileAccess.READ)
+		json_string = save_file.get_line()
+		save_file.close()
+	else:
+		if not FileAccess.file_exists("res://Txts/fixed_saves.txt"):
+			$/root/Main.disable_continue()
+			return
+		var save_file = FileAccess.open("res://Txts/fixed_saves.txt", FileAccess.READ)
+		for i in save_number:
+			json_string = save_file.get_line()
+		save_file.close()
 	var json = JSON.new()
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:

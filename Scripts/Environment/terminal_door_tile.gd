@@ -24,8 +24,8 @@ func update_door():
 						continue
 					else:
 						on = true
-				await get_tree().create_timer(0.15).timeout
-				n.on = true
+					await get_tree().create_timer(0.15).timeout
+					n.on = true
 
 func _on_body_entered(body):
 	if body.global_position && on:
