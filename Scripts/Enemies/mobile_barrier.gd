@@ -38,4 +38,5 @@ func _on_area_entered(_area):
 	sprite.frame = 1
 
 func hit_by_player(_hit):
-	await move(target)
+	move(target)
+	await get_tree().create_timer(0.1).timeout
