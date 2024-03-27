@@ -38,6 +38,9 @@ func _on_area_entered(_area):
 	sprite.frame = 1
 
 func hit_by_player(hit):
+	if "tile_type" in  hit:
+		if hit.tile_type == "mantis":
+			return
 	if "type" in hit:
 		if hit.type == "CircleWhip":
 			return

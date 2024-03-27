@@ -30,6 +30,8 @@ func shine():
 	floor_tile.play()
 
 func twinkle():
+	if get_tree().get_nodes_in_group("WallTiles").size() < 2:
+		return
 	var wall_tile = get_tree().get_nodes_in_group("WallTiles")[randi_range(0, get_tree().get_nodes_in_group("WallTiles").size()) - 1]
 	while !framed_checker.check(wall_tile.global_position):
 		wall_tile = get_tree().get_nodes_in_group("WallTiles")[randi_range(0, get_tree().get_nodes_in_group("WallTiles").size()) - 1]
