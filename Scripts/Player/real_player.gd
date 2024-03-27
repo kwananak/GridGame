@@ -41,11 +41,22 @@ func _input(event):
 func enter_level_animation():
 	var level_number = $/root/Main.real_scene.name.substr($/root/Main.real_scene.name.length() -1, -1)
 	if int($/root/Main.coming_from) > int(level_number):
-		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
+		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 16)
 	else:
-		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 12)
-	await create_tween().tween_property($AnimatedSprite2D, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
+		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 16)
+	await create_tween().tween_property(animated_sprite_2d, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
+	animated_sprite_2d.play("idle")
 	set_collision_layer_value(2, true)
+
+func exit_level(point):
+	animated_sprite_2d.play("move")
+	if point.global_position.x > global_position.x:
+		animated_sprite_2d.flip_h = false
+	else:
+		animated_sprite_2d.flip_h = true
+	create_tween().tween_property(animated_sprite_2d, "global_position", point.global_position + Vector2(0, 4), 0.8).set_trans(Tween.TRANS_SINE)
+	await create_tween().tween_property(animated_sprite_2d, "scale", Vector2(0.6, 0.6), 0.8).set_trans(Tween.TRANS_SINE).finished
+	hide()
 
 func _process(delta):
 	if level_manager.game_over || level_manager.paused || !active:

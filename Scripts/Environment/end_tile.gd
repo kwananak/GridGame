@@ -15,6 +15,7 @@ func _ready():
 func _on_area_entered(_area):
 	if !on:
 		return
+	get_tree().get_first_node_in_group("RealPlayer").exit_level(self)
 	if start_tile.global_position == global_position:
 		start_tile.get_node("AnimatedSprite2D").play("open")
 	var l_m = get_tree().get_first_node_in_group("RealLevelManager")

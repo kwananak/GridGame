@@ -235,7 +235,6 @@ func save_game():
 	save_file.close()
 
 func load_game(save_number):
-	print(save_number)
 	await reset_progress()
 	var json_string
 	if !save_number:
