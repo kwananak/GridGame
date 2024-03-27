@@ -34,7 +34,7 @@ func twinkle():
 	while !framed_checker.check(wall_tile.global_position):
 		wall_tile = get_tree().get_nodes_in_group("WallTiles")[randi_range(0, get_tree().get_nodes_in_group("WallTiles").size()) - 1]
 	var twink = twinkle_prefab.instantiate()
-	add_child(twink)
+	$FX.add_child(twink)
 	twink.global_position = wall_tile.global_position + Vector2(randf_range(-14, 14), randf_range(-14, 14))
 	twink.play()
 	await twink.animation_finished

@@ -51,6 +51,7 @@ func state_changed(value):
 		if not n is ColorRect:
 			var substitute = loaded_prefab.instantiate()
 			add_child(substitute)
-			substitute.position = n.position
+			substitute.rotation = n.rotation
 			substitute.direction = n.direction
+			substitute.position = n.position
 			n.queue_free()
