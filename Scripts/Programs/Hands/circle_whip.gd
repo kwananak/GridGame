@@ -13,4 +13,20 @@ func loaded():
 
 func action():
 	$LoadedSprite/Button.frame = 1
-	player.circle_hit(self)
+	player.moving = true
+	for n in player.possible_moves:
+		n.hide()
+	player.get_node("AnimationPlayer").play("circle_whip")
+	await get_tree().create_timer(0.5).timeout
+	$Audio.play()
+	for dir in player.all_dir:
+		player.ray.target_position = dir * (level_manager.tile_size * 1.5)
+		player.ray.force_raycast_update()
+		var collision = player.ray.get_collider()
+		if collision:
+			if collision.is_in_group("AccessPoint") || collision.name.begins_with("Mobile"):
+				collision.hit_by_player(self)
+			elif collision.has_method("hit_by_player"):
+				collision.hit_by_player(strength)
+	await player.get_node("AnimationPlayer").animation_finished
+	level_manager.end_turn()

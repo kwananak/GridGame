@@ -19,6 +19,7 @@ var row_checker
 var teleport = false
 var saved_frame = 0
 var skip_turn_button
+var handling
 
 @onready var shield = $AnimatedSprite2D/Shield
 
@@ -27,25 +28,27 @@ func _ready():
 	skip_turn_button = get_tree().get_first_node_in_group("SkipTurnButton")
 	possible_moves = $PossibleMoves.get_children()
 	row_checker = $RowChecker
+	$AudioListener2D.make_current()
 	await enter_level_animation()
 	move_check(step)
-	$AudioListener2D.make_current()
 
 func _physics_process(_delta):
 	get_input()
 
 # checks for pressed or held direction keys
 func get_input():
-	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue:
+	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue || handling:
 		return
+	handling = true
 	for dir in inputs.keys():
 		var dir_node = get_node("PossibleMoves/" + dir)
 		if Input.is_action_pressed(dir):
-			handle_directional_input(dir_node)
-			return
+			if dir_node.visible && !moving:
+				handle_directional_input(dir_node)
+	handling = false
 
 func _input(event):
-	if level_manager.game_over || level_manager.dialogue || moving :
+	if level_manager.game_over || level_manager.dialogue || moving || handling:
 		return
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
@@ -60,8 +63,6 @@ func _input(event):
 					await handle_directional_input(n)
 
 func handle_directional_input(dir):
-	if moving:
-		return
 	moving = true
 	match dir.name:
 		"left":
@@ -106,11 +107,14 @@ func act(dir):
 		n.hide()
 	if !waiting_for_action:
 		var saved_dir = dir.available_action
-		play_hit()
 		if "tile_type" in dir.available_action:
 			match dir.available_action.tile_type:
 				"mobile", "soap":
 					move(dir.global_position)
+				_:
+					play_hit()
+		else:
+			play_hit()
 		await saved_dir.hit_by_player(self)
 	else:
 		match waiting_for_action.type:
@@ -129,7 +133,6 @@ func play_hit():
 	animated_sprite_2d.animation = "hit"
 	await animated_sprite_2d.animation_finished
 	animated_sprite_2d.animation = "idle"
-	animated_sprite_2d.play()
 
 # grid based character movement to available checked locations
 func move(pos):
@@ -162,7 +165,7 @@ func move(pos):
 	if waiting_for_action != null:
 		waiting_for_action.confirm()
 		waiting_for_action = null
-
+ 
 # check for available location for player movement or action
 func move_check(distance):
 	moving = true
@@ -277,26 +280,6 @@ func projectile_check(program):
 			n.available_action = program
 	moving = false
 
-# hits a tile away in all direction
-func circle_hit(whip):
-	moving = true
-	for n in possible_moves:
-		n.hide()
-	$AnimationPlayer.play("circle_whip")
-	await get_tree().create_timer(0.5).timeout
-	whip.get_node("Audio").play()
-	for dir in all_dir:
-		ray.target_position = dir * (level_manager.tile_size * 1.5)
-		ray.force_raycast_update()
-		var collision = ray.get_collider()
-		if collision:
-			if collision.is_in_group("AccessPoint") || collision.name.begins_with("Mobile"):
-				collision.hit_by_player(whip)
-			elif collision.has_method("hit_by_player"):
-				collision.hit_by_player(whip.strength)
-	await $AnimationPlayer.animation_finished
-	level_manager.end_turn()
-
 # check for grapple points availablity
 func grapple_check(distance):
 	moving = true
@@ -354,8 +337,8 @@ func get_hit():
 	moving = true
 	animated_sprite_2d.animation = "get_hit"
 	await get_tree().create_timer(0.2).timeout
-	animated_sprite_2d.animation = "idle"
-	animated_sprite_2d.play()
+	if animated_sprite_2d.animation == "get_hit":
+		animated_sprite_2d.animation = "idle"
 	moving = temp_move
 
 func enter_level_animation():
@@ -363,7 +346,6 @@ func enter_level_animation():
 	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
 	await animated_sprite_2d.animation_finished
 	animated_sprite_2d.animation = "idle"
-	animated_sprite_2d.play()
 
 func death_animation():
 	await get_tree().create_timer(0.3).timeout
@@ -371,7 +353,6 @@ func death_animation():
 	if animated_sprite_2d.get_child_count() > 0:
 		deactivate_shield()
 	animated_sprite_2d.animation = "death"
-	animated_sprite_2d.play()
 
 func return_animation():
 	await get_tree().create_timer(0.3).timeout
@@ -379,4 +360,7 @@ func return_animation():
 	if animated_sprite_2d.get_child_count() > 0:
 		reduce_shield()
 	animated_sprite_2d.animation = "return"
-	animated_sprite_2d.play()
+
+func _on_animation_changed():
+	if animated_sprite_2d:
+		animated_sprite_2d.play()
