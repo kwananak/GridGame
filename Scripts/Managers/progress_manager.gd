@@ -198,7 +198,7 @@ func reset_progress():
 				for p in o.get_children():
 					p.queue_free()
 	completed_levels = []
-	unlocked_levels = ["101", "201", "301"]
+	unlocked_levels = ["101", "201", "301", "401"]
 	doors = []
 	create_levels_dict()
 	save_point = null

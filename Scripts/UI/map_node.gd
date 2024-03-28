@@ -8,7 +8,7 @@ extends Control
 
 var selected = false : set = set_selected
 var moused = false
-var completed = false
+var completed = false : set = set_completed
 var progress_manager
 var map_frame
 var name_label
@@ -41,6 +41,10 @@ func _input(event):
 		if event is InputEventMouseButton:
 			if event.is_pressed() && event.button_index == 1 && moused:
 				selected = !selected
+
+func set_completed(value):
+	completed = value
+	$CompletedSprite.visible = completed
 
 func set_selected(value):
 	selected = value
