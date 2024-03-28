@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cljm2unsknu0d"]
+[gd_scene load_steps=24 format=3 uid="uid://cljm2unsknu0d"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_ufbyt"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_nrsom"]
@@ -19,8 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://b3v5ih4tiwn3w" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_left_corner.tscn" id="20_ii4sx"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="20_wgs5d"]
 [ext_resource type="PackedScene" uid="uid://dpfrto4yk0wth" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_right_corner.tscn" id="21_d2edn"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_krf7c"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="22_u0ec5"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="23_8pn86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xmh6"]
+size = Vector2(20, 224)
 
 [node name="Level107" type="Node2D"]
 
@@ -920,6 +924,39 @@ position = Vector2(576, 704)
 [node name="CornerWallTile11" parent="Environment/Walls" instance=ExtResource("7_nmkbe")]
 position = Vector2(736, 768)
 
+[node name="100WalLowerRightCorner" parent="Environment/Walls" instance=ExtResource("19_735js")]
+position = Vector2(736, 832)
+
+[node name="100WalLowerRightCorner2" parent="Environment/Walls" instance=ExtResource("19_735js")]
+position = Vector2(864, 768)
+
+[node name="100WallLowerLeftCorner" parent="Environment/Walls" instance=ExtResource("20_ii4sx")]
+position = Vector2(192, 448)
+
+[node name="100WallLowerLeftCorner2" parent="Environment/Walls" instance=ExtResource("20_ii4sx")]
+position = Vector2(800, 384)
+
+[node name="100WallUpperRightCorner" parent="Environment/Walls" instance=ExtResource("21_d2edn")]
+position = Vector2(864, 384)
+
+[node name="100WallUpperRightCorner2" parent="Environment/Walls" instance=ExtResource("21_d2edn")]
+position = Vector2(736, 448)
+
+[node name="100WalLowerRightCorner3" parent="Environment/Walls" instance=ExtResource("19_735js")]
+position = Vector2(736, 576)
+
+[node name="100WalLowerRightCorner4" parent="Environment/Walls" instance=ExtResource("19_735js")]
+position = Vector2(672, 608)
+
+[node name="100WalLowerRightCorner5" parent="Environment/Walls" instance=ExtResource("19_735js")]
+position = Vector2(640, 704)
+
+[node name="100WallLowerLeftCorner3" parent="Environment/Walls" instance=ExtResource("20_ii4sx")]
+position = Vector2(576, 832)
+
+[node name="100WallUpperRightCorner3" parent="Environment/Walls" instance=ExtResource("21_d2edn")]
+position = Vector2(800, 192)
+
 [node name="GameplayElements" type="Node2D" parent="."]
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
@@ -1308,6 +1345,17 @@ unlocks = 2
 
 [node name="WarningTiles" type="Node2D" parent="GameplayElements"]
 
+[node name="Others" type="Node2D" parent="GameplayElements"]
+
+[node name="TerminalAccesPoint" parent="GameplayElements/Others" instance=ExtResource("20_fq02a")]
+position = Vector2(608, 768)
+rotation = -3.14159
+targets = Vector3i(8, 3, 2)
+
+[node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("20_wgs5d")]
+position = Vector2(608, 768)
+unlocks = 2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_xv0j6")
 autoplay = true
@@ -1315,44 +1363,10 @@ bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="TerminalAccesPoint" parent="." instance=ExtResource("20_fq02a")]
-position = Vector2(608, 768)
-rotation = -3.14159
-targets = Vector3i(8, 3, 2)
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_krf7c")]
+dialogue_number = 1
+related_node = NodePath("../../GameplayElements/Others/TerminalAccesPoint")
 
-[node name="VirtualEndTile" parent="." instance=ExtResource("20_wgs5d")]
-position = Vector2(608, 768)
-unlocks = 2
-
-[node name="100WalLowerRightCorner" parent="." instance=ExtResource("19_735js")]
-position = Vector2(736, 832)
-
-[node name="100WalLowerRightCorner2" parent="." instance=ExtResource("19_735js")]
-position = Vector2(864, 768)
-
-[node name="100WallLowerLeftCorner" parent="." instance=ExtResource("20_ii4sx")]
-position = Vector2(192, 448)
-
-[node name="100WallLowerLeftCorner2" parent="." instance=ExtResource("20_ii4sx")]
-position = Vector2(800, 384)
-
-[node name="100WallUpperRightCorner" parent="." instance=ExtResource("21_d2edn")]
-position = Vector2(864, 384)
-
-[node name="100WallUpperRightCorner2" parent="." instance=ExtResource("21_d2edn")]
-position = Vector2(736, 448)
-
-[node name="100WalLowerRightCorner3" parent="." instance=ExtResource("19_735js")]
-position = Vector2(736, 576)
-
-[node name="100WalLowerRightCorner4" parent="." instance=ExtResource("19_735js")]
-position = Vector2(672, 608)
-
-[node name="100WalLowerRightCorner5" parent="." instance=ExtResource("19_735js")]
-position = Vector2(640, 704)
-
-[node name="100WallLowerLeftCorner3" parent="." instance=ExtResource("20_ii4sx")]
-position = Vector2(576, 832)
-
-[node name="100WallUpperRightCorner3" parent="." instance=ExtResource("21_d2edn")]
-position = Vector2(800, 192)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(256, 320)
+shape = SubResource("RectangleShape2D_1xmh6")

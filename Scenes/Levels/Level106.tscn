@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmef013rmla30"]
+[gd_scene load_steps=29 format=3 uid="uid://cmef013rmla30"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_o1uv0"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_o1uv0"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_sm4hr"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_1sa0a"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="4_nmiid"]
@@ -25,6 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="20_lkwys"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="21_ucs1y"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="22_4trx8"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="26_aaxj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2juq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxtgj"]
 
 [node name="Level106" type="Node2D"]
 
@@ -1747,3 +1752,15 @@ autoplay = true
 bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("26_aaxj4")]
+dialogue_number = 1
+related_node = NodePath("../../GameplayElements/GameplayTiles/GogglesTile")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(768, 384)
+shape = SubResource("RectangleShape2D_n2juq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(736, 480)
+shape = SubResource("RectangleShape2D_mxtgj")
