@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dmkkas0u00f1t"]
+[gd_scene load_steps=36 format=3 uid="uid://dmkkas0u00f1t"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_nrr7a"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="2_uqucm"]
@@ -32,13 +32,25 @@ region = Rect2(0, 2141, 41, 19)
 atlas = ExtResource("3_dyt2q")
 region = Rect2(16, 848, 541, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8xg8u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_blqbs"]
 atlas = ExtResource("3_dyt2q")
-region = Rect2(176, 8, 312, 168)
+region = Rect2(686, 992, 262, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_orsoq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lwbf"]
 atlas = ExtResource("3_dyt2q")
-region = Rect2(512, 164, 50, 6)
+region = Rect2(704, 870, 68, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ss3w"]
+atlas = ExtResource("3_dyt2q")
+region = Rect2(786, 870, 66, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eaq3"]
+atlas = ExtResource("3_dyt2q")
+region = Rect2(808, 910, 44, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvfrw"]
+atlas = ExtResource("3_dyt2q")
+region = Rect2(684, 914, 120, 34)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
 atlas = ExtResource("9_n5yn6")
@@ -174,47 +186,75 @@ offset_right = 214.0
 offset_bottom = 146.0
 
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(296.09, 146.746)
-texture = SubResource("AtlasTexture_8xg8u")
+position = Vector2(320.895, 147.761)
+texture = SubResource("AtlasTexture_blqbs")
 
 [node name="Level401" parent="Map" instance=ExtResource("5_6svpl")]
-offset_left = -304.0
-offset_top = -8.0
-offset_right = -304.0
-offset_bottom = -8.0
+offset_left = -251.895
+offset_top = -71.8806
+offset_right = -251.895
+offset_bottom = -71.8806
 available = true
 node_level = 401
 node_color = "blue"
 
 [node name="Level402" parent="Map" instance=ExtResource("5_6svpl")]
-offset_left = -238.0
-offset_top = -11.0
-offset_right = -238.0
-offset_bottom = -11.0
+offset_left = -169.06
+offset_top = -88.2985
+offset_right = -169.06
+offset_bottom = -88.2985
 node_level = 402
 node_color = "blue"
 
 [node name="LinkSprite" parent="Map/Level402" instance=ExtResource("6_sp40k")]
-position = Vector2(-33, 2)
-texture = SubResource("AtlasTexture_orsoq")
+position = Vector2(-41.0448, 8.20896)
+texture = SubResource("AtlasTexture_4lwbf")
+offset = Vector2(0.055, -0.205)
 
 [node name="Level403" parent="Map" instance=ExtResource("5_6svpl")]
-offset_left = -194.627
-offset_top = -38.2093
-offset_right = -194.627
-offset_bottom = -38.2093
+offset_left = -92.194
+offset_top = -53.9701
+offset_right = -92.194
+offset_bottom = -53.9701
 node_level = 403
-node_color = "pink"
+node_color = "blue"
 
 [node name="LinkSprite" parent="Map/Level403" instance=ExtResource("6_sp40k")]
-position = Vector2(-33, 2)
-texture = SubResource("AtlasTexture_orsoq")
+position = Vector2(-37.3134, -20.1493)
+texture = SubResource("AtlasTexture_2ss3w")
+offset = Vector2(0.315, 0.15)
+
+[node name="Level404" parent="Map" instance=ExtResource("5_6svpl")]
+offset_left = -145.179
+offset_top = -9.9403
+offset_right = -145.179
+offset_bottom = -9.9403
+node_level = 404
+node_color = "blue"
+
+[node name="LinkSprite" parent="Map/Level404" instance=ExtResource("6_sp40k")]
+position = Vector2(26.8657, -22.388)
+texture = SubResource("AtlasTexture_1eaq3")
+offset = Vector2(0.12, 0.38)
+
+[node name="Level405" parent="Map" instance=ExtResource("5_6svpl")]
+offset_left = -10.1044
+offset_top = -41.2836
+offset_right = -10.1044
+offset_bottom = -41.2836
+node_level = 404
+node_color = "pink"
+
+[node name="LinkSprite" parent="Map/Level405" instance=ExtResource("6_sp40k")]
+position = Vector2(-67.1642, 15.6716)
+texture = SubResource("AtlasTexture_wvfrw")
+offset = Vector2(0.165, 0.315)
 
 [node name="MapInfos" parent="Map" instance=ExtResource("7_il0do")]
-offset_left = -255.792
-offset_top = -78.0899
-offset_right = -158.792
-offset_bottom = 22.9101
+offset_left = -279.851
+offset_top = -76.8657
+offset_right = -182.851
+offset_bottom = 24.1343
 
 [node name="DoorLabel" type="Control" parent="."]
 layout_mode = 3
