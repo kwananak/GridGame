@@ -5,6 +5,7 @@ extends Area2D
 @export var related_node : Node
 @export var text_speed = 5
 @export var highlight_color = "red"
+@export var camera_speed = 1
 
 var animating = true
 var writing
@@ -16,7 +17,6 @@ var player
 var progress_manager
 var dialog
 
-@onready var camera_speed = 1
 @onready var bubble = $Bubble
 @onready var button = $Bubble/Button
 @onready var label = $Bubble/Label
