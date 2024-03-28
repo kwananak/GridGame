@@ -48,7 +48,7 @@ visible = false
 
 [node name="VirtualLevelBackgroundColors2" parent="." instance=ExtResource("1_17red")]
 offset_right = 1152.0
-offset_bottom = 672.0
+offset_bottom = 864.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1512,8 +1512,9 @@ rotation = -3.14159
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="DialogueArea" parent="Dialogue" instance=ExtResource("24_qy8uc")]
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("24_qy8uc")]
 dialogue_number = 1
+related_node = NodePath("../../GameplayElements/Others/TerminalAccesPoint")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(160, 96)
