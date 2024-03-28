@@ -16,6 +16,7 @@ var player
 var progress_manager
 var dialog
 
+@onready var camera_speed = 1
 @onready var bubble = $Bubble
 @onready var button = $Bubble/Button
 @onready var label = $Bubble/Label
@@ -60,7 +61,7 @@ func close():
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(200, 300)
 	bubble.show()
-	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-200, 60), 0.2).finished
+	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-200, 60), 0.4 * camera_speed).finished
 	bubble.get_node("Tail").hide()
 	bubble.play()
 	await bubble.animation_finished
