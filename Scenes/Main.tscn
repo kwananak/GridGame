@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=20 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
@@ -14,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://cselemljabpr2" path="res://Scenes/Managers/framed_checker.tscn" id="9_yo8bd"]
 [ext_resource type="Script" path="res://Scripts/UI/camera_2d.gd" id="10_7fk0w"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="11_akdjr"]
+[ext_resource type="Shader" path="res://Vignette.gdshader" id="11_rsqb0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_623tq"]
+shader = ExtResource("11_rsqb0")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Vector4(0, 0, 0, 0)
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 0.6
+shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv1wl"]
 
@@ -26,6 +35,7 @@ atlas = ExtResource("11_akdjr")
 region = Rect2(64, 2018, 170, 73)
 
 [node name="Main" type="Node2D"]
+material = SubResource("ShaderMaterial_623tq")
 script = ExtResource("1_mdavh")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_tujkf")]

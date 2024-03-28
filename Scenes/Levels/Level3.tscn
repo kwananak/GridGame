@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=27 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bj13dlya76rxi" path="res://Scenes/Tiles/EnvironmentComplex/catwalk.tscn" id="3_k76ns"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_3oa4q"]
 [ext_resource type="PackedScene" uid="uid://cnj1jlclxt48t" path="res://Scenes/Tiles/EnvironmentComplex/railing.tscn" id="4_5d2oc"]
+[ext_resource type="Shader" path="res://Vignette.gdshader" id="4_ijfm6"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="5_12xde"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="5_je5lu"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="5_ut53j"]
@@ -22,7 +23,15 @@
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="11_21w8d"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="12_5m0d7"]
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
+[ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0m11"]
+shader = ExtResource("4_ijfm6")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Vector4(0, 0, 0, 0)
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 1.545
+shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aobp3"]
 atlas = ExtResource("22_8mkna")
@@ -40,6 +49,14 @@ level_length = 64
 level_number = 3
 
 [node name="UI" parent="." instance=ExtResource("2_lupxg")]
+visible = false
+
+[node name="Vignette" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_x0m11")
+offset_left = -479.0
+offset_top = -266.0
+offset_right = 481.0
+offset_bottom = 267.0
 
 [node name="Environment" type="Node2D" parent="."]
 
