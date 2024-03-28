@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbfwf7hm1fqjb"]
+[gd_scene load_steps=27 format=3 uid="uid://cbfwf7hm1fqjb"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_c6b8v"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_brv3a"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="27_36p3k"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="27_rqw1x"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="29_gqv3v"]
-[ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="30_5031t"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="31_7k222"]
 [ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="32_102n2"]
 
@@ -47,10 +46,6 @@ bus = &"Music"
 
 [node name="UI" parent="." instance=ExtResource("2_brv3a")]
 visible = false
-
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("30_5031t")]
-offset_right = 1488.0
-offset_bottom = 1040.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -368,14 +363,11 @@ position = Vector2(544, 352)
 [node name="300FloorTile303" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
 position = Vector2(544, 384)
 
-[node name="300FloorTile304" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
-position = Vector2(512, 448)
-
 [node name="300FloorTile306" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
 position = Vector2(512, 480)
 
 [node name="300FloorTile307" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
-position = Vector2(544, 480)
+position = Vector2(640, 480)
 
 [node name="300FloorTile308" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
 position = Vector2(512, 416)
@@ -405,7 +397,11 @@ position = Vector2(480, 384)
 rotation = 1.5708
 
 [node name="300SoapTile5" parent="Environment/Floor" instance=ExtResource("5_bry6f")]
-position = Vector2(544, 448)
+position = Vector2(640, 448)
+rotation = 1.5708
+
+[node name="300SoapTile6" parent="Environment/Floor" instance=ExtResource("5_bry6f")]
+position = Vector2(512, 448)
 rotation = 1.5708
 
 [node name="300SoapTile7" parent="Environment/Floor" instance=ExtResource("5_bry6f")]
@@ -1182,12 +1178,6 @@ position = Vector2(640, 544)
 [node name="HoleTile62" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(640, 512)
 
-[node name="HoleTile63" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
-position = Vector2(640, 480)
-
-[node name="HoleTile245" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
-position = Vector2(640, 448)
-
 [node name="HoleTile49" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(416, 544)
 
@@ -1489,7 +1479,7 @@ position = Vector2(288, 384)
 position = Vector2(704, 448)
 
 [node name="SoapBarrier3" parent="." instance=ExtResource("15_fdyay")]
-position = Vector2(512, 448)
+position = Vector2(480, 448)
 
 [node name="BeetleBarrier" parent="." instance=ExtResource("13_jt583")]
 position = Vector2(512, 384)
@@ -1507,7 +1497,7 @@ position = Vector2(896, 640)
 position = Vector2(544, 384)
 
 [node name="Booster4" parent="." instance=ExtResource("24_swm8n")]
-position = Vector2(480, 448)
+position = Vector2(480, 480)
 
 [node name="BeamTile4" parent="." instance=ExtResource("25_ht502")]
 position = Vector2(416, 256)

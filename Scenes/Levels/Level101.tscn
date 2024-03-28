@@ -33,6 +33,7 @@ size = Vector2(16, 80)
 [node name="Level101" type="Node2D"]
 
 [node name="100Background" parent="." instance=ExtResource("1_wdvgg")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -58,13 +59,13 @@ visible = false
 [node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="FloorTile" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(448, 352)
+position = Vector2(352, 448)
 
 [node name="FloorTile2" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(448, 384)
+position = Vector2(352, 480)
 
 [node name="FloorTile5" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(448, 416)
+position = Vector2(352, 512)
 
 [node name="FloorTile8" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 position = Vector2(544, 352)
@@ -238,14 +239,14 @@ position = Vector2(608, 416)
 position = Vector2(640, 416)
 
 [node name="FloorTile138" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(480, 352)
+position = Vector2(384, 448)
 
 [node name="FloorTile140" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 light_mask = 0
-position = Vector2(480, 384)
+position = Vector2(384, 480)
 
 [node name="FloorTile142" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(480, 416)
+position = Vector2(384, 512)
 
 [node name="FloorTile150" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 position = Vector2(512, 352)
@@ -256,26 +257,62 @@ position = Vector2(512, 384)
 [node name="FloorTile172" parent="Environment/Floor" instance=ExtResource("4_apxma")]
 position = Vector2(512, 416)
 
+[node name="FloorTile9" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(480, 352)
+
+[node name="FloorTile11" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(480, 384)
+
+[node name="FloorTile19" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(480, 416)
+
+[node name="FloorTile152" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 352)
+
+[node name="FloorTile155" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 384)
+
+[node name="FloorTile173" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 416)
+
+[node name="FloorTile20" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 448)
+
+[node name="FloorTile21" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 480)
+
+[node name="FloorTile22" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(448, 512)
+
+[node name="FloorTile156" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(416, 448)
+
+[node name="FloorTile157" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(416, 480)
+
+[node name="FloorTile174" parent="Environment/Floor" instance=ExtResource("4_apxma")]
+position = Vector2(416, 512)
+
 [node name="FloorTile188" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(416, 352)
+position = Vector2(320, 448)
 
 [node name="FloorTile189" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(416, 384)
+position = Vector2(320, 480)
 
 [node name="FloorTile190" parent="Environment/Floor" instance=ExtResource("4_apxma")]
-position = Vector2(416, 416)
+position = Vector2(320, 512)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="100WallLowerLeftCorner" parent="Environment/Walls" instance=ExtResource("8_cd7ti")]
-position = Vector2(384, 448)
+position = Vector2(288, 544)
 
 [node name="WallTile" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(384, 352)
+position = Vector2(288, 448)
 rotation = 4.71239
 
 [node name="WallTile2" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(384, 416)
+position = Vector2(288, 512)
 rotation = 4.71239
 
 [node name="WallTile19" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
@@ -339,16 +376,32 @@ position = Vector2(608, 320)
 position = Vector2(512, 320)
 
 [node name="WallTile93" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(480, 320)
+position = Vector2(384, 416)
 
 [node name="WallTile32" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(448, 320)
+position = Vector2(352, 416)
 
 [node name="WallTile54" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(416, 320)
+position = Vector2(320, 416)
 
 [node name="WallTile51" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
-position = Vector2(384, 384)
+position = Vector2(288, 480)
+rotation = -1.5708
+
+[node name="WallTile5" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(416, 352)
+rotation = 4.71239
+
+[node name="WallTile56" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(416, 384)
+rotation = -1.5708
+
+[node name="WallTile4" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(480, 480)
+rotation = 4.71239
+
+[node name="WallTile53" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(480, 512)
 rotation = -1.5708
 
 [node name="100WallFront" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
@@ -424,13 +477,19 @@ position = Vector2(544, 448)
 position = Vector2(512, 448)
 
 [node name="100WallFront22" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
-position = Vector2(480, 448)
+position = Vector2(384, 544)
 
 [node name="100WallFront23" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
-position = Vector2(448, 448)
+position = Vector2(352, 544)
+
+[node name="100WallFront27" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
+position = Vector2(448, 544)
+
+[node name="100WallFront28" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
+position = Vector2(416, 544)
 
 [node name="100WallFront24" parent="Environment/Walls" instance=ExtResource("7_8nmu7")]
-position = Vector2(416, 448)
+position = Vector2(320, 544)
 
 [node name="100WallUpperRightCorner" parent="Environment/Walls" instance=ExtResource("9_ngt6x")]
 position = Vector2(1152, 320)
@@ -438,8 +497,26 @@ position = Vector2(1152, 320)
 [node name="100WalLowerRightCorner" parent="Environment/Walls" instance=ExtResource("10_n1kk4")]
 position = Vector2(1152, 448)
 
+[node name="100WalLowerRightCorner2" parent="Environment/Walls" instance=ExtResource("10_n1kk4")]
+position = Vector2(480, 544)
+
+[node name="100WalLowerRightCorner3" parent="Environment/Walls" instance=ExtResource("10_n1kk4")]
+position = Vector2(416, 416)
+
 [node name="CornerWallTile" parent="Environment/Walls" instance=ExtResource("5_41fet")]
-position = Vector2(384, 320)
+position = Vector2(288, 416)
+
+[node name="CornerWallTile3" parent="Environment/Walls" instance=ExtResource("5_41fet")]
+position = Vector2(480, 448)
+
+[node name="WallTile94" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(480, 320)
+
+[node name="WallTile33" parent="Environment/Walls" instance=ExtResource("10_m7ruj")]
+position = Vector2(448, 320)
+
+[node name="CornerWallTile2" parent="Environment/Walls" instance=ExtResource("5_41fet")]
+position = Vector2(416, 320)
 
 [node name="GameplayElements" type="Node2D" parent="."]
 
@@ -481,7 +558,7 @@ position = Vector2(672, 352)
 position = Vector2(672, 384)
 
 [node name="VirtualStartTile" parent="GameplayElements" instance=ExtResource("24_3xd2g")]
-position = Vector2(448, 384)
+position = Vector2(352, 480)
 
 [node name="VirtualEndTile" parent="GameplayElements" instance=ExtResource("11_d08vy")]
 position = Vector2(1056, 384)
@@ -517,18 +594,18 @@ position = Vector2(32, 0)
 dialogue_number = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(448, 384)
+position = Vector2(352, 480)
 rotation = -3.14159
 scale = Vector2(12.3969, 131.703)
 shape = SubResource("RectangleShape2D_6sfm2")
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("27_sobd0")]
-position = Vector2(487.31, 357.335)
+position = Vector2(391.31, 453.335)
 dialogue_number = 2
 related_node = NodePath("../../GameplayElements/BytesBarrier/SphereByteBarrierTile5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-position = Vector2(104.69, 29.165)
+position = Vector2(184.69, -69.335)
 shape = SubResource("RectangleShape2D_hm3fv")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("27_sobd0")]
