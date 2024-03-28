@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c2fr0186huvao"]
+[gd_scene load_steps=26 format=3 uid="uid://c2fr0186huvao"]
 
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_ua0w2"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_cg4d0"]
@@ -20,9 +20,13 @@
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="21_ap6tw"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="21_d4s3s"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="22_xew37"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="23_vlu77"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="24_38rr4"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="24_irg0d"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="24_oj26e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tovul"]
+size = Vector2(20, 144)
 
 [node name="Level202" type="Node2D"]
 
@@ -1195,7 +1199,7 @@ position = Vector2(736, 320)
 position = Vector2(1056, 512)
 
 [node name="VirtualStartTile" parent="GameplayElements/OtherTiles" instance=ExtResource("19_apqb7")]
-position = Vector2(1120, 512)
+position = Vector2(1152, 512)
 
 [node name="AccessPointKey" parent="GameplayElements/OtherTiles" instance=ExtResource("24_irg0d")]
 position = Vector2(256, 576)
@@ -1207,6 +1211,14 @@ unlocks = 203
 [node name="Doomwall" parent="." instance=ExtResource("14_4uljf")]
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("23_vlu77")]
+dialogue_number = 1
+related_node = NodePath("../../GameplayElements/OtherTiles/AccessPoint1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(1088, 512)
+shape = SubResource("RectangleShape2D_tovul")
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("20_bjqmf")]
 position = Vector2(64, 64)

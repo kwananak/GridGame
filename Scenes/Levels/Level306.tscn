@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://t38ki6epb1j4"]
+[gd_scene load_steps=36 format=3 uid="uid://t38ki6epb1j4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_3bi1c"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_7w60o"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="32_5khvv"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="32_7t1f5"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="33_a34q7"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="34_cjcy0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pffq"]
 
 [node name="Level306" type="Node2D"]
 
@@ -2064,6 +2067,12 @@ position = Vector2(704, 736)
 [node name="RedWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("28_h6khv")]
 position = Vector2(1024, 768)
 
+[node name="YellowWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("33_a34q7")]
+position = Vector2(608, 832)
+
+[node name="YellowWarningTile2" parent="GameplayElements/WarningTiles" instance=ExtResource("33_a34q7")]
+position = Vector2(640, 832)
+
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
 [node name="AccessPointB2" parent="GameplayElements/Others" instance=ExtResource("22_q0648")]
@@ -2083,6 +2092,9 @@ position = Vector2(1184, 416)
 position = Vector2(368, 576)
 
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("26_6yg6q")]
+
+[node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("32_7t1f5")]
+position = Vector2(1504, 896)
 
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
@@ -2136,11 +2148,9 @@ rotation = -1.5708
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="VirtualEndTile" parent="." instance=ExtResource("32_7t1f5")]
-position = Vector2(1504, 896)
+[node name="DialogueArea" parent="." instance=ExtResource("34_cjcy0")]
+dialogue_number = 1
 
-[node name="YellowWarningTile" parent="." instance=ExtResource("33_a34q7")]
-position = Vector2(608, 832)
-
-[node name="YellowWarningTile2" parent="." instance=ExtResource("33_a34q7")]
-position = Vector2(640, 832)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea"]
+position = Vector2(1392, 896)
+shape = SubResource("RectangleShape2D_6pffq")

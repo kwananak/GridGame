@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dx6lhixc4gd2b"]
+[gd_scene load_steps=32 format=3 uid="uid://dx6lhixc4gd2b"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_3xa8n"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_fjgp0"]
@@ -25,9 +25,14 @@
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="26_cmsox"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="28_6bjic"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="28_djmyt"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="29_xrkbs"]
 [ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="29_ysxbf"]
 [ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="30_cx0r4"]
 [ext_resource type="PackedScene" uid="uid://yym8dru78wa3" path="res://Scenes/Tiles/Programs/hands_tile.tscn" id="31_cuoe0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyd0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vodyl"]
 
 [node name="Level303" type="Node2D"]
 
@@ -2032,6 +2037,11 @@ position = Vector2(1280, 480)
 position = Vector2(1056, 448)
 select_program = "GrapplingTool"
 
+[node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("20_6fj7k")]
+
+[node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("28_6bjic")]
+position = Vector2(1248, 480)
+
 [node name="Beams" type="Node2D" parent="GameplayElements"]
 
 [node name="ExtremeForeverBeamTile" parent="GameplayElements/Beams" instance=ExtResource("30_cx0r4")]
@@ -2061,9 +2071,19 @@ rotation = -1.5708
 position = Vector2(1280, 352)
 rotation = 1.5708
 
-[node name="Doomwall" parent="." instance=ExtResource("20_6fj7k")]
-
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="VirtualEndTile" parent="." instance=ExtResource("28_6bjic")]
-position = Vector2(1248, 480)
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("29_xrkbs")]
+dialogue_number = 1
+related_node = NodePath("../../GameplayElements/Beams/ExtremeForeverBeamTile5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(320, 384)
+shape = SubResource("RectangleShape2D_oyd0s")
+
+[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("29_xrkbs")]
+dialogue_number = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
+position = Vector2(1056, 448)
+shape = SubResource("RectangleShape2D_vodyl")

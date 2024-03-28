@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c76u1wy5uwvkw"]
+[gd_scene load_steps=29 format=3 uid="uid://c76u1wy5uwvkw"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_niens"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_2gg1d"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://churemch44h8q" path="res://Scenes/EnemiesObstaclesTiles/mantis_barrier.tscn" id="21_3xbq6"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="24_pifco"]
 [ext_resource type="PackedScene" uid="uid://bncpjk0wbiv1s" path="res://Scenes/EnemiesObstaclesTiles/seeker_trigger_tile.tscn" id="25_ntjam"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="27_ghgvf"]
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="27_mdp27"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="28_oc37x"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="28_sy2b2"]
@@ -26,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://ddj25hskh4bb5" path="res://Scenes/Tiles/SharedVirtual/access_point_c.tscn" id="29_kyjm8"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="30_yyp28"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="31_11psn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdhl6"]
+size = Vector2(160, 20)
 
 [node name="Level403" type="Node2D"]
 
@@ -1015,7 +1019,133 @@ position = Vector2(1216, 1152)
 
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
+[node name="MantisBarrier8" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_3xbq6")]
+position = Vector2(640, 384)
+
+[node name="MantisBarrier7" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_3xbq6")]
+position = Vector2(576, 384)
+
+[node name="BeetleBarrier37" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(640, 672)
+
+[node name="BeetleBarrier38" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(672, 704)
+
+[node name="BeetleBarrier39" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(544, 416)
+
+[node name="BeetleBarrier43" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(672, 928)
+
+[node name="BeetleBarrier44" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(608, 896)
+
+[node name="BeetleBarrier45" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(672, 896)
+
+[node name="BeetleBarrier42" parent="GameplayElements/BytesBarrier" instance=ExtResource("24_pifco")]
+position = Vector2(576, 896)
+
+[node name="MantisBarrier9" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_3xbq6")]
+position = Vector2(576, 672)
+
+[node name="MantisBarrier10" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_3xbq6")]
+position = Vector2(608, 960)
+
+[node name="MantisBarrier11" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_3xbq6")]
+position = Vector2(672, 960)
+
+[node name="MobileBarrier3" parent="GameplayElements/BytesBarrier" instance=ExtResource("27_mdp27")]
+position = Vector2(544, 704)
+
+[node name="MobileBarrier2" parent="GameplayElements/BytesBarrier" instance=ExtResource("27_mdp27")]
+position = Vector2(672, 416)
+
+[node name="MobileBarrier5" parent="GameplayElements/BytesBarrier" instance=ExtResource("27_mdp27")]
+position = Vector2(544, 832)
+
+[node name="MobileBarrier6" parent="GameplayElements/BytesBarrier" instance=ExtResource("27_mdp27")]
+position = Vector2(576, 928)
+
+[node name="MobileBarrier7" parent="GameplayElements/BytesBarrier" instance=ExtResource("27_mdp27")]
+position = Vector2(576, 960)
+
+[node name="ByteBarrierEasy5" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_w734q")]
+position = Vector2(768, 1056)
+
+[node name="ByteBarrierEasy8" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_w734q")]
+position = Vector2(608, 928)
+
+[node name="ByteBarrierEasy6" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_w734q")]
+position = Vector2(768, 1088)
+
+[node name="ByteBarrierEasy7" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_w734q")]
+position = Vector2(768, 1120)
+
 [node name="WarningTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="RedWarningTile13" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(672, 1024)
+
+[node name="RedWarningTile14" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(640, 1024)
+
+[node name="RedWarningTile15" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(608, 1024)
+
+[node name="RedWarningTile16" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(576, 1024)
+
+[node name="RedWarningTile17" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(544, 1024)
+
+[node name="RedWarningTile18" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(672, 1056)
+
+[node name="RedWarningTile19" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(640, 1056)
+
+[node name="RedWarningTile20" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(608, 1056)
+
+[node name="RedWarningTile21" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(576, 1056)
+
+[node name="RedWarningTile22" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(544, 1056)
+
+[node name="RedWarningTile23" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(672, 1088)
+
+[node name="RedWarningTile24" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(640, 1088)
+
+[node name="RedWarningTile25" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(608, 1088)
+
+[node name="RedWarningTile26" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(576, 1088)
+
+[node name="RedWarningTile27" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(544, 1088)
+
+[node name="RedWarningTile28" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(672, 1120)
+
+[node name="RedWarningTile29" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(640, 1120)
+
+[node name="RedWarningTile30" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(608, 1120)
+
+[node name="RedWarningTile31" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(576, 1120)
+
+[node name="RedWarningTile32" parent="GameplayElements/WarningTiles" instance=ExtResource("28_sy2b2")]
+position = Vector2(544, 1120)
+
+[node name="Doomwall" parent="GameplayElements" instance=ExtResource("17_02tms")]
+position = Vector2(128, 0)
 
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
@@ -1025,271 +1155,114 @@ position = Vector2(608, 192)
 [node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("15_nu3mr")]
 position = Vector2(960, 400)
 
+[node name="AccessPointC" parent="GameplayElements/Others" instance=ExtResource("29_kyjm8")]
+position = Vector2(1184, 1088)
+
+[node name="AccessPointKeyPoint" parent="GameplayElements/Others" instance=ExtResource("30_yyp28")]
+position = Vector2(1152, 1088)
+
+[node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("31_11psn")]
+position = Vector2(1184, 1088)
+
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
-[node name="PathRobots" type="Node2D" parent="GameplayElements"]
+[node name="HoleTile" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(832, 1056)
 
-[node name="Robot1" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile2" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(864, 1056)
 
-[node name="Robot2" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile3" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(832, 1088)
 
-[node name="Robot11" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile4" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(864, 1088)
 
-[node name="Robot12" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile5" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(832, 1120)
 
-[node name="Robot3" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile6" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(864, 1120)
 
-[node name="Robot4" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile7" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1056, 1056)
 
-[node name="Robot9" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile8" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1056, 1088)
 
-[node name="Robot13" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile9" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1056, 1120)
 
-[node name="Robot23" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile10" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1088, 1056)
 
-[node name="Robot14" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile11" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1088, 1088)
 
-[node name="Robot19" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile12" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1088, 1120)
 
-[node name="Robot20" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile13" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1120, 1056)
 
-[node name="Robot22" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile14" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1120, 1088)
 
-[node name="Robot21" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="HoleTile15" parent="GameplayElements/Holes" instance=ExtResource("28_oc37x")]
+position = Vector2(1120, 1120)
 
-[node name="Robot16" type="Node2D" parent="GameplayElements/PathRobots"]
+[node name="Robots" type="Node2D" parent="GameplayElements"]
 
-[node name="Robot15" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="Robot17" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="Robot18" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="Robot10" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="Doomwall" parent="." instance=ExtResource("17_02tms")]
-position = Vector2(128, 0)
-
-[node name="Dialogue" type="Node2D" parent="."]
-
-[node name="SeekerEnemy2" parent="." instance=ExtResource("29_ipx06")]
+[node name="SeekerEnemy2" parent="GameplayElements/Robots" instance=ExtResource("29_ipx06")]
 position = Vector2(608, 448)
 activated = false
 seeker_number = 5
 
-[node name="MantisBarrier8" parent="." instance=ExtResource("21_3xbq6")]
-position = Vector2(640, 384)
-
-[node name="MantisBarrier7" parent="." instance=ExtResource("21_3xbq6")]
-position = Vector2(576, 384)
-
-[node name="BeetleBarrier37" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(640, 672)
-
-[node name="BeetleBarrier38" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(672, 704)
-
-[node name="BeetleBarrier39" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(544, 416)
-
-[node name="BeetleBarrier43" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(672, 928)
-
-[node name="BeetleBarrier44" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(608, 896)
-
-[node name="BeetleBarrier45" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(672, 896)
-
-[node name="BeetleBarrier42" parent="." instance=ExtResource("24_pifco")]
-position = Vector2(576, 896)
-
-[node name="SeekerTriggerTile7" parent="." instance=ExtResource("25_ntjam")]
+[node name="SeekerTriggerTile7" parent="GameplayElements/Robots" instance=ExtResource("25_ntjam")]
 position = Vector2(608, 304)
 scale = Vector2(5.99584, -2.9579)
 seeker_number = 5
 
-[node name="SeekerTriggerTile8" parent="." instance=ExtResource("25_ntjam")]
+[node name="SeekerTriggerTile8" parent="GameplayElements/Robots" instance=ExtResource("25_ntjam")]
 position = Vector2(608, 592)
 scale = Vector2(5.99584, -2.9579)
 seeker_number = 7
 
-[node name="SeekerTriggerTile9" parent="." instance=ExtResource("25_ntjam")]
+[node name="SeekerTriggerTile9" parent="GameplayElements/Robots" instance=ExtResource("25_ntjam")]
 position = Vector2(608, 816)
 scale = Vector2(5.99584, -2.9579)
 seeker_number = 9
 
-[node name="SeekerTriggerTile10" parent="." instance=ExtResource("25_ntjam")]
+[node name="SeekerTriggerTile10" parent="GameplayElements/Robots" instance=ExtResource("25_ntjam")]
 position = Vector2(784, 1088)
 scale = Vector2(2.49122, 4.52668)
 seeker_number = 11
 
-[node name="SeekerEnemy3" parent="." instance=ExtResource("29_ipx06")]
+[node name="SeekerEnemy3" parent="GameplayElements/Robots" instance=ExtResource("29_ipx06")]
 position = Vector2(608, 736)
 activated = false
 seeker_number = 7
 
-[node name="SeekerEnemy4" parent="." instance=ExtResource("29_ipx06")]
+[node name="SeekerEnemy4" parent="GameplayElements/Robots" instance=ExtResource("29_ipx06")]
 position = Vector2(544, 992)
 activated = false
 seeker_number = 9
 
-[node name="SeekerEnemy5" parent="." instance=ExtResource("29_ipx06")]
+[node name="SeekerEnemy5" parent="GameplayElements/Robots" instance=ExtResource("29_ipx06")]
 position = Vector2(928, 1088)
 activated = false
 seeker_number = 11
 
-[node name="SeekerEnemy6" parent="." instance=ExtResource("29_ipx06")]
+[node name="SeekerEnemy6" parent="GameplayElements/Robots" instance=ExtResource("29_ipx06")]
 position = Vector2(1024, 1088)
 activated = false
 seeker_number = 11
 
-[node name="MantisBarrier9" parent="." instance=ExtResource("21_3xbq6")]
-position = Vector2(576, 672)
+[node name="Dialogue" type="Node2D" parent="."]
 
-[node name="MantisBarrier10" parent="." instance=ExtResource("21_3xbq6")]
-position = Vector2(608, 960)
+[node name="DialogueArea" parent="Dialogue" instance=ExtResource("27_ghgvf")]
+dialogue_number = 1
 
-[node name="MantisBarrier11" parent="." instance=ExtResource("21_3xbq6")]
-position = Vector2(672, 960)
-
-[node name="MobileBarrier3" parent="." instance=ExtResource("27_mdp27")]
-position = Vector2(544, 704)
-
-[node name="MobileBarrier2" parent="." instance=ExtResource("27_mdp27")]
-position = Vector2(672, 416)
-
-[node name="MobileBarrier5" parent="." instance=ExtResource("27_mdp27")]
-position = Vector2(544, 832)
-
-[node name="MobileBarrier6" parent="." instance=ExtResource("27_mdp27")]
-position = Vector2(576, 928)
-
-[node name="MobileBarrier7" parent="." instance=ExtResource("27_mdp27")]
-position = Vector2(576, 960)
-
-[node name="ByteBarrierEasy5" parent="." instance=ExtResource("13_w734q")]
-position = Vector2(768, 1056)
-
-[node name="ByteBarrierEasy8" parent="." instance=ExtResource("13_w734q")]
-position = Vector2(608, 928)
-
-[node name="ByteBarrierEasy6" parent="." instance=ExtResource("13_w734q")]
-position = Vector2(768, 1088)
-
-[node name="ByteBarrierEasy7" parent="." instance=ExtResource("13_w734q")]
-position = Vector2(768, 1120)
-
-[node name="HoleTile" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(832, 1056)
-
-[node name="HoleTile2" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(864, 1056)
-
-[node name="HoleTile3" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(832, 1088)
-
-[node name="HoleTile4" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(864, 1088)
-
-[node name="HoleTile5" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(832, 1120)
-
-[node name="HoleTile6" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(864, 1120)
-
-[node name="HoleTile7" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1056, 1056)
-
-[node name="HoleTile8" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1056, 1088)
-
-[node name="HoleTile9" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1056, 1120)
-
-[node name="HoleTile10" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1088, 1056)
-
-[node name="HoleTile11" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1088, 1088)
-
-[node name="HoleTile12" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1088, 1120)
-
-[node name="HoleTile13" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1120, 1056)
-
-[node name="HoleTile14" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1120, 1088)
-
-[node name="HoleTile15" parent="." instance=ExtResource("28_oc37x")]
-position = Vector2(1120, 1120)
-
-[node name="AccessPointC" parent="." instance=ExtResource("29_kyjm8")]
-position = Vector2(1184, 1088)
-
-[node name="AccessPointKeyPoint" parent="." instance=ExtResource("30_yyp28")]
-position = Vector2(1152, 1088)
-
-[node name="RedWarningTile13" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(672, 1024)
-
-[node name="RedWarningTile14" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(640, 1024)
-
-[node name="RedWarningTile15" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(608, 1024)
-
-[node name="RedWarningTile16" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(576, 1024)
-
-[node name="RedWarningTile17" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(544, 1024)
-
-[node name="RedWarningTile18" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(672, 1056)
-
-[node name="RedWarningTile19" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(640, 1056)
-
-[node name="RedWarningTile20" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(608, 1056)
-
-[node name="RedWarningTile21" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(576, 1056)
-
-[node name="RedWarningTile22" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(544, 1056)
-
-[node name="RedWarningTile23" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(672, 1088)
-
-[node name="RedWarningTile24" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(640, 1088)
-
-[node name="RedWarningTile25" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(608, 1088)
-
-[node name="RedWarningTile26" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(576, 1088)
-
-[node name="RedWarningTile27" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(544, 1088)
-
-[node name="RedWarningTile28" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(672, 1120)
-
-[node name="RedWarningTile29" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(640, 1120)
-
-[node name="RedWarningTile30" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(608, 1120)
-
-[node name="RedWarningTile31" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(576, 1120)
-
-[node name="RedWarningTile32" parent="." instance=ExtResource("28_sy2b2")]
-position = Vector2(544, 1120)
-
-[node name="VirtualEndTile" parent="." instance=ExtResource("31_11psn")]
-position = Vector2(1184, 1088)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(608, 288)
+shape = SubResource("RectangleShape2D_mdhl6")

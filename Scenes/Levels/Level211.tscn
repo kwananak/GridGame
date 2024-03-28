@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://chcl8bygxwvrr"]
+[gd_scene load_steps=26 format=3 uid="uid://chcl8bygxwvrr"]
 
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_17red"]
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_sh4ce"]
@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="21_fawad"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="22_yekw7"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="23_lt0to"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="24_qy8uc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlrwk"]
 
 [node name="Level211" type="Node2D"]
 
@@ -1480,6 +1483,11 @@ unlocks = 3
 position = Vector2(800, 352)
 targets = Vector3i(8, 8, 8)
 
+[node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("13_dklnv")]
+
+[node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("14_balag")]
+position = Vector2(48, 80)
+
 [node name="BeamCanon" type="Node2D" parent="GameplayElements"]
 
 [node name="ForeverBeamTile30" parent="GameplayElements/BeamCanon" instance=ExtResource("15_mps8q")]
@@ -1502,9 +1510,11 @@ rotation = -3.14159
 position = Vector2(800, 160)
 rotation = -3.14159
 
-[node name="Doomwall" parent="." instance=ExtResource("13_dklnv")]
-
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="VirtualPlayer" parent="." instance=ExtResource("14_balag")]
-position = Vector2(48, 80)
+[node name="DialogueArea" parent="Dialogue" instance=ExtResource("24_qy8uc")]
+dialogue_number = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(160, 96)
+shape = SubResource("RectangleShape2D_tlrwk")
