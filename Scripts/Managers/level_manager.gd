@@ -96,6 +96,8 @@ func set_health(value):
 
 # tracks camera to player on wider levels and matches UI position to it
 func process_camera(delta):
+	if game_over:
+		return
 	create_tween().tween_property(camera, "position", out_of_bounds_check(player_sprite.global_position), delta / camera_speed)
 
 # called by the button to quit the level

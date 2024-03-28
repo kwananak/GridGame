@@ -65,7 +65,7 @@ func set_pause(value):
 	if value:
 		spawn_pause_menu()
 	else:
-		pause_menu.queue_free()
+		despawn_pause_menu()
 		pause_menu = null
 		if dialogue:
 			dialogue.button.grab_focus()
@@ -75,7 +75,13 @@ func set_pause(value):
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	pause_menu.position = camera.position + Vector2(200, 0)
+	pause_menu.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 100, camera.position.y)
+	create_tween().tween_property(pause_menu, "position", pause_menu.position - Vector2(240, 0), 0.3)
+
+func despawn_pause_menu():
+	var p_m = pause_menu
+	await create_tween().tween_property(p_m, "position", pause_menu.position + Vector2(240, 0), 0.3).finished
+	p_m.queue_free()
 
 # calls subscribed nodes when player makes a move
 func end_turn():
@@ -209,8 +215,9 @@ func display_summary():
 		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = $/root/Main.get_level_name(level_number)
 	summary.get_node("Body").append_text(body)
-	summary.position = camera.position + Vector2(200, 0)
 	add_child(summary)
+	summary.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 200, camera.position.y)
+	create_tween().tween_property(summary, "position", summary.position - Vector2(440, 0), 0.3)
 	ui.hide()
 
 func display_fail():
@@ -218,7 +225,8 @@ func display_fail():
 		return
 	pause_menu = fail_prefab.instantiate()
 	get_parent().add_child(pause_menu)
-	pause_menu.position = camera.position + Vector2(200, 0)
+	pause_menu.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 100, camera.position.y)
+	create_tween().tween_property(pause_menu, "position", pause_menu.position - Vector2(240, 0), 0.3)
 	ui.hide()
 
 func back_to_terminal():

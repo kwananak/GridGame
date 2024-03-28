@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://3vf6iks2k06a"]
+[gd_scene load_steps=27 format=3 uid="uid://3vf6iks2k06a"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_npiwt"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_ul0m0"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="4_31fxg"]
 [ext_resource type="PackedScene" uid="uid://b0dhbkmn8vh3a" path="res://Scenes/Tiles/VirtualEnvironment100/floor_tile.tscn" id="5_maida"]
 [ext_resource type="PackedScene" uid="uid://ymh44tqqto72" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_left_corner.tscn" id="6_1r85i"]
-[ext_resource type="PackedScene" uid="uid://cyufwui88nqvr" path="res://Scenes/Tiles/VirtualEnvironment100/inner_corner_wall_tile.tscn" id="7_bnk8i"]
 [ext_resource type="PackedScene" uid="uid://c2d3f5737uuxo" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_back.tscn" id="8_sfarp"]
+[ext_resource type="PackedScene" uid="uid://b3v5ih4tiwn3w" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_left_corner.tscn" id="8_t8s2h"]
+[ext_resource type="PackedScene" uid="uid://c3miqb3nboho7" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_lower_right_corner.tscn" id="9_6bdk5"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="9_oule2"]
+[ext_resource type="PackedScene" uid="uid://dpfrto4yk0wth" path="res://Scenes/Tiles/VirtualEnvironment100/100_wall_upper_right_corner.tscn" id="10_h1ipg"]
 [ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="10_vb2r4"]
 [ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="11_e1kxw"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="12_0gnbh"]
@@ -123,6 +125,9 @@ position = Vector2(544, 448)
 
 [node name="FloorTile192" parent="Environment/Floor" instance=ExtResource("5_maida")]
 position = Vector2(384, 352)
+
+[node name="FloorTile198" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(416, 352)
 
 [node name="FloorTile193" parent="Environment/Floor" instance=ExtResource("5_maida")]
 position = Vector2(480, 448)
@@ -330,15 +335,6 @@ position = Vector2(736, 448)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
-[node name="CornerWallTile12" parent="Environment/Walls" instance=ExtResource("7_bnk8i")]
-position = Vector2(672, 352)
-
-[node name="CornerWallTile13" parent="Environment/Walls" instance=ExtResource("7_bnk8i")]
-position = Vector2(800, 480)
-
-[node name="CornerWallTile14" parent="Environment/Walls" instance=ExtResource("7_bnk8i")]
-position = Vector2(960, 384)
-
 [node name="WallTile" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(96, 288)
 rotation = -1.5708
@@ -419,9 +415,6 @@ position = Vector2(192, 256)
 [node name="WallTile32" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(448, 352)
 
-[node name="WallTile33" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
-position = Vector2(416, 352)
-
 [node name="WallTile86" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(896, 256)
 
@@ -458,10 +451,6 @@ rotation = -1.5708
 position = Vector2(960, 352)
 rotation = -1.5708
 
-[node name="WallTile197" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
-position = Vector2(960, 256)
-rotation = -1.5708
-
 [node name="WallTile180" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(672, 288)
 rotation = -1.5708
@@ -476,10 +465,6 @@ rotation = -1.5708
 
 [node name="WallTile242" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(416, 320)
-rotation = -1.5708
-
-[node name="WallTile198" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
-position = Vector2(416, 256)
 rotation = -1.5708
 
 [node name="WallTile179" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
@@ -518,17 +503,11 @@ position = Vector2(128, 256)
 [node name="WallTile54" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(128, 384)
 
-[node name="WallTile53" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
-position = Vector2(320, 480)
-
 [node name="WallTile55" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(288, 384)
 
 [node name="WallTile56" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(256, 384)
-
-[node name="WallTile104" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
-position = Vector2(96, 384)
 
 [node name="WallTile34" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(768, 256)
@@ -580,6 +559,30 @@ position = Vector2(416, 480)
 
 [node name="WallTile69" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(352, 480)
+
+[node name="100WallLowerLeftCorner" parent="Environment/Walls" instance=ExtResource("8_t8s2h")]
+position = Vector2(320, 480)
+
+[node name="100WallLowerLeftCorner2" parent="Environment/Walls" instance=ExtResource("8_t8s2h")]
+position = Vector2(416, 352)
+
+[node name="100WalLowerRightCorner" parent="Environment/Walls" instance=ExtResource("9_6bdk5")]
+position = Vector2(800, 480)
+
+[node name="100WalLowerRightCorner2" parent="Environment/Walls" instance=ExtResource("9_6bdk5")]
+position = Vector2(672, 352)
+
+[node name="100WallLowerLeftCorner3" parent="Environment/Walls" instance=ExtResource("8_t8s2h")]
+position = Vector2(96, 384)
+
+[node name="100WallUpperRightCorner" parent="Environment/Walls" instance=ExtResource("10_h1ipg")]
+position = Vector2(416, 256)
+
+[node name="100WallUpperRightCorner2" parent="Environment/Walls" instance=ExtResource("10_h1ipg")]
+position = Vector2(960, 256)
+
+[node name="100WalLowerRightCorner3" parent="Environment/Walls" instance=ExtResource("9_6bdk5")]
+position = Vector2(960, 384)
 
 [node name="GameplayElements" type="Node2D" parent="."]
 
