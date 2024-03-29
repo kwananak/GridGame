@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cggfr7invhy8l"]
+[gd_scene load_steps=29 format=3 uid="uid://cggfr7invhy8l"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_s1vjs"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_wg4e8"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="25_qhlxv"]
 [ext_resource type="PackedScene" uid="uid://cvmqo5esvy8gy" path="res://Scenes/Tiles/VirtualEnvironment300/300_soap_cross_tile.tscn" id="26_u0rw3"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="27_hclia"]
+[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="28_hay8c"]
 
 [node name="Level308" type="Node2D"]
 
@@ -1945,3 +1946,7 @@ position = Vector2(1312, 512)
 rotation = -3.14159
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="VirtualEndTile" parent="." instance=ExtResource("28_hay8c")]
+position = Vector2(1248, 672)
+unlocks = 4
