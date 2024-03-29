@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=3 uid="uid://b7lqm224ayph5"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/temp_end.gd" id="1_yk6px"]
+[ext_resource type="Shader" path="res://temp_end.gdshader" id="2_2l28i"]
+[ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="3_fv2gq"]
+[ext_resource type="AudioStream" uid="uid://dcfmrx8hghs7a" path="res://Sounds/FX/end_tile.wav" id="4_ty7r6"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="5_o73n5"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="6_evs32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmgfe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iq88a"]
+shader = ExtResource("2_2l28i")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwuou"]
+atlas = ExtResource("3_fv2gq")
+region = Rect2(0, 608, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb2hw"]
+atlas = ExtResource("3_fv2gq")
+region = Rect2(64, 608, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqwkx"]
+atlas = ExtResource("3_fv2gq")
+region = Rect2(128, 608, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcs6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwuou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb2hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqwkx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_qoo4m"]
+resource_name = "new_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qal6k"]
+_data = {
+"new_animation": SubResource("Animation_qoo4m")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imoul"]
+atlas = ExtResource("5_o73n5")
+region = Rect2(629, 1775, 255, 344)
+
+[node name="TempEnd" type="Area2D" groups=["VirtualEndTile"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_yk6px")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vmgfe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 20
+material = SubResource("ShaderMaterial_iq88a")
+sprite_frames = SubResource("SpriteFrames_lcs6u")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_qal6k")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = ExtResource("4_ty7r6")
+attenuation = 5.65685
+max_polyphony = 2
+bus = &"FX"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = 90
+rotation = 1.5708
+texture = SubResource("AtlasTexture_imoul")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -67.0
+offset_top = 184.0
+offset_right = 1767.0
+offset_bottom = 836.0
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("6_evs32")
+theme_override_font_sizes/font_size = 128
+text = "END OF PLAYTEST
+
+
+THANK YOU FOR PLAYING!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="Sprite2D"]
+offset_left = 72.0
+offset_top = 51.0
+offset_right = 276.0
+offset_bottom = 144.0
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_evs32")
+theme_override_font_sizes/font_size = 84
+text = "Menu"
+flat = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="button_down" from="Sprite2D/Menu" to="." method="_on_menu_button_down"]

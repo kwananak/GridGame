@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://csqfgiwnrol2x"]
+[gd_scene load_steps=37 format=3 uid="uid://csqfgiwnrol2x"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_lhkno"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_ndiav"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="24_qq1is"]
 [ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="28_8kj7i"]
 [ext_resource type="PackedScene" uid="uid://bsikpwvfgeymy" path="res://Scenes/Tiles/VirtualEnvironment400/400_soap_tile.tscn" id="29_h5odm"]
+[ext_resource type="PackedScene" uid="uid://b7lqm224ayph5" path="res://Scenes/Tiles/SharedVirtual/temp_end.tscn" id="30_7224r"]
 [ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="30_ip4gd"]
 [ext_resource type="PackedScene" uid="uid://cg8wgdpue61f" path="res://Scenes/Tiles/VirtualEnvironment400/400_soap_corner_tile.tscn" id="31_p23ej"]
 [ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="31_r2w1e"]
@@ -57,7 +58,7 @@ bus = &"Music"
 visible = false
 
 [node name="400LevelBackgroundColors" parent="." instance=ExtResource("5_y7bay")]
-offset_right = 1680.0
+offset_right = 2011.0
 offset_bottom = 1136.0
 
 [node name="Environment" type="Node2D" parent="."]
@@ -3621,6 +3622,9 @@ position = Vector2(352, 832)
 [node name="Booster6" parent="GameplayElements/Items" instance=ExtResource("36_dnm4p")]
 position = Vector2(352, 800)
 
+[node name="Malfunction" parent="GameplayElements/Items" instance=ExtResource("35_mkehx")]
+position = Vector2(672, 480)
+
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
 [node name="ByteBarrierEasy45" parent="GameplayElements/BytesBarrier" instance=ExtResource("22_fxkf1")]
@@ -4064,6 +4068,9 @@ position = Vector2(32, 256)
 
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("15_rfewy")]
 
+[node name="TempEnd" parent="GameplayElements/Others" instance=ExtResource("30_7224r")]
+position = Vector2(1376, 800)
+
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
 [node name="HoleTile" parent="GameplayElements/Holes" instance=ExtResource("35_1miff")]
@@ -4376,6 +4383,3 @@ rotation = 3.14159
 position = Vector2(1376, 800)
 strength = 8
 targets = Vector3i(8, 3, 7)
-
-[node name="Malfunction" parent="." instance=ExtResource("35_mkehx")]
-position = Vector2(672, 480)
