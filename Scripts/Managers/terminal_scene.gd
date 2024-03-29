@@ -50,7 +50,6 @@ func _on_visibility_changed():
 			if n.selected:
 				n.selected = false
 			if str(n.node_level) in prog_man.completed_levels:
-				print(n.node_level)
 				n.completed = true
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
