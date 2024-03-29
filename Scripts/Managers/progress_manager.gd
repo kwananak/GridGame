@@ -200,6 +200,7 @@ func reset_progress():
 	completed_levels = []
 	unlocked_levels = ["101", "201", "301", "401"]
 	doors = []
+	log_progress = {}
 	create_levels_dict()
 	save_point = null
 

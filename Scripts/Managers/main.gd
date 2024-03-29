@@ -33,7 +33,7 @@ func set_menu():
 		menu = $MainMenu
 		continue_button = menu.continue_game
 		new_game_button = menu.new_game
-		await progress_manager.load_game()
+		await progress_manager.load_game(null)
 		if progress_manager.save_point:
 			continue_button.grab_focus()
 		else:
