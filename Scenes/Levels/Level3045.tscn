@@ -40,6 +40,10 @@ level_number = 3045
 
 [node name="ProgramManager" parent="." instance=ExtResource("3_q8vfx")]
 
+[node name="300LevelBackgroundColors" parent="." instance=ExtResource("28_jablr")]
+offset_right = 1536.0
+offset_bottom = 928.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mb8vn")
 volume_db = -5.0
@@ -409,6 +413,9 @@ rotation = 1.5708
 [node name="300SoapTile7" parent="Environment/Floor" instance=ExtResource("5_bry6f")]
 position = Vector2(672, 448)
 rotation = 1.5708
+
+[node name="300FloorTile417" parent="Environment/Floor" instance=ExtResource("4_qxcg2")]
+position = Vector2(352, 256)
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
@@ -988,9 +995,30 @@ position = Vector2(960, 512)
 position = Vector2(320, 544)
 rotation = -1.5708
 
+[node name="HorizontalWallTile190" parent="Environment/Walls" instance=ExtResource("6_2et8g")]
+position = Vector2(352, 224)
+
+[node name="HorizontalWallTile209" parent="Environment/Walls" instance=ExtResource("6_2et8g")]
+position = Vector2(352, 192)
+
 [node name="GameplayElements" type="Node2D" parent="."]
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
+
+[node name="Booster" parent="GameplayElements/Items" instance=ExtResource("24_swm8n")]
+position = Vector2(864, 640)
+
+[node name="Booster2" parent="GameplayElements/Items" instance=ExtResource("24_swm8n")]
+position = Vector2(896, 640)
+
+[node name="Booster3" parent="GameplayElements/Items" instance=ExtResource("24_swm8n")]
+position = Vector2(544, 384)
+
+[node name="Booster4" parent="GameplayElements/Items" instance=ExtResource("24_swm8n")]
+position = Vector2(512, 480)
+
+[node name="Malfunction" parent="GameplayElements/Items" instance=ExtResource("27_yi8hc")]
+position = Vector2(544, 416)
 
 [node name="BytesBarrier" type="Node2D" parent="GameplayElements"]
 
@@ -1066,12 +1094,53 @@ position = Vector2(704, 256)
 [node name="ByteBarrierMedium10" parent="GameplayElements/BytesBarrier" instance=ExtResource("19_l783j")]
 position = Vector2(864, 352)
 
+[node name="SoapBarrier" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_fdyay")]
+position = Vector2(288, 384)
+
+[node name="SoapBarrier2" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_fdyay")]
+position = Vector2(704, 448)
+
+[node name="SoapBarrier3" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_fdyay")]
+position = Vector2(480, 448)
+
+[node name="BeetleBarrier" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_jt583")]
+position = Vector2(512, 384)
+
+[node name="BeetleBarrier2" parent="GameplayElements/BytesBarrier" instance=ExtResource("13_jt583")]
+position = Vector2(704, 320)
+
+[node name="MantisBarrier" parent="GameplayElements/BytesBarrier" instance=ExtResource("26_nfkr3")]
+position = Vector2(480, 352)
+
+[node name="MantisBarrier3" parent="GameplayElements/BytesBarrier" instance=ExtResource("26_nfkr3")]
+position = Vector2(480, 416)
+
+[node name="MantisBarrier2" parent="GameplayElements/BytesBarrier" instance=ExtResource("26_nfkr3")]
+position = Vector2(448, 352)
+
 [node name="WarningTiles" type="Node2D" parent="GameplayElements"]
+
+[node name="YellowWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("27_36p3k")]
+position = Vector2(704, 480)
 
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
 [node name="VirtualStartTile2" parent="GameplayElements/Others" instance=ExtResource("25_v7ecm")]
 position = Vector2(224, 416)
+
+[node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("29_gqv3v")]
+position = Vector2(48, 80)
+
+[node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("31_7k222")]
+position = Vector2(864, 416)
+unlocks = 5
+
+[node name="TerminalAccesPoint" parent="GameplayElements/Others" instance=ExtResource("32_102n2")]
+position = Vector2(864, 416)
+strength = 5
+targets = Vector3i(7, 3, 14)
+
+[node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("27_rqw1x")]
 
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
@@ -1171,6 +1240,12 @@ position = Vector2(416, 384)
 [node name="HoleTile241" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(576, 448)
 
+[node name="HoleTile219" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
+position = Vector2(544, 480)
+
+[node name="HoleTile245" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
+position = Vector2(544, 448)
+
 [node name="HoleTile242" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(608, 448)
 
@@ -1212,15 +1287,6 @@ position = Vector2(416, 320)
 
 [node name="HoleTile237" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(384, 288)
-
-[node name="300FloorTile417" parent="GameplayElements/Holes" instance=ExtResource("4_qxcg2")]
-position = Vector2(352, 256)
-
-[node name="HorizontalWallTile190" parent="GameplayElements/Holes" instance=ExtResource("6_2et8g")]
-position = Vector2(352, 224)
-
-[node name="HorizontalWallTile209" parent="GameplayElements/Holes" instance=ExtResource("6_2et8g")]
-position = Vector2(352, 192)
 
 [node name="HoleTile56" parent="GameplayElements/Holes" instance=ExtResource("26_dddk8")]
 position = Vector2(352, 512)
@@ -1458,76 +1524,16 @@ position = Vector2(736, 768)
 
 [node name="Beams" type="Node2D" parent="GameplayElements"]
 
-[node name="Doomwall" parent="." instance=ExtResource("27_rqw1x")]
-
-[node name="Dialogue" type="Node2D" parent="."]
-
-[node name="VirtualPlayer" parent="." instance=ExtResource("29_gqv3v")]
-position = Vector2(48, 80)
-
-[node name="VirtualEndTile" parent="." instance=ExtResource("31_7k222")]
-position = Vector2(864, 416)
-unlocks = 5
-
-[node name="TerminalAccesPoint" parent="." instance=ExtResource("32_102n2")]
-position = Vector2(864, 416)
-strength = 5
-targets = Vector3i(7, 3, 14)
-
-[node name="SoapBarrier" parent="." instance=ExtResource("15_fdyay")]
-position = Vector2(288, 384)
-
-[node name="SoapBarrier2" parent="." instance=ExtResource("15_fdyay")]
-position = Vector2(704, 448)
-
-[node name="SoapBarrier3" parent="." instance=ExtResource("15_fdyay")]
-position = Vector2(480, 448)
-
-[node name="BeetleBarrier" parent="." instance=ExtResource("13_jt583")]
-position = Vector2(512, 384)
-
-[node name="BeetleBarrier2" parent="." instance=ExtResource("13_jt583")]
-position = Vector2(704, 320)
-
-[node name="Booster" parent="." instance=ExtResource("24_swm8n")]
-position = Vector2(864, 640)
-
-[node name="Booster2" parent="." instance=ExtResource("24_swm8n")]
-position = Vector2(896, 640)
-
-[node name="Booster3" parent="." instance=ExtResource("24_swm8n")]
-position = Vector2(544, 384)
-
-[node name="Booster4" parent="." instance=ExtResource("24_swm8n")]
-position = Vector2(512, 480)
-
-[node name="BeamTile4" parent="." instance=ExtResource("25_ht502")]
+[node name="BeamTile4" parent="GameplayElements/Beams" instance=ExtResource("25_ht502")]
 position = Vector2(416, 256)
 rotation = 1.5708
 
-[node name="BeamTile3" parent="." instance=ExtResource("25_ht502")]
+[node name="BeamTile3" parent="GameplayElements/Beams" instance=ExtResource("25_ht502")]
 position = Vector2(384, 256)
 rotation = 1.5708
 
-[node name="BeamTile2" parent="." instance=ExtResource("25_ht502")]
+[node name="BeamTile2" parent="GameplayElements/Beams" instance=ExtResource("25_ht502")]
 position = Vector2(352, 256)
 rotation = 1.5708
 
-[node name="MantisBarrier" parent="." instance=ExtResource("26_nfkr3")]
-position = Vector2(480, 352)
-
-[node name="MantisBarrier3" parent="." instance=ExtResource("26_nfkr3")]
-position = Vector2(480, 416)
-
-[node name="MantisBarrier2" parent="." instance=ExtResource("26_nfkr3")]
-position = Vector2(448, 352)
-
-[node name="YellowWarningTile" parent="." instance=ExtResource("27_36p3k")]
-position = Vector2(704, 480)
-
-[node name="Malfunction" parent="." instance=ExtResource("27_yi8hc")]
-position = Vector2(544, 416)
-
-[node name="300LevelBackgroundColors" parent="." instance=ExtResource("28_jablr")]
-offset_right = 1536.0
-offset_bottom = 928.0
+[node name="Dialogue" type="Node2D" parent="."]
