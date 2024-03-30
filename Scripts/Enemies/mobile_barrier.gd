@@ -45,4 +45,4 @@ func hit_by_player(hit):
 		if hit.type == "CircleWhip":
 			return
 	move(target)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
