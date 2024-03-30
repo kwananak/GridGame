@@ -34,10 +34,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5pdu"]
-atlas = ExtResource("2_yr3vf")
-region = Rect2(48, 198, 10, 10)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1tmp"]
 atlas = ExtResource("2_yr3vf")
 region = Rect2(16, 198, 10, 10)
@@ -46,12 +42,13 @@ region = Rect2(16, 198, 10, 10)
 atlas = ExtResource("2_yr3vf")
 region = Rect2(32, 198, 10, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5pdu"]
+atlas = ExtResource("2_yr3vf")
+region = Rect2(48, 198, 10, 10)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xyvlc"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5pdu")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l1tmp")
 }, {
@@ -59,11 +56,37 @@ animations = [{
 "texture": SubResource("AtlasTexture_o6nks")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y5pdu")
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1tmp")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5pdu")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
 }]
 
 [node name="ExtremeForeverBeamTile" type="Area2D" groups=["AStarGridSolid", "Hittable", "LatterEndTurn"]]
@@ -109,6 +132,6 @@ bus = &"FX"
 [node name="SkullSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 0)
 sprite_frames = SubResource("SpriteFrames_xyvlc")
-frame_progress = 0.699732
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="hit_by_player"]

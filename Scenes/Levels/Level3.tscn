@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=28 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -34,6 +34,10 @@ shader_parameter/SCALE = 1.545
 shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aobp3"]
+atlas = ExtResource("22_8mkna")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0sej"]
 atlas = ExtResource("22_8mkna")
 region = Rect2(0, 0, 192, 192)
 
@@ -1294,12 +1298,6 @@ position = Vector2(32.0001, 672)
 rotation = 3.14159
 collision_mask = 0
 
-[node name="WallBackTileComplex65" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(64.0001, 672.5)
-rotation = 3.14159
-collision_layer = 0
-collision_mask = 0
-
 [node name="WallBackTileComplex54" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
 position = Vector2(96.0001, 672)
 rotation = 3.14159
@@ -1993,6 +1991,11 @@ select_amplifier = "NeuroEnhanceAmplifierC"
 [node name="EndTile" parent="Gameplay" instance=ExtResource("6_0mrpp")]
 position = Vector2(64.0001, 672)
 door_number = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/EndTile"]
+rotation = 3.14159
+scale = Vector2(0.167, 0.167)
+texture = SubResource("AtlasTexture_f0sej")
 
 [node name="EndTile2" parent="Gameplay" instance=ExtResource("6_0mrpp")]
 position = Vector2(160, 64)

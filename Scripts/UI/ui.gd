@@ -15,5 +15,4 @@ func _ready():
 
 # relays quit level button press to level manager
 func _on_button_pressed():
-	print("pressed")
 	level_manager._on_button_pressed()

@@ -92,7 +92,7 @@ func skip_turn():
 	if waiting_for_action:
 		waiting_for_action.cancel_action()
 	reset_moves()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	skip_turn_button.show_skip()
 	await level_manager.end_turn()
 

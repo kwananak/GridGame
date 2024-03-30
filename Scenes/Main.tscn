@@ -53,7 +53,6 @@ grow_vertical = 2
 scale = Vector2(0.67, 0.67)
 
 [node name="DebugMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -468,6 +467,14 @@ offset_right = 872.0
 offset_bottom = 316.0
 text = "Level 3 Save"
 
+[node name="Level4Save" type="Button" parent="DebugMenu"]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 329.0
+offset_right = 874.0
+offset_bottom = 360.0
+text = "Level 4 Save"
+
 [node name="ContinueGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
 offset_left = 436.0
@@ -556,7 +563,6 @@ autowrap_mode = 3
 position = Vector2(195, 95)
 
 [node name="ProgressManager" parent="." instance=ExtResource("5_uxdm6")]
-position = Vector2(0, 0)
 
 [node name="FramedChecker" parent="." instance=ExtResource("9_yo8bd")]
 
@@ -604,5 +610,6 @@ position = Vector2(0, 0)
 [connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
 [connection signal="pressed" from="DebugMenu/Level2Save" to="." method="load_fixed_save" binds= [1]]
 [connection signal="pressed" from="DebugMenu/Level3Save" to="." method="load_fixed_save" binds= [2]]
+[connection signal="pressed" from="DebugMenu/Level4Save" to="." method="load_fixed_save" binds= [3]]
 [connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]
 [connection signal="button_down" from="DebugMenu/Cutscene" to="." method="call_cutscene" binds= [1]]

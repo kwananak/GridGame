@@ -172,7 +172,6 @@ func call_cutscene(cutscene_number):
 	menu.visible = false
 	camera.add_child(load("res://Scenes/Cutscenes/Cutscene" + str(cutscene_number) + ".tscn").instantiate())
 
-
 # provided with a level number, retrieves level name from resource file
 func get_level_name(level_number):
 	if str(level_number) in progress_manager.levels:
@@ -185,6 +184,7 @@ func disable_continue():
 	continue_button.disabled = true
 	new_game_button.grab_focus()
 
+# used in debug menu to call fixed saves for easier testing
 func load_fixed_save(save_number):
 	real_scene = null
 	terminal_scene = null

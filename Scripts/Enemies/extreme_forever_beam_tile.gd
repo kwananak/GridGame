@@ -6,7 +6,7 @@ extends "res://Scripts/Enemies/beam_tile.gd"
 func _ready():
 	super._ready()
 	skull_sprite.rotation = -rotation
-	await get_tree().create_timer(float(randi_range(1, 20)) / 10).timeout
+	skull_sprite.frame = randi_range(0, skull_sprite.sprite_frames.get_frame_count("default") - 1)
 	skull_sprite.play()
 
 func hit_by_player(strength):
