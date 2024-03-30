@@ -363,4 +363,6 @@ func return_animation():
 
 func _on_animation_changed():
 	if animated_sprite_2d:
+		if animated_sprite_2d.animation == "return":
+			$EndLevel.play()
 		animated_sprite_2d.play()

@@ -28,8 +28,9 @@ attenuation = 2.54912
 max_polyphony = 3
 bus = &"FX"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_o3q53")
-volume_db = -10.0
+volume_db = 5.0
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

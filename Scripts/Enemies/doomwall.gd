@@ -111,9 +111,11 @@ func set_state(value):
 		"careful":
 			step = level_manager.yellow_doomwall_step
 			get_tree().get_first_node_in_group("WarningUI").play("yellow")
+			$AudioStreamPlayer.pitch_scale = 0.8
 		"danger":
 			step = level_manager.red_doomwall_step
 			get_tree().get_first_node_in_group("WarningUI").play("red")
+			$AudioStreamPlayer.pitch_scale = 1.0
 	$AudioStreamPlayer.play()
 	for n in sprite.get_children():
 		var frame = n.frame

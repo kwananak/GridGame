@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0t6ps4sx8p2h"]
+[gd_scene load_steps=7 format=3 uid="uid://d0t6ps4sx8p2h"]
 
 [ext_resource type="Script" path="res://Scripts/AccessPoints/access_point_key.gd" id="1_644ej"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="2_4kuo0"]
+[ext_resource type="AudioStream" uid="uid://dmvy3owqfom7e" path="res://Sounds/FX/key_pick_up.wav" id="3_jixju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vt10"]
 
@@ -30,5 +31,10 @@ shape = SubResource("RectangleShape2D_6vt10")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnxmp")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jixju")
+attenuation = 2.54912
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

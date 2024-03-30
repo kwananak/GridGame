@@ -30,7 +30,7 @@ func activate_program_bar():
 	program_bar.show()
 
 func _input(event):
-	if player.moving || level_manager.game_over || level_manager.paused:
+	if player.moving || level_manager.game_over || level_manager.paused || level_manager.dialogue:
 		return
 	for slot in program_bar.get_children():
 		if slot.name == "Labels" || slot.name == "Legs" || slot.name == "Armor" || slot.get_child_count() == 0:

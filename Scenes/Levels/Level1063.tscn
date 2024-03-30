@@ -258,12 +258,6 @@ position = Vector2(928, 320)
 [node name="FloorTile36" parent="Environment/Floor" instance=ExtResource("5_maida")]
 position = Vector2(928, 288)
 
-[node name="WallTile33" parent="Environment/Floor" instance=ExtResource("8_sfarp")]
-position = Vector2(704, 256)
-
-[node name="WallTile85" parent="Environment/Floor" instance=ExtResource("8_sfarp")]
-position = Vector2(800, 256)
-
 [node name="FloorTile139" parent="Environment/Floor" instance=ExtResource("5_maida")]
 position = Vector2(864, 288)
 
@@ -333,6 +327,24 @@ position = Vector2(640, 448)
 [node name="FloorTile286" parent="Environment/Floor" instance=ExtResource("5_maida")]
 position = Vector2(736, 448)
 
+[node name="FloorTile141" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(576, 384)
+
+[node name="FloorTile221" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(576, 416)
+
+[node name="FloorTile222" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(576, 448)
+
+[node name="FloorTile116" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(128, 288)
+
+[node name="FloorTile230" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(128, 320)
+
+[node name="FloorTile237" parent="Environment/Floor" instance=ExtResource("5_maida")]
+position = Vector2(128, 352)
+
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallTile" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
@@ -363,15 +375,6 @@ position = Vector2(288, 256)
 
 [node name="WallTile83" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(480, 352)
-
-[node name="FloorTile138" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(576, 384)
-
-[node name="FloorTile220" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(576, 416)
-
-[node name="FloorTile221" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(576, 448)
 
 [node name="WallTile84" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(576, 352)
@@ -440,14 +443,17 @@ position = Vector2(896, 384)
 position = Vector2(864, 384)
 
 [node name="WallTile177" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
+z_index = 31
 position = Vector2(960, 288)
 rotation = -1.5708
 
 [node name="WallTile241" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
+z_index = 31
 position = Vector2(960, 320)
 rotation = -1.5708
 
 [node name="WallTile245" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
+z_index = 31
 position = Vector2(960, 352)
 rotation = -1.5708
 
@@ -487,15 +493,6 @@ position = Vector2(192, 384)
 
 [node name="WallTile52" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(160, 384)
-
-[node name="FloorTile116" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(128, 288)
-
-[node name="FloorTile230" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(128, 320)
-
-[node name="FloorTile237" parent="Environment/Walls" instance=ExtResource("5_maida")]
-position = Vector2(128, 352)
 
 [node name="WallTile40" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
 position = Vector2(128, 256)
@@ -583,6 +580,12 @@ position = Vector2(960, 256)
 
 [node name="100WalLowerRightCorner3" parent="Environment/Walls" instance=ExtResource("9_6bdk5")]
 position = Vector2(960, 384)
+
+[node name="WallTile33" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
+position = Vector2(704, 256)
+
+[node name="WallTile85" parent="Environment/Walls" instance=ExtResource("8_sfarp")]
+position = Vector2(800, 256)
 
 [node name="GameplayElements" type="Node2D" parent="."]
 
@@ -784,7 +787,7 @@ bus = &"Music"
 dialogue_number = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(224, 320)
+position = Vector2(512, 416)
 shape = SubResource("RectangleShape2D_7keqc")
 
 [node name="DialogueArea2" parent="Dialogue" instance=ExtResource("22_wjnnq")]

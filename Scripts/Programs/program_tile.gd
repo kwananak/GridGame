@@ -54,4 +54,8 @@ func pick_up(_area):
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)
 	$Sprite2D.hide()
+	var dialogues = get_tree().get_nodes_in_group("PickUpDialogue")
+	for n in dialogues:
+		n._on_area_entered(self)
+		return
 	get_tree().get_first_node_in_group("VirtualLevelManager").dialogue = false

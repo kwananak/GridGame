@@ -30,13 +30,13 @@ func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	dialog = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)]["text"]
 	highlight_color = progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)]["color"]
-
-func _on_area_entered(_area):
 	if str(level_manager.level_number) not in progress_manager.log_progress:
 		progress_manager.log_progress[str(level_manager.level_number)] = []
 	if level_manager.skip_dialogues || str(dialogue_number) in progress_manager.log_progress[str(level_manager.level_number)]:
 		queue_free()
 		return
+
+func _on_area_entered(_area):
 	player.get_node("PossibleMoves").hide()
 	level_manager.dialogue = self
 	if related_node:
@@ -45,6 +45,7 @@ func _on_area_entered(_area):
 		highlight.show()
 		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(related_node.global_position), 0.5 * camera_speed).finished
 	spawn_bubble()
+	return
 
 func close():
 	if animating:
