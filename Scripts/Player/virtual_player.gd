@@ -98,7 +98,7 @@ func skip_turn():
 
 func reset_moves():
 	for n in possible_moves:
-		n.reset()
+		await n.reset()
 
 # triggers action on selected direction
 func act(dir):

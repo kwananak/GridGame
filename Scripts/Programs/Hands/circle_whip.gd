@@ -12,6 +12,7 @@ func loaded():
 	super.loaded()
 
 func action():
+	focus = true
 	$LoadedSprite/Button.frame = 1
 	player.moving = true
 	for n in player.possible_moves:
@@ -29,4 +30,5 @@ func action():
 			elif collision.has_method("hit_by_player"):
 				collision.hit_by_player(strength)
 	await player.get_node("AnimationPlayer").animation_finished
+	focus = false
 	level_manager.end_turn()

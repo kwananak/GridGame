@@ -14,11 +14,11 @@ func loaded():
 	super.loaded()
 
 func action():
+	focus = true
 	$LoadedSprite/Button.frame = 1
 	player.moving = true
 	doomwall.skip_turn = true
 	var anim = player.get_node("AnimatedSprite2D")
-	var flip_save = anim.flip_h
 	anim.flip_h = true
 	anim.animation = "amazing"
 	while true:
@@ -30,7 +30,6 @@ func action():
 				break
 	doomwall.move_wall(-distance)
 	await anim.animation_finished
+	focus = false
 	anim.animation = "idle"
-	anim.flip_h = flip_save
-	anim.play()
 	level_manager.end_turn()
