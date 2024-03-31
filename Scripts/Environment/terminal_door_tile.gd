@@ -9,7 +9,7 @@ func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	animated_sprite_2d.animation_changed.connect(door_sound)
-	await update_door()
+	update_door()
 
 func update_door():
 	for i in progress_manager.doors:

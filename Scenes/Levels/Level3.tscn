@@ -25,12 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
 [ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev4uj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukljp"]
 shader = ExtResource("4_n0otq")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
-shader_parameter/SCALE = 1.545
+shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aobp3"]
@@ -56,11 +56,18 @@ level_number = 3
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_ev4uj")
-offset_left = -479.0
-offset_top = -266.0
-offset_right = 481.0
-offset_bottom = 267.0
+material = SubResource("ShaderMaterial_ukljp")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -944.0
+offset_top = -640.0
+offset_right = 2048.0
+offset_bottom = 1648.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Environment" type="Node2D" parent="."]
 

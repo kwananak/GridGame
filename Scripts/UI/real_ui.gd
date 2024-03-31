@@ -13,10 +13,14 @@ func _ready():
 	saved_vignette_scale_value = vignette.material.get_shader_parameter("SCALE")
 	vignette.material.set_shader_parameter("SCALE", vignette_scale)
 	show()
+	await get_tree().create_timer(0.2).timeout
+	vignette.global_position = get_tree().get_first_node_in_group("RealPlayer").global_position - vignette.size / 2
 
 func _process(delta):
+	if vignette.position != Vector2.ZERO - vignette.size / 4:
+		vignette.position += vignette.position.direction_to(Vector2.ZERO - vignette.size / 2) * delta * 500
 	if vignette_scale < saved_vignette_scale_value:
-		vignette_scale += 1.5 * delta
+		vignette_scale += 0.5 * delta
 		vignette.material.set_shader_parameter("SCALE", vignette_scale)
 
 func _input(event):

@@ -9,8 +9,9 @@ var start_up = true
 
 func _ready():
 	start_tile = get_tree().get_first_node_in_group("StartTile")
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(1.0).timeout
 	start_up = false
+	on = true
 
 func _on_area_entered(_area):
 	if !on:

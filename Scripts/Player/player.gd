@@ -17,11 +17,9 @@ signal moving_signal
 # called when entering a level for a little walk-in animation
 func enter_level_animation():
 	moving = true
-	animated_sprite_2d.play("move")
 	position = get_tree().get_first_node_in_group("StartTile").position.snapped(Vector2.ONE * level_manager.tile_size)
-	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	animated_sprite_2d.play("move")
+	await create_tween().tween_property(self, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
 	animated_sprite_2d.play("idle")
 
 func set_moving(value):

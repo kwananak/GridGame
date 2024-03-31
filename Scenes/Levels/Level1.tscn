@@ -21,12 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="18_bl844"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_wo2ff"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5v5t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lw8uf"]
 shader = ExtResource("4_p6h6c")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
-shader_parameter/SCALE = 1.235
+shader_parameter/SCALE = 0.4
 shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72cjn"]
@@ -73,16 +73,16 @@ texture = ExtResource("1_p66h4")
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_e5v5t")
+material = SubResource("ShaderMaterial_lw8uf")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -266.5
-offset_right = 480.0
-offset_bottom = 266.5
+offset_left = -944.0
+offset_top = -640.0
+offset_right = 2048.0
+offset_bottom = 1648.0
 grow_horizontal = 2
 grow_vertical = 2
 

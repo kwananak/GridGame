@@ -26,7 +26,7 @@ shader = ExtResource("4_auhts")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
-shader_parameter/SCALE = 1.235
+shader_parameter/SCALE = 0.45
 shader_parameter/SOFTNESS = 0.6
 
 [node name="Level4" type="Node2D"]
@@ -40,14 +40,20 @@ autoplay = true
 bus = &"Music"
 
 [node name="UI" parent="." instance=ExtResource("2_oc6kl")]
-visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_kyeha")
-offset_left = -479.0
-offset_top = -266.0
-offset_right = 481.0
-offset_bottom = 267.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -944.0
+offset_top = -640.0
+offset_right = 2048.0
+offset_bottom = 1648.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0

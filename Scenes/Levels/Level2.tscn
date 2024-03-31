@@ -27,12 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://cimgj6cn4tfce" path="res://Scenes/Tiles/EnvironmentComplex/conveyor_end.tscn" id="21_65wie"]
 [ext_resource type="PackedScene" uid="uid://bo048pm8qjmme" path="res://Scenes/Tiles/EnvironmentComplex/window.tscn" id="22_8km8i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_etv8b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ibu03"]
 shader = ExtResource("3_smkiu")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
-shader_parameter/SCALE = 1.545
+shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vosv2"]
@@ -67,11 +67,18 @@ animation_speed = 10
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_etv8b")
-offset_left = -479.0
-offset_top = -266.0
-offset_right = 481.0
-offset_bottom = 267.0
+material = SubResource("ShaderMaterial_ibu03")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -944.0
+offset_top = -640.0
+offset_right = 2048.0
+offset_bottom = 1648.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Environment" type="Node2D" parent="."]
 
