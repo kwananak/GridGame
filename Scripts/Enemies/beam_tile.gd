@@ -111,6 +111,7 @@ func hit_by_player(_strength):
 	for n in $Beam.get_children():
 		n.queue_free()
 	is_destroyed = true
+	await get_tree().create_timer(0.2).timeout
 
 func set_duration(value):
 	if value < 1:
