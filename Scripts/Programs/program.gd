@@ -65,21 +65,25 @@ func set_focus(value):
 	if focus:
 		z_index = 90
 		create_tween().tween_property(self, "scale", Vector2(2.0, 2.0), 0.2)
-		create_tween().tween_property(self, "position", position - Vector2(0, 8), 0.2)
+		create_tween().tween_property(self, "position", Vector2(-16, 0), 0.2)
 		create_tween().tween_property($LoadedSprite/Button, "scale", Vector2(1.5, 1.5), 0.2)
-		create_tween().tween_property($LoadedSprite/Button, "position", $LoadedSprite/Button.position - Vector2(0, 4), 0.2)
+		create_tween().tween_property($LoadedSprite/Button, "position", Vector2(0, 14), 0.2)
 		$LoadedSprite/Button.frame = 1
 	else:
 		create_tween().tween_property(self, "scale", Vector2.ONE, 0.2)
-		create_tween().tween_property(self, "position", position + Vector2(0, 8), 0.2)
+		create_tween().tween_property(self, "position", Vector2(-16, 8), 0.2)
 		create_tween().tween_property($LoadedSprite/Button, "scale", Vector2.ONE, 0.2)
-		create_tween().tween_property($LoadedSprite/Button, "position", $LoadedSprite/Button.position + Vector2(0, 4), 0.2)
+		var tween = create_tween().tween_property($LoadedSprite/Button, "position", Vector2(0, 18), 0.2)
 		$LoadedSprite/Button.frame = 0
-		z_index = 0
+		await tween.finished
+		if !focus:
+			z_index = 0
 
 func available(value):
 	if value:
-		$LoadedSprite.material.set_shader_parameter("darken", true)
+		await get_tree().create_timer(0.02).timeout
+		if player.moving:
+			$LoadedSprite.material.set_shader_parameter("darken", true)
 	else:
 		await get_tree().create_timer(0.02).timeout
 		if !focus:

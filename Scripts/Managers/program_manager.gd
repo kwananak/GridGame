@@ -24,9 +24,9 @@ func activate_program_bar():
 				if !slot.is_empty():
 					var loaded_program = slot[0].duplicate(15)
 					n.add_child(loaded_program)
+					loaded_program.position = Vector2(-16, 8)
 					loaded_program.loaded()
 					loaded_program.monitorable = true
-					loaded_program.position = Vector2(-16, 8)
 	program_bar.show()
 	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
 		$"../UI/Amplifiers".get_node(n.amplifier_class).show()
