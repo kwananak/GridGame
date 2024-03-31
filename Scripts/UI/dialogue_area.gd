@@ -62,7 +62,12 @@ func close():
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(200, 300)
 	bubble.show()
-	await create_tween().tween_property(bubble, "global_position", camera.position + Vector2(-200, 60), 0.4).finished
+	var target_position = camera.position + Vector2(-200, 60)
+	var target_speed = 0.4
+	if player.global_position.y > camera.global_position.y + 60:
+		target_position = camera.global_position + Vector2(-200, -200)
+		target_speed = 0.2
+	await create_tween().tween_property(bubble, "global_position", target_position, target_speed).finished
 	bubble.get_node("Tail").hide()
 	bubble.play()
 	await bubble.animation_finished

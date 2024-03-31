@@ -28,6 +28,8 @@ func activate_program_bar():
 					loaded_program.monitorable = true
 					loaded_program.position = Vector2(-16, 8)
 	program_bar.show()
+	for n in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
+		$"../UI/Amplifiers".get_node(n.amplifier_class).show()
 
 func _input(event):
 	if player.moving || level_manager.game_over || level_manager.paused || level_manager.dialogue:
