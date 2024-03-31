@@ -1,33 +1,33 @@
 [gd_scene load_steps=16 format=3 uid="uid://dlyrwgmg3ve6g"]
 
-[ext_resource type="Script" path="res://Scripts/Programs/Hands/grappling_tool.gd" id="2_8llf7"]
-[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_si3jg"]
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_1a3h4"]
-[ext_resource type="AudioStream" uid="uid://byuxfnojgpaqw" path="res://Sounds/FX/grapple.wav" id="4_75hlv"]
-[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_f3ied"]
-[ext_resource type="AudioStream" uid="uid://cgb3vwy651e1g" path="res://Sounds/FX/hook.wav" id="5_h6yu2"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="6_opfwf"]
+[ext_resource type="Script" path="res://Scripts/Programs/Hands/quantum_grapple.gd" id="1_pujic"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_kwq0i"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_rephm"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_utrvh"]
+[ext_resource type="AudioStream" uid="uid://byuxfnojgpaqw" path="res://Sounds/FX/grapple.wav" id="5_4wop5"]
+[ext_resource type="AudioStream" uid="uid://cgb3vwy651e1g" path="res://Sounds/FX/hook.wav" id="6_3ve4e"]
+[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="7_yfsa7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7u1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8wwc"]
-atlas = ExtResource("2_si3jg")
+atlas = ExtResource("2_kwq0i")
 region = Rect2(1, 195, 30, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3455"]
-atlas = ExtResource("2_si3jg")
+atlas = ExtResource("2_kwq0i")
 region = Rect2(4, 484, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l12na"]
-atlas = ExtResource("2_si3jg")
+atlas = ExtResource("2_kwq0i")
 region = Rect2(131, 483, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd0db"]
-atlas = ExtResource("4_f3ied")
+atlas = ExtResource("4_utrvh")
 region = Rect2(144, 224, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0f4w6"]
-atlas = ExtResource("4_f3ied")
+atlas = ExtResource("4_utrvh")
 region = Rect2(160, 224, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vfl70"]
@@ -45,14 +45,14 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq3u0"]
-atlas = ExtResource("2_si3jg")
+atlas = ExtResource("2_kwq0i")
 region = Rect2(10, 490, 42, 35)
 
-[node name="GrapplingTool" type="Area2D"]
+[node name="QuantumGrapple" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("2_8llf7")
+script = ExtResource("1_pujic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -72,9 +72,9 @@ offset_top = 16.0
 offset_right = 207.0
 offset_bottom = 66.0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_1a3h4")
-theme_override_font_sizes/font_size = 32
-text = "Grappling Tool"
+theme_override_fonts/font = ExtResource("3_rephm")
+theme_override_font_sizes/font_size = 28
+text = "QuantumGrapple"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -93,15 +93,15 @@ scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_jq3u0")
 
 [node name="GrappleSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_75hlv")
+stream = ExtResource("5_4wop5")
 bus = &"FX"
 
 [node name="TipSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_h6yu2")
+stream = ExtResource("6_3ve4e")
 pitch_scale = 0.4
 bus = &"FX"
 
-[node name="Focus" parent="." instance=ExtResource("6_opfwf")]
+[node name="Focus" parent="." instance=ExtResource("7_yfsa7")]
 visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

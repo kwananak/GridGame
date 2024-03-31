@@ -5,7 +5,7 @@ var distance = 2
 @onready var down = $Down
 
 func _ready():
-	type = "Sour"
+	type = "Neutrino"
 	info = "Action : Teleport " + str(distance) + " tiles"
 	super._ready()
 

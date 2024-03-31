@@ -1,6 +1,6 @@
 extends "res://Scripts/Programs/program_tile.gd"
 
-@export_enum("Vision", "Amazing", "Ray", "Ice", "Star") var select_program : String
+@export_enum("Vision", "CyberReality", "Ray", "Ice", "Star") var select_program : String
 
 func _ready():
 	program_type = select_program

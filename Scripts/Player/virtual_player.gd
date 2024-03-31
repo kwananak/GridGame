@@ -118,7 +118,7 @@ func act(dir):
 		await saved_dir.hit_by_player(self)
 	else:
 		match waiting_for_action.type:
-			dir.available_action.name, "GrapplingTool", "Sour":
+			dir.available_action.name, "QuantumGrapple", "Neutrino":
 				await waiting_for_action.confirm_with_dir(dir)
 			_:
 				if waiting_for_action != null:

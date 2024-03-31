@@ -790,8 +790,9 @@ dialogue_number = 1
 position = Vector2(512, 416)
 shape = SubResource("RectangleShape2D_7keqc")
 
-[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("22_wjnnq")]
+[node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_wjnnq")]
 dialogue_number = 2
+related_node = NodePath("../../GameplayElements/Items/Booster10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
 position = Vector2(448, 416)

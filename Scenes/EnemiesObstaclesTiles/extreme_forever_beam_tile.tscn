@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqy0kn70q6mgg"]
+[gd_scene load_steps=11 format=3 uid="uid://cqy0kn70q6mgg"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/extreme_forever_beam_tile.gd" id="1_vs2qu"]
 [ext_resource type="Texture2D" uid="uid://bvrenwrowpsup" path="res://Sprites/Enemies/beam.png" id="2_yr3vf"]
@@ -42,10 +42,6 @@ region = Rect2(16, 198, 10, 10)
 atlas = ExtResource("2_yr3vf")
 region = Rect2(32, 198, 10, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5pdu"]
-atlas = ExtResource("2_yr3vf")
-region = Rect2(48, 198, 10, 10)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_xyvlc"]
 animations = [{
 "frames": [{
@@ -79,14 +75,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5pdu")
-}],
-"loop": true,
-"name": &"destroyed",
-"speed": 5.0
 }]
 
 [node name="ExtremeForeverBeamTile" type="Area2D" groups=["AStarGridSolid", "Hittable", "LatterEndTurn"]]

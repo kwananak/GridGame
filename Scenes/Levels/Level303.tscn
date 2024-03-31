@@ -2035,7 +2035,7 @@ position = Vector2(1280, 480)
 
 [node name="HandsTile" parent="GameplayElements/Others" instance=ExtResource("31_cuoe0")]
 position = Vector2(1056, 448)
-select_program = "GrapplingTool"
+select_program = "QuantumGrapple"
 
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("20_6fj7k")]
 
@@ -2081,9 +2081,9 @@ related_node = NodePath("../../GameplayElements/Beams/ExtremeForeverBeamTile5")
 position = Vector2(320, 384)
 shape = SubResource("RectangleShape2D_oyd0s")
 
-[node name="DialogueArea2" parent="Dialogue" instance=ExtResource("29_xrkbs")]
+[node name="DialogueArea2" parent="Dialogue" groups=["PickUpDialogue"] instance=ExtResource("29_xrkbs")]
 dialogue_number = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-position = Vector2(1056, 448)
+position = Vector2(1024, 640)
 shape = SubResource("RectangleShape2D_vodyl")

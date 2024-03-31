@@ -1,32 +1,32 @@
 [gd_scene load_steps=15 format=3 uid="uid://ykmhiaw3cqvr"]
 
-[ext_resource type="Script" path="res://Scripts/Programs/Goggles/amazing.gd" id="1_3vqoq"]
-[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_sh4f3"]
-[ext_resource type="AudioStream" uid="uid://b72yrvnf8cfj7" path="res://Sounds/FX/amazing_goggles.wav" id="3_3sk5f"]
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_lesuh"]
-[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_2x300"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="5_qxceb"]
+[ext_resource type="Script" path="res://Scripts/Programs/Goggles/cyber_reality.gd" id="1_mwqr6"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_nm153"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_moanf"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_32myg"]
+[ext_resource type="AudioStream" uid="uid://b72yrvnf8cfj7" path="res://Sounds/FX/amazing_goggles.wav" id="5_fd8bd"]
+[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="6_cvuax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux22f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7r66n"]
-atlas = ExtResource("2_sh4f3")
+atlas = ExtResource("2_nm153")
 region = Rect2(0, 130, 32, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdv8p"]
-atlas = ExtResource("2_sh4f3")
+atlas = ExtResource("2_nm153")
 region = Rect2(4, 356, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a6pv"]
-atlas = ExtResource("2_sh4f3")
+atlas = ExtResource("2_nm153")
 region = Rect2(67, 355, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnqee"]
-atlas = ExtResource("4_2x300")
+atlas = ExtResource("4_32myg")
 region = Rect2(144, 192, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ng2f"]
-atlas = ExtResource("4_2x300")
+atlas = ExtResource("4_32myg")
 region = Rect2(160, 192, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_it20a"]
@@ -44,14 +44,14 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwthn"]
-atlas = ExtResource("2_sh4f3")
+atlas = ExtResource("2_nm153")
 region = Rect2(10, 362, 42, 35)
 
-[node name="Amazing" type="Area2D"]
+[node name="CyberReality" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("1_3vqoq")
+script = ExtResource("1_mwqr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -71,9 +71,9 @@ offset_top = 16.0
 offset_right = 207.0
 offset_bottom = 66.0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_lesuh")
+theme_override_fonts/font = ExtResource("3_moanf")
 theme_override_font_sizes/font_size = 32
-text = "Amazing"
+text = "CyberReality"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -92,11 +92,11 @@ scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_fwthn")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_3sk5f")
+stream = ExtResource("5_fd8bd")
 volume_db = 10.0
 bus = &"FX"
 
-[node name="Focus" parent="." instance=ExtResource("5_qxceb")]
+[node name="Focus" parent="." instance=ExtResource("6_cvuax")]
 visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

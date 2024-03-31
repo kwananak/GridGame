@@ -12,5 +12,4 @@ func _ready():
 func hit_by_player(strength):
 	await super.hit_by_player(strength)
 	if is_destroyed:
-		skull_sprite.pause()
-		skull_sprite.frame = 0
+		skull_sprite.hide()

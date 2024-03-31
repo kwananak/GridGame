@@ -13,7 +13,7 @@ var tip
 
 
 func _ready():
-	type = "GrapplingTool"
+	type = "QuantumGrapple"
 	info = "Action : Grappling of " + str(grapple_range)
 	super._ready()
 

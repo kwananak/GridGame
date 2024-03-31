@@ -1,33 +1,33 @@
 [gd_scene load_steps=16 format=3 uid="uid://caq3tmtnish1u"]
 
-[ext_resource type="Script" path="res://Scripts/Programs/Boots/sour.gd" id="2_4sv8q"]
-[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_imkw1"]
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wcf68"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="4_4tc1x"]
-[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_nwnvc"]
-[ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="5_n3ds2"]
-[ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="6_x5koy"]
+[ext_resource type="Script" path="res://Scripts/Programs/Boots/neutrino.gd" id="1_3sflv"]
+[ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_cf784"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_536q8"]
+[ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_e21er"]
+[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="5_ge1ne"]
+[ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="6_y5qbr"]
+[ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="7_5cxak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ut2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hmk5v"]
-atlas = ExtResource("2_imkw1")
+atlas = ExtResource("2_cf784")
 region = Rect2(65, 3, 30, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rgjk"]
-atlas = ExtResource("2_imkw1")
+atlas = ExtResource("2_cf784")
 region = Rect2(69, 549, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksaql"]
-atlas = ExtResource("2_imkw1")
+atlas = ExtResource("2_cf784")
 region = Rect2(131, 547, 42, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hy17a"]
-atlas = ExtResource("4_nwnvc")
+atlas = ExtResource("4_e21er")
 region = Rect2(144, 240, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2n4f"]
-atlas = ExtResource("4_nwnvc")
+atlas = ExtResource("4_e21er")
 region = Rect2(160, 240, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5q2oh"]
@@ -45,14 +45,14 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbvvq"]
-atlas = ExtResource("2_imkw1")
+atlas = ExtResource("2_cf784")
 region = Rect2(75, 555, 42, 35)
 
-[node name="Sour" type="Area2D"]
+[node name="Neutrino" type="Area2D"]
 collision_layer = 256
 collision_mask = 0
 monitorable = false
-script = ExtResource("2_4sv8q")
+script = ExtResource("1_3sflv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -72,9 +72,9 @@ offset_top = 16.0
 offset_right = 207.0
 offset_bottom = 66.0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("3_wcf68")
+theme_override_fonts/font = ExtResource("3_536q8")
 theme_override_font_sizes/font_size = 32
-text = "AmazingSour"
+text = "Neutrino"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,16 +94,16 @@ position = Vector2(1.78814e-07, -7.7486e-07)
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_xbvvq")
 
-[node name="Focus" parent="." instance=ExtResource("4_4tc1x")]
+[node name="Focus" parent="." instance=ExtResource("5_ge1ne")]
 visible = false
 
 [node name="Up" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_n3ds2")
+stream = ExtResource("6_y5qbr")
 pitch_scale = 1.2
 bus = &"FX"
 
 [node name="Down" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_x5koy")
+stream = ExtResource("7_5cxak")
 pitch_scale = 1.2
 bus = &"FX"
 

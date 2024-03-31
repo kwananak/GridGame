@@ -28,7 +28,7 @@ func check_collision(collision):
 			"chip", "key":
 				if player.waiting_for_action:
 					match player.waiting_for_action.type:
-						"GrapplingTool":
+						"QuantumGrapple":
 							available_action = collision
 							return
 				possible = true
@@ -48,7 +48,7 @@ func check_collision(collision):
 			"hole":
 				if player.waiting_for_action:
 					match player.waiting_for_action.type:
-						"GrapplingTool" , "1-0-1Shotgun", "Salty":
+						"QuantumGrapple" , "1-0-1Shotgun", "Salty":
 							possible = true
 							return
 				if !collision.opened || get_tree().get_first_node_in_group("VirtualLevelManager").floating:
@@ -56,7 +56,7 @@ func check_collision(collision):
 					return
 			"mobile", "soap":
 				if player.waiting_for_action:
-					if player.waiting_for_action.type == "GrapplingTool" || player.teleport:
+					if player.waiting_for_action.type == "QuantumGrapple" || player.teleport:
 						available_action = collision
 						return
 				if !collision.moved:

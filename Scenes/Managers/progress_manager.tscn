@@ -1,12 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
-[ext_resource type="PackedScene" uid="uid://w6dfm2wturk6" path="res://Scenes/Programs/Armor/Diamond.tscn" id="3_01cpo"]
-[ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/GrapplingTool.tscn" id="5_2wone"]
-[ext_resource type="PackedScene" uid="uid://my6oyv50hb2h" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierA.tscn" id="6_cui3m"]
-[ext_resource type="PackedScene" uid="uid://caq3tmtnish1u" path="res://Scenes/Programs/Boots/Sour.tscn" id="6_epm1l"]
-[ext_resource type="PackedScene" uid="uid://cvfs66ts0gdwj" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierD.tscn" id="6_ijo81"]
-[ext_resource type="PackedScene" uid="uid://dwdpegtt8wv6m" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierC.tscn" id="7_bmhfg"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 script = ExtResource("1_8smh1")
@@ -19,19 +13,13 @@ z_index = 90
 
 [node name="Armor" type="Node2D" parent="Loadout"]
 
-[node name="Diamond" parent="Loadout/Armor" instance=ExtResource("3_01cpo")]
-
 [node name="LeftHand" type="Node2D" parent="Loadout"]
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 
-[node name="GrapplingTool" parent="Loadout/RightHand" instance=ExtResource("5_2wone")]
-
 [node name="Legs" type="Node2D" parent="Loadout"]
 
 [node name="Boots" type="Node2D" parent="Loadout"]
-
-[node name="Sour" parent="Loadout/Boots" instance=ExtResource("6_epm1l")]
 
 [node name="Runes" type="Node2D" parent="Loadout"]
 
@@ -43,22 +31,10 @@ position = Vector2(-1336, -1080)
 
 [node name="Armor" type="Node2D" parent="OwnedPrograms"]
 
-[node name="Diamond" parent="OwnedPrograms/Armor" instance=ExtResource("3_01cpo")]
-
 [node name="Hands" type="Node2D" parent="OwnedPrograms"]
-
-[node name="GrapplingTool" parent="OwnedPrograms/Hands" instance=ExtResource("5_2wone")]
 
 [node name="Legs" type="Node2D" parent="OwnedPrograms"]
 
 [node name="Boots" type="Node2D" parent="OwnedPrograms"]
 
-[node name="Sour" parent="OwnedPrograms/Boots" instance=ExtResource("6_epm1l")]
-
 [node name="Amplifiers" type="Node2D" parent="OwnedPrograms"]
-
-[node name="NeuroEnhanceAmplifierD" parent="OwnedPrograms/Amplifiers" instance=ExtResource("6_ijo81")]
-
-[node name="NeuroEnhanceAmplifierC" parent="OwnedPrograms/Amplifiers" instance=ExtResource("7_bmhfg")]
-
-[node name="NeuroEnhanceAmplifier1" parent="OwnedPrograms/Amplifiers" instance=ExtResource("6_cui3m")]
