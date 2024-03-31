@@ -2,11 +2,12 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 
 # set up number of action added after pick up
 @export var strength = 1
+var type = "Battery"
 var picked = false
 
 func _ready():
 	super._ready()
-	info = "Give +" + str(strength) + " action"
+	info = "Gives +" + str(strength) + " action"
 
 # adds strength to actions and removes item
 func pick_up(area):

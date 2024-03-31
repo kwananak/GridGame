@@ -116,6 +116,8 @@ func on_end_tile_entered(next_level):
 	button.text = "Enter " + $/root/Main.get_level_name(next_level)
 	button.visible = true
 	button.grab_focus()
+	for n in get_tree().get_nodes_in_group("TargetMoveSprite"):
+		n.hide()
 
 # called by game ending entities when colliding with player
 func call_game_over():

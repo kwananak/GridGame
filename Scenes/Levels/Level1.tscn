@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_y6187"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_y6187"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_ey8wb"]
 [ext_resource type="Shader" path="res://Vignette.gdshader" id="4_p6h6c"]
 [ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile.tscn" id="5_fiana"]
@@ -74,10 +74,17 @@ visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_ktxa6")
-offset_left = -479.0
-offset_top = -266.0
-offset_right = 481.0
-offset_bottom = 267.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -266.5
+offset_right = 480.0
+offset_bottom = 266.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(0, 96)

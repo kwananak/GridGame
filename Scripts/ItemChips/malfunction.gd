@@ -2,10 +2,11 @@ extends "res://Scripts/ItemChips/item_chip.gd"
 
 # set up number of turn freezed after pick up, turn where item is picked up is included
 @export var strength = 3
+var type = "Malware"
 
 func _ready():
 	super._ready()
-	info = "Freeze the DoomWall for " + str(strength) + " turns"
+	info = "Freezes the DoomWall for " + str(strength) + " turns"
 
 # sends freeze strength to firewall and removes item
 func pick_up(area):
