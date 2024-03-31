@@ -10,6 +10,7 @@ var save_point
 var dialogs
 var log_progress = {}
 var levels
+var bad_save = false
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -303,6 +304,12 @@ func load_game(save_number):
 										v.runed = true
 									else:
 										if o == "LeftHand" || o == "RightHand":
+											if !load("res://Scenes/Programs/Hands/" + p + ".tscn"):
+												bad_save = true
+												return
 											get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
 											continue
+										if !load("res://Scenes/Programs/" + o + "/" + p + ".tscn"):
+											bad_save = true
+											return
 										get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())
