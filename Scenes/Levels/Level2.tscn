@@ -1,8 +1,8 @@
 [gd_scene load_steps=32 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_o22k4"]
-[ext_resource type="Shader" path="res://Vignette.gdshader" id="3_6dd66"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_o22k4"]
+[ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="3_smkiu"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="3_yd3js"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_hicxf"]
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="5_mc1di"]
@@ -27,8 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://cimgj6cn4tfce" path="res://Scenes/Tiles/EnvironmentComplex/conveyor_end.tscn" id="21_65wie"]
 [ext_resource type="PackedScene" uid="uid://bo048pm8qjmme" path="res://Scenes/Tiles/EnvironmentComplex/window.tscn" id="22_8km8i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s25wu"]
-shader = ExtResource("3_6dd66")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etv8b"]
+shader = ExtResource("3_smkiu")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
@@ -67,7 +67,7 @@ animation_speed = 10
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_s25wu")
+material = SubResource("ShaderMaterial_etv8b")
 offset_left = -479.0
 offset_top = -266.0
 offset_right = 481.0

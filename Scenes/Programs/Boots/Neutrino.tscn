@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=17 format=3 uid="uid://caq3tmtnish1u"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/neutrino.gd" id="1_3sflv"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_cf784"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_536q8"]
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_e21er"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="5_ge1ne"]
+[ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="4_ynu1o"]
 [ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="6_y5qbr"]
 [ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="7_5cxak"]
 
@@ -17,6 +17,10 @@ region = Rect2(33, 227, 30, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rgjk"]
 atlas = ExtResource("2_cf784")
 region = Rect2(69, 549, 56, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv2yc"]
+shader = ExtResource("4_ynu1o")
+shader_parameter/darken = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksaql"]
 atlas = ExtResource("2_cf784")
@@ -80,11 +84,13 @@ vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_lv2yc")
 position = Vector2(1.78814e-07, -7.7486e-07)
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_ksaql")
 
 [node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
+use_parent_material = true
 position = Vector2(-2.34972e-07, 18.3968)
 sprite_frames = SubResource("SpriteFrames_5q2oh")
 
@@ -93,9 +99,6 @@ visible = false
 position = Vector2(1.78814e-07, -7.7486e-07)
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_xbvvq")
-
-[node name="Focus" parent="." instance=ExtResource("5_ge1ne")]
-visible = false
 
 [node name="Up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_y5qbr")

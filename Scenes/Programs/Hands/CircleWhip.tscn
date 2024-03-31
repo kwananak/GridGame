@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b71bjivqvxg8c"]
+[gd_scene load_steps=16 format=3 uid="uid://b71bjivqvxg8c"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/circle_whip.gd" id="2_axfky"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_bv0q6"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_ak2sn"]
 [ext_resource type="AudioStream" uid="uid://2tjbdy1btvxt" path="res://Sounds/FX/circle_whip.wav" id="3_w4623"]
+[ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="4_0c3m3"]
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_650hj"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="5_4kui6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ccg"]
 
@@ -16,6 +16,10 @@ region = Rect2(33, 195, 30, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4shs"]
 atlas = ExtResource("2_bv0q6")
 region = Rect2(68, 484, 56, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vg142"]
+shader = ExtResource("4_0c3m3")
+shader_parameter/darken = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fw1wy"]
 atlas = ExtResource("2_bv0q6")
@@ -79,10 +83,12 @@ vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_vg142")
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_fw1wy")
 
 [node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
+use_parent_material = true
 position = Vector2(0, 18.3968)
 sprite_frames = SubResource("SpriteFrames_rbvx7")
 
@@ -94,9 +100,6 @@ texture = SubResource("AtlasTexture_md1vt")
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w4623")
 pitch_scale = 0.8
-
-[node name="Focus" parent="." instance=ExtResource("5_4kui6")]
-visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

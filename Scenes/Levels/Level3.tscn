@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="2_bpdnd"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_lupxg"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_lupxg"]
 [ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="3_8gaoy"]
 [ext_resource type="PackedScene" uid="uid://bj13dlya76rxi" path="res://Scenes/Tiles/EnvironmentComplex/catwalk.tscn" id="3_k76ns"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_3oa4q"]
 [ext_resource type="PackedScene" uid="uid://cnj1jlclxt48t" path="res://Scenes/Tiles/EnvironmentComplex/railing.tscn" id="4_5d2oc"]
-[ext_resource type="Shader" path="res://Vignette.gdshader" id="4_ijfm6"]
+[ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="4_n0otq"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="5_12xde"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="5_je5lu"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="5_ut53j"]
@@ -25,8 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
 [ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x0m11"]
-shader = ExtResource("4_ijfm6")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ev4uj"]
+shader = ExtResource("4_n0otq")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
@@ -56,7 +56,7 @@ level_number = 3
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_x0m11")
+material = SubResource("ShaderMaterial_ev4uj")
 offset_left = -479.0
 offset_top = -266.0
 offset_right = 481.0

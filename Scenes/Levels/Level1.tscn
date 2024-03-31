@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="1_ykg1m"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_y6187"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_ey8wb"]
-[ext_resource type="Shader" path="res://Vignette.gdshader" id="4_p6h6c"]
+[ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="4_p6h6c"]
 [ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile.tscn" id="5_fiana"]
 [ext_resource type="PackedScene" uid="uid://bhn51npk5t3pe" path="res://Scenes/Tiles/EnvironmentDump/wall_horizontal_tile_real.tscn" id="6_ai3pg"]
 [ext_resource type="PackedScene" uid="uid://jxey8sp2ire7" path="res://Scenes/Tiles/EnvironmentDump/wall_vertical_tile_real.tscn" id="7_ci6bd"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="18_bl844"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_wo2ff"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktxa6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5v5t"]
 shader = ExtResource("4_p6h6c")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
@@ -73,7 +73,7 @@ texture = ExtResource("1_p66h4")
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_ktxa6")
+material = SubResource("ShaderMaterial_e5v5t")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

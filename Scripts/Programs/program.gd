@@ -79,13 +79,15 @@ func set_focus(value):
 
 func available(value):
 	if value:
-		$Focus.show()
+		$LoadedSprite.material.set_shader_parameter("darken", true)
 	else:
 		await get_tree().create_timer(0.02).timeout
+		if !focus:
+			$LoadedSprite/Button.frame = 0
+		if level_manager.remaining_actions < 1:
+			return
 		if !player.moving:
-			$Focus.hide()
-			if !focus:
-				$LoadedSprite/Button.frame = 0
+			$LoadedSprite.material.set_shader_parameter("darken", false)
 
 func vis_changed():
 	var ui = get_tree().get_first_node_in_group("UI")

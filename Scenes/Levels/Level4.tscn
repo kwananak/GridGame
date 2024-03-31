@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_ukqml"]
 [ext_resource type="AudioStream" uid="uid://cxoehqevg3vku" path="res://Sounds/Backgrounds/chamber.wav" id="2_l8xiq"]
-[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/ui.tscn" id="2_oc6kl"]
+[ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_oc6kl"]
 [ext_resource type="PackedScene" uid="uid://sl8bn63avfuv" path="res://Scenes/Tiles/EnvironmentChamber/floor_tile_chamber.tscn" id="3_ev5by"]
-[ext_resource type="Shader" path="res://Vignette.gdshader" id="4_5sjal"]
 [ext_resource type="PackedScene" uid="uid://dbiapxu4xt11n" path="res://Scenes/Tiles/EnvironmentChamber/wall_back_tile_chamber.tscn" id="4_6nqv7"]
+[ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="4_auhts"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="4_utpb5"]
 [ext_resource type="PackedScene" uid="uid://jdebfsnqijul" path="res://Scenes/Tiles/EnvironmentChamber/corner_back_wall_tile_chamber.tscn" id="5_t2kh6"]
 [ext_resource type="PackedScene" uid="uid://dt8k386jybf5a" path="res://Scenes/Tiles/EnvironmentChamber/wall_vertical_tile_chamber.tscn" id="6_52mr5"]
@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bk3lxch6pvpfm" path="res://Scenes/Tiles/EnvironmentChamber/display.tscn" id="18_iapul"]
 [ext_resource type="PackedScene" uid="uid://br4ii4h7t5kd3" path="res://Scenes/Tiles/EnvironmentChamber/statue.tscn" id="19_mq2jm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6msax"]
-shader = ExtResource("4_5sjal")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyeha"]
+shader = ExtResource("4_auhts")
 shader_parameter/player_position = Vector2(0.5, 0.5)
 shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
@@ -43,7 +43,7 @@ bus = &"Music"
 visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_6msax")
+material = SubResource("ShaderMaterial_kyeha")
 offset_left = -479.0
 offset_top = -266.0
 offset_right = 481.0

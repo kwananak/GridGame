@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlyrwgmg3ve6g"]
+[gd_scene load_steps=17 format=3 uid="uid://dlyrwgmg3ve6g"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Hands/quantum_grapple.gd" id="1_pujic"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_kwq0i"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_rephm"]
+[ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="4_mem5f"]
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_utrvh"]
 [ext_resource type="AudioStream" uid="uid://byuxfnojgpaqw" path="res://Sounds/FX/grapple.wav" id="5_4wop5"]
 [ext_resource type="AudioStream" uid="uid://cgb3vwy651e1g" path="res://Sounds/FX/hook.wav" id="6_3ve4e"]
-[ext_resource type="PackedScene" uid="uid://bfmjuf0anib2r" path="res://Scenes/Programs/focus.tscn" id="7_yfsa7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa7u1"]
 
@@ -17,6 +17,10 @@ region = Rect2(1, 195, 30, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3455"]
 atlas = ExtResource("2_kwq0i")
 region = Rect2(4, 484, 56, 56)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8dut"]
+shader = ExtResource("4_mem5f")
+shader_parameter/darken = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l12na"]
 atlas = ExtResource("2_kwq0i")
@@ -59,6 +63,7 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_fa7u1")
 
 [node name="TileSprite" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("AtlasTexture_d8wwc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -74,16 +79,17 @@ offset_bottom = 66.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("3_rephm")
 theme_override_font_sizes/font_size = 28
-text = "QuantumGrapple"
+text = "Quantum Grapple"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LoadedSprite" type="Sprite2D" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_e8dut")
 scale = Vector2(0.761, 0.761)
 texture = SubResource("AtlasTexture_l12na")
 
 [node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
+use_parent_material = true
 position = Vector2(0, 18.3968)
 sprite_frames = SubResource("SpriteFrames_vfl70")
 
@@ -100,9 +106,6 @@ bus = &"FX"
 stream = ExtResource("6_3ve4e")
 pitch_scale = 0.4
 bus = &"FX"
-
-[node name="Focus" parent="." instance=ExtResource("7_yfsa7")]
-visible = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
