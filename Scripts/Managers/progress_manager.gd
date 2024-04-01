@@ -10,6 +10,7 @@ var save_point
 var dialogs
 var log_progress = {}
 var levels
+var bad_save = false
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -257,6 +258,7 @@ func load_game(save_number):
 	var parse_result = json.parse(json_string)
 	if not parse_result == OK:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		bad_save = true
 		return
 	var data = json.get_data()
 	for n in data.keys():
@@ -303,6 +305,12 @@ func load_game(save_number):
 										v.runed = true
 									else:
 										if o == "LeftHand" || o == "RightHand":
+											if !ResourceLoader.exists("res://Scenes/Programs/Hands/" + p + ".tscn"):
+												bad_save = true
+												return
 											get_node(n).get_node(o).add_child(load("res://Scenes/Programs/Hands/" + p + ".tscn").instantiate())
 											continue
+										if !ResourceLoader.exists("res://Scenes/Programs/" + o + "/" + p + ".tscn"):
+											bad_save = true
+											return
 										get_node(n).get_node(o).add_child(load("res://Scenes/Programs/" + o + "/" + p + ".tscn").instantiate())

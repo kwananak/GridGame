@@ -34,7 +34,7 @@ func set_menu():
 		continue_button = menu.continue_game
 		new_game_button = menu.new_game
 		await progress_manager.load_game(null)
-		if progress_manager.save_point:
+		if progress_manager.save_point && !progress_manager.bad_save:
 			continue_button.grab_focus()
 		else:
 			disable_continue()
