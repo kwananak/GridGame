@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://516tepjjh0jj"]
+[gd_scene load_steps=28 format=3 uid="uid://516tepjjh0jj"]
 
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_605jl"]
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_ows4h"]
@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://dd4ravvh7i7br" path="res://Scenes/EnemiesObstaclesTiles/forever_beam_tile.tscn" id="27_1107k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgt2s"]
+size = Vector2(20, 69.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pxm4"]
 
 [node name="Level206" type="Node2D"]
 
@@ -1515,6 +1518,10 @@ rotation = -1.5708
 [node name="DialogueArea" parent="Dialogue" instance=ExtResource("25_053lw")]
 dialogue_number = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(384, 416)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(480, 544)
 shape = SubResource("RectangleShape2D_qgt2s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(384, 512)
+shape = SubResource("RectangleShape2D_8pxm4")

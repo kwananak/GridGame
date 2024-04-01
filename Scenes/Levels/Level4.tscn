@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="14_j8r36"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="14_ouxdj"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="15_42ogp"]
-[ext_resource type="PackedScene" uid="uid://wutkufemunvt" path="res://Scenes/Tiles/SharedReal/chamber_terminal_tile.tscn" id="17_k0pd2"]
-[ext_resource type="PackedScene" uid="uid://bk3lxch6pvpfm" path="res://Scenes/Tiles/EnvironmentChamber/display.tscn" id="18_iapul"]
-[ext_resource type="PackedScene" uid="uid://br4ii4h7t5kd3" path="res://Scenes/Tiles/EnvironmentChamber/statue.tscn" id="19_mq2jm"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/SharedReal/chamber_terminal_tile.tscn" id="17_k0pd2"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/EnvironmentChamber/display.tscn" id="18_iapul"]
+[ext_resource type="PackedScene" path="res://Scenes/Tiles/EnvironmentChamber/statue.tscn" id="19_mq2jm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kyeha"]
 shader = ExtResource("4_auhts")
@@ -40,6 +40,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="UI" parent="." instance=ExtResource("2_oc6kl")]
+visible = false
 
 [node name="Vignette" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_kyeha")
@@ -1929,7 +1930,7 @@ position = Vector2(672, 832)
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="AmplifierTile" parent="Gameplay" instance=ExtResource("15_42ogp")]
-position = Vector2(464, 960)
+position = Vector2(448, 864)
 select_amplifier = "NeuroEnhanceAmplifierD"
 
 [node name="StartTile" parent="Gameplay" instance=ExtResource("13_xjkmi")]
