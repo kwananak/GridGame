@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b83irbiw0cjr4"]
+
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_dnmj8"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_cecvg"]
+[ext_resource type="Script" path="res://Scripts/UI/log_flag.gd" id="2_hn42p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g84xb"]
+atlas = ExtResource("1_dnmj8")
+region = Rect2(64, 2095, 133, 34)
+
+[node name="LogFlag" type="Sprite2D"]
+visible = false
+texture = SubResource("AtlasTexture_g84xb")
+centered = false
+script = ExtResource("2_hn42p")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_right = 584.0
+offset_bottom = 170.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_cecvg")
+theme_override_font_sizes/font_size = 96
+text = "LOG UPDATED"
+vertical_alignment = 1

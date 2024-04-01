@@ -46,7 +46,7 @@ func create_dialogs_dict():
 			section = line
 			dialogs[section] = {}
 			continue
-		if int(line):
+		if int(line.substr(0, 1)):
 			sub_section = line
 			dialogs[section][sub_section] = {"color" : null, "log" : null, "text" : []}
 			continue

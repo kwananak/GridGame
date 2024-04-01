@@ -27,8 +27,7 @@ func update_log():
 						bolded = false
 				else:
 					label.append_text(c)
-			label.append_text("\n")
-		label.append_text("\n")
+			label.append_text("\n\n")
 
 func _on_rich_text_label_focus_entered():
 	$Frame.show()

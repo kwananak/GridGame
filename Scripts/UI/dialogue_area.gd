@@ -22,6 +22,7 @@ var dialog
 @onready var label = $Bubble/Label
 @onready var highlight = $Highlight
 @onready var button_sprite = $Bubble/ButtonSprite
+@onready var log_flag = preload("res://Scenes/UI/log_flag.tscn")
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -101,8 +102,10 @@ func write_bubble(sentence):
 
 func remove_bubble():
 	label.hide()
-	if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
-		progress_manager.log_progress[str(level_manager.level_number)] += [str(dialogue_number)]
+	if progress_manager.dialogs[str(level_manager.level_number)][str(dialogue_number)]["log"]:
+		if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
+			progress_manager.log_progress[str(level_manager.level_number)] += [str(dialogue_number)]
+			get_tree().get_first_node_in_group("UI").add_child(log_flag.instantiate())
 	button_sprite.hide()
 	bubble.play_backwards()
 	await bubble.animation_finished
@@ -111,3 +114,4 @@ func remove_bubble():
 	level_manager.dialogue = false
 	player.get_node("PossibleMoves").show()
 	queue_free()
+
