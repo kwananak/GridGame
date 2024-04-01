@@ -4,7 +4,7 @@ var loadout
 var loaded_level = null
 var terminal_number
 
-@onready var terminal_name = $Map/MapInfos/TerminalName
+@onready var terminal_name = $MapBackground/TerminalName
 @onready var main = $/root/Main
 
 func _ready():
@@ -63,19 +63,21 @@ func _on_visibility_changed():
 			$Log.hide()
 			$Loadout.show()
 			$AudioStreamPlayer.play()
+			if !has_node("DoorLabel"):
+				return
 			$DoorLabel/Label.clear()
 			$DoorLabel/Label.append_text("[center]")
 			for i in prog_man.doors:
 				if int(i) == int(terminal_number) + 1:
 					open_door_sprite()
-					$DoorLabel/Label.append_text("[color=green]Terminal " + str(terminal_number) + "\nunlocked")
+					$DoorLabel/Label.append_text("[color=green]unlocked")
 					return
 				if has_node("GateLabel"):
 					if int(i) == 5:
 						open_gate_sprite()
 						$GateLabel/Label.clear()
-						$GateLabel/Label.append_text("[center][color=green]Gate unlocked")
-			$DoorLabel/Label.append_text("[color=red]Terminal " + str(terminal_number) + "\nlocked")
+						$GateLabel/Label.append_text("[center][color=green]unlocked")
+			$DoorLabel/Label.append_text("[color=red]locked")
 	else:
 		$AudioStreamPlayer.stop()
 

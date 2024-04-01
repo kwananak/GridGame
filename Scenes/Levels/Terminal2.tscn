@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://crtqmta07h3ej"]
+[gd_scene load_steps=31 format=3 uid="uid://crtqmta07h3ej"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_2piqq"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="2_o3ila"]
@@ -13,22 +13,22 @@
 [ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="8_ad6ji"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="8_xdasv"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="9_bd5av"]
-[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="9_qed1s"]
 [ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="12_p4gqk"]
+[ext_resource type="PackedScene" uid="uid://mt0v6ieqprju" path="res://Scenes/TerminalElements/door_label.tscn" id="15_2v760"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30x0t"]
 atlas = ExtResource("3_nf8op")
 region = Rect2(0, 0, 960, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7012p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q21j0"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(64, 1774, 540, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqor7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_akd02"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(0, 2141, 41, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ca6sk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8gn6"]
 atlas = ExtResource("2_o3ila")
 region = Rect2(16, 848, 541, 240)
 
@@ -79,104 +79,6 @@ margin = Rect2(0.33, -0.13, 0, 0)
 atlas = ExtResource("2_o3ila")
 region = Rect2(1076, 248, 38, 56)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbi37"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fc0v6"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbirs"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shc6q"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulfve"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5svl"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fy4xf"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8hfj"]
-atlas = ExtResource("9_qed1s")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b2ws0"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fc0v6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sbirs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shc6q")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_ulfve")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5svl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fy4xf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8hfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fy4xf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5svl")
-}],
-"loop": true,
-"name": &"opened",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1f5e"]
-atlas = ExtResource("2_o3ila")
-region = Rect2(290, 2024, 314, 105)
-
 [node name="Terminal2" type="Control" groups=["TerminalScene"]]
 layout_mode = 3
 anchors_preset = 0
@@ -194,23 +96,33 @@ scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_30x0t")
 
 [node name="MapBackground" type="Sprite2D" parent="."]
-position = Vector2(248.09, 146.746)
+position = Vector2(247.015, 146.746)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_7012p")
+texture = SubResource("AtlasTexture_q21j0")
 
 [node name="Title" type="Sprite2D" parent="MapBackground"]
 position = Vector2(-237.5, -105)
-texture = SubResource("AtlasTexture_eqor7")
+texture = SubResource("AtlasTexture_akd02")
 
 [node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
-texture = SubResource("AtlasTexture_ca6sk")
+texture = SubResource("AtlasTexture_d8gn6")
 
 [node name="NodesLegend" parent="MapBackground" instance=ExtResource("4_pa0fv")]
 offset_left = 174.0
 offset_top = 106.0
 offset_right = 214.0
 offset_bottom = 146.0
+
+[node name="TerminalName" type="Label" parent="MapBackground"]
+offset_left = -258.396
+offset_top = -90.1489
+offset_right = 211.604
+offset_bottom = 24.8511
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("8_xdasv")
+theme_override_font_sizes/font_size = 128
+text = "REAL NAME"
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(296.09, 146.746)
@@ -346,42 +258,9 @@ node_color = "purple"
 position = Vector2(-23.8806, -32.0895)
 texture = SubResource("AtlasTexture_mulh6")
 
-[node name="MapInfos" parent="Map" instance=ExtResource("5_cm8sf")]
-offset_left = -255.045
-offset_top = -73.6123
-offset_right = -158.045
-offset_bottom = 27.3877
-
-[node name="DoorLabel" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 31.3433
-offset_top = 180.596
-offset_right = 102.344
-offset_bottom = 245.596
-
-[node name="Label" type="RichTextLabel" parent="DoorLabel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -33.5
-offset_top = -29.0
-offset_right = 316.5
-offset_bottom = 121.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/normal_font = ExtResource("8_xdasv")
-theme_override_font_sizes/normal_font_size = 64
-text = "Terminal 2
-locked"
-
-[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
-position = Vector2(37, 19)
-sprite_frames = SubResource("SpriteFrames_b2ws0")
+[node name="Info" parent="." instance=ExtResource("5_cm8sf")]
+position = Vector2(207.463, 250.746)
+scale = Vector2(0.8, 0.8)
 
 [node name="Log" parent="." instance=ExtResource("8_ad6ji")]
 visible = false
@@ -449,20 +328,10 @@ offset_top = 328.358
 offset_right = 173.881
 offset_bottom = 328.358
 
-[node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
-position = Vector2(332.836, 296.269)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_n1f5e")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Info"]
-offset_left = -142.0
-offset_top = -40.0
-offset_right = 1277.0
-offset_bottom = 347.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("8_xdasv")
-theme_override_font_sizes/font_size = 96
-autowrap_mode = 3
+[node name="DoorLabel" parent="." instance=ExtResource("15_2v760")]
+offset_left = 50.7463
+offset_top = 117.91
+offset_right = 113.746
+offset_bottom = 184.91
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

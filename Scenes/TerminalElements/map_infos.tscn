@@ -1,64 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://88iupaxjnpvm"]
+[gd_scene load_steps=6 format=3 uid="uid://88iupaxjnpvm"]
 
-[ext_resource type="FontFile" uid="uid://dep3gqqv1xycg" path="res://Sprites/Fonts/retganon.ttf" id="1_2bmur"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_8fw2b"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_en653"]
 [ext_resource type="Texture2D" uid="uid://ux72ilsbo5ab" path="res://Sprites/UI/diff.png" id="3_654yh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5241i"]
+atlas = ExtResource("1_8fw2b")
+region = Rect2(290, 2024, 314, 105)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkidj"]
 atlas = ExtResource("3_654yh")
 region = Rect2(0, 0, 1, 16)
 
-[node name="MapInfos" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -167.0
-offset_top = -51.0
-offset_right = -68.0
-offset_bottom = 56.0
+[node name="Info" type="Sprite2D"]
+texture = SubResource("AtlasTexture_5241i")
+centered = false
 
-[node name="TerminalName" type="Label" parent="."]
-layout_mode = 0
-offset_top = 3.0
-offset_right = 470.0
-offset_bottom = 80.0
+[node name="Label" type="Label" parent="." groups=["InfoPanel"]]
+offset_left = 14.0
+offset_top = 9.0
+offset_right = 1464.0
+offset_bottom = 459.0
 scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("1_2bmur")
-theme_override_font_sizes/font_size = 128
-text = "real name"
-
-[node name="LevelName" type="Label" parent="." groups=["LevelNameLabel"]]
-layout_mode = 0
-offset_top = 24.0
-offset_right = 470.0
-offset_bottom = 111.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("1_2bmur")
+theme_override_fonts/font = ExtResource("2_en653")
 theme_override_font_sizes/font_size = 96
-text = "
-"
 autowrap_mode = 3
 
-[node name="AccessPoints" type="RichTextLabel" parent="." groups=["AccessPointLabel"]]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 41.0
-offset_right = 689.0
-offset_bottom = 121.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 314.0
+offset_bottom = 105.0
+
+[node name="LevelName" type="Label" parent="Control" groups=["LevelNameLabel"]]
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 1453.0
+offset_bottom = 140.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_en653")
+theme_override_font_sizes/font_size = 128
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AccessPoints" type="RichTextLabel" parent="Control" groups=["AccessPointLabel"]]
+offset_left = 12.0
+offset_top = 40.0
+offset_right = 1467.0
+offset_bottom = 120.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/normal_font = ExtResource("2_en653")
 theme_override_font_sizes/normal_font_size = 72
 
-[node name="Program" type="RichTextLabel" parent="." groups=["ProgramLabel"]]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 57.0
-offset_right = 469.0
-offset_bottom = 222.0
+[node name="Program" type="RichTextLabel" parent="Control" groups=["ProgramLabel"]]
+offset_left = 12.0
+offset_top = 58.0
+offset_right = 1202.0
+offset_bottom = 143.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/normal_font = ExtResource("2_en653")
 theme_override_font_sizes/normal_font_size = 72
 
-[node name="DifficultyLabel" type="Sprite2D" parent="." groups=["DifficultyLabel"]]
-position = Vector2(0, 90)
+[node name="DifficultySprite" type="Sprite2D" parent="Control" groups=["DifficultyLabel"]]
+visible = false
+position = Vector2(84, 81)
 texture = SubResource("AtlasTexture_rkidj")
 centered = false
+
+[node name="DifficultyLabel" type="Label" parent="Control/DifficultySprite"]
+offset_left = -58.0
+offset_top = 4.0
+offset_right = 257.0
+offset_bottom = 56.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_en653")
+theme_override_font_sizes/font_size = 48
+text = "DIFFICULTY :"

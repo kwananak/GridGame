@@ -18,7 +18,7 @@ func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 	#max_loads += progress_manager.get_node("OwnedPrograms/Amplifiers").get_child_count()
 	prog_load = progress_manager.get_node("Loadout")
-	info = get_parent().get_node("Info/Label")
+	info = get_tree().get_first_node_in_group("InfoPanel")
 	await get_tree().create_timer(0.3).timeout
 	set_slots()
 

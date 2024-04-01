@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8tpvtaqmdco"]
+[gd_scene load_steps=29 format=3 uid="uid://c8tpvtaqmdco"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_m3qxo"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_4ghj7"]
@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="6_t4r27"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="7_l7vs7"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="9_mslom"]
-[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="9_yykok"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="10_li6ja"]
+[ext_resource type="PackedScene" uid="uid://mt0v6ieqprju" path="res://Scenes/TerminalElements/door_label.tscn" id="10_tmug4"]
 [ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="12_schas"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wethl"]
@@ -68,104 +68,6 @@ region = Rect2(1196, 652, 42, 29)
 atlas = ExtResource("5_ktjds")
 region = Rect2(1218, 574, 40, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
-atlas = ExtResource("9_yykok")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbi37"]
-atlas = ExtResource("9_yykok")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fc0v6"]
-atlas = ExtResource("9_yykok")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbirs"]
-atlas = ExtResource("9_yykok")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shc6q"]
-atlas = ExtResource("9_yykok")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulfve"]
-atlas = ExtResource("9_yykok")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5svl"]
-atlas = ExtResource("9_yykok")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fy4xf"]
-atlas = ExtResource("9_yykok")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8hfj"]
-atlas = ExtResource("9_yykok")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rhx4x"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uskum")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_gbi37")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fc0v6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sbirs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shc6q")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_ulfve")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5svl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fy4xf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8hfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fy4xf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5svl")
-}],
-"loop": true,
-"name": &"opened",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryhuj"]
-atlas = ExtResource("5_ktjds")
-region = Rect2(290, 2024, 314, 105)
-
 [node name="Terminal1" type="Control" groups=["TerminalScene"]]
 layout_mode = 3
 anchors_preset = 0
@@ -205,8 +107,18 @@ offset_top = 106.0
 offset_right = 214.0
 offset_bottom = 146.0
 
+[node name="TerminalName" type="Label" parent="MapBackground"]
+offset_left = -258.396
+offset_top = -90.1489
+offset_right = 211.604
+offset_bottom = 24.8511
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("9_mslom")
+theme_override_font_sizes/font_size = 128
+text = "REAL NAME"
+
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(306, 148)
+position = Vector2(273.881, 147.761)
 texture = SubResource("AtlasTexture_n0doo")
 
 [node name="Level101" parent="Map" instance=ExtResource("3_4ghj7")]
@@ -309,41 +221,15 @@ node_color = "purple"
 position = Vector2(16.012, 29.991)
 texture = SubResource("AtlasTexture_pcnbt")
 
-[node name="MapInfos" parent="Map" instance=ExtResource("5_tw42l")]
-offset_left = -266.0
-offset_top = -80.0
-offset_right = -167.0
-offset_bottom = 27.0
+[node name="Info" parent="." instance=ExtResource("5_tw42l")]
+position = Vector2(207.463, 250.746)
+scale = Vector2(0.8, 0.8)
 
-[node name="DoorLabel" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 29.8507
-offset_top = 181.074
-offset_right = 100.851
-offset_bottom = 246.074
-
-[node name="Label" type="RichTextLabel" parent="DoorLabel"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -33.5
-offset_top = -29.0
-offset_right = 316.5
-offset_bottom = 121.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/normal_font = ExtResource("9_mslom")
-theme_override_font_sizes/normal_font_size = 64
-text = "Terminal 1
-locked"
-
-[node name="Sprite" type="AnimatedSprite2D" parent="DoorLabel"]
-position = Vector2(37, 19)
-sprite_frames = SubResource("SpriteFrames_rhx4x")
+[node name="DoorLabel" parent="." instance=ExtResource("10_tmug4")]
+offset_left = 50.7463
+offset_top = 117.91
+offset_right = 113.746
+offset_bottom = 184.91
 
 [node name="Log" parent="." instance=ExtResource("6_rrlng")]
 visible = false
@@ -405,21 +291,5 @@ offset_top = 328.358
 offset_right = 173.881
 offset_bottom = 328.358
 focus_neighbor_left = NodePath("../ReturnButton")
-
-[node name="Info" type="Sprite2D" parent="." groups=["InfoPanel"]]
-position = Vector2(332.836, 296.269)
-scale = Vector2(0.8, 0.8)
-texture = SubResource("AtlasTexture_ryhuj")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Info"]
-offset_left = -142.0
-offset_top = -40.0
-offset_right = 1277.0
-offset_bottom = 347.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("9_mslom")
-theme_override_font_sizes/font_size = 96
-autowrap_mode = 3
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

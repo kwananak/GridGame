@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://mt0v6ieqprju"]
+
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="1_xo5t0"]
+[ext_resource type="Texture2D" uid="uid://bpiw4nr26ki61" path="res://Sprites/EnvironmentVirtual/Door_sheet_1.png" id="2_u3r2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uskum"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbi37"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0v6"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbirs"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shc6q"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulfve"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5svl"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy4xf"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8hfj"]
+atlas = ExtResource("2_u3r2q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhx4x"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uskum")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gbi37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbirs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shc6q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ulfve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8hfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5svl")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="DoorLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 63.0
+offset_bottom = 67.0
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.5
+offset_top = -15.0
+offset_right = 271.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/normal_font = ExtResource("1_xo5t0")
+theme_override_font_sizes/normal_font_size = 64
+text = "unlocked"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 29)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_rhx4x")
