@@ -13,8 +13,6 @@ func _ready():
 	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
 	await get_tree().get_first_node_in_group("ProgressManager").auto_loader()
 	_on_visibility_changed()
-	await get_tree().create_timer(0.5).timeout
-	$ReturnButton.grab_focus()
 
 func _input(event):
 	if visible == false:
@@ -31,6 +29,7 @@ func _on_level_pressed(level_number):
 	loaded_level = level_number
 	if level_number:
 		$NexusButton.available = true
+		$NexusButton.grab_focus()
 	else:
 		$NexusButton.available = false
 
@@ -43,6 +42,8 @@ func _on_go_button_pressed():
 
 func _on_visibility_changed():
 	if visible:
+		if $ReturnButton.is_inside_tree():
+			$ReturnButton.grab_focus()
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
 		for n in $Map.get_children():
 			if n.name == "MapInfos":
@@ -51,6 +52,8 @@ func _on_visibility_changed():
 				n.selected = false
 			if str(n.node_level) in prog_man.completed_levels:
 				n.completed = true
+				if n.is_inside_tree():
+					n.grab_focus()
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
 		for n in prog_man.get_children():
