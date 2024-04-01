@@ -1989,8 +1989,10 @@ bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="DialogueArea" parent="Dialogue" instance=ExtResource("25_7sh4d")]
+[node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("25_7sh4d")]
 dialogue_number = 1
+related_node = NodePath("../../GameplayElements/GameplayTiles/AccessPoint1")
+camera_speed = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(688, 192)
