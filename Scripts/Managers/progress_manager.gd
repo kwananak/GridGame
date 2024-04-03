@@ -11,6 +11,7 @@ var dialogs
 var log_progress = {}
 var levels
 var bad_save = false
+var just_unlocked
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -66,6 +67,7 @@ func add_to_programs(slot, program, level):
 		if n.type == program.type:
 			return
 	program.position = Vector2.ZERO
+	just_unlocked = program.type
 	get_node("OwnedPrograms/" + slot).call_deferred("add_child", program)
 	levels[str(level)]["prog"] = true
 

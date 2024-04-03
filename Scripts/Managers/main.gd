@@ -13,6 +13,7 @@ var menu_audio
 var continue_button
 var new_game_button
 
+# level navigation reference
 var coming_from = "0"
 
 @onready var camera = $Camera2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://0mcdkb118qdp"]
+[gd_scene load_steps=34 format=3 uid="uid://0mcdkb118qdp"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_pi8fv"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="2_51s4d"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnaggoj45isfh" path="res://Scenes/TerminalElements/nodes_legend.tscn" id="4_7qxpt"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="4_qisql"]
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="5_ed7t1"]
-[ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/map_infos.tscn" id="6_0v42v"]
+[ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/info.tscn" id="6_0v42v"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="7_4qiru"]
 [ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="9_ddrgw"]
 [ext_resource type="PackedScene" uid="uid://mt0v6ieqprju" path="res://Scenes/TerminalElements/door_label.tscn" id="9_hoci1"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ea6v1kb23fi" path="res://Sprites/EnvironmentReal/Complex/gate_sheet.png" id="11_mm5d3"]
 [ext_resource type="PackedScene" uid="uid://bqv5qgjt5buty" path="res://Scenes/TerminalElements/return_button.tscn" id="12_ixm5u"]
 [ext_resource type="PackedScene" uid="uid://4p227i7nigqx" path="res://Scenes/TerminalElements/log_button.tscn" id="13_n81du"]
+[ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="17_i5jpe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qiuje"]
 atlas = ExtResource("3_7xmmo")
@@ -371,5 +372,9 @@ offset_left = 173.881
 offset_top = 329.1
 offset_right = 173.881
 offset_bottom = 329.1
+
+[node name="ProgramAdded" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_i5jpe")
+bus = &"FX"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

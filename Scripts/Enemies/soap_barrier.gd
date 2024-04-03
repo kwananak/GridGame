@@ -48,8 +48,6 @@ func _on_area_entered(area):
 	elif area.is_in_group("Player"):
 		ray.target_position = target
 		while true:
-			if !framed_checker.check(ray.target_position + global_position):
-				return
 			ray.force_raycast_update()
 			if ray.get_collider():
 				var collision = ray.get_collider()

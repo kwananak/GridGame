@@ -61,6 +61,9 @@ func _on_visibility_changed():
 				for p in o.get_children():
 					p.monitorable = false
 					p.get_node("Sprite2D").show()
+					if p.type == prog_man.just_unlocked:
+						await new_program_animation(p)
+						prog_man.just_unlocked = null
 		loaded_level = null
 		if terminal_number != null:
 			$Log.hide()
@@ -95,3 +98,13 @@ func open_door_sprite():
 	door_sprite.play()
 	await door_sprite.animation_finished
 	door_sprite.play("opened")
+
+func new_program_animation(program):
+	program.z_index = 90
+	program.global_position = get_tree().get_first_node_in_group("Camera").global_position
+	$ProgramAdded.play()
+	await create_tween().tween_property(program, "scale", program.scale * 3, 1.0).finished
+	await get_tree().create_timer(1.0).timeout
+	create_tween().tween_property(program, "position", Vector2.ZERO, 1.0)
+	await create_tween().tween_property(program, "scale", Vector2.ONE, 1.0).finished
+	program.z_index = 0
