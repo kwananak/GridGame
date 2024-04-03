@@ -46,9 +46,7 @@ func _ready():
 
 func _process(delta):
 	time_elapsed += delta
-	if dialogue:
-		ui.position = camera.position
-		return
+	ui.position = camera.position
 	super._process(delta)
 
 func set_doomwall_state(value):
@@ -196,6 +194,7 @@ func on_success(level_unlocked):
 	for a in programs:
 		await get_tree().get_first_node_in_group("ProgressManager").add_to_programs(a[0], a[1], level_number)
 	$/root/Main.add_to_levels(level_unlocked, level_number)
+	await create_tween().tween_property(camera, "global_position", player.global_position + Vector2(128, 0), 0.5).finished
 	display_summary()
 
 func call_game_over():
