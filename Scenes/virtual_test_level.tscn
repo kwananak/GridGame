@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=22 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_w8gh5"]
@@ -15,7 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="15_y7k4q"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="16_stxbc"]
 [ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="17_bdejj"]
+[ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="18_knqtf"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="19_v284v"]
+[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="20_spk5r"]
 [ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="21_3d5h7"]
+[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="21_7jlkb"]
 [ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="25_bmmiy"]
 
 [node name="VirtualTestLevel" type="Node2D"]
@@ -115,3 +119,28 @@ position = Vector2(288, 256)
 [node name="GogglesTile" parent="." instance=ExtResource("17_bdejj")]
 position = Vector2(384, 320)
 select_program = "CyberReality"
+
+[node name="TerminalAccesPoint" parent="." instance=ExtResource("18_knqtf")]
+position = Vector2(288, 384)
+targets = Vector3i(2, 2, 2)
+
+[node name="ByteBarrierEasy" parent="." instance=ExtResource("19_v284v")]
+position = Vector2(320, 320)
+
+[node name="ByteBarrierEasy2" parent="." instance=ExtResource("19_v284v")]
+position = Vector2(352, 288)
+
+[node name="ByteBarrierHard" parent="." instance=ExtResource("20_spk5r")]
+position = Vector2(448, 384)
+
+[node name="ByteBarrierMedium" parent="." instance=ExtResource("21_7jlkb")]
+position = Vector2(448, 312)
+
+[node name="ByteBarrierMedium2" parent="." instance=ExtResource("21_7jlkb")]
+position = Vector2(448, 256)
+
+[node name="ByteBarrierEasy3" parent="." instance=ExtResource("19_v284v")]
+position = Vector2(384, 256)
+
+[node name="ByteBarrierHard2" parent="." instance=ExtResource("20_spk5r")]
+position = Vector2(384, 384)

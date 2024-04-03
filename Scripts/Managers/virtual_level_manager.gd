@@ -46,7 +46,9 @@ func _ready():
 
 func _process(delta):
 	time_elapsed += delta
-	ui.position = camera.position
+	if dialogue:
+		ui.position = camera.position
+		return
 	super._process(delta)
 
 func set_doomwall_state(value):

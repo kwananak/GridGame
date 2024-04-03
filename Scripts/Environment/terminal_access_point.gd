@@ -23,22 +23,34 @@ func _ready():
 
 func update_progress():
 	for i in level_manager.barriers_down.size():
+		var barrier = get_tree().get_first_node_in_group("TerminalAccessPointUI").get_node("Byte" + str(i +1))
+		if progress[i][0] < level_manager.barriers_down[i]:
+			var base_position = barrier.position
+			barrier.material.set_shader_parameter("negative", true)
+			for j in randi_range(3, 5):
+				barrier.position = base_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))
+				await get_tree().create_timer(0.05).timeout
+			barrier.position = base_position
+			barrier.material.set_shader_parameter("negative", false)
 		progress[i][0] = level_manager.barriers_down[i]
 	set_sprites()
 
 func set_sprites():
 	var all_good = true
 	for i in progress.size():
+		var ui_node = ui.get_node("Byte"+str(i+1))
 		if rotation_degrees != 0:
 			get_node("BaseSprite/Byte"+str(i+1)).rotation_degrees = - rotation_degrees
 		get_node("BaseSprite/Byte"+str(i+1)+"/Label").text = str(progress[i][0]) + "/" + str(progress[i][1])
 		ui.get_node("Byte"+str(i+1)+"/Label").text = str(progress[i][0]) + "/" + str(progress[i][1])
 		if progress[i][0] == progress[i][1]:
 			get_node("BaseSprite/Byte"+str(i+1)+"/Sprite").show()
-			ui.get_node("Byte"+str(i+1)).frame = 1
+			ui_node.frame = 1
+			create_tween().tween_property(ui_node, "scale", Vector2(1.22, 1.22), 0.1)
 		else:
 			get_node("BaseSprite/Byte"+str(i+1)+"/Sprite").hide()
-			ui.get_node("Byte"+str(i+1)).frame = 0
+			ui_node.frame = 0
+			create_tween().tween_property(ui_node, "scale", Vector2.ONE, 0.1)
 			all_good = false
 	if all_good:
 		$BaseSprite.texture.region.position.x = 0

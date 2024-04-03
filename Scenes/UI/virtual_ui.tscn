@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=43 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/UI/virtual_ui.gd" id="1_ka18r"]
 [ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="2_0pwnf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsuq8gp62a2vk" path="res://Scenes/UI/warning_ui.tscn" id="5_l7mnn"]
 [ext_resource type="Texture2D" uid="uid://d1ohtl5nxo64p" path="res://Sprites/EnvironmentVirtual/Mainframe_visuel.png" id="6_jqhbw"]
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="6_ru6rq"]
+[ext_resource type="Shader" path="res://Shaders/negative.gdshader" id="7_vnb60"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="9_7dmoc"]
 [ext_resource type="PackedScene" uid="uid://cv056doytbg8m" path="res://Scenes/UI/skip_turn_button.tscn" id="10_vp1a7"]
 [ext_resource type="PackedScene" uid="uid://dec7gq4nqo5f3" path="res://Scenes/UI/pause_button.tscn" id="11_6sme2"]
@@ -60,6 +61,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xo1yu"]
+shader = ExtResource("7_vnb60")
+shader_parameter/negative = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m882"]
 atlas = ExtResource("6_jqhbw")
 region = Rect2(0, 672, 32, 32)
@@ -86,6 +91,10 @@ animations = [{
 atlas = ExtResource("12_lglrq")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7hxh"]
+shader = ExtResource("7_vnb60")
+shader_parameter/negative = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hflup"]
 atlas = ExtResource("6_jqhbw")
 region = Rect2(32, 672, 32, 32)
@@ -111,6 +120,10 @@ animations = [{
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3slq"]
 atlas = ExtResource("12_lglrq")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_puvt4"]
+shader = ExtResource("7_vnb60")
+shader_parameter/negative = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnvh3"]
 atlas = ExtResource("6_jqhbw")
@@ -232,14 +245,18 @@ visible = false
 scale = Vector2(1.5, 1.5)
 
 [node name="Byte1" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+material = SubResource("ShaderMaterial_xo1yu")
 position = Vector2(-147.682, 116)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_7hx4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte1"]
+use_parent_material = true
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_i4l16")
 
 [node name="Label" type="Label" parent="TerminalAccessPoint/Byte1"]
+use_parent_material = true
 offset_left = -14.1791
 offset_top = -13.4329
 offset_right = 125.821
@@ -252,14 +269,18 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Byte2" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+material = SubResource("ShaderMaterial_l7hxh")
 position = Vector2(-120.816, 116)
+scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_ryu63")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte2"]
+use_parent_material = true
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_n3slq")
 
 [node name="Label" type="Label" parent="TerminalAccessPoint/Byte2"]
+use_parent_material = true
 offset_left = -14.1791
 offset_top = -13.4329
 offset_right = 125.821
@@ -272,14 +293,17 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Byte3" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
+material = SubResource("ShaderMaterial_puvt4")
 position = Vector2(-94.0299, 115.92)
 sprite_frames = SubResource("SpriteFrames_ssyac")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte3"]
+use_parent_material = true
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_3nnbg")
 
 [node name="Label" type="Label" parent="TerminalAccessPoint/Byte3"]
+use_parent_material = true
 offset_left = -14.1791
 offset_top = -13.4329
 offset_right = 125.821
@@ -490,5 +514,3 @@ theme_override_fonts/font = ExtResource("4_lt3to")
 theme_override_font_sizes/font_size = 80
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
