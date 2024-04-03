@@ -33,6 +33,9 @@ func confirm_with_dir(dir):
 		n.hide()
 	var tele = dir.available_action
 	if tele:
+		if "tile_type" in tele:
+			if tele.tile_type == "cannon":
+				tele.destroy_beam()
 		tele.monitorable = false
 		tele.monitoring = false
 		tele.hide()
@@ -47,6 +50,9 @@ func confirm_with_dir(dir):
 		tele.show()
 		tele.monitorable = true
 		tele.monitoring = true
+		if "tile_type" in tele:
+			if tele.tile_type == "cannon":
+				tele.fire_beam()
 		if level_manager.astar_grid.is_point_solid(player.global_position / level_manager.tile_size):
 			level_manager.astar_grid.set_point_solid(player.global_position / level_manager.tile_size, false)
 			level_manager.astar_grid.set_point_solid(tele.global_position / level_manager.tile_size, true)

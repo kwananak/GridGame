@@ -121,3 +121,7 @@ func set_duration(value):
 		duration = 1
 	else:
 		duration = value
+
+func destroy_beam():
+	for n in $Beam.get_children():
+		n.queue_free()
