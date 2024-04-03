@@ -20,7 +20,7 @@ func _ready():
 	program = load("res://Scenes/Programs/" + program_slot + "/" + program_type +  ".tscn").instantiate()
 	$Sprite2D.add_child(program)
 	program.monitorable = false
-	name_label.text = program_type.to_upper()
+	name_label.text = program.type_as_string()
 	info_label.text = program_slot.to_upper() + "\n\n" + program.info
 
 func _input(event):

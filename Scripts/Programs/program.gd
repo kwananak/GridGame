@@ -51,10 +51,19 @@ func cancel_action():
 func confirm():
 	pass
 
+func type_as_string():
+	var type_string = ""
+	for i in type.length():
+		var character = type.substr(i, 1)
+		if character == character.to_upper() && i > 0:
+			type_string += " "
+		type_string += character
+	return type_string
+
 func _on_mouse_entered():
 	if get_parent().get_parent().name == "Loadout":
 		if "info" in get_parent().get_parent():
-			get_parent().get_parent().info.text = get_parent().name + "\n" + name + "\n" + info
+			get_parent().get_parent().info.text = get_parent().name + "\n" + type_as_string() + "\n" + info
 	mouse_on = true
 
 func _on_mouse_exited():

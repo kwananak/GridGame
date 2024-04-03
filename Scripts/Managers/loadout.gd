@@ -199,7 +199,7 @@ func _on_focus_entered(slot):
 				info.text = str(rune_count) + " runes"
 		return
 	if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
-		info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
+		info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type_as_string() + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
 	else:
 		info.text = slot + "\n" + "Empty"
 

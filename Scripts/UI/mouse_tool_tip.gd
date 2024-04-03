@@ -26,6 +26,8 @@ func _process(_delta):
 			var adjusted_name = area.name
 			if "type" in area:
 				adjusted_name = area.type
+			if "type_as_string" in area:
+				adjusted_name = area.type_as_string()
 			while true:
 				if adjusted_name.right(1).is_valid_int():
 					adjusted_name = adjusted_name.left(-1)
