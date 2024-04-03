@@ -68,7 +68,10 @@ func fire_beam():
 			if hit:
 				if hit.is_in_group("VirtualPlayer"):
 					if charge != -1:
-						hit.level_manager.health -= 1
+						if name.begins_with("Extreme"):
+							level_manager.call_game_over()
+						else:
+							level_manager.health -= 1
 					break
 				if "tile_type" in hit:
 					match hit.tile_type:

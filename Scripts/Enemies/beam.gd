@@ -23,4 +23,4 @@ func _on_area_entered(area):
 		if cannon.name.begins_with("Forever"):
 			cannon.charge = -1
 		if cannon.name.begins_with("Extreme"):
-			lev_man.health -= 1
+			lev_man.call_game_over()
