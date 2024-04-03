@@ -19,7 +19,7 @@ var row_checker
 var teleport = false
 var saved_frame = 0
 var skip_turn_button
-var handling
+var input_flip_flop = true
 
 @onready var shield = $AnimatedSprite2D/Shield
 
@@ -37,32 +37,37 @@ func _physics_process(_delta):
 
 # checks for pressed or held direction keys
 func get_input():
-	if level_manager.game_over || level_manager.paused || moving || level_manager.dialogue || handling:
+	input_flip_flop = !input_flip_flop
+	if input_flip_flop:
 		return
-	handling = true
+	if level_manager.game_over || level_manager.paused || level_manager.dialogue || moving:
+		return
+	if Input.is_action_pressed("skip_turn"):
+		skip_turn()
 	for dir in inputs.keys():
-		var dir_node = get_node("PossibleMoves/" + dir)
 		if Input.is_action_pressed(dir):
+			var dir_node = get_node("PossibleMoves/" + dir)
 			if dir_node.visible && !moving:
 				handle_directional_input(dir_node)
-	handling = false
+				return
 
 func _input(event):
-	if level_manager.game_over || level_manager.dialogue || moving || handling:
+	if level_manager.game_over || level_manager.dialogue || moving:
 		return
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
 	if level_manager.paused:
 		return
-	if event.is_action_pressed("skip_turn"):
-		skip_turn()
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			for n in $PossibleMoves.get_children():
 				if n.moused:
-					await handle_directional_input(n)
+					handle_directional_input(n)
+					return
 
 func handle_directional_input(dir):
+	if moving:
+		return
 	moving = true
 	match dir.name:
 		"left":

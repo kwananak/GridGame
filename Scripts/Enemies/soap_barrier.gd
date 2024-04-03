@@ -6,12 +6,14 @@ var target
 var moving = false 
 var level_manager
 var player
+var framed_checker
 
 @onready var ray = $RayCast2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	framed_checker = get_tree().get_first_node_in_group("FramedChecker")
 
 func check_move(player_position):
 	ray.target_position = position - player_position
@@ -45,11 +47,8 @@ func _on_area_entered(area):
 		moved = true
 	elif area.is_in_group("Player"):
 		ray.target_position = target
-		var lost_counter = 0
 		while true:
-			lost_counter += 1
-			if lost_counter > 32:
-				queue_free()
+			if !framed_checker.check(ray.target_position + global_position):
 				return
 			ray.force_raycast_update()
 			if ray.get_collider():
