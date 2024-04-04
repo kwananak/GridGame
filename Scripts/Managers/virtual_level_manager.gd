@@ -74,8 +74,8 @@ func set_pause(value):
 
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
-	get_parent().add_child(pause_menu)
-	pause_menu.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 100, camera.position.y)
+	ui.add_child(pause_menu)
+	pause_menu.global_position = Vector2(camera.global_position.x + get_viewport_rect().size.x / 4 + 100, camera.global_position.y)
 	create_tween().tween_property(pause_menu, "position", pause_menu.position - Vector2(240, 0), 0.3)
 
 func despawn_pause_menu():
@@ -216,10 +216,14 @@ func display_summary():
 		body += "\n\n[color=green]" + a[0] + " Aquired: " + a[1].name
 	summary.get_node("Title").text = $/root/Main.get_level_name(level_number)
 	summary.get_node("Body").append_text(body)
-	add_child(summary)
-	summary.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 200, camera.position.y)
-	create_tween().tween_property(summary, "position", summary.position - Vector2(440, 0), 0.3)
-	ui.hide()
+	if ui.has_node("LevelSummary"):
+		summary = ui.get_node("LevelSummary")
+		summary.get_node("Button").grab_focus()
+	else:
+		ui.add_child(summary)
+		summary.global_position = Vector2(camera.position.x + get_viewport_rect().size.x / 4  + 200, camera.position.y)
+		create_tween().tween_property(summary, "position", summary.position - Vector2(440, 0), 0.3)
+		ui.toggle_ui(true)
 
 func display_fail():
 	if pause_menu:
@@ -231,13 +235,18 @@ func display_fail():
 	ui.hide()
 
 func back_to_terminal():
+	dezoom_camera()
 	$/root/Main.back_to_terminal()
 
 func call_menu():
+	dezoom_camera()
 	$/root/Main.call_menu(level_number)
 
 func _on_tree_entered():
 	if camera:
+		if game_over:
+			camera.zoom *= 1.2
+			ui.scale /= 1.2
 		camera.position = out_of_bounds_check(player.position)
 		await get_tree().create_timer(0.1).timeout
 		if pause_menu:
@@ -245,3 +254,13 @@ func _on_tree_entered():
 				pause_menu.resume.grab_focus()
 			else:
 				pause_menu.retry.grab_focus()
+
+func zoom_camera():
+	if camera.zoom.x == 2:
+		create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 1.0)
+		create_tween().tween_property(ui, "scale", ui.scale / 1.2, 1.0)
+
+func dezoom_camera():
+	if camera.zoom.x > 2:
+		camera.zoom /= 1.2
+		ui.scale *= 1.2

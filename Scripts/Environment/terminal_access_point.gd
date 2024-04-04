@@ -86,6 +86,7 @@ func hit_by_player(hit):
 				if n.global_position == global_position:
 					n.on = true
 					n.get_node("AnimatedSprite2D").show()
+					level_manager.zoom_camera()
 			$BaseSprite.hide()
 			$destroy.play()
 			anim.animation = "destruction"
