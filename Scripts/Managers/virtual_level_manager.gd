@@ -261,6 +261,5 @@ func zoom_camera():
 		create_tween().tween_property(ui, "scale", ui.scale / 1.2, 1.0)
 
 func dezoom_camera():
-	if camera.zoom.x > 2:
-		camera.zoom /= 1.2
-		ui.scale *= 1.2
+	$/root/Main.dezoom_camera()
+	ui.scale *= 1.2

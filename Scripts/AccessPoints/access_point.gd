@@ -4,6 +4,7 @@ var tile_type = "access_point"
 var level_manager
 var key_ui
 var key_ui_initial_position
+var is_destroyed = false
 
 var vulnerable = false : set = set_vulnerability
 var locked = true : set = set_lock
@@ -48,6 +49,7 @@ func hit_by_player(hit):
 		else:
 			strength -= 1
 		if strength <= 0:
+			is_destroyed = true
 			key_ui.position = key_ui_initial_position
 			for n in get_tree().get_nodes_in_group("VirtualEndTile"):
 				if n.global_position == global_position:

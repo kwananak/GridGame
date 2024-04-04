@@ -26,5 +26,5 @@ func _on_area_exited(_area):
 	for n in get_tree().get_nodes_in_group("AccessPointKeyPoint"):
 		if n.access_point_number == access_point_number:
 			n.get_node("AnimatedSprite2D").frame = 0
-	if access_point != null:
+	if access_point != null && !access_point.is_destroyed:
 		access_point.vulnerable = false

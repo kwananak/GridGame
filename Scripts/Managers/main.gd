@@ -68,6 +68,7 @@ func call_level(level_number):
 func retry_level():
 	var loaded_virtual_number = virtual_scene.get_node("VirtualLevelManager").level_number
 	virtual_scene.queue_free()
+	dezoom_camera()
 	await get_tree().create_timer(0.05).timeout
 	call_level(loaded_virtual_number)
 
@@ -197,3 +198,7 @@ func load_fixed_save(save_number):
 		$RealAudio.play()
 	menu.visible = false
 	add_child(real_scene)
+
+func dezoom_camera():
+	if camera.zoom.x > 2:
+		camera.zoom /= 1.2
