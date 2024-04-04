@@ -25,7 +25,14 @@ func update_progress():
 	for i in level_manager.barriers_down.size():
 		var barrier = get_tree().get_first_node_in_group("TerminalAccessPointUI").get_node("Byte" + str(i +1))
 		if progress[i][0] < level_manager.barriers_down[i]:
-			var base_position = barrier.position
+			var base_position = Vector2(0, 116)
+			match i:
+				0:
+					base_position.x = -147.682
+				1:
+					base_position.x = -120.816
+				2:
+					base_position.x = -94.03
 			barrier.material.set_shader_parameter("negative", true)
 			for j in randi_range(3, 5):
 				barrier.position = base_position + Vector2(randi_range(-3, 3), randi_range(-3, 3))

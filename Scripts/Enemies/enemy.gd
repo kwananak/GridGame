@@ -125,7 +125,7 @@ func hit_by_player(strength):
 					animated_sprite_2d.flip_h = true
 				Vector2.RIGHT:
 					animated_sprite_2d.flip_h = false
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.).timeout
 			animated_sprite_2d.play("counter")
 			await animated_sprite_2d.animation_finished
 			animated_sprite_2d.play("idle")

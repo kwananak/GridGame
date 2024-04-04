@@ -15,9 +15,9 @@ func _ready():
 	rotation_degrees = randf_range(0, 360)
 	if level_manager != null:
 		level_manager.pause_trigger.connect(set_pause)
-		position = Vector2(level_manager.camera.position.x + get_viewport_rect().size.x / 4, randf_range(level_manager.camera.position.y - get_viewport_rect().size.y / 4, level_manager.camera.position.y + get_viewport_rect().size.y / 4))
+		global_position = Vector2(level_manager.camera.global_position.x + get_viewport_rect().size.x / 4, randf_range(level_manager.camera.global_position.y - get_viewport_rect().size.y / 4, level_manager.camera.global_position.y + get_viewport_rect().size.y / 4))
 	else:
-		position = Vector2(500, randf_range(100, 400))
+		global_position = Vector2(500, randf_range(100, 400))
 	speed = randf_range(10.0, 20.0) / (1.0 - scale_value)
 	direction = Vector2(randf_range(-1.0, -5.0), randf_range(-0.4, 0.4))
 	await get_tree().create_timer(0.1).timeout
