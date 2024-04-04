@@ -133,6 +133,12 @@ func grapple_hit(dir):
 	if destination != Vector2.ZERO:
 		await create_tween().tween_property(player, "position", player.position + destination * level_manager.tile_size, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 	player.animated_sprite_2d.play("idle")
+	if "tile_type" in dir.available_action:
+		if dir.available_action.tile_type == "soap":
+			while true:
+				await get_tree().create_timer(0.01).timeout
+				if !dir.available_action.moving:
+					break
 
 func grapple_mobile(destination, barrier):
 	barrier.move(-destination.normalized() * 32)
@@ -146,7 +152,7 @@ func grapple_mobile(destination, barrier):
 
 func grapple_soap(destination, barrier):
 	var des = destination
-	barrier._on_area_entered(-des * level_manager.tile_size)
+	barrier.hit_by_player(-des * level_manager.tile_size)
 	for n in grapple.size():
 		await get_tree().create_timer(0.005).timeout
 		var section = grapple.pop_back()
