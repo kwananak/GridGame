@@ -75,8 +75,12 @@ func set_pause(value):
 func spawn_pause_menu():
 	pause_menu = pause_prefab.instantiate()
 	ui.add_child(pause_menu)
+	var new_position = Vector2(240, 0)
+	if camera.zoom.x > 2:
+		pause_menu.scale /= 1.2
+		new_position.x += 100
 	pause_menu.global_position = Vector2(camera.global_position.x + get_viewport_rect().size.x / 4 + 100, camera.global_position.y)
-	create_tween().tween_property(pause_menu, "position", pause_menu.position - Vector2(240, 0), 0.3)
+	create_tween().tween_property(pause_menu, "position", pause_menu.position - new_position, 0.3)
 
 func despawn_pause_menu():
 	var p_m = pause_menu
@@ -231,7 +235,11 @@ func display_fail():
 	pause_menu = fail_prefab.instantiate()
 	get_parent().add_child(pause_menu)
 	pause_menu.position = Vector2(camera.position.x + get_viewport_rect().size.x / 4 + 100, camera.position.y)
-	create_tween().tween_property(pause_menu, "position", pause_menu.position - Vector2(240, 0), 0.3)
+	var new_position = Vector2(240, 0)
+	if camera.zoom.x > 2:
+		pause_menu.scale /= 1.2
+		new_position.x += 100
+	create_tween().tween_property(pause_menu, "position", pause_menu.position - new_position, 0.3)
 	ui.hide()
 
 func back_to_terminal():

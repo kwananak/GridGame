@@ -35,7 +35,7 @@ func _process(delta):
 	position += direction * speed * delta
 	rotation += spin * delta
 	if level_manager != null:
-		if position.x > level_manager.level_length * level_manager.tile_size || position.y > level_manager.level_height * level_manager.tile_size || position.x < 0 || position.y < -20:
+		if global_position.x > level_manager.level_length * level_manager.tile_size || global_position.y > level_manager.level_height * level_manager.tile_size || global_position.x < 0 || global_position.y < -20:
 			queue_free()
 	else:
 		if position.x < 300:
