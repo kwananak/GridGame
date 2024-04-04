@@ -21,7 +21,7 @@ func _on_area_entered(_area):
 
 func _on_area_exited(_area):
 	for n in get_tree().get_nodes_in_group("AccessPointKeyPoint"):
-		if n.has_overlapping_areas():
+		if n.has_overlapping_areas() && n.access_point_number == access_point_number:
 			return
 	for n in get_tree().get_nodes_in_group("AccessPointKeyPoint"):
 		if n.access_point_number == access_point_number:
