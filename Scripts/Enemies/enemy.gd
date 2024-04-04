@@ -62,7 +62,7 @@ func turn_call():
 
 func move_animation(frame):
 	await create_tween().tween_property(animated_sprite_2d, "position", Vector2.ZERO, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
-	if !is_destroyed:
+	if !is_destroyed && animated_sprite_2d.animation == "move":
 		animated_sprite_2d.animation = "idle"
 		animated_sprite_2d.frame = frame
 
@@ -125,7 +125,7 @@ func hit_by_player(strength):
 					animated_sprite_2d.flip_h = true
 				Vector2.RIGHT:
 					animated_sprite_2d.flip_h = false
-			await get_tree().create_timer(0.).timeout
+			await get_tree().create_timer(0.1).timeout
 			animated_sprite_2d.play("counter")
 			await animated_sprite_2d.animation_finished
 			animated_sprite_2d.play("idle")

@@ -164,8 +164,9 @@ func move(pos):
 		animated_sprite_2d.play("move")
 		animated_sprite_2d.frame = saved_frame
 		await tween.finished
-		saved_frame = animated_sprite_2d.frame
-		animated_sprite_2d.play("idle")
+		if animated_sprite_2d.animation == "move":
+			saved_frame = animated_sprite_2d.frame
+			animated_sprite_2d.play("idle")
 		$Footsteps.stop()
 	if waiting_for_action != null:
 		waiting_for_action.confirm()

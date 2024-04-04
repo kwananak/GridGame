@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c3pshlpxrfbim"]
+[gd_scene load_steps=44 format=3 uid="uid://c3pshlpxrfbim"]
 
 [ext_resource type="Script" path="res://Scripts/UI/virtual_ui.gd" id="1_ka18r"]
 [ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="2_0pwnf"]
@@ -151,6 +151,10 @@ animations = [{
 atlas = ExtResource("12_lglrq")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpjh0"]
+atlas = ExtResource("12_q8c77")
+region = Rect2(128, 352, 54, 54)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg657"]
 atlas = ExtResource("12_q8c77")
 region = Rect2(0, 304, 48, 48)
@@ -241,6 +245,7 @@ position = Vector2(-220.149, 168.657)
 sprite_frames = SubResource("SpriteFrames_uytqf")
 
 [node name="TerminalAccessPoint" type="Node2D" parent="." groups=["TerminalAccessPointUI"]]
+visible = false
 scale = Vector2(1.5, 1.5)
 
 [node name="Byte1" type="AnimatedSprite2D" parent="TerminalAccessPoint"]
@@ -251,6 +256,7 @@ sprite_frames = SubResource("SpriteFrames_7hx4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte1"]
 use_parent_material = true
+position = Vector2(0, -0.5)
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_i4l16")
 
@@ -262,7 +268,7 @@ offset_right = 125.821
 offset_bottom = 121.567
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("9_7dmoc")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 56
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -275,6 +281,7 @@ sprite_frames = SubResource("SpriteFrames_ryu63")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte2"]
 use_parent_material = true
+position = Vector2(0, -0.5)
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_n3slq")
 
@@ -286,7 +293,7 @@ offset_right = 125.821
 offset_bottom = 121.567
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("9_7dmoc")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 56
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -299,6 +306,7 @@ sprite_frames = SubResource("SpriteFrames_ssyac")
 
 [node name="Sprite2D" type="Sprite2D" parent="TerminalAccessPoint/Byte3"]
 use_parent_material = true
+position = Vector2(0, -0.5)
 scale = Vector2(0.44, 0.44)
 texture = SubResource("AtlasTexture_3nnbg")
 
@@ -310,13 +318,19 @@ offset_right = 125.821
 offset_bottom = 121.567
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("9_7dmoc")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 56
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="AmplifiersBackground" type="Sprite2D" parent="."]
+position = Vector2(-89.594, 174.912)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_gpjh0")
+
 [node name="Amplifiers" type="Sprite2D" parent="."]
-position = Vector2(-89.5522, 173.134)
+position = Vector2(-89.1746, 173.839)
+scale = Vector2(0.9, 0.9)
 texture = SubResource("AtlasTexture_yg657")
 
 [node name="A" type="Sprite2D" parent="Amplifiers"]
