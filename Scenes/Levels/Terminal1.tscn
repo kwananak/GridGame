@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8tpvtaqmdco"]
+[gd_scene load_steps=33 format=3 uid="uid://c8tpvtaqmdco"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_m3qxo"]
+[ext_resource type="Shader" path="res://Shaders/flicker.gdshader" id="1_memlb"]
 [ext_resource type="PackedScene" uid="uid://c02ntgyr1bb1j" path="res://Scenes/TerminalElements/map_node.tscn" id="3_4ghj7"]
 [ext_resource type="Texture2D" uid="uid://5bg7oc5mt0vb" path="res://Sprites/UI/terminal_backgrounds.png" id="3_hd8b2"]
 [ext_resource type="PackedScene" uid="uid://dnaggoj45isfh" path="res://Scenes/TerminalElements/nodes_legend.tscn" id="4_tkltp"]
@@ -20,10 +21,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_wethl"]
 atlas = ExtResource("3_hd8b2")
 region = Rect2(0, 1024, 960, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfbon"]
-atlas = ExtResource("3_hd8b2")
-region = Rect2(0, 2048, 960, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qof6"]
 atlas = ExtResource("5_ktjds")
@@ -69,6 +66,22 @@ region = Rect2(1196, 652, 42, 29)
 atlas = ExtResource("5_ktjds")
 region = Rect2(1218, 574, 40, 76)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lqsdi"]
+shader = ExtResource("1_memlb")
+shader_parameter/brightness = 1.0
+shader_parameter/brightness_drop_percent = 0.8
+shader_parameter/glow_period = 4.0
+shader_parameter/flicker_period = 10.0
+shader_parameter/flicker_spikes_sharpness = 12.4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfbon"]
+atlas = ExtResource("3_hd8b2")
+region = Rect2(0, 2048, 960, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu0we"]
+atlas = ExtResource("3_hd8b2")
+region = Rect2(0, 2560, 960, 512)
+
 [node name="Terminal1" type="Control" groups=["TerminalScene"]]
 layout_mode = 3
 anchors_preset = 0
@@ -81,25 +94,25 @@ pitch_scale = 0.85
 bus = &"FX"
 
 [node name="TerminalSprite" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(361, 201)
 scale = Vector2(0.75, 0.781656)
 texture = SubResource("AtlasTexture_wethl")
 
-[node name="Sprite2D" type="Sprite2D" parent="TerminalSprite"]
-z_index = 200
-texture = SubResource("AtlasTexture_jfbon")
-
 [node name="MapBackground" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(247.015, 146.746)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("AtlasTexture_0qof6")
 
 [node name="Title" type="Sprite2D" parent="MapBackground"]
+use_parent_material = true
 position = Vector2(-237.5, -105)
 texture = SubResource("AtlasTexture_w7s1c")
 
 [node name="Frame" type="Sprite2D" parent="MapBackground" groups=["MapFrame"]]
 visible = false
+use_parent_material = true
 texture = SubResource("AtlasTexture_ffpcy")
 
 [node name="NodesLegend" parent="MapBackground" instance=ExtResource("4_tkltp")]
@@ -109,6 +122,7 @@ offset_right = 214.0
 offset_bottom = 146.0
 
 [node name="TerminalName" type="Label" parent="MapBackground"]
+use_parent_material = true
 offset_left = -258.396
 offset_top = -90.1489
 offset_right = 211.604
@@ -119,6 +133,7 @@ theme_override_font_sizes/font_size = 128
 text = "REAL NAME"
 
 [node name="Map" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(273.881, 147.761)
 texture = SubResource("AtlasTexture_n0doo")
 
@@ -253,6 +268,7 @@ offset_bottom = 199.0
 scale = Vector2(0.86, 0.86)
 
 [node name="Loadout" parent="." instance=ExtResource("6_t4r27")]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.499
@@ -307,5 +323,23 @@ focus_neighbor_left = NodePath("../ReturnButton")
 [node name="ProgramAdded" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_t0gex")
 bus = &"FX"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lqsdi")
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 404.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 200
+position = Vector2(361, 201)
+scale = Vector2(0.75, 0.781656)
+texture = SubResource("AtlasTexture_jfbon")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(361.194, 200.746)
+scale = Vector2(0.75, 0.782)
+texture = SubResource("AtlasTexture_qu0we")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
