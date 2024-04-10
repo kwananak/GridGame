@@ -17,6 +17,8 @@ func _on_area_entered(area):
 				cannon.fire_beam()
 				if cannon.name.begins_with("Forever"):
 					cannon.charge = -1
+	if area.is_in_group("Beam"):
+		$AnimatedSprite2D.play("extreme")
 	if area.is_in_group("Player"):
 		var lev_man = get_tree().get_first_node_in_group("VirtualLevelManager")
 		lev_man.health -= 1
