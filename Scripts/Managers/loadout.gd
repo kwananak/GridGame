@@ -188,6 +188,7 @@ func set_program_sprites():
 
 func _on_focus_entered(slot):
 	frame.visible = true
+	var focus = get_node(slot + "/Focus")
 	if slot == "Runes":
 		var rune_count = progress_manager.get_node("Loadout/" + slot).get_child_count()
 		match rune_count:
@@ -198,12 +199,30 @@ func _on_focus_entered(slot):
 			_:
 				info.text = str(rune_count) + " runes"
 		return
-	if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
-		info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type_as_string() + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
+	if slot == "Amplifiers":
+		info.text = "NeuroAmplifers\n"
+		var has_amplifier = false
+		for n in $Amplifiers.get_children():
+			if n.name.length() < 2:
+				if n.visible:
+					info.text += n.name + " "
+					has_amplifier = true
+		if !has_amplifier:
+			info.text += "none"
+		info.text += "\n" + $Label.text
 	else:
-		info.text = slot + "\n" + "Empty"
+		if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
+			info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type_as_string() + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
+			focus.get_node("AnimationPlayer").play("full")
+		else:
+			info.text = slot + "\n" + "Empty"
+			focus.get_node("AnimationPlayer").play("empty")
+	focus.show()
 
 func _on_focus_exited():
+	for n in get_children():
+		if n.has_node("Focus"):
+			n.get_node("Focus").hide()
 	frame.visible = false
 	info.text = ""
 

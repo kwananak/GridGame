@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dik7767w56mld"]
+[gd_scene load_steps=28 format=3 uid="uid://dik7767w56mld"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/loadout.gd" id="1_cro6k"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_jj2mc"]
@@ -26,9 +26,83 @@ region = Rect2(0, 0, 257, 346)
 atlas = ExtResource("2_lsp0t")
 region = Rect2(256, 400, 203, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cf5vf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wa4x"]
 atlas = ExtResource("2_mbhx0")
-region = Rect2(188, 346, 60, 62)
+region = Rect2(129, 35, 30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sqa8"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(0, 66, 32, 28)
+
+[sub_resource type="Animation" id="Animation_tra7n"]
+resource_name = "full"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.2, 2.2), Vector2(2.2, 2.2), Vector2(2.4, 2.4)]
+}
+
+[sub_resource type="Animation" id="Animation_jtc5y"]
+resource_name = "empty"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.8, 1.8), Vector2(1.8, 1.8), Vector2(2.2, 2.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ucbm"]
+_data = {
+"empty": SubResource("Animation_jtc5y"),
+"full": SubResource("Animation_tra7n")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihseu"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(192, 352, 53, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqf6f"]
+atlas = ExtResource("2_mbhx0")
+region = Rect2(256, 350, 57, 57)
+
+[sub_resource type="Animation" id="Animation_srauj"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1.1, 1.1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnton"]
+_data = {
+"new_animation": SubResource("Animation_srauj")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4px7t"]
 atlas = ExtResource("2_mbhx0")
@@ -46,27 +120,15 @@ region = Rect2(144, 304, 48, 48)
 atlas = ExtResource("2_mbhx0")
 region = Rect2(192, 304, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_koreh"]
-atlas = ExtResource("2_mbhx0")
-region = Rect2(129, 35, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvsh3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwx6k"]
 atlas = ExtResource("2_mbhx0")
 region = Rect2(97, 35, 30, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4sd6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl2ja"]
 atlas = ExtResource("2_mbhx0")
 region = Rect2(33, 35, 30, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wergd"]
-atlas = ExtResource("2_mbhx0")
-region = Rect2(33, 35, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cf10q"]
-atlas = ExtResource("2_mbhx0")
-region = Rect2(225, 35, 30, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6owcg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_re533"]
 atlas = ExtResource("2_mbhx0")
 region = Rect2(65, 35, 30, 26)
 
@@ -95,7 +157,7 @@ texture = SubResource("AtlasTexture_ijx5n")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Background"]
 modulate = Color(1, 1, 1, 0.788235)
-position = Vector2(-9, 25)
+position = Vector2(-3, 25)
 scale = Vector2(-1, 1)
 texture = SubResource("AtlasTexture_b7m4d")
 
@@ -104,104 +166,197 @@ position = Vector2(-62.969, -156.35)
 texture = SubResource("AtlasTexture_xkk5a")
 
 [node name="Frame" type="Sprite2D" parent="Background" groups=["ProgramsFrame"]]
-visible = false
 texture = SubResource("AtlasTexture_lp3ve")
+offset = Vector2(0.035, 0.14)
 
 [node name="InfoBox" type="Sprite2D" parent="Background"]
 position = Vector2(34.005, -127.28)
 scale = Vector2(0.67, 0.67)
 texture = SubResource("AtlasTexture_h871s")
 
-[node name="Amplifiers" type="Sprite2D" parent="."]
-position = Vector2(55, -86)
-texture = SubResource("AtlasTexture_cf5vf")
+[node name="Goggles" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -98.0
+offset_top = -114.0
+offset_right = -34.0
+offset_bottom = -50.0
+focus_neighbor_right = NodePath("../Amplifiers")
+focus_neighbor_bottom = NodePath("../RightHand")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Goggles"]
+position = Vector2(6, 9)
+scale = Vector2(1.76, 1.76)
+texture = SubResource("AtlasTexture_1wa4x")
+centered = false
+
+[node name="Focus" type="Sprite2D" parent="Goggles"]
+visible = false
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Goggles/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
+
+[node name="Amplifiers" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 34.0
+offset_top = -113.0
+offset_right = 98.0
+offset_bottom = -49.0
+focus_neighbor_left = NodePath("../Goggles")
+focus_neighbor_bottom = NodePath("../Armor")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Amplifiers"]
+position = Vector2(6, 6)
+texture = SubResource("AtlasTexture_ihseu")
+centered = false
+
+[node name="Focus" type="Sprite2D" parent="Amplifiers"]
+visible = false
+position = Vector2(32.5, 32.5)
+scale = Vector2(1.1, 1.1)
+texture = SubResource("AtlasTexture_oqf6f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Amplifiers/Focus"]
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_pnton")
+}
 
 [node name="A" type="Sprite2D" parent="Amplifiers"]
 visible = false
-position = Vector2(2, 2)
+position = Vector2(34, 33)
 texture = SubResource("AtlasTexture_4px7t")
 
 [node name="B" type="Sprite2D" parent="Amplifiers"]
 visible = false
-position = Vector2(2, 2)
+position = Vector2(34, 33)
 texture = SubResource("AtlasTexture_14v26")
 
 [node name="C" type="Sprite2D" parent="Amplifiers"]
 visible = false
-position = Vector2(2, 2)
+position = Vector2(34, 33)
 texture = SubResource("AtlasTexture_oyuqj")
 
 [node name="D" type="Sprite2D" parent="Amplifiers"]
 visible = false
-position = Vector2(2, 2)
+position = Vector2(34, 33)
 texture = SubResource("AtlasTexture_v2gbi")
 
-[node name="Goggles" type="Button" parent="."]
-layout_mode = 0
-offset_left = -103.0
-offset_top = -113.0
-offset_right = -39.0
-offset_bottom = -49.0
-icon = SubResource("AtlasTexture_koreh")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="Armor" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 57.0
+offset_top = -46.0
+offset_right = 121.0
+offset_bottom = 18.0
+focus_neighbor_left = NodePath("../RightHand")
+focus_neighbor_top = NodePath("../Amplifiers")
+focus_neighbor_bottom = NodePath("../LeftHand")
+focus_mode = 2
 
-[node name="Armor" type="Button" parent="."]
-layout_mode = 0
-offset_left = 52.0
-offset_top = -56.0
-offset_right = 116.0
-offset_bottom = 8.0
-icon = SubResource("AtlasTexture_hvsh3")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="Sprite2D" type="Sprite2D" parent="Armor"]
+position = Vector2(6, 9)
+scale = Vector2(1.76, 1.76)
+texture = SubResource("AtlasTexture_gwx6k")
+centered = false
 
-[node name="LeftHand" type="Button" parent="."]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 26.0
-offset_right = 109.0
-offset_bottom = 90.0
-icon = SubResource("AtlasTexture_y4sd6")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="RightHand" type="Button" parent="."]
-layout_mode = 0
-offset_left = -126.0
-offset_top = -6.0
-offset_right = -62.0
-offset_bottom = 58.0
-icon = SubResource("AtlasTexture_wergd")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Legs" type="Button" parent="."]
+[node name="Focus" type="Sprite2D" parent="Armor"]
 visible = false
-layout_mode = 0
-offset_left = 40.0
-offset_top = 37.0
-offset_right = 104.0
-offset_bottom = 101.0
-icon = SubResource("AtlasTexture_cf10q")
-flat = true
-icon_alignment = 1
-expand_icon = true
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
 
-[node name="Boots" type="Button" parent="."]
-layout_mode = 0
-offset_left = -118.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armor/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
+
+[node name="LeftHand" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 28.0
+offset_right = 111.0
+offset_bottom = 92.0
+focus_neighbor_left = NodePath("../Boots")
+focus_neighbor_top = NodePath("../Armor")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftHand"]
+position = Vector2(6, 9)
+scale = Vector2(1.76, 1.76)
+texture = SubResource("AtlasTexture_hl2ja")
+centered = false
+
+[node name="Focus" type="Sprite2D" parent="LeftHand"]
+visible = false
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LeftHand/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
+
+[node name="RightHand" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -6.0
+offset_right = -58.0
+offset_bottom = 58.0
+focus_neighbor_top = NodePath("../Goggles")
+focus_neighbor_right = NodePath("../Armor")
+focus_neighbor_bottom = NodePath("../Boots")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="RightHand"]
+position = Vector2(6, 9)
+scale = Vector2(1.76, 1.76)
+texture = SubResource("AtlasTexture_hl2ja")
+centered = false
+
+[node name="Focus" type="Sprite2D" parent="RightHand"]
+visible = false
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RightHand/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
+
+[node name="Boots" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -115.0
 offset_top = 82.0
-offset_right = -54.0
+offset_right = -51.0
 offset_bottom = 146.0
-icon = SubResource("AtlasTexture_6owcg")
-flat = true
-icon_alignment = 1
-expand_icon = true
+focus_neighbor_top = NodePath("../RightHand")
+focus_neighbor_right = NodePath("../LeftHand")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Boots"]
+position = Vector2(6, 9)
+scale = Vector2(1.76, 1.76)
+texture = SubResource("AtlasTexture_re533")
+centered = false
+
+[node name="Focus" type="Sprite2D" parent="Boots"]
+visible = false
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boots/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
 
 [node name="Runes" type="Button" parent="."]
 visible = false
@@ -214,6 +369,17 @@ icon = SubResource("AtlasTexture_35esv")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Focus" type="Sprite2D" parent="Runes"]
+visible = false
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_2sqa8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Runes/Focus"]
+libraries = {
+"": SubResource("AnimationLibrary_6ucbm")
+}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -231,27 +397,21 @@ vertical_alignment = 1
 [connection signal="focus_entered" from="Goggles" to="." method="_on_focus_entered" binds= ["Goggles"]]
 [connection signal="focus_exited" from="Goggles" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Goggles" to="." method="_on_mouse_entered" binds= ["Goggles"]]
-[connection signal="pressed" from="Goggles" to="." method="on_button_pressed" binds= ["Goggles"]]
+[connection signal="focus_entered" from="Amplifiers" to="." method="_on_focus_entered" binds= ["Amplifiers"]]
+[connection signal="focus_exited" from="Amplifiers" to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Amplifiers" to="." method="_on_mouse_entered" binds= ["Amplifiers"]]
 [connection signal="focus_entered" from="Armor" to="." method="_on_focus_entered" binds= ["Armor"]]
 [connection signal="focus_exited" from="Armor" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Armor" to="." method="_on_mouse_entered" binds= ["Armor"]]
-[connection signal="pressed" from="Armor" to="." method="on_button_pressed" binds= ["Armor"]]
 [connection signal="focus_entered" from="LeftHand" to="." method="_on_focus_entered" binds= ["LeftHand"]]
 [connection signal="focus_exited" from="LeftHand" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="LeftHand" to="." method="_on_mouse_entered" binds= ["LeftHand"]]
-[connection signal="pressed" from="LeftHand" to="." method="on_button_pressed" binds= ["LeftHand"]]
 [connection signal="focus_entered" from="RightHand" to="." method="_on_focus_entered" binds= ["RightHand"]]
 [connection signal="focus_exited" from="RightHand" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="RightHand" to="." method="_on_mouse_entered" binds= ["RightHand"]]
-[connection signal="pressed" from="RightHand" to="." method="on_button_pressed" binds= ["RightHand"]]
-[connection signal="focus_entered" from="Legs" to="." method="_on_focus_entered" binds= ["Legs"]]
-[connection signal="focus_exited" from="Legs" to="." method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Legs" to="." method="_on_mouse_entered" binds= ["Legs"]]
-[connection signal="pressed" from="Legs" to="." method="on_button_pressed" binds= ["Legs"]]
 [connection signal="focus_entered" from="Boots" to="." method="_on_focus_entered" binds= ["Boots"]]
 [connection signal="focus_exited" from="Boots" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Boots" to="." method="_on_mouse_entered" binds= ["Boots"]]
-[connection signal="pressed" from="Boots" to="." method="on_button_pressed" binds= ["Boots"]]
 [connection signal="focus_entered" from="Runes" to="." method="_on_focus_entered" binds= ["Runes"]]
 [connection signal="focus_exited" from="Runes" to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="Runes" to="." method="_on_mouse_entered" binds= ["Runes"]]

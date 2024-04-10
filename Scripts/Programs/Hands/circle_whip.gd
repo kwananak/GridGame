@@ -4,7 +4,7 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	type = "CircleWhip"
-	info = "Action : Destroy enemies and Bytes Barrier around you"
+	info = "Action : Destroy enemies and Byte Barriers around you"
 	super._ready()
 
 func loaded():
