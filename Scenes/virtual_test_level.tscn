@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_w8gh5"]
@@ -7,24 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
+[ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="9_nd675"]
+[ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="10_g6qbq"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/VirtualEnvironment100/virtual_start_tile.tscn" id="11_7i0mp"]
-[ext_resource type="PackedScene" uid="uid://cqy0kn70q6mgg" path="res://Scenes/EnemiesObstaclesTiles/extreme_forever_beam_tile.tscn" id="12_7t2ss"]
-[ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="13_b27e8"]
-[ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_a.tscn" id="14_4hmcx"]
-[ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="15_0vhka"]
-[ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="15_y7k4q"]
-[ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="16_stxbc"]
-[ext_resource type="PackedScene" uid="uid://bk7dr8vjilu3d" path="res://Scenes/Tiles/Programs/goggles_tile.tscn" id="17_bdejj"]
-[ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="18_knqtf"]
-[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="19_v284v"]
-[ext_resource type="PackedScene" uid="uid://tkmd81ycbgym" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_hard.tscn" id="20_spk5r"]
-[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="21_3d5h7"]
-[ext_resource type="PackedScene" uid="uid://rotvkllv4s7" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_medium.tscn" id="21_7jlkb"]
-[ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="25_bmmiy"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
+yellow_doomwall_step = 0.5
+red_doomwall_step = 1.0
 attack_particles = true
 level_height = 24
 level_length = 32
@@ -67,80 +58,8 @@ grow_vertical = 1
 [node name="VirtualStartTile" parent="." instance=ExtResource("11_7i0mp")]
 position = Vector2(256, 288)
 
-[node name="MobileBarrier" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(224, 288)
-
-[node name="MobileBarrier2" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(288, 288)
-
-[node name="MobileBarrier3" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(256, 256)
-
-[node name="MobileBarrier4" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(256, 320)
-
-[node name="MobileBarrier5" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(320, 352)
-
-[node name="MobileBarrier6" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(320, 224)
-
-[node name="MobileBarrier7" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(192, 224)
-
-[node name="MobileBarrier8" parent="." instance=ExtResource("15_y7k4q")]
-position = Vector2(192, 352)
-
-[node name="BeamTile" parent="." instance=ExtResource("21_3d5h7")]
-position = Vector2(192, 192)
-
-[node name="SoapBarrier" parent="." instance=ExtResource("25_bmmiy")]
-position = Vector2(288, 224)
-
-[node name="SoapBarrier2" parent="." instance=ExtResource("25_bmmiy")]
-position = Vector2(192, 288)
-
-[node name="ExtremeForeverBeamTile" parent="." instance=ExtResource("12_7t2ss")]
-position = Vector2(352, 224)
-rotation = 4.71239
-
-[node name="VirtualEndTile" parent="." instance=ExtResource("13_b27e8")]
-position = Vector2(288, 320)
-
-[node name="AccessPointA" parent="." instance=ExtResource("14_4hmcx")]
-position = Vector2(288, 320)
-
-[node name="AccessPointKeyPoint" parent="." instance=ExtResource("15_0vhka")]
+[node name="YellowWarningTile" parent="." instance=ExtResource("9_nd675")]
 position = Vector2(320, 288)
 
-[node name="AccessPointKey" parent="." instance=ExtResource("16_stxbc")]
-position = Vector2(288, 256)
-
-[node name="GogglesTile" parent="." instance=ExtResource("17_bdejj")]
-position = Vector2(384, 320)
-select_program = "CyberReality"
-
-[node name="TerminalAccesPoint" parent="." instance=ExtResource("18_knqtf")]
-position = Vector2(288, 384)
-targets = Vector3i(2, 2, 2)
-
-[node name="ByteBarrierEasy" parent="." instance=ExtResource("19_v284v")]
-position = Vector2(320, 320)
-
-[node name="ByteBarrierEasy2" parent="." instance=ExtResource("19_v284v")]
-position = Vector2(352, 288)
-
-[node name="ByteBarrierHard" parent="." instance=ExtResource("20_spk5r")]
-position = Vector2(448, 384)
-
-[node name="ByteBarrierMedium" parent="." instance=ExtResource("21_7jlkb")]
-position = Vector2(448, 312)
-
-[node name="ByteBarrierMedium2" parent="." instance=ExtResource("21_7jlkb")]
-position = Vector2(448, 256)
-
-[node name="ByteBarrierEasy3" parent="." instance=ExtResource("19_v284v")]
-position = Vector2(384, 256)
-
-[node name="ByteBarrierHard2" parent="." instance=ExtResource("20_spk5r")]
-position = Vector2(384, 384)
+[node name="RedWarningTile" parent="." instance=ExtResource("10_g6qbq")]
+position = Vector2(384, 288)

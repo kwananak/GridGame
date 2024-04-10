@@ -12,6 +12,7 @@ var skip_turn = false
 var step
 var distance_to_player
 var section_number = 0
+var warning_ui
 
 @onready var section_prefab = preload("res://Scenes/Prefabs/doomwall_section.tscn")
 @onready var sprite = $AnimatedSprites
@@ -22,6 +23,7 @@ func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
 	label = get_tree().get_first_node_in_group("FirewallLabel")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	warning_ui = get_tree().get_first_node_in_group("WarningUI")
 	set_collision_shape()
 	step = level_manager.green_doomwall_step
 	level_manager.doomwall_state_changed.connect(set_state)
@@ -72,7 +74,6 @@ func turn_call():
 		vision_check()
 		return
 	move_wall(step)
-	vision_check()
 
 # called when firewall hits player
 func _on_area_entered(area):
@@ -89,18 +90,21 @@ func move_wall(distance):
 		audio.pitch_scale = 1
 		audio.position.y = player.global_position.y
 	audio.play()
-	var tween = create_tween()
-	tween.tween_property(self, "position",
-				Vector2(position.x + distance * level_manager.tile_size, 0),
-				1.5 / level_manager.animation_speed
-				).set_trans(Tween.TRANS_SINE)
+	await create_tween().tween_property(self, "position", Vector2(position.x + distance * level_manager.tile_size, 0), 1.5 / level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
+	vision_check()
 
 func vision_check():
 	if step == 0:
-		distance_to_player = "inf"
+		distance_to_player = ""
 	else:
-		var distance = (((player.position.x - position.x) - (int(player.position.x - position.x) % level_manager.tile_size)) / level_manager.tile_size)
-		distance_to_player = snapped(distance, step) / step - 1
+		distance_to_player = (player.global_position.x - global_position.x - 32) / level_manager.tile_size / step
+		if distance_to_player > int(distance_to_player):
+			distance_to_player = int(distance_to_player + 1)
+		if distance_to_player < 5:
+			warning_ui.get_node("AnimationPlayer").play("pulse")
+		else:
+			warning_ui.get_node("AnimationPlayer").stop()
+	warning_ui.get_node("Label").text = str(distance_to_player)
 
 func fade_out():
 	create_tween().tween_property($AudioStreamPlayer2D, "volume_db", -80, 1)
@@ -110,11 +114,14 @@ func set_state(value):
 	match state:
 		"careful":
 			step = level_manager.yellow_doomwall_step
-			get_tree().get_first_node_in_group("WarningUI").play("yellow")
+			warning_ui.play("yellow")
+			warning_ui.get_node("Label").show()
 			$AudioStreamPlayer.pitch_scale = 0.8
 		"danger":
 			step = level_manager.red_doomwall_step
-			get_tree().get_first_node_in_group("WarningUI").play("red")
+			warning_ui.play("red")
+			warning_ui.get_node("Label").position.x += 22
+			warning_ui.get_node("Label").show()
 			$AudioStreamPlayer.pitch_scale = 1.0
 	$AudioStreamPlayer.play()
 	for n in sprite.get_children():
@@ -124,6 +131,8 @@ func set_state(value):
 
 func set_freeze(value):
 	freeze = value
+	if freeze:
+		$Freeze.play()
 	if freeze > 0:
 		for n in sprite.get_children():
 			var frame = n.frame
