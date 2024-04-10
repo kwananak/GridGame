@@ -52,8 +52,9 @@ func _on_visibility_changed():
 				n.selected = false
 			if str(n.node_level) in prog_man.completed_levels:
 				n.completed = true
-				if n.is_inside_tree():
-					n.grab_focus()
+				if n.node_level == prog_man.last_level_completed:
+					if n.is_inside_tree():
+						n.grab_focus()
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
 		for n in prog_man.get_children():

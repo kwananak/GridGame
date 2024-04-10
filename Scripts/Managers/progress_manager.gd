@@ -12,6 +12,7 @@ var log_progress = {}
 var levels
 var bad_save = false
 var just_unlocked
+var last_level_completed = 0
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -106,6 +107,7 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 			completed = false
 	if completed && level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
+	last_level_completed = level_completed
 	call_deferred("save_game")
 
 func add_amplifier(amp):
