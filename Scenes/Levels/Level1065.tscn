@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cif4c81jfurvh"]
+[gd_scene load_steps=25 format=3 uid="uid://cif4c81jfurvh"]
 
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_wutcd"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_5uhek"]
@@ -22,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://buhx8hv7me51" path="res://Scenes/Tiles/SharedVirtual/access_point_a.tscn" id="18_4xvm1"]
 [ext_resource type="AudioStream" uid="uid://05xd1okbsg38" path="res://Sounds/Backgrounds/100.wav" id="18_bx56a"]
 [ext_resource type="PackedScene" uid="uid://bogf2aswbrbu3" path="res://Scenes/Tiles/SharedVirtual/access_point_key_point.tscn" id="19_fdw22"]
+[ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="20_q7bgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjohw"]
+size = Vector2(32, 20)
 
 [node name="Level1065" type="Node2D"]
 
@@ -660,14 +664,8 @@ position = Vector2(832, 480)
 
 [node name="Items" type="Node2D" parent="GameplayElements"]
 
-[node name="Booster4" parent="GameplayElements/Items" instance=ExtResource("9_74n45")]
-position = Vector2(672, 256)
-
 [node name="Booster7" parent="GameplayElements/Items" instance=ExtResource("9_74n45")]
 position = Vector2(672, 352)
-
-[node name="Booster5" parent="GameplayElements/Items" instance=ExtResource("9_74n45")]
-position = Vector2(672, 384)
 
 [node name="Booster10" parent="GameplayElements/Items" instance=ExtResource("9_74n45")]
 position = Vector2(672, 288)
@@ -992,12 +990,6 @@ position = Vector2(320, 352)
 [node name="SphereByteBarrierTile41" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_xxq3x")]
 position = Vector2(320, 288)
 
-[node name="SphereByteBarrierTile37" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_xxq3x")]
-position = Vector2(640, 256)
-
-[node name="SphereByteBarrierTile38" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_xxq3x")]
-position = Vector2(640, 384)
-
 [node name="SphereByteBarrierTile39" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_xxq3x")]
 position = Vector2(640, 352)
 
@@ -1049,6 +1041,26 @@ autoplay = true
 bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="DialogueArea" parent="Dialogue" instance=ExtResource("20_q7bgc")]
+dialogue_number = 1
+text = Array[String]([""])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(800, 288)
+shape = SubResource("RectangleShape2D_yjohw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(800, 352)
+shape = SubResource("RectangleShape2D_yjohw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(752, 320)
+shape = SubResource("RectangleShape2D_yjohw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
+position = Vector2(848, 320)
+shape = SubResource("RectangleShape2D_yjohw")
 
 [node name="AccessPointA" parent="." instance=ExtResource("18_4xvm1")]
 position = Vector2(320, 320)

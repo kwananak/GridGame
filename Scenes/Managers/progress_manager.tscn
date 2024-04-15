@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=4 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
+[ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/CyberReality.tscn" id="2_b70m0"]
+[ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/CircleWhip.tscn" id="3_sevcb"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 script = ExtResource("1_8smh1")
@@ -11,9 +13,13 @@ z_index = 90
 
 [node name="Goggles" type="Node2D" parent="Loadout"]
 
+[node name="CyberReality" parent="Loadout/Goggles" instance=ExtResource("2_b70m0")]
+
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
+
+[node name="CircleWhip" parent="Loadout/LeftHand" instance=ExtResource("3_sevcb")]
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 
@@ -28,6 +34,8 @@ visible = false
 position = Vector2(-1336, -1080)
 
 [node name="Goggles" type="Node2D" parent="OwnedPrograms"]
+
+[node name="CyberReality" parent="OwnedPrograms/Goggles" instance=ExtResource("2_b70m0")]
 
 [node name="Armor" type="Node2D" parent="OwnedPrograms"]
 
