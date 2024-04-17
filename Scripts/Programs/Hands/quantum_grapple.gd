@@ -171,6 +171,8 @@ func grapple_item(item):
 			item.global_position = tip.global_position
 		if section != null:
 			section.queue_free()
+	if item:
+		item.global_position = player.global_position
 
 func remove_grapple(destination):
 	grapple_sound.play()
