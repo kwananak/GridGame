@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c00k5y7xhu1di"]
+[gd_scene load_steps=30 format=3 uid="uid://c00k5y7xhu1di"]
 
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_0e1k5"]
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_l7kal"]
@@ -31,8 +31,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vises"]
 size = Vector2(416, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_804e2"]
 
 [node name="Level205" type="Node2D"]
 
@@ -1779,23 +1777,21 @@ position = Vector2(800, 608)
 position = Vector2(640, 672)
 select_program = "CircleWhip"
 
+[node name="Dialogue" parent="GameplayElements/Others/HandsTile" groups=["PickUpDialogue"] instance=ExtResource("26_g5xfs")]
+position = Vector2(-640, -672)
+dialogue_number = "2"
+
 [node name="Doomwall" parent="." instance=ExtResource("21_j2lds")]
 
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("26_g5xfs")]
-dialogue_number = 1
+dialogue_number = "1"
 related_node = NodePath("../../GameplayElements/Others/AccessPoint1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(624, 320)
 shape = SubResource("RectangleShape2D_vises")
-
-[node name="DialogueArea2" parent="Dialogue" groups=["PickUpDialogue"] instance=ExtResource("26_g5xfs")]
-dialogue_number = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-shape = SubResource("RectangleShape2D_804e2")
 
 [node name="VirtualPlayer" parent="." instance=ExtResource("23_p5g1x")]
 position = Vector2(64, 416)

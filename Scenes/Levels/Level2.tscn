@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=33 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_o22k4"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_utj30"]
 [ext_resource type="PackedScene" uid="uid://cimgj6cn4tfce" path="res://Scenes/Tiles/EnvironmentComplex/conveyor_end.tscn" id="21_65wie"]
 [ext_resource type="PackedScene" uid="uid://bo048pm8qjmme" path="res://Scenes/Tiles/EnvironmentComplex/window.tscn" id="22_8km8i"]
+[ext_resource type="PackedScene" uid="uid://bxtv0cq3uifbu" path="res://Scenes/Prefabs/real_dialogue.tscn" id="24_qukey"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibu03"]
 shader = ExtResource("3_smkiu")
@@ -3588,6 +3589,11 @@ bus = &"Music"
 [node name="AmplifierTile" parent="." instance=ExtResource("18_ipnln")]
 position = Vector2(264, 664)
 select_amplifier = "NeuroEnhanceAmplifierA"
+
+[node name="Dialogue" parent="AmplifierTile" instance=ExtResource("24_qukey")]
+position = Vector2(-264, -664)
+dialogue_number = "RW2"
+text_speed = 30
 
 [node name="RealPlayer" parent="." instance=ExtResource("18_oxmmy")]
 

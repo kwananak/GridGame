@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cg0hp2wkwcyr7"]
+[gd_scene load_steps=30 format=3 uid="uid://cg0hp2wkwcyr7"]
 
 [ext_resource type="PackedScene" uid="uid://cslmqegonjqr2" path="res://Scenes/Tiles/VirtualEnvironment200/200_level_background.tscn" id="1_tntjm"]
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_yjo3t"]
@@ -30,8 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://c5wwrc67i3i65" path="res://Scenes/Tiles/Programs/armor_tile.tscn" id="27_njtn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uw5di"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yif72"]
 
 [node name="Level210" type="Node2D"]
 
@@ -1549,6 +1547,10 @@ position = Vector2(416, 480)
 position = Vector2(544, 448)
 select_program = "Silicone"
 
+[node name="Dialogue" parent="GameplayElements/Others/ArmorTile" groups=["PickUpDialogue"] instance=ExtResource("27_g8fbp")]
+position = Vector2(-544, -448)
+dialogue_number = "2"
+
 [node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("23_gs5en")]
 position = Vector2(960, 288)
 
@@ -1617,14 +1619,8 @@ rotation = 1.5708
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea" parent="Dialogue" instance=ExtResource("27_g8fbp")]
-dialogue_number = 1
+dialogue_number = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(672, 192)
 shape = SubResource("RectangleShape2D_uw5di")
-
-[node name="DialogueArea2" parent="Dialogue" groups=["PickUpDialogue"] instance=ExtResource("27_g8fbp")]
-dialogue_number = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-shape = SubResource("RectangleShape2D_yif72")

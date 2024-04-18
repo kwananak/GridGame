@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=29 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -22,8 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="10_r0hly"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="11_21w8d"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="12_5m0d7"]
+[ext_resource type="PackedScene" uid="uid://bxtv0cq3uifbu" path="res://Scenes/Prefabs/real_dialogue.tscn" id="17_s3pct"]
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
-[ext_resource type="PackedScene" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
+[ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukljp"]
 shader = ExtResource("4_n0otq")
@@ -1990,10 +1991,17 @@ z_index = 45
 position = Vector2(308, 96)
 select_amplifier = "NeuroEnhanceAmplifierB"
 
+[node name="Dialogue" parent="Gameplay/AmplifierTile" instance=ExtResource("17_s3pct")]
+dialogue_number = "RW3"
+text_speed = 30
+
 [node name="AmplifierTile2" parent="Gameplay" instance=ExtResource("12_5m0d7")]
 z_index = 45
 position = Vector2(928, 416)
 select_amplifier = "NeuroEnhanceAmplifierC"
+
+[node name="Dialogue" parent="Gameplay/AmplifierTile2" instance=ExtResource("17_s3pct")]
+dialogue_number = "RW4"
 
 [node name="EndTile" parent="Gameplay" instance=ExtResource("6_0mrpp")]
 position = Vector2(64.0001, 672)

@@ -3,6 +3,7 @@ extends "res://Scripts/Programs/program.gd"
 var grapple_range = 5
 var grapple = []
 var tip
+var grapple_speed = 1000
 
 @export var strength = 1
 
@@ -51,7 +52,7 @@ func grapple_hit(dir):
 		grapple_sound.play()
 		scene.add_child(tip)
 		for i in (destination.y - 1) * 8:
-			await get_tree().create_timer(0.005).timeout
+			await get_tree().create_timer(1.0 / grapple_speed).timeout
 			tip.position.y += 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
@@ -68,7 +69,7 @@ func grapple_hit(dir):
 		grapple_sound.play()
 		scene.add_child(tip)
 		for i in (-destination.y - 1) * 8:
-			await get_tree().create_timer(0.005).timeout
+			await get_tree().create_timer(1.0 / grapple_speed).timeout
 			tip.position.y -= 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
@@ -84,7 +85,7 @@ func grapple_hit(dir):
 		grapple_sound.play()
 		scene.add_child(tip)
 		for i in (destination.x - 1) * 8:
-			await get_tree().create_timer(0.005).timeout
+			await get_tree().create_timer(1.0 / grapple_speed).timeout
 			tip.position.x += 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
@@ -100,7 +101,7 @@ func grapple_hit(dir):
 		grapple_sound.play()
 		scene.add_child(tip)
 		for i in (-destination.x - 1) * 8:
-			await get_tree().create_timer(0.005).timeout
+			await get_tree().create_timer(1.0 / grapple_speed).timeout
 			tip.position.x -= 4
 			var section = grapple_section.instantiate()
 			grapple.append(section)
@@ -119,8 +120,11 @@ func grapple_hit(dir):
 					destination -= destination.normalized()
 			"soap":
 				if !dir.available_action.moved:
-					grapple_soap(destination, dir.available_action)
+					await grapple_soap(destination, dir.available_action)
 					destination = Vector2.ZERO
+					remove_grapple(destination)
+					player.animated_sprite_2d.play("idle")
+					return
 			"chip", "key":
 				grapple_item(dir.available_action)
 				destination = Vector2.ZERO
@@ -133,17 +137,11 @@ func grapple_hit(dir):
 	if destination != Vector2.ZERO:
 		await create_tween().tween_property(player, "position", player.position + destination * level_manager.tile_size, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 	player.animated_sprite_2d.play("idle")
-	if "tile_type" in dir.available_action:
-		if dir.available_action.tile_type == "soap":
-			while true:
-				await get_tree().create_timer(0.01).timeout
-				if !dir.available_action.moving:
-					break
 
 func grapple_mobile(destination, barrier):
 	barrier.move(-destination.normalized() * 32)
 	for n in 8:
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(1.0 / grapple_speed).timeout
 		var section = grapple.pop_back()
 		if tip != null:
 			tip.position = section.position
@@ -154,7 +152,7 @@ func grapple_soap(destination, barrier):
 	var des = destination
 	barrier.hit_by_player(-des * level_manager.tile_size)
 	for n in grapple.size():
-		await get_tree().create_timer(0.005).timeout
+		await get_tree().create_timer(1.0 / grapple_speed).timeout
 		var section = grapple.pop_back()
 		if tip != null:
 			tip.position = section.position
@@ -164,7 +162,7 @@ func grapple_soap(destination, barrier):
 func grapple_item(item):
 	item.global_position = tip.global_position
 	for n in grapple.size():
-		await get_tree().create_timer(0.005).timeout
+		await get_tree().create_timer(1.0 / grapple_speed).timeout
 		var section = grapple.pop_back()
 		if tip != null:
 			tip.position = section.position
@@ -177,7 +175,7 @@ func grapple_item(item):
 func remove_grapple(destination):
 	grapple_sound.play()
 	while !grapple.is_empty():
-		await get_tree().create_timer(0.005).timeout
+		await get_tree().create_timer(1.0 / grapple_speed).timeout
 		if destination != Vector2.ZERO:
 			var section = grapple.pop_front()
 			if is_instance_valid(section):
@@ -193,8 +191,9 @@ func remove_grapple(destination):
 	if is_instance_valid(tip):
 		tip.queue_free()
 
-func game_over_remove(_arg):
-	for n in grapple:
-		n.queue_free()
-	if is_instance_valid(tip):
-		tip.queue_free()
+func game_over_remove(value):
+	if value:
+		for n in grapple:
+			n.queue_free()
+		if is_instance_valid(tip):
+			tip.queue_free()

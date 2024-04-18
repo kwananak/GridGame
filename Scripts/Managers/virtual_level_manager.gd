@@ -270,4 +270,5 @@ func zoom_camera():
 
 func dezoom_camera():
 	$/root/Main.dezoom_camera()
-	ui.scale *= 1.2
+	if ui.scale.x < 1:
+		ui.scale *= 1.2

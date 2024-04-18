@@ -52,7 +52,7 @@ bus = &"Music"
 [node name="UI" parent="." instance=ExtResource("2_fjgp0")]
 visible = false
 
-[node name="300LevelBackgroundColors2" parent="." instance=ExtResource("29_ysxbf")]
+[node name="300LevelBackgroundColors" parent="." instance=ExtResource("29_ysxbf")]
 offset_right = 1856.0
 offset_bottom = 1072.0
 
@@ -2149,6 +2149,10 @@ position = Vector2(1280, 480)
 position = Vector2(1056, 448)
 select_program = "QuantumGrapple"
 
+[node name="Dialogue" parent="GameplayElements/Others/HandsTile" groups=["PickUpDialogue"] instance=ExtResource("29_xrkbs")]
+position = Vector2(-1056, -448)
+dialogue_number = "2"
+
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("20_6fj7k")]
 
 [node name="VirtualEndTile" parent="GameplayElements/Others" instance=ExtResource("28_6bjic")]
@@ -2189,12 +2193,9 @@ rotation = 1.5708
 [node name="Dialogue" type="Node2D" parent="."]
 
 [node name="DialogueArea" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("29_xrkbs")]
-dialogue_number = 1
+dialogue_number = "1"
 related_node = NodePath("../../GameplayElements/Beams/ExtremeForeverBeamTile5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
 position = Vector2(320, 384)
 shape = SubResource("RectangleShape2D_oyd0s")
-
-[node name="DialogueArea2" parent="Dialogue" groups=["PickUpDialogue"] instance=ExtResource("29_xrkbs")]
-dialogue_number = 2

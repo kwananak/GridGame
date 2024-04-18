@@ -45,6 +45,9 @@ func pick_up(_area):
 	$Sprite2D.remove_child(program)
 	progress_manager.add_amplifier(program)
 	$Sprite2D.hide()
+	if has_node("Dialogue"):
+		$Dialogue.trigger()
+		return
 	get_tree().get_first_node_in_group("RealPlayer").active = true
 
 func _on_mouse_entered():
