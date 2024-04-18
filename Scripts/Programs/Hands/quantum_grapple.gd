@@ -4,6 +4,8 @@ var grapple_range = 5
 var grapple = []
 var tip
 var grapple_speed = 1000
+var timer_counter = 0
+var target_length
 
 @export var strength = 1
 
@@ -11,7 +13,6 @@ var grapple_speed = 1000
 @onready var tip_sound = $TipSound
 @onready var tip_prefab = preload("res://Scenes/Prefabs/grapple_tip.tscn")
 @onready var grapple_section = preload("res://Scenes/Prefabs/grapple_section.tscn")
-
 
 func _ready():
 	type = "QuantumGrapple"

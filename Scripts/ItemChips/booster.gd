@@ -7,7 +7,9 @@ var picked = false
 
 func _ready():
 	super._ready()
-	info = "Gives +" + str(strength) + " action"
+	info = "Gives +" + str(strength) + " energy charge"
+	if strength > 1:
+		info += "s"
 
 # adds strength to actions and removes item
 func pick_up(area):

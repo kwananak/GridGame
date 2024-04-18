@@ -184,9 +184,9 @@ func set_remaining_actions(value):
 	else:
 		actions_ui.text = str(remaining_actions)
 		if value == 1:
-			actions_ui.get_node("Label").text = "ACTION"
+			actions_ui.get_node("Label").text = "CHARGE"
 		else:
-			actions_ui.get_node("Label").text = "ACTIONS"
+			actions_ui.get_node("Label").text = "CHARGES"
 		actions_ui.show()
 
 func on_success(level_unlocked):

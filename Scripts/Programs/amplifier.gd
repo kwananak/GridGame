@@ -6,7 +6,7 @@ extends "res://Scripts/Programs/program.gd"
 
 func _ready():
 	type = "NeuroEnhanceAmplifier" + amplifier_class
-	info = "+" + str(strength) + " action"
+	info = "+" + str(strength) + " energy charge"
 	if strength > 1:
 		info += "s"
 	info += " from now on"

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfa6tqf437dfs"]
+
+[ext_resource type="Script" path="res://Scripts/UI/terminal_hacked_splash.gd" id="1_3v23l"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_x0mc4"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_f02yv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enr0v"]
+atlas = ExtResource("1_x0mc4")
+region = Rect2(64, 2018, 170, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeh7i"]
+atlas = ExtResource("1_x0mc4")
+region = Rect2(176, 1104, 172, 75)
+
+[node name="TerminalHackedSplash" type="Node2D"]
+z_index = 100
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_3v23l")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_enr0v")
+
+[node name="Frame" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_qeh7i")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 720.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("2_f02yv")
+theme_override_font_sizes/font_size = 82
+text = "Terminal hacked"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

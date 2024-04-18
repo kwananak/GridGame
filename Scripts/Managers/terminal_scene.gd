@@ -4,6 +4,7 @@ var loadout
 var loaded_level = null
 var terminal_number
 
+@onready var hack_splash = preload("res://Scenes/TerminalElements/terminal_hacked_splash.tscn")
 @onready var terminal_name = $MapBackground/TerminalName
 @onready var main = $/root/Main
 
@@ -42,6 +43,7 @@ func _on_go_button_pressed():
 
 func _on_visibility_changed():
 	if visible:
+		var completed = true
 		if $ReturnButton.is_inside_tree():
 			$ReturnButton.grab_focus()
 		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
@@ -55,6 +57,8 @@ func _on_visibility_changed():
 				if n.node_level == prog_man.last_level_completed:
 					if n.is_inside_tree():
 						n.grab_focus()
+			else:
+				completed = false
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
 		for n in prog_man.get_children():
@@ -85,6 +89,8 @@ func _on_visibility_changed():
 						$GateLabel/Label.clear()
 						$GateLabel/Label.append_text("[center][color=green]unlocked")
 			$DoorLabel/Label.append_text("[color=red]locked")
+		if completed:
+			add_child(load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate())
 	else:
 		$AudioStreamPlayer.stop()
 
