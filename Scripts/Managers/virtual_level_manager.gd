@@ -17,6 +17,7 @@ var doomwall
 var doomwall_state = "default" : set = set_doomwall_state
 var pause_menu
 var progress_manager
+var retry_threshold = 7
 
 signal barrier_down
 signal doomwall_state_changed
@@ -42,7 +43,8 @@ func _ready():
 	set_remaining_actions(action_points)
 	if str(level_number) in progress_manager.completed_levels:
 		skip_dialogues = true
-	super._ready()
+	await super._ready()
+	check_retry()
 
 func _process(delta):
 	time_elapsed += delta
@@ -50,6 +52,11 @@ func _process(delta):
 		ui.position = camera.position
 		return
 	super._process(delta)
+
+func check_retry():
+	if progress_manager.retry_count != 0 && progress_manager.retry_count % retry_threshold == 0 && !progress_manager.retry_triggered:
+		progress_manager.retry_triggered = true
+		$RetryDialogue.trigger()
 
 func set_doomwall_state(value):
 	doomwall_state = value

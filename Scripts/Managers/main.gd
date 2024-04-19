@@ -66,6 +66,7 @@ func call_level(level_number):
 
 # restarts loaded level
 func retry_level():
+	progress_manager.retry_count += 1
 	var loaded_virtual_number = virtual_scene.get_node("VirtualLevelManager").level_number
 	virtual_scene.queue_free()
 	dezoom_camera()

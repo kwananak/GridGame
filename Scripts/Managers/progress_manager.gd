@@ -13,6 +13,8 @@ var levels
 var bad_save = false
 var just_unlocked
 var last_level_completed = 0
+var retry_count = 0
+var retry_triggered = false
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -113,6 +115,7 @@ func add_to_levels(level_unlocked, real_level, level_completed):
 			completed = false
 	if completed && level_completed not in completed_levels:
 		completed_levels += [str(level_completed)]
+	retry_count = 0
 	last_level_completed = level_completed
 	call_deferred("save_game")
 

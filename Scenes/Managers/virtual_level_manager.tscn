@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhqr3k2csmslo"]
+[gd_scene load_steps=3 format=3 uid="uid://dhqr3k2csmslo"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/virtual_level_manager.gd" id="1_iqt7p"]
+[ext_resource type="PackedScene" uid="uid://bwklisxcy6gfc" path="res://Scenes/UI/retry_dialogue.tscn" id="2_sqmfm"]
 
 [node name="VirtualLevelManager" type="Node2D" groups=["VirtualLevelManager"]]
 script = ExtResource("1_iqt7p")
+
+[node name="RetryDialogue" parent="." instance=ExtResource("2_sqmfm")]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
