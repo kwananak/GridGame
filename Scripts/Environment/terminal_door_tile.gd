@@ -16,6 +16,8 @@ func update_door():
 		if i == str(door_number):
 			animated_sprite_2d.frame = 1
 			unlocked = true
+			if has_node("WallLight"):
+				$WallLight.play()
 			for n in get_tree().get_nodes_in_group("EndTile"):
 				if n.global_position == global_position:
 					await get_tree().create_timer(0.01).timeout

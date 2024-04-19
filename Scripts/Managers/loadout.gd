@@ -50,7 +50,7 @@ func set_slots():
 				for a in progress_manager.get_node("OwnedPrograms/Amplifiers").get_children():
 					n.get_node(a.amplifier_class).show()
 					action_points += a.strength
-				$Label.text = "Action Points: " + str(action_points)
+				$Label.text = "Energy Charges: " + str(action_points)
 			"Runes":
 				var v = prog_load.get_node(str(n.name))
 				v.global_position = n.global_position + Vector2(16, 16)
