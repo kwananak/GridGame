@@ -1,11 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://r1hnehs6otbr"]
+[gd_scene load_steps=32 format=3 uid="uid://r1hnehs6otbr"]
 
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="1_mb2mn"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="2_qdtj1"]
-[ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="3_fc5ry"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_xf2op"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="5_oqvkl"]
 [ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="6_lg1ub"]
+[ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="6_vaxrk"]
+[ext_resource type="PackedScene" uid="uid://bj7106i5capif" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_corner.tscn" id="7_ly6ka"]
 [ext_resource type="PackedScene" uid="uid://be8v7f8xogyjk" path="res://Scenes/Tiles/EnvironmentComplex/complex_arm.tscn" id="7_s62st"]
 [ext_resource type="PackedScene" uid="uid://dv8ksq5v36juw" path="res://Scenes/Tiles/EnvironmentComplex/conveyor.tscn" id="8_w1txk"]
 [ext_resource type="PackedScene" uid="uid://cimgj6cn4tfce" path="res://Scenes/Tiles/EnvironmentComplex/conveyor_end.tscn" id="9_3yig6"]
@@ -2641,7 +2642,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex2" parent="Environment/Walls" instance=ExtResource("2_qdtj1")]
-position = Vector2(260.75, 116)
+position = Vector2(260, 116.25)
 collision_layer = 0
 collision_mask = 0
 
@@ -2657,11 +2658,6 @@ collision_mask = 0
 
 [node name="WallBackTileComplex65" parent="Environment/Walls" instance=ExtResource("2_qdtj1")]
 position = Vector2(132, 788.5)
-collision_layer = 0
-collision_mask = 0
-
-[node name="WallBackTileComplex54" parent="Environment/Walls" instance=ExtResource("2_qdtj1")]
-position = Vector2(196, 788.5)
 collision_layer = 0
 collision_mask = 0
 
@@ -2825,16 +2821,6 @@ position = Vector2(1316, 116.5)
 collision_layer = 0
 collision_mask = 0
 
-[node name="WallBackTileComplex79" parent="Environment/Walls" instance=ExtResource("2_qdtj1")]
-position = Vector2(1380, 116.5)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("3_fc5ry")]
-position = Vector2(196, 116.5)
-collision_layer = 0
-collision_mask = 0
-
 [node name="WallVerticalTileComplex" parent="Environment/Walls" instance=ExtResource("4_xf2op")]
 position = Vector2(196, 148.5)
 collision_layer = 0
@@ -2847,11 +2833,6 @@ collision_mask = 0
 
 [node name="WallVerticalTileComplex3" parent="Environment/Walls" instance=ExtResource("4_xf2op")]
 position = Vector2(196, 212.5)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("3_fc5ry")]
-position = Vector2(100, 788.5)
 collision_layer = 0
 collision_mask = 0
 
@@ -2952,13 +2933,6 @@ collision_mask = 0
 
 [node name="WallVerticalTileComplex20" parent="Environment/Walls" instance=ExtResource("4_xf2op")]
 position = Vector2(196, 756.5)
-collision_layer = 0
-collision_mask = 0
-
-[node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("3_fc5ry")]
-z_index = 40
-position = Vector2(1396, 116.5)
-scale = Vector2(-1, 1)
 collision_layer = 0
 collision_mask = 0
 
@@ -3342,6 +3316,28 @@ collision_mask = 0
 z_index = 36
 position = Vector2(1396, 916.5)
 scale = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("6_vaxrk")]
+position = Vector2(100, 790)
+scale = Vector2(1, 1)
+
+[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("6_vaxrk")]
+position = Vector2(196.25, 116.25)
+scale = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("6_vaxrk")]
+z_index = 35
+position = Vector2(1396.25, 116.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="WallBackTileCorner" parent="Environment/Walls" instance=ExtResource("7_ly6ka")]
+position = Vector2(196.25, 788.75)
+scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 0
 
@@ -4045,6 +4041,7 @@ sprite_frames = SubResource("SpriteFrames_v0iqq")
 autoplay = "default"
 
 [node name="ColorRect2" type="Sprite2D" parent="."]
+visible = false
 z_index = 40
 position = Vector2(900, 616.625)
 scale = Vector2(7.04102, 1234.25)

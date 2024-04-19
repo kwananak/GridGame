@@ -1,43 +1,52 @@
 [gd_scene load_steps=8 format=3 uid="uid://cms6uydq40vqc"]
 
 [ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_14vr3"]
-[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="2_us5ii"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="2_ukitl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t04sp"]
-atlas = ExtResource("2_us5ii")
-region = Rect2(0, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m0st"]
+atlas = ExtResource("2_ukitl")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h2fsg"]
-atlas = ExtResource("2_us5ii")
-region = Rect2(192, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fchkt"]
+atlas = ExtResource("2_ukitl")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ylbf"]
-atlas = ExtResource("2_us5ii")
-region = Rect2(384, 0, 192, 192)
+[sub_resource type="AtlasTexture" id="AtlasTexture_330tc"]
+atlas = ExtResource("2_ukitl")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t04sp")
+"texture": SubResource("AtlasTexture_8m0st")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2fsg")
+"texture": SubResource("AtlasTexture_fchkt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ylbf")
+"texture": SubResource("AtlasTexture_330tc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2fsg")
+"texture": SubResource("AtlasTexture_8m0st")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t04sp")
+"texture": SubResource("AtlasTexture_fchkt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h2fsg")
+"texture": SubResource("AtlasTexture_8m0st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m0st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fchkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m0st")
 }],
 "loop": false,
 "name": &"default",
@@ -52,6 +61,5 @@ script = ExtResource("1_14vr3")
 shape = SubResource("RectangleShape2D_pb7ci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.167, 0.167)
 sprite_frames = SubResource("SpriteFrames_q1gjo")
 frame_progress = 1.0

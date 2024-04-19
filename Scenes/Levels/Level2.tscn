@@ -1,21 +1,22 @@
-[gd_scene load_steps=33 format=3 uid="uid://c0ek8boabdvg2"]
+[gd_scene load_steps=34 format=3 uid="uid://c0ek8boabdvg2"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_jef0p"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_o22k4"]
 [ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="3_smkiu"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="3_yd3js"]
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_hicxf"]
-[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="5_mc1di"]
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="5_yotuo"]
+[ext_resource type="PackedScene" uid="uid://bj7106i5capif" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_corner.tscn" id="6_gj7pb"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="6_l4738"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="6_vbysc"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_4uou4"]
+[ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="9_8bdse"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="9_o170u"]
+[ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="10_hk3fg"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="11_mads1"]
-[ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="11_rajsu"]
 [ext_resource type="Texture2D" uid="uid://3moped42ipsw" path="res://Sprites/EnvironmentReal/Complex/complex_window.png" id="13_0ulnl"]
 [ext_resource type="Texture2D" uid="uid://c3lof77qthfin" path="res://Sprites/EnvironmentReal/Dumpyard/dump_back.png" id="14_2yy35"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="14_hsdls"]
-[ext_resource type="PackedScene" uid="uid://dvvxms4n3pnin" path="res://Scenes/Tiles/EnvironmentComplex/corner_front_wall_tile_complex.tscn" id="15_o25el"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="15_yh82c"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="17_na0sr"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="18_ipnln"]
@@ -49,8 +50,8 @@ atlas = ExtResource("15_yh82c")
 region = Rect2(397, -9, 68, 252)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ns0it"]
-atlas = ExtResource("5_mc1di")
-region = Rect2(0, 0, 192, 192)
+atlas = ExtResource("6_l4738")
+region = Rect2(0, 0, 32, 32)
 
 [node name="Level2" type="Node2D"]
 
@@ -2643,8 +2644,7 @@ position = Vector2(320, 128)
 [node name="WallBackTileComplex53" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(192, 800)
 
-[node name="WallBackTileComplex54" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(224, 800)
+[node name="WallBackTileCorner" parent="Environment/Walls" instance=ExtResource("6_gj7pb")]
 
 [node name="WallBackTileComplex4" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(352, 128)
@@ -2742,12 +2742,6 @@ position = Vector2(1312, 128)
 [node name="WallBackTileComplex64" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
 position = Vector2(1344, 128)
 
-[node name="WallBackTileComplex79" parent="Environment/Walls" instance=ExtResource("6_vbysc")]
-position = Vector2(1408, 128)
-
-[node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
-position = Vector2(224, 128)
-
 [node name="WallVerticalTileComplex" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 position = Vector2(224, 160)
 
@@ -2756,9 +2750,6 @@ position = Vector2(224, 192)
 
 [node name="WallVerticalTileComplex3" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 position = Vector2(224, 224)
-
-[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
-position = Vector2(128, 800)
 
 [node name="WallVerticalTileComplex21" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 position = Vector2(128, 832)
@@ -2819,11 +2810,6 @@ position = Vector2(224, 736)
 
 [node name="WallVerticalTileComplex20" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 position = Vector2(224, 768)
-
-[node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("11_rajsu")]
-z_index = 40
-position = Vector2(1424, 128)
-scale = Vector2(-1, 1)
 
 [node name="WallVerticalTileComplex24" parent="Environment/Walls" instance=ExtResource("9_o170u")]
 z_index = 40
@@ -3068,13 +3054,23 @@ position = Vector2(1376, 928)
 z_index = 35
 position = Vector2(1392, 928)
 
-[node name="CornerWallTileComplex3" parent="Environment/Walls" instance=ExtResource("15_o25el")]
-position = Vector2(128, 928)
+[node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("9_8bdse")]
+position = Vector2(224, 128)
 
-[node name="CornerWallTileComplex5" parent="Environment/Walls" instance=ExtResource("15_o25el")]
-z_index = 36
+[node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("9_8bdse")]
+position = Vector2(128, 800)
+
+[node name="CornerWallTileComplex3" parent="Environment/Walls" instance=ExtResource("9_8bdse")]
+position = Vector2(1424, 128)
+scale = Vector2(-1, 1)
+
+[node name="CornerWallTileComplex4" parent="Environment/Walls" instance=ExtResource("10_hk3fg")]
+z_index = 31
 position = Vector2(1424, 928)
 scale = Vector2(-1, 1)
+
+[node name="CornerWallTileComplex5" parent="Environment/Walls" instance=ExtResource("10_hk3fg")]
+position = Vector2(128, 928)
 
 [node name="AssemblyLine" type="Node2D" parent="Environment"]
 
@@ -3568,7 +3564,6 @@ door_number = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="EndTile"]
 z_index = 20
-scale = Vector2(0.167, 0.167)
 texture = SubResource("AtlasTexture_ns0it")
 
 [node name="EndTile2" parent="." instance=ExtResource("4_hicxf")]
@@ -3578,7 +3573,6 @@ door_number = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="EndTile2"]
 z_index = 20
-scale = Vector2(0.167, 0.167)
 texture = SubResource("AtlasTexture_ns0it")
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
@@ -3593,7 +3587,6 @@ select_amplifier = "NeuroEnhanceAmplifierA"
 [node name="Dialogue" parent="AmplifierTile" instance=ExtResource("24_qukey")]
 position = Vector2(-264, -664)
 dialogue_number = "RW2"
-text_speed = 30
 
 [node name="RealPlayer" parent="." instance=ExtResource("18_oxmmy")]
 

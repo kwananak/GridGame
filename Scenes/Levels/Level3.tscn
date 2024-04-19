@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=30 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="2_bpdnd"]
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_lupxg"]
-[ext_resource type="PackedScene" uid="uid://c4k0sxxs3f28m" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex_right.tscn" id="3_8gaoy"]
 [ext_resource type="PackedScene" uid="uid://bj13dlya76rxi" path="res://Scenes/Tiles/EnvironmentComplex/catwalk.tscn" id="3_k76ns"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_3oa4q"]
 [ext_resource type="PackedScene" uid="uid://cnj1jlclxt48t" path="res://Scenes/Tiles/EnvironmentComplex/railing.tscn" id="4_5d2oc"]
@@ -22,8 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="10_r0hly"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="11_21w8d"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="12_5m0d7"]
+[ext_resource type="PackedScene" uid="uid://bj7106i5capif" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_corner.tscn" id="12_jqejc"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="12_ob0pr"]
+[ext_resource type="PackedScene" uid="uid://cvxq1hpaohgm7" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_corner.tscn" id="15_gllik"]
+[ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="15_nh6qg"]
 [ext_resource type="PackedScene" uid="uid://bxtv0cq3uifbu" path="res://Scenes/Prefabs/real_dialogue.tscn" id="17_s3pct"]
-[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_back_wall.png" id="22_8mkna"]
 [ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukljp"]
@@ -34,13 +36,9 @@ shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.6
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aobp3"]
-atlas = ExtResource("22_8mkna")
-region = Rect2(0, 0, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0sej"]
-atlas = ExtResource("22_8mkna")
-region = Rect2(0, 0, 192, 192)
+atlas = ExtResource("12_ob0pr")
+region = Rect2(0, 0, 32, 32)
 
 [node name="Level3" type="Node2D"]
 
@@ -959,9 +957,6 @@ position = Vector2(192, 672)
 [node name="Railing42" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(160, 672)
 
-[node name="Railing43" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(128, 672)
-
 [node name="InvisibleWalls" type="Node2D" parent="Environment/Walls"]
 
 [node name="InvisibleWall" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
@@ -1276,18 +1271,10 @@ position = Vector2(192, 672)
 [node name="InvisibleWall98" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
 position = Vector2(160, 672)
 
-[node name="InvisibleWall115" parent="Environment/Walls/InvisibleWalls" instance=ExtResource("5_je5lu")]
-position = Vector2(128, 672)
-
 [node name="BackWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallBackTileComplex" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
 position = Vector2(192, 64)
-rotation = 3.14159
-collision_mask = 0
-
-[node name="WallBackTileComplex13" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(128, 64)
 rotation = 3.14159
 collision_mask = 0
 
@@ -1298,11 +1285,6 @@ collision_mask = 0
 
 [node name="WallBackTileComplex3" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
 position = Vector2(256, 64)
-rotation = 3.14159
-collision_mask = 0
-
-[node name="WallBackTileComplex66" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(32.0001, 672)
 rotation = 3.14159
 collision_mask = 0
 
@@ -1322,172 +1304,178 @@ rotation = 3.14159
 collision_mask = 0
 
 [node name="WallBackTileComplex6" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(352, 64.5)
+position = Vector2(352, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex7" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(384, 64.5)
+position = Vector2(384, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex8" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(416, 64.5)
+position = Vector2(416, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex9" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(448, 64.5)
+position = Vector2(448, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex10" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(480, 64.5)
+position = Vector2(480, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex11" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(512, 64.5)
+position = Vector2(512, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex12" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(544, 64.5)
+position = Vector2(544, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex37" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(576, 64.5)
+position = Vector2(576, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex38" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(608, 64.5)
+position = Vector2(608, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex39" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(640, 64.5)
+position = Vector2(640, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex40" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(672, 64.5)
+position = Vector2(672, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex41" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(704, 64.5)
+position = Vector2(704, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex42" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(736, 64.5)
+position = Vector2(736, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex43" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(768, 64.5)
+position = Vector2(768, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex44" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(800, 64.5)
+position = Vector2(800, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex45" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(832, 64.5)
+position = Vector2(832, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex46" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(864, 64.5)
+position = Vector2(864, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex47" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(896, 64.5)
+position = Vector2(896, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex48" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(928, 64.5)
+position = Vector2(928, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex52" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(960, 64.5)
+position = Vector2(960, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex55" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(992, 64.5)
+position = Vector2(992, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex56" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1024, 64.5)
+position = Vector2(1024, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex57" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1056, 64.5)
+position = Vector2(1056, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex58" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1088, 64.5)
+position = Vector2(1088, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex59" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1120, 64.5)
+position = Vector2(1120, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex60" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1152, 64.5)
+position = Vector2(1152, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
 [node name="WallBackTileComplex61" parent="Environment/Walls/BackWall" instance=ExtResource("2_bpdnd")]
-position = Vector2(1184, 64.5)
+position = Vector2(1184, 64)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/BackWall"]
-position = Vector2(160, 64)
+[node name="WallBackTileCorner" parent="Environment/Walls/BackWall" instance=ExtResource("12_jqejc")]
+position = Vector2(128, 64)
 rotation = 3.14159
-scale = Vector2(0.167, 0.167)
-texture = SubResource("AtlasTexture_aobp3")
+
+[node name="WallBackTileCorner3" parent="Environment/Walls/BackWall" instance=ExtResource("12_jqejc")]
+position = Vector2(32, 672)
+rotation = 3.14159
+
+[node name="WallBackTileCorner2" parent="Environment/Walls/BackWall" instance=ExtResource("12_jqejc")]
+position = Vector2(1216, 64)
+scale = Vector2(1, -1)
 
 [node name="LeftWall" type="Node2D" parent="Environment/Walls"]
 
@@ -1520,12 +1508,6 @@ collision_mask = 0
 
 [node name="WallVerticalTileComplex23" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
 position = Vector2(32.0001, 768)
-rotation = 3.14159
-collision_layer = 0
-collision_mask = 0
-
-[node name="WallVerticalTileComplex24" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
-position = Vector2(32.0001, 800)
 rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
@@ -1838,13 +1820,16 @@ rotation = 3.14159
 collision_layer = 0
 collision_mask = 0
 
-[node name="RightWall" type="Node2D" parent="Environment/Walls"]
+[node name="WallFrontTileCorner" parent="Environment/Walls/FrontWall" instance=ExtResource("15_gllik")]
+position = Vector2(32, 800)
+rotation = 3.14159
 
-[node name="CornerWallTileComplex4" parent="Environment/Walls/RightWall" instance=ExtResource("3_8gaoy")]
-z_index = 40
-position = Vector2(1216, 64)
-collision_layer = 0
-collision_mask = 0
+[node name="WallFrontTileCorner2" parent="Environment/Walls/FrontWall" instance=ExtResource("15_gllik")]
+position = Vector2(1216, 800)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+
+[node name="RightWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallVerticalTileComplex24" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
 z_index = 40
@@ -1978,11 +1963,9 @@ position = Vector2(1216, 768)
 collision_layer = 0
 collision_mask = 0
 
-[node name="WallVerticalTileComplex46" parent="Environment/Walls/RightWall" instance=ExtResource("4_3oa4q")]
-z_index = 40
-position = Vector2(1216, 800)
-collision_layer = 0
-collision_mask = 0
+[node name="CornerWallTileComplex" parent="Environment/Walls/RightWall" instance=ExtResource("15_nh6qg")]
+position = Vector2(128, 672)
+rotation = 3.14159
 
 [node name="Gameplay" type="Node2D" parent="."]
 
@@ -1993,7 +1976,6 @@ select_amplifier = "NeuroEnhanceAmplifierB"
 
 [node name="Dialogue" parent="Gameplay/AmplifierTile" instance=ExtResource("17_s3pct")]
 dialogue_number = "RW3"
-text_speed = 30
 
 [node name="AmplifierTile2" parent="Gameplay" instance=ExtResource("12_5m0d7")]
 z_index = 45
@@ -2009,12 +1991,15 @@ door_number = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Gameplay/EndTile"]
 rotation = 3.14159
-scale = Vector2(0.167, 0.167)
 texture = SubResource("AtlasTexture_f0sej")
 
 [node name="EndTile2" parent="Gameplay" instance=ExtResource("6_0mrpp")]
 position = Vector2(160, 64)
 door_number = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Gameplay/EndTile2"]
+rotation = 3.14159
+texture = SubResource("AtlasTexture_f0sej")
 
 [node name="StartTile" parent="Gameplay" instance=ExtResource("7_dwjma")]
 position = Vector2(160, 64)

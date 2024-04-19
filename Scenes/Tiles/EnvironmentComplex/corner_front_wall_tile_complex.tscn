@@ -1,24 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvvxms4n3pnin"]
+[gd_scene load_steps=4 format=3 uid="uid://dvvxms4n3pnin"]
 
-[ext_resource type="Texture2D" uid="uid://cgx38dxlbjp4k" path="res://Sprites/EnvironmentReal/Complex/front_and_corner.png" id="1_k8kf4"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="1_2chym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ijf4"]
-atlas = ExtResource("1_k8kf4")
-region = Rect2(0, 0, 168, 101)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ijf4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg33e"]
+atlas = ExtResource("1_2chym")
+region = Rect2(0, 32, 32, 32)
 
 [node name="CornerWallTileComplex" type="StaticBody2D" groups=["AStarGridSolid"]]
 z_index = 20
@@ -26,9 +15,5 @@ z_index = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pb7ci")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -6)
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_q1gjo")
-autoplay = "default"
-frame_progress = 0.597071
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_kg33e")

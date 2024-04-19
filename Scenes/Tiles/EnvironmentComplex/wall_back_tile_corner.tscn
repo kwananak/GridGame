@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj7106i5capif"]
+
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="1_qems8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gw4v"]
+atlas = ExtResource("1_qems8")
+region = Rect2(96, 32, 32, 32)
+
+[node name="WallBackTileCorner" type="StaticBody2D"]
+z_index = 20
+position = Vector2(224, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pb7ci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_5gw4v")

@@ -1,35 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://745atvraim5w"]
+[gd_scene load_steps=4 format=3 uid="uid://745atvraim5w"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_xk0rp"]
-[ext_resource type="Texture2D" uid="uid://c5rmnmgif1wgf" path="res://Sprites/EnvironmentReal/Complex/vert_and_corner.png" id="2_ycja6"]
+[ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="2_qym08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7ci"]
 size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgag4"]
-atlas = ExtResource("2_ycja6")
-region = Rect2(0, 97, 73, 97)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q1gjo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgag4")
-}],
-"loop": false,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipved"]
+atlas = ExtResource("2_qym08")
+region = Rect2(96, 0, 32, 32)
 
 [node name="WallVerticalTileComplex" type="StaticBody2D"]
 z_index = 20
-script = ExtResource("1_xk0rp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pb7ci")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 0)
-scale = Vector2(0.334, 0.334)
-sprite_frames = SubResource("SpriteFrames_q1gjo")
-frame_progress = 1.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ipved")
