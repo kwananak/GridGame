@@ -82,7 +82,5 @@ func _process(delta):
 			animated_sprite_2d.animation = "move"
 	if !$Footsteps.is_playing():
 		$Footsteps.play()
-	var collision =  move_and_collide(input_direction * SPEED * delta)
-	if collision:
-		print(collision.get_collider())
-		#target_move = null
+	if move_and_collide(input_direction * SPEED * delta):
+		target_move = null
