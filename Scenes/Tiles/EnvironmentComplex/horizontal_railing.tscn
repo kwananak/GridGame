@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnj1jlclxt48t"]
+
+[ext_resource type="Texture2D" uid="uid://cwrppa0vpx4bt" path="res://Sprites/EnvironmentReal/Complex/catwalk.png" id="1_g2pk4"]
+[ext_resource type="Script" path="res://Scripts/Environment/tile_sprite_cycle.gd" id="1_r4u8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cny2"]
+atlas = ExtResource("1_g2pk4")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p23mp"]
+atlas = ExtResource("1_g2pk4")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbm4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cny2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p23mp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HorizontalRailing" type="Node2D"]
+script = ExtResource("1_r4u8e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qbm4r")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=33 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://f6ans0klrpqi" path="res://Scenes/UI/real_ui.tscn" id="2_lupxg"]
 [ext_resource type="PackedScene" uid="uid://bj13dlya76rxi" path="res://Scenes/Tiles/EnvironmentComplex/catwalk.tscn" id="3_k76ns"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_3oa4q"]
-[ext_resource type="PackedScene" uid="uid://cnj1jlclxt48t" path="res://Scenes/Tiles/EnvironmentComplex/railing.tscn" id="4_5d2oc"]
+[ext_resource type="PackedScene" uid="uid://cnj1jlclxt48t" path="res://Scenes/Tiles/EnvironmentComplex/horizontal_railing.tscn" id="4_5d2oc"]
 [ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="4_n0otq"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="5_12xde"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="5_je5lu"]
@@ -16,10 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://cc687unvwtc1t" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_c.tscn" id="6_kwmk2"]
 [ext_resource type="PackedScene" uid="uid://b8mpgdnqjupub" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner.tscn" id="6_ya86d"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="7_dwjma"]
+[ext_resource type="PackedScene" uid="uid://dyt2ywmlwbdv" path="res://Scenes/Tiles/EnvironmentComplex/side_railing.tscn" id="7_i8int"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="8_jg6as"]
+[ext_resource type="PackedScene" uid="uid://bxh6lb0l887f8" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_e.tscn" id="8_jmy2d"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_73lqa"]
 [ext_resource type="AudioStream" uid="uid://ddrg1aimoj771" path="res://Sounds/Backgrounds/complex.wav" id="10_r0hly"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="11_21w8d"]
+[ext_resource type="PackedScene" uid="uid://sktgmmo1xqhs" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_d.tscn" id="11_lklqd"]
 [ext_resource type="PackedScene" uid="uid://c5s14bwibo7lb" path="res://Scenes/Tiles/Programs/amplifier_tile.tscn" id="12_5m0d7"]
 [ext_resource type="PackedScene" uid="uid://bj7106i5capif" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_corner.tscn" id="12_jqejc"]
 [ext_resource type="Texture2D" uid="uid://c777ek2gcekyt" path="res://Sprites/EnvironmentReal/Complex/complex_walls.png" id="12_ob0pr"]
@@ -531,105 +534,14 @@ color = Color(0.235294, 0.254902, 0.309804, 1)
 [node name="LowerRailing" type="Node2D" parent="Environment/Walls"]
 z_index = 55
 
-[node name="Railing43" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 224)
-rotation = -1.5708
-
-[node name="Railing44" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 448)
-rotation = -1.5708
-
-[node name="Railing45" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 352)
-rotation = -1.5708
-
-[node name="Railing46" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 384)
-rotation = -1.5708
-
-[node name="Railing47" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 416)
-rotation = -1.5708
-
-[node name="Railing49" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 640)
-rotation = -1.5708
-
-[node name="Railing50" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 672)
-rotation = -1.5708
-
-[node name="Railing55" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(32.0001, 704)
-rotation = -1.5708
-
-[node name="Railing51" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 704)
-rotation = -1.5708
-
-[node name="Railing58" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 480)
-rotation = -1.5708
-
-[node name="RailingCornerC" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(352, 608)
-
-[node name="RailingCornerC2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(960, 576)
-
-[node name="RailingCornerC3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(992, 544)
-
-[node name="RailingCornerC4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(1024, 512)
-
-[node name="Railing40" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 256)
-rotation = -1.5708
-
-[node name="Railing41" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 128)
-rotation = -1.5708
-
-[node name="Railing42" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 160)
-rotation = -1.5708
-
-[node name="Railing78" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 192)
-rotation = -1.5708
-
-[node name="Railing54" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(992, 384)
-rotation = -1.5708
-
-[node name="RailingCornerB" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
-position = Vector2(352, 736)
-
-[node name="RailingCornerB2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
-position = Vector2(960, 608)
-
-[node name="RailingCornerB3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
-position = Vector2(992, 576)
-
-[node name="RailingCornerB4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
-position = Vector2(1024, 544)
-
-[node name="RailingCornerB5" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_651fm")]
-position = Vector2(1056, 512)
-
-[node name="Railing70" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(1056, 480)
-rotation = -1.5708
-
 [node name="Railing27" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(320, 736)
 
+[node name="Railing40" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 736)
+
 [node name="Railing36" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(416, 608)
-
-[node name="Railing21" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(384, 608)
 
 [node name="Railing22" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(864, 608)
@@ -649,60 +561,11 @@ position = Vector2(64.0001, 736)
 [node name="Railing16" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(928, 608)
 
+[node name="Railing18" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(960, 608)
+
 [node name="Railing17" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(896, 608)
-
-[node name="RailingCorner" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(256, 128)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(288, 160)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(288, 512)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner10" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(896, 448)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner5" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(256, 480)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner6" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(352, 512)
-rotation = 4.71239
-
-[node name="RailingCorner13" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(324, 96)
-rotation = 4.71239
-
-[node name="RailingCorner7" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(384, 544)
-rotation = 4.71239
-
-[node name="RailingCorner8" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(992, 416)
-rotation = 4.71239
-
-[node name="RailingCorner9" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(1024, 448)
-rotation = 4.71239
-
-[node name="RailingCorner11" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(128, 96)
-rotation = 4.71239
-
-[node name="RailingCorner12" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(32.0001, 736)
-rotation = 4.71239
-
-[node name="RailingCorner2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(160, 96)
-scale = Vector2(-1, 1)
 
 [node name="Railing4" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(224, 128)
@@ -727,14 +590,6 @@ position = Vector2(800, 608)
 
 [node name="Railing33" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(768, 608)
-
-[node name="Railing53" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 320)
-rotation = -1.5708
-
-[node name="Railing52" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(352, 288)
-rotation = -1.5708
 
 [node name="Railing34" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(224, 736)
@@ -769,125 +624,46 @@ position = Vector2(608, 608)
 [node name="Railing66" parent="Environment/Walls/LowerRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(576, 608)
 
+[node name="RailingCornerC" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(256, 480)
+
+[node name="RailingCornerC4" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(256, 128)
+
+[node name="RailingCornerC6" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(160, 96)
+
+[node name="RailingCornerC5" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(288, 160)
+
+[node name="RailingCornerC2" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(288, 512)
+
+[node name="RailingCornerC3" parent="Environment/Walls/LowerRailing" instance=ExtResource("6_kwmk2")]
+position = Vector2(896, 448)
+
+[node name="RailingCornerE" parent="Environment/Walls/LowerRailing" instance=ExtResource("8_jmy2d")]
+position = Vector2(384, 608)
+
+[node name="RailingCornerE2" parent="Environment/Walls/LowerRailing" instance=ExtResource("8_jmy2d")]
+position = Vector2(992, 576)
+
+[node name="RailingCornerE3" parent="Environment/Walls/LowerRailing" instance=ExtResource("8_jmy2d")]
+position = Vector2(1024, 544)
+
+[node name="RailingCornerE4" parent="Environment/Walls/LowerRailing" instance=ExtResource("8_jmy2d")]
+position = Vector2(1056, 512)
+
 [node name="UpperRailing" type="Node2D" parent="Environment/Walls"]
 
 [node name="Railing22" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(224, 672)
 
-[node name="Railing31" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 256)
-rotation = -1.5708
-
-[node name="Railing33" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 384)
-rotation = -1.5708
-
-[node name="Railing35" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(224, 448)
-rotation = -1.5708
-
-[node name="Railing36" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 608)
-rotation = -1.5708
-
-[node name="RailingCornerC" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(224, 416)
-
-[node name="RailingCornerC2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(864, 512)
-
-[node name="RailingCornerC3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(864, 352)
-
-[node name="RailingCornerC4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_kwmk2")]
-position = Vector2(256, 640)
-
-[node name="RailingCornerB" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
+[node name="Railing23" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(256, 672)
 
-[node name="RailingCornerB2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
-position = Vector2(288, 640)
-
-[node name="RailingCornerB4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
-position = Vector2(864, 544)
-
-[node name="RailingCornerB5" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
-position = Vector2(896, 512)
-
-[node name="RailingCornerB3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_651fm")]
-position = Vector2(288, 416)
-
-[node name="Railing38" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 544)
-rotation = -1.5708
-
-[node name="Railing39" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 576)
-rotation = -1.5708
-
-[node name="Railing56" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(864, 384)
-rotation = -1.5708
-
-[node name="RailingCorner" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(160, 128)
-rotation = 4.71239
-
-[node name="RailingCorner2" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(256, 160)
-rotation = 4.71239
-
-[node name="RailingCorner4" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(224, 480)
-rotation = 4.71239
-
-[node name="RailingCorner5" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(256, 512)
-rotation = 4.71239
-
-[node name="RailingCorner6" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(864, 448)
-rotation = 4.71239
-
-[node name="RailingCorner3" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(352, 96)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner7" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(992, 352)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner10" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(384, 512)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner9" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(1024, 416)
-scale = Vector2(-1, 1)
-
-[node name="RailingCorner8" parent="Environment/Walls/UpperRailing" instance=ExtResource("6_ya86d")]
-position = Vector2(1056, 448)
-scale = Vector2(-1, 1)
-
-[node name="Railing57" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(864, 416)
-rotation = -1.5708
-
-[node name="Railing59" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(896, 480)
-rotation = -1.5708
-
-[node name="Railing28" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 352)
-rotation = -1.5708
-
 [node name="Railing30" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 224)
-rotation = -1.5708
-
-[node name="Railing51" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 192)
-rotation = -1.5708
+position = Vector2(288, 640)
 
 [node name="Railing8" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(928, 352)
@@ -904,8 +680,32 @@ position = Vector2(416, 544)
 [node name="Railing24" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(256, 416)
 
+[node name="Railing28" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(384, 512)
+
+[node name="Railing29" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(288, 416)
+
+[node name="Railing31" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(352, 96)
+
 [node name="Railing14" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(832, 544)
+
+[node name="Railing15" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(864, 544)
+
+[node name="Railing32" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(896, 512)
+
+[node name="Railing33" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(992, 352)
+
+[node name="Railing34" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(1024, 416)
+
+[node name="Railing35" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
+position = Vector2(1056, 448)
 
 [node name="Railing16" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(672, 544)
@@ -943,19 +743,242 @@ position = Vector2(608, 544)
 [node name="Railing47" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(576, 544)
 
-[node name="Railing40" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 320)
-rotation = -1.5708
-
-[node name="Railing41" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
-position = Vector2(288, 288)
-rotation = -1.5708
-
 [node name="Railing25" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(192, 672)
 
 [node name="Railing42" parent="Environment/Walls/UpperRailing" instance=ExtResource("4_5d2oc")]
 position = Vector2(160, 672)
+
+[node name="SideRailing" type="Node2D" parent="Environment/Walls"]
+
+[node name="SideRailing" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 544)
+
+[node name="SideRailing31" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(864, 416)
+
+[node name="SideRailing32" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(864, 384)
+
+[node name="SideRailing33" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(896, 480)
+
+[node name="SideRailing4" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(224, 448)
+
+[node name="SideRailing2" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 576)
+
+[node name="SideRailing3" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 608)
+
+[node name="SideRailing15" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(32, 704)
+
+[node name="SideRailing14" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 384)
+
+[node name="SideRailing16" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 352)
+
+[node name="SideRailing17" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 320)
+
+[node name="SideRailing18" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 288)
+
+[node name="SideRailing19" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 256)
+
+[node name="SideRailing20" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 224)
+
+[node name="SideRailing21" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(288, 192)
+
+[node name="SideRailing5" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 480)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing25" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 704)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing26" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 672)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing27" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 640)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing28" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 640)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing29" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(1024, 384)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing30" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(1088, 480)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing6" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 448)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing7" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 416)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing8" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 384)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing9" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 352)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing10" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 320)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing11" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 288)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing12" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 256)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing13" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 224)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing22" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 192)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing23" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 160)
+scale = Vector2(-1, 1)
+
+[node name="SideRailing24" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+position = Vector2(384, 128)
+scale = Vector2(-1, 1)
+
+[node name="RailingCorner" parent="Environment/Walls/SideRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(224, 416)
+
+[node name="RailingCorner4" parent="Environment/Walls/SideRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(256, 640)
+
+[node name="RailingCorner3" parent="Environment/Walls/SideRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(864, 352)
+
+[node name="RailingCorner5" parent="Environment/Walls/SideRailing" instance=ExtResource("6_ya86d")]
+position = Vector2(864, 512)
+
+[node name="RailingCornerB" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(224, 480)
+
+[node name="RailingCornerB11" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(32, 736)
+
+[node name="RailingCornerB5" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(256, 160)
+
+[node name="RailingCornerB6" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(160, 128)
+
+[node name="RailingCornerB7" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+z_index = 21
+position = Vector2(128, 96)
+
+[node name="RailingCornerB12" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(352, 96)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB4" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(256, 512)
+
+[node name="RailingCornerB9" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(288, 640)
+
+[node name="SideRailing34" parent="Environment/Walls/SideRailing" instance=ExtResource("7_i8int")]
+z_index = 21
+position = Vector2(32, 704)
+
+[node name="RailingCornerB23" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+z_index = 21
+position = Vector2(32, 736)
+
+[node name="RailingCornerB10" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(256, 672)
+
+[node name="RailingCornerB8" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(288, 416)
+
+[node name="RailingCornerB2" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(384, 512)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB13" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(384, 736)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB14" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(992, 608)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB15" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1024, 576)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB16" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1056, 544)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB17" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1088, 512)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB21" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1056, 448)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB22" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(1024, 416)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerB18" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(896, 512)
+
+[node name="RailingCornerB19" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(864, 544)
+
+[node name="RailingCornerB20" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(864, 448)
+
+[node name="RailingCornerB3" parent="Environment/Walls/SideRailing" instance=ExtResource("6_651fm")]
+position = Vector2(416, 544)
+scale = Vector2(-1, 1)
+
+[node name="RailingCornerD" parent="Environment/Walls/SideRailing" instance=ExtResource("11_lklqd")]
+position = Vector2(384, 96)
+
+[node name="RailingCornerD2" parent="Environment/Walls/SideRailing" instance=ExtResource("11_lklqd")]
+position = Vector2(416, 512)
+
+[node name="RailingCornerD3" parent="Environment/Walls/SideRailing" instance=ExtResource("11_lklqd")]
+position = Vector2(1024, 352)
+
+[node name="RailingCornerD4" parent="Environment/Walls/SideRailing" instance=ExtResource("11_lklqd")]
+position = Vector2(1056, 416)
+
+[node name="RailingCornerD5" parent="Environment/Walls/SideRailing" instance=ExtResource("11_lklqd")]
+position = Vector2(1088, 448)
 
 [node name="InvisibleWalls" type="Node2D" parent="Environment/Walls"]
 
@@ -1477,6 +1500,10 @@ rotation = 3.14159
 position = Vector2(1216, 64)
 scale = Vector2(1, -1)
 
+[node name="CornerWallTileComplex" parent="Environment/Walls/BackWall" instance=ExtResource("15_nh6qg")]
+position = Vector2(128, 672)
+rotation = 3.14159
+
 [node name="LeftWall" type="Node2D" parent="Environment/Walls"]
 
 [node name="WallVerticalTileComplex" parent="Environment/Walls/LeftWall" instance=ExtResource("4_3oa4q")]
@@ -1963,10 +1990,6 @@ position = Vector2(1216, 768)
 collision_layer = 0
 collision_mask = 0
 
-[node name="CornerWallTileComplex" parent="Environment/Walls/RightWall" instance=ExtResource("15_nh6qg")]
-position = Vector2(128, 672)
-rotation = 3.14159
-
 [node name="Gameplay" type="Node2D" parent="."]
 
 [node name="AmplifierTile" parent="Gameplay" instance=ExtResource("12_5m0d7")]
@@ -2025,3 +2048,7 @@ z_index = 50
 [node name="GateTile" parent="." instance=ExtResource("23_er614")]
 z_index = 46
 position = Vector2(416, 576)
+
+[node name="RailingCornerE" parent="." instance=ExtResource("8_jmy2d")]
+z_index = 21
+position = Vector2(128, 672)
