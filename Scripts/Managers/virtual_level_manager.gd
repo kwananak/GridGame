@@ -18,6 +18,7 @@ var doomwall_state = "default" : set = set_doomwall_state
 var pause_menu
 var progress_manager
 var retry_threshold = 7
+var cyber = false
 
 signal barrier_down
 signal doomwall_state_changed

@@ -12,6 +12,7 @@ func _ready():
 func loaded():
 	active = true
 	super.loaded()
+	level_manager.cyber = true
 
 func action():
 	focus = true

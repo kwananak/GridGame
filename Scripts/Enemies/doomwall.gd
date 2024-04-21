@@ -94,7 +94,7 @@ func move_wall(distance):
 	vision_check()
 
 func vision_check():
-	if step == 0:
+	if step == 0 || !level_manager.cyber:
 		distance_to_player = ""
 	else:
 		distance_to_player = (player.global_position.x - global_position.x - 32) / level_manager.tile_size / step
