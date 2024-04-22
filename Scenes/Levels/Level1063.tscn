@@ -30,7 +30,7 @@
 size = Vector2(20, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov82d"]
-size = Vector2(20, 96)
+size = Vector2(20, 32)
 
 [node name="Level1063" type="Node2D"]
 
@@ -961,7 +961,7 @@ bus = &"Music"
 dialogue_number = "1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(512, 416)
+position = Vector2(256, 320)
 shape = SubResource("RectangleShape2D_7keqc")
 
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_wjnnq")]
@@ -969,13 +969,17 @@ dialogue_number = "2"
 related_node = NodePath("../../GameplayElements/Items/Booster10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea2"]
-position = Vector2(448, 416)
+position = Vector2(480, 448)
 shape = SubResource("RectangleShape2D_ov82d")
 
 [node name="DialogueArea3" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_wjnnq")]
 dialogue_number = "3"
 related_node = NodePath("../../GameplayElements/WarningTiles/RedWarningTile2")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
+position = Vector2(640, 432)
+shape = SubResource("RectangleShape2D_ov82d")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
-position = Vector2(640, 416)
+position = Vector2(640, 384)
 shape = SubResource("RectangleShape2D_ov82d")
