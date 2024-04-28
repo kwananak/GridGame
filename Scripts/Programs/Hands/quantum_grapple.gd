@@ -207,7 +207,6 @@ func grapple_mobile(destination, barrier):
 		if section != null:
 			section.queue_free()
 		grapple_sound.pitch_scale -= 0.02
-	grapple_sound.stop()
 
 func grapple_soap(destination, barrier):
 	var des = destination
