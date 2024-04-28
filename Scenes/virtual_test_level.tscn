@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=15 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_w8gh5"]
@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="3_jefsd"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="6_7kf8h"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="7_bd7xi"]
-[ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="9_nd675"]
-[ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="10_g6qbq"]
+[ext_resource type="PackedScene" uid="uid://5hcnk5blete0" path="res://Scenes/EnemiesObstaclesTiles/beam_tile.tscn" id="9_i1x6o"]
+[ext_resource type="PackedScene" uid="uid://cdmt8bqdygbsx" path="res://Scenes/EnemiesObstaclesTiles/soap_barrier.tscn" id="10_ca6iv"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/VirtualEnvironment100/virtual_start_tile.tscn" id="11_7i0mp"]
+[ext_resource type="PackedScene" uid="uid://cirbl62x83gv0" path="res://Scenes/EnemiesObstaclesTiles/mobile_barrier.tscn" id="11_und6f"]
+[ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="12_2i1ue"]
+[ext_resource type="PackedScene" uid="uid://beg86mkpry5t6" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_easy.tscn" id="13_4y8m6"]
+[ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="14_pu4j2"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
@@ -58,8 +62,20 @@ grow_vertical = 1
 [node name="VirtualStartTile" parent="." instance=ExtResource("11_7i0mp")]
 position = Vector2(256, 288)
 
-[node name="YellowWarningTile" parent="." instance=ExtResource("9_nd675")]
-position = Vector2(320, 288)
+[node name="BeamTile" parent="." instance=ExtResource("9_i1x6o")]
+position = Vector2(192, 192)
 
-[node name="RedWarningTile" parent="." instance=ExtResource("10_g6qbq")]
+[node name="SoapBarrier" parent="." instance=ExtResource("10_ca6iv")]
+position = Vector2(128, 288)
+
+[node name="MobileBarrier" parent="." instance=ExtResource("11_und6f")]
+position = Vector2(256, 160)
+
+[node name="HoleTile" parent="." instance=ExtResource("12_2i1ue")]
 position = Vector2(384, 288)
+
+[node name="ByteBarrierEasy" parent="." instance=ExtResource("13_4y8m6")]
+position = Vector2(416, 288)
+
+[node name="Booster" parent="." instance=ExtResource("14_pu4j2")]
+position = Vector2(256, 416)

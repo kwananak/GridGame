@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=7 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
-[ext_resource type="PackedScene" uid="uid://ykmhiaw3cqvr" path="res://Scenes/Programs/Goggles/CyberReality.tscn" id="2_b70m0"]
-[ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/CircleWhip.tscn" id="3_sevcb"]
+[ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/QuantumGrapple.tscn" id="2_1vmrq"]
+[ext_resource type="PackedScene" uid="uid://my6oyv50hb2h" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierA.tscn" id="3_snhgy"]
+[ext_resource type="PackedScene" uid="uid://cmudo2bqa7tcs" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierB.tscn" id="4_2wx64"]
+[ext_resource type="PackedScene" uid="uid://dwdpegtt8wv6m" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierC.tscn" id="5_c1lvd"]
+[ext_resource type="PackedScene" uid="uid://cvfs66ts0gdwj" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierD.tscn" id="6_dqp6c"]
 
 [node name="ProgressManager" type="Node2D" groups=["ProgressManager"]]
 script = ExtResource("1_8smh1")
@@ -13,15 +16,13 @@ z_index = 90
 
 [node name="Goggles" type="Node2D" parent="Loadout"]
 
-[node name="CyberReality" parent="Loadout/Goggles" instance=ExtResource("2_b70m0")]
-
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
 
-[node name="CircleWhip" parent="Loadout/LeftHand" instance=ExtResource("3_sevcb")]
-
 [node name="RightHand" type="Node2D" parent="Loadout"]
+
+[node name="QuantumGrapple" parent="Loadout/RightHand" instance=ExtResource("2_1vmrq")]
 
 [node name="Legs" type="Node2D" parent="Loadout"]
 
@@ -35,8 +36,6 @@ position = Vector2(-1336, -1080)
 
 [node name="Goggles" type="Node2D" parent="OwnedPrograms"]
 
-[node name="CyberReality" parent="OwnedPrograms/Goggles" instance=ExtResource("2_b70m0")]
-
 [node name="Armor" type="Node2D" parent="OwnedPrograms"]
 
 [node name="Hands" type="Node2D" parent="OwnedPrograms"]
@@ -46,3 +45,11 @@ position = Vector2(-1336, -1080)
 [node name="Boots" type="Node2D" parent="OwnedPrograms"]
 
 [node name="Amplifiers" type="Node2D" parent="OwnedPrograms"]
+
+[node name="NeuroEnhanceAmplifierA" parent="OwnedPrograms/Amplifiers" instance=ExtResource("3_snhgy")]
+
+[node name="NeuroEnhanceAmplifierB" parent="OwnedPrograms/Amplifiers" instance=ExtResource("4_2wx64")]
+
+[node name="NeuroEnhanceAmplifierC" parent="OwnedPrograms/Amplifiers" instance=ExtResource("5_c1lvd")]
+
+[node name="NeuroEnhanceAmplifierD" parent="OwnedPrograms/Amplifiers" instance=ExtResource("6_dqp6c")]
