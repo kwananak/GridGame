@@ -17,7 +17,7 @@ func action():
 	player.moving = true
 	for n in player.possible_moves:
 		n.hide()
-	player.get_node("AnimationPlayer").play("circle_whip")
+	player.get_node("AnimationPlayer").play("neo_blade")
 	await get_tree().create_timer(0.5).timeout
 	$Audio.play()
 	for dir in player.all_dir:

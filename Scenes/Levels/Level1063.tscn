@@ -26,11 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="21_qjvd1"]
 [ext_resource type="PackedScene" uid="uid://civwfn34e75v4" path="res://Scenes/Prefabs/dialogue_area.tscn" id="22_wjnnq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7keqc"]
-size = Vector2(20, 96)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov82d"]
 size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3or1"]
+size = Vector2(20, 80)
 
 [node name="Level1063" type="Node2D"]
 
@@ -957,13 +957,6 @@ bus = &"Music"
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="DialogueArea" parent="Dialogue" instance=ExtResource("22_wjnnq")]
-dialogue_number = "1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea"]
-position = Vector2(256, 320)
-shape = SubResource("RectangleShape2D_7keqc")
-
 [node name="DialogueArea2" parent="Dialogue" node_paths=PackedStringArray("related_node") instance=ExtResource("22_wjnnq")]
 dialogue_number = "2"
 related_node = NodePath("../../GameplayElements/Items/Booster10")
@@ -976,10 +969,6 @@ shape = SubResource("RectangleShape2D_ov82d")
 dialogue_number = "3"
 related_node = NodePath("../../GameplayElements/WarningTiles/RedWarningTile2")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
-position = Vector2(640, 432)
-shape = SubResource("RectangleShape2D_ov82d")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueArea3"]
-position = Vector2(640, 384)
-shape = SubResource("RectangleShape2D_ov82d")
+position = Vector2(640, 416)
+shape = SubResource("RectangleShape2D_w3or1")

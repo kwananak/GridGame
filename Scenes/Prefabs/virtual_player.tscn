@@ -14,7 +14,7 @@
 size = Vector2(30, 30)
 
 [sub_resource type="Animation" id="Animation_pnpiu"]
-resource_name = "circle_whip"
+resource_name = "neo_blade"
 length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,12 +38,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.3),
 "transitions": PackedFloat32Array(1e+06, 1e+06),
 "update": 1,
-"values": [&"circle_whip", &"idle"]
+"values": [&"neo_blade", &"idle"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mfrn8"]
 _data = {
-"circle_whip": SubResource("Animation_pnpiu")
+"neo_blade": SubResource("Animation_pnpiu")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7tm5"]
@@ -73,30 +73,6 @@ region = Rect2(320, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_670fj"]
 atlas = ExtResource("2_oe3wr")
 region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1c14m"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tn6iv"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovg1c"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywcp6"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4crru"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(0, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_04wbu"]
-atlas = ExtResource("2_e1p3t")
-region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wocow"]
 atlas = ExtResource("4_b7gao")
@@ -246,6 +222,30 @@ region = Rect2(64, 32, 32, 32)
 atlas = ExtResource("4_b7gao")
 region = Rect2(96, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c14m"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn6iv"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovg1c"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywcp6"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4crru"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04wbu"]
+atlas = ExtResource("2_e1p3t")
+region = Rect2(128, 256, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d87dt"]
 atlas = ExtResource("4_b7gao")
 region = Rect2(0, 64, 32, 32)
@@ -333,29 +333,6 @@ animations = [{
 "loop": false,
 "name": &"amazing",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1c14m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tn6iv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovg1c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ywcp6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4crru")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_04wbu")
-}],
-"loop": false,
-"name": &"circle_whip",
-"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -515,6 +492,29 @@ animations = [{
 "speed": 20.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c14m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn6iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovg1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywcp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4crru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04wbu")
+}],
+"loop": false,
+"name": &"neo_blade",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_d87dt")
 }, {
@@ -589,7 +589,7 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_85hmi")
-animation = &"grapple_up"
+animation = &"neo_blade"
 autoplay = "spawn"
 
 [node name="Shield" parent="AnimatedSprite2D" instance=ExtResource("8_ww5pj")]
