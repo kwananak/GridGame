@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfa6tqf437dfs"]
+[gd_scene load_steps=5 format=3 uid="uid://cfa6tqf437dfs"]
 
 [ext_resource type="Script" path="res://Scripts/UI/terminal_hacked_splash.gd" id="1_3v23l"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="1_x0mc4"]
@@ -6,11 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_enr0v"]
 atlas = ExtResource("1_x0mc4")
-region = Rect2(64, 2018, 170, 73)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qeh7i"]
-atlas = ExtResource("1_x0mc4")
-region = Rect2(176, 1104, 172, 75)
+region = Rect2(782, 2126, 314, 150)
 
 [node name="TerminalHackedSplash" type="Node2D"]
 z_index = 100
@@ -18,11 +14,8 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_3v23l")
 
 [node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = SubResource("AtlasTexture_enr0v")
-
-[node name="Frame" type="Sprite2D" parent="."]
-visible = false
-texture = SubResource("AtlasTexture_qeh7i")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

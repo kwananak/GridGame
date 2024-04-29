@@ -50,7 +50,6 @@ func set_menu():
 
 # instantiates chosen level
 func call_level(level_number):
-	menu_audio.stop()
 	menu.visible = false
 	var level
 	if level_number == 100:
@@ -72,6 +71,7 @@ func call_level(level_number):
 	if terminal_scene:
 		if terminal_scene.is_inside_tree():
 			remove_child(terminal_scene)
+	menu_audio.stop()
 	add_child(level)
 
 # restarts loaded level
