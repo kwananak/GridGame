@@ -1,27 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://f6ans0klrpqi"]
+[gd_scene load_steps=5 format=3 uid="uid://f6ans0klrpqi"]
 
 [ext_resource type="Script" path="res://Scripts/UI/real_ui.gd" id="1_yd2pw"]
+[ext_resource type="Texture2D" uid="uid://bcg1ji0j1bome" path="res://Sprites/UI/real_dialogue.png" id="2_8fjme"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="2_bdwh4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl0ss"]
+atlas = ExtResource("2_8fjme")
+region = Rect2(0, 577, 97, 29)
 
 [node name="RealUI" type="Node2D"]
 z_index = 90
 script = ExtResource("1_yd2pw")
 metadata/_edit_vertical_guides_ = []
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Sprite2D" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -32.0
-offset_right = 725.0
-offset_bottom = 288.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_wl0ss")
+
+[node name="Label" type="Label" parent="Button"]
+offset_left = -46.0
+offset_top = -12.0
+offset_right = 874.0
+offset_bottom = 233.0
+scale = Vector2(0.1, 0.1)
 theme_override_fonts/font = ExtResource("2_bdwh4")
-theme_override_font_sizes/font_size = 82
-text = "Game Over!!"
+theme_override_font_sizes/font_size = 88
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

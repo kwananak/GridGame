@@ -113,10 +113,9 @@ func _on_button_pressed():
 # called by end tile when the player reaches it
 func on_end_tile_entered(next_level):
 	game_over = true
-	button.global_position = camera.global_position - Vector2(-80, -32)
-	button.text = "Enter " + $/root/Main.get_level_name(next_level)
+	button.global_position = camera.global_position
+	button.get_node("Label").text = "Enter " + $/root/Main.get_level_name(next_level)
 	button.visible = true
-	button.grab_focus()
 	for n in get_tree().get_nodes_in_group("TargetMoveSprite"):
 		n.hide()
 
