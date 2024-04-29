@@ -15,6 +15,7 @@ var just_unlocked
 var last_level_completed = 0
 var retry_count = 0
 var retry_triggered = false
+var next_cutscene = 1
 
 @onready var amplifiers = $OwnedPrograms/Amplifiers
 
@@ -215,6 +216,7 @@ func reset_progress():
 	unlocked_levels = ["101", "201", "301", "401"]
 	doors = []
 	log_progress = {}
+	next_cutscene = 1
 	create_levels_dict()
 	save_point = null
 
@@ -241,6 +243,7 @@ func save():
 	dict["doors"] = doors
 	dict["save_point"] = save_point
 	dict["log_progress"] = log_progress
+	dict["next_cutscene"] = next_cutscene
 	return dict
 
 func save_game():
@@ -290,6 +293,9 @@ func load_game(save_number):
 				continue
 			"save_point":
 				save_point = data[n]
+				continue
+			"next_cutscene":
+				next_cutscene = data[n]
 				continue
 			"log_progress":
 				log_progress = data[n]

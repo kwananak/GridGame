@@ -54,6 +54,9 @@ func call_level(level_number):
 	else:
 		level = load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate()
 	if level_number < 100:
+		if check_for_cutscene(level_number):
+			call_cutscene(level_number)
+			return
 		real_scene = level
 	else:
 		if has_node("RealAudio"):
@@ -63,6 +66,11 @@ func call_level(level_number):
 		if terminal_scene.is_inside_tree():
 			remove_child(terminal_scene)
 	add_child(level)
+
+func check_for_cutscene(level_number):
+	if progress_manager.next_cutscene == level_number:
+		progress_manager.next_cutscene += 1
+		return true
 
 # restarts loaded level
 func retry_level():
@@ -138,7 +146,7 @@ func new_game():
 	terminal_scene = null
 	virtual_scene = null
 	await progress_manager.reset_progress()
-	call_cutscene(1)
+	call_level(1)
 
 # switches between real levels scenes
 func switch_level(level_number):
