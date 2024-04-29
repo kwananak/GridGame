@@ -54,7 +54,8 @@ func call_level(level_number):
 	else:
 		level = load("res://Scenes/Levels/Level" + str(level_number) + ".tscn").instantiate()
 	if level_number < 100:
-		if check_for_cutscene(level_number):
+		if progress_manager.next_cutscene == level_number:
+			progress_manager.next_cutscene += 1
 			call_cutscene(level_number)
 			return
 		real_scene = level
@@ -66,11 +67,6 @@ func call_level(level_number):
 		if terminal_scene.is_inside_tree():
 			remove_child(terminal_scene)
 	add_child(level)
-
-func check_for_cutscene(level_number):
-	if progress_manager.next_cutscene == level_number:
-		progress_manager.next_cutscene += 1
-		return true
 
 # restarts loaded level
 func retry_level():

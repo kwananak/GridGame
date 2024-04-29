@@ -3,7 +3,7 @@ extends "res://Scripts/Programs/program.gd"
 @export var strength = 3
 
 func _ready():
-	type = "CircleWhip"
+	type = "NeoBlade"
 	info = "Action : Destroy enemies and Byte Barriers around you"
 	super._ready()
 
