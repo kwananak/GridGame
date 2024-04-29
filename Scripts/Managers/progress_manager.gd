@@ -23,6 +23,10 @@ func _ready():
 	create_dialogs_dict()
 	create_levels_dict()
 
+func check_for_first_launch():
+	if !FileAccess.open(levels_path, FileAccess.READ):
+		return true
+
 func create_levels_dict():
 	levels = {}
 	var levels_file = FileAccess.open(levels_path, FileAccess.READ)
@@ -257,7 +261,7 @@ func load_game(save_number):
 	var json_string
 	if !save_number:
 		if not FileAccess.file_exists(save_path):
-			$/root/Main.disable_continue()
+			bad_save = true
 			return
 		var save_file = FileAccess.open(save_path, FileAccess.READ)
 		json_string = save_file.get_line()

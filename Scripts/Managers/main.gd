@@ -22,16 +22,22 @@ var coming_from = "0"
 func _ready():
 	set_menu()
 
+func display_splashes():
+	var splash = load("res://Scenes/Cutscenes/start_splash.tscn").instantiate()
+	add_child(splash)
+	await splash.done
+
 # looks for visible menu (main or debug) and adds needed references
 func set_menu():
 	if $DebugMenu.visible:
-		$MainMenu.visible = false
 		menu = $DebugMenu
 		continue_button = $DebugMenu/ContinueGame
 		new_game_button = $DebugMenu/VirtualTestLevelButton
 		new_game_button.grab_focus()
 	else:
 		menu = $MainMenu
+		await display_splashes()
+		menu.visible = true
 		continue_button = menu.continue_game
 		new_game_button = menu.new_game
 		await progress_manager.load_game(null)
