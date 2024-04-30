@@ -93,6 +93,9 @@ func write_bubble(sentence):
 				bolded = false
 			continue
 		label.append_text(i)
+		while level_manager.paused:
+			if is_inside_tree():
+				await get_tree().create_timer(0.2).timeout
 		if writing:
 			if is_inside_tree():
 				await get_tree().create_timer(1.0 / text_speed).timeout
