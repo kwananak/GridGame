@@ -45,11 +45,11 @@ func spawn_bubble():
 	animating = false
 
 func remove_bubble():
-	label.hide()
+	if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
+		progress_manager.log_progress[str(level_manager.level_number)] += [dialogue_number]
 	if progress_manager.dialogs[str(level_manager.level_number)][dialogue_number]["log"]:
-		if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
-			progress_manager.log_progress[str(level_manager.level_number)] += [dialogue_number]
-			get_tree().get_first_node_in_group("UI").add_child(log_flag.instantiate())
+		get_tree().get_first_node_in_group("UI").add_child(log_flag.instantiate())
+	label.hide()
 	button_sprite.hide()
 	bubble.play_backwards()
 	await bubble.animation_finished

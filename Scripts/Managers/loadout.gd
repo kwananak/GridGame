@@ -189,35 +189,45 @@ func set_program_sprites():
 func _on_focus_entered(slot):
 	frame.visible = true
 	var focus = get_node(slot + "/Focus")
-	if slot == "Runes":
-		var rune_count = progress_manager.get_node("Loadout/" + slot).get_child_count()
-		match rune_count:
-			0:
-				info.text = "no rune"
-			1:
-				info.text = "1 rune"
-			_:
-				info.text = str(rune_count) + " runes"
-		return
-	if slot == "Amplifiers":
-		info.text = "NeuroAmplifers\n"
-		var has_amplifier = false
-		for n in $Amplifiers.get_children():
-			if n.name.length() < 2:
-				if n.visible:
-					info.text += n.name + " "
-					has_amplifier = true
-		if !has_amplifier:
-			info.text += "none"
-		info.text += "\n" + $Label.text
-	else:
-		if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
-			info.text = slot + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type_as_string() + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
-			focus.get_node("AnimationPlayer").play("full")
-		else:
-			info.text = slot + "\n" + "Empty"
-			focus.get_node("AnimationPlayer").play("empty")
+	match slot:
+		"Runes":
+			var rune_count = progress_manager.get_node("Loadout/" + slot).get_child_count()
+			match rune_count:
+				0:
+					info.text = "no rune"
+				1:
+					info.text = "1 rune"
+				_:
+					info.text = str(rune_count) + " runes"
+			return
+		"Amplifiers":
+			info.text = "NeuroAmplifers\n"
+			var has_amplifier = false
+			for n in $Amplifiers.get_children():
+				if n.name.length() < 2:
+					if n.visible:
+						info.text += n.name + " "
+						has_amplifier = true
+			if !has_amplifier:
+				info.text += "none"
+			info.text += "\n" + $Label.text
+		_:
+			if progress_manager.get_node("Loadout/" + slot).get_child_count() == 1:
+				info.text = string_with_spaces(slot) + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).type_as_string() + "\n" + progress_manager.get_node("Loadout/" + slot).get_child(0).info
+				focus.get_node("AnimationPlayer").play("full")
+			else:
+				info.text = string_with_spaces(slot) + "\n" + "Empty"
+				focus.get_node("AnimationPlayer").play("empty")
 	focus.show()
+
+func string_with_spaces(unspaced):
+	var spaced_string = ""
+	for i in unspaced.length():
+		var character = unspaced.substr(i, 1)
+		if character == character.to_upper() && i > 0:
+			spaced_string += " "
+		spaced_string += character
+	return spaced_string
 
 func _on_focus_exited():
 	for n in get_children():
