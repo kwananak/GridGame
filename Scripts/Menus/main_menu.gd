@@ -11,12 +11,18 @@ func _ready():
 	new_game.grab_focus()
 
 func _on_new_game_button_down():
-	main.new_game()
+	if !continue_game.disabled:
+		$ConfirmBox.show()
+		$ConfirmBox/YesButton.grab_focus()
+	else:
+		confirm_new_game()
 
 func _continue_game_button_down():
+	$ConfirmBox.hide()
 	main.continue_game()
 
 func _on_options_button_down():
+	$ConfirmBox.hide()
 	margin_container.set_process(false)
 	margin_container.hide()
 	options_menu.set_process(true)
@@ -31,3 +37,11 @@ func on_exit_options_menu():
 	margin_container.set_process(true)
 	margin_container.show()
 	new_game.grab_focus()
+
+func confirm_new_game():
+	$ConfirmBox.hide()
+	main.new_game()
+
+func remove_confirm_box():
+	$ConfirmBox.hide()
+	continue_game.grab_focus()

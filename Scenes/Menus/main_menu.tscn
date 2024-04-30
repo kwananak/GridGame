@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://com1wps1gaayy"]
+[gd_scene load_steps=14 format=3 uid="uid://com1wps1gaayy"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
 [ext_resource type="AudioStream" uid="uid://dhv37elajjtfl" path="res://Sounds/Backgrounds/menu.wav" id="2_2adp0"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_wfqlx"]
 [ext_resource type="PackedScene" uid="uid://b7hdi461mrkxn" path="res://Scenes/Menus/options_menu.tscn" id="4_rgu0w"]
+[ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="6_0hfi2"]
 
 [sub_resource type="Gradient" id="Gradient_julvj"]
 colors = PackedColorArray(2.10572e-08, 0.0519143, 0.131455, 1, 0, 0, 0, 1)
@@ -20,6 +21,10 @@ fill_from = Vector2(0.034188, 0.940171)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icbuj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iq7f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fc0h"]
+atlas = ExtResource("6_0hfi2")
+region = Rect2(782, 2126, 314, 150)
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1440, 810)
@@ -124,7 +129,52 @@ layout_mode = 1
 stream = ExtResource("2_2adp0")
 bus = &"Music"
 
+[node name="ConfirmBox" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(719, 427)
+texture = SubResource("AtlasTexture_3fc0h")
+
+[node name="Label" type="Label" parent="ConfirmBox"]
+offset_left = -149.0
+offset_top = -69.0
+offset_right = 1346.0
+offset_bottom = 416.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_wfqlx")
+theme_override_font_sizes/font_size = 96
+text = "Warning!
+Save game will be lost!
+
+Are your sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="YesButton" type="Button" parent="ConfirmBox"]
+offset_left = -115.0
+offset_top = 25.0
+offset_right = 400.0
+offset_bottom = 215.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_wfqlx")
+theme_override_font_sizes/font_size = 128
+text = "YES"
+flat = true
+
+[node name="NoButton" type="Button" parent="ConfirmBox"]
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 529.0
+offset_bottom = 214.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_wfqlx")
+theme_override_font_sizes/font_size = 128
+text = "NO"
+flat = true
+
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_continue_game_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="ConfirmBox/YesButton" to="." method="confirm_new_game"]
+[connection signal="button_down" from="ConfirmBox/NoButton" to="." method="remove_confirm_box"]
