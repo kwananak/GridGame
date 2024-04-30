@@ -16,7 +16,7 @@ func _ready():
 	_on_visibility_changed()
 
 func _input(event):
-	if visible == false:
+	if !visible:
 		return
 	if event.is_action_pressed("pause"):
 		_on_return_button_pressed()
@@ -35,7 +35,7 @@ func _on_level_pressed(level_number):
 		$NexusButton.available = false
 
 func _on_go_button_pressed():
-	if loaded_level == null:
+	if !loaded_level:
 		return
 	loadout.hide()
 	main.call_level(loaded_level)
@@ -61,6 +61,8 @@ func _on_visibility_changed():
 				completed = false
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
+		if completed:
+			add_child(load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate())
 		for n in prog_man.get_children():
 			for o in n.get_children():
 				for p in o.get_children():
@@ -89,8 +91,6 @@ func _on_visibility_changed():
 						$GateLabel/Label.clear()
 						$GateLabel/Label.append_text("[center][color=green]unlocked")
 			$DoorLabel/Label.append_text("[color=red]locked")
-		if completed:
-			add_child(load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate())
 	else:
 		$AudioStreamPlayer.stop()
 

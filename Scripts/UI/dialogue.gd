@@ -28,7 +28,7 @@ func _ready():
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
 
 func _input(event):
-	if !bubble.visible:
+	if !bubble.visible || level_manager.paused:
 		return
 	if event.is_action_pressed("ui_accept"):
 		close()

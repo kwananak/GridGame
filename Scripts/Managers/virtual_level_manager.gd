@@ -75,8 +75,6 @@ func set_pause(value):
 	else:
 		despawn_pause_menu()
 		pause_menu = null
-		if dialogue:
-			dialogue.button.grab_focus()
 	paused = value
 	pause_trigger.emit(paused)
 

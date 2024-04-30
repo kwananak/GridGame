@@ -52,11 +52,12 @@ func get_input():
 				return
 
 func _input(event):
-	if level_manager.game_over || level_manager.dialogue || moving:
-		return
+	if level_manager.game_over:
+		return 
 	if event.is_action_pressed("pause"):
 		level_manager.press_pause()
-	if level_manager.paused:
+		return
+	if level_manager.dialogue || moving || level_manager.paused:
 		return
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
