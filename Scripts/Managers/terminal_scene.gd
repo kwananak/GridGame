@@ -107,6 +107,8 @@ func open_door_sprite():
 	door_sprite.play("opened")
 
 func new_program_animation(program):
+	var stored_focus = get_viewport().gui_get_focus_owner()
+	stored_focus.release_focus()
 	program.z_index = 90
 	program.global_position = get_tree().get_first_node_in_group("Camera").global_position
 	$ProgramAdded.play()
@@ -115,3 +117,4 @@ func new_program_animation(program):
 	create_tween().tween_property(program, "position", Vector2.ZERO, 1.0)
 	await create_tween().tween_property(program, "scale", Vector2.ONE, 1.0).finished
 	program.z_index = 0
+	stored_focus.grab_focus()
