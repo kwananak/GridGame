@@ -50,6 +50,7 @@ func pick_up(_area):
 	program.get_node("FileSprite").hide()
 	program.get_node("Sprite2D").show()
 	get_tree().get_first_node_in_group("VirtualLevelManager").programs += [[program_slot, program]]
+	program.z_index = 0
 	$Sprite2D.remove_child(program)
 	set_deferred("monitorable", false)
 	set_deferred("monitoring", false)

@@ -4,16 +4,18 @@ var loadout
 var loaded_level = null
 var terminal_number
 var splash
+var progress_manager
 
 @onready var hack_splash = preload("res://Scenes/TerminalElements/terminal_hacked_splash.tscn")
 @onready var terminal_name = $MapBackground/TerminalName
 @onready var main = $/root/Main
 
 func _ready():
-	loadout = get_tree().get_first_node_in_group("ProgressManager").get_node("Loadout")
+	progress_manager = get_parent().get_node("ProgressManager")
+	loadout = progress_manager.get_node("Loadout")
 	terminal_number = name.substr(name.length() - 1)
 	terminal_name.text = main.get_level_name(main.real_scene.get_node("RealLevelManager").level_number)
-	await get_tree().get_first_node_in_group("ProgressManager").auto_loader()
+	await progress_manager.auto_loader()
 	_on_visibility_changed()
 
 func _input(event):
@@ -42,40 +44,47 @@ func _on_go_button_pressed():
 	main.call_level(loaded_level)
 	visible = false
 
-func _on_visibility_changed():
-	if visible:
-		var completed = true
-		if $ReturnButton.is_inside_tree():
-			$ReturnButton.grab_focus()
-		var prog_man = get_tree().get_first_node_in_group("ProgressManager")
-		for n in $Map.get_children():
-			if n.name == "MapInfos":
-				continue
-			if n.selected:
-				n.selected = false
-			if str(n.node_level) in prog_man.completed_levels:
-				n.completed = true
-				if n.node_level == prog_man.last_level_completed:
-					if n.is_inside_tree():
-						n.grab_focus()
+func nodes_refresh():
+	var completed = true
+	if $ReturnButton.is_inside_tree():
+		$ReturnButton.grab_focus()
+	for n in $Map.get_children():
+		if n.name == "MapInfos":
+			continue
+		if n.selected:
+			n.selected = false
+		if str(n.node_level) in progress_manager.completed_levels:
+			n.completed = true
+			if n.node_level == progress_manager.last_level_completed:
+				if n.is_inside_tree():
+					n.grab_focus()
+		else:
+			completed = false
+		if str(n.node_level) in progress_manager.unlocked_levels:
+			n.available = true
+	if completed:
+		if !splash:
+			splash = load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate()
+			if has_node("HackSplash"):
+				$HackSplash.add_child(splash)
 			else:
-				completed = false
-			if str(n.node_level) in prog_man.unlocked_levels:
-				n.available = true
-		if completed:
-			if !splash:
-				splash = load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate()
 				add_child(splash)
-			if get_viewport().gui_get_focus_owner():
-				get_viewport().gui_get_focus_owner().release_focus()
-		for n in prog_man.get_children():
+		if get_viewport().gui_get_focus_owner():
+			get_viewport().gui_get_focus_owner().release_focus()
+
+func _on_visibility_changed():
+	if !progress_manager:
+		return
+	if visible:
+		await nodes_refresh()
+		for n in progress_manager.get_children():
 			for o in n.get_children():
 				for p in o.get_children():
 					p.monitorable = false
 					p.get_node("Sprite2D").show()
-					if p.type == prog_man.just_unlocked:
+					if p.type == progress_manager.just_unlocked:
 						await new_program_animation(p)
-						prog_man.just_unlocked = null
+						progress_manager.just_unlocked = null
 		loaded_level = null
 		if terminal_number != null:
 			$Log.hide()
@@ -85,7 +94,7 @@ func _on_visibility_changed():
 				return
 			$DoorLabel/Label.clear()
 			$DoorLabel/Label.append_text("[center]")
-			for i in prog_man.doors:
+			for i in progress_manager.doors:
 				if int(i) == int(terminal_number) + 1:
 					open_door_sprite()
 					$DoorLabel/Label.append_text("[color=green]unlocked")

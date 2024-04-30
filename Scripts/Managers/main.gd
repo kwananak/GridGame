@@ -144,6 +144,7 @@ func return_to_real_scene():
 
 # resets game status and starts Level 1
 func new_game():
+	coming_from = "0"
 	real_scene = null
 	terminal_scene = null
 	virtual_scene = null
