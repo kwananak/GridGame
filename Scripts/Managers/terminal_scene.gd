@@ -3,6 +3,7 @@ extends Control
 var loadout
 var loaded_level = null
 var terminal_number
+var splash
 
 @onready var hack_splash = preload("res://Scenes/TerminalElements/terminal_hacked_splash.tscn")
 @onready var terminal_name = $MapBackground/TerminalName
@@ -62,7 +63,11 @@ func _on_visibility_changed():
 			if str(n.node_level) in prog_man.unlocked_levels:
 				n.available = true
 		if completed:
-			add_child(load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate())
+			if !splash:
+				splash = load("res://Scenes/TerminalElements/terminal_hacked_splash.tscn").instantiate()
+				add_child(splash)
+			if get_viewport().gui_get_focus_owner():
+				get_viewport().gui_get_focus_owner().release_focus()
 		for n in prog_man.get_children():
 			for o in n.get_children():
 				for p in o.get_children():

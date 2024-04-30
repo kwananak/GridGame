@@ -108,13 +108,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_p66h4")
 
 [node name="Environment" type="Node2D" parent="."]
-position = Vector2(32, 96)
+position = Vector2(48, 96)
 
 [node name="Background" type="Sprite2D" parent="Environment"]
 position = Vector2(451.8, 236)
 texture = ExtResource("3_kkjhr")
-
-[node name="Floor" type="Node2D" parent="Environment"]
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
@@ -197,18 +195,18 @@ scale = Vector2(1, -1)
 position = Vector2(32, 96)
 
 [node name="EndTile" parent="Gameplay" instance=ExtResource("4_ey8wb")]
-position = Vector2(560, 192)
+position = Vector2(576, 192)
 door_number = 2
 
 [node name="StartTile" parent="Gameplay" groups=["StartTile"] instance=ExtResource("5_fiana")]
 visible = false
-position = Vector2(61, 190)
+position = Vector2(64, 192)
 
 [node name="Terminal1" parent="Gameplay" instance=ExtResource("9_5o5vp")]
-position = Vector2(752, 272)
+position = Vector2(768, 288)
 
 [node name="TerminalDoorTile" parent="Gameplay" instance=ExtResource("11_r8naw")]
-position = Vector2(560, 192)
+position = Vector2(576, 192)
 door_number = 2
 
 [node name="WallLight" type="AnimatedSprite2D" parent="Gameplay/TerminalDoorTile"]
