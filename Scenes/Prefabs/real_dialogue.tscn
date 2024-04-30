@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxtv0cq3uifbu"]
+[gd_scene load_steps=32 format=3 uid="uid://bxtv0cq3uifbu"]
 
 [ext_resource type="Script" path="res://Scripts/UI/real_dialogue.gd" id="1_q7uip"]
 [ext_resource type="Texture2D" uid="uid://bcg1ji0j1bome" path="res://Sprites/UI/real_dialogue.png" id="2_6xjem"]
@@ -146,8 +146,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq3fy"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_udfov"]
 atlas = ExtResource("4_m57a4")
 region = Rect2(144, 310, 24, 10)
@@ -210,10 +208,6 @@ _data = {
 [node name="RealDialogue" type="Node2D"]
 z_index = 90
 script = ExtResource("1_q7uip")
-dialogue_number = null
-text = null
-highlight_color = null
-camera_speed = null
 
 [node name="Bubble" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -234,17 +228,6 @@ theme_override_constants/line_separation = 0
 theme_override_fonts/normal_font = ExtResource("3_svvja")
 theme_override_font_sizes/normal_font_size = 96
 
-[node name="Button" type="Button" parent="Bubble"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-offset_left = 72.0
-offset_top = 22.0
-offset_right = 152.0
-offset_bottom = 66.0
-scale = Vector2(0.25, 0.25)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oq3fy")
-flat = true
-
 [node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
 visible = false
 position = Vector2(82, 28)
@@ -263,5 +246,3 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_17hsa")
 }
-
-[connection signal="button_down" from="Bubble/Button" to="." method="close"]

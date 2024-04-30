@@ -18,7 +18,6 @@ var progress_manager
 var dialog
 
 @onready var bubble = $Bubble
-@onready var button = $Bubble/Button
 @onready var label = $Bubble/Label
 @onready var highlight = $Highlight
 @onready var button_sprite = $Bubble/ButtonSprite
@@ -27,6 +26,16 @@ var dialog
 func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
 	progress_manager = get_tree().get_first_node_in_group("ProgressManager")
+
+func _input(event):
+	if !bubble.visible:
+		return
+	if event.is_action_pressed("ui_accept"):
+		close()
+		return
+	if event is InputEventMouseButton:
+		if event.is_pressed() && event.button_index == 1:
+			close()
 
 func trigger():
 	player.get_node("PossibleMoves").hide()
@@ -66,8 +75,6 @@ func spawn_bubble():
 	write_bubble(0)
 	label.show()
 	button_sprite.show()
-	button.show()
-	button.grab_focus()
 	animating = false
 
 func write_bubble(sentence):

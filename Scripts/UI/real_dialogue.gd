@@ -18,8 +18,6 @@ func spawn_bubble():
 	write_bubble(0)
 	label.show()
 	button_sprite.show()
-	button.show()
-	button.grab_focus()
 	animating = false
 
 func remove_bubble():
