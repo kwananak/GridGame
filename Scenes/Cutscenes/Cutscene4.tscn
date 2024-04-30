@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0mvtlccbtp1b"]
+
+[ext_resource type="Shader" path="res://Shaders/negative.gdshader" id="1_qx2m8"]
+[ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="2_pu08n"]
+[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="3_m8w2s"]
+[ext_resource type="Texture2D" uid="uid://ihevl84eqit8" path="res://Sprites/Cutscenes/background_1_1.png" id="4_cfic2"]
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="5_gyq6b"]
+[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="6_rlf0g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxixf"]
+shader = ExtResource("1_qx2m8")
+shader_parameter/negative = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5x4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ldo"]
+atlas = ExtResource("6_rlf0g")
+region = Rect2(112, 150, 50, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lmb2"]
+atlas = ExtResource("6_rlf0g")
+region = Rect2(177, 151, 49, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nsku8"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v7ldo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lmb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Cutscene" type="Control"]
+material = SubResource("ShaderMaterial_dxixf")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+script = ExtResource("2_pu08n")
+cutscene_number = 2
+
+[node name="BackgroundColors" parent="." instance=ExtResource("3_m8w2s")]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -205.0
+offset_right = 400.0
+offset_bottom = 255.93
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+use_parent_material = true
+texture = ExtResource("4_cfic2")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+use_parent_material = true
+offset_left = -340.0
+offset_top = 136.0
+offset_right = 2965.0
+offset_bottom = 544.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("5_gyq6b")
+theme_override_font_sizes/font_size = 110
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Sprite2D"]
+offset_left = 297.5
+offset_top = 214.976
+offset_right = 397.5
+offset_bottom = 234.976
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e5x4f")
+flat = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Sprite2D/Button"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nsku8")
+autoplay = "default"
+centered = false
+
+[connection signal="button_down" from="Sprite2D/Button" to="." method="_on_button_button_down"]
