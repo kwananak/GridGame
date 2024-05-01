@@ -108,7 +108,10 @@ func _on_area_entered(area):
 		return
 	if area.is_in_group("Beam"):
 		return
-	hit_by_player(3)
+	if area.is_in_group("DoomWall"):
+		hit_by_player(2)
+		return
+	hit_by_player(1)
 
 func hit_by_player(strength):
 	if is_destroyed:
@@ -135,6 +138,15 @@ func hit_by_player(strength):
 		shielded = false
 		await get_tree().create_timer(0.1).timeout
 		remove_shield()
+		if strength > 1:
+			is_destroyed = true
+			remove_from_group("EndTurn")
+			await get_tree().create_timer(0.1).timeout
+			animated_sprite_2d.play("destroyed")
+			level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
+			$Sprite2D.hide()
+			if animated_sprite_2d.is_playing():
+				await animated_sprite_2d.animation_finished
 	else:
 		is_destroyed = true
 		remove_from_group("EndTurn")
