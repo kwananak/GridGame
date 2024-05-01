@@ -56,7 +56,7 @@ func nodes_refresh():
 		if str(n.node_level) in progress_manager.completed_levels:
 			n.completed = true
 			if n.node_level == progress_manager.last_level_completed:
-				if n.is_inside_tree():
+				if n.is_inside_tree() && focus_mode != FOCUS_NONE:
 					n.grab_focus()
 		else:
 			completed = false

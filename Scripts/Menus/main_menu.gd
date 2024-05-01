@@ -13,7 +13,7 @@ func _ready():
 func _on_new_game_button_down():
 	if !continue_game.disabled:
 		$ConfirmBox.show()
-		$ConfirmBox/YesButton.grab_focus()
+		$ConfirmBox/NoButton.grab_focus()
 	else:
 		confirm_new_game()
 

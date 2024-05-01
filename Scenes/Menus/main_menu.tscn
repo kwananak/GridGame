@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://com1wps1gaayy"]
+[gd_scene load_steps=16 format=3 uid="uid://com1wps1gaayy"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
@@ -25,6 +25,10 @@ fill_from = Vector2(0.034188, 0.940171)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fc0h"]
 atlas = ExtResource("6_0hfi2")
 region = Rect2(782, 2126, 314, 150)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvbaa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt7ku"]
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1440, 810)
@@ -156,8 +160,10 @@ offset_top = 25.0
 offset_right = 400.0
 offset_bottom = 215.0
 scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 128
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kvbaa")
 text = "YES"
 flat = true
 
@@ -167,14 +173,22 @@ offset_top = 24.0
 offset_right = 529.0
 offset_bottom = 214.0
 scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
 theme_override_font_sizes/font_size = 128
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jt7ku")
 text = "NO"
 flat = true
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" method="grab_focus"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_continue_game_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" method="grab_focus"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" method="grab_focus"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" method="grab_focus"]
 [connection signal="button_down" from="ConfirmBox/YesButton" to="." method="confirm_new_game"]
+[connection signal="mouse_entered" from="ConfirmBox/YesButton" to="ConfirmBox/YesButton" method="grab_focus"]
 [connection signal="button_down" from="ConfirmBox/NoButton" to="." method="remove_confirm_box"]
+[connection signal="mouse_entered" from="ConfirmBox/NoButton" to="ConfirmBox/NoButton" method="grab_focus"]

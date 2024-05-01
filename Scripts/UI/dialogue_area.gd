@@ -1,5 +1,7 @@
 extends "res://Scripts/UI/dialogue.gd"
 
+var done = false
+
 func _ready():
 	super._ready()
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
@@ -45,6 +47,9 @@ func spawn_bubble():
 	animating = false
 
 func remove_bubble():
+	if done:
+		return
+	done = true
 	if str(dialogue_number) not in progress_manager.log_progress[str(level_manager.level_number)]:
 		progress_manager.log_progress[str(level_manager.level_number)] += [dialogue_number]
 	if progress_manager.dialogs[str(level_manager.level_number)][dialogue_number]["log"]:
