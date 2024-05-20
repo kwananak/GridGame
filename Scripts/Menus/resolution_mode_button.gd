@@ -3,9 +3,11 @@ extends Control
 @onready var option_button = $HBoxContainer/OptionButton
 
 const RESOLUTION_DICT : Dictionary = {
-	"1440 * 810" = Vector2i(1440, 810),
+	"854 * 480" = Vector2i(854, 480),
 	"1280 * 720" = Vector2i(1280, 720),
+	"1600 * 900" = Vector2i(1600, 900),
 	"1920 * 1080" = Vector2i(1920, 1080),
+	"2560 * 1440" = Vector2i(2560, 1440),
 	"3840 * 2160" = Vector2i(3840, 2160)
 }
 

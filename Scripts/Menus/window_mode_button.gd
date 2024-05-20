@@ -31,3 +31,5 @@ func on_window_mode_selected(index : int):
 		3:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+	var res = get_tree().get_first_node_in_group("ResolutionButton").option_button
+	res.item_selected.emit(res.selected)
