@@ -26,12 +26,17 @@ func save_config():
 		config[n.name] = n.h_slider.value
 	for n in $TabContainer/Video/MarginContainer/VBoxContainer.get_children():
 		config[n.name] = n.get_node("HBoxContainer/OptionButton").selected
+	for n in get_tree().get_first_node_in_group("ControlsContainer").get_children():
+		config[n.name] = InputMap.action_get_events(n.name)[0].physical_keycode
 	var config_file = FileAccess.open(config_path, FileAccess.WRITE)
 	config_file.store_line(JSON.stringify(config))
 	config_file.close()
 
 func load_config():
+	var win_mode = get_tree().get_first_node_in_group("WindowModeButton").get_node("HBoxContainer/OptionButton")
 	if not FileAccess.file_exists(config_path):
+		win_mode.selected = 2
+		get_tree().get_first_node_in_group("ResolutionButton").get_node("HBoxContainer/OptionButton").selected = 3
 		return
 	var config_file = FileAccess.open(config_path, FileAccess.READ)
 	var json_string = config_file.get_line()
@@ -45,8 +50,11 @@ func load_config():
 	for n in data:
 		if $TabContainer/Audio/MarginContainer/VBoxContainer.has_node(n):
 			$TabContainer/Audio/MarginContainer/VBoxContainer.get_node(n).h_slider.value = data[n]
-		else:
+		elif $TabContainer/Video/MarginContainer/VBoxContainer.has_node(n):
 			$TabContainer/Video/MarginContainer/VBoxContainer.get_node(n + "/HBoxContainer/OptionButton").selected = data[n]
-	var win_mode = get_tree().get_first_node_in_group("WindowModeButton").get_node("HBoxContainer/OptionButton")
+		else:
+			var key = InputEventKey.new()
+			key.physical_keycode = data[n]
+			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(key)
 	win_mode.item_selected.emit(win_mode.selected)
 	win_mode.item_selected.emit(win_mode.selected)

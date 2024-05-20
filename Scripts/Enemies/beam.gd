@@ -4,7 +4,6 @@ var tile_type = "beam"
 var cannon
 
 func _on_area_entered(area):
-	print(area.name)
 	if "tile_type" in area:
 		match area.tile_type:
 			"soap":

@@ -20,14 +20,16 @@ func set_text_for_key():
 func _on_button_down():
 	if !toggled:
 		button.text = "Press key"
-		toggled = true
 		for n in get_tree().get_nodes_in_group("HotkeyButton"):
-			if n.name != name:
+			n.button.release_focus()
+			if n != self:
 				n.toggled = false
 				n.set_text_for_key()
+		await get_tree().create_timer(0.1).timeout
+		toggled = true
 	else:
-		button.release_focus()
 		for n in get_tree().get_nodes_in_group("HotkeyButton"):
+			n.button.focus_mode = FOCUS_ALL
 			n.toggled = false
 			n.set_text_for_key()
 
@@ -35,7 +37,8 @@ func _unhandled_key_input(event):
 	if toggled:
 		rebind_action_key(event)
 		toggled = false
-		button.release_focus()
+		button.focus_mode = FOCUS_ALL
+		button.grab_focus()
 
 func rebind_action_key(event):
 	InputMap.action_erase_events(name)
