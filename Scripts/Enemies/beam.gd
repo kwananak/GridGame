@@ -4,6 +4,7 @@ var tile_type = "beam"
 var cannon
 
 func _on_area_entered(area):
+	print(area.name)
 	if "tile_type" in area:
 		match area.tile_type:
 			"soap":
@@ -22,8 +23,8 @@ func _on_area_entered(area):
 				cannon.fire_beam()
 				if cannon.name.begins_with("Forever"):
 					cannon.charge = -1
-	elif area.is_in_group("Beam"):
-		$AnimatedSprite2D.play("extreme")
+			"beam":
+				$AnimatedSprite2D.play("extreme")
 	elif area.is_in_group("Player"):
 		var lev_man = get_tree().get_first_node_in_group("VirtualLevelManager")
 		lev_man.health -= 1
