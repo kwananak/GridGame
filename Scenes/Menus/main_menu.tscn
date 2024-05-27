@@ -49,11 +49,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_684c6")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TitleMenu" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 7195.0
+offset_bottom = 4065.0
+scale = Vector2(0.2, 0.2)
+
+[node name="MarginContainer" type="MarginContainer" parent="TitleMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
@@ -61,66 +69,67 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleMenu/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 74
+theme_override_constants/separation = 384
 alignment = 1
 
-[node name="TitleRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TitleRect" type="TextureRect" parent="TitleMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(5550, 1410)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("1_sdes2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 128
 alignment = 1
 
-[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
+[node name="NewGame" type="Button" parent="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["NewGameButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 192
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mvslw")
 text = "New Game"
 flat = true
 
-[node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
+[node name="ContinueGame" type="Button" parent="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["ContinueButton"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 192
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ryt1d")
 text = "Continue Game"
 flat = true
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
+[node name="Options" type="Button" parent="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["OptionsTab"]]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 192
 theme_override_styles/focus = SubResource("StyleBoxEmpty_icbuj")
 text = "Options
 "
 flat = true
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_wfqlx")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 192
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5iq7f")
 text = "Quit"
 flat = true
@@ -180,14 +189,14 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jt7ku")
 text = "NO"
 flat = true
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" method="grab_focus"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_continue_game_button_down"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" method="grab_focus"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" method="grab_focus"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
-[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" method="grab_focus"]
+[connection signal="button_down" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="mouse_entered" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" method="grab_focus"]
+[connection signal="button_down" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="." method="_continue_game_button_down"]
+[connection signal="mouse_entered" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" to="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame" method="grab_focus"]
+[connection signal="button_down" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="mouse_entered" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" to="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options" method="grab_focus"]
+[connection signal="button_down" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="mouse_entered" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" method="grab_focus"]
 [connection signal="button_down" from="ConfirmBox/YesButton" to="." method="confirm_new_game"]
 [connection signal="mouse_entered" from="ConfirmBox/YesButton" to="ConfirmBox/YesButton" method="grab_focus"]
 [connection signal="button_down" from="ConfirmBox/NoButton" to="." method="remove_confirm_box"]

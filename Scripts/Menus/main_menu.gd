@@ -1,9 +1,9 @@
 extends Control
 
 @onready var options_menu = $OptionsMenu
-@onready var margin_container = $MarginContainer
-@onready var new_game = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame
-@onready var continue_game = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame
+@onready var margin_container = $TitleMenu/MarginContainer
+@onready var new_game = $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame
+@onready var continue_game = $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame
 @onready var main = $/root/Main
 
 func _ready():
