@@ -25,7 +25,7 @@ func action():
 		player.ray.force_raycast_update()
 		var collision = player.ray.get_collider()
 		if collision:
-			if collision.is_in_group("AccessPoint") || collision.name.begins_with("Mobile"):
+			if collision.is_in_group("Enemies") || collision.is_in_group("AccessPoint") || collision.name.begins_with("Mobile"):
 				collision.hit_by_player(self)
 			elif collision.has_method("hit_by_player"):
 				collision.hit_by_player(strength)

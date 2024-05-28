@@ -138,15 +138,16 @@ func hit_by_player(strength):
 		shielded = false
 		await get_tree().create_timer(0.1).timeout
 		remove_shield()
-		if strength > 1:
-			is_destroyed = true
-			remove_from_group("EndTurn")
-			await get_tree().create_timer(0.1).timeout
-			animated_sprite_2d.play("destroyed")
-			level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
-			$Sprite2D.hide()
-			if animated_sprite_2d.is_playing():
-				await animated_sprite_2d.animation_finished
+		if strength is int:
+			if strength > 1:
+				is_destroyed = true
+				remove_from_group("EndTurn")
+				await get_tree().create_timer(0.1).timeout
+				animated_sprite_2d.play("destroyed")
+				level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, true)
+				$Sprite2D.hide()
+				if animated_sprite_2d.is_playing():
+					await animated_sprite_2d.animation_finished
 	else:
 		is_destroyed = true
 		remove_from_group("EndTurn")
