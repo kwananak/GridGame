@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://r1hnehs6otbr"]
+[gd_scene load_steps=34 format=3 uid="uid://r1hnehs6otbr"]
 
 [ext_resource type="PackedScene" uid="uid://fe32asyv0spt" path="res://Scenes/Tiles/EnvironmentComplex/floor_tile_complex.tscn" id="1_mb2mn"]
+[ext_resource type="Texture2D" uid="uid://0cgp851hb1n0" path="res://Sprites/UI/NEX-US_Logo.png" id="2_kv6iq"]
 [ext_resource type="PackedScene" uid="uid://cms6uydq40vqc" path="res://Scenes/Tiles/EnvironmentComplex/wall_back_tile_complex.tscn" id="2_qdtj1"]
 [ext_resource type="PackedScene" uid="uid://745atvraim5w" path="res://Scenes/Tiles/EnvironmentComplex/wall_vertical_tile_complex.tscn" id="4_xf2op"]
 [ext_resource type="PackedScene" uid="uid://c33d3v2o3k3hy" path="res://Scenes/Tiles/EnvironmentComplex/wall_front_tile_complex.tscn" id="5_oqvkl"]
@@ -20,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://bw3ubq3w85o0j" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_a.tscn" id="15_4uxu1"]
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_iivvs"]
 [ext_resource type="Texture2D" uid="uid://x8ggkamyj53p" path="res://Sprites/EnvironmentVirtual/terminal.png" id="16_xjqph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0os3o"]
+atlas = ExtResource("2_kv6iq")
+region = Rect2(0, 64, 57, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr07c"]
 atlas = ExtResource("11_o8jkd")
@@ -2634,6 +2639,11 @@ position = Vector2(580.064, 852.564)
 [node name="FloorTileComplex576" parent="Environment/Floor" instance=ExtResource("1_mb2mn")]
 position = Vector2(580.064, 884.564)
 
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor"]
+z_index = 10
+position = Vector2(165, 851.25)
+texture = SubResource("AtlasTexture_0os3o")
+
 [node name="Walls" type="Node2D" parent="Environment"]
 
 [node name="WallBackTileComplex" parent="Environment/Walls" instance=ExtResource("2_qdtj1")]
@@ -3321,11 +3331,9 @@ collision_mask = 0
 
 [node name="CornerWallTileComplex" parent="Environment/Walls" instance=ExtResource("6_vaxrk")]
 position = Vector2(100, 790)
-scale = Vector2(1, 1)
 
 [node name="CornerWallTileComplex2" parent="Environment/Walls" instance=ExtResource("6_vaxrk")]
 position = Vector2(196.25, 116.25)
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 0
 
@@ -3337,7 +3345,6 @@ scale = Vector2(1, -1)
 
 [node name="WallBackTileCorner" parent="Environment/Walls" instance=ExtResource("7_ly6ka")]
 position = Vector2(196.25, 788.75)
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 0
 

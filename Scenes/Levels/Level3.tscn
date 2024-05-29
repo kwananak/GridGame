@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=36 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="6_0mrpp"]
 [ext_resource type="PackedScene" uid="uid://bkn2dyeml572a" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_b.tscn" id="6_651fm"]
 [ext_resource type="PackedScene" uid="uid://cc687unvwtc1t" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner_c.tscn" id="6_kwmk2"]
+[ext_resource type="Texture2D" uid="uid://0cgp851hb1n0" path="res://Sprites/UI/NEX-US_Logo.png" id="6_tigp2"]
 [ext_resource type="PackedScene" uid="uid://b8mpgdnqjupub" path="res://Scenes/Tiles/EnvironmentComplex/railing_corner.tscn" id="6_ya86d"]
 [ext_resource type="PackedScene" uid="uid://cucuq7j1dctnn" path="res://Scenes/Tiles/SharedReal/start_tile.tscn" id="7_dwjma"]
 [ext_resource type="PackedScene" uid="uid://dyt2ywmlwbdv" path="res://Scenes/Tiles/EnvironmentComplex/side_railing.tscn" id="7_i8int"]
@@ -39,6 +40,10 @@ shader_parameter/color = Vector4(0, 0, 0, 0)
 shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eadiv"]
+atlas = ExtResource("6_tigp2")
+region = Rect2(0, 192, 192, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0sej"]
 atlas = ExtResource("12_ob0pr")
@@ -498,6 +503,11 @@ position = Vector2(128, 704)
 
 [node name="Catwalk138" parent="Environment/Floor" instance=ExtResource("3_k76ns")]
 position = Vector2(128, 736)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Floor"]
+z_index = 45
+position = Vector2(692, 592)
+texture = SubResource("AtlasTexture_eadiv")
 
 [node name="Walls" type="Node2D" parent="Environment"]
 
