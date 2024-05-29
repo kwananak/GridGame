@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dje6l66lot2b8"]
+[gd_scene load_steps=24 format=3 uid="uid://dje6l66lot2b8"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_i8xrn"]
 [ext_resource type="Texture2D" uid="uid://hdbfxixf47tw" path="res://Sprites/EnvironmentReal/Dumpyard/skyline.png" id="1_p66h4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1a5i0fukoe5k" path="res://Scenes/Tiles/SharedReal/end_tile.tscn" id="4_ey8wb"]
 [ext_resource type="Shader" path="res://Shaders/Vignette.gdshader" id="4_p6h6c"]
 [ext_resource type="PackedScene" uid="uid://cw6xqsv3loxef" path="res://Scenes/Tiles/EnvironmentDump/floor_tile.tscn" id="5_fiana"]
+[ext_resource type="Texture2D" uid="uid://0cgp851hb1n0" path="res://Sprites/UI/NEX-US_Logo.png" id="8_siu17"]
 [ext_resource type="PackedScene" uid="uid://firosl348slf" path="res://Scenes/Tiles/SharedReal/terminal_tile.tscn" id="9_5o5vp"]
 [ext_resource type="PackedScene" uid="uid://cuopm8mf7jd1i" path="res://Scenes/Prefabs/real_player.tscn" id="10_r0mu2"]
 [ext_resource type="PackedScene" uid="uid://cju2s40ajwdq8" path="res://Scenes/Tiles/SharedReal/terminal_door_tile.tscn" id="11_r8naw"]
@@ -18,13 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://6mjp3qtkt4i2" path="res://Scenes/Tiles/EnvironmentDump/dumpyard_deco_c.tscn" id="16_xavkm"]
 [ext_resource type="PackedScene" uid="uid://c1ydr133f7sks" path="res://Scenes/Prefabs/target_move.tscn" id="20_wo2ff"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lw8uf"]
-shader = ExtResource("4_p6h6c")
-shader_parameter/player_position = Vector2(0.5, 0.5)
-shader_parameter/color = Vector4(0, 0, 0, 0)
-shader_parameter/MULTIPLIER = 1.0
-shader_parameter/SCALE = 0.4
-shader_parameter/SOFTNESS = 0.6
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajwql"]
+atlas = ExtResource("8_siu17")
+region = Rect2(0, 192, 57, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mp4g"]
 atlas = ExtResource("16_76pb6")
@@ -60,28 +57,19 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lw8uf"]
+shader = ExtResource("4_p6h6c")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Vector4(0, 0, 0, 0)
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 0.4
+shader_parameter/SOFTNESS = 0.6
+
 [node name="Level1" type="Node2D"]
 
 [node name="RealAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_qkb76")
 bus = &"Music"
-
-[node name="UI" parent="." instance=ExtResource("2_y6187")]
-visible = false
-
-[node name="Vignette" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_lw8uf")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -944.0
-offset_top = -640.0
-offset_right = 2048.0
-offset_bottom = 1648.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="RealLevelManager" parent="." instance=ExtResource("1_i8xrn")]
 level_height = 20
@@ -191,6 +179,11 @@ position = Vector2(512, 384)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(562, 45)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AtlasTexture_ajwql")
+
 [node name="Gameplay" type="Node2D" parent="."]
 position = Vector2(32, 96)
 
@@ -225,7 +218,24 @@ layer = 100
 motion_scale = Vector2(1, 1.2)
 
 [node name="Foreground" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
-z_index = 2000
 position = Vector2(512, 631)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ydvp1")
+
+[node name="UI" parent="." instance=ExtResource("2_y6187")]
+visible = false
+top_level = true
+
+[node name="Vignette" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_lw8uf")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -944.0
+offset_top = -640.0
+offset_right = 2048.0
+offset_bottom = 1648.0
+grow_horizontal = 2
+grow_vertical = 2

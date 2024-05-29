@@ -62,7 +62,8 @@ func call_level(level_number):
 		if progress_manager.next_cutscene == level_number:
 			progress_manager.next_cutscene += 1
 			call_cutscene(level_number)
-			$RealAudio.stop()
+			if has_node("RealAudio"):
+				$RealAudio.stop()
 			return
 		real_scene = level
 	else:
