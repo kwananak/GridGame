@@ -17,5 +17,5 @@ func _on_area_entered(area):
 		"Red":
 			if area.is_in_group("VirtualPlayer"):
 				get_tree().get_first_node_in_group("VirtualLevelManager").doomwall_state = "danger"
-			for n in get_tree().get_nodes_in_group("RedWarning"):
+			for n in get_tree().get_nodes_in_group("YellowWarning") + get_tree().get_nodes_in_group("RedWarning"):
 				n.queue_free()
