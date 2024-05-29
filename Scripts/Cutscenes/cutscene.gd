@@ -8,9 +8,8 @@ var written = 0
 @onready var label = $Sprite2D/Label
 
 func _ready():
-	$Sprite2D/Button.grab_focus()
 	if not FileAccess.file_exists("res://Txts/cutscenes.txt"):
-		$/root/Main.disable_continue()
+		print("cutscenes.txt doesn't exist")
 		return
 	var json_string = FileAccess.open("res://Txts/cutscenes.txt", FileAccess.READ).get_line()
 	var json = JSON.new()
@@ -20,6 +19,8 @@ func _ready():
 		return
 	data = json.get_data()[str(cutscene_number)]
 	write_text()
+	await get_tree().create_timer(0.1).timeout
+	$Sprite2D/Button.grab_focus()
 
 func _input(event):
 	if event is InputEventMouseButton:

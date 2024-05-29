@@ -43,7 +43,9 @@ func enter_level_animation():
 	if int($/root/Main.coming_from) > int(level_number):
 		position = get_tree().get_first_node_in_group("EndTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 16)
 	else:
-		position = get_tree().get_first_node_in_group("StartTile").global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 16)
+		var start_tile = get_tree().get_first_node_in_group("StartTile")
+		position = start_tile.global_position.snapped(Vector2.ONE * level_manager.tile_size) + Vector2(0, 16)
+		start_tile.get_node("AnimatedSprite2D").play("close")
 	await create_tween().tween_property(animated_sprite_2d, "scale", Vector2(1, 1), 0.8).set_trans(Tween.TRANS_SINE).finished
 	animated_sprite_2d.play("idle")
 	set_collision_layer_value(2, true)

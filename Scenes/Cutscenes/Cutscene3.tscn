@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccb5e1p5l3g6r"]
+[gd_scene load_steps=13 format=3 uid="uid://ccb5e1p5l3g6r"]
 
 [ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="1_d53dl"]
-[ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="2_haijr"]
-[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="3_iloe6"]
-[ext_resource type="Texture2D" uid="uid://ihevl84eqit8" path="res://Sprites/Cutscenes/background_1_1.png" id="4_a701m"]
+[ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene3.gd" id="2_yrnn2"]
+[ext_resource type="Texture2D" uid="uid://br0alfef5ynib" path="res://Sprites/Cutscenes/background3.png" id="3_426mo"]
+[ext_resource type="Texture2D" uid="uid://d25i4dfr5i0o" path="res://Sprites/Cutscenes/head_background3.png" id="4_cqv50"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="5_qq22u"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="6_7ho7g"]
+[ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="7_ds4i3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ultm"]
 shader = ExtResource("1_d53dl")
@@ -46,26 +47,30 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
-script = ExtResource("2_haijr")
+script = ExtResource("2_yrnn2")
 cutscene_number = 3
 
-[node name="BackgroundColors" parent="." instance=ExtResource("3_iloe6")]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -205.0
-offset_right = 400.0
-offset_bottom = 255.93
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(45, 19)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_426mo")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(45, 0)
+motion_scale = Vector2(1.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-165, 200)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_cqv50")
+
+[node name="Sprite2D" type="Node2D" parent="."]
 z_index = 10
 use_parent_material = true
-texture = ExtResource("4_a701m")
 
 [node name="Label" type="Label" parent="Sprite2D"]
 use_parent_material = true
@@ -91,5 +96,10 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nsku8")
 autoplay = "default"
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ds4i3")
+autoplay = true
+bus = &"Music"
 
 [connection signal="button_down" from="Sprite2D/Button" to="." method="_on_button_button_down"]
