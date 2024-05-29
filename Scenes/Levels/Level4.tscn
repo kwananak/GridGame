@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://duxxbcmbbkous"]
+[gd_scene load_steps=27 format=3 uid="uid://duxxbcmbbkous"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_ukqml"]
 [ext_resource type="AudioStream" uid="uid://cxoehqevg3vku" path="res://Sounds/Backgrounds/chamber.wav" id="2_l8xiq"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://wutkufemunvt" path="res://Scenes/Tiles/SharedReal/chamber_terminal_tile.tscn" id="17_k0pd2"]
 [ext_resource type="PackedScene" uid="uid://bk3lxch6pvpfm" path="res://Scenes/Tiles/EnvironmentChamber/display.tscn" id="18_iapul"]
 [ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="20_1i4lk"]
+[ext_resource type="PackedScene" uid="uid://cf5xfs04ndyvf" path="res://Scenes/UI/extra_dialogue.tscn" id="24_mv05o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kyeha"]
 shader = ExtResource("4_auhts")
@@ -2004,3 +2005,7 @@ door_number = 3
 
 [node name="Terminal4" parent="." instance=ExtResource("17_k0pd2")]
 position = Vector2(464, 112)
+
+[node name="ExtraDialogue" parent="." instance=ExtResource("24_mv05o")]
+position = Vector2(464, 304)
+dialogue_number = "XD4"

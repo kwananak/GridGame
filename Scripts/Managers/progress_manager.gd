@@ -51,11 +51,17 @@ func create_dialogs_dict():
 		var line = log_file.get_line()
 		if line.is_empty():
 			break
-		if int(line) > 100:
+		if int(line) > 100 && int(line) < 10000:
 			section = line
 			dialogs[section] = {}
 			continue
 		if line.begins_with("RW"):
+			section = line
+			dialogs[section] = {}
+			sub_section = "1"
+			dialogs[section][sub_section] = {"color" : null, "log" : null, "text" : []}
+			continue
+		if line.begins_with("XD"):
 			section = line
 			dialogs[section] = {}
 			sub_section = "1"

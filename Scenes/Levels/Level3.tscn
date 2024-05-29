@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c31mdb3xl2bht"]
+[gd_scene load_steps=34 format=3 uid="uid://c31mdb3xl2bht"]
 
 [ext_resource type="PackedScene" uid="uid://dair3qccbsh51" path="res://Scenes/Managers/real_level_manager.tscn" id="1_4b3my"]
 [ext_resource type="PackedScene" uid="uid://r1hnehs6otbr" path="res://Scenes/Tiles/EnvironmentComplex/complex_background.tscn" id="1_h23i5"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bej1ggybilev8" path="res://Scenes/Tiles/EnvironmentComplex/corner_wall_tile_complex.tscn" id="15_nh6qg"]
 [ext_resource type="PackedScene" uid="uid://bxtv0cq3uifbu" path="res://Scenes/Prefabs/real_dialogue.tscn" id="17_s3pct"]
 [ext_resource type="PackedScene" uid="uid://ddset0crqtcah" path="res://Scenes/Tiles/SharedReal/gate_tile.tscn" id="23_er614"]
+[ext_resource type="PackedScene" uid="uid://cf5xfs04ndyvf" path="res://Scenes/UI/extra_dialogue.tscn" id="27_xokyc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukljp"]
 shader = ExtResource("4_n0otq")
@@ -2034,6 +2035,11 @@ door_number = 4
 [node name="Terminal3" parent="Gameplay" instance=ExtResource("9_73lqa")]
 z_index = 46
 position = Vector2(256, 448)
+
+[node name="ExtraDialogue" parent="Gameplay" instance=ExtResource("27_xokyc")]
+z_index = 45
+position = Vector2(976, 384)
+dialogue_number = "XD3"
 
 [node name="RealPlayer" parent="." instance=ExtResource("5_12xde")]
 

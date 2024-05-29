@@ -12,7 +12,6 @@ func _ready():
 		progress_manager.log_progress[str(level_manager.level_number)] = []
 	if level_manager.skip_dialogues || dialogue_number in progress_manager.log_progress[str(level_manager.level_number)]:
 		queue_free()
-		return
 
 func _on_area_entered(_area):
 	trigger()

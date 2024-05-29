@@ -46,7 +46,6 @@ func trigger():
 		highlight.show()
 		await create_tween().tween_property(camera, "position", level_manager.out_of_bounds_check(related_node.global_position), 0.5 * camera_speed).finished
 	spawn_bubble()
-	return
 
 func close():
 	if animating:
@@ -91,6 +90,9 @@ func write_bubble(sentence):
 			else:
 				label.append_text("[color=white]")
 				bolded = false
+			continue
+		if i == "%":
+			label.append_text("\n\n")
 			continue
 		label.append_text(i)
 		while level_manager.paused:

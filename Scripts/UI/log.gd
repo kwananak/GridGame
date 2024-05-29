@@ -14,6 +14,8 @@ func update_log():
 		return
 	label.clear()
 	for i in progress_manager.log_progress:
+		if !progress_manager.log_progress[i]:
+			continue
 		for n in progress_manager.log_progress[i]:
 			if !progress_manager.dialogs[i][n]["log"]:
 				continue
