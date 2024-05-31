@@ -1,16 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3nmr81ldfwjm"]
+[gd_scene load_steps=11 format=3 uid="uid://b3nmr81ldfwjm"]
 
 [ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="1_ce6s7"]
-[ext_resource type="Shader" path="res://Shaders/negative.gdshader" id="1_u0o1j"]
-[ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="2_umgs4"]
-[ext_resource type="Texture2D" uid="uid://ihevl84eqit8" path="res://Sprites/Cutscenes/background_1_1.png" id="3_trqkd"]
+[ext_resource type="Texture2D" uid="uid://cqoepms2scy6m" path="res://Sprites/Cutscenes/background2.png" id="2_3kqad"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_45is8"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="5_miqup"]
+[ext_resource type="PackedScene" uid="uid://bvncemeabelnw" path="res://Scenes/Cutscenes/robot_light.tscn" id="6_mpno7"]
 [ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="7_xian6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxixf"]
-shader = ExtResource("1_u0o1j")
-shader_parameter/negative = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5x4f"]
 
@@ -37,43 +32,30 @@ animations = [{
 }]
 
 [node name="Cutscene" type="Control"]
-material = SubResource("ShaderMaterial_dxixf")
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -60.0
+offset_right = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.05, 1.05)
+scale = Vector2(1.07, 1.07)
 script = ExtResource("1_ce6s7")
 cutscene_number = 2
 
-[node name="BackgroundColors" parent="." instance=ExtResource("2_umgs4")]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -205.0
-offset_right = 400.0
-offset_bottom = 255.93
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 10
-use_parent_material = true
-texture = ExtResource("3_trqkd")
+position = Vector2(10, 0)
+texture = ExtResource("2_3kqad")
 
 [node name="Label" type="Label" parent="Sprite2D"]
 use_parent_material = true
-offset_left = -340.0
-offset_top = 136.0
-offset_right = 2965.0
-offset_bottom = 544.0
+offset_left = -272.897
+offset_top = 123.365
+offset_right = 3032.1
+offset_bottom = 531.365
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("4_45is8")
 theme_override_font_sizes/font_size = 120
@@ -88,10 +70,49 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_e5x4f")
 flat = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Sprite2D/Button"]
+position = Vector2(72.5935, -16.8452)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nsku8")
 autoplay = "default"
 centered = false
+
+[node name="Lights" type="Node2D" parent="Sprite2D"]
+
+[node name="RobotLight" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, -57.1429)
+scale = Vector2(1, 1)
+
+[node name="RobotLight2" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, -26.6667)
+scale = Vector2(1, 1)
+
+[node name="RobotLight3" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 3.80951)
+scale = Vector2(1, 1)
+
+[node name="RobotLight4" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 34.2857)
+scale = Vector2(1, 1)
+
+[node name="RobotLight5" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 64.7619)
+scale = Vector2(1, 1)
+
+[node name="RobotLight6" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 95.238)
+scale = Vector2(1, 1)
+
+[node name="RobotLight7" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 125.714)
+scale = Vector2(1, 1)
+
+[node name="RobotLight8" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 156.19)
+scale = Vector2(1, 1)
+
+[node name="RobotLight9" parent="Sprite2D/Lights" instance=ExtResource("6_mpno7")]
+position = Vector2(472.381, 186.667)
+scale = Vector2(1, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_xian6")
