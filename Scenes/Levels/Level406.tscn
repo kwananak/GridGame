@@ -14,15 +14,17 @@
 [ext_resource type="PackedScene" uid="uid://c7c4ujji3i38n" path="res://Scenes/Tiles/VirtualEnvironment400/400_lower_right_corner_tile.tscn" id="16_7adao"]
 [ext_resource type="PackedScene" uid="uid://w21obpr13fv6" path="res://Scenes/Tiles/SharedReal/invisible_wall.tscn" id="17_e6jkq"]
 [ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="21_70p3f"]
+[ext_resource type="PackedScene" uid="uid://cduubqmcp3g71" path="res://Scenes/EnemiesObstaclesTiles/nano_brain.tscn" id="22_5h1uu"]
 [ext_resource type="PackedScene" uid="uid://d06by5uschqic" path="res://Scenes/EnemiesObstaclesTiles/yellow_warning_tile.tscn" id="27_0lay1"]
 [ext_resource type="PackedScene" uid="uid://bg5hkhyrof4ns" path="res://Scenes/Tiles/VirtualEnvironment100/virtual_start_tile.tscn" id="28_6knud"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="29_i3g61"]
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="30_txwya"]
-[ext_resource type="PackedScene" uid="uid://b7lqm224ayph5" path="res://Scenes/Tiles/SharedVirtual/temp_end.tscn" id="31_o6s1b"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="32_f52ss"]
 [ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="34_twijl"]
-[ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="37_qy31q"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="38_0vjux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7602"]
+size = Vector2(64, 96)
 
 [node name="Level406" type="Node2D"]
 
@@ -2534,9 +2536,6 @@ position = Vector2(32, 256)
 
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("30_txwya")]
 
-[node name="TempEnd" parent="GameplayElements/Others" instance=ExtResource("31_o6s1b")]
-position = Vector2(1792, 384)
-
 [node name="Holes" type="Node2D" parent="GameplayElements"]
 
 [node name="HoleTile" parent="GameplayElements/Holes" instance=ExtResource("32_f52ss")]
@@ -2703,11 +2702,6 @@ position = Vector2(1344, 608)
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="TerminalAccesPoint" parent="." instance=ExtResource("37_qy31q")]
-position = Vector2(1824, 416)
-strength = 8
-targets = Vector3i(8, 3, 7)
-
 [node name="RedWarningTile" parent="." instance=ExtResource("38_0vjux")]
 position = Vector2(704, 288)
 
@@ -2761,3 +2755,17 @@ position = Vector2(704, 512)
 
 [node name="RedWarningTile27" parent="." instance=ExtResource("38_0vjux")]
 position = Vector2(704, 544)
+
+[node name="NanoBrain" parent="." instance=ExtResource("22_5h1uu")]
+position = Vector2(1776, 416)
+
+[node name="Area2D" type="Area2D" parent="NanoBrain"]
+position = Vector2(-80, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NanoBrain/Area2D"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_p7602")
+
+[connection signal="area_entered" from="NanoBrain/Area2D" to="NanoBrain" method="_on_area_entered"]

@@ -187,6 +187,8 @@ func continue_game():
 # starts cutscene
 func call_cutscene(cutscene_number):
 	menu.visible = false
+	if virtual_scene:
+		remove_child(virtual_scene)
 	camera.add_child(load("res://Scenes/Cutscenes/Cutscene" + str(cutscene_number) + ".tscn").instantiate())
 
 # provided with a level number, retrieves level name from resource file

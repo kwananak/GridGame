@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl8byb0tdfq4p"]
+
+[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_086k1"]
+[ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="6_8rd2e"]
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8rd2e")
+autoplay = true
+bus = &"Music"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -682.0
+offset_top = -423.0
+offset_right = 5714.0
+offset_bottom = 3373.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("4_086k1")
+theme_override_font_sizes/font_size = 240
+text = "BOOM"
+horizontal_alignment = 1
+vertical_alignment = 1

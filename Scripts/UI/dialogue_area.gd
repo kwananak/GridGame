@@ -16,18 +16,6 @@ func _ready():
 func _on_area_entered(_area):
 	trigger()
 
-func close():
-	if animating:
-		return
-	if writing:
-		writing = false
-		return
-	if broadcasted < dialog.size():
-		write_bubble(broadcasted)
-		broadcasted += 1
-		return
-	remove_bubble()
-
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(200, 300)
 	bubble.show()
