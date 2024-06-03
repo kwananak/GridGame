@@ -1,12 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvncemeabelnw"]
+[gd_scene load_steps=14 format=3 uid="uid://bvncemeabelnw"]
 
 [ext_resource type="Texture2D" uid="uid://c2n43a2w1fnyd" path="res://Sprites/Cutscenes/light_background2.png" id="1_i13jh"]
 [ext_resource type="Script" path="res://Scripts/Cutscenes/robot_light.gd" id="2_lqa08"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vokgf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5flh"]
 atlas = ExtResource("1_i13jh")
 region = Rect2(0, 0, 32, 32)
 
-[node name="RobotLight" type="Sprite2D"]
-texture = SubResource("AtlasTexture_vokgf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3cmk"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fckdc"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuv2f"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kc3d"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roeaq"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ewhm"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj0rj"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rrcl"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77ftf"]
+atlas = ExtResource("1_i13jh")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xacv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5flh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3cmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fckdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuv2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kc3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roeaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ewhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj0rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rrcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77ftf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RobotLight" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xacv6")
 script = ExtResource("2_lqa08")
