@@ -38,6 +38,7 @@ func _input(event):
 			close()
 
 func trigger():
+	set_process_input(true)
 	player.get_node("PossibleMoves").hide()
 	level_manager.dialogue = self
 	if related_node:

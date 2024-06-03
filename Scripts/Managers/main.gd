@@ -87,6 +87,7 @@ func retry_level():
 
 # calls menu from real or virtual scene
 func call_menu(level_number):
+	print("call menu from main")
 	if level_number < 100:
 		remove_child(real_scene)
 		$RealAudio.stop()
@@ -97,6 +98,7 @@ func call_menu(level_number):
 	menu_audio.play()
 	continue_button.disabled = false
 	continue_button.grab_focus()
+	print("end call menu from main")
 
 # alternative to call_menu function for virtual levels
 func menu_from_virtual():

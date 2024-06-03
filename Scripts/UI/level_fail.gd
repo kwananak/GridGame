@@ -1,8 +1,9 @@
 extends Control
 
+var resume
 var level_manager
+
 @onready var container = $VBoxContainer
-@onready var resume
 @onready var retry = $VBoxContainer/Retry
 
 func _ready():

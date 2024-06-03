@@ -72,12 +72,14 @@ func set_dialogue(value):
 
 # update paused value and shows or hide pause "menu" accordingly
 func set_pause(value):
+	if dialogue:
+		return
+	paused = value
 	if value:
 		spawn_pause_menu()
 	else:
 		despawn_pause_menu()
 		pause_menu = null
-	paused = value
 	pause_trigger.emit(paused)
 
 func spawn_pause_menu():

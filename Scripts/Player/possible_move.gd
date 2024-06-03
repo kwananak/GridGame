@@ -5,6 +5,7 @@ var available_action = null : set = set_available_action
 var player
 var moused = false
 var shootable = false
+var level_manager
 
 @export var dir : Vector2
 @onready var sprite = $AnimatedSprite2D
@@ -12,7 +13,15 @@ var shootable = false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	teleport_sprite.rotation = -rotation
+	level_manager.pause_trigger.connect(pause_handling)
+
+func pause_handling(paused):
+	if paused:
+		hide()
+	else:
+		set_possible(possible)
 
 # checks collision and adjusts vars accordingly
 func check_collision(collision):
@@ -83,7 +92,7 @@ func reset():
 
 func set_possible(value):
 	possible = value
-	if value == true:
+	if value:
 		if player.teleport:
 			sprite.hide()
 			teleport_sprite.show()
