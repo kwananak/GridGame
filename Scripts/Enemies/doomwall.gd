@@ -123,6 +123,11 @@ func set_state(value):
 			warning_ui.get_node("Label").position.x += 22
 			warning_ui.get_node("Label").show()
 			$AudioStreamPlayer.pitch_scale = 1.0
+		"extreme":
+			step = level_manager.aqua_doomwall_step
+			warning_ui.play("aqua")
+			warning_ui.get_node("Label").hide()
+			$AudioStreamPlayer.pitch_scale = 1.2
 	$AudioStreamPlayer.play()
 	for n in sprite.get_children():
 		var frame = n.frame

@@ -13,7 +13,7 @@ var destroyed_by_wall = false
 # calls _match_strength when game starts
 func _ready():
 	strength = byte_type
-	$Audio.pitch_scale -= float(byte_type) / 5
+	$Audio.pitch_scale -= float(byte_type) / 8
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	if level_manager.vision:
 		label.rotation = -rotation
@@ -24,7 +24,7 @@ func _ready():
 # matches visual to strength and creates explosion on destruction
 func match_strength(value):
 	if value <= 0:
-		if !destroyed_by_wall:
+		if !destroyed_by_wall && byte_type != 5:
 			level_manager.barriers_down[byte_type - 1] += 1
 			level_manager.barrier_down.emit()
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)

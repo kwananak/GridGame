@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtp464wsu5344"]
+[gd_scene load_steps=8 format=3 uid="uid://dtp464wsu5344"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/progress_manager.gd" id="1_8smh1"]
 [ext_resource type="PackedScene" uid="uid://dlyrwgmg3ve6g" path="res://Scenes/Programs/Hands/QuantumGrapple.tscn" id="2_1vmrq"]
+[ext_resource type="PackedScene" uid="uid://b71bjivqvxg8c" path="res://Scenes/Programs/Hands/NeoBlade.tscn" id="2_2r8kj"]
 [ext_resource type="PackedScene" uid="uid://my6oyv50hb2h" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierA.tscn" id="3_snhgy"]
 [ext_resource type="PackedScene" uid="uid://cmudo2bqa7tcs" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierB.tscn" id="4_2wx64"]
 [ext_resource type="PackedScene" uid="uid://dwdpegtt8wv6m" path="res://Scenes/Programs/Amplifiers/NeuroEnhanceAmplifierC.tscn" id="5_c1lvd"]
@@ -19,6 +20,8 @@ z_index = 90
 [node name="Armor" type="Node2D" parent="Loadout"]
 
 [node name="LeftHand" type="Node2D" parent="Loadout"]
+
+[node name="NeoBlade" parent="Loadout/LeftHand" instance=ExtResource("2_2r8kj")]
 
 [node name="RightHand" type="Node2D" parent="Loadout"]
 

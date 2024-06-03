@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bywbn5dp48npv"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/warning_tile.gd" id="1_sqbty"]
+[ext_resource type="Texture2D" uid="uid://scsgcb84sa7o" path="res://Sprites/Enemies/warning.png" id="2_8awbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1b8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv8sb"]
+atlas = ExtResource("2_8awbp")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j3o0"]
+atlas = ExtResource("2_8awbp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt602"]
+atlas = ExtResource("2_8awbp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnyeq"]
+atlas = ExtResource("2_8awbp")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mwrf"]
+atlas = ExtResource("2_8awbp")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bidko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv8sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j3o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt602")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnyeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mwrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AquaWarningTile" type="Area2D" groups=["AquaWarning"]]
+z_index = 30
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_sqbty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j1b8o")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bidko")
+autoplay = "default"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

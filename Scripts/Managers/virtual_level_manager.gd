@@ -20,13 +20,15 @@ var progress_manager
 var retry_threshold = 7
 var cyber = true
 
+const green_doomwall_step = 0.0
+const yellow_doomwall_step = 0.5
+const red_doomwall_step = 1.0
+const aqua_doomwall_step = 2.0
+
 signal barrier_down
 signal doomwall_state_changed
 
 @export var skip_dialogues = false
-@export var green_doomwall_step = 0.0
-@export var yellow_doomwall_step = 1.0
-@export var red_doomwall_step = 2.0
 @export var attack_particles = false
 
 @onready var summary_prefab = preload("res://Scenes/UI/level_summary.tscn")

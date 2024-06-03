@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csnkvbdfitkti"]
+[gd_scene load_steps=19 format=3 uid="uid://csnkvbdfitkti"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_5uf7f"]
 [ext_resource type="PackedScene" uid="uid://wxfalowkmqp1" path="res://Scenes/Tiles/VirtualEnvironment100/100_level_background.tscn" id="1_w8gh5"]
@@ -16,12 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="14_pu4j2"]
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="15_ty2g8"]
 [ext_resource type="PackedScene" uid="uid://nap8qutslefr" path="res://Scenes/Prefabs/seeker_enemy.tscn" id="16_7ts2q"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="17_usjbu"]
+[ext_resource type="PackedScene" uid="uid://bywbn5dp48npv" path="res://Scenes/EnemiesObstaclesTiles/aqua_warning_tile.tscn" id="18_ijug5"]
 
 [node name="VirtualTestLevel" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_5uf7f")]
-yellow_doomwall_step = 0.5
-red_doomwall_step = 1.0
 attack_particles = true
 level_height = 24
 level_length = 32
@@ -87,3 +87,9 @@ position = Vector2(256, 320)
 
 [node name="SeekerEnemy" parent="." instance=ExtResource("16_7ts2q")]
 position = Vector2(64, 288)
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("17_usjbu")]
+position = Vector2(288, 288)
+
+[node name="AquaWarningTile" parent="." instance=ExtResource("18_ijug5")]
+position = Vector2(256, 352)
