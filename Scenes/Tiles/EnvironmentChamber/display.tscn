@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://baqgp11cqb0d4"]
+[gd_scene load_steps=12 format=3 uid="uid://baqgp11cqb0d4"]
 
 [ext_resource type="Texture2D" uid="uid://dxkjrpjnbsu43" path="res://Sprites/EnvironmentReal/Chamber/chamber.png" id="1_gw72c"]
+[ext_resource type="Script" path="res://Scripts/Environment/display_content.gd" id="2_cwgqp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fsv3"]
 atlas = ExtResource("1_gw72c")
@@ -12,6 +13,49 @@ region = Rect2(96, 7, 32, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vst31"]
 size = Vector2(29, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g1fc"]
+atlas = ExtResource("1_gw72c")
+region = Rect2(48, 112, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6atyt"]
+atlas = ExtResource("1_gw72c")
+region = Rect2(80, 112, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrl0m"]
+atlas = ExtResource("1_gw72c")
+region = Rect2(112, 112, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81emt"]
+atlas = ExtResource("1_gw72c")
+region = Rect2(144, 112, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_087h7"]
+atlas = ExtResource("1_gw72c")
+region = Rect2(176, 112, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdavp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g1fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6atyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrl0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81emt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_087h7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Display" type="Sprite2D"]
 z_index = 30
@@ -28,3 +72,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_vst31")
+
+[node name="Content" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_qdavp")
+script = ExtResource("2_cwgqp")
