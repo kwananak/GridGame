@@ -24,7 +24,7 @@ func _ready():
 # matches visual to strength and creates explosion on destruction
 func match_strength(value):
 	if value <= 0:
-		if !destroyed_by_wall && byte_type != 5:
+		if !destroyed_by_wall && byte_type != 6:
 			level_manager.barriers_down[byte_type - 1] += 1
 			level_manager.barrier_down.emit()
 		level_manager.astar_grid.set_point_solid(Vector2i(position) / level_manager.tile_size, false)

@@ -1,6 +1,6 @@
 extends "res://Scripts/Programs/program.gd"
 
-const strength = 5
+const strength = 6
 
 func _ready():
 	type = "NeoBlade"
