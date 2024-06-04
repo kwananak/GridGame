@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://6ywi2vp4nkok"]
+[gd_scene load_steps=30 format=3 uid="uid://6ywi2vp4nkok"]
 
 [ext_resource type="AudioStream" uid="uid://dq7o88p443ke1" path="res://Sounds/Backgrounds/200.wav" id="1_01576"]
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="2_ke31v"]
@@ -27,12 +27,12 @@
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="25_0svv1"]
 [ext_resource type="PackedScene" uid="uid://d0t6ps4sx8p2h" path="res://Scenes/Tiles/SharedVirtual/access_point_key.tscn" id="25_kohys"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="26_0m0gx"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="28_7ds02"]
+[ext_resource type="PackedScene" uid="uid://bywbn5dp48npv" path="res://Scenes/EnemiesObstaclesTiles/aqua_warning_tile.tscn" id="29_h1jg1"]
 
 [node name="Level204" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("2_ke31v")]
-yellow_doomwall_step = 0.5
-red_doomwall_step = 1.0
 level_height = 100
 level_length = 100
 level_number = 204
@@ -2502,3 +2502,9 @@ position = Vector2(64, 416)
 
 [node name="AccessPointKey" parent="." instance=ExtResource("25_kohys")]
 position = Vector2(992, 640)
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("28_7ds02")]
+position = Vector2(960, 480)
+
+[node name="AquaWarningTile" parent="." instance=ExtResource("29_h1jg1")]
+position = Vector2(1120, 512)
