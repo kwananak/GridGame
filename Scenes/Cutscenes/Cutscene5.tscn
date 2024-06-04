@@ -1,7 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl8byb0tdfq4p"]
+[gd_scene load_steps=11 format=3 uid="uid://dl8byb0tdfq4p"]
 
-[ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_086k1"]
+[ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene5.gd" id="1_adgl3"]
+[ext_resource type="Texture2D" uid="uid://cvjkj6pr0cwo" path="res://Sprites/Cutscenes/background5b1.png" id="3_b8ry6"]
+[ext_resource type="Texture2D" uid="uid://dpy16dl7x7qd5" path="res://Sprites/Cutscenes/background5b2.png" id="4_ceict"]
+[ext_resource type="Texture2D" uid="uid://c8v18heydwgd0" path="res://Sprites/Cutscenes/ending1.png" id="5_jifo4"]
 [ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="6_8rd2e"]
+[ext_resource type="Texture2D" uid="uid://cpee1jd3q2te0" path="res://Sprites/Cutscenes/ending2.png" id="6_ohm3s"]
+[ext_resource type="Texture2D" uid="uid://dtf3xo1mfvvxk" path="res://Sprites/Cutscenes/ending3.png" id="7_7l6nb"]
+
+[sub_resource type="Animation" id="Animation_licjr"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ply0i"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ycll"]
+_data = {
+"fade_in": SubResource("Animation_ply0i"),
+"fade_out": SubResource("Animation_licjr")
+}
 
 [node name="Cutscene" type="Control"]
 layout_mode = 3
@@ -13,20 +55,44 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
+script = ExtResource("1_adgl3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_8rd2e")
 autoplay = true
 bus = &"Music"
 
-[node name="Label2" type="Label" parent="."]
-offset_left = -682.0
-offset_top = -423.0
-offset_right = 5714.0
-offset_bottom = 3373.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("4_086k1")
-theme_override_font_sizes/font_size = 240
-text = "BOOM"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Earth" type="Sprite2D" parent="."]
+texture = ExtResource("3_b8ry6")
+
+[node name="Negative" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_ceict")
+
+[node name="1st" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("5_jifo4")
+
+[node name="2nd" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("6_ohm3s")
+
+[node name="3rd" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1, 1)
+texture = ExtResource("7_7l6nb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -543.0
+offset_top = -324.0
+offset_right = 516.0
+offset_bottom = 291.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_4ycll")
+}
