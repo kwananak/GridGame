@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmkkas0u00f1t"]
+[gd_scene load_steps=26 format=3 uid="uid://dmkkas0u00f1t"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/terminal_scene.gd" id="1_nrr7a"]
 [ext_resource type="AudioStream" uid="uid://dfiyf6s4ta5e0" path="res://Sounds/Backgrounds/terminal.wav" id="2_uqucm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3sshuw4teyhk" path="res://Scenes/TerminalElements/link_sprite.tscn" id="6_sp40k"]
 [ext_resource type="PackedScene" uid="uid://88iupaxjnpvm" path="res://Scenes/TerminalElements/info.tscn" id="7_il0do"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="8_cwtsk"]
+[ext_resource type="PackedScene" uid="uid://bbenr4xhsrm0f" path="res://Scenes/TerminalElements/Level406.tscn" id="9_dx6du"]
 [ext_resource type="PackedScene" uid="uid://c74t16iivk706" path="res://Scenes/TerminalElements/log.tscn" id="10_fmfqu"]
 [ext_resource type="PackedScene" uid="uid://dik7767w56mld" path="res://Scenes/TerminalElements/loadout.tscn" id="11_1syya"]
 [ext_resource type="PackedScene" uid="uid://due07vhhx1egd" path="res://Scenes/TerminalElements/nexus_button.tscn" id="12_smgwj"]
@@ -162,6 +163,8 @@ offset_top = -41.283
 offset_right = -11.215
 offset_bottom = -41.283
 focus_neighbor_left = NodePath("../Level404")
+focus_neighbor_top = NodePath("../Level406")
+focus_neighbor_right = NodePath("../Level406")
 node_level = 405
 node_color = "purple"
 
@@ -169,6 +172,14 @@ node_color = "purple"
 position = Vector2(-67.1642, 15.6716)
 texture = SubResource("AtlasTexture_wvfrw")
 offset = Vector2(0.165, 0.315)
+
+[node name="Level406" parent="Map" instance=ExtResource("9_dx6du")]
+offset_left = 39.8954
+offset_top = -115.164
+offset_right = 39.8954
+offset_bottom = -115.164
+focus_neighbor_left = NodePath("../Level405")
+focus_neighbor_bottom = NodePath("../Level405")
 
 [node name="Info" parent="." instance=ExtResource("7_il0do")]
 position = Vector2(207.463, 250.746)

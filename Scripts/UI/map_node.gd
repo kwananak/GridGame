@@ -4,7 +4,7 @@ extends Control
 
 @export var available = false : set = set_available
 @export var node_level : int
-@export_enum("pink", "blue", "purple") var node_color : String
+@export_enum("pink", "blue", "purple", "aqua") var node_color : String
 
 var selected = false : set = set_selected
 var moused = false
@@ -27,7 +27,8 @@ func _ready():
 	program_label = get_tree().get_first_node_in_group("ProgramLabel")
 	difficulty_label = get_tree().get_first_node_in_group("DifficultyLabel")
 	loadout = get_tree().get_first_node_in_group("Loadout")
-	$SelectedSprite.animation = node_color
+	if node_color != "aqua":
+		$SelectedSprite.animation = node_color
 	if available:
 		focus_mode = Control.FOCUS_ALL
 
@@ -113,6 +114,8 @@ func set_labels():
 			"difficulty":
 				difficulty_label.texture.region = Rect2(0, 0, float(progress_manager.levels[str(node_level)][k]) * 12 + 1, 16)
 				difficulty_label.show()
+			"0":
+				continue
 			_:
 				access_unlocked[1] += 1
 				if progress_manager.levels[str(node_level)][k]:
