@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b146iopxvfqx4"]
+[gd_scene load_steps=29 format=3 uid="uid://b146iopxvfqx4"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_l7x1c"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_tw1ra"]
@@ -27,12 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://bsikpwvfgeymy" path="res://Scenes/Tiles/VirtualEnvironment400/400_soap_tile.tscn" id="25_5ergv"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="25_x4aii"]
 [ext_resource type="PackedScene" uid="uid://c7hbrhqdgspvi" path="res://Scenes/EnemiesObstaclesTiles/hole_tile.tscn" id="26_qeh6u"]
+[ext_resource type="PackedScene" uid="uid://c8dillckgahw2" path="res://Scenes/EnemiesObstaclesTiles/beetle_barrier.tscn" id="28_pco13"]
 
 [node name="Level401" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_l7x1c")]
-yellow_doomwall_step = 0.5
-red_doomwall_step = 1.0
 level_height = 100
 level_length = 100
 level_number = 401
@@ -1636,20 +1635,8 @@ position = Vector2(928, 256)
 [node name="ByteBarrierEasy" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
 position = Vector2(960, 320)
 
-[node name="ByteBarrierEasy3" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
-position = Vector2(1824, 352)
-
 [node name="ByteBarrierEasy5" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
-position = Vector2(1824, 320)
-
-[node name="ByteBarrierEasy9" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
-position = Vector2(1824, 288)
-
-[node name="ByteBarrierEasy6" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
-position = Vector2(1600, 352)
-
-[node name="ByteBarrierEasy7" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
-position = Vector2(1600, 320)
+position = Vector2(1824, 352)
 
 [node name="ByteBarrierEasy8" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_qb44x")]
 position = Vector2(1600, 288)
@@ -1795,3 +1782,15 @@ position = Vector2(704, 288)
 
 [node name="HoleTile17" parent="." instance=ExtResource("26_qeh6u")]
 position = Vector2(704, 256)
+
+[node name="BeetleBarrier" parent="." instance=ExtResource("28_pco13")]
+position = Vector2(1824, 288)
+
+[node name="BeetleBarrier2" parent="." instance=ExtResource("28_pco13")]
+position = Vector2(1824, 320)
+
+[node name="BeetleBarrier3" parent="." instance=ExtResource("28_pco13")]
+position = Vector2(1600, 320)
+
+[node name="BeetleBarrier4" parent="." instance=ExtResource("28_pco13")]
+position = Vector2(1600, 352)

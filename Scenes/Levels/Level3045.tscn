@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cbfwf7hm1fqjb"]
+[gd_scene load_steps=30 format=3 uid="uid://cbfwf7hm1fqjb"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_c6b8v"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_brv3a"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bdote46jnhsik" path="res://Scenes/Prefabs/doomwall.tscn" id="27_rqw1x"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="27_yi8hc"]
 [ext_resource type="PackedScene" uid="uid://hih0tmjkji56" path="res://Scenes/Tiles/VirtualEnvironment300/300_level_background.tscn" id="28_jablr"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="29_4ubfd"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="29_gqv3v"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="31_7k222"]
 [ext_resource type="PackedScene" uid="uid://cvgos4griyly8" path="res://Scenes/Tiles/SharedVirtual/terminal_access_point.tscn" id="32_102n2"]
@@ -32,8 +33,6 @@
 [node name="Level3045" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_c6b8v")]
-yellow_doomwall_step = 0.5
-red_doomwall_step = 1.0
 level_height = 100
 level_length = 100
 level_number = 3045
@@ -1057,9 +1056,6 @@ position = Vector2(896, 608)
 [node name="ByteBarrierHard16" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
 position = Vector2(928, 608)
 
-[node name="ByteBarrierHard17" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
-position = Vector2(928, 640)
-
 [node name="ByteBarrierHard18" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
 position = Vector2(928, 672)
 
@@ -1083,9 +1079,6 @@ position = Vector2(800, 672)
 
 [node name="ByteBarrierHard11" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
 position = Vector2(832, 672)
-
-[node name="ByteBarrierHard12" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
-position = Vector2(832, 640)
 
 [node name="ByteBarrierHard13" parent="GameplayElements/BytesBarrier" instance=ExtResource("18_rr60w")]
 position = Vector2(832, 608)
@@ -1143,7 +1136,7 @@ unlocks = 5
 [node name="TerminalAccesPoint" parent="GameplayElements/Others" instance=ExtResource("32_102n2")]
 position = Vector2(864, 416)
 strength = 5
-targets = Vector3i(7, 3, 14)
+targets = Vector3i(7, 3, 12)
 
 [node name="Doomwall" parent="GameplayElements/Others" instance=ExtResource("27_rqw1x")]
 
@@ -1542,3 +1535,9 @@ position = Vector2(352, 256)
 rotation = 1.5708
 
 [node name="Dialogue" type="Node2D" parent="."]
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("29_4ubfd")]
+position = Vector2(832, 640)
+
+[node name="ByteBarrierExtreme2" parent="." instance=ExtResource("29_4ubfd")]
+position = Vector2(928, 640)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dcm25emq8r0xb"]
+[gd_scene load_steps=26 format=3 uid="uid://dcm25emq8r0xb"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_gwkj8"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_hf2kb"]
@@ -24,12 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="23_xxj8s"]
 [ext_resource type="PackedScene" uid="uid://dg6n7pupedtmj" path="res://Scenes/Prefabs/virtual_player.tscn" id="25_2au3s"]
 [ext_resource type="PackedScene" uid="uid://c5owey4h2s8ek" path="res://Scenes/Tiles/SharedVirtual/access_point_b.tscn" id="25_ajuwi"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="25_pbjba"]
 
 [node name="Level301" type="Node2D"]
 
 [node name="VirtualLevelManager" parent="." instance=ExtResource("1_gwkj8")]
-yellow_doomwall_step = 0.5
-red_doomwall_step = 1.0
 level_height = 100
 level_length = 100
 level_number = 301
@@ -1102,9 +1101,6 @@ position = Vector2(768, 352)
 [node name="BeetleBarrier138" parent="GameplayElements/BytesBarrier" instance=ExtResource("12_fow1p")]
 position = Vector2(736, 352)
 
-[node name="ByteBarrierMedium17" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_csvsj")]
-position = Vector2(768, 384)
-
 [node name="ByteBarrierMedium18" parent="GameplayElements/BytesBarrier" instance=ExtResource("15_csvsj")]
 position = Vector2(512, 384)
 
@@ -1218,3 +1214,6 @@ position = Vector2(64, 416)
 [node name="VirtualEndTile" parent="." instance=ExtResource("23_xxj8s")]
 position = Vector2(800, 160)
 unlocks = 302
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("25_pbjba")]
+position = Vector2(768, 384)

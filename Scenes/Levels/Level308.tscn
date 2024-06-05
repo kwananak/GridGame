@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cggfr7invhy8l"]
+[gd_scene load_steps=30 format=3 uid="uid://cggfr7invhy8l"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_s1vjs"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="2_wg4e8"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cvmqo5esvy8gy" path="res://Scenes/Tiles/VirtualEnvironment300/300_soap_cross_tile.tscn" id="26_u0rw3"]
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="27_hclia"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="28_hay8c"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="29_7xed8"]
 
 [node name="Level308" type="Node2D"]
 
@@ -1762,9 +1763,6 @@ position = Vector2(704, 352)
 [node name="ByteBarrierEasy41" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_cgyqm")]
 position = Vector2(768, 352)
 
-[node name="ByteBarrierEasy45" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_cgyqm")]
-position = Vector2(1216, 384)
-
 [node name="ByteBarrierEasy42" parent="GameplayElements/BytesBarrier" instance=ExtResource("9_cgyqm")]
 position = Vector2(736, 352)
 
@@ -1789,9 +1787,6 @@ position = Vector2(1248, 384)
 [node name="ByteBarrierHard13" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_wxey1")]
 position = Vector2(992, 416)
 
-[node name="ByteBarrierHard11" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_wxey1")]
-position = Vector2(928, 384)
-
 [node name="ByteBarrierHard12" parent="GameplayElements/BytesBarrier" instance=ExtResource("10_wxey1")]
 position = Vector2(992, 352)
 
@@ -1815,9 +1810,6 @@ position = Vector2(1216, 320)
 
 [node name="ByteBarrierMedium13" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_rntmx")]
 position = Vector2(1216, 448)
-
-[node name="ByteBarrierMedium14" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_rntmx")]
-position = Vector2(1280, 448)
 
 [node name="ByteBarrierMedium10" parent="GameplayElements/BytesBarrier" instance=ExtResource("11_rntmx")]
 position = Vector2(1248, 288)
@@ -1908,7 +1900,7 @@ position = Vector2(992, 768)
 position = Vector2(1248, 672)
 rotation = 1.5708
 strength = 5
-targets = Vector3i(9, 9, 9)
+targets = Vector3i(8, 8, 8)
 
 [node name="VirtualPlayer" parent="GameplayElements/Others" instance=ExtResource("16_xq2yg")]
 position = Vector2(384, 64)
@@ -1952,3 +1944,12 @@ rotation = -3.14159
 [node name="VirtualEndTile" parent="." instance=ExtResource("28_hay8c")]
 position = Vector2(1248, 672)
 unlocks = 4
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("29_7xed8")]
+position = Vector2(928, 384)
+
+[node name="ByteBarrierExtreme2" parent="." instance=ExtResource("29_7xed8")]
+position = Vector2(1280, 448)
+
+[node name="ByteBarrierExtreme3" parent="." instance=ExtResource("29_7xed8")]
+position = Vector2(1216, 384)
