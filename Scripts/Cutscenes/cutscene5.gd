@@ -1,8 +1,8 @@
 extends Control
 
 var counter
-var countdown = 5.0
-var done = false
+var countdown = 7.0
+var done = true
 var negat_count = 1.0
 
 @onready var explo_prefab = preload("res://Scenes/Prefabs/end_explosion.tscn")
@@ -13,6 +13,9 @@ var negat_count = 1.0
 func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
 	set_counter()
+	fade.play("fade_in")
+	await fade.animation_finished
+	done = false
 
 func _process(delta):
 	if done:
@@ -45,10 +48,10 @@ func animation_finished():
 	await fade.animation_finished
 	$"1st".show()
 	fade.play("fade_in")
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 3.0).finished
+	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished
 	$"2nd".show()
 	camera.zoom /= 1.2
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 3.0).finished
+	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished
 	$"3rd".show()
 	camera.zoom /= 1.2
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 3.0).finished
+	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished

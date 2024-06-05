@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_bbpek"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_pbvw6"]
-[ext_resource type="AudioStream" uid="uid://caevtr2u0avdn" path="res://Sounds/Backgrounds/mother_intel.wav" id="3_2y2c1"]
+[ext_resource type="AudioStream" uid="uid://bf2qp1votirkf" path="res://Sounds/Backgrounds/finale.wav" id="3_hbtbe"]
 [ext_resource type="PackedScene" uid="uid://c3pshlpxrfbim" path="res://Scenes/UI/virtual_ui.tscn" id="4_h1ik3"]
 [ext_resource type="PackedScene" uid="uid://cukalfajpr3j0" path="res://Scenes/Tiles/VirtualEnvironment400/400_level_background.tscn" id="5_qi0iw"]
 [ext_resource type="PackedScene" uid="uid://cfi0afs2eqfpo" path="res://Scenes/Tiles/VirtualEnvironment400/400_floor_tile.tscn" id="6_ls77n"]
@@ -36,8 +36,7 @@ level_number = 406
 [node name="ProgramManager" parent="." instance=ExtResource("2_pbvw6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_2y2c1")
-volume_db = -3.0
+stream = ExtResource("3_hbtbe")
 autoplay = true
 bus = &"Music"
 
@@ -45,8 +44,7 @@ bus = &"Music"
 visible = false
 
 [node name="400LevelBackgroundColors" parent="." instance=ExtResource("5_qi0iw")]
-visible = false
-offset_right = 2011.0
+offset_right = 2304.0
 offset_bottom = 1136.0
 
 [node name="Environment" type="Node2D" parent="."]
