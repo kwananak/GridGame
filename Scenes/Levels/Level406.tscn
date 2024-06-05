@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://doouigvqhrvqq"]
+[gd_scene load_steps=27 format=3 uid="uid://doouigvqhrvqq"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_bbpek"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_pbvw6"]
@@ -24,7 +24,44 @@
 [ext_resource type="PackedScene" uid="uid://d4kg7gs6hkbvq" path="res://Scenes/EnemiesObstaclesTiles/red_warning_tile.tscn" id="38_0vjux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7602"]
-size = Vector2(64, 96)
+size = Vector2(160, 224)
+
+[sub_resource type="Animation" id="Animation_ply0i"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_licjr"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ycll"]
+_data = {
+"fade_in": SubResource("Animation_ply0i"),
+"fade_out": SubResource("Animation_licjr")
+}
 
 [node name="Level406" type="Node2D"]
 
@@ -2522,6 +2559,60 @@ position = Vector2(480, 512)
 [node name="YellowWarningTile29" parent="GameplayElements/WarningTiles" instance=ExtResource("27_0lay1")]
 position = Vector2(480, 544)
 
+[node name="RedWarningTile" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 288)
+
+[node name="RedWarningTile2" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 288)
+
+[node name="RedWarningTile12" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 320)
+
+[node name="RedWarningTile13" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 352)
+
+[node name="RedWarningTile14" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 384)
+
+[node name="RedWarningTile15" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 416)
+
+[node name="RedWarningTile16" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 448)
+
+[node name="RedWarningTile17" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 480)
+
+[node name="RedWarningTile18" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 512)
+
+[node name="RedWarningTile19" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(672, 544)
+
+[node name="RedWarningTile20" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 320)
+
+[node name="RedWarningTile21" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 352)
+
+[node name="RedWarningTile22" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 384)
+
+[node name="RedWarningTile23" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 416)
+
+[node name="RedWarningTile24" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 448)
+
+[node name="RedWarningTile25" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 480)
+
+[node name="RedWarningTile26" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 512)
+
+[node name="RedWarningTile27" parent="GameplayElements/WarningTiles" instance=ExtResource("38_0vjux")]
+position = Vector2(704, 544)
+
 [node name="Others" type="Node2D" parent="GameplayElements"]
 
 [node name="VirtualStartTile" parent="GameplayElements/Others" instance=ExtResource("28_6knud")]
@@ -2638,24 +2729,6 @@ position = Vector2(1536, 448)
 
 [node name="PathRobots" type="Node2D" parent="GameplayElements"]
 
-[node name="RobotPath1" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath2" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath3" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath7" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath9" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath8" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath4" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath6" type="Node2D" parent="GameplayElements/PathRobots"]
-
-[node name="RobotPath5" type="Node2D" parent="GameplayElements/PathRobots"]
-
 [node name="Seeker" type="Node2D" parent="GameplayElements"]
 
 [node name="SeekerEnemy5" parent="GameplayElements/Seeker" instance=ExtResource("34_twijl")]
@@ -2698,70 +2771,26 @@ position = Vector2(1344, 608)
 
 [node name="Dialogue" type="Node2D" parent="."]
 
-[node name="RedWarningTile" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 288)
-
-[node name="RedWarningTile2" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 288)
-
-[node name="RedWarningTile12" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 320)
-
-[node name="RedWarningTile13" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 352)
-
-[node name="RedWarningTile14" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 384)
-
-[node name="RedWarningTile15" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 416)
-
-[node name="RedWarningTile16" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 448)
-
-[node name="RedWarningTile17" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 480)
-
-[node name="RedWarningTile18" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 512)
-
-[node name="RedWarningTile19" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(672, 544)
-
-[node name="RedWarningTile20" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 320)
-
-[node name="RedWarningTile21" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 352)
-
-[node name="RedWarningTile22" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 384)
-
-[node name="RedWarningTile23" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 416)
-
-[node name="RedWarningTile24" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 448)
-
-[node name="RedWarningTile25" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 480)
-
-[node name="RedWarningTile26" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 512)
-
-[node name="RedWarningTile27" parent="." instance=ExtResource("38_0vjux")]
-position = Vector2(704, 544)
-
 [node name="NanoBrain" parent="." instance=ExtResource("22_5h1uu")]
 position = Vector2(1776, 416)
 
 [node name="Area2D" type="Area2D" parent="NanoBrain"]
-position = Vector2(-80, 0)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NanoBrain/Area2D"]
-position = Vector2(16, 0)
+position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_p7602")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 49
+offset_right = 2304.0
+offset_bottom = 1136.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_4ycll")
+}
 
 [connection signal="area_entered" from="NanoBrain/Area2D" to="NanoBrain" method="_on_area_entered"]

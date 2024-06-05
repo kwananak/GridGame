@@ -11,6 +11,8 @@ func _ready():
 
 func _on_area_entered(_area):
 	trigger()
+	$"../UI".z_index = 30
+	$"../ColorRect/AnimationPlayer".play("fade_out")
 
 func spawn_bubble():
 	bubble.global_position = camera.position - Vector2(200, 300)
