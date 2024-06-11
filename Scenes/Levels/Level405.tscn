@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://csqfgiwnrol2x"]
+[gd_scene load_steps=39 format=3 uid="uid://csqfgiwnrol2x"]
 
 [ext_resource type="PackedScene" uid="uid://dhqr3k2csmslo" path="res://Scenes/Managers/virtual_level_manager.tscn" id="1_lhkno"]
 [ext_resource type="PackedScene" uid="uid://x23wgv1d2ba6" path="res://Scenes/Managers/program_manager.tscn" id="2_ndiav"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cqafjth10skg2" path="res://Scenes/ItemChips/malfunction.tscn" id="35_mkehx"]
 [ext_resource type="PackedScene" uid="uid://duxljcc6n73yo" path="res://Scenes/ItemChips/booster.tscn" id="36_dnm4p"]
 [ext_resource type="PackedScene" uid="uid://6q8fw5okn8tb" path="res://Scenes/Tiles/SharedVirtual/virtual_end_tile.tscn" id="37_2d3ts"]
+[ext_resource type="PackedScene" uid="uid://br2vm085g7r7q" path="res://Scenes/EnemiesObstaclesTiles/byte_barrier_extreme.tscn" id="38_rl586"]
 
 [node name="Level405" type="Node2D"]
 
@@ -4092,69 +4093,6 @@ position = Vector2(512, 192)
 [node name="BeetleBarrier12" parent="GameplayElements/BytesBarrier" instance=ExtResource("23_36dpo")]
 position = Vector2(512, 160)
 
-[node name="ByteBarrierHard7" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 704)
-
-[node name="ByteBarrierHard8" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 704)
-
-[node name="ByteBarrierHard9" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 704)
-
-[node name="ByteBarrierHard10" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 736)
-
-[node name="ByteBarrierHard11" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 736)
-
-[node name="ByteBarrierHard12" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 736)
-
-[node name="ByteBarrierHard13" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 768)
-
-[node name="ByteBarrierHard14" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 768)
-
-[node name="ByteBarrierHard15" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 768)
-
-[node name="ByteBarrierHard16" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 800)
-
-[node name="ByteBarrierHard17" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 800)
-
-[node name="ByteBarrierHard18" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 800)
-
-[node name="ByteBarrierHard19" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 832)
-
-[node name="ByteBarrierHard20" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 832)
-
-[node name="ByteBarrierHard21" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 832)
-
-[node name="ByteBarrierHard22" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 864)
-
-[node name="ByteBarrierHard23" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 864)
-
-[node name="ByteBarrierHard24" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 864)
-
-[node name="ByteBarrierHard25" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(640, 896)
-
-[node name="ByteBarrierHard26" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(672, 896)
-
-[node name="ByteBarrierHard27" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(704, 896)
-
 [node name="ByteBarrierHard28" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
 position = Vector2(320, 864)
 
@@ -4169,9 +4107,6 @@ position = Vector2(384, 832)
 
 [node name="ByteBarrierHard31" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
 position = Vector2(320, 896)
-
-[node name="ByteBarrierHard32" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
-position = Vector2(352, 896)
 
 [node name="ByteBarrierHard33" parent="GameplayElements/BytesBarrier" instance=ExtResource("21_xc75v")]
 position = Vector2(384, 896)
@@ -4745,8 +4680,74 @@ rotation = 3.14159
 [node name="TerminalAccesPoint" parent="." instance=ExtResource("34_15tpn")]
 position = Vector2(1376, 800)
 strength = 8
-targets = Vector3i(8, 3, 7)
+targets = Vector3i(8, 3, 6)
 
 [node name="VirtualEndTile" parent="." instance=ExtResource("37_2d3ts")]
 position = Vector2(1376, 800)
 unlocks = 406
+
+[node name="ByteBarrierExtreme" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 736)
+
+[node name="ByteBarrierExtreme2" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 704)
+
+[node name="ByteBarrierExtreme3" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 704)
+
+[node name="ByteBarrierExtreme4" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 736)
+
+[node name="ByteBarrierExtreme5" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 704)
+
+[node name="ByteBarrierExtreme6" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 736)
+
+[node name="ByteBarrierExtreme7" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 800)
+
+[node name="ByteBarrierExtreme8" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 768)
+
+[node name="ByteBarrierExtreme9" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 768)
+
+[node name="ByteBarrierExtreme10" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 800)
+
+[node name="ByteBarrierExtreme11" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 768)
+
+[node name="ByteBarrierExtreme12" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 800)
+
+[node name="ByteBarrierExtreme13" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 864)
+
+[node name="ByteBarrierExtreme14" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 832)
+
+[node name="ByteBarrierExtreme15" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 832)
+
+[node name="ByteBarrierExtreme16" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 864)
+
+[node name="ByteBarrierExtreme17" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 832)
+
+[node name="ByteBarrierExtreme22" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(352, 896)
+
+[node name="ByteBarrierExtreme18" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 864)
+
+[node name="ByteBarrierExtreme19" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(704, 896)
+
+[node name="ByteBarrierExtreme20" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(672, 896)
+
+[node name="ByteBarrierExtreme21" parent="." instance=ExtResource("38_rl586")]
+position = Vector2(640, 896)
