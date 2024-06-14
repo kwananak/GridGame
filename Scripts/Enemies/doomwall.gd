@@ -90,7 +90,16 @@ func move_wall(distance):
 		audio.pitch_scale = 1
 		audio.position.y = player.global_position.y
 	audio.play()
-	await create_tween().tween_property(self, "position", Vector2(position.x + distance * level_manager.tile_size, 0), 1.5 / level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
+	var pos = global_position
+	if distance > 0.0:
+		for n in distance / 0.5:
+			global_position.x += 0.5 * level_manager.tile_size
+			sprite.global_position = pos
+	else:
+		for n in distance / -0.5:
+			global_position.x -= 0.5 * level_manager.tile_size
+			sprite.global_position = pos
+	await create_tween().tween_property(sprite, "position", Vector2.ZERO, 1.5 / level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished
 	vision_check()
 
 func vision_check():

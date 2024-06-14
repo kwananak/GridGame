@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3nmr81ldfwjm"]
+[gd_scene load_steps=12 format=3 uid="uid://b3nmr81ldfwjm"]
 
 [ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="1_ce6s7"]
 [ext_resource type="Texture2D" uid="uid://cqoepms2scy6m" path="res://Sprites/Cutscenes/background2.png" id="2_3kqad"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_45is8"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="5_miqup"]
 [ext_resource type="PackedScene" uid="uid://bvncemeabelnw" path="res://Scenes/Cutscenes/robot_light.tscn" id="6_mpno7"]
+[ext_resource type="PackedScene" uid="uid://yg1gmli3j8rk" path="res://Scenes/UI/date.tscn" id="7_qa0t7"]
 [ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="7_xian6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5x4f"]
@@ -109,5 +110,8 @@ position = Vector2(472.381, 186.667)
 stream = ExtResource("7_xian6")
 autoplay = true
 bus = &"Music"
+
+[node name="Date" parent="." instance=ExtResource("7_qa0t7")]
+date = 2061
 
 [connection signal="button_down" from="Sprite2D/Button" to="." method="_on_button_button_down"]

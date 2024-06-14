@@ -8,7 +8,8 @@ var negat_count = 1.0
 @onready var explo_prefab = preload("res://Scenes/Prefabs/end_explosion.tscn")
 @onready var negative = $Negative
 @onready var camera
-@onready var fade = $ColorRect/AnimationPlayer
+@onready var fade = $Fader/AnimationPlayer
+@onready var date = preload("res://Scenes/UI/date.tscn")
 
 func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
@@ -45,13 +46,13 @@ func set_counter():
 	counter = randf_range(0.05, 0.2)
 
 func animation_finished():
+	create_tween().tween_property($AudioStreamPlayer, "volume_db", -80.0, 1.0)
 	await fade.animation_finished
 	$"1st".show()
 	fade.play("fade_in")
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished
+	add_child(date.instantiate())
+	await create_tween().tween_property($"1st", "scale", Vector2(1.2, 1.2), 4.0).finished
 	$"2nd".show()
-	camera.zoom /= 1.2
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished
+	await create_tween().tween_property($"2nd", "scale", Vector2(1.2, 1.2), 4.0).finished
 	$"3rd".show()
-	camera.zoom /= 1.2
-	await create_tween().tween_property(camera, "zoom", camera.zoom * 1.2, 4.0).finished
+	await create_tween().tween_property($"3rd", "scale", Vector2(1.2, 1.2), 4.0).finished
