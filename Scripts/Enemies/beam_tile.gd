@@ -109,7 +109,7 @@ func hit_by_player(_strength):
 	if is_destroyed:
 		return
 	sprite.frame = 3
-	if get_tree().get_first_node_in_group("FramedChecker").check(position):
+	if get_tree().get_first_node_in_group("FramedChecker").check(global_position):
 		$Audio.play()
 	for n in $Beam.get_children():
 		n.queue_free()

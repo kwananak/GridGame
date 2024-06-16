@@ -27,7 +27,6 @@ func _input(event):
 		if event.is_pressed() && event.button_index == 1:
 			_on_button_button_down()
 
-
 func _on_button_button_down():
 	if writing:
 		writing = false

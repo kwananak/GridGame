@@ -2,6 +2,9 @@ extends Control
 
 var toggled = false
 
+var key_config
+var joypad_config
+
 @onready var label = $HBoxContainer/Label
 @onready var button = $HBoxContainer/Button
 
@@ -33,14 +36,18 @@ func _on_button_down():
 			n.toggled = false
 			n.set_text_for_key()
 
-func _unhandled_key_input(event):
+func _input(event):
 	if toggled:
-		rebind_action_key(event)
-		toggled = false
-		button.focus_mode = FOCUS_ALL
-		button.grab_focus()
+		get_viewport().set_input_as_handled()
+		if event is InputEventKey:
+			if event.is_pressed():
+				rebind_action_key(false, event)
+				toggled = false
+				button.focus_mode = FOCUS_ALL
+				button.grab_focus()
 
-func rebind_action_key(event):
-	InputMap.action_erase_events(name)
-	InputMap.action_add_event(name, event)
-	set_text_for_key()
+func rebind_action_key(joypad, event):
+	if !joypad:
+		InputMap.action_erase_events(name)
+		InputMap.action_add_event(name, event)
+		set_text_for_key()

@@ -1,16 +1,25 @@
 extends Control
 
-@onready var tab_container = $TabContainer
 var exit_button
 var config_path = "user://config.save"
 var config = {}
+var joypad_config = false : set = set_joypad_config
 
+signal joypad_config_signal
+
+@onready var tab_container = $TabContainer
 func _ready():
 	exit_button = get_tree().get_first_node_in_group("OptionExitButton")
 	await get_tree().create_timer(1.3).timeout
 	load_config()
 
 func _input(event):
+	if event is InputEventJoypadButton || event is InputEventJoypadMotion:
+		joypad_config = true
+	else:
+		joypad_config = false
+
+func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_Q:
 			if tab_container.current_tab > 0:
@@ -20,6 +29,28 @@ func _input(event):
 			if tab_container.current_tab < 2:
 				tab_container.current_tab += 1
 				exit_button.grab_focus()
+	if event is InputEventJoypadButton and event.pressed:
+		if event.button_index == 9:
+			if tab_container.current_tab > 0:
+				tab_container.current_tab -= 1
+				exit_button.grab_focus()
+		if event.button_index == 10:
+			if tab_container.current_tab < 2:
+				tab_container.current_tab += 1
+				exit_button.grab_focus()
+
+func set_joypad_config(value):
+	if value == joypad_config:
+		return
+	joypad_config = value
+	joypad_config_signal.emit(value)
+	if value:
+		$Label.text = "LT"
+		$Label2.text = "RT"
+	else:
+		$Label.text = "Q"
+		$Label2.text = "E"
+		
 
 func save_config():
 	for n in $TabContainer/Audio/MarginContainer/VBoxContainer.get_children():
@@ -27,7 +58,9 @@ func save_config():
 	for n in $TabContainer/Video/MarginContainer/VBoxContainer.get_children():
 		config[n.name] = n.get_node("HBoxContainer/OptionButton").selected
 	for n in get_tree().get_first_node_in_group("ControlsContainer").get_children():
-		config[n.name] = InputMap.action_get_events(n.name)[0].physical_keycode
+		config[n.name] = {"keyboard":null,"joypad":null}
+		config[n.name]["keyboard"] = InputMap.action_get_events(n.name)[0].physical_keycode
+		#config[n.name]["joypad"] = InputMap.action_get_events(n.name)[0].button_index
 	var config_file = FileAccess.open(config_path, FileAccess.WRITE)
 	config_file.store_line(JSON.stringify(config))
 	config_file.close()
@@ -54,7 +87,9 @@ func load_config():
 			$TabContainer/Video/MarginContainer/VBoxContainer.get_node(n + "/HBoxContainer/OptionButton").selected = data[n]
 		else:
 			var key = InputEventKey.new()
-			key.physical_keycode = data[n]
-			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(key)
+			if not "keyboard" in data[n]:
+				return
+			key.physical_keycode = data[n]["keyboard"]
+			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(false, key)
 	win_mode.item_selected.emit(win_mode.selected)
 	win_mode.item_selected.emit(win_mode.selected)
