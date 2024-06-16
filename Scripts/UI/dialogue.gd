@@ -82,6 +82,9 @@ func write_bubble(sentence):
 	label.clear()
 	var bolded = false
 	for i in dialog[sentence]:
+		if i == "@":
+			get_node("AudioStreamPlayer").play()
+			continue
 		if i == "$":
 			if !bolded:
 				if !highlight_color:

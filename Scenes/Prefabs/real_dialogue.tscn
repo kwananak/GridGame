@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://bxtv0cq3uifbu"]
+[gd_scene load_steps=33 format=3 uid="uid://bxtv0cq3uifbu"]
 
 [ext_resource type="Script" path="res://Scripts/UI/real_dialogue.gd" id="1_q7uip"]
 [ext_resource type="Texture2D" uid="uid://bcg1ji0j1bome" path="res://Sprites/UI/real_dialogue.png" id="2_6xjem"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_svvja"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_m57a4"]
+[ext_resource type="AudioStream" uid="uid://ftoy6ik4vo4j" path="res://Sounds/Real/implant.mp3" id="5_kmn04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcmyc"]
 atlas = ExtResource("2_6xjem")
@@ -246,3 +247,6 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_17hsa")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kmn04")
