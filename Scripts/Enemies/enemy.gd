@@ -19,6 +19,7 @@ var hitted = false
 @onready var shield_prefab = preload("res://Scenes/Prefabs/path_enemy_shield.tscn")
 
 func _ready():
+	move.pitch_scale *= randf_range(0.9, 1.1)
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	framed_checker = get_tree().get_first_node_in_group("FramedChecker")
 	if shielded:
@@ -47,7 +48,7 @@ func turn_call():
 		Vector2.RIGHT:
 			animated_sprite_2d.flip_h = false
 	if framed_checker.check(global_position):
-		move.play()
+		play_move_sound()
 	var old_pos = animated_sprite_2d.global_position
 	level_manager.astar_grid.set_point_solid(Vector2i(global_position) / level_manager.tile_size, false)
 	position += direction * level_manager.tile_size
@@ -59,6 +60,10 @@ func turn_call():
 	move_animation(frame)
 	if level_manager.vision:
 		$Sprite2D.show()
+
+func play_move_sound():
+	await get_tree().create_timer(randf_range(0.05, 0.2)).timeout
+	move.play()
 
 func move_animation(frame):
 	await create_tween().tween_property(animated_sprite_2d, "position", Vector2.ZERO, 1.5/level_manager.animation_speed).set_trans(Tween.TRANS_SINE).finished

@@ -14,6 +14,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	super._ready()
 	shield_prefab = preload("res://Scenes/Prefabs/seeker_enemy_shield.tscn")
+	if level_manager.level_number == 406:
+		move.volume_db -= 5
 
 ## Handles level manager's end_turn_call by moving towards next player using level manager's a* grid
 func path_find():

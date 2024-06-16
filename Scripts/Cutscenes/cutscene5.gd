@@ -1,7 +1,7 @@
 extends Control
 
 var counter
-var countdown = 7.0
+var countdown = 8.0
 var done = true
 var negat_count = 1.0
 
@@ -46,11 +46,14 @@ func set_counter():
 	counter = randf_range(0.05, 0.2)
 
 func animation_finished():
-	create_tween().tween_property($AudioStreamPlayer, "volume_db", -80.0, 1.0)
+	create_tween().tween_property($AudioStreamPlayer, "volume_db", -80.0, 2.0)
 	await fade.animation_finished
+	await get_tree().create_timer(2.0).timeout
 	$"1st".show()
 	fade.play("fade_in")
 	add_child(date.instantiate())
+	$WindSound.play()
+	create_tween().tween_property($WindSound, "volume_db", 5.0, 2.0)
 	await create_tween().tween_property($"1st", "scale", Vector2(1.2, 1.2), 4.0).finished
 	$"2nd".show()
 	await create_tween().tween_property($"2nd", "scale", Vector2(1.2, 1.2), 4.0).finished

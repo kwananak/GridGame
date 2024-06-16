@@ -10,6 +10,7 @@ func _ready():
 	dialog = progress_manager.dialogs["RW6"]["1"]["text"]
 
 func _on_area_entered(_area):
+	level_manager.game_over = true
 	trigger()
 	$"../UI".z_index = 30
 	$"../ColorRect/AnimationPlayer".play("fade_out")
