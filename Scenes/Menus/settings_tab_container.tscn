@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckrjxmggvq5cs" path="res://Scenes/Menus/slider_display_button.tscn" id="2_ynskb"]
 [ext_resource type="PackedScene" uid="uid://bx50uq6v53q1s" path="res://Scenes/Menus/hotkey_rebind_button.tscn" id="3_l7kgy"]
 
-[node name="SettingsTabContainer" type="Control"]
+[node name="SettingsTabContainer" type="Control" groups=["Settings"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,15 +127,15 @@ action_name = "Up"
 layout_mode = 2
 action_name = "Down"
 
-[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["SkipSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Skip Turn"
 
-[node name="pause" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="pause" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["PauseSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Pause"
 
-[node name="select" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="select" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["SelectButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Select"
 

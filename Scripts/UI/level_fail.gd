@@ -26,6 +26,7 @@ func _on_menu_button_down():
 	level_manager.call_menu()
 
 func _on_resume_button_down():
+	await get_tree().create_timer(0.1).timeout
 	level_manager.paused = false
 	queue_free()
 

@@ -6,6 +6,8 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	get_tree().get_first_node_in_group("Settings").joypad_config_signal.connect(update_label)
+	update_label(false)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -22,3 +24,10 @@ func show_skip():
 	$AnimatedSprite2D.frame = 1
 	await get_tree().create_timer(0.2).timeout
 	$AnimatedSprite2D.frame = 0
+
+func update_label(_joypad):
+	$Label.text = get_tree().get_first_node_in_group("SkipSettingButton").button.text
+
+
+func _on_tree_entered():
+	update_label(false)

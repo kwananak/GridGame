@@ -9,6 +9,8 @@ func _ready():
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
 	level_manager.pause_trigger.connect(show_pause)
+	get_tree().get_first_node_in_group("Settings").joypad_config_signal.connect(update_label)
+	update_label(false)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -26,3 +28,9 @@ func show_pause(paused):
 		$AnimatedSprite2D.frame = 1
 	else:
 		$AnimatedSprite2D.frame = 0
+
+func update_label(_joypad):
+	$Label.text = get_tree().get_first_node_in_group("PauseSettingButton").button.text
+
+func _on_tree_entered():
+	update_label(false)

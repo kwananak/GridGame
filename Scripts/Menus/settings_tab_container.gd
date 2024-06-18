@@ -59,8 +59,17 @@ func save_config():
 		config[n.name] = n.get_node("HBoxContainer/OptionButton").selected
 	for n in get_tree().get_first_node_in_group("ControlsContainer").get_children():
 		config[n.name] = {"keyboard":null,"joypad":null}
-		config[n.name]["keyboard"] = InputMap.action_get_events(n.name)[0].physical_keycode
-		#config[n.name]["joypad"] = InputMap.action_get_events(n.name)[0].button_index
+		for o in InputMap.action_get_events(n.name):
+			if o is InputEventKey:
+				config[n.name]["keyboard"] = o.physical_keycode
+			if o is InputEventJoypadButton:
+				config[n.name]["joypad"] = "B" + str(o.button_index)
+			if o is InputEventJoypadMotion:
+				var v = "M"
+				v += str(o.axis)
+				if o.axis_value < 0:
+					v += "-"
+				config[n.name]["joypad"] = v
 	var config_file = FileAccess.open(config_path, FileAccess.WRITE)
 	config_file.store_line(JSON.stringify(config))
 	config_file.close()
@@ -87,9 +96,18 @@ func load_config():
 			$TabContainer/Video/MarginContainer/VBoxContainer.get_node(n + "/HBoxContainer/OptionButton").selected = data[n]
 		else:
 			var key = InputEventKey.new()
-			if not "keyboard" in data[n]:
-				return
 			key.physical_keycode = data[n]["keyboard"]
-			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(false, key)
+			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(key)
+			var joy = data[n]["joypad"]
+			if joy.begins_with("M"):
+				var move = InputEventJoypadMotion.new()
+				move.axis = int(joy.substr(1, 1))
+				if joy.length() == 3:
+					move.axis_value = -1.00
+				get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(move)
+			else:
+				var button = InputEventJoypadButton.new()
+				button.button_index = int(joy)
+				get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(button)
 	win_mode.item_selected.emit(win_mode.selected)
 	win_mode.item_selected.emit(win_mode.selected)

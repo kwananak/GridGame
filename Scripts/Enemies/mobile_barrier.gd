@@ -21,7 +21,7 @@ func check_move(player_position):
 	return true
 
 func move(direction):
-	if moved:
+	if moved || !direction:
 		return
 	moved = true
 	audio.play()
