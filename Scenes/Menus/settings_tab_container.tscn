@@ -32,6 +32,7 @@ theme_override_font_sizes/font_size = 30
 tab_alignment = 1
 
 [node name="Audio" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio"]
@@ -90,7 +91,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
@@ -105,39 +105,68 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer" groups=["ControlsContainer"]]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 600
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/HBoxContainer" groups=["ControlsContainer"]]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 72
 
-[node name="left" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="left" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Left"
 
-[node name="right" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="right" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Right"
 
-[node name="up" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="up" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../VBoxContainer/RightHand")
 action_name = "Up"
 
-[node name="down" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="down" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_l7kgy")]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../VBoxContainer/Boots")
 action_name = "Down"
 
-[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["SkipSettingButton"] instance=ExtResource("3_l7kgy")]
+[node name="skip_turn" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" groups=["SkipSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
+focus_neighbor_right = NodePath("../../VBoxContainer/Boots")
 action_name = "Skip Turn"
 
-[node name="pause" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["PauseSettingButton"] instance=ExtResource("3_l7kgy")]
+[node name="pause" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" groups=["PauseSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Pause"
 
-[node name="select" parent="TabContainer/Controls/MarginContainer/VBoxContainer" groups=["SelectButton"] instance=ExtResource("3_l7kgy")]
+[node name="select" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer2" groups=["SelectButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Select"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/HBoxContainer" groups=["ControlsContainer"]]
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="Goggles" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+layout_mode = 2
+action_name = "Goggles"
+
+[node name="LeftHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+layout_mode = 2
+action_name = "Left Hand"
+
+[node name="RightHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer2/up")
+action_name = "Right Hand"
+
+[node name="Boots" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer2/down")
+action_name = "Boots"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

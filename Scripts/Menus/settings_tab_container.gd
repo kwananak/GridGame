@@ -95,19 +95,23 @@ func load_config():
 		elif $TabContainer/Video/MarginContainer/VBoxContainer.has_node(n):
 			$TabContainer/Video/MarginContainer/VBoxContainer.get_node(n + "/HBoxContainer/OptionButton").selected = data[n]
 		else:
+			var setting
+			for o in get_tree().get_nodes_in_group("ControlsContainer"):
+				if o.has_node(n):
+					setting = o.get_node(n)
 			var key = InputEventKey.new()
 			key.physical_keycode = data[n]["keyboard"]
-			get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(key)
+			setting.rebind_action_key(key)
 			var joy = data[n]["joypad"]
 			if joy.begins_with("M"):
 				var move = InputEventJoypadMotion.new()
 				move.axis = int(joy.substr(1, 1))
 				if joy.length() == 3:
 					move.axis_value = -1.00
-				get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(move)
+				setting.rebind_action_key(move)
 			else:
 				var button = InputEventJoypadButton.new()
 				button.button_index = int(joy)
-				get_tree().get_first_node_in_group("ControlsContainer").get_node(n).rebind_action_key(button)
+				setting.rebind_action_key(button)
 	win_mode.item_selected.emit(win_mode.selected)
 	win_mode.item_selected.emit(win_mode.selected)

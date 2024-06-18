@@ -30,7 +30,8 @@ func show_pause(paused):
 		$AnimatedSprite2D.frame = 0
 
 func update_label(_joypad):
-	$Label.text = get_tree().get_first_node_in_group("PauseSettingButton").button.text
+	if is_inside_tree():
+		$Label.text = get_tree().get_first_node_in_group("PauseSettingButton").button.text
 
 func _on_tree_entered():
 	update_label(false)
