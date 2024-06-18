@@ -57,19 +57,20 @@ func save_config():
 		config[n.name] = n.h_slider.value
 	for n in $TabContainer/Video/MarginContainer/VBoxContainer.get_children():
 		config[n.name] = n.get_node("HBoxContainer/OptionButton").selected
-	for n in get_tree().get_first_node_in_group("ControlsContainer").get_children():
-		config[n.name] = {"keyboard":null,"joypad":null}
-		for o in InputMap.action_get_events(n.name):
-			if o is InputEventKey:
-				config[n.name]["keyboard"] = o.physical_keycode
-			if o is InputEventJoypadButton:
-				config[n.name]["joypad"] = "B" + str(o.button_index)
-			if o is InputEventJoypadMotion:
-				var v = "M"
-				v += str(o.axis)
-				if o.axis_value < 0:
-					v += "-"
-				config[n.name]["joypad"] = v
+	for m in get_tree().get_nodes_in_group("ControlsContainer"):
+		for n in m.get_children():
+			config[n.name] = {"keyboard":null,"joypad":null}
+			for o in InputMap.action_get_events(n.name):
+				if o is InputEventKey:
+					config[n.name]["keyboard"] = o.physical_keycode
+				if o is InputEventJoypadButton:
+					config[n.name]["joypad"] = "B" + str(o.button_index)
+				if o is InputEventJoypadMotion:
+					var v = "M"
+					v += str(o.axis)
+					if o.axis_value < 0:
+						v += "-"
+					config[n.name]["joypad"] = v
 	var config_file = FileAccess.open(config_path, FileAccess.WRITE)
 	config_file.store_line(JSON.stringify(config))
 	config_file.close()

@@ -29,6 +29,5 @@ func update_label(_joypad):
 	if is_inside_tree():
 		$Label.text = get_tree().get_first_node_in_group("SkipSettingButton").button.text
 
-
 func _on_tree_entered():
 	update_label(false)

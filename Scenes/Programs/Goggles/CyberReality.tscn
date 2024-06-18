@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ykmhiaw3cqvr"]
+[gd_scene load_steps=17 format=3 uid="uid://ykmhiaw3cqvr"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Goggles/cyber_reality.gd" id="1_mwqr6"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_nm153"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_32myg"]
 [ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="4_msr04"]
 [ext_resource type="AudioStream" uid="uid://b72yrvnf8cfj7" path="res://Sounds/FX/amazing_goggles.wav" id="5_fd8bd"]
+[ext_resource type="Script" path="res://Scripts/UI/program_button_label.gd" id="6_mqce0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux22f"]
 
@@ -92,6 +93,20 @@ use_parent_material = true
 position = Vector2(0, 18)
 sprite_frames = SubResource("SpriteFrames_it20a")
 
+[node name="Label" type="Label" parent="LoadedSprite/Button"]
+offset_left = -11.0
+offset_top = -6.0
+offset_right = 97.0
+offset_bottom = 65.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_moanf")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_mqce0")
+slot = "Goggles"
+
 [node name="FileSprite" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.761, 0.761)
@@ -104,3 +119,4 @@ bus = &"FX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="tree_entered" from="LoadedSprite/Button/Label" to="LoadedSprite/Button/Label" method="_on_tree_entered"]

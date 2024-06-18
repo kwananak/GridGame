@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://caq3tmtnish1u"]
+[gd_scene load_steps=18 format=3 uid="uid://caq3tmtnish1u"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/Boots/neutrino.gd" id="1_3sflv"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="2_cf784"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_536q8"]
 [ext_resource type="Texture2D" uid="uid://cw2sa6dpe3kv6" path="res://Sprites/UI/UI_Icons.png" id="4_e21er"]
 [ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="4_ynu1o"]
+[ext_resource type="Script" path="res://Scripts/UI/program_button_label.gd" id="6_8gug5"]
 [ext_resource type="AudioStream" uid="uid://dfprfackro1pc" path="res://Sounds/FX/teleport_up.wav" id="6_y5qbr"]
 [ext_resource type="AudioStream" uid="uid://d3yggsgls5v52" path="res://Sounds/FX/teleport_down.wav" id="7_5cxak"]
 
@@ -26,22 +27,22 @@ shader_parameter/darken = false
 atlas = ExtResource("2_cf784")
 region = Rect2(131, 547, 42, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hy17a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnqee"]
 atlas = ExtResource("4_e21er")
-region = Rect2(144, 240, 16, 16)
+region = Rect2(144, 192, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2n4f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ng2f"]
 atlas = ExtResource("4_e21er")
-region = Rect2(160, 240, 16, 16)
+region = Rect2(160, 192, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5q2oh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2y17"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hy17a")
+"texture": SubResource("AtlasTexture_wnqee")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f2n4f")
+"texture": SubResource("AtlasTexture_8ng2f")
 }],
 "loop": false,
 "name": &"default",
@@ -92,7 +93,21 @@ texture = SubResource("AtlasTexture_ksaql")
 [node name="Button" type="AnimatedSprite2D" parent="LoadedSprite"]
 use_parent_material = true
 position = Vector2(0, 18)
-sprite_frames = SubResource("SpriteFrames_5q2oh")
+sprite_frames = SubResource("SpriteFrames_j2y17")
+
+[node name="Label" type="Label" parent="LoadedSprite/Button"]
+offset_left = -11.0
+offset_top = -6.0
+offset_right = 97.0
+offset_bottom = 65.0
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.372549, 0.803922, 0.894118, 1)
+theme_override_fonts/font = ExtResource("3_536q8")
+theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_8gug5")
+slot = "Boots"
 
 [node name="FileSprite" type="Sprite2D" parent="."]
 visible = false
@@ -112,3 +127,4 @@ bus = &"FX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="tree_entered" from="LoadedSprite/Button/Label" to="LoadedSprite/Button/Label" method="_on_tree_entered"]

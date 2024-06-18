@@ -32,7 +32,6 @@ theme_override_font_sizes/font_size = 30
 tab_alignment = 1
 
 [node name="Audio" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio"]
@@ -91,6 +90,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Controls" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
@@ -150,20 +150,20 @@ action_name = "Select"
 layout_mode = 2
 theme_override_constants/separation = 72
 
-[node name="Goggles" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="Goggles" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" groups=["GogglesSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Goggles"
 
-[node name="LeftHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="LeftHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" groups=["LeftHandSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 action_name = "Left Hand"
 
-[node name="RightHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="RightHand" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" groups=["RightHandSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../VBoxContainer2/up")
 action_name = "Right Hand"
 
-[node name="Boots" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_l7kgy")]
+[node name="Boots" parent="TabContainer/Controls/MarginContainer/HBoxContainer/VBoxContainer" groups=["BootsSettingButton"] instance=ExtResource("3_l7kgy")]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../VBoxContainer2/down")
 action_name = "Boots"
