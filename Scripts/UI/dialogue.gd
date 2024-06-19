@@ -20,7 +20,7 @@ var dialog
 @onready var bubble = $Bubble
 @onready var label = $Bubble/Label
 @onready var highlight = $Highlight
-@onready var button_sprite = $Bubble/ButtonSprite
+@onready var button_sprite = $Bubble/SelectButton
 @onready var log_flag = preload("res://Scenes/UI/log_flag.tscn")
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d0mvtlccbtp1b"]
+[gd_scene load_steps=43 format=3 uid="uid://d0mvtlccbtp1b"]
 
 [ext_resource type="Texture2D" uid="uid://dgckkbmqrfnrt" path="res://Sprites/Cutscenes/background4.png" id="2_lua2e"]
 [ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene.gd" id="2_pu08n"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="6_wqn1c"]
 [ext_resource type="Texture2D" uid="uid://byjtu3iv2beap" path="res://Sprites/Cutscenes/background4light.png" id="7_cvkmq"]
 [ext_resource type="Script" path="res://Scripts/Cutscenes/robot_light.gd" id="8_f7idg"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="9_st7md"]
 [ext_resource type="PackedScene" uid="uid://yg1gmli3j8rk" path="res://Scenes/UI/date.tscn" id="10_g6pbh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e5x4f"]
@@ -257,6 +258,7 @@ theme_override_font_sizes/font_size = 110
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="Sprite2D"]
+visible = false
 offset_left = 297.5
 offset_top = 214.976
 offset_right = 397.5
@@ -293,6 +295,10 @@ script = ExtResource("8_f7idg")
 position = Vector2(2.85712, -269.524)
 sprite_frames = SubResource("SpriteFrames_hxcys")
 script = ExtResource("8_f7idg")
+
+[node name="SelectButton" parent="Sprite2D" instance=ExtResource("9_st7md")]
+position = Vector2(389.524, 209.524)
+scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_wqn1c")

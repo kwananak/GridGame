@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cf5xfs04ndyvf"]
+[gd_scene load_steps=20 format=3 uid="uid://cf5xfs04ndyvf"]
 
 [ext_resource type="Script" path="res://Scripts/UI/extra_dialogue.gd" id="1_1yioh"]
 [ext_resource type="Texture2D" uid="uid://c4u6khf1b4xwy" path="res://Sprites/EnvironmentReal/shining.png" id="2_avhyr"]
 [ext_resource type="Texture2D" uid="uid://dsgqp5y87yv0l" path="res://Sprites/Cutscenes/tablet.png" id="3_bpns6"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_2fyp6"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_ea6so"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="5_p5cq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ps80l"]
 
@@ -63,28 +64,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_udfov"]
-atlas = ExtResource("4_ea6so")
-region = Rect2(144, 310, 24, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_whbjp"]
-atlas = ExtResource("4_ea6so")
-region = Rect2(144, 311, 24, 10)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1035d"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_udfov")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_whbjp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2ecw"]
@@ -153,12 +132,9 @@ scale = Vector2(0.2, 0.2)
 theme_override_fonts/normal_font = ExtResource("4_2fyp6")
 theme_override_font_sizes/normal_font_size = 90
 
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
+[node name="SelectButton" parent="Bubble" instance=ExtResource("5_p5cq0")]
 visible = false
-position = Vector2(82, 28)
-scale = Vector2(0.765625, 0.757813)
-sprite_frames = SubResource("SpriteFrames_1035d")
-autoplay = "default"
+position = Vector2(85.75, 27.75)
 
 [node name="Highlight" type="AnimatedSprite2D" parent="."]
 visible = false

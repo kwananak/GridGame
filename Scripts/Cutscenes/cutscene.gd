@@ -26,6 +26,9 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			_on_button_button_down()
+	if event.is_action_pressed("select"):
+		if event.is_pressed():
+			_on_button_button_down()
 
 func _on_button_button_down():
 	if writing:

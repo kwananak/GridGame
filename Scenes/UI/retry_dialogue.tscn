@@ -1,33 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwklisxcy6gfc"]
+[gd_scene load_steps=11 format=3 uid="uid://bwklisxcy6gfc"]
 
 [ext_resource type="Script" path="res://Scripts/UI/retry_dialogue.gd" id="1_5rksh"]
 [ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="2_rb34u"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_hnlew"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_5s574"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="4_u3al0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq3fy"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_belam"]
-atlas = ExtResource("4_5s574")
-region = Rect2(112, 134, 24, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ohvj"]
-atlas = ExtResource("4_5s574")
-region = Rect2(145, 135, 24, 10)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_66t0y"]
-animations = [{
-"frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_belam")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ohvj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2ecw"]
 atlas = ExtResource("4_5s574")
@@ -71,7 +50,6 @@ z_index = 90
 script = ExtResource("1_5rksh")
 
 [node name="Bubble" parent="." instance=ExtResource("2_rb34u")]
-visible = false
 scale = Vector2(4, 4)
 
 [node name="Label" type="RichTextLabel" parent="Bubble"]
@@ -96,13 +74,11 @@ scale = Vector2(0.25, 0.25)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oq3fy")
 flat = true
 
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
+[node name="SelectButton" parent="Bubble" instance=ExtResource("4_u3al0")]
 visible = false
-position = Vector2(87.25, 28.25)
-scale = Vector2(0.765625, 0.757813)
-sprite_frames = SubResource("SpriteFrames_66t0y")
-autoplay = "default"
-frame_progress = 0.852589
+position = Vector2(87.25, 29)
+scale = Vector2(0.5, 0.5)
+digital = true
 
 [node name="Highlight" type="AnimatedSprite2D" parent="."]
 visible = false

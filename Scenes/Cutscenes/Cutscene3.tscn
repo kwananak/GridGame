@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccb5e1p5l3g6r"]
+[gd_scene load_steps=15 format=3 uid="uid://ccb5e1p5l3g6r"]
 
 [ext_resource type="Shader" path="res://Shaders/darken.gdshader" id="1_d53dl"]
 [ext_resource type="Script" path="res://Scripts/Cutscenes/cutscene3.gd" id="2_yrnn2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d25i4dfr5i0o" path="res://Sprites/Cutscenes/head_background3.png" id="4_cqv50"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="5_qq22u"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="6_7ho7g"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="7_bwrec"]
 [ext_resource type="AudioStream" uid="uid://cw7ttko87imap" path="res://Sounds/Backgrounds/cutscene.wav" id="7_ds4i3"]
 [ext_resource type="PackedScene" uid="uid://yg1gmli3j8rk" path="res://Scenes/UI/date.tscn" id="8_cmnsp"]
 
@@ -85,6 +86,7 @@ theme_override_font_sizes/font_size = 120
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="Sprite2D"]
+visible = false
 offset_left = 297.5
 offset_top = 214.976
 offset_right = 397.5
@@ -97,6 +99,10 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nsku8")
 autoplay = "default"
 centered = false
+
+[node name="SelectButton" parent="Sprite2D" instance=ExtResource("7_bwrec")]
+position = Vector2(389.524, 209.524)
+scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ds4i3")
