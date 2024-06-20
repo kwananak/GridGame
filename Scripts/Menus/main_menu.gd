@@ -5,6 +5,8 @@ extends Control
 @onready var new_game = $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame
 @onready var continue_game = $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ContinueGame
 @onready var main = $/root/Main
+@onready var fader = $Fader/AnimationPlayer
+@onready var fader_2 = $Fader2/AnimationPlayer
 
 func _ready():
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
@@ -45,3 +47,15 @@ func confirm_new_game():
 func remove_confirm_box():
 	$ConfirmBox.hide()
 	continue_game.grab_focus()
+
+func menu_fade():
+	fader.play("fade_out")
+	create_tween().tween_property($MenuAudio, "volume_db", -80.0, 3.0)
+	await fader.animation_finished
+	await get_tree().create_timer(1.0).timeout
+	fader_2.play("fade_out")
+	await fader_2.animation_finished
+	$Fader.color.a = 0
+	$Fader2.color.a = 0
+	$MenuAudio.stop()
+	$MenuAudio.volume_db = 0

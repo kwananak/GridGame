@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://com1wps1gaayy"]
+[gd_scene load_steps=19 format=3 uid="uid://com1wps1gaayy"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_jh7c5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="1_sdes2"]
@@ -29,6 +29,44 @@ region = Rect2(782, 2126, 314, 150)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvbaa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt7ku"]
+
+[sub_resource type="Animation" id="Animation_ply0i"]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_licjr"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ycll"]
+_data = {
+"fade_in": SubResource("Animation_ply0i"),
+"fade_out": SubResource("Animation_licjr")
+}
 
 [node name="MainMenu" type="Control"]
 custom_minimum_size = Vector2(1440, 810)
@@ -75,6 +113,7 @@ theme_override_constants/separation = 384
 alignment = 1
 
 [node name="TitleRect" type="TextureRect" parent="TitleMenu/MarginContainer/VBoxContainer"]
+z_index = 2
 custom_minimum_size = Vector2(5550, 1410)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -144,6 +183,7 @@ bus = &"Music"
 
 [node name="ConfirmBox" type="Sprite2D" parent="."]
 visible = false
+z_index = 3
 position = Vector2(719, 427)
 texture = SubResource("AtlasTexture_3fc0h")
 
@@ -188,6 +228,34 @@ theme_override_font_sizes/font_size = 120
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jt7ku")
 text = "NO"
 flat = true
+
+[node name="Fader" type="ColorRect" parent="."]
+z_index = 1
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1449.0
+offset_bottom = 810.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fader"]
+libraries = {
+"": SubResource("AnimationLibrary_4ycll")
+}
+
+[node name="Fader2" type="ColorRect" parent="."]
+z_index = 4
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1449.0
+offset_bottom = 810.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fader2"]
+libraries = {
+"": SubResource("AnimationLibrary_4ycll")
+}
 
 [connection signal="button_down" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
 [connection signal="mouse_entered" from="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" to="TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NewGame" method="grab_focus"]

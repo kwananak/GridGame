@@ -47,6 +47,7 @@ func set_menu():
 			disable_continue()
 	menu_audio = menu.get_node("MenuAudio")
 	menu_audio.play()
+	menu_audio.volume_db = 0.0
 
 # instantiates chosen level
 func call_level(level_number):
@@ -95,6 +96,7 @@ func call_menu(level_number):
 	camera.position = get_viewport_rect().size / 4
 	menu.visible = true
 	menu_audio.play()
+	menu_audio.volume_db = 0.0
 	continue_button.disabled = false
 	continue_button.grab_focus()
 
@@ -103,6 +105,7 @@ func menu_from_virtual():
 	camera.position = get_viewport_rect().size / 4
 	menu.visible = true
 	menu_audio.play()
+	menu_audio.volume_db = 0.0
 	continue_button.disabled = false
 	continue_button.grab_focus()
 
@@ -151,6 +154,8 @@ func new_game():
 	terminal_scene = null
 	virtual_scene = null
 	await progress_manager.reset_progress()
+	if "menu_fade" in menu:
+		await menu.menu_fade()
 	call_level(1)
 
 # switches between real levels scenes
