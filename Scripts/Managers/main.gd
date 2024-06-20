@@ -88,6 +88,9 @@ func retry_level():
 
 # calls menu from real or virtual scene
 func call_menu(level_number):
+	if level_number is String:
+		get_tree().reload_current_scene()
+		return
 	if level_number < 100:
 		remove_child(real_scene)
 		$RealAudio.stop()

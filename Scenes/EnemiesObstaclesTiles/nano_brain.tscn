@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://cduubqmcp3g71"]
+[gd_scene load_steps=36 format=3 uid="uid://cduubqmcp3g71"]
 
 [ext_resource type="Script" path="res://Scripts/UI/nano_brain.gd" id="1_54fu5"]
 [ext_resource type="Texture2D" uid="uid://qa3rqvig43j8" path="res://Sprites/Enemies/nanobrain.png" id="1_rmb02"]
 [ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="3_tapxf"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_xp1d8"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_xpcfw"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="5_5a54e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28ar4"]
 atlas = ExtResource("1_rmb02")
@@ -182,28 +183,6 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_udfov"]
-atlas = ExtResource("4_xpcfw")
-region = Rect2(144, 310, 24, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_whbjp"]
-atlas = ExtResource("4_xpcfw")
-region = Rect2(144, 311, 24, 10)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5610u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_udfov")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_whbjp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2ecw"]
 atlas = ExtResource("4_xpcfw")
 region = Rect2(256, 0, 16, 16)
@@ -265,12 +244,11 @@ theme_override_constants/line_separation = 0
 theme_override_fonts/normal_font = ExtResource("4_xp1d8")
 theme_override_font_sizes/normal_font_size = 96
 
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="Bubble"]
+[node name="SelectButton" parent="Bubble" instance=ExtResource("5_5a54e")]
 visible = false
-position = Vector2(82, 28)
-scale = Vector2(0.765625, 0.757813)
-sprite_frames = SubResource("SpriteFrames_5610u")
-autoplay = "default"
+position = Vector2(87.25, 29)
+scale = Vector2(0.5, 0.5)
+digital = true
 
 [node name="Highlight" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -50,7 +50,7 @@ func remove_confirm_box():
 
 func menu_fade():
 	fader.play("fade_out")
-	create_tween().tween_property($MenuAudio, "volume_db", -80.0, 3.0)
+	create_tween().tween_property($MenuAudio, "volume_db", -80.0, 3.0).set_trans(Tween.TRANS_SINE)
 	await fader.animation_finished
 	await get_tree().create_timer(1.0).timeout
 	fader_2.play("fade_out")

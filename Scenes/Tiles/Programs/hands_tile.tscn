@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://yym8dru78wa3"]
+[gd_scene load_steps=14 format=3 uid="uid://yym8dru78wa3"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/hands_tile.gd" id="1_v3iwk"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_1pru6"]
 [ext_resource type="Texture2D" uid="uid://cy2s6csxgbo68" path="res://Sprites/EnvironmentVirtual/virtual_environnement.png" id="2_6d5wt"]
-[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_ic3ru"]
 [ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="4_ldb5b"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="4_qvnji"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="6_lf4hh"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="7_ry7wt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7r5nw"]
 atlas = ExtResource("2_6d5wt")
@@ -42,28 +42,6 @@ _data = {
 [sub_resource type="AtlasTexture" id="AtlasTexture_g7kgt"]
 atlas = ExtResource("2_1pru6")
 region = Rect2(0, 0, 90, 78)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_08df0"]
-atlas = ExtResource("4_ic3ru")
-region = Rect2(112, 128, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mb3t"]
-atlas = ExtResource("4_ic3ru")
-region = Rect2(145, 129, 32, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d2tky"]
-animations = [{
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_08df0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mb3t")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="HandsTile" type="Area2D"]
 z_index = 30
@@ -118,11 +96,9 @@ theme_override_fonts/font = ExtResource("6_lf4hh")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="Sprite2D/PickUp"]
+[node name="ButtonSprite" parent="Sprite2D/PickUp" instance=ExtResource("7_ry7wt")]
 visible = false
-z_index = 2
-position = Vector2(40, 35)
-sprite_frames = SubResource("SpriteFrames_d2tky")
-autoplay = "default"
+position = Vector2(30.303, 38)
+digital = true
 
 [connection signal="area_entered" from="." to="." method="pick_up"]

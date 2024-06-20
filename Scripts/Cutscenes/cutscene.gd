@@ -5,7 +5,9 @@ extends Control
 var writing = false
 var data
 var written = 0
+var fade_done = false
 @onready var label = $Sprite2D/Label
+@onready var fade = $Fader/AnimationPlayer
 
 func _ready():
 	if not FileAccess.file_exists("res://Txts/cutscenes.txt"):
@@ -18,6 +20,10 @@ func _ready():
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
 		return
 	data = json.get_data()[str(cutscene_number)]
+	fade.play("fade_in")
+	create_tween().tween_property($AudioStreamPlayer, "volume_db", 0.0, 2.0)
+	await fade.animation_finished
+	fade_done = true
 	write_text()
 	await get_tree().create_timer(0.1).timeout
 	$Sprite2D/Button.grab_focus()
@@ -31,6 +37,8 @@ func _input(event):
 			_on_button_button_down()
 
 func _on_button_button_down():
+	if !fade_done:
+		return
 	if writing:
 		writing = false
 		return
@@ -39,6 +47,10 @@ func _on_button_button_down():
 func continue_cutscene():
 	written += 1
 	if written >= data.size():
+		fade.play("fade_out")
+		create_tween().tween_property($AudioStreamPlayer, "volume_db", -80.0, 2.0).set_trans(Tween.TRANS_SINE)
+		await fade.animation_finished
+		await get_tree().create_timer(0.5).timeout
 		$/root/Main.call_level(cutscene_number)
 		queue_free()
 	else:

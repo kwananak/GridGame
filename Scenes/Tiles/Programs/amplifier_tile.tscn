@@ -1,14 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5s14bwibo7lb"]
+[gd_scene load_steps=26 format=3 uid="uid://c5s14bwibo7lb"]
 
 [ext_resource type="Script" path="res://Scripts/Programs/amplifier_tile.gd" id="1_mxy63"]
 [ext_resource type="Texture2D" uid="uid://cqmdw1g6ut6fn" path="res://Sprites/Programs/program_files.png" id="2_5le7p"]
 [ext_resource type="Texture2D" uid="uid://ux2n2hrhtnbi" path="res://Sprites/EnvironmentReal/Dumpyard/object_dumpyard_real_sheet.png" id="3_rypoc"]
 [ext_resource type="AudioStream" uid="uid://dmldi02tcifo3" path="res://Sounds/Real/chest_open.wav" id="4_1dpt3"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="4_vrjts"]
-[ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="4_wl2eg"]
 [ext_resource type="AudioStream" uid="uid://2eucm1dk6y7i" path="res://Sounds/Real/chest_ding.wav" id="5_3bi2d"]
 [ext_resource type="AudioStream" uid="uid://cda3e6rcnwx28" path="res://Sounds/FX/pick_up.wav" id="6_87df2"]
 [ext_resource type="Texture2D" uid="uid://cbr2rnrdjtll5" path="res://Sprites/Programs/programs_icon.png" id="8_8ju5p"]
+[ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="9_q2ksf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsl2"]
 size = Vector2(34, 31)
@@ -127,28 +127,6 @@ _data = {
 atlas = ExtResource("2_5le7p")
 region = Rect2(270, 0, 90, 78)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_08df0"]
-atlas = ExtResource("4_wl2eg")
-region = Rect2(112, 128, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8mb3t"]
-atlas = ExtResource("4_wl2eg")
-region = Rect2(145, 129, 32, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vhq0a"]
-animations = [{
-"frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_08df0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8mb3t")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="AmplifierTile" type="Area2D"]
 z_index = 30
 collision_layer = 257
@@ -220,12 +198,10 @@ theme_override_fonts/font = ExtResource("4_vrjts")
 theme_override_font_sizes/font_size = 20
 autowrap_mode = 3
 
-[node name="ButtonSprite" type="AnimatedSprite2D" parent="Sprite2D/PickUp"]
+[node name="ButtonSprite" parent="Sprite2D/PickUp" instance=ExtResource("9_q2ksf")]
 visible = false
-z_index = 2
-position = Vector2(40, 35)
-sprite_frames = SubResource("SpriteFrames_vhq0a")
-autoplay = "default"
+position = Vector2(30.303, 38)
+digital = true
 
 [connection signal="body_entered" from="." to="." method="pick_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
