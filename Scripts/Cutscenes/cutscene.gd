@@ -6,6 +6,7 @@ var writing = false
 var data
 var written = 0
 var fade_done = false
+var all_done = false
 @onready var label = $Sprite2D/Label
 @onready var fade = $Fader/AnimationPlayer
 
@@ -37,7 +38,7 @@ func _input(event):
 			_on_button_button_down()
 
 func _on_button_button_down():
-	if !fade_done:
+	if !fade_done || all_done:
 		return
 	if writing:
 		writing = false
@@ -47,6 +48,7 @@ func _on_button_button_down():
 func continue_cutscene():
 	written += 1
 	if written >= data.size():
+		all_done = true
 		fade.play("fade_out")
 		create_tween().tween_property($AudioStreamPlayer, "volume_db", -80.0, 2.0).set_trans(Tween.TRANS_SINE)
 		await fade.animation_finished
