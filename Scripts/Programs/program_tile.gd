@@ -24,7 +24,7 @@ func _ready():
 	info_label.text = program_slot.to_upper() + "\n\n" + program.info
 
 func _input(event):
-	if Input.is_action_pressed("skip_turn"):
+	if Input.is_action_pressed("ui_accept"):
 		remove.emit()
 		return
 	if event is InputEventMouseButton:

@@ -19,6 +19,7 @@ var warning_ui
 @onready var audio = $AudioStreamPlayer2D
 
 func _ready():
+	position.y = 0
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	camera = get_tree().get_first_node_in_group("Camera")
 	label = get_tree().get_first_node_in_group("FirewallLabel")
