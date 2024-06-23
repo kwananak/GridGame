@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://civwfn34e75v4"]
+[gd_scene load_steps=12 format=3 uid="uid://civwfn34e75v4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_area.gd" id="1_2n5ki"]
 [ext_resource type="PackedScene" uid="uid://d3yaalygq8ask" path="res://Scenes/UI/bubble.tscn" id="2_q1vr2"]
 [ext_resource type="FontFile" uid="uid://dxr68c8ej2ev0" path="res://Sprites/Fonts/LowresPixel-Regular.otf" id="3_8p7xp"]
 [ext_resource type="Texture2D" uid="uid://bfv5ia5nernhf" path="res://Sprites/UI/Ui_dialgue_box.png" id="3_12lq0"]
 [ext_resource type="PackedScene" uid="uid://sh14jnkbidoy" path="res://Scenes/UI/select_button.tscn" id="4_2x4ph"]
+[ext_resource type="AudioStream" uid="uid://d4mr2kh1nbp2o" path="res://Sounds/FX/speak.wav" id="6_rown2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq3fy"]
 
@@ -93,6 +94,10 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_17hsa")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rown2")
+bus = &"FX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="pressed" from="Bubble/Button" to="." method="close"]

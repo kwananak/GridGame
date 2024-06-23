@@ -6,6 +6,7 @@ func _ready():
 	super._ready()
 	level_manager = get_tree().get_first_node_in_group("VirtualLevelManager")
 	player = get_tree().get_first_node_in_group("VirtualPlayer")
+	audio = $AudioStreamPlayer
 	dialog = progress_manager.dialogs[str(level_manager.level_number)][dialogue_number]["text"]
 	highlight_color = progress_manager.dialogs[str(level_manager.level_number)][dialogue_number]["color"]
 	if str(level_manager.level_number) not in progress_manager.log_progress:

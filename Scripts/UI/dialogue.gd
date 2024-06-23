@@ -16,6 +16,7 @@ var level_manager
 var player
 var progress_manager
 var dialog
+var audio
 
 @onready var bubble = $Bubble
 @onready var label = $Bubble/Label
@@ -104,6 +105,13 @@ func write_bubble(sentence):
 				await get_tree().create_timer(0.2).timeout
 		if writing:
 			if is_inside_tree():
+				if audio:
+					match i:
+						" ", ",", ".", "'", "!", "?", "’":
+							pass
+						_:
+							audio.pitch_scale = float(i.to_lower().to_ascii_buffer()[0]) / 100
+							audio.play()
 				await get_tree().create_timer(1.0 / text_speed).timeout
 	writing = false
 
