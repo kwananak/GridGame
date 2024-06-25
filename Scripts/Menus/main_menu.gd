@@ -41,8 +41,12 @@ func on_exit_options_menu():
 	new_game.grab_focus()
 
 func confirm_new_game():
+	for n in $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.get_children():
+		n.disabled = true
 	$ConfirmBox.hide()
-	main.new_game()
+	await main.new_game()
+	for n in $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.get_children():
+		n.disabled = false
 
 func remove_confirm_box():
 	$ConfirmBox.hide()
