@@ -45,8 +45,8 @@ func set_joypad_config(value):
 	joypad_config = value
 	joypad_config_signal.emit(value)
 	if value:
-		$Label.text = "LT"
-		$Label2.text = "RT"
+		$Label.text = "L1"
+		$Label2.text = "R1"
 	else:
 		$Label.text = "Q"
 		$Label2.text = "E"
@@ -59,6 +59,8 @@ func save_config():
 		config[n.name] = n.get_node("HBoxContainer/OptionButton").selected
 	for m in get_tree().get_nodes_in_group("ControlsContainer"):
 		for n in m.get_children():
+			if n.name.begins_with("H"):
+				continue
 			config[n.name] = {"keyboard":null,"joypad":null}
 			for o in InputMap.action_get_events(n.name):
 				if o is InputEventKey:

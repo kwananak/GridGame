@@ -227,3 +227,8 @@ func load_fixed_save(save_number):
 func dezoom_camera():
 	if camera.zoom.x > 2:
 		camera.zoom /= 1.2
+
+func _on_options_button_pressed():
+	$MainMenu.show()
+	$MainMenu._on_options_button_down()
+	get_tree().get_first_node_in_group("OptionsContainer").current_tab = 2
