@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wn6bh748pp4d"]
+[gd_scene load_steps=15 format=3 uid="uid://wn6bh748pp4d"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/main.gd" id="1_mdavh"]
 [ext_resource type="PackedScene" uid="uid://ctva5guewuuo1" path="res://Scenes/Prefabs/camera_2d.tscn" id="2_2bkea"]
@@ -7,10 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/mouse_tool_tip.gd" id="4_mirc5"]
 [ext_resource type="Texture2D" uid="uid://bpjnc4ktqinil" path="res://Sprites/UI/title.png" id="5_6upos"]
 [ext_resource type="PackedScene" uid="uid://dtp464wsu5344" path="res://Scenes/Managers/progress_manager.tscn" id="5_uxdm6"]
-[ext_resource type="PackedScene" uid="uid://fjmps8nq3w8k" path="res://Scenes/Menus/window_mode_button.tscn" id="6_a7415"]
 [ext_resource type="AudioStream" uid="uid://cknoxbh04qm1j" path="res://Sounds/Backgrounds/menu.wav" id="6_i0vs7"]
-[ext_resource type="PackedScene" uid="uid://dssm38uoyiv3d" path="res://Scenes/Menus/resolution_mode_button.tscn" id="7_fg0yk"]
-[ext_resource type="PackedScene" uid="uid://ckrjxmggvq5cs" path="res://Scenes/Menus/slider_display_button.tscn" id="8_7q35u"]
 [ext_resource type="PackedScene" uid="uid://cselemljabpr2" path="res://Scenes/Managers/framed_checker.tscn" id="9_yo8bd"]
 [ext_resource type="Script" path="res://Scripts/UI/camera_2d.gd" id="10_7fk0w"]
 [ext_resource type="Texture2D" uid="uid://cpylawk4b3s6j" path="res://Sprites/UI/computer_sheet.png" id="11_akdjr"]
@@ -27,21 +24,6 @@ region = Rect2(64, 2018, 170, 73)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mdavh")
-
-[node name="MainMenu" parent="." instance=ExtResource("3_tujkf")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 1439.0
-offset_bottom = 807.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.67, 0.67)
 
 [node name="DebugMenu" type="Control" parent="."]
 layout_mode = 3
@@ -291,10 +273,10 @@ text = "Level 307"
 [node name="Level308Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 449.0
-offset_top = 258.0
-offset_right = 622.0
-offset_bottom = 289.0
+offset_left = 439.0
+offset_top = 253.0
+offset_right = 625.0
+offset_bottom = 284.0
 text = "Level 308 Door+Brain 8"
 
 [node name="Level401Button" type="Button" parent="DebugMenu"]
@@ -319,10 +301,10 @@ text = "Level 402
 [node name="Level422Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 795.0
-offset_top = 123.0
-offset_right = 920.0
-offset_bottom = 154.0
+offset_left = 627.0
+offset_top = 233.0
+offset_right = 752.0
+offset_bottom = 264.0
 text = "Level 422
 "
 
@@ -356,10 +338,10 @@ text = "Level 406"
 [node name="Level407Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 641.0
-offset_top = 213.0
-offset_right = 734.0
-offset_bottom = 244.0
+offset_left = 639.0
+offset_top = 205.0
+offset_right = 732.0
+offset_bottom = 236.0
 text = "Level 407"
 
 [node name="Level404Button" type="Button" parent="DebugMenu"]
@@ -374,28 +356,28 @@ text = "Level 404"
 [node name="Level2Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 26.0
-offset_top = 298.0
-offset_right = 88.0
-offset_bottom = 329.0
+offset_left = 28.0
+offset_top = 310.0
+offset_right = 90.0
+offset_bottom = 341.0
 text = "Level 2"
 
 [node name="Level3Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 98.0
-offset_top = 298.0
-offset_right = 160.0
-offset_bottom = 329.0
+offset_left = 27.0
+offset_top = 347.0
+offset_right = 89.0
+offset_bottom = 378.0
 text = "Level 3"
 
 [node name="Level4Button" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 167.0
-offset_top = 298.0
-offset_right = 229.0
-offset_bottom = 329.0
+offset_left = 30.0
+offset_top = 387.0
+offset_right = 92.0
+offset_bottom = 418.0
 text = "Level 4"
 
 [node name="Level203Button" type="Button" parent="DebugMenu"]
@@ -419,108 +401,100 @@ text = "Level 202"
 [node name="VirtualTestLevelButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 24.0
-offset_top = 377.0
-offset_right = 165.0
-offset_bottom = 425.0
+offset_left = 23.0
+offset_top = 460.0
+offset_right = 164.0
+offset_bottom = 508.0
 text = "Virtual Test Level"
 
 [node name="RealTestLevelButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 22.0
-offset_top = 331.0
-offset_right = 145.0
-offset_bottom = 379.0
+offset_left = 199.0
+offset_top = 462.0
+offset_right = 322.0
+offset_bottom = 510.0
 text = "Real Test Level"
 
 [node name="QuitButton" type="Button" parent="DebugMenu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 442.0
-offset_top = 405.0
-offset_right = 554.0
-offset_bottom = 453.0
+offset_left = 520.0
+offset_top = 407.0
+offset_right = 632.0
+offset_bottom = 455.0
 text = "Quit"
+
+[node name="OptionsButton" type="Button" parent="DebugMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 672.0
+offset_top = 335.0
+offset_right = 784.0
+offset_bottom = 383.0
+text = "Options"
 
 [node name="NewGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 432.0
-offset_top = 310.0
-offset_right = 558.0
-offset_bottom = 341.0
+offset_left = 520.0
+offset_top = 311.0
+offset_right = 646.0
+offset_bottom = 342.0
 text = "New Game"
 
 [node name="Level2Save" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 745.0
-offset_top = 239.0
-offset_right = 871.0
-offset_bottom = 270.0
+offset_left = 813.0
+offset_top = 297.0
+offset_right = 939.0
+offset_bottom = 328.0
 text = "Level 2 Save"
 
 [node name="Level3Save" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 746.0
-offset_top = 285.0
-offset_right = 872.0
-offset_bottom = 316.0
+offset_left = 813.0
+offset_top = 360.0
+offset_right = 939.0
+offset_bottom = 391.0
 text = "Level 3 Save"
 
 [node name="Level4Save" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 748.0
-offset_top = 329.0
-offset_right = 874.0
-offset_bottom = 360.0
+offset_left = 815.0
+offset_top = 424.0
+offset_right = 941.0
+offset_bottom = 455.0
 text = "Level 4 Save"
 
 [node name="ContinueGame" type="Button" parent="DebugMenu"]
 layout_mode = 0
-offset_left = 436.0
-offset_top = 353.0
-offset_right = 1056.0
-offset_bottom = 573.0
+offset_left = 516.0
+offset_top = 352.0
+offset_right = 1136.0
+offset_bottom = 572.0
 scale = Vector2(0.2, 0.2)
 theme_override_fonts/font = ExtResource("3_clwr3")
 theme_override_font_sizes/font_size = 64
 text = "Continue Game"
 
-[node name="Cutscene" type="Button" parent="DebugMenu"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 419.0
-offset_right = 108.0
-offset_bottom = 453.0
-text = "Cutscene"
-
-[node name="ResolutionModeButton" parent="DebugMenu" instance=ExtResource("7_fg0yk")]
-layout_mode = 1
-offset_left = 637.0
-offset_top = 473.0
-offset_right = 637.0
-offset_bottom = 473.0
-scale = Vector2(0.5, 0.5)
-
-[node name="WindowModeButton" parent="DebugMenu" instance=ExtResource("6_a7415")]
-layout_mode = 1
-offset_left = 635.0
-offset_top = 433.0
-offset_right = 635.0
-offset_bottom = 433.0
-scale = Vector2(0.5, 0.5)
-
 [node name="MenuAudio" type="AudioStreamPlayer" parent="DebugMenu"]
 stream = ExtResource("6_i0vs7")
 bus = &"Music"
 
-[node name="Master" parent="DebugMenu" instance=ExtResource("8_7q35u")]
-layout_mode = 1
-offset_left = 635.0
-offset_top = 391.0
-offset_right = 635.0
-offset_bottom = 391.0
-scale = Vector2(0.5, 0.5)
+[node name="MainMenu" parent="." instance=ExtResource("3_tujkf")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 1439.0
+offset_bottom = 807.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67, 0.67)
 
 [node name="Camera2D" parent="." instance=ExtResource("2_2bkea")]
 position = Vector2(481, 266)
@@ -609,9 +583,9 @@ visible = false
 [connection signal="pressed" from="DebugMenu/VirtualTestLevelButton" to="." method="call_level" binds= [100]]
 [connection signal="pressed" from="DebugMenu/RealTestLevelButton" to="." method="call_level" binds= [0]]
 [connection signal="pressed" from="DebugMenu/QuitButton" to="." method="call_quit"]
+[connection signal="pressed" from="DebugMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="DebugMenu/NewGame" to="." method="new_game"]
 [connection signal="pressed" from="DebugMenu/Level2Save" to="." method="load_fixed_save" binds= [1]]
 [connection signal="pressed" from="DebugMenu/Level3Save" to="." method="load_fixed_save" binds= [2]]
 [connection signal="pressed" from="DebugMenu/Level4Save" to="." method="load_fixed_save" binds= [3]]
 [connection signal="pressed" from="DebugMenu/ContinueGame" to="." method="continue_game"]
-[connection signal="button_down" from="DebugMenu/Cutscene" to="." method="call_cutscene" binds= [1]]

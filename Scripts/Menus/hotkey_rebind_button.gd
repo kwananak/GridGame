@@ -26,12 +26,83 @@ func set_text_for_key():
 		if n is InputEventKey && !settings.joypad_config:
 			button.text = OS.get_keycode_string(n.physical_keycode)
 		if n is InputEventJoypadButton && settings.joypad_config:
-			button.text = "Button " + str(n.button_index)
+			match n.button_index:
+				0:
+					button.text = "A"
+				1:
+					button.text = "B"
+				2:
+					button.text = "X"
+				3:
+					button.text = "Y"
+				4:
+					button.text = "SELECT"
+				5:
+					button.text = "HOME"
+				6:
+					button.text = "START"
+				7:
+					button.text = "L3"
+				8:
+					button.text = "R3"
+				9:
+					button.text = "L1"
+				10:
+					button.text = "R1"
+				11:
+					button.text = "DPAD UP"
+				12:
+					button.text = "DPAD DOWN"
+				13:
+					button.text = "DPAD LEFT"
+				14:
+					button.text = "DPAD RIGHT"
+				15:
+					button.text = "SHARE"
+				16:
+					button.text = "PADDLE 1"
+				17:
+					button.text = "PADDLE 2"
+				18:
+					button.text = "PADDLE 3"
+				19:
+					button.text = "PADDLE 4"
+				20:
+					button.text = "TOUCHPAD"
+				_:
+					button.text = "Button " + str(n.button_index)
 		if n is InputEventJoypadMotion && settings.joypad_config:
-			if n.axis_value < 0:
-				button.text = "Axis -" + str(n.axis)
-			else:
-				button.text = "Axis " + str(n.axis)
+			match n.axis:
+				0:
+					if n.axis_value < 0:
+						button.text = "LEFT STICK LEFT"
+					else:
+						button.text = "LEFT STICK RIGHT"
+				1:
+					if n.axis_value < 0:
+						button.text = "LEFT STICK UP"
+					else:
+						button.text = "LEFT STICK DOWN"
+				2:
+					if n.axis_value < 0:
+						button.text = "RIGHT STICK LEFT"
+					else:
+						button.text = "RIGHT STICK RIGHT"
+				3:
+					if n.axis_value < 0:
+						button.text = "RIGHT STICK UP"
+					else:
+						button.text = "RIGHT STICK DOWN"
+				4:
+					if n.axis_value < 0:
+						button.text = "STICK 2 LEFT"
+					else:
+						button.text = "L2"
+				5:
+					if n.axis_value < 0:
+						button.text = "STICK 2 UP"
+					else:
+						button.text = "R2"
 
 func _on_button_down():
 	if !toggled:

@@ -7,6 +7,7 @@ extends Control
 @onready var main = $/root/Main
 @onready var fader = $Fader/AnimationPlayer
 @onready var fader_2 = $Fader2/AnimationPlayer
+@onready var debug_menu = $/root/Main/DebugMenu
 
 func _ready():
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
@@ -36,13 +37,22 @@ func _on_quit_button_down():
 func on_exit_options_menu():
 	options_menu.set_process(false)
 	options_menu.hide()
-	margin_container.set_process(true)
-	margin_container.show()
-	new_game.grab_focus()
+	if debug_menu.visible:
+		hide()
+		debug_menu.get_node("ContinueGame").grab_focus()
+	else:
+		margin_container.set_process(true)
+		margin_container.show()
+		new_game.grab_focus()
 
 func confirm_new_game():
+	var buttons = $TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer.get_children()
+	for n in buttons:
+		n.disabled = true
 	$ConfirmBox.hide()
-	main.new_game()
+	await main.new_game()
+	for n in buttons:
+		n.disabled = false
 
 func remove_confirm_box():
 	$ConfirmBox.hide()
