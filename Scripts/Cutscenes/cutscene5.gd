@@ -12,6 +12,7 @@ var all_done = false
 @onready var fade = $Fader/AnimationPlayer
 @onready var date = preload("res://Scenes/UI/date.tscn")
 @onready var thank_you_label = $"3rd/Label/AnimationPlayer"
+@onready var credits = $"3rd/Label2/AnimationPlayer"
 
 func _ready():
 	camera = get_tree().get_first_node_in_group("Camera")
@@ -75,6 +76,8 @@ func animation_finished():
 	await get_tree().create_timer(1.0).timeout
 	await create_tween().tween_property($"3rd/Sprite2D", "position", Vector2(0, -60), 4.0).finished
 	await get_tree().create_timer(1.0).timeout
+	credits.play("new_animation")
+	await credits.animation_finished
 	thank_you_label.play("new_animation")
 	await thank_you_label.animation_finished
 	all_done = true

@@ -37,8 +37,10 @@ func write_bubble(sentence):
 	label.clear()
 	if sentence % 2 == 0:
 		label.append_text("[color=aqua]")
+		audio = $Brain
 	else:
 		label.append_text("[color=purple]")
+		audio = $Player
 	for i in dialog[sentence]:
 		label.append_text(i)
 		while level_manager.paused:
@@ -46,8 +48,19 @@ func write_bubble(sentence):
 				await get_tree().create_timer(0.2).timeout
 		if writing:
 			if is_inside_tree():
+				if audio:
+					match i:
+						" ", ",", ".", "'", "!", "?", "’":
+							pass
+						_:
+							if audio.name == "Player":
+								audio.pitch_scale = float(i.to_lower().to_ascii_buffer()[0]) / 100
+							audio.play()
 				await get_tree().create_timer(1.0 / text_speed).timeout
 	writing = false
 
 func remove_bubble():
+	animating = true
+	$"../ColorRect2/AnimationPlayer".play("fade_out")
+	await $"../ColorRect2/AnimationPlayer".animation_finished
 	$/root/Main.call_cutscene(5)
