@@ -12,12 +12,14 @@ var floating = false
 var waiting_for_action = null
 var target_move
 var target_sprite
+var camera
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _ready():
 	level_manager = get_tree().get_first_node_in_group("RealLevelManager")
 	target_sprite = get_tree().get_first_node_in_group("TargetMoveSprite")
+	camera = get_tree().get_first_node_in_group("Camera")
 	$AnimatedSprite2D.scale = Vector2.ZERO
 	await enter_level_animation()
 	active = true
@@ -33,7 +35,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && event.button_index == 1:
 			target_sprite.frame = 0
-			target_move = get_tree().get_first_node_in_group("Camera").position - get_viewport_rect().size / 4 + event.global_position / 2
+			target_move = camera.position - get_viewport_rect().size / 4 + event.position / 2
 			target_sprite.position = target_move
 			target_sprite.show()
 
